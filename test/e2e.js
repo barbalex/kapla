@@ -43,7 +43,7 @@ describe('main window', function spec() {
 
   it('should to Counter with click "to Counter" link', async () => {
     const link = await this.driver.findElement(webdriver.By.css(`.${homeStyles.container} > a`));
-    link.click();
+    link.click ();
 
     const counter = await findCounter();
     expect(await counter.getText()).to.equal('0');
@@ -51,7 +51,7 @@ describe('main window', function spec() {
 
   it('should display updated count after increment button click', async () => {
     const buttons = await findButtons();
-    buttons[0].click();
+    buttons[0].click ();
 
     const counter = await findCounter();
     expect(await counter.getText()).to.equal('1');
@@ -61,7 +61,7 @@ describe('main window', function spec() {
     const buttons = await findButtons();
     const counter = await findCounter();
 
-    buttons[1].click();  // -
+    buttons[1].click ();  // -
 
     expect(await counter.getText()).to.equal('0');
   });
@@ -69,7 +69,7 @@ describe('main window', function spec() {
   it('shouldnt change if even and if odd button clicked', async () => {
     const buttons = await findButtons();
     const counter = await findCounter();
-    buttons[2].click();  // odd
+    buttons[2].click ();  // odd
 
     expect(await counter.getText()).to.equal('0');
   });
@@ -78,8 +78,8 @@ describe('main window', function spec() {
     const buttons = await findButtons();
     const counter = await findCounter();
 
-    buttons[0].click();  // +
-    buttons[2].click();  // odd
+    buttons[0].click ();  // +
+    buttons[2].click ();  // odd
 
     expect(await counter.getText()).to.equal('2');
   });
@@ -87,7 +87,7 @@ describe('main window', function spec() {
   it('should change if async button clicked and a second later', async () => {
     const buttons = await findButtons();
     const counter = await findCounter();
-    buttons[3].click();  // async
+    buttons[3].click ();  // async
 
     expect(await counter.getText()).to.equal('2');
 
@@ -100,7 +100,7 @@ describe('main window', function spec() {
     const link = await this.driver.findElement(
       webdriver.By.css(`.${counterStyles.backButton} > a`)
     );
-    link.click();
+    link.click ();
 
     await this.driver.findElement(webdriver.By.className(homeStyles.container));
   });
