@@ -39,6 +39,187 @@
 	},
 	"buffers":
 	[
+		{
+			"file": "server.js",
+			"settings":
+			{
+				"buffer_size": 585,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": "/* eslint strict: 0 */\n'use strict'\n\nprocess.env.NODE_ENV = process.env.NODE_ENV || 'production'\n\nconst electron = require('electron')\nconst app = electron.app\nconst BrowserWindow = electron.BrowserWindow\nconst Menu = electron.Menu\nconst crashReporter = electron.crashReporter\nconst shell = electron.shell\nlet menu\nlet template\nlet mainWindow = null\n\ncrashReporter.start()\n\nif (process.env.NODE_ENV === 'development') {\n  require('electron-debug')()\n}\n\napp.on('window-all-closed', () => {\n  if (process.platform !== 'darwin') app.quit()\n})\n\napp.on('ready', () => {\n  mainWindow = new BrowserWindow({ width: 1024, height: 728 })\n\n  mainWindow.loadURL(`file://${__dirname}/app/app.html`)\n\n  mainWindow.on('closed', () => {\n    mainWindow = null\n  })\n\n  if (process.env.NODE_ENV === 'development') {\n    mainWindow.openDevTools()\n  }\n\n  if (process.platform === 'darwin') {\n    template = [{\n      label: 'Electron',\n      submenu: [{\n        label: 'About ElectronReact',\n        selector: 'orderFrontStandardAboutPanel:'\n      }, {\n        type: 'separator'\n      }, {\n        label: 'Services',\n        submenu: []\n      }, {\n        type: 'separator'\n      }, {\n        label: 'Hide ElectronReact',\n        accelerator: 'Command+H',\n        selector: 'hide:'\n      }, {\n        label: 'Hide Others',\n        accelerator: 'Command+Shift+H',\n        selector: 'hideOtherApplications:'\n      }, {\n        label: 'Show All',\n        selector: 'unhideAllApplications:'\n      }, {\n        type: 'separator'\n      }, {\n        label: 'Quit',\n        accelerator: 'Command+Q',\n        click () {\n          app.quit()\n        }\n      }]\n    }, {\n      label: 'Edit',\n      submenu: [{\n        label: 'Undo',\n        accelerator: 'Command+Z',\n        selector: 'undo:'\n      }, {\n        label: 'Redo',\n        accelerator: 'Shift+Command+Z',\n        selector: 'redo:'\n      }, {\n        type: 'separator'\n      }, {\n        label: 'Cut',\n        accelerator: 'Command+X',\n        selector: 'cut:'\n      }, {\n        label: 'Copy',\n        accelerator: 'Command+C',\n        selector: 'copy:'\n      }, {\n        label: 'Paste',\n        accelerator: 'Command+V',\n        selector: 'paste:'\n      }, {\n        label: 'Select All',\n        accelerator: 'Command+A',\n        selector: 'selectAll:'\n      }]\n    }, {\n      label: 'View',\n      submenu: (process.env.NODE_ENV === 'development') ? [{\n        label: 'Reload',\n        accelerator: 'Command+R',\n        click () {\n          mainWindow.restart()\n        }\n      }, {\n        label: 'Toggle Full Screen',\n        accelerator: 'Ctrl+Command+F',\n        click () {\n          mainWindow.setFullScreen(!mainWindow.isFullScreen())\n        }\n      }, {\n        label: 'Toggle Developer Tools',\n        accelerator: 'Alt+Command+I',\n        click () {\n          mainWindow.toggleDevTools()\n        }\n      }] : [{\n        label: 'Toggle Full Screen',\n        accelerator: 'Ctrl+Command+F',\n        click () {\n          mainWindow.setFullScreen(!mainWindow.isFullScreen())\n        }\n      }]\n    }, {\n      label: 'Window',\n      submenu: [{\n        label: 'Minimize',\n        accelerator: 'Command+M',\n        selector: 'performMiniaturize:'\n      }, {\n        label: 'Close',\n        accelerator: 'Command+W',\n        selector: 'performClose:'\n      }, {\n        type: 'separator'\n      }, {\n        label: 'Bring All to Front',\n        selector: 'arrangeInFront:'\n      }]\n    }, {\n      label: 'Help',\n      submenu: [{\n        label: 'Learn More',\n        click () {\n          shell.openExternal('http://electron.atom.io')\n        }\n      }, {\n        label: 'Documentation',\n        click () {\n          shell.openExternal('https://github.com/atom/electron/tree/master/docs#readme')\n        }\n      }, {\n        label: 'Community Discussions',\n        click () {\n          shell.openExternal('https://discuss.atom.io/c/electron')\n        }\n      }, {\n        label: 'Search Issues',\n        click () {\n          shell.openExternal('https://github.com/atom/electron/issues')\n        }\n      }]\n    }]\n\n    menu = Menu.buildFromTemplate(template)\n    Menu.setApplicationMenu(menu)\n  } else {\n    template = [{\n      label: '&File',\n      submenu: [{\n        label: '&Open',\n        accelerator: 'Ctrl+O'\n      }, {\n        label: '&Close',\n        accelerator: 'Ctrl+W',\n        click () {\n          mainWindow.close()\n        }\n      }]\n    }, {\n      label: '&View',\n      submenu: (process.env.NODE_ENV === 'development') ? [{\n        label: '&Reload',\n        accelerator: 'Ctrl+R',\n        click () {\n          mainWindow.restart()\n        }\n      }, {\n        label: 'Toggle &Full Screen',\n        accelerator: 'F11',\n        click () {\n          mainWindow.setFullScreen(!mainWindow.isFullScreen())\n        }\n      }, {\n        label: 'Toggle &Developer Tools',\n        accelerator: 'Alt+Ctrl+I',\n        click () {\n          mainWindow.toggleDevTools()\n        }\n      }] : [{\n        label: 'Toggle &Full Screen',\n        accelerator: 'F11',\n        click () {\n          mainWindow.setFullScreen(!mainWindow.isFullScreen())\n        }\n      }]\n    }, {\n      label: 'Help',\n      submenu: [{\n        label: 'Learn More',\n        click () {\n          shell.openExternal('http://electron.atom.io')\n        }\n      }, {\n        label: 'Documentation',\n        click () {\n          shell.openExternal('https://github.com/atom/electron/tree/master/docs#readme')\n        }\n      }, {\n        label: 'Community Discussions',\n        click () {\n          shell.openExternal('https://discuss.atom.io/c/electron')\n        }\n      }, {\n        label: 'Search Issues',\n        click () {\n          shell.openExternal('https://github.com/atom/electron/issues')\n        }\n      }]\n    }]\n    menu = Menu.buildFromTemplate(template)\n    mainWindow.setMenu(menu)\n  }\n})\n",
+			"file": "main.js",
+			"file_size": 5834,
+			"file_write_time": 131021160298530543,
+			"settings":
+			{
+				"buffer_size": 5804,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/index.js",
+			"settings":
+			{
+				"buffer_size": 848,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/app.icns",
+			"settings":
+			{
+				"buffer_size": 1429265,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/app.html",
+			"settings":
+			{
+				"buffer_size": 791,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/app.global.css",
+			"settings":
+			{
+				"buffer_size": 551,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/store/configureStore.production.js",
+			"settings":
+			{
+				"buffer_size": 432,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/store/configureStore.js",
+			"settings":
+			{
+				"buffer_size": 173,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/store/configureStore.development.js",
+			"settings":
+			{
+				"buffer_size": 925,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/reducers/index.js",
+			"settings":
+			{
+				"buffer_size": 225,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/reducers/counter.js",
+			"settings":
+			{
+				"buffer_size": 294,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/containers/HomePage.js",
+			"settings":
+			{
+				"buffer_size": 184,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/containers/DevTools.js",
+			"settings":
+			{
+				"buffer_size": 329,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/containers/CounterPage.js",
+			"settings":
+			{
+				"buffer_size": 426,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/containers/App.js",
+			"settings":
+			{
+				"buffer_size": 474,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/components/Home.js",
+			"settings":
+			{
+				"buffer_size": 350,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/components/Home.css",
+			"settings":
+			{
+				"buffer_size": 162,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/components/Counter.js",
+			"settings":
+			{
+				"buffer_size": 1300,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/components/Counter.css",
+			"settings":
+			{
+				"buffer_size": 556,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/actions/counter.js",
+			"settings":
+			{
+				"buffer_size": 592,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/routes.js",
+			"settings":
+			{
+				"buffer_size": 364,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": "Searching 48 files for \"click()\" (case sensitive)\n\nC:\\Users\\alex\\kapla\\main.js:\n  146        submenu: [{\n  147          label: 'Learn More',\n  148:         click() {\n  149            shell.openExternal('http://electron.atom.io')\n  150          }\n  ...\n  213        submenu: [{\n  214          label: 'Learn More',\n  215:         click() {\n  216            shell.openExternal('http://electron.atom.io')\n  217          }\n  218        }, {\n  219          label: 'Documentation',\n  220:         click() {\n  221            shell.openExternal('https://github.com/atom/electron/tree/master/docs#readme')\n  222          }\n  223        }, {\n  224          label: 'Community Discussions',\n  225:         click() {\n  226            shell.openExternal('https://discuss.atom.io/c/electron')\n  227          }\n  228        }, {\n  229          label: 'Search Issues',\n  230:         click() {\n  231            shell.openExternal('https://github.com/atom/electron/issues')\n  232          }\n\nC:\\Users\\alex\\kapla\\test\\e2e.js:\n   44    it('should to Counter with click \"to Counter\" link', async () => {\n   45      const link = await this.driver.findElement(webdriver.By.css(`.${homeStyles.container} > a`));\n   46:     link.click();\n   47  \n   48      const counter = await findCounter();\n   ..\n   52    it('should display updated count after increment button click', async () => {\n   53      const buttons = await findButtons();\n   54:     buttons[0].click();\n   55  \n   56      const counter = await findCounter();\n   ..\n   62      const counter = await findCounter();\n   63  \n   64:     buttons[1].click();  // -\n   65  \n   66      expect(await counter.getText()).to.equal('0');\n   ..\n   70      const buttons = await findButtons();\n   71      const counter = await findCounter();\n   72:     buttons[2].click();  // odd\n   73  \n   74      expect(await counter.getText()).to.equal('0');\n   ..\n   79      const counter = await findCounter();\n   80  \n   81:     buttons[0].click();  // +\n   82:     buttons[2].click();  // odd\n   83  \n   84      expect(await counter.getText()).to.equal('2');\n   ..\n   88      const buttons = await findButtons();\n   89      const counter = await findCounter();\n   90:     buttons[3].click();  // async\n   91  \n   92      expect(await counter.getText()).to.equal('2');\n   ..\n  101        webdriver.By.css(`.${counterStyles.backButton} > a`)\n  102      );\n  103:     link.click();\n  104  \n  105      await this.driver.findElement(webdriver.By.className(homeStyles.container));\n\n13 matches across 2 files\n",
+			"settings":
+			{
+				"buffer_size": 2515,
+				"line_ending": "Windows",
+				"name": "Find Results",
+				"scratch": true
+			}
+		}
 	],
 	"build_system": "",
 	"build_system_choices":
@@ -85,10 +266,17 @@
 	},
 	"expanded_folders":
 	[
-		"/C/Users/alex/kapla"
+		"/C/Users/alex/kapla",
+		"/C/Users/alex/kapla/app",
+		"/C/Users/alex/kapla/app/actions",
+		"/C/Users/alex/kapla/app/api",
+		"/C/Users/alex/kapla/app/components",
+		"/C/Users/alex/kapla/app/containers",
+		"/C/Users/alex/kapla/app/reducers"
 	],
 	"file_history":
 	[
+		"/C/Users/alex/kapla/test/e2e.js",
 		"/C/Users/alex/apflora_api/configuration.js",
 		"/C/Users/alex/apflora_api/pgDbPass.json",
 		"/C/Users/alex/apflora_api/gulp-tasks/prod_copy_root_to_dist.js",
@@ -215,8 +403,7 @@
 		"/C/Users/alex/apflora_api/test/beobDistzutpopEvab.js",
 		"/C/Users/alex/apflora_api/test/artliste.js",
 		"/C/Users/alex/apflora_api/queries/apInsert.js",
-		"/C/Users/alex/apflora_api/queries/apKarte.js",
-		"/C/Users/alex/apflora_api/queries/apliste.js"
+		"/C/Users/alex/apflora_api/queries/apKarte.js"
 	],
 	"find":
 	{
@@ -227,6 +414,7 @@
 		"height": 366.0,
 		"where_history":
 		[
+			"C:\\Users\\alex\\kapla",
 			"C:\\Users\\alex\\apflora_api",
 			"C:\\Users\\alex\\apflora_api\\test",
 			"C:\\Users\\alex\\apflora_api\\src\\routes",
@@ -240,6 +428,15 @@
 		"case_sensitive": true,
 		"find_history":
 		[
+			";",
+			"\"",
+			";",
+			"\"",
+			";",
+			"\"",
+			";",
+			"click()",
+			";",
 			"config.db.userName",
 			"dbPass",
 			"insert/apflora/tabelle",
@@ -358,16 +555,7 @@
 			"'comment'",
 			" COMMENT ''",
 			"tblJBer",
-			"tblJBerUebersicht",
-			"tblIbArtenAssoz",
-			"tblBer",
-			"tblErfKrit",
-			"DomainApErfKrit",
-			"tblIdealbiotop",
-			"tblAktionsplan",
-			"tblPopBericht",
-			"tblPopMassnBericht",
-			"tblPopulation"
+			"tblJBerUebersicht"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -375,6 +563,15 @@
 		"regex": false,
 		"replace_history":
 		[
+			"",
+			"'",
+			"",
+			"'",
+			"",
+			"'",
+			"",
+			"click ()",
+			"",
 			"'",
 			"BeobNichtZuordnen",
 			"'",
@@ -493,16 +690,7 @@
 			"adresse",
 			"",
 			"'",
-			"apflora.ap.ApArtId AS ApArtId",
-			"-- ",
-			"tpopmassn_erfbeurt_werte",
-			"popmassnber",
-			"PopMassnBerJahr",
-			"v_pop_letzterpopbermassn",
-			"v_pop_letzterpopber0_overall",
-			"  ",
-			"apflora.pop.PopHerkunft",
-			"v_apber_uet_veraengegenvorjahr"
+			"apflora.ap.ApArtId AS ApArtId"
 		],
 		"reverse": false,
 		"show_context": true,
@@ -513,8 +701,710 @@
 	"groups":
 	[
 		{
+			"selected": 19,
 			"sheets":
 			[
+				{
+					"buffer": 0,
+					"file": "server.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 585,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								121,
+								121
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 21,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "main.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 5804,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								4912,
+								4912
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 19,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "app/index.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 848,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								406,
+								406
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 17,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "app/app.icns",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1429265,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 16,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "app/app.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 791,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 15,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "app/app.global.css",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 551,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/CSS/CSS.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 14,
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "app/store/configureStore.production.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 432,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								314,
+								314
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 13,
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "app/store/configureStore.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 173,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 12,
+					"type": "text"
+				},
+				{
+					"buffer": 8,
+					"file": "app/store/configureStore.development.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 925,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								700,
+								700
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 11,
+					"type": "text"
+				},
+				{
+					"buffer": 9,
+					"file": "app/reducers/index.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 225,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								224,
+								224
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 10,
+					"type": "text"
+				},
+				{
+					"buffer": 10,
+					"file": "app/reducers/counter.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 294,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								232,
+								232
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 9,
+					"type": "text"
+				},
+				{
+					"buffer": 11,
+					"file": "app/containers/HomePage.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 184,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								171,
+								171
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 8,
+					"type": "text"
+				},
+				{
+					"buffer": 12,
+					"file": "app/containers/DevTools.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 329,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								222,
+								222
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 7,
+					"type": "text"
+				},
+				{
+					"buffer": 13,
+					"file": "app/containers/CounterPage.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 426,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								353,
+								353
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 6,
+					"type": "text"
+				},
+				{
+					"buffer": 14,
+					"file": "app/containers/App.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 474,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								375,
+								375
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"type": "text"
+				},
+				{
+					"buffer": 15,
+					"file": "app/components/Home.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 350,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								324,
+								324
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 16,
+					"file": "app/components/Home.css",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 162,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								97,
+								97
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/CSS/CSS.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 17,
+					"file": "app/components/Counter.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1300,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								575,
+								575
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 18,
+					"file": "app/components/Counter.css",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 556,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/CSS/CSS.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 19,
+					"file": "app/actions/counter.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 592,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								442,
+								442
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 20,
+					"file": "app/routes.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 364,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								284,
+								292
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 18,
+					"type": "text"
+				},
+				{
+					"buffer": 21,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2515,
+						"regions":
+						{
+							"match":
+							{
+								"flags": 112,
+								"regions":
+								[
+									[
+										156,
+										163
+									],
+									[
+										328,
+										335
+									],
+									[
+										490,
+										497
+									],
+									[
+										693,
+										700
+									],
+									[
+										866,
+										873
+									],
+									[
+										1203,
+										1210
+									],
+									[
+										1431,
+										1438
+									],
+									[
+										1580,
+										1587
+									],
+									[
+										1785,
+										1792
+									],
+									[
+										1952,
+										1959
+									],
+									[
+										1989,
+										1996
+									],
+									[
+										2196,
+										2203
+									],
+									[
+										2383,
+										2390
+									]
+								],
+								"scope": ""
+							}
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"detect_indentation": false,
+							"line_numbers": false,
+							"output_tag": 1,
+							"result_base_dir": "",
+							"result_file_regex": "^([^ 	].*):$",
+							"result_line_regex": "^ +([0-9]+):",
+							"scroll_past_end": true,
+							"syntax": "Packages/Default/Find Results.hidden-tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 1287.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 20,
+					"type": "text"
+				}
 			]
 		}
 	],
@@ -557,7 +1447,7 @@
 	"project": "kapla_pc.sublime-project",
 	"replace":
 	{
-		"height": 78.0
+		"height": 92.0
 	},
 	"save_all_on_build": true,
 	"select_file":
