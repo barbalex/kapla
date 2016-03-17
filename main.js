@@ -24,7 +24,7 @@ app.on('window-all-closed', () => {
 })
 
 app.on('ready', () => {
-  mainWindow = new BrowserWindow({ width: 1024, height: 728 })
+  mainWindow = new BrowserWindow({ width: 1500, height: 1024 })
 
   mainWindow.loadURL(`file://${__dirname}/app/app.html`)
 
