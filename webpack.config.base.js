@@ -1,7 +1,7 @@
 /* eslint strict: 0 */
-'use strict';
+'use strict'
 
-const path = require('path');
+const path = require('path')
 
 module.exports = {
   module: {
@@ -30,4 +30,4 @@ module.exports = {
     // put your node 3rd party libraries which can't be built with webpack here
     // (mysql, mongodb, and so on..)
   ]
-};
+}
