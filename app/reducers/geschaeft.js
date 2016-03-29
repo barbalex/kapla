@@ -3,10 +3,10 @@ import { GESCHAEFT_EROEFFNEN, GESCHAEFT_LOESCHEN, GESCHAEFT_AENDERN } from '../a
 export default function counter (state = {}, action) {
   switch (action.type) {
     case GESCHAEFT_EROEFFNEN:
-      // create new row on geschafte
+      // create new row on geschaefte
       return state + 1
     case GESCHAEFT_LOESCHEN:
-      return state - 1
+      return {}
     case GESCHAEFT_AENDERN:
       return state - 1
     default:
