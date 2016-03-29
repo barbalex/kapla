@@ -40,54 +40,59 @@
 	"buffers":
 	[
 		{
-			"file": "/D/Google Drive/awel-kapla/howto.txt",
+			"file": "package.json",
 			"settings":
 			{
-				"buffer_size": 781,
+				"buffer_size": 3791,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "main.js",
+			"settings":
+			{
+				"buffer_size": 5805,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/app.html",
+			"settings":
+			{
+				"buffer_size": 791,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/routes.js",
+			"settings":
+			{
+				"buffer_size": 364,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/containers/CounterPage.js",
+			"settings":
+			{
+				"buffer_size": 426,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/actions/geschaefte.js",
+			"settings":
+			{
+				"buffer_size": 394,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "/D/Google Drive/awel-kapla/DatenProbleme.txt",
+			"file": "app/reducers/counter.js",
 			"settings":
 			{
-				"buffer_size": 6117,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "/D/Google Drive/awel-kapla/2016 03 15 Daten/externe.csv",
-			"settings":
-			{
-				"buffer_size": 6087,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "/D/Google Drive/awel-kapla/2016 03 15 Daten/geschaefte.csv",
-			"settings":
-			{
-				"buffer_size": 4411555,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "/D/Google Drive/awel-kapla/2016 03 15 Daten/interne.csv",
-			"settings":
-			{
-				"buffer_size": 26194,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"contents": "\"aktennummer\", \"aktenstandort\", \"aufbewahrungsfrist\", \"baumFlag\", \"benutzer\", \"datumAusgangAwel\", \"datumEingangAwel\", \"details\", \"entscheidAwelJahr\", \"entscheidAwelNr\", \"entscheidBdvJahr\", \"entscheidBdvNr\", \"entscheidKrJahr\", \"entscheidKrNr\", \"entscheidKrText\", \"entscheidKrTextMitNr\", \"entscheidRrbJahr\", \"entscheidRrbNr\", \"erlassform\", \"faelligkeitAnzahlTage\", \"faelligkeitText\", \"fristAbteilung\", \"fristAmtschef\", \"fristAwel\", \"fristDirektion\", \"fristMitarbeiter\", \"fristwarnung\", \"gegenstand\", \"gekoNr\", \"geschaeftsart\", \"hWo01\", \"hWo02\", \"hWo03\", \"hWo04\", \"hWo05\", \"hWo06\", \"hWo07\", \"hWo08\", \"hWo09\", \"hWo10\", \"hWo11\", \"hWo12\", \"hWo13\", \"idGeschaeft\", \"idKontaktExtern\", \"idKontaktIntern\", \"idVorgeschaeft\", \"kontaktExtern1\", \"kontaktExtern2\", \"kontaktExtern3\", \"kontaktExtern4\", \"kontaktIntern1\", \"kontaktIntern2\", \"kontaktIntern3\", \"kontaktIntern4\", \"listentitel\", \"mutationsdatum\", \"mutationsperson\", \"mutationstext\", \"naechsterSchritt\", \"naechsterSchrittText\", \"ort\", \"parlVorstossEbene\", \"parlVorstossStufe\", \"parlVorstossTyp\", \"parlVorstossZustaendigkeitAwel\", \"rechtsmittelerledigung\", \"restwochen\", \"status\", \"summeWo01\", \"summeWo02\", \"summeWo03\", \"summeWo04\", \"summeWo05\", \"summeWo06\", \"summeWo07\", \"summeWo08\", \"summeWo09\", \"summeWo10\", \"summeWo11\", \"summeWo12\", \"summeWo13\", \"textabfrage\", \"titelWo01\", \"titelWo02\", \"titelWo03\", \"titelWo04\", \"titelWo05\", \"titelWo06\", \"titelWo07\", \"titelWo08\", \"titelWo09\", \"titelWo10\", \"titelWo11\", \"titelWo12\", \"titelWo13\", \"verantwortlich\", \"vermerk\", \"wo01\", \"wo02\", \"wo03\", \"wo04\", \"wo05\", \"wo06\", \"wo07\", \"wo08\", \"wo09\", \"wo10\", \"wo11\", \"wo12\", \"wo13\", \"zeitPendentH\", \"zeitProWoche\", \"zeitTotalNochZuLeisten\", \"zeitraum\", \"zustaendigeDirektion\"",
-			"file": "app/src/fieldnamesImportCorrected/geschaefte.csv",
-			"file_size": 1700,
-			"file_write_time": 131025979062825515,
-			"settings":
-			{
-				"buffer_size": 1700,
-				"line_ending": "Windows"
+				"buffer_size": 294,
+				"line_ending": "Unix"
 			}
 		}
 	],
@@ -138,12 +143,21 @@
 	[
 		"/C/Users/alex/kapla",
 		"/C/Users/alex/kapla/app",
+		"/C/Users/alex/kapla/app/actions",
+		"/C/Users/alex/kapla/app/api",
+		"/C/Users/alex/kapla/app/components",
+		"/C/Users/alex/kapla/app/containers",
 		"/C/Users/alex/kapla/app/reducers",
-		"/C/Users/alex/kapla/app/src",
-		"/C/Users/alex/kapla/app/src/fieldnamesImportCorrected"
+		"/C/Users/alex/kapla/app/utils"
 	],
 	"file_history":
 	[
+		"/C/Users/alex/kapla/app/src/fieldnamesImportCorrected/geschaefte.csv",
+		"/D/Google Drive/awel-kapla/2016 03 15 Daten/interne.csv",
+		"/D/Google Drive/awel-kapla/2016 03 15 Daten/geschaefte.csv",
+		"/D/Google Drive/awel-kapla/2016 03 15 Daten/externe.csv",
+		"/D/Google Drive/awel-kapla/howto.txt",
+		"/D/Google Drive/awel-kapla/DatenProbleme.txt",
 		"/D/Google Drive/awel-kapla/2016 03 15 Daten/gdeplz.csv",
 		"/C/Users/alex/kapla/app/src/fieldnamesImportCorrected/externe.csv",
 		"/C/Users/alex/kapla/app/index.js",
@@ -154,7 +168,6 @@
 		"/D/Google Drive/awel-kapla/2016 03 15 Daten/tab_externe.csv",
 		"/C/Users/alex/kapla/app/src/fieldnamesImportCorrected/gdeplz.csv",
 		"/C/Users/alex/kapla/app/src/fieldnamesImportCorrected/interne.csv",
-		"/C/Users/alex/kapla/app/src/fieldnamesImportCorrected/geschaefte.csv",
 		"/D/Google Drive/awel-kapla/2016 03 15 Daten/tab_gdeplz.csv",
 		"/C/Users/alex/kapla/app/src/fieldnamesImport/geschaefte.csv",
 		"/C/Users/alex/kapla/app/src/fieldnamesImport/gdeplz.csv",
@@ -266,12 +279,7 @@
 		"/C/Users/alex/apflora_api/src/routes/beobGetFromTableByNumber.js",
 		"/C/Users/alex/apflora_api/src/routes/apfloraGetFromTableByString.js",
 		"/C/Users/alex/apflora_api/src/routes/apfloraGetFromTableByNumber.js",
-		"/C/Users/alex/apflora_api/src/routes/apfloraPost.js",
-		"/C/Users/alex/apflora_api/src/routes/apfloraPut.js",
-		"/C/Users/alex/AppData/Roaming/Sublime Text 3/Packages/User/Preferences.sublime-settings",
-		"/C/Users/alex/apflora_api/apflora.sublime-project",
-		"/C/Users/alex/apflora_api/package.json",
-		"/C/Users/alex/apflora_api/queries/tree/erfkrit.js"
+		"/C/Users/alex/apflora_api/src/routes/apfloraPost.js"
 	],
 	"find":
 	{
@@ -569,16 +577,16 @@
 	"groups":
 	[
 		{
-			"selected": 1,
+			"selected": 6,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "/D/Google Drive/awel-kapla/howto.txt",
+					"file": "package.json",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 781,
+						"buffer_size": 3791,
 						"regions":
 						{
 						},
@@ -591,63 +599,69 @@
 						],
 						"settings":
 						{
-							"syntax": "Packages/Text/Plain text.tmLanguage"
+							"syntax": "Packages/JavaScript/JSON.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 1,
+					"stack_index": 6,
 					"type": "text"
 				},
 				{
 					"buffer": 1,
-					"file": "/D/Google Drive/awel-kapla/DatenProbleme.txt",
+					"file": "main.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 6117,
+						"buffer_size": 5805,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								3992,
-								3992
+								960,
+								960
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/Text/Plain text.tmLanguage"
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 297.0,
+						"translation.y": 495.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
+					"stack_index": 5,
 					"type": "text"
 				},
 				{
 					"buffer": 2,
-					"file": "/D/Google Drive/awel-kapla/2016 03 15 Daten/externe.csv",
+					"file": "app/app.html",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 6087,
+						"buffer_size": 791,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								28,
-								28
+								735,
+								744
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/Text/Plain text.tmLanguage"
+							"syntax": "Packages/HTML/HTML.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -658,52 +672,24 @@
 				},
 				{
 					"buffer": 3,
-					"file": "/D/Google Drive/awel-kapla/2016 03 15 Daten/geschaefte.csv",
+					"file": "app/routes.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 4411555,
+						"buffer_size": 364,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								3906556,
-								3906556
+								335,
+								346
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/Text/Plain text.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 979820.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 5,
-					"type": "text"
-				},
-				{
-					"buffer": 4,
-					"file": "/D/Google Drive/awel-kapla/2016 03 15 Daten/interne.csv",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 26194,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Text/Plain text.tmLanguage"
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -713,31 +699,87 @@
 					"type": "text"
 				},
 				{
-					"buffer": 5,
-					"file": "app/src/fieldnamesImportCorrected/geschaefte.csv",
+					"buffer": 4,
+					"file": "app/containers/CounterPage.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1700,
+						"buffer_size": 426,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								87,
-								87
+								244,
+								251
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/Text/Plain text.tmLanguage"
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "app/actions/geschaefte.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 394,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								393,
+								393
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "app/reducers/counter.js",
+					"semi_transient": true,
+					"settings":
+					{
+						"buffer_size": 294,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								108,
+								113
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
 					"type": "text"
 				}
 			]

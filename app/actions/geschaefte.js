@@ -1,6 +1,6 @@
 'use strict'
 
-const getGeschaefte = require('../src/getGeschaefte.js')
+//const getGeschaefte = require('../src/getGeschaefte.js')
 
 export const GESCHAEFTE_HOLEN = 'GESCHAEFTE_HOLEN'
 
@@ -13,10 +13,10 @@ function ersetze (geschaefte) {
 
 export function hole () {
   return dispatch => {
-    getGeschaefte()
+    /*getGeschaefte()
       .then((geschaefte) => {
         dispatch(ersetze(geschaefte))
       })
-      .catch((error) => console.log(error))
+      .catch((error) => console.log(error))*/
   }
 }
