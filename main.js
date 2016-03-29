@@ -1,8 +1,6 @@
 /* eslint strict: 0 */
 'use strict'
 
-//require('require-rebuild')()
-
 process.env.NODE_ENV = process.env.NODE_ENV || 'production'
 
 const electron = require('electron')
