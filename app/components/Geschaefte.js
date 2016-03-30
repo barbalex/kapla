@@ -13,10 +13,15 @@ class Geschaefte extends Component {
   }
 
   render() {
-    const { holenGeschaefte, filtereGeschaefteNachFeldern, filtereGeschaefteNachVolltext, filterFields, filterFulltext, geschaefte } = this.props
-    // console.log('components/Geschaefte, geschaefte', geschaefte)
-    // console.log('components/Geschaefte, filterFields', filterFields)
-    // console.log('components/Geschaefte, filterFulltext', filterFulltext)
+    const {
+      holenGeschaefte,
+      filtereGeschaefteNachFeldern,
+      filtereGeschaefteNachVolltext,
+      filterFields,
+      filterFulltext,
+      geschaefte
+    } = this.props
+
     return (
       <div>
         <div className={styles.backButton}>
@@ -31,7 +36,7 @@ class Geschaefte extends Component {
           <button className={styles.btn} onClick={() => holenGeschaefte(filterFields, filterFulltext)}>hole</button>
           <button className={styles.btn} onClick={() => filtereGeschaefteNachFeldern({benutzer: 'Peter', aktenstandort: 'W102'})}>filtere 1</button>
           <button className={styles.btn} onClick={() => filtereGeschaefteNachFeldern({aktennummer: 4})}>filtere nummer</button>
-          <button className={styles.btn} onClick={() => filtereGeschaefteNachVolltext('akte')}>filtere volltext</button>
+          <button className={styles.btn} onClick={() => filtereGeschaefteNachVolltext('Bolleter')}>filtere volltext</button>
           <button className={styles.btn} onClick={() => filtereGeschaefteNachFeldern({})}>alle</button>
         </div>
       </div>
