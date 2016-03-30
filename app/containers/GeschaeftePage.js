@@ -5,7 +5,9 @@ import * as GeschaefteActions from '../actions/geschaefte'
 
 function mapStateToProps (state) {
   return {
-    geschaefte: state.geschaefte.geschaefte
+    geschaefte: state.geschaefte.geschaefte,
+    filterFields: state.geschaefte.filterFields,
+    filterFulltext: state.geschaefte.filterFulltext
   }
 }
 

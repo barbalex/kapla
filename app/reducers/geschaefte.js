@@ -1,9 +1,17 @@
-import { GESCHAEFTE_BESTELLEN, GESCHAEFTE_ERHALTEN, GESCHAEFTE_NICHT_ERHALTEN } from '../actions/geschaefte'
+import {
+  GESCHAEFTE_BESTELLEN,
+  GESCHAEFTE_ERHALTEN,
+  GESCHAEFTE_NICHT_ERHALTEN,
+  GESCHAEFTE_FILTERN_FELDER,
+  GESCHAEFTE_FILTERN_VOLLTEXT
+} from '../actions/geschaefte'
 
 const standardState = {
   fetching: false,
   error: null,
-  geschaefte: []
+  geschaefte: [],
+  filterFields: {},
+  filterFulltext: null
 }
 
 export default function geschaefte (state = standardState, action) {
@@ -24,6 +32,16 @@ export default function geschaefte (state = standardState, action) {
         fetching: false,
         error: action.error,
         geschaefte: []
+      })
+    case GESCHAEFTE_FILTERN_FELDER:
+      return Object.assign({}, state, {
+        filterFields: action.filter,
+        filterFulltext: null
+      })
+    case GESCHAEFTE_FILTERN_VOLLTEXT:
+      return Object.assign({}, state, {
+        filterFields: {},
+        filterFulltext: action.filter
       })
     default:
       return state
