@@ -4,12 +4,12 @@ import styles from './Counter.css'
 
 class Geschaefte extends Component {
   static propTypes = {
-    hole: PropTypes.func.isRequired,
-    geschaefte: PropTypes.array
+    holenGeschaefte: PropTypes.func.isRequired,
+    geschaefte: PropTypes.array.isRequired
   }
 
   render() {
-    const { hole, geschaefte } = this.props
+    const { holenGeschaefte, geschaefte } = this.props
     return (
       <div>
         <div className={styles.backButton}>
@@ -18,10 +18,10 @@ class Geschaefte extends Component {
           </Link>
         </div>
         <div className={`counter ${styles.counter}`}>
-          {geschaefte}
+          {geschaefte.geschaefte}
         </div>
         <div className={styles.btnGroup}>
-          <button className={styles.btn} onClick={() => hole()}>hole</button>
+          <button className={styles.btn} onClick={() => holenGeschaefte()}>hole Geschäfte</button>
         </div>
       </div>
     )

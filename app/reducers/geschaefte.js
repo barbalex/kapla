@@ -1,11 +1,30 @@
-import { GESCHAEFTE_HOLEN } from '../actions/geschaefte'
+import { GESCHAEFTE_BESTELLEN, GESCHAEFTE_ERHALTEN, GESCHAEFTE_NICHT_ERHALTEN } from '../actions/geschaefte'
 
-export default function counter (state = [], action) {
+const standardState = {
+  fetching: false,
+  error: null,
+  geschaefte: []
+}
+
+export default function geschaefte (state = standardState, action) {
   switch (action.type) {
-    case GESCHAEFTE_HOLEN:
-      // create new row on geschaefte
-      // console.log('reducers/geschaefte, action', action)
-      return action.geschaefte
+    case GESCHAEFTE_BESTELLEN:
+      return Object.assign({}, state, {
+        fetching: true,
+        error: null
+      })
+    case GESCHAEFTE_ERHALTEN:
+      return Object.assign({}, state, {
+        fetching: false,
+        error: null,
+        geschaefte: action.geschaefte
+      })
+    case GESCHAEFTE_NICHT_ERHALTEN:
+      return Object.assign({}, state, {
+        fetching: false,
+        error: action.error,
+        geschaefte: []
+      })
     default:
       return state
   }
