@@ -43,7 +43,7 @@
 			"file": "package.json",
 			"settings":
 			{
-				"buffer_size": 3791,
+				"buffer_size": 3758,
 				"line_ending": "Unix"
 			}
 		},
@@ -56,43 +56,43 @@
 			}
 		},
 		{
-			"file": "app/app.html",
-			"settings":
-			{
-				"buffer_size": 791,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "app/routes.js",
-			"settings":
-			{
-				"buffer_size": 364,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "app/containers/CounterPage.js",
-			"settings":
-			{
-				"buffer_size": 426,
-				"line_ending": "Unix"
-			}
-		},
-		{
 			"file": "app/actions/geschaefte.js",
 			"settings":
 			{
-				"buffer_size": 394,
+				"buffer_size": 571,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "app/reducers/counter.js",
+			"file": "app/index.js",
 			"settings":
 			{
-				"buffer_size": 294,
+				"buffer_size": 848,
 				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/src/getGeschaefte.js",
+			"settings":
+			{
+				"buffer_size": 344,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "webpack.config.node.js",
+			"settings":
+			{
+				"buffer_size": 253,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "webpack.config.base.js",
+			"settings":
+			{
+				"buffer_size": 696,
+				"line_ending": "Windows"
 			}
 		}
 	],
@@ -148,10 +148,15 @@
 		"/C/Users/alex/kapla/app/components",
 		"/C/Users/alex/kapla/app/containers",
 		"/C/Users/alex/kapla/app/reducers",
-		"/C/Users/alex/kapla/app/utils"
+		"/C/Users/alex/kapla/app/src"
 	],
 	"file_history":
 	[
+		"/C/Users/alex/kapla/main.js",
+		"/C/Users/alex/kapla/app/app.html",
+		"/C/Users/alex/kapla/app/routes.js",
+		"/C/Users/alex/kapla/app/containers/CounterPage.js",
+		"/C/Users/alex/kapla/app/actions/geschaefte.js",
 		"/C/Users/alex/kapla/app/src/fieldnamesImportCorrected/geschaefte.csv",
 		"/D/Google Drive/awel-kapla/2016 03 15 Daten/interne.csv",
 		"/D/Google Drive/awel-kapla/2016 03 15 Daten/geschaefte.csv",
@@ -162,7 +167,6 @@
 		"/C/Users/alex/kapla/app/src/fieldnamesImportCorrected/externe.csv",
 		"/C/Users/alex/kapla/app/index.js",
 		"/C/Users/alex/kapla/server.js",
-		"/C/Users/alex/kapla/main.js",
 		"/D/Google Drive/awel-kapla/2016 03 15 Daten/tab_interne.csv",
 		"/D/Google Drive/awel-kapla/2016 03 15 Daten/tab_geschaefte.csv",
 		"/D/Google Drive/awel-kapla/2016 03 15 Daten/tab_externe.csv",
@@ -176,14 +180,12 @@
 		"/C/Users/alex/kapla/app/src/fieldnamesExterne.csv",
 		"/C/Users/alex/kapla/app/src/fieldnamesGdeplz.csv",
 		"/C/Users/alex/kapla/app/src/fieldnamesGeschaefte.csv",
-		"/C/Users/alex/kapla/app/routes.js",
 		"/C/Users/alex/kapla/app/actions/counter.js",
 		"/C/Users/alex/kapla/app/components/Counter.css",
 		"/C/Users/alex/kapla/app/components/Counter.js",
 		"/C/Users/alex/kapla/app/components/Home.css",
 		"/C/Users/alex/kapla/app/components/Home.js",
 		"/C/Users/alex/kapla/app/containers/App.js",
-		"/C/Users/alex/kapla/app/containers/CounterPage.js",
 		"/C/Users/alex/kapla/app/containers/DevTools.js",
 		"/C/Users/alex/kapla/app/containers/HomePage.js",
 		"/C/Users/alex/kapla/app/reducers/counter.js",
@@ -192,7 +194,6 @@
 		"/C/Users/alex/kapla/app/store/configureStore.js",
 		"/C/Users/alex/kapla/app/store/configureStore.production.js",
 		"/C/Users/alex/kapla/app/app.global.css",
-		"/C/Users/alex/kapla/app/app.html",
 		"/C/Users/alex/kapla/app/app.icns",
 		"/C/Users/alex/kapla/test/e2e.js",
 		"/C/Users/alex/apflora_api/configuration.js",
@@ -278,8 +279,7 @@
 		"/C/Users/alex/apflora_api/queries/tabelleSelectBeobString.js",
 		"/C/Users/alex/apflora_api/src/routes/beobGetFromTableByNumber.js",
 		"/C/Users/alex/apflora_api/src/routes/apfloraGetFromTableByString.js",
-		"/C/Users/alex/apflora_api/src/routes/apfloraGetFromTableByNumber.js",
-		"/C/Users/alex/apflora_api/src/routes/apfloraPost.js"
+		"/C/Users/alex/apflora_api/src/routes/apfloraGetFromTableByNumber.js"
 	],
 	"find":
 	{
@@ -301,9 +301,14 @@
 	},
 	"find_state":
 	{
-		"case_sensitive": false,
+		"case_sensitive": true,
 		"find_history":
 		[
+			"^",
+			"rebuild_native_modules",
+			"electron-rebuild",
+			"require-rebuild",
+			"electron-rebuild",
 			", ",
 			"\"",
 			" ",
@@ -426,19 +431,15 @@
 			"TABLE",
 			"adresse",
 			"CREATE INDEX",
-			"ApArtId",
-			"datetime",
-			"_variable",
-			"CREATE INDEX",
-			"tinyint(1)",
-			"KEY"
+			"ApArtId"
 		],
 		"highlight": true,
 		"in_selection": false,
 		"preserve_case": false,
-		"regex": true,
+		"regex": false,
 		"replace_history":
 		[
+			"",
 			" TEXT,\\n",
 			"TEXT,\\n",
 			"\\n",
@@ -565,8 +566,7 @@
 			"tpopkontr_typ_werte",
 			"tpopkontr_idbiotuebereinst_werte",
 			"tpopkontr",
-			"tpopber",
-			"tpop_entwicklung_werte"
+			"tpopber"
 		],
 		"reverse": false,
 		"show_context": true,
@@ -577,7 +577,7 @@
 	"groups":
 	[
 		{
-			"selected": 6,
+			"selected": 2,
 			"sheets":
 			[
 				{
@@ -586,15 +586,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 3791,
+						"buffer_size": 3758,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								668,
-								668
+								2550,
+								2550
 							]
 						],
 						"settings":
@@ -604,10 +604,10 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 2178.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 6,
+					"stack_index": 5,
 					"type": "text"
 				},
 				{
@@ -623,43 +623,13 @@
 						"selection":
 						[
 							[
-								960,
-								960
+								35,
+								35
 							]
 						],
 						"settings":
 						{
 							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 495.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 5,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "app/app.html",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 791,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								735,
-								744
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/HTML/HTML.sublime-syntax",
 							"tab_size": 2,
 							"translate_tabs_to_spaces": true
 						},
@@ -671,20 +641,50 @@
 					"type": "text"
 				},
 				{
-					"buffer": 3,
-					"file": "app/routes.js",
+					"buffer": 2,
+					"file": "app/actions/geschaefte.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 364,
+						"buffer_size": 571,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								335,
-								346
+								161,
+								161
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "app/index.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 848,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								316,
+								316
 							]
 						],
 						"settings":
@@ -700,24 +700,26 @@
 				},
 				{
 					"buffer": 4,
-					"file": "app/containers/CounterPage.js",
+					"file": "app/src/getGeschaefte.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 426,
+						"buffer_size": 344,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								244,
-								251
+								266,
+								266
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax"
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -728,19 +730,19 @@
 				},
 				{
 					"buffer": 5,
-					"file": "app/actions/geschaefte.js",
+					"file": "webpack.config.node.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 394,
+						"buffer_size": 253,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								393,
-								393
+								0,
+								0
 							]
 						],
 						"settings":
@@ -756,30 +758,32 @@
 				},
 				{
 					"buffer": 6,
-					"file": "app/reducers/counter.js",
-					"semi_transient": true,
+					"file": "webpack.config.base.js",
+					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 294,
+						"buffer_size": 696,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								108,
-								113
+								689,
+								689
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax"
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
+					"stack_index": 6,
 					"type": "text"
 				}
 			]

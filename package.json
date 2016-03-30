@@ -16,7 +16,8 @@
     "package": "cross-env NODE_ENV=production node package.js",
     "package-all": "npm run package -- --all",
     "postinstall": "node node_modules/fbjs-scripts/node/check-dev-engines.js package.json",
-    "dev": "concurrently --kill-others \"npm run hot-server\" \"npm run start-hot\""
+    "dev": "concurrently --kill-others \"npm run hot-server\" \"npm run start-hot\"",
+    "rebuild": "electron-rebuild --pre-gyp-fix"
   },
   "bin": {
     "electron": "./node_modules/.bin/electron"
@@ -64,7 +65,7 @@
     "css-loader": "0.23.1",
     "del": "2.2.0",
     "electron-packager": "6.0.0",
-    "electron-prebuilt": "0.37.2",
+    "electron-prebuilt": "0.37.3",
     "electron-rebuild": "1.1.3",
     "eslint": "2.5.3",
     "eslint-config-airbnb": "6.2.0",
