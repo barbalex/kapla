@@ -1,10 +1,10 @@
 'use strict'
 
-import username from 'username'
+import getMyName from 'username'
 
 export const GET_USERNAME = 'GET_USERNAME'
 export const GOT_USERNAME = 'GOT_USERNAME'
-export const DIDNT_GET_USERNAME = 'GOT_USERNAME'
+export const DIDNT_GET_USERNAME = 'DIDNT_GET_USERNAME'
 
 export function getUsername () {
   return {
@@ -28,8 +28,11 @@ export function didntGetUsername (error) {
 
 export function fetchUsername () {
   return dispatch => {
-    username
-      .then((username) => dispatch(gotUsername(username)))
-      .catch((error) => dispatch(didntGetUsername(error)))
+    const username = getMyName.sync()
+    if (username) {
+      dispatch(gotUsername(username))
+    } else {
+      dispatch(didntGetUsername('keinen Benutzernamen erhalten'))
+    }
   }
 }
