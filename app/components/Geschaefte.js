@@ -2,10 +2,10 @@ import React, { Component, PropTypes } from 'react'
 import { Link } from 'react-router'
 import styles from './Counter.css'
 
-class Counter extends Component {
+class Geschaefte extends Component {
   static propTypes = {
     hole: PropTypes.func.isRequired,
-    geschaefte: PropTypes.number.isRequired
+    geschaefte: PropTypes.array
   }
 
   render() {
@@ -21,11 +21,11 @@ class Counter extends Component {
           {geschaefte}
         </div>
         <div className={styles.btnGroup}>
-          <button className={styles.btn} onClick={() => hole()}>async</button>
+          <button className={styles.btn} onClick={() => hole()}>hole</button>
         </div>
       </div>
     )
   }
 }
 
-export default Counter
+export default Geschaefte
