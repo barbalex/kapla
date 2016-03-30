@@ -4,7 +4,8 @@ export default function counter (state = [], action) {
   switch (action.type) {
     case GESCHAEFTE_HOLEN:
       // create new row on geschaefte
-      return state
+      // console.log('reducers/geschaefte, action', action)
+      return action.geschaefte
     default:
       return state
   }

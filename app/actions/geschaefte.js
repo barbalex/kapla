@@ -14,7 +14,7 @@ export function hole () {
       .then((geschaefte) => {
         dispatch({
           type: GESCHAEFTE_HOLEN,
-          state: geschaefte
+          geschaefte
         })
       })
       .catch((error) => console.log(error))
