@@ -32,14 +32,10 @@ function nichtErhalteneGeschaefte (error) {
 export const GESCHAEFTE_HOLEN = 'GESCHAEFTE_HOLEN'
 export function holenGeschaefte (fieldFilter, fulltextFilter) {
   return dispatch => {
-    console.log('actions/geschaefte, fieldFilter', fieldFilter)
     dispatch(bestelleGeschaefte())
     getGeschaefte(fieldFilter, fulltextFilter)
       .then((geschaefte) => dispatch(erhalteGeschaefte(geschaefte)))
-      .catch((error) => {
-        console.log('actions/geschaefte, error', error)
-        dispatch(nichtErhalteneGeschaefte(error))
-      })
+      .catch((error) => dispatch(nichtErhalteneGeschaefte(error)))
   }
 }
 

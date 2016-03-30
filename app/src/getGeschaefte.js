@@ -5,12 +5,13 @@ const db = new sqlite3.Database('kapla.db')
 
 module.exports = function (fieldFilter, fulltextFilter) {
   return new Promise((resolve, reject) => {
-    console.log('getGeschaefte, fieldFilter', fieldFilter)
-    console.log('getGeschaefte, fulltextFilter', fulltextFilter)
-    const whereArray = Object.keys(fieldFilter).map((key) => `${key} = "${fieldFilter[key]}"`)
-    const whereString = whereArray.length > 0 ? ' WHERE ' + whereArray.join(' AND ') : null
-    console.log('getGeschaefte, whereArray', whereArray)
-    console.log('getGeschaefte, whereString', whereString)
+    if (fulltextFilter) {
+      // TODO: build fieldFilter with all fields
+      // using PRAGMA table_info(table_name)
+
+    }
+    const whereArray = Object.keys(fieldFilter).map((key) => `${key} LIKE "%${String(fieldFilter[key])}%"`)
+    let whereString = whereArray.length > 0 ? ' WHERE ' + whereArray.join(' AND ') : ''
     const sql = `
       SELECT
         *
