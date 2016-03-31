@@ -92,7 +92,6 @@
     "webpack-target-electron-renderer": "0.4.0"
   },
   "dependencies": {
-    "ampersand-app": "^1.0.4",
     "css-modules-require-hook": "4.0.0",
     "electron-debug": "0.5.2",
     "font-awesome": "4.5.0",
