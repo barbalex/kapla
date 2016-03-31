@@ -29,9 +29,6 @@ class Geschaefte extends Component {
             <i className='fa fa-arrow-left fa-3x' />
           </Link>
         </div>
-        <div>
-          {geschaefte.idGeschaeft}
-        </div>
         <div className={styles.btnGroup}>
           <button className={styles.btn} onClick={() => holenGeschaefte(filterFields, filterFulltext)}>hole</button>
           <button className={styles.btn} onClick={() => filtereGeschaefteNachFeldern({benutzer: 'Peter', aktenstandort: 'W102'})}>filtere 1</button>

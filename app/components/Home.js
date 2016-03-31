@@ -22,8 +22,9 @@ export default class Home extends Component {
         <Toolbar />
         <div className={styles.container}>
           <h2>Home</h2>
-          <Link to='/counter'>to Counter</Link><br/>
-          <Link to='/geschaefte'>to Geschaefte</Link>
+          <Link to='/counter'>Counter</Link><br/>
+          <Link to='/geschaefte'>Geschaefte</Link><br/>
+          <Link to='/geschaefteList'>Geschaefte List</Link>
         </div>
         <p>{username}</p>
       </div>
