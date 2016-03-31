@@ -12,6 +12,11 @@ import './app.global.css'
 import injectTapEventPlugin from 'react-tap-event-plugin'
 injectTapEventPlugin()
 
+const ampApp = require('ampersand-app')
+const initializeDb = require('./src/initializeDb.js')
+window.app = ampApp // expose app to the browser console
+initializeDb()
+
 const store = configureStore()
 const history = syncHistoryWithStore(hashHistory, store)
 

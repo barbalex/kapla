@@ -2,7 +2,6 @@
 'use strict'
 
 process.env.NODE_ENV = process.env.NODE_ENV || 'production'
-
 const electron = require('electron')
 const app = electron.app
 const BrowserWindow = electron.BrowserWindow
