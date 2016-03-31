@@ -30,7 +30,10 @@ export function holenDb () {
   return dispatch => {
     dispatch(waehleDb())
     chooseDb()
-      .then((db) => dispatch(erhalteDb(db)))
+      .then((db) => {
+        console.log('actions/app, db', db)
+        dispatch(erhalteDb(db))
+      })
       .catch((error) => dispatch(nichtGewaehlteDb(error)))
   }
 }

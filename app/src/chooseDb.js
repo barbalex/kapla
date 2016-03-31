@@ -1,6 +1,5 @@
 'use strict'
 
-// import dialog from 'electron'
 const dialog = require('electron').remote.dialog
 const options = {
   title: 'Datenbank für Kapla wählen',
