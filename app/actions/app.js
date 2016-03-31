@@ -1,6 +1,7 @@
 'use strict'
 
 import chooseDb from '../src/chooseDb.js'
+import saveConfigValue from '../src/saveConfigValue.js'
 
 export const DB_WAEHLEN = 'DB_WAEHLEN'
 function waehleDb () {
@@ -31,8 +32,8 @@ export function holenDb () {
     dispatch(waehleDb())
     chooseDb()
       .then((db) => {
-        console.log('actions/app, db', db)
         dispatch(erhalteDb(db))
+        saveConfigValue('db', db)
       })
       .catch((error) => dispatch(nichtGewaehlteDb(error)))
   }
