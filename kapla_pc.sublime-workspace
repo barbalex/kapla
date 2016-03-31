@@ -4,6 +4,22 @@
 		"selected_items":
 		[
 			[
+				"getG",
+				"getGeschaefteWithFieldFilter"
+			],
+			[
+				"whe",
+				"whereString"
+			],
+			[
+				"wh",
+				"whereArray"
+			],
+			[
+				"gesh",
+				"geschaefte"
+			],
+			[
 				"rou",
 				"routes"
 			],
@@ -43,55 +59,55 @@
 			"file": "package.json",
 			"settings":
 			{
-				"buffer_size": 3758,
+				"buffer_size": 4123,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "main.js",
+			"file": "app/containers/HomePage.js",
 			"settings":
 			{
-				"buffer_size": 5805,
+				"buffer_size": 415,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "app/actions/geschaefte.js",
+			"file": "app/components/Home.js",
 			"settings":
 			{
-				"buffer_size": 571,
+				"buffer_size": 679,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "app/index.js",
+			"file": "app/containers/GeschaeftePage.js",
 			"settings":
 			{
-				"buffer_size": 848,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "app/src/getGeschaefte.js",
-			"settings":
-			{
-				"buffer_size": 344,
+				"buffer_size": 563,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "webpack.config.node.js",
+			"file": "app/components/Geschaefte.js",
 			"settings":
 			{
-				"buffer_size": 253,
+				"buffer_size": 1652,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "webpack.config.base.js",
+			"file": "app/actions/user.js",
 			"settings":
 			{
-				"buffer_size": 696,
+				"buffer_size": 706,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "app/reducers/user.js",
+			"settings":
+			{
+				"buffer_size": 735,
 				"line_ending": "Windows"
 			}
 		}
@@ -148,14 +164,44 @@
 		"/C/Users/alex/kapla/app/components",
 		"/C/Users/alex/kapla/app/containers",
 		"/C/Users/alex/kapla/app/reducers",
-		"/C/Users/alex/kapla/app/src"
+		"/C/Users/alex/kapla/app/src",
+		"/C/Users/alex/kapla/app/store",
+		"/C/Users/alex/kapla/test",
+		"/C/Users/alex/kapla/test/actions",
+		"/C/Users/alex/kapla/test/components",
+		"/C/Users/alex/kapla/test/containers",
+		"/C/Users/alex/kapla/test/reducers",
+		"/C/Users/alex/kapla/tools",
+		"/C/Users/alex/kapla/tools/react-devtools"
 	],
 	"file_history":
 	[
-		"/C/Users/alex/kapla/main.js",
-		"/C/Users/alex/kapla/app/app.html",
+		"/C/Users/alex/kapla/app/reducers/geschaefte.js",
+		"/C/Users/alex/kapla/app/reducers/index.js",
+		"/C/Users/alex/kapla/app/src/getGeschaefte.js",
+		"/C/Users/alex/kapla/app/src/getGeschaefteFieldNames.js",
+		"/C/Users/alex/kapla/app/src/whereStringForFieldsOr.js",
+		"/C/Users/alex/kapla/app/src/whereStringForFieldsAnd.js",
+		"/C/Users/alex/kapla/app/src/getGeschaefteWithFieldFilter.js",
+		"/C/Users/alex/kapla/app/src/getGeschaefteWithFulltextFilter.js",
 		"/C/Users/alex/kapla/app/routes.js",
+		"/C/Users/alex/kapla/app/index.js",
+		"/C/Users/alex/kapla/app/store/configureStore.development.js",
+		"/C/Users/alex/kapla/test/components/Counter.spec.js",
+		"/C/Users/alex/kapla/test/containers/CounterPage.spec.js",
+		"/C/Users/alex/kapla/test/reducers/counter.spec.js",
+		"/C/Users/alex/kapla/test/e2e.js",
+		"/C/Users/alex/kapla/test/example.js",
+		"/C/Users/alex/kapla/test/setup.js",
+		"/C/Users/alex/kapla/test/actions/counter.spec.js",
+		"/C/Users/alex/kapla/app/actions/geschaefteFiltern.js",
 		"/C/Users/alex/kapla/app/containers/CounterPage.js",
+		"/C/Users/alex/kapla/app/reducers/counter.js",
+		"/C/Users/alex/kapla/main.js",
+		"/C/Users/alex/kapla/webpack.config.base.js",
+		"/C/Users/alex/kapla/webpack.config.node.js",
+		"/C/Users/alex/kapla/app/src/rebuild_sqlite3",
+		"/C/Users/alex/kapla/app/app.html",
 		"/C/Users/alex/kapla/app/actions/geschaefte.js",
 		"/C/Users/alex/kapla/app/src/fieldnamesImportCorrected/geschaefte.csv",
 		"/D/Google Drive/awel-kapla/2016 03 15 Daten/interne.csv",
@@ -165,7 +211,6 @@
 		"/D/Google Drive/awel-kapla/DatenProbleme.txt",
 		"/D/Google Drive/awel-kapla/2016 03 15 Daten/gdeplz.csv",
 		"/C/Users/alex/kapla/app/src/fieldnamesImportCorrected/externe.csv",
-		"/C/Users/alex/kapla/app/index.js",
 		"/C/Users/alex/kapla/server.js",
 		"/D/Google Drive/awel-kapla/2016 03 15 Daten/tab_interne.csv",
 		"/D/Google Drive/awel-kapla/2016 03 15 Daten/tab_geschaefte.csv",
@@ -188,14 +233,10 @@
 		"/C/Users/alex/kapla/app/containers/App.js",
 		"/C/Users/alex/kapla/app/containers/DevTools.js",
 		"/C/Users/alex/kapla/app/containers/HomePage.js",
-		"/C/Users/alex/kapla/app/reducers/counter.js",
-		"/C/Users/alex/kapla/app/reducers/index.js",
-		"/C/Users/alex/kapla/app/store/configureStore.development.js",
 		"/C/Users/alex/kapla/app/store/configureStore.js",
 		"/C/Users/alex/kapla/app/store/configureStore.production.js",
 		"/C/Users/alex/kapla/app/app.global.css",
 		"/C/Users/alex/kapla/app/app.icns",
-		"/C/Users/alex/kapla/test/e2e.js",
 		"/C/Users/alex/apflora_api/configuration.js",
 		"/C/Users/alex/apflora_api/pgDbPass.json",
 		"/C/Users/alex/apflora_api/gulp-tasks/prod_copy_root_to_dist.js",
@@ -262,24 +303,7 @@
 		"/C/Users/alex/apflora/src/modules/erstelleGuid.js",
 		"/C/Users/alex/apflora_api/test/tpopkontrInsertKopie.js",
 		"/C/Users/alex/apflora_api/src/routes/tpopkontrPostKopie.js",
-		"/C/Users/alex/apflora_api/test/tpopInsertKopie.js",
-		"/C/Users/alex/apflora_api/test/tpopKarteAlle.js",
-		"/C/Users/alex/apflora_api/src/routes/tpopKarteAlleGet.js",
-		"/C/Users/alex/apflora_api/queries/tpopKarteAlle.js",
-		"/C/Users/alex/apflora_api/test/tpopKarte.js",
-		"/C/Users/alex/apflora_api/queries/tpopKarte.js",
-		"/C/Users/alex/apflora_api/src/routes/tpopKarteGet.js",
-		"/C/Users/alex/apflora_api/test/popKarte.js",
-		"/C/Users/alex/apflora_api/src/routes/tpopPostKopie.js",
-		"/C/Users/alex/apflora_api/test/beob.js",
-		"/C/Users/alex/apflora_api/src/routes/beob.js",
-		"/C/Users/alex/apflora_api/queries/tabelleUpdateBeob.js",
-		"/C/Users/alex/apflora_api/src/routes/beobPut.js",
-		"/C/Users/alex/apflora_api/src/routes/beobGetFromTableByString.js",
-		"/C/Users/alex/apflora_api/queries/tabelleSelectBeobString.js",
-		"/C/Users/alex/apflora_api/src/routes/beobGetFromTableByNumber.js",
-		"/C/Users/alex/apflora_api/src/routes/apfloraGetFromTableByString.js",
-		"/C/Users/alex/apflora_api/src/routes/apfloraGetFromTableByNumber.js"
+		"/C/Users/alex/apflora_api/test/tpopInsertKopie.js"
 	],
 	"find":
 	{
@@ -304,6 +328,20 @@
 		"case_sensitive": true,
 		"find_history":
 		[
+			"username",
+			"getMyUsername",
+			"^",
+			"GeschaefteActions",
+			"Geschaefte",
+			"whereStringForFieldsAnd",
+			"whereStringForFields",
+			"store",
+			";",
+			"store",
+			"createStore",
+			"Counter",
+			"incrementAsync",
+			"Counter",
 			"^",
 			"rebuild_native_modules",
 			"electron-rebuild",
@@ -417,21 +455,7 @@
 			", '9999999')",
 			"queryBeobKarte",
 			"timeout",
-			"() =>",
-			"(done) =>",
-			"queryBeobDistzutpopEvab",
-			"beobDistzutpopEvab",
-			"queryTabelleDeleteApflora",
-			"delete",
-			"queryApInsert",
-			"\\n",
-			"exportevab",
-			"evab",
-			"apflora.",
-			"TABLE",
-			"adresse",
-			"CREATE INDEX",
-			"ApArtId"
+			"() =>"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -439,6 +463,15 @@
 		"regex": false,
 		"replace_history":
 		[
+			"name",
+			"getMyName",
+			"",
+			"UserActions",
+			"Home",
+			"whereStringForFieldsOr",
+			"whereStringForFieldsAnd",
+			"",
+			"Geschaefte",
 			"",
 			" TEXT,\\n",
 			"TEXT,\\n",
@@ -557,21 +590,12 @@
 			"ziel",
 			"user",
 			"tpopmassnber",
-			"tpopmassn_typ_werte",
-			"tpopmassn_erfbeurt_werte",
-			"tpopmassn",
-			"tpopkontrzaehl_methode_werte",
-			"tpopkontrzaehl_einheit_werte",
-			"tpopkontrzaehl",
-			"tpopkontr_typ_werte",
-			"tpopkontr_idbiotuebereinst_werte",
-			"tpopkontr",
-			"tpopber"
+			"tpopmassn_typ_werte"
 		],
 		"reverse": false,
 		"show_context": true,
 		"use_buffer2": true,
-		"whole_word": false,
+		"whole_word": true,
 		"wrap": true
 	},
 	"groups":
@@ -586,15 +610,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 3758,
+						"buffer_size": 4123,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2550,
-								2550
+								3773,
+								3773
 							]
 						],
 						"settings":
@@ -604,57 +628,55 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 2178.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 5,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "main.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 5805,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								35,
-								35
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 2772.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 4,
 					"type": "text"
 				},
 				{
-					"buffer": 2,
-					"file": "app/actions/geschaefte.js",
+					"buffer": 1,
+					"file": "app/containers/HomePage.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 571,
+						"buffer_size": 415,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								161,
-								161
+								246,
+								246
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "app/components/Home.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 679,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								438,
+								438
 							]
 						],
 						"settings":
@@ -672,19 +694,105 @@
 				},
 				{
 					"buffer": 3,
-					"file": "app/index.js",
+					"file": "app/containers/GeschaeftePage.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 848,
+						"buffer_size": 563,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								316,
-								316
+								459,
+								476
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 6,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "app/components/Geschaefte.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1652,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								36,
+								25
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "app/actions/user.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 706,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								592,
+								603
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "app/reducers/user.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 735,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								170,
+								170
 							]
 						],
 						"settings":
@@ -696,94 +804,6 @@
 						"zoom_level": 1.0
 					},
 					"stack_index": 3,
-					"type": "text"
-				},
-				{
-					"buffer": 4,
-					"file": "app/src/getGeschaefte.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 344,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								266,
-								266
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 2,
-					"type": "text"
-				},
-				{
-					"buffer": 5,
-					"file": "webpack.config.node.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 253,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
-					"type": "text"
-				},
-				{
-					"buffer": 6,
-					"file": "webpack.config.base.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 696,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								689,
-								689
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 6,
 					"type": "text"
 				}
 			]

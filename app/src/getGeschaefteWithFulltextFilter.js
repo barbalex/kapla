@@ -3,7 +3,7 @@
 import getGeschaefteFieldNames from './getGeschaefteFieldNames.js'
 import whereStringForFieldsOr from './whereStringForFieldsOr.js'
 
-module.exports = function (db, fulltextFilter) {
+export default function (db, fulltextFilter) {
   return new Promise((resolve, reject) => {
     getGeschaefteFieldNames(db)
       .then((result) => {

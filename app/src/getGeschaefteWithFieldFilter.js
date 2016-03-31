@@ -2,7 +2,7 @@
 
 import whereStringForFieldsAnd from './whereStringForFieldsAnd.js'
 
-module.exports = function (db, fieldFilter) {
+export default function (db, fieldFilter) {
   return new Promise((resolve, reject) => {
     console.log('getGeschaefte, fieldFilter', fieldFilter)
     const whereString = whereStringForFieldsAnd(fieldFilter)

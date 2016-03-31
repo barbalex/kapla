@@ -1,6 +1,7 @@
 import React, { Component, PropTypes } from 'react'
 import { Link } from 'react-router'
 import styles from './Home.css'
+import ToolbarPage from '../containers/ToolbarPage.js'
 
 export default class Home extends Component {
   static propTypes = {
@@ -17,6 +18,7 @@ export default class Home extends Component {
     const { username } = this.props
     return (
       <div>
+        <ToolbarPage />
         <div className={styles.container}>
           <h2>Home</h2>
           <Link to='/counter'>to Counter</Link><br/>

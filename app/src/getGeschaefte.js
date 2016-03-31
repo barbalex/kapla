@@ -6,7 +6,7 @@ import getGeschaefteWithFulltextFilter from './getGeschaefteWithFulltextFilter.j
 const sqlite3 = require('sqlite3').verbose()
 const db = new sqlite3.Database('kapla.db')
 
-module.exports = function (fieldFilter, fulltextFilter) {
+export default function (fieldFilter, fulltextFilter) {
   return new Promise((resolve, reject) => {
     if (fulltextFilter) {
       getGeschaefteWithFulltextFilter(db, fulltextFilter)
