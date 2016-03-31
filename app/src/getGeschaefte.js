@@ -1,10 +1,10 @@
 'use strict'
 
+import ampApp from 'ampersand-app'
 import getGeschaefteWithFieldFilter from './getGeschaefteWithFieldFilter.js'
 import getGeschaefteWithFulltextFilter from './getGeschaefteWithFulltextFilter.js'
 
-const sqlite3 = require('sqlite3').verbose()
-const db = new sqlite3.Database('kapla.db')
+const db = ampApp.db
 
 export default function (fieldFilter, fulltextFilter) {
   return new Promise((resolve, reject) => {

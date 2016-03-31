@@ -9,6 +9,7 @@ import {
 const standardState = {
   fetchingDb: false,
   errorFetchingDb: null,
+  dbPath: null,
   db: null
 }
 
@@ -23,12 +24,14 @@ export default function app (state = standardState, action) {
       return Object.assign({}, state, {
         fetchingDb: false,
         errorFetchingDb: null,
+        dbPath: action.dbPath,
         db: action.db
       })
     case DB_NICHT_GEWAEHLT:
       return Object.assign({}, state, {
         fetchingDb: false,
         errorFetchingDb: action.errorFetchingDb,
+        dbPath: null,
         db: null
       })
     default:
