@@ -7,11 +7,6 @@ import routes from './routes'
 import configureStore from './store/configureStore'
 import './app.global.css'
 
-// needed for material ui
-// see: https://github.com/callemall/material-ui/blob/master/README.md#react-tap-event-plugin
-import injectTapEventPlugin from 'react-tap-event-plugin'
-injectTapEventPlugin()
-
 const store = configureStore()
 const history = syncHistoryWithStore(hashHistory, store)
 
