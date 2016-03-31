@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react'
 import { Grid, Row, Col } from 'react-bootstrap'
 import { Link } from 'react-router'
-import styles from './Counter.css'
+import styles from './GeschaefteList.css'
 import Toolbar from '../containers/Toolbar.js'
 
 class Geschaefte extends Component {
@@ -11,12 +11,12 @@ class Geschaefte extends Component {
 
   listElements () {
     const { geschaefte } = this.props
-    return geschaefte.map((geschaeft) => (
-        <Row>
-          <Col xs={1}><p>{geschaeft.idGeschaeft}</p></Col>
-          <Col xs={8}><p>{geschaeft.gegenstand}</p></Col>
-          <Col xs={2}><p>{geschaeft.status}</p></Col>
-          <Col xs={1}><p>{geschaeft.idKontaktIntern}</p></Col>
+    return geschaefte.map((geschaeft, index) => (
+        <Row key={index}>
+          <Col xs={1} sm={1} md={1} lg={1}><p>{geschaeft.idGeschaeft}</p></Col>
+          <Col xs={8} sm={8} md={8} lg={8}><p>{geschaeft.gegenstand}</p></Col>
+          <Col xs={2} sm={2} md={2} lg={2}><p>{geschaeft.status}</p></Col>
+          <Col xs={1} sm={1} md={1} lg={1}><p>{geschaeft.idKontaktIntern}</p></Col>
         </Row>
       )
     )
@@ -24,16 +24,18 @@ class Geschaefte extends Component {
 
   render() {
     return (
-      <div>
+      <div className='geschaefteList'>
         <Toolbar />
         <div className={styles.backButton}>
           <Link to='/'>
             <i className='fa fa-arrow-left fa-3x' />
           </Link>
         </div>
-        <Grid>
-          {this.listElements()}
-        </Grid>
+        <div className={styles.grid}>
+          <Grid>
+            {this.listElements()}
+          </Grid>
+        </div>
       </div>
     )
   }
