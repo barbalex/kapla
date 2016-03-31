@@ -30,7 +30,7 @@ export default function app (state = standardState, action) {
     case DB_NICHT_GEWAEHLT:
       return Object.assign({}, state, {
         fetchingDb: false,
-        errorFetchingDb: action.errorFetchingDb,
+        errorFetchingDb: action.error,
         dbPath: null,
         db: null
       })

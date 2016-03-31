@@ -10,8 +10,9 @@ export default class Home extends Component {
   }
 
   componentDidMount () {
-    const { fetchUsername } = this.props
-    fetchUsername ()
+    const { fetchUsername, holeDbAusConfig } = this.props
+    fetchUsername()
+    holeDbAusConfig()
   }
 
   render () {

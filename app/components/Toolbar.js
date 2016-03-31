@@ -12,14 +12,12 @@ import ToolbarTitle from 'material-ui/lib/toolbar/toolbar-title'
 class MyToolbar extends Component {
   static propTypes = {
     holenDb: PropTypes.func.isRequired,
-    db: PropTypes.string,
     username: PropTypes.string
   }
 
   render() {
     const {
       holenDb,
-      db,
       username
     } = this.props
 

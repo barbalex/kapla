@@ -9,6 +9,7 @@ const actions = Object.assign(UserActions, AppActions)
 function mapStateToProps (state) {
   return {
     username: state.user.username,
+    dbPath: state.app.dbPath,
     db: state.app.db
   }
 }

@@ -8,8 +8,7 @@ const actions = Object.assign(UserActions, AppActions)
 
 function mapStateToProps (state) {
   return {
-    username: state.user.username,
-    db: state.app.db
+    username: state.user.username
   }
 }
 

@@ -1,12 +1,9 @@
 'use strict'
 
-import ampApp from 'ampersand-app'
 import getGeschaefteWithFieldFilter from './getGeschaefteWithFieldFilter.js'
 import getGeschaefteWithFulltextFilter from './getGeschaefteWithFulltextFilter.js'
 
-const db = ampApp.db
-
-export default function (fieldFilter, fulltextFilter) {
+export default function (db, fieldFilter, fulltextFilter) {
   return new Promise((resolve, reject) => {
     if (fulltextFilter) {
       getGeschaefteWithFulltextFilter(db, fulltextFilter)

@@ -8,7 +8,6 @@ export default function (db, fulltextFilter) {
     getGeschaefteFieldNames(db)
       .then((result) => {
         const fieldNames = result.map((res) => res.name)
-        console.log('getGeschaefteWithFulltextFilter, fieldNames', fieldNames)
         let fieldFilter = {}
         fieldNames.forEach((fieldName) => {
           fieldFilter[fieldName] = fulltextFilter
@@ -22,11 +21,9 @@ export default function (db, fulltextFilter) {
           ${whereString}
           ORDER BY
             idGeschaeft DESC`
-        console.log('getGeschaefte, sql', sql)
 
         db.all(sql, (error, result) => {
           if (error) reject(error)
-          console.log('getGeschaefte, result', result)
           resolve(result)
         })
       })

@@ -5,11 +5,11 @@ import saveConfigValue from './saveConfigValue.js'
 import chooseDb from './chooseDb.js'
 
 function initialize (dbPath) {
-  saveConfigValue('db', dbPath)
+  saveConfigValue('dbPath', dbPath)
 }
 
 export default function () {
-  const dbPath = getConfig().db
+  const dbPath = getConfig().dbPath
   if (!dbPath) {
     chooseDb()
       .then((dbPath) => initialize(dbPath))

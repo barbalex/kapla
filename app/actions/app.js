@@ -1,6 +1,7 @@
 'use strict'
 
 import chooseDb from '../src/chooseDb.js'
+import getConfig from '../src/getConfig.js'
 import saveConfigValue from '../src/saveConfigValue.js'
 const sqlite3 = require('sqlite3').verbose()
 
@@ -12,7 +13,7 @@ function waehleDb () {
 }
 
 export const DB_GEWAEHLT = 'DB_GEWAEHLT'
-function erhalteDb (db, dbPath) {
+function erhalteDb (dbPath, db) {
   return {
     type: DB_GEWAEHLT,
     db,
@@ -28,6 +29,19 @@ function nichtGewaehlteDb (error) {
   }
 }
 
+export const DB_AUS_CONFIG_HOLEN = 'DB_AUS_CONFIG_HOLEN'
+export function holeDbAusConfig () {
+  return dispatch => {
+    const dbPath = getConfig().dbPath
+    if (!dbPath) {
+      dispatch(holenDb())
+    } else {
+      const db = new sqlite3.Database(dbPath)
+      dispatch(erhalteDb(dbPath, db))
+    }
+  }
+}
+
 export const DB_HOLEN = 'DB_HOLEN'
 export function holenDb () {
   return dispatch => {
@@ -36,7 +50,7 @@ export function holenDb () {
       .then((dbPath) => {
         const db = new sqlite3.Database(dbPath)
         dispatch(erhalteDb(dbPath, db))
-        saveConfigValue('db', dbPath)
+        saveConfigValue('dbPath', dbPath)
       })
       .catch((error) => dispatch(nichtGewaehlteDb(error)))
   }

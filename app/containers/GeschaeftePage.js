@@ -2,6 +2,9 @@ import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import Geschaefte from '../components/Geschaefte'
 import * as GeschaefteActions from '../actions/geschaefte'
+import * as AppActions from '../actions/app'
+
+const actions = Object.assign(GeschaefteActions, AppActions)
 
 function mapStateToProps (state) {
   return {
@@ -12,7 +15,7 @@ function mapStateToProps (state) {
 }
 
 function mapDispatchToProps (dispatch) {
-  return bindActionCreators(GeschaefteActions, dispatch)
+  return bindActionCreators(actions, dispatch)
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Geschaefte)
