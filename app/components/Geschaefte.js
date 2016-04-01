@@ -12,7 +12,8 @@ class Geschaefte extends Component {
     holeDbAusConfig: PropTypes.func.isRequired,
     filterFields: PropTypes.object,
     filterFulltext: PropTypes.string,
-    holenGeschaefte: PropTypes.func.isRequired
+    holenGeschaefte: PropTypes.func.isRequired,
+    holenGeschaeft: PropTypes.func.isRequired
   }
 
   componentDidMount () {
@@ -22,10 +23,20 @@ class Geschaefte extends Component {
     holenGeschaefte(filterFields, filterFulltext)
   }
 
-  renderItem(index, key) {
+  onClickGeschaeft (idGeschaeft) {
+    const { holenGeschaeft } = this.props
+    console.log('geschaeft clicked, id:', idGeschaeft)
+    holenGeschaeft(idGeschaeft)
+  }
+
+  renderItem (index, key) {
     const { geschaefte } = this.props
     return (
-      <Row key={key} className={styles.row}>
+      <Row
+        key={key}
+        className={styles.row}
+        onClick={this.onClickGeschaeft.bind(this, geschaefte[index].idGeschaeft)}
+      >
         <Col xs={1} sm={1} md={1} lg={1}>{geschaefte[index].idGeschaeft}</Col>
         <Col xs={8} sm={8} md={8} lg={8}>{geschaefte[index].gegenstand}</Col>
         <Col xs={2} sm={2} md={2} lg={2}>{geschaefte[index].status}</Col>
@@ -34,7 +45,7 @@ class Geschaefte extends Component {
     )
   }
 
-  renderItems(items, ref) {
+  renderItems (items, ref) {
     return (
       <Grid ref={ref}>
         {items}

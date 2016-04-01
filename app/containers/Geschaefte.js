@@ -3,9 +3,10 @@ import { connect } from 'react-redux'
 import Geschaefte from '../components/Geschaefte'
 import * as UserActions from '../actions/user'
 import * as GeschaefteActions from '../actions/geschaefte'
+import * as GeschaeftActions from '../actions/geschaeft'
 import * as AppActions from '../actions/app'
 
-const actions = Object.assign(GeschaefteActions, AppActions, UserActions)
+const actions = Object.assign(GeschaefteActions, GeschaeftActions, AppActions, UserActions)
 
 function mapStateToProps (state) {
   return {

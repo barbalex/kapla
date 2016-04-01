@@ -1,14 +1,36 @@
-import { GESCHAEFT_EROEFFNEN, GESCHAEFT_LOESCHEN, GESCHAEFT_AENDERN } from '../actions/geschaeft'
+'use strict'
 
-export default function counter (state = {}, action) {
+import {
+  GESCHAEFT_BESTELLEN,
+  GESCHAEFT_ERHALTEN,
+  GESCHAEFT_NICHT_ERHALTEN
+} from '../actions/geschaeft'
+
+const standardState = {
+  fetching: false,
+  error: null,
+  geschaeft: {}
+}
+
+export default function geschaeft (state = standardState, action) {
   switch (action.type) {
-    case GESCHAEFT_EROEFFNEN:
-      // create new row on geschaefte
-      return state + 1
-    case GESCHAEFT_LOESCHEN:
-      return {}
-    case GESCHAEFT_AENDERN:
-      return state - 1
+    case GESCHAEFT_BESTELLEN:
+      return Object.assign({}, state, {
+        fetching: true,
+        error: null
+      })
+    case GESCHAEFT_ERHALTEN:
+      return Object.assign({}, state, {
+        fetching: false,
+        error: null,
+        geschaeft: action.geschaeft
+      })
+    case GESCHAEFT_NICHT_ERHALTEN:
+      return Object.assign({}, state, {
+        fetching: false,
+        error: action.error,
+        geschaeft: {}
+      })
     default:
       return state
   }
