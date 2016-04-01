@@ -15,7 +15,8 @@ function mapStateToProps (state) {
     dbPath: state.app.dbPath,
     db: state.app.db,
     filterFields: state.geschaefte.filterFields,
-    filterFulltext: state.geschaefte.filterFulltext
+    filterFulltext: state.geschaefte.filterFulltext,
+    geschaeft: state.geschaeft.geschaeft
   }
 }
 

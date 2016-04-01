@@ -1,5 +1,5 @@
 import React, { Component, PropTypes } from 'react'
-import { Link } from 'react-router'
+import { Input } from 'react-bootstrap'
 import styles from './Counter.css'
 import Navbar from '../containers/Navbar.js'
 
@@ -18,7 +18,25 @@ class Geschaeft extends Component {
     return (
       <div>
         <Navbar />
-        <p>{geschaeft.idGeschaeft}</p>
+        <form className='form-horizontal'>
+          <Input
+            type = 'number'
+            label = 'ID Geschäft'
+            labelClassName='col-xs-2'
+            wrapperClassName='col-xs-10'
+            value = {geschaeft.idGeschaeft}
+            bsSize = 'small'
+            disabled
+          />
+          <Input
+            type = 'text'
+            label = 'Gegenstand'
+            labelClassName='col-xs-2'
+            wrapperClassName='col-xs-10'
+            value = {geschaeft.gegenstand}
+            bsSize = 'small'
+          />
+        </form>
       </div>
     )
   }

@@ -30,11 +30,13 @@ class Geschaefte extends Component {
   }
 
   renderItem (index, key) {
-    const { geschaefte } = this.props
+    const { geschaefte, geschaeft } = this.props
+    const isActive = geschaeft && geschaeft.idGeschaeft && geschaeft.idGeschaeft === geschaefte[index].idGeschaeft
+    const className = isActive ? [styles.row, styles.active].join(' ') : styles.row
     return (
       <Row
         key={key}
-        className={styles.row}
+        className={className}
         onClick={this.onClickGeschaeft.bind(this, geschaefte[index].idGeschaeft)}
       >
         <Col xs={1} sm={1} md={1} lg={1}>{geschaefte[index].idGeschaeft}</Col>
