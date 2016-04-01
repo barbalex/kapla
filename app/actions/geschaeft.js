@@ -55,8 +55,6 @@ export function holenGeschaeft (idGeschaeft) {
     getGeschaeft(app.db, idGeschaeft)
       .then((geschaeft) => {
         dispatch(erhalteGeschaeft(geschaeft))
-        // TODO: navigate
-        console.log('navigating to geschaeft')
         dispatch(push('/geschaeft'))
       })
       .catch((error) => dispatch(nichtErhaltenesGeschaeft(error)))

@@ -8,7 +8,7 @@ const actions = Object.assign(GeschaeftActions, AppActions)
 
 function mapStateToProps (state) {
   return {
-    geschaeft: state.geschaefte.geschaefte
+    geschaeft: state.geschaeft.geschaeft
   }
 }
 

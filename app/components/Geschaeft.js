@@ -6,7 +6,7 @@ import Navbar from '../containers/Navbar.js'
 class Geschaeft extends Component {
   static propTypes = {
     holenGeschaeft: PropTypes.func.isRequired,
-    geschaeft: PropTypes.array.isRequired
+    geschaeft: PropTypes.object.isRequired
   }
 
   render() {
@@ -18,6 +18,7 @@ class Geschaeft extends Component {
     return (
       <div>
         <Navbar />
+        <p>{geschaeft.idGeschaeft}</p>
       </div>
     )
   }
