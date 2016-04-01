@@ -9,6 +9,7 @@ export default class Home extends Component {
   static propTypes = {
     fetchUsername: PropTypes.func.isRequired,
     username: PropTypes.string,
+    holeDbAusConfig: PropTypes.func.isRequired,
     filterFields: PropTypes.object,
     filterFulltext: PropTypes.string,
     holenGeschaefte: PropTypes.func.isRequired
