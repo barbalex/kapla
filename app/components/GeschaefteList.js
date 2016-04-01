@@ -13,12 +13,20 @@ class Geschaefte extends Component {
   renderItem(index, key) {
     const { geschaefte } = this.props
     return (
-      <Row key={key}>
-        <Col xs={1} sm={1} md={1} lg={1}><p>{geschaefte[index].idGeschaeft}</p></Col>
-        <Col xs={8} sm={8} md={8} lg={8}><p>{geschaefte[index].gegenstand}</p></Col>
-        <Col xs={2} sm={2} md={2} lg={2}><p>{geschaefte[index].status}</p></Col>
-        <Col xs={1} sm={1} md={1} lg={1}><p>{geschaefte[index].idKontaktIntern}</p></Col>
+      <Row key={key} className={styles.row}>
+        <Col xs={1} sm={1} md={1} lg={1}>{geschaefte[index].idGeschaeft}</Col>
+        <Col xs={8} sm={8} md={8} lg={8}>{geschaefte[index].gegenstand}</Col>
+        <Col xs={2} sm={2} md={2} lg={2}>{geschaefte[index].status}</Col>
+        <Col xs={1} sm={1} md={1} lg={1}>{geschaefte[index].idKontaktIntern}</Col>
       </Row>
+    )
+  }
+
+  renderItems(items, ref) {
+    return (
+      <Grid ref={ref}>
+        {items}
+      </Grid>
     )
   }
 
@@ -33,13 +41,11 @@ class Geschaefte extends Component {
           </Link>
         </div>
         <div className={styles.grid}>
-          <Grid>
-            <ReactList
-              itemRenderer={::this.renderItem}
-              length={geschaefte.length}
-              type='variable'
-            />
-          </Grid>
+          <ReactList
+            itemRenderer={::this.renderItem}
+            length={geschaefte.length}
+            type='variable'
+          />
         </div>
       </div>
     )

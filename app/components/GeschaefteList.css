@@ -6,3 +6,11 @@
   overflow: auto;
   height: calc(100vh - 52px);
 }
+
+.row {
+  padding: 10px;
+}
+
+::-webkit-scrollbar { 
+  display: none;
+}
