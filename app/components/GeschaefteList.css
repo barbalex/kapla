@@ -1,5 +1,6 @@
 .backButton {
   position: absolute;
+  z-index: 1;
 }
 
 .grid {
@@ -9,8 +10,16 @@
 
 .row {
   padding: 10px;
+  border-bottom-width: 1px;
+  border-bottom-color: #717171;
+  border-bottom-style: solid;
 }
 
+/* 
+ * hide the scrollbar:
+ * because of virtual-list with variable height rows
+ * it shows wrong position
+ */
 ::-webkit-scrollbar { 
   display: none;
 }

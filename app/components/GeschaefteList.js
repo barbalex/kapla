@@ -7,7 +7,15 @@ import Toolbar from '../containers/Toolbar.js'
 
 class Geschaefte extends Component {
   static propTypes = {
-    geschaefte: PropTypes.array.isRequired
+    geschaefte: PropTypes.array.isRequired,
+    filterFields: PropTypes.object,
+    filterFulltext: PropTypes.string,
+    holenGeschaefte: PropTypes.func.isRequired
+  }
+
+  componentDidMount () {
+    const { holenGeschaefte, filterFields, filterFulltext } = this.props
+    holenGeschaefte(filterFields, filterFulltext)
   }
 
   renderItem(index, key) {
