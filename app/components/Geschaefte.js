@@ -58,7 +58,7 @@ class Geschaefte extends Component {
   render() {
     const { geschaefte } = this.props
     return (
-      <div>
+      <div className = {styles.body}>
         <Navbar />
         <div className={styles.grid}>
           <ReactList
