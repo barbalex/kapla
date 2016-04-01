@@ -1,5 +1,6 @@
 'use strict'
 
+import { push } from 'react-router-redux'
 import getGeschaeft from '../src/getGeschaeft.js'
 
 export const GESCHAEFT_EROEFFNEN = 'GESCHAEFT_EROEFFNEN'
@@ -52,7 +53,12 @@ export function holenGeschaeft (idGeschaeft) {
     const { app } = getState()
     dispatch(bestelleGeschaeft())
     getGeschaeft(app.db, idGeschaeft)
-      .then((geschaeft) => dispatch(erhalteGeschaeft(geschaeft)))
+      .then((geschaeft) => {
+        dispatch(erhalteGeschaeft(geschaeft))
+        // TODO: navigate
+        console.log('navigating to geschaeft')
+        dispatch(push('/geschaeft'))
+      })
       .catch((error) => dispatch(nichtErhaltenesGeschaeft(error)))
   }
 }

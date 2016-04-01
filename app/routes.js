@@ -6,10 +6,10 @@ import Geschaeft from './containers/Geschaeft'
 import Geschaefte from './containers/Geschaefte'
 
 export default (
-<Route path='/' component={App}>
+  <Route path='/' component={App}>
     <IndexRoute component={Geschaefte} />
     <Route path='/counter' component={CounterPage} />
-    <Route path='/geschaefte' component={Geschaeft} />
-    <Route path='/geschaefteList' component={Geschaefte} />
+    <Route path='/geschaeft' component={Geschaeft} />
+    <Route path='/geschaefte' component={Geschaefte} />
   </Route>
 )
