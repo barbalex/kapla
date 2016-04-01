@@ -2,7 +2,7 @@ import React, { Component, PropTypes } from 'react'
 import { Link } from 'react-router'
 import styles from './Home.css'
 import Navbar from '../containers/Navbar.js'
-import GeschaefteList from '../containers/GeschaefteList.js'
+import Geschaefte from '../containers/Geschaefte.js'
 
 export default class Home extends Component {
   static propTypes = {
@@ -29,7 +29,7 @@ export default class Home extends Component {
     const { username } = this.props
     return (
       <div>
-        <GeschaefteList />
+        <Geschaefte />
       </div>
     )
   }

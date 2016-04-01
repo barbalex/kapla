@@ -1,42 +1,58 @@
 import React, { Component, PropTypes } from 'react'
-import { Link } from 'react-router'
-import styles from './Counter.css'
+import { Grid, Row, Col } from 'react-bootstrap'
+import ReactList from 'react-list'
 import Navbar from '../containers/Navbar.js'
+import styles from './Geschaefte.css'
 
 class Geschaefte extends Component {
   static propTypes = {
-    holenGeschaefte: PropTypes.func.isRequired,
-    filtereGeschaefteNachFeldern: PropTypes.func.isRequired,
-    filtereGeschaefteNachVolltext: PropTypes.func.isRequired,
     geschaefte: PropTypes.array.isRequired,
+    fetchUsername: PropTypes.func.isRequired,
+    username: PropTypes.string,
+    holeDbAusConfig: PropTypes.func.isRequired,
     filterFields: PropTypes.object,
-    filterFulltext: PropTypes.string
+    filterFulltext: PropTypes.string,
+    holenGeschaefte: PropTypes.func.isRequired
+  }
+
+  componentDidMount () {
+    const { fetchUsername, holeDbAusConfig, holenGeschaefte, filterFields, filterFulltext } = this.props
+    fetchUsername()
+    holeDbAusConfig()
+    holenGeschaefte(filterFields, filterFulltext)
+  }
+
+  renderItem(index, key) {
+    const { geschaefte } = this.props
+    return (
+      <Row key={key} className={styles.row}>
+        <Col xs={1} sm={1} md={1} lg={1}>{geschaefte[index].idGeschaeft}</Col>
+        <Col xs={8} sm={8} md={8} lg={8}>{geschaefte[index].gegenstand}</Col>
+        <Col xs={2} sm={2} md={2} lg={2}>{geschaefte[index].status}</Col>
+        <Col xs={1} sm={1} md={1} lg={1}>{geschaefte[index].idKontaktIntern}</Col>
+      </Row>
+    )
+  }
+
+  renderItems(items, ref) {
+    return (
+      <Grid ref={ref}>
+        {items}
+      </Grid>
+    )
   }
 
   render() {
-    const {
-      holenGeschaefte,
-      filtereGeschaefteNachFeldern,
-      filtereGeschaefteNachVolltext,
-      filterFields,
-      filterFulltext,
-      geschaefte
-    } = this.props
-
+    const { geschaefte } = this.props
     return (
       <div>
         <Navbar />
-        <div className={styles.backButton}>
-          <Link to='/'>
-            <i className='fa fa-arrow-left fa-3x' />
-          </Link>
-        </div>
-        <div className={styles.btnGroup}>
-          <button className={styles.btn} onClick={() => holenGeschaefte(filterFields, filterFulltext)}>hole</button>
-          <button className={styles.btn} onClick={() => filtereGeschaefteNachFeldern({benutzer: 'Peter', aktenstandort: 'W102'})}>filtere 1</button>
-          <button className={styles.btn} onClick={() => filtereGeschaefteNachFeldern({aktennummer: 4})}>filtere nummer</button>
-          <button className={styles.btn} onClick={() => filtereGeschaefteNachVolltext('Bolleter')}>filtere volltext</button>
-          <button className={styles.btn} onClick={() => filtereGeschaefteNachFeldern({})}>alle</button>
+        <div className={styles.grid}>
+          <ReactList
+            itemRenderer={::this.renderItem}
+            length={geschaefte.length}
+            type='variable'
+          />
         </div>
       </div>
     )
