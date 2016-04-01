@@ -3,7 +3,6 @@ import chromedriver from 'chromedriver'
 import webdriver from 'selenium-webdriver'
 import { expect } from 'chai'
 import electronPath from 'electron-prebuilt'
-import homeStyles from '../app/components/Home.css'
 import counterStyles from '../app/components/Counter.css'
 
 chromedriver.start() // on port 9515
@@ -39,14 +38,6 @@ describe('main window', function spec() {
   it('should open window', async () => {
     const title = await this.driver.getTitle()
     expect(title).to.equal('Hello Electron React!')
-  })
-
-  it('should to Counter with click "to Counter" link', async () => {
-    const link = await this.driver.findElement(webdriver.By.css(`.${homeStyles.container} > a`))
-    link.click ()
-
-    const counter = await findCounter()
-    expect(await counter.getText()).to.equal('0')
   })
 
   it('should display updated count after increment button click', async () => {
@@ -94,14 +85,5 @@ describe('main window', function spec() {
     await this.driver.wait(() =>
       counter.getText().then(text => text === '3')
     , 1000, 'count not as expected')
-  })
-
-  it('should back to home if back button clicked', async () => {
-    const link = await this.driver.findElement(
-      webdriver.By.css(`.${counterStyles.backButton} > a`)
-    )
-    link.click ()
-
-    await this.driver.findElement(webdriver.By.className(homeStyles.container))
   })
 })
