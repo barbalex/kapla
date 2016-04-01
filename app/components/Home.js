@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react'
 import { Link } from 'react-router'
 import styles from './Home.css'
-import Toolbar from '../containers/Toolbar.js'
+import Navbar from '../containers/Navbar.js'
 import GeschaefteList from '../containers/GeschaefteList.js'
 
 export default class Home extends Component {

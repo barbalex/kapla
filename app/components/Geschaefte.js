@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react'
 import { Link } from 'react-router'
 import styles from './Counter.css'
-import Toolbar from '../containers/Toolbar.js'
+import Navbar from '../containers/Navbar.js'
 
 class Geschaefte extends Component {
   static propTypes = {
@@ -25,7 +25,7 @@ class Geschaefte extends Component {
 
     return (
       <div>
-        <Toolbar />
+        <Navbar />
         <div className={styles.backButton}>
           <Link to='/'>
             <i className='fa fa-arrow-left fa-3x' />

@@ -1,6 +1,6 @@
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
-import Toolbar from '../components/Toolbar'
+import Navbar from '../components/Navbar'
 import * as UserActions from '../actions/user'
 import * as AppActions from '../actions/app'
 
@@ -16,4 +16,4 @@ function mapDispatchToProps (dispatch) {
   return bindActionCreators(actions, dispatch)
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Toolbar)
+export default connect(mapStateToProps, mapDispatchToProps)(Navbar)
