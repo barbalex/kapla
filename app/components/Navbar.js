@@ -16,7 +16,7 @@ class MyToolbar extends Component {
     } = this.props
 
     return (
-      <Navbar inverse>
+      <Navbar inverse fluid>
         <Navbar.Header>
           <LinkContainer to={{ pathname: '/' }}>
             <Navbar.Brand>
