@@ -88,7 +88,7 @@ class Geschaeft extends Component {
             <Col xs={1} sm={1} md={1} lg={1}>
               <Input
                 type = 'number'
-                label = 'BDV Nr.'
+                label = 'BDV&nbsp;&nbsp;&nbsp;&nbsp;Nr.'
                 value = {geschaeft.entscheidBdvNr}
                 bsSize = 'small'
                 className={styles.nr}
@@ -119,7 +119,7 @@ class Geschaeft extends Component {
             <Col xs={1} sm={1} md={1} lg={1}>
               <Input
                 type = 'number'
-                label = 'KR Nr.'
+                label = 'KR&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Nr.'
                 value = {geschaeft.entscheidKrNr}
                 bsSize = 'small'
                 className={styles.nr}
@@ -150,7 +150,7 @@ class Geschaeft extends Component {
             <Col xs={1} sm={1} md={1} lg={1}>
               <Input
                 type = 'number'
-                label = 'RRB Nr.'
+                label = 'RRB&nbsp;&nbsp;&nbsp;&nbsp;Nr.'
                 value = {geschaeft.entscheidRrbNr}
                 bsSize = 'small'
                 className={styles.nr}
