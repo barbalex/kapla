@@ -4,8 +4,11 @@
 }
 
 .grid {
+  position: absolute;
+  top: 52px;
   overflow: auto;
   height: calc(100vh - 52px);
+  width: 100%;
 }
 
 .row {

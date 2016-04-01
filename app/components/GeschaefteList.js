@@ -1,6 +1,7 @@
 import React, { Component, PropTypes } from 'react'
 import { Grid, Row, Col } from 'react-bootstrap'
 import ReactList from 'react-list'
+import Toolbar from '../containers/Toolbar.js'
 import styles from './GeschaefteList.css'
 
 class Geschaefte extends Component {
@@ -31,7 +32,8 @@ class Geschaefte extends Component {
   render() {
     const { geschaefte } = this.props
     return (
-      <div className='geschaefteList'>
+      <div>
+        <Toolbar />
         <div className={styles.grid}>
           <ReactList
             itemRenderer={::this.renderItem}
