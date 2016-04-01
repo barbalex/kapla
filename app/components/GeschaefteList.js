@@ -1,6 +1,7 @@
 import React, { Component, PropTypes } from 'react'
 import { Grid, Row, Col } from 'react-bootstrap'
 import { Link } from 'react-router'
+import ReactList from 'react-list'
 import styles from './GeschaefteList.css'
 import Toolbar from '../containers/Toolbar.js'
 
@@ -9,20 +10,20 @@ class Geschaefte extends Component {
     geschaefte: PropTypes.array.isRequired
   }
 
-  listElements () {
+  renderItem(index, key) {
     const { geschaefte } = this.props
-    return geschaefte.map((geschaeft, index) => (
-        <Row key={index}>
-          <Col xs={1} sm={1} md={1} lg={1}><p>{geschaeft.idGeschaeft}</p></Col>
-          <Col xs={8} sm={8} md={8} lg={8}><p>{geschaeft.gegenstand}</p></Col>
-          <Col xs={2} sm={2} md={2} lg={2}><p>{geschaeft.status}</p></Col>
-          <Col xs={1} sm={1} md={1} lg={1}><p>{geschaeft.idKontaktIntern}</p></Col>
-        </Row>
-      )
+    return (
+      <Row key={key}>
+        <Col xs={1} sm={1} md={1} lg={1}><p>{geschaefte[index].idGeschaeft}</p></Col>
+        <Col xs={8} sm={8} md={8} lg={8}><p>{geschaefte[index].gegenstand}</p></Col>
+        <Col xs={2} sm={2} md={2} lg={2}><p>{geschaefte[index].status}</p></Col>
+        <Col xs={1} sm={1} md={1} lg={1}><p>{geschaefte[index].idKontaktIntern}</p></Col>
+      </Row>
     )
   }
 
   render() {
+    const { geschaefte } = this.props
     return (
       <div className='geschaefteList'>
         <Toolbar />
@@ -33,7 +34,11 @@ class Geschaefte extends Component {
         </div>
         <div className={styles.grid}>
           <Grid>
-            {this.listElements()}
+            <ReactList
+              itemRenderer={::this.renderItem}
+              length={geschaefte.length}
+              type='variable'
+            />
           </Grid>
         </div>
       </div>
