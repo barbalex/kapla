@@ -1,21 +1,11 @@
 import React, { Component, PropTypes } from 'react'
 import { Grid, Row, Col } from 'react-bootstrap'
-import { Link } from 'react-router'
 import ReactList from 'react-list'
 import styles from './GeschaefteList.css'
-import Toolbar from '../containers/Toolbar.js'
 
 class Geschaefte extends Component {
   static propTypes = {
-    geschaefte: PropTypes.array.isRequired,
-    filterFields: PropTypes.object,
-    filterFulltext: PropTypes.string,
-    holenGeschaefte: PropTypes.func.isRequired
-  }
-
-  componentDidMount () {
-    const { holenGeschaefte, filterFields, filterFulltext } = this.props
-    holenGeschaefte(filterFields, filterFulltext)
+    geschaefte: PropTypes.array.isRequired
   }
 
   renderItem(index, key) {
@@ -42,12 +32,6 @@ class Geschaefte extends Component {
     const { geschaefte } = this.props
     return (
       <div className='geschaefteList'>
-        <Toolbar />
-        <div className={styles.backButton}>
-          <Link to='/'>
-            <i className='fa fa-arrow-left fa-3x' />
-          </Link>
-        </div>
         <div className={styles.grid}>
           <ReactList
             itemRenderer={::this.renderItem}

@@ -1,5 +1,6 @@
 import React, { Component, PropTypes } from 'react'
 import { Navbar, NavDropdown, MenuItem, Nav } from 'react-bootstrap'
+import { Link } from 'react-router'
 
 class MyToolbar extends Component {
   static propTypes = {
@@ -26,7 +27,7 @@ class MyToolbar extends Component {
             <NavDropdown eventKey={3} title="Menu" id="basic-nav-dropdown">
               <MenuItem eventKey={3.1} onClick={holenDb}>Datenbank wählen</MenuItem>
               <MenuItem divider />
-              <MenuItem eventKey={3.3}>...</MenuItem>
+              <MenuItem eventKey={3.3}><Link to='/counter'>Counter</Link></MenuItem>
             </NavDropdown>
           </Nav>
         </Navbar.Collapse>

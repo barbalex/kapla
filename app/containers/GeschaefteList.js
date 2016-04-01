@@ -8,9 +8,7 @@ const actions = Object.assign(GeschaefteActions, AppActions)
 
 function mapStateToProps (state) {
   return {
-    geschaefte: state.geschaefte.geschaefte,
-    filterFields: state.geschaefte.filterFields,
-    filterFulltext: state.geschaefte.filterFulltext
+    geschaefte: state.geschaefte.geschaefte
   }
 }
 

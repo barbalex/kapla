@@ -12,3 +12,18 @@
 .container a {
   font-size: 1.4rem;
 }
+
+.pane {
+  border: solid 1px grey;
+  overflow: auto;
+  height: calc(100vh - 52px) !important;
+  top: 52px !important;
+}
+
+.paneGeschaefteList {
+  left: 0;
+}
+
+.paneGeschaeft {
+  left: 700px;
+}
