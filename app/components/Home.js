@@ -35,7 +35,7 @@ export default class Home extends Component {
           direction = "vertical"
           margin = {10}
           onResize = {this.onResizePane}
-          onOrderChange = {(panes) => null}
+          onOrderChange = {(panes) => console.log('order changed')}
           isResizable = {{x: true, y: false, xy: false}}
           disableEffect = {true}
         >
