@@ -20,11 +20,11 @@ class Geschaeft extends Component {
         <Navbar />
         <Grid fluid>
           <Row>
-            <Col xs={6} sm={6} md={6} lg={6} className={styles.bereichTitel}>Geschäft</Col>
-            <Col xs={6} sm={6} md={6} lg={6} className={styles.bereichTitel}>Nummern</Col>
+            <Col xs={7} sm={7} md={7} lg={7} className={styles.bereichTitel}>Geschäft</Col>
+            <Col xs={5} sm={5} md={5} lg={5} className={styles.bereichTitel}>Nummern</Col>
           </Row>
           <Row>
-            <Col xs={6} sm={6} md={6} lg={6}>
+            <Col xs={7} sm={7} md={7} lg={7}>
               <Input
                 type = 'textarea'
                 label = 'Gegenstand'
@@ -33,7 +33,7 @@ class Geschaeft extends Component {
                 className = {[styles.geschaeft, styles.gegenstand].join(' ')}
               />
             </Col>
-            <Col xs={5} sm={5} md={5} lg={5}>
+            <Col xs={4} sm={4} md={4} lg={4}>
             </Col>
             <Col xs={1} sm={1} md={1} lg={1}>
               <Input
@@ -47,7 +47,7 @@ class Geschaeft extends Component {
             </Col>
           </Row>
           <Row>
-            <Col xs={6} sm={6} md={6} lg={6}>
+            <Col xs={7} sm={7} md={7} lg={7}>
               <Input
                 type = 'text'
                 label = 'Ort'
@@ -56,7 +56,7 @@ class Geschaeft extends Component {
                 className={styles.geschaeft}
               />
             </Col>
-            <Col xs={4} sm={4} md={4} lg={4}>
+            <Col xs={3} sm={3} md={3} lg={3}>
             </Col>
             <Col xs={1} sm={1} md={1} lg={1}>
               <Input
@@ -78,7 +78,7 @@ class Geschaeft extends Component {
             </Col>
           </Row>
           <Row>
-            <Col xs={6} sm={6} md={6} lg={6}>
+            <Col xs={7} sm={7} md={7} lg={7}>
               <Input
                 type = 'text'
                 label = 'Geschäftsart'
@@ -87,7 +87,7 @@ class Geschaeft extends Component {
                 className={styles.geschaeft}
               />
             </Col>
-            <Col xs={4} sm={4} md={4} lg={4}>
+            <Col xs={3} sm={3} md={3} lg={3}>
             </Col>
             <Col xs={1} sm={1} md={1} lg={1}>
               <Input
@@ -109,7 +109,7 @@ class Geschaeft extends Component {
             </Col>
           </Row>
           <Row>
-            <Col xs={6} sm={6} md={6} lg={6}>
+            <Col xs={7} sm={7} md={7} lg={7}>
               <Input
                 type = 'text'
                 label = 'Status'
@@ -118,7 +118,7 @@ class Geschaeft extends Component {
                 className={styles.geschaeft}
               />
             </Col>
-            <Col xs={4} sm={4} md={4} lg={4}>
+            <Col xs={3} sm={3} md={3} lg={3}>
             </Col>
             <Col xs={1} sm={1} md={1} lg={1}>
               <Input
@@ -140,7 +140,7 @@ class Geschaeft extends Component {
             </Col>
           </Row>
           <Row>
-            <Col xs={6} sm={6} md={6} lg={6}>
+            <Col xs={7} sm={7} md={7} lg={7}>
               <Input
                 type = 'text'
                 label = 'Direktion'
@@ -149,7 +149,7 @@ class Geschaeft extends Component {
                 className={styles.geschaeft}
               />
             </Col>
-            <Col xs={4} sm={4} md={4} lg={4}>
+            <Col xs={3} sm={3} md={3} lg={3}>
             </Col>
             <Col xs={1} sm={1} md={1} lg={1}>
               <Input
@@ -171,7 +171,7 @@ class Geschaeft extends Component {
             </Col>
           </Row>
           <Row>
-            <Col xs={6} sm={6} md={6} lg={6}>
+            <Col xs={7} sm={7} md={7} lg={7}>
               <Input
                 type = 'number'
                 label = 'ID Vorgeschäft'
@@ -180,7 +180,7 @@ class Geschaeft extends Component {
                 className = {styles.geschaeft}
               />
             </Col>
-            <Col xs={3} sm={3} md={3} lg={3} className={[styles.bereichTitel, styles.bereichTitelParlVorst].join(' ')}>
+            <Col xs={2} sm={2} md={2} lg={2} className={[styles.bereichTitel, styles.bereichTitelParlVorst].join(' ')}>
               <p className={styles.bereichTitelParlVorstP}>Parlamentarische Vorstösse</p>
             </Col>
             <Col xs={2} sm={2} md={2} lg={2}>
@@ -203,7 +203,7 @@ class Geschaeft extends Component {
             </Col>
           </Row>
           <Row>
-            <Col xs={6} sm={6} md={6} lg={6}>
+            <Col xs={7} sm={7} md={7} lg={7}>
               <Input
                 type = 'textarea'
                 label = 'Details'
@@ -212,7 +212,7 @@ class Geschaeft extends Component {
                 className={styles.geschaeft}
               />
             </Col>
-            <Col xs={6} sm={6} md={6} lg={6}>
+            <Col xs={2} sm={2} md={2} lg={2}>
               <Input
                 type = 'text'
                 label = 'Typ'
@@ -221,9 +221,11 @@ class Geschaeft extends Component {
                 className={styles.parlVorstoss}
               />
             </Col>
+            <Col xs={3} sm={3} md={3} lg={3}>
+            </Col>
           </Row>
           <Row>
-            <Col xs={6} sm={6} md={6} lg={6}>
+            <Col xs={7} sm={7} md={7} lg={7}>
               <Input
                 type = 'textarea'
                 label = 'Nächster Schritt'
@@ -254,7 +256,7 @@ class Geschaeft extends Component {
                 </div>
               </Input>
             </Col>
-            <Col xs={4} sm={4} md={4} lg={4}>
+            <Col xs={3} sm={3} md={3} lg={3}>
               <Input
                 label='Zuständigkeit'
               >
@@ -278,7 +280,7 @@ class Geschaeft extends Component {
             </Col>
           </Row>
           <Row>
-            <Col xs={6} sm={6} md={6} lg={6}>
+            <Col xs={7} sm={7} md={7} lg={7}>
               <Input
                 type = 'textarea'
                 label = 'Vermerk'
@@ -309,7 +311,7 @@ class Geschaeft extends Component {
                 </div>
               </Input>
             </Col>
-            <Col xs={4} sm={4} md={4} lg={4}>
+            <Col xs={3} sm={3} md={3} lg={3}>
               <Input
                 label='Erlassform'
               >
@@ -333,9 +335,9 @@ class Geschaeft extends Component {
             </Col>
           </Row>
           <Row>
-            <Col xs={6} sm={6} md={6} lg={6}>
+            <Col xs={7} sm={7} md={7} lg={7}>
             </Col>
-            <Col xs={6} sm={6} md={6} lg={6}>
+            <Col xs={5} sm={5} md={5} lg={5}>
             </Col>
           </Row>
         </Grid>
