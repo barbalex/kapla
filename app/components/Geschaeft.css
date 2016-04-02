@@ -22,3 +22,13 @@
   font-weight: 900;
   font-size: 16px;
 }
+
+.bereichTitelParlVorst {
+  height: 52px;
+}
+
+.bereichTitelParlVorstP {
+  position: absolute;
+  bottom: 0;
+  margin-bottom: 0;
+}

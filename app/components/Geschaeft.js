@@ -180,7 +180,8 @@ class Geschaeft extends Component {
                 className = {styles.geschaeft}
               />
             </Col>
-            <Col xs={3} sm={3} md={3} lg={3}>
+            <Col xs={3} sm={3} md={3} lg={3} className={[styles.bereichTitel, styles.bereichTitelParlVorst].join(' ')}>
+              <p className={styles.bereichTitelParlVorstP}>Parlamentarische Vorstösse</p>
             </Col>
             <Col xs={2} sm={2} md={2} lg={2}>
               <Input
@@ -211,19 +212,6 @@ class Geschaeft extends Component {
                 className={styles.geschaeft}
               />
             </Col>
-            <Col xs={6} sm={6} md={6} lg={6} className={styles.bereichTitel}>Parlamentarische Vorstösse
-            </Col>
-          </Row>
-          <Row>
-            <Col xs={6} sm={6} md={6} lg={6}>
-              <Input
-                type = 'textarea'
-                label = 'Nächster Schritt'
-                value = {geschaeft.naechsterSchritt}
-                bsSize = 'small'
-                className={styles.geschaeft}
-              />
-            </Col>
             <Col xs={6} sm={6} md={6} lg={6}>
               <Input
                 type = 'text'
@@ -238,30 +226,107 @@ class Geschaeft extends Component {
             <Col xs={6} sm={6} md={6} lg={6}>
               <Input
                 type = 'textarea'
+                label = 'Nächster Schritt'
+                value = {geschaeft.naechsterSchritt}
+                bsSize = 'small'
+                className={styles.geschaeft}
+              />
+            </Col>
+            <Col xs={2} sm={2} md={2} lg={2}>
+              <Input
+                label='Stufe'
+              >
+                <div>
+                  <label className='radio-inline'>
+                    <input
+                      type='radio'
+                      value='1'
+                      name='radio_option'
+                    /> 1
+                  </label>
+                  <label className='radio-inline'>
+                    <input
+                      type='radio'
+                      value='2'
+                      name='radio_option'
+                    /> 2
+                  </label>
+                </div>
+              </Input>
+            </Col>
+            <Col xs={4} sm={4} md={4} lg={4}>
+              <Input
+                label='Zuständigkeit'
+              >
+                <div>
+                  <label className='radio-inline'>
+                    <input
+                      type='radio'
+                      value='hauptzuständig'
+                      name='radio_option'
+                    />hauptzuständig
+                  </label>
+                  <label className='radio-inline'>
+                    <input
+                      type='radio'
+                      value='mitberichtzuständig'
+                      name='radio_option'
+                    />mitberichtzuständig
+                  </label>
+                </div>
+              </Input>
+            </Col>
+          </Row>
+          <Row>
+            <Col xs={6} sm={6} md={6} lg={6}>
+              <Input
+                type = 'textarea'
                 label = 'Vermerk'
                 value = {geschaeft.vermerk}
                 bsSize = 'small'
                 className={styles.geschaeft}
               />
             </Col>
-            <Col xs={6} sm={6} md={6} lg={6}>
+            <Col xs={2} sm={2} md={2} lg={2}>
               <Input
-                label="Inline Radios!"
+                label='Ebene'
               >
                 <div>
-                  <label className="radio-inline">
+                  <label className='radio-inline'>
                     <input
-                      type="radio"
-                      value="1"
-                      name="radio_option"
-                    /> 1
+                      type='radio'
+                      value='Kanton'
+                      name='radio_option'
+                    />Kanton
                   </label>
-                  <label className="radio-inline">
+                  <label className='radio-inline'>
                     <input
-                      type="radio"
-                      value="2"
-                      name="radio_option"
-                    /> 2
+                      type='radio'
+                      value='Bund'
+                      name='radio_option'
+                    />Bund
+                  </label>
+                </div>
+              </Input>
+            </Col>
+            <Col xs={4} sm={4} md={4} lg={4}>
+              <Input
+                label='Erlassform'
+              >
+                <div>
+                  <label className='radio-inline'>
+                    <input
+                      type='radio'
+                      value='Gesetz'
+                      name='radio_option'
+                    />Gesetz
+                  </label>
+                  <label className='radio-inline'>
+                    <input
+                      type='radio'
+                      value='Verordnung'
+                      name='radio_option'
+                    />Verordnung
                   </label>
                 </div>
               </Input>
