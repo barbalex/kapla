@@ -37,7 +37,7 @@ describe('main window', function spec() {
 
   it('should open window', async () => {
     const title = await this.driver.getTitle()
-    expect(title).to.equal('Hello Electron React!')
+    expect(title).to.equal('AWEL Rechtsdienst Kapla')
   })
 
   it('should display updated count after increment button click', async () => {
