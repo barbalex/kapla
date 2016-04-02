@@ -38,7 +38,7 @@ class Geschaeft extends Component {
             <Col xs={1} sm={1} md={1} lg={1}>
               <Input
                 type = 'number'
-                label = 'ID Nr.'
+                label = 'ID'
                 value = {geschaeft.idGeschaeft}
                 bsSize = 'small'
                 disabled
@@ -180,9 +180,7 @@ class Geschaeft extends Component {
                 className = {styles.geschaeft}
               />
             </Col>
-            <Col xs={2} sm={2} md={2} lg={2} className={[styles.bereichTitel, styles.bereichTitelParlVorst].join(' ')}>
-              <p className={styles.bereichTitelParlVorstP}>Parlamentarische Vorstösse</p>
-            </Col>
+            <Col xs={2} sm={2} md={2} lg={2}></Col>
             <Col xs={2} sm={2} md={2} lg={2}>
               <Input
                 type = 'text'
@@ -212,16 +210,8 @@ class Geschaeft extends Component {
                 className={styles.geschaeft}
               />
             </Col>
-            <Col xs={2} sm={2} md={2} lg={2}>
-              <Input
-                type = 'text'
-                label = 'Typ'
-                value = {geschaeft.parlVorstossTyp}
-                bsSize = 'small'
-                className={styles.parlVorstoss}
-              />
-            </Col>
-            <Col xs={3} sm={3} md={3} lg={3}>
+            <Col xs={5} sm={5} md={5} lg={5} className={[styles.bereichTitel, styles.bereichTitelParlVorst].join(' ')}>
+              <p className={styles.bereichTitelParlVorstP}>Parlamentarische Vorstösse</p>
             </Col>
           </Row>
           <Row>
@@ -231,50 +221,61 @@ class Geschaeft extends Component {
                 label = 'Nächster Schritt'
                 value = {geschaeft.naechsterSchritt}
                 bsSize = 'small'
-                className={styles.geschaeft}
+                className = {styles.geschaeft}
               />
-            </Col>
-            <Col xs={2} sm={2} md={2} lg={2}>
-              <Input
-                label='Stufe'
-              >
-                <div>
-                  <label className='radio-inline'>
-                    <input
-                      type='radio'
-                      value='1'
-                      name='radio_option'
-                    /> 1
-                  </label>
-                  <label className='radio-inline'>
-                    <input
-                      type='radio'
-                      value='2'
-                      name='radio_option'
-                    /> 2
-                  </label>
-                </div>
-              </Input>
             </Col>
             <Col xs={3} sm={3} md={3} lg={3}>
               <Input
-                label='Zuständigkeit'
+                type = 'text'
+                label = 'Typ'
+                value = {geschaeft.parlVorstossTyp}
+                bsSize = 'small'
+                className={styles.parlVorstoss}
+              />
+            </Col>
+            <Col xs={1} sm={1} md={1} lg={1}>
+              <Input
+                label='Stufe'
+                wrapperClassName='wrapper'
               >
-                <div>
-                  <label className='radio-inline'>
-                    <input
-                      type='radio'
-                      value='hauptzuständig'
-                      name='radio_option'
-                    />hauptzuständig
-                  </label>
-                  <label className='radio-inline'>
-                    <input
-                      type='radio'
-                      value='mitberichtzuständig'
-                      name='radio_option'
-                    />mitberichtzuständig
-                  </label>
+                <div className='verticalRadioDiv'>
+                  <Input
+                    type = 'radio'
+                    label = '1'
+                    value = '1'
+                    bsSize = 'small'
+                    name = 'parlVorstossStufe'
+                  />
+                  <Input
+                    type = 'radio'
+                    label = '2'
+                    value = '2'
+                    bsSize = 'small'
+                    name = 'parlVorstossStufe'
+                  />
+                </div>
+              </Input>
+            </Col>
+            <Col xs={1} sm={1} md={1} lg={1}>
+              <Input
+                label='Ebene'
+                wrapperClassName='wrapper'
+              >
+                <div className='verticalRadioDiv'>
+                  <Input
+                    type = 'radio'
+                    label = 'Kanton'
+                    value = 'Kanton'
+                    bsSize = 'small'
+                    name = 'parlVorstossEbene'
+                  />
+                  <Input
+                    type = 'radio'
+                    label = 'Bund'
+                    value = 'Bund'
+                    bsSize = 'small'
+                    name = 'parlVorstossEbene'
+                  />
                 </div>
               </Input>
             </Col>
@@ -289,47 +290,50 @@ class Geschaeft extends Component {
                 className={styles.geschaeft}
               />
             </Col>
-            <Col xs={2} sm={2} md={2} lg={2}>
+            <Col xs={3} sm={3} md={3} lg={3}></Col>
+            <Col xs={1} sm={1} md={1} lg={1}>
               <Input
-                label='Ebene'
+                label='Zuständigkeit'
+                wrapperClassName='wrapper'
               >
-                <div>
-                  <label className='radio-inline'>
-                    <input
-                      type='radio'
-                      value='Kanton'
-                      name='radio_option'
-                    />Kanton
-                  </label>
-                  <label className='radio-inline'>
-                    <input
-                      type='radio'
-                      value='Bund'
-                      name='radio_option'
-                    />Bund
-                  </label>
+                <div className='verticalRadioDiv'>
+                  <Input
+                    type = 'radio'
+                    label = 'haupt'
+                    value = 'hauptzuständig'
+                    bsSize = 'small'
+                    name = 'parlVorstossZustaendigkeitAwel'
+                  />
+                  <Input
+                    type = 'radio'
+                    label = 'mitbericht'
+                    value = 'mitberichtzuständig'
+                    bsSize = 'small'
+                    name = 'parlVorstossZustaendigkeitAwel'
+                  />
                 </div>
               </Input>
             </Col>
-            <Col xs={3} sm={3} md={3} lg={3}>
+            <Col xs={1} sm={1} md={1} lg={1}>
               <Input
                 label='Erlassform'
+                wrapperClassName='wrapper'
               >
-                <div>
-                  <label className='radio-inline'>
-                    <input
-                      type='radio'
-                      value='Gesetz'
-                      name='radio_option'
-                    />Gesetz
-                  </label>
-                  <label className='radio-inline'>
-                    <input
-                      type='radio'
-                      value='Verordnung'
-                      name='radio_option'
-                    />Verordnung
-                  </label>
+                <div className='verticalRadioDiv'>
+                  <Input
+                    type = 'radio'
+                    label = 'Gesetz'
+                    value = 'Gesetz'
+                    bsSize = 'small'
+                    name = 'erlassform'
+                  />
+                  <Input
+                    type = 'radio'
+                    label = 'Verordnung'
+                    value = 'Verordnung'
+                    bsSize = 'small'
+                    name = 'erlassform'
+                  />
                 </div>
               </Input>
             </Col>

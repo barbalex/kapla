@@ -4,10 +4,6 @@ body {
   font-family: Arial, Helvetica, Helvetica Neue;
 }
 
-/*p {
-  font-size: 12px;
-}*/
-
 .navbar {
   border-radius: 0;
 }
@@ -16,9 +12,14 @@ body {
   color: #828282;
   font-size: 12px;
   font-weight: 500;
-  margin-bottom: -0;
+  margin-bottom: 0;
 }
 
 .form-group {
   margin-bottom: 2px;
+}
+
+.verticalRadioDiv .radio {
+  margin-top: 0;
+  margin-bottom: -2px;
 }
