@@ -13,11 +13,12 @@ p {
 }
 
 .control-label {
-  color: #5F5E5E;
+  color: #828282;
   font-size: 12px;
-  margin-bottom: 0;
+  font-weight: 500;
+  margin-bottom: -0;
 }
 
 .form-group {
-  margin-bottom: 5px;
+  margin-bottom: 2px;
 }

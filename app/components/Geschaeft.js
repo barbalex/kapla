@@ -1,5 +1,5 @@
 import React, { Component, PropTypes } from 'react'
-import { Input, Grid, Row, Col } from 'react-bootstrap'
+import { Input, Grid, Row, Col, ButtonGroup, Button } from 'react-bootstrap'
 import styles from './Geschaeft.css'
 import Navbar from '../containers/Navbar.js'
 
@@ -20,13 +20,17 @@ class Geschaeft extends Component {
         <Navbar />
         <Grid fluid>
           <Row>
+            <Col xs={6} sm={6} md={6} lg={6} className={styles.bereichTitel}>Geschäft</Col>
+            <Col xs={6} sm={6} md={6} lg={6} className={styles.bereichTitel}>Nummern</Col>
+          </Row>
+          <Row>
             <Col xs={6} sm={6} md={6} lg={6}>
               <Input
                 type = 'textarea'
                 label = 'Gegenstand'
                 value = {geschaeft.gegenstand}
                 bsSize = 'small'
-                className = {styles.geschaeft}
+                className = {[styles.geschaeft, styles.gegenstand].join(' ')}
               />
             </Col>
             <Col xs={5} sm={5} md={5} lg={5}>
@@ -38,7 +42,7 @@ class Geschaeft extends Component {
                 value = {geschaeft.idGeschaeft}
                 bsSize = 'small'
                 disabled
-                className={styles.nr}
+                className={[styles.nr, styles.idGeschaeft].join(' ')}
               />
             </Col>
           </Row>
@@ -207,7 +211,7 @@ class Geschaeft extends Component {
                 className={styles.geschaeft}
               />
             </Col>
-            <Col xs={6} sm={6} md={6} lg={6}>
+            <Col xs={6} sm={6} md={6} lg={6} className={styles.bereichTitel}>Parlamentarische Vorstösse
             </Col>
           </Row>
           <Row>
@@ -221,6 +225,13 @@ class Geschaeft extends Component {
               />
             </Col>
             <Col xs={6} sm={6} md={6} lg={6}>
+              <Input
+                type = 'text'
+                label = 'Typ'
+                value = {geschaeft.parlVorstossTyp}
+                bsSize = 'small'
+                className={styles.parlVorstoss}
+              />
             </Col>
           </Row>
           <Row>
@@ -234,6 +245,26 @@ class Geschaeft extends Component {
               />
             </Col>
             <Col xs={6} sm={6} md={6} lg={6}>
+              <Input
+                label="Inline Radios!"
+              >
+                <div>
+                  <label className="radio-inline">
+                    <input
+                      type="radio"
+                      value="1"
+                      name="radio_option"
+                    /> 1
+                  </label>
+                  <label className="radio-inline">
+                    <input
+                      type="radio"
+                      value="2"
+                      name="radio_option"
+                    /> 2
+                  </label>
+                </div>
+              </Input>
             </Col>
           </Row>
           <Row>

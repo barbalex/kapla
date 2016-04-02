@@ -4,6 +4,10 @@
 		"selected_items":
 		[
 			[
+				"backgro",
+				"background-color"
+			],
+			[
 				"inl",
 				"inline-block"
 			],
@@ -92,84 +96,18 @@
 			}
 		},
 		{
-			"contents": "Searching 86 files for \"react-sortable-pane\" (case sensitive)\n\nC:\\Users\\alex\\kapla\\app\\components\\Home.js:\n    1  import React, { Component, PropTypes } from 'react'\n    2  import { Link } from 'react-router'\n    3: import { SortablePane, Pane } from 'react-sortable-pane'\n    4  import styles from './Home.css'\n    5  import Toolbar from '../containers/Toolbar.js'\n\nC:\\Users\\alex\\kapla\\package.json:\n  104      \"react-router\": \"2.0.1\",\n  105      \"react-router-redux\": \"4.0.0\",\n  106:     \"react-sortable-pane\": \"^0.2.3\",\n  107      \"redux\": \"3.3.1\",\n  108      \"redux-promise\": \"0.5.3\",\n\n2 matches across 2 files\n\n\nSearching 86 files for \"Toolbar\" (case sensitive, whole word)\n\nC:\\Users\\alex\\kapla\\app\\components\\Geschaefte.js:\n    2  import { Link } from 'react-router'\n    3  import styles from './Counter.css'\n    4: import Toolbar from '../containers/Toolbar.js'\n    5  \n    6  class Geschaefte extends Component {\n    .\n   26      return (\n   27        <div>\n   28:         <Toolbar />\n   29          <div className={styles.backButton}>\n   30            <Link to='/'>\n\nC:\\Users\\alex\\kapla\\app\\components\\GeschaefteList.js:\n    2  import { Grid, Row, Col } from 'react-bootstrap'\n    3  import ReactList from 'react-list'\n    4: import Toolbar from '../containers/Toolbar.js'\n    5  import styles from './GeschaefteList.css'\n    6  \n    .\n   34      return (\n   35        <div>\n   36:         <Toolbar />\n   37          <div className={styles.grid}>\n   38            <ReactList\n\nC:\\Users\\alex\\kapla\\app\\components\\Home.js:\n    2  import { Link } from 'react-router'\n    3  import styles from './Home.css'\n    4: import Toolbar from '../containers/Toolbar.js'\n    5  import GeschaefteList from '../containers/GeschaefteList.js'\n    6  \n\nC:\\Users\\alex\\kapla\\app\\containers\\Toolbar.js:\n    1  import { bindActionCreators } from 'redux'\n    2  import { connect } from 'react-redux'\n    3: import Toolbar from '../components/Toolbar'\n    4  import * as UserActions from '../actions/user'\n    5  import * as AppActions from '../actions/app'\n    .\n   17  }\n   18  \n   19: export default connect(mapStateToProps, mapDispatchToProps)(Toolbar)\n   20  \n\n11 matches across 4 files\n\n\nSearching 86 files for \"Geschaefte\" (case sensitive, whole word)\n\nC:\\Users\\alex\\kapla\\app\\components\\Geschaefte.js:\n    4  import Navbar from '../containers/Navbar.js'\n    5  \n    6: class Geschaefte extends Component {\n    7    static propTypes = {\n    8      holenGeschaefte: PropTypes.func.isRequired,\n    .\n   44  }\n   45  \n   46: export default Geschaefte\n   47  \n\nC:\\Users\\alex\\kapla\\app\\components\\GeschaefteList.js:\n    5  import styles from './GeschaefteList.css'\n    6  \n    7: class Geschaefte extends Component {\n    8    static propTypes = {\n    9      geschaefte: PropTypes.array.isRequired,\n   ..\n   60  }\n   61  \n   62: export default Geschaefte\n   63  \n\nC:\\Users\\alex\\kapla\\app\\containers\\Geschaefte.js:\n    1  import { bindActionCreators } from 'redux'\n    2  import { connect } from 'react-redux'\n    3: import Geschaefte from '../components/Geschaefte'\n    4  import * as GeschaefteActions from '../actions/geschaefte'\n    5  import * as AppActions from '../actions/app'\n    .\n   19  }\n   20  \n   21: export default connect(mapStateToProps, mapDispatchToProps)(Geschaefte)\n   22  \n\nC:\\Users\\alex\\kapla\\app\\routes.js:\n    3  import App from './containers/App'\n    4  import CounterPage from './containers/CounterPage'\n    5: import Geschaefte from './containers/Geschaefte'\n    6  import GeschaefteList from './containers/GeschaefteList'\n    7  \n    .\n   10      <IndexRoute component={GeschaefteList} />\n   11      <Route path='/counter' component={CounterPage} />\n   12:     <Route path='/geschaefte' component={Geschaefte} />\n   13      <Route path='/geschaefteList' component={GeschaefteList} />\n   14    </Route>\n\n10 matches across 4 files\n\n\nSearching 86 files for \"GeschaefteList\" (case sensitive, whole word)\n\nC:\\Users\\alex\\kapla\\app\\components\\GeschaefteList.js:\n    3  import ReactList from 'react-list'\n    4  import Navbar from '../containers/Navbar.js'\n    5: import styles from './GeschaefteList.css'\n    6  \n    7  class Geschaefte extends Component {\n\nC:\\Users\\alex\\kapla\\app\\components\\Home.js:\n    3  import styles from './Home.css'\n    4  import Navbar from '../containers/Navbar.js'\n    5: import GeschaefteList from '../containers/GeschaefteList.js'\n    6  \n    7  export default class Home extends Component {\n    .\n   30      return (\n   31        <div>\n   32:         <GeschaefteList />\n   33        </div>\n   34      )\n\nC:\\Users\\alex\\kapla\\app\\containers\\GeschaefteList.js:\n    1  import { bindActionCreators } from 'redux'\n    2  import { connect } from 'react-redux'\n    3: import GeschaefteList from '../components/GeschaefteList'\n    4  import * as UserActions from '../actions/user'\n    5  import * as GeschaefteActions from '../actions/geschaefte'\n    .\n   23  }\n   24  \n   25: export default connect(mapStateToProps, mapDispatchToProps)(GeschaefteList)\n   26  \n\nC:\\Users\\alex\\kapla\\app\\routes.js:\n    4  import CounterPage from './containers/CounterPage'\n    5  import Geschaeft from './containers/Geschaeft'\n    6: import GeschaefteList from './containers/GeschaefteList'\n    7  \n    8  export default (\n    9  <Route path='/' component={App}>\n   10:     <IndexRoute component={GeschaefteList} />\n   11      <Route path='/counter' component={CounterPage} />\n   12      <Route path='/geschaefte' component={Geschaeft} />\n   13:     <Route path='/geschaefteList' component={GeschaefteList} />\n   14    </Route>\n   15  )\n\n11 matches across 4 files\n",
-			"settings":
-			{
-				"buffer_size": 5573,
-				"line_ending": "Windows",
-				"name": "Find Results",
-				"scratch": true
-			}
-		},
-		{
 			"file": "app/components/Geschaeft.js",
 			"settings":
 			{
-				"buffer_size": 1650,
+				"buffer_size": 7581,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "app/containers/HomePage.js",
+			"file": "app/components/Geschaeft.css",
 			"settings":
 			{
-				"buffer_size": 744,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "app/containers/Geschaefte.js",
-			"settings":
-			{
-				"buffer_size": 807,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "app/components/Home.js",
-			"settings":
-			{
-				"buffer_size": 963,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "app/routes.js",
-			"settings":
-			{
-				"buffer_size": 532,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "app/containers/Geschaeft.js",
-			"settings":
-			{
-				"buffer_size": 657,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "app/components/Home.css",
-			"settings":
-			{
-				"buffer_size": 353,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "app/components/Navbar.js",
-			"settings":
-			{
-				"buffer_size": 1715,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "app/components/Geschaefte.js",
-			"settings":
-			{
-				"buffer_size": 1715,
+				"buffer_size": 81,
 				"line_ending": "Windows"
 			}
 		},
@@ -177,7 +115,23 @@
 			"file": "app/components/Geschaefte.css",
 			"settings":
 			{
-				"buffer_size": 432,
+				"buffer_size": 619,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "app/components/Geschaefte.js",
+			"settings":
+			{
+				"buffer_size": 2273,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "app/app.global.css",
+			"settings":
+			{
+				"buffer_size": 276,
 				"line_ending": "Windows"
 			}
 		}
@@ -236,24 +190,29 @@
 	],
 	"file_history":
 	[
+		"/C/Users/alex/kapla/app/components/Navbar.js",
+		"/C/Users/alex/kapla/test/e2e.js",
+		"/C/Users/alex/kapla/app/containers/HomePage.js",
 		"/C/Users/alex/kapla/app/containers/Geschaefte.js",
-		"/C/Users/alex/kapla/app/containers/Navbar.js",
+		"/C/Users/alex/kapla/app/components/Home.js",
 		"/C/Users/alex/kapla/app/routes.js",
+		"/C/Users/alex/kapla/app/containers/Geschaeft.js",
+		"/C/Users/alex/kapla/app/components/Home.css",
+		"/C/Users/alex/kapla/app/components/Geschaefte.js",
+		"/C/Users/alex/kapla/app/components/Geschaefte.css",
+		"/C/Users/alex/kapla/app/containers/Navbar.js",
 		"/C/Users/alex/kapla/app/app.global.css",
 		"/C/Users/alex/kapla/app/app.html",
 		"/C/Users/alex/kapla/app/reducers/index.js",
 		"/C/Users/alex/kapla/app/index.js",
 		"/C/Users/alex/kapla/app/containers/GeschaefteList.js",
 		"/C/Users/alex/kapla/app/components/GeschaefteList.js",
-		"/C/Users/alex/kapla/app/components/Geschaefte.js",
 		"/C/Users/alex/kapla/app/components/Toolbar.js",
 		"/C/Users/alex/kapla/app/components/GeschaefteList.css",
 		"/C/Users/alex/kapla/app/components/GeschaefteList.sik2",
 		"/C/Users/alex/kapla/app/components/GeschaefteList.sik",
-		"/C/Users/alex/kapla/app/components/Home.js",
 		"/C/Users/alex/kapla/app/reducers/geschaefte.js",
 		"/C/Users/alex/kapla/app/components/GeschaefteList_sik.js",
-		"/C/Users/alex/kapla/app/containers/HomePage.js",
 		"/C/Users/alex/kapla/app/src/initializeDb.js",
 		"/C/Users/alex/kapla/app/actions/app.js",
 		"/C/Users/alex/kapla/app/containers/Toolbar.js",
@@ -280,7 +239,6 @@
 		"/C/Users/alex/kapla/test/components/Counter.spec.js",
 		"/C/Users/alex/kapla/test/containers/CounterPage.spec.js",
 		"/C/Users/alex/kapla/test/reducers/counter.spec.js",
-		"/C/Users/alex/kapla/test/e2e.js",
 		"/C/Users/alex/kapla/test/example.js",
 		"/C/Users/alex/kapla/test/setup.js",
 		"/C/Users/alex/kapla/test/actions/counter.spec.js",
@@ -314,7 +272,6 @@
 		"/C/Users/alex/kapla/app/src/fieldnamesGeschaefte.csv",
 		"/C/Users/alex/kapla/app/components/Counter.css",
 		"/C/Users/alex/kapla/app/components/Counter.js",
-		"/C/Users/alex/kapla/app/components/Home.css",
 		"/C/Users/alex/kapla/app/containers/App.js",
 		"/C/Users/alex/kapla/app/containers/DevTools.js",
 		"/C/Users/alex/kapla/app/store/configureStore.js",
@@ -360,10 +317,7 @@
 		"/C/Users/alex/apflora_api/server.js",
 		"/C/Users/alex/apflora_api/queries/tabelleSelectApfloraNumber.js",
 		"/C/Users/alex/apflora_api/queries/tabelleSelectBeobNumber.js",
-		"/C/Users/alex/apf2_api/sql/create_databases.sql",
-		"/C/Users/alex/apflora_api/queries/feldkontrInsert.js",
-		"/C/Users/alex/apflora_api/test/feldkontrInsert.js",
-		"/C/Users/alex/apflora_api/queries/popInsertKopie.js"
+		"/C/Users/alex/apf2_api/sql/create_databases.sql"
 	],
 	"find":
 	{
@@ -388,6 +342,13 @@
 		"case_sensitive": true,
 		"find_history":
 		[
+			"lg={4} className={styles.nr}",
+			"lg={1} className={styles.nr}",
+			"col-xs-10",
+			"col-xs-2",
+			"homeStyles",
+			"Home",
+			"HomePage",
 			"GeschaefteList",
 			"Geschaeft",
 			"Geschaefte",
@@ -508,14 +469,7 @@
 			"'../queries",
 			"const mysql = require('mysql')\nconst config = require('../configuration')\nconst escapeStringForSql = require('./escapeStringForSql')\nconst connection = mysql.createConnection({\n  host: 'localhost',\n  user: config.db.userName,\n  password: config.db.passWord,\n  database: 'apflora'\n})",
 			"const mysql = require('mysql')\nconst config = require('../configuration')\nconst connection = mysql.createConnection({\n  host: 'localhost',\n  user: config.db.userName,\n  password: config.db.passWord,\n  database: 'beob'\n})",
-			"const mysql = require('mysql')\nconst config = require('../configuration')\nconst connection = mysql.createConnection({\n  host: 'localhost',\n  user: config.db.userName,\n  password: config.db.passWord,\n  database: 'apflora'\n})",
-			"feldkontrPost",
-			"\"",
-			"beobDistzutpopEvabGet",
-			"apInsertPost",
-			"config",
-			"queryLrDelarze",
-			"queryTabelleInsertApflora"
+			"const mysql = require('mysql')\nconst config = require('../configuration')\nconst connection = mysql.createConnection({\n  host: 'localhost',\n  user: config.db.userName,\n  password: config.db.passWord,\n  database: 'apflora'\n})"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -523,6 +477,10 @@
 		"regex": false,
 		"replace_history":
 		[
+			"lg={4}",
+			"lg={1}",
+			"col-xs-5",
+			"col-xs-1",
 			"Geschaefte",
 			"Geschaeft",
 			"Navbar",
@@ -646,22 +604,18 @@
 			"tpopkontr",
 			"tpopkontr_typ_werte",
 			"adresse",
-			"pop_entwicklung_werte",
-			"tpopkontrzaehl_methode_werte",
-			"tpopkontrzaehl_einheit_werte",
-			"tpopmassn",
-			"tpopmassn_typ_werte"
+			"pop_entwicklung_werte"
 		],
 		"reverse": false,
 		"show_context": true,
 		"use_buffer2": true,
-		"whole_word": true,
+		"whole_word": false,
 		"wrap": true
 	},
 	"groups":
 	[
 		{
-			"selected": 11,
+			"selected": 1,
 			"sheets":
 			[
 				{
@@ -688,206 +642,27 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 2673.0,
+						"translation.y": 495.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 11,
+					"stack_index": 5,
 					"type": "text"
 				},
 				{
 					"buffer": 1,
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 5573,
-						"regions":
-						{
-							"match":
-							{
-								"flags": 112,
-								"regions":
-								[
-									[
-										252,
-										271
-									],
-									[
-										491,
-										510
-									],
-									[
-										829,
-										836
-									],
-									[
-										857,
-										864
-									],
-									[
-										982,
-										989
-									],
-									[
-										1242,
-										1249
-									],
-									[
-										1270,
-										1277
-									],
-									[
-										1400,
-										1407
-									],
-									[
-										1625,
-										1632
-									],
-									[
-										1653,
-										1660
-									],
-									[
-										1898,
-										1905
-									],
-									[
-										1926,
-										1933
-									],
-									[
-										2131,
-										2138
-									],
-									[
-										2366,
-										2376
-									],
-									[
-										2527,
-										2537
-									],
-									[
-										2671,
-										2681
-									],
-									[
-										2828,
-										2838
-									],
-									[
-										3007,
-										3017
-									],
-									[
-										3038,
-										3048
-									],
-									[
-										3258,
-										3268
-									],
-									[
-										3428,
-										3438
-									],
-									[
-										3458,
-										3468
-									],
-									[
-										3710,
-										3720
-									],
-									[
-										4090,
-										4104
-									],
-									[
-										4312,
-										4326
-									],
-									[
-										4347,
-										4361
-									],
-									[
-										4488,
-										4502
-									],
-									[
-										4703,
-										4717
-									],
-									[
-										4738,
-										4752
-									],
-									[
-										4964,
-										4978
-									],
-									[
-										5150,
-										5164
-									],
-									[
-										5184,
-										5198
-									],
-									[
-										5306,
-										5320
-									],
-									[
-										5500,
-										5514
-									]
-								],
-								"scope": ""
-							}
-						},
-						"selection":
-						[
-							[
-								3843,
-								3843
-							]
-						],
-						"settings":
-						{
-							"detect_indentation": false,
-							"line_numbers": false,
-							"output_tag": 4,
-							"result_base_dir": "",
-							"result_file_regex": "^([^ 	].*):$",
-							"result_line_regex": "^ +([0-9]+):",
-							"scroll_past_end": true,
-							"syntax": "Packages/Default/Find Results.hidden-tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 4584.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 7,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
 					"file": "app/components/Geschaeft.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1650,
+						"buffer_size": 7581,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								0
+								4709,
+								4709
 							]
 						],
 						"settings":
@@ -897,60 +672,32 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 4257.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 3,
+					"stack_index": 0,
 					"type": "text"
 				},
 				{
-					"buffer": 3,
-					"file": "app/containers/HomePage.js",
+					"buffer": 2,
+					"file": "app/components/Geschaeft.css",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 744,
+						"buffer_size": 81,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								579,
-								391
+								78,
+								78
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 8,
-					"type": "text"
-				},
-				{
-					"buffer": 4,
-					"file": "app/containers/Geschaefte.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 807,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								236,
-								236
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax"
+							"syntax": "Packages/CSS/CSS.sublime-syntax"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -960,20 +707,50 @@
 					"type": "text"
 				},
 				{
-					"buffer": 5,
-					"file": "app/components/Home.js",
+					"buffer": 3,
+					"file": "app/components/Geschaefte.css",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 963,
+						"buffer_size": 619,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								534,
-								287
+								335,
+								335
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/CSS/CSS.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 396.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "app/components/Geschaefte.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2273,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1996,
+								1996
 							]
 						],
 						"settings":
@@ -983,182 +760,40 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 6,
-					"type": "text"
-				},
-				{
-					"buffer": 6,
-					"file": "app/routes.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 532,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								256,
-								256
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 5,
-					"type": "text"
-				},
-				{
-					"buffer": 7,
-					"file": "app/containers/Geschaeft.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 657,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								88,
-								97
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 1287.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 4,
 					"type": "text"
 				},
 				{
-					"buffer": 8,
-					"file": "app/components/Home.css",
+					"buffer": 5,
+					"file": "app/app.global.css",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 353,
+						"buffer_size": 276,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								183,
-								183
+								234,
+								234
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/CSS/CSS.sublime-syntax"
+							"syntax": "Packages/CSS/CSS.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 10,
-					"type": "text"
-				},
-				{
-					"buffer": 9,
-					"file": "app/components/Navbar.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1715,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								799,
-								799
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 495.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 9,
-					"type": "text"
-				},
-				{
-					"buffer": 10,
-					"file": "app/components/Geschaefte.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1715,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1291,
-								1291
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 990.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 2,
-					"type": "text"
-				},
-				{
-					"buffer": 11,
-					"file": "app/components/Geschaefte.css",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 432,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								161,
-								161
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/CSS/CSS.sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
 					"type": "text"
 				}
 			]
