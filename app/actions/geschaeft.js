@@ -2,11 +2,34 @@
 
 import { push } from 'react-router-redux'
 import getGeschaeft from '../src/getGeschaeft.js'
+import neuesGeschaeft from '../src/neuesGeschaeft.js'
+
+export const GESCHAEFTE_NEU_ERSTELLEN = 'GESCHAEFTE_HOLEN'
+export function erstelleNeuesGeschaeft () {
+  return (dispatch, getState) => {
+    const { app } = getState()
+    dispatch(eroeffneGeschaeft())
+    neuesGeschaeft(app.db)
+      .then((idGeschaeft) => {
+        dispatch(erhalteGeschaeft({idGeschaeft}))
+        //dispatch(push('/geschaeft'))
+      })
+      .catch((error) => dispatch(nichtEroeffnetesGeschaeft(error)))
+  }
+}
 
 export const GESCHAEFT_EROEFFNEN = 'GESCHAEFT_EROEFFNEN'
 export function eroeffneGeschaeft () {
   return {
     type: GESCHAEFT_EROEFFNEN
+  }
+}
+
+export const GESCHAEFT_NICHT_EROEFFNET = 'GESCHAEFT_NICHT_EROEFFNET'
+export function nichtEroeffnetesGeschaeft (error) {
+  return {
+    type: GESCHAEFT_NICHT_EROEFFNET,
+    error
   }
 }
 

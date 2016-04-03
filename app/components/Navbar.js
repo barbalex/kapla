@@ -6,17 +6,20 @@ import { LinkContainer } from 'react-router-bootstrap'
 class MyToolbar extends Component {
   static propTypes = {
     holenDb: PropTypes.func.isRequired,
-    username: PropTypes.string
+    username: PropTypes.string,
+    erstelleNeuesGeschaeft: PropTypes.func.isRequired
   }
 
   onClickNewGeschaeft () {
-
+    const { erstelleNeuesGeschaeft } = this.props
+    erstelleNeuesGeschaeft()
   }
 
   render() {
     const {
       holenDb,
-      username
+      username,
+      erstelleNeuesGeschaeft
     } = this.props
 
     return (
