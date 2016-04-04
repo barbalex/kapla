@@ -2,6 +2,7 @@ import React, { Component, PropTypes } from 'react'
 import { Grid, Row, Col } from 'react-bootstrap'
 import ReactList from 'react-list'
 import Navbar from '../containers/Navbar.js'
+import ModalGeschaeftDelete from '../containers/ModalGeschaeftDelete.js'
 import styles from './Geschaefte.css'
 
 class Geschaefte extends Component {
@@ -13,7 +14,8 @@ class Geschaefte extends Component {
     filterFields: PropTypes.object,
     filterFulltext: PropTypes.string,
     holenGeschaefte: PropTypes.func.isRequired,
-    holenGeschaeft: PropTypes.func.isRequired
+    holenGeschaeft: PropTypes.func.isRequired,
+    willDeleteGeschaeft: PropTypes.bool
   }
 
   componentDidMount () {
@@ -56,10 +58,12 @@ class Geschaefte extends Component {
   }
 
   render() {
-    const { geschaefte } = this.props
+    const { geschaefte, willDeleteGeschaeft } = this.props
+    console.log('Geschaefte.js, willDeleteGeschaeft', willDeleteGeschaeft)
     return (
       <div className = {styles.body}>
         <Navbar />
+        {willDeleteGeschaeft && <ModalGeschaeftDelete />}
         <div className={styles.grid}>
           <ReactList
             itemRenderer={::this.renderItem}

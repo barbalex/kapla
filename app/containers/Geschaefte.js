@@ -16,7 +16,8 @@ function mapStateToProps (state) {
     db: state.app.db,
     filterFields: state.geschaefte.filterFields,
     filterFulltext: state.geschaefte.filterFulltext,
-    geschaeft: state.geschaeft.geschaeft
+    geschaeft: state.geschaeft.geschaeft,
+    willDeleteGeschaeft: state.geschaeft.willDelete
   }
 }
 

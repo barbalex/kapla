@@ -8,7 +8,7 @@ class MyToolbar extends Component {
     holenDb: PropTypes.func.isRequired,
     username: PropTypes.string,
     erstelleNeuesGeschaeft: PropTypes.func.isRequired,
-    entferneGeschaeft: PropTypes.func.isRequired,
+    willGeschaeftEntfernen: PropTypes.func.isRequired,
     geschaeft: PropTypes.object
   }
 
@@ -18,8 +18,8 @@ class MyToolbar extends Component {
   }
 
   onClickDeleteGeschaeft (idGeschaeft) {
-    const { entferneGeschaeft } = this.props
-    entferneGeschaeft(idGeschaeft)
+    const { willGeschaeftEntfernen } = this.props
+    willGeschaeftEntfernen(idGeschaeft)
   }
 
   render() {

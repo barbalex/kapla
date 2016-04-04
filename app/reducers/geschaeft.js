@@ -3,13 +3,16 @@
 import {
   GESCHAEFT_BESTELLEN,
   GESCHAEFT_ERHALTEN,
-  GESCHAEFT_NICHT_ERHALTEN
+  GESCHAEFT_NICHT_ERHALTEN,
+  GESCHAEFT_ENTFERNEN_WILL,
+  GESCHAEFT_ENTFERNEN_WILL_NICHT
 } from '../actions/geschaeft'
 
 const standardState = {
   fetching: false,
   error: null,
-  geschaeft: {}
+  geschaeft: {},
+  willDelete: false
 }
 
 export default function geschaeft (state = standardState, action) {
@@ -30,6 +33,14 @@ export default function geschaeft (state = standardState, action) {
         fetching: false,
         error: action.error,
         geschaeft: {}
+      })
+    case GESCHAEFT_ENTFERNEN_WILL:
+      return Object.assign({}, state, {
+        willDelete: true
+      })
+    case GESCHAEFT_ENTFERNEN_WILL_NICHT:
+      return Object.assign({}, state, {
+        willDelete: false
       })
     default:
       return state

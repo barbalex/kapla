@@ -34,7 +34,7 @@ export function nichtEroeffnetesGeschaeft (error) {
   }
 }
 
-export const GESCHAEFTE_ENTFERNEN = 'GESCHAEFTE_ENTFERNEN'
+export const GESCHAEFT_ENTFERNEN = 'GESCHAEFT_ENTFERNEN'
 export function entferneGeschaeft (idGeschaeft) {
   return (dispatch, getState) => {
     const { app } = getState()
@@ -42,9 +42,26 @@ export function entferneGeschaeft (idGeschaeft) {
     deleteGeschaeft(app.db, idGeschaeft)
       .then(() => {
         dispatch(erhalteGeschaeft({}))
+        dispatch(entferneGeschaeftNicht(idGeschaeft))
+        dispatch()
         dispatch(push('/geschaefte'))
       })
       .catch((error) => dispatch(nichtGelöschtesGeschaeft(error)))
+  }
+}
+
+export const GESCHAEFT_ENTFERNEN_WILL = 'GESCHAEFT_ENTFERNEN_WILL'
+export function willGeschaeftEntfernen (idGeschaeft) {
+  return {
+    type: GESCHAEFT_ENTFERNEN_WILL,
+    idGeschaeft
+  }
+}
+
+export const GESCHAEFT_ENTFERNEN_WILL_NICHT = 'GESCHAEFT_ENTFERNEN_WILL_NICHT'
+export function entferneGeschaeftNicht (idGeschaeft) {
+  return {
+    type: GESCHAEFT_ENTFERNEN_WILL_NICHT
   }
 }
 
