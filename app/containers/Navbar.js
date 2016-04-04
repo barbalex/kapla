@@ -3,9 +3,9 @@ import { connect } from 'react-redux'
 import Navbar from '../components/Navbar'
 import * as UserActions from '../actions/user'
 import * as AppActions from '../actions/app'
-import * as GeschaeftActions from '../actions/geschaeft'
+import * as GeschaefteActions from '../actions/geschaefte'
 
-const actions = Object.assign(UserActions, AppActions, GeschaeftActions)
+const actions = Object.assign(UserActions, AppActions, GeschaefteActions)
 
 function mapStateToProps (state) {
   return {

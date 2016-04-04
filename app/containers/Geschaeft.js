@@ -1,10 +1,10 @@
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import Geschaeft from '../components/Geschaeft'
-import * as GeschaeftActions from '../actions/geschaeft'
+import * as GeschaefteActions from '../actions/geschaefte'
 import * as AppActions from '../actions/app'
 
-const actions = Object.assign(GeschaeftActions, AppActions)
+const actions = Object.assign(GeschaefteActions, AppActions)
 
 function mapStateToProps (state) {
   return {
