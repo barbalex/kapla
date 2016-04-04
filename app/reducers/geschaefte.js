@@ -9,7 +9,9 @@ import {
   GESCHAEFT_AKTIVIEREN,
   GESCHAEFT_DEAKTIVIEREN,
   GESCHAEFT_ENTFERNEN_WILL,
-  GESCHAEFT_ENTFERNEN_WILL_NICHT
+  GESCHAEFT_ENTFERNEN_WILL_NICHT,
+  GESCHAEFT_AENDERN,
+  GESCHAEFT_EROEFFNEN
 } from '../actions/geschaefte'
 
 const standardState = {
@@ -67,6 +69,17 @@ export default function geschaefte (state = standardState, action) {
     case GESCHAEFT_ENTFERNEN_WILL_NICHT:
       return Object.assign({}, state, {
         willDelete: false
+      })
+    case GESCHAEFT_AENDERN:
+      // TODO:
+      // get index of geschaeft with idGeschaeft
+      // remove that object from geschaefte
+      return Object.assign({}, state, {
+        geschaefte: ''
+      })
+    case GESCHAEFT_EROEFFNEN:
+      return Object.assign({}, state, {
+        geschaefte: [{idGeschaeft: action.idGeschaeft}, ...state.geschaefte]
       })
     default:
       return state

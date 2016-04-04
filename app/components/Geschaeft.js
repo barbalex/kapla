@@ -8,7 +8,14 @@ class Geschaeft extends Component {
   static propTypes = {
     geschaefte: PropTypes.array.isRequired,
     activeId: PropTypes.number,
-    willDeleteGeschaeft: PropTypes.bool
+    willDeleteGeschaeft: PropTypes.bool,
+    aendereGeschaeftFeld: PropTypes.func.isRequired
+  }
+
+  onChange (e, field) {
+    const { activeId, aendereGeschaeftFeld } = this.props
+    const value = e.target.value
+    aendereGeschaeftFeld(activeId, field, value)
   }
 
   render() {
@@ -36,6 +43,7 @@ class Geschaeft extends Component {
                   type = 'textarea'
                   label = 'Gegenstand'
                   value = {geschaeft.gegenstand}
+                  onChange = {this.onChange(this, 'gegenstand')}
                   bsSize = 'small'
                   className = {[styles.geschaeft, styles.gegenstand].join(' ')}
                 />

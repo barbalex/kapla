@@ -5,6 +5,7 @@
 // see: https://github.com/mapbox/node-pre-gyp/pull/187
 // solve with: http://verysimple.com/2015/05/30/using-node_sqlite3-with-electron/
 import getGeschaefte from '../src/getGeschaefte.js'
+import updateGeschaeft from '../src/updateGeschaeft.js'
 
 export const GESCHAEFTE_BESTELLEN = 'GESCHAEFTE_BESTELLEN'
 function bestelleGeschaefte () {
@@ -75,11 +76,10 @@ import deleteGeschaeft from '../src/deleteGeschaeft.js'
 export const GESCHAEFT_NEU_ERSTELLEN = 'GESCHAEFT_NEU_ERSTELLEN'
 export function erstelleNeuesGeschaeft () {
   return (dispatch, getState) => {
-    const { app, geschaefte } = getState()
-    dispatch(eroeffneGeschaeft())
+    const { app } = getState()
     neuesGeschaeft(app.db)
       .then((idGeschaeft) => {
-        geschaefte.geschaefte.unshift({idGeschaeft})
+        dispatch(eroeffneGeschaeft(idGeschaeft))
         dispatch(aktiviereGeschaeft(idGeschaeft))
         dispatch(push('/geschaeft'))
       })
@@ -88,9 +88,10 @@ export function erstelleNeuesGeschaeft () {
 }
 
 export const GESCHAEFT_EROEFFNEN = 'GESCHAEFT_EROEFFNEN'
-export function eroeffneGeschaeft () {
+export function eroeffneGeschaeft (idGeschaeft) {
   return {
-    type: GESCHAEFT_EROEFFNEN
+    type: GESCHAEFT_EROEFFNEN,
+    idGeschaeft
   }
 }
 
@@ -148,9 +149,38 @@ export function nichtGelöschtesGeschaeft (error) {
 }
 
 export const GESCHAEFT_AENDERN = 'GESCHAEFT_AENDERN'
-export function aendereGeschaeft () {
+export function aendereGeschaeft (idGeschaeft, field, value) {
   return {
-    type: GESCHAEFT_AENDERN
+    type: GESCHAEFT_AENDERN,
+    idGeschaeft,
+    field,
+    value
+  }
+}
+
+export const GESCHAEFT_AENDERN_FEHLER = 'GESCHAEFT_AENDERN_FEHLER'
+export function aendereGeschaeftFehler (error) {
+  return {
+    type: GESCHAEFT_AENDERN_FEHLER,
+    error
+  }
+}
+
+export const GESCHAEFT_AENDERE_FELD = 'GESCHAEFT_AENDERE_FELD'
+export function aendereGeschaeftFeld (idGeschaeft, field, value) {
+  return (dispatch, getState) => {
+    const { app, geschaefte } = getState()
+    dispatch(loescheGeschaeft())
+    updateGeschaeft(app.db, idGeschaeft, field, value)
+      .then(() => {
+        // update geschaeft in store
+        const geschaeft = geschaefte.geschaefte.find((g) => g.idGeschaeft === idGeschaeft)
+        geschaeft[field] = value
+      })
+      .catch((error) => {
+        // TODO: reset ui
+        dispatch(aendereGeschaeftFehler(error))
+      })
   }
 }
 
