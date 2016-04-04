@@ -4,6 +4,14 @@
 		"selected_items":
 		[
 			[
+				"marg",
+				"margin-bottom"
+			],
+			[
+				"class",
+				"className"
+			],
+			[
 				"backgro",
 				"background-color"
 			],
@@ -91,7 +99,25 @@
 			"file": "package.json",
 			"settings":
 			{
-				"buffer_size": 4227,
+				"buffer_size": 0,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"contents": "Searching 85 files for \"BrowserWindow\" (case sensitive)\n\nC:\\Users\\alex\\kapla\\main.js:\n    5  const electron = require('electron')\n    6  const app = electron.app\n    7: const BrowserWindow = electron.BrowserWindow\n    8  const Menu = electron.Menu\n    9  const crashReporter = electron.crashReporter\n   ..\n   24  \n   25  app.on('ready', () => {\n   26:   mainWindow = new BrowserWindow({ width: 1800, height: 1024 })\n   27  \n   28    mainWindow.loadURL(`file://${__dirname}/app/app.html`)\n\n3 matches in 1 file\n",
+			"settings":
+			{
+				"buffer_size": 509,
+				"line_ending": "Windows",
+				"name": "Find Results",
+				"scratch": true
+			}
+		},
+		{
+			"file": "main.js",
+			"settings":
+			{
+				"buffer_size": 5834,
 				"line_ending": "Unix"
 			}
 		},
@@ -99,7 +125,7 @@
 			"file": "app/components/Geschaeft.js",
 			"settings":
 			{
-				"buffer_size": 7581,
+				"buffer_size": 11281,
 				"line_ending": "Windows"
 			}
 		},
@@ -107,23 +133,7 @@
 			"file": "app/components/Geschaeft.css",
 			"settings":
 			{
-				"buffer_size": 81,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "app/components/Geschaefte.css",
-			"settings":
-			{
-				"buffer_size": 619,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "app/components/Geschaefte.js",
-			"settings":
-			{
-				"buffer_size": 2273,
+				"buffer_size": 391,
 				"line_ending": "Windows"
 			}
 		},
@@ -131,7 +141,7 @@
 			"file": "app/app.global.css",
 			"settings":
 			{
-				"buffer_size": 276,
+				"buffer_size": 0,
 				"line_ending": "Windows"
 			}
 		}
@@ -190,19 +200,21 @@
 	],
 	"file_history":
 	[
-		"/C/Users/alex/kapla/app/components/Navbar.js",
+		"/C/Users/alex/kapla/.gitignore",
+		"/C/Users/alex/kapla/app/app.html",
 		"/C/Users/alex/kapla/test/e2e.js",
+		"/C/Users/alex/kapla/app/components/Geschaeft1.js",
+		"/C/Users/alex/kapla/app/app.global.css",
+		"/C/Users/alex/kapla/app/components/Geschaefte.js",
+		"/C/Users/alex/kapla/app/components/Geschaefte.css",
+		"/C/Users/alex/kapla/app/components/Navbar.js",
 		"/C/Users/alex/kapla/app/containers/HomePage.js",
 		"/C/Users/alex/kapla/app/containers/Geschaefte.js",
 		"/C/Users/alex/kapla/app/components/Home.js",
 		"/C/Users/alex/kapla/app/routes.js",
 		"/C/Users/alex/kapla/app/containers/Geschaeft.js",
 		"/C/Users/alex/kapla/app/components/Home.css",
-		"/C/Users/alex/kapla/app/components/Geschaefte.js",
-		"/C/Users/alex/kapla/app/components/Geschaefte.css",
 		"/C/Users/alex/kapla/app/containers/Navbar.js",
-		"/C/Users/alex/kapla/app/app.global.css",
-		"/C/Users/alex/kapla/app/app.html",
 		"/C/Users/alex/kapla/app/reducers/index.js",
 		"/C/Users/alex/kapla/app/index.js",
 		"/C/Users/alex/kapla/app/containers/GeschaefteList.js",
@@ -315,9 +327,7 @@
 		"/C/Users/alex/apflora_api/queries/tabelleInsertMultipleApflora.js",
 		"/C/Users/alex/apflora_api/test/apfloraInsertMultiple.js",
 		"/C/Users/alex/apflora_api/server.js",
-		"/C/Users/alex/apflora_api/queries/tabelleSelectApfloraNumber.js",
-		"/C/Users/alex/apflora_api/queries/tabelleSelectBeobNumber.js",
-		"/C/Users/alex/apf2_api/sql/create_databases.sql"
+		"/C/Users/alex/apflora_api/queries/tabelleSelectApfloraNumber.js"
 	],
 	"find":
 	{
@@ -342,6 +352,13 @@
 		"case_sensitive": true,
 		"find_history":
 		[
+			"BrowserWindow",
+			"app.icns",
+			"Hello Electron React",
+			"\"",
+			"<Row>\n            <Col xs={6} sm={6} md={6} lg={6}>",
+			"\"",
+			"^",
 			"lg={4} className={styles.nr}",
 			"lg={1} className={styles.nr}",
 			"col-xs-10",
@@ -462,14 +479,7 @@
 			"\"",
 			"beobNichtZuordnen",
 			"connection",
-			"\"",
-			"apfDb from aplist",
-			"require('../routes')",
-			"'../src",
-			"'../queries",
-			"const mysql = require('mysql')\nconst config = require('../configuration')\nconst escapeStringForSql = require('./escapeStringForSql')\nconst connection = mysql.createConnection({\n  host: 'localhost',\n  user: config.db.userName,\n  password: config.db.passWord,\n  database: 'apflora'\n})",
-			"const mysql = require('mysql')\nconst config = require('../configuration')\nconst connection = mysql.createConnection({\n  host: 'localhost',\n  user: config.db.userName,\n  password: config.db.passWord,\n  database: 'beob'\n})",
-			"const mysql = require('mysql')\nconst config = require('../configuration')\nconst connection = mysql.createConnection({\n  host: 'localhost',\n  user: config.db.userName,\n  password: config.db.passWord,\n  database: 'apflora'\n})"
+			"\""
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -477,6 +487,10 @@
 		"regex": false,
 		"replace_history":
 		[
+			"'",
+			"<Row>\n            <Col xs={7} sm={7} md={7} lg={7}>",
+			"'",
+			"",
 			"lg={4}",
 			"lg={1}",
 			"col-xs-5",
@@ -600,10 +614,6 @@
 			"pop_status_werte",
 			"tpop_apberrelevant_werte",
 			"tpopber",
-			"pop_entwicklung_werte",
-			"tpopkontr",
-			"tpopkontr_typ_werte",
-			"adresse",
 			"pop_entwicklung_werte"
 		],
 		"reverse": false,
@@ -615,7 +625,7 @@
 	"groups":
 	[
 		{
-			"selected": 1,
+			"selected": 2,
 			"sheets":
 			[
 				{
@@ -624,15 +634,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 4227,
+						"buffer_size": 0,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								3984,
-								4003
+								0,
+								0
 							]
 						],
 						"settings":
@@ -642,62 +652,59 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 495.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 5,
+					"stack_index": 2,
 					"type": "text"
 				},
 				{
 					"buffer": 1,
-					"file": "app/components/Geschaeft.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 7581,
+						"buffer_size": 509,
 						"regions":
 						{
+							"match":
+							{
+								"flags": 112,
+								"regions":
+								[
+									[
+										175,
+										188
+									],
+									[
+										200,
+										213
+									],
+									[
+										371,
+										384
+									]
+								],
+								"scope": ""
+							}
 						},
 						"selection":
 						[
 							[
-								4709,
-								4709
+								381,
+								381
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 4257.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "app/components/Geschaeft.css",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 81,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								78,
-								78
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/CSS/CSS.sublime-syntax"
+							"detect_indentation": false,
+							"line_numbers": false,
+							"output_tag": 1,
+							"result_base_dir": "",
+							"result_file_regex": "^([^ 	].*):$",
+							"result_line_regex": "^ +([0-9]+):",
+							"scroll_past_end": true,
+							"syntax": "Packages/Default/Find Results.hidden-tmLanguage",
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -707,50 +714,20 @@
 					"type": "text"
 				},
 				{
-					"buffer": 3,
-					"file": "app/components/Geschaefte.css",
+					"buffer": 2,
+					"file": "main.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 619,
+						"buffer_size": 5834,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								335,
-								335
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/CSS/CSS.sublime-syntax",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 396.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 3,
-					"type": "text"
-				},
-				{
-					"buffer": 4,
-					"file": "app/components/Geschaefte.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 2273,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1996,
-								1996
+								539,
+								539
 							]
 						],
 						"settings":
@@ -760,7 +737,65 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 1287.0,
+						"translation.y": 191.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "app/components/Geschaeft.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 11281,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								9131,
+								9131
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 8896.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "app/components/Geschaeft.css",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 391,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								82,
+								82
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/CSS/CSS.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 4,
@@ -772,28 +807,26 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 276,
+						"buffer_size": 0,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								234,
-								234
+								0,
+								0
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/CSS/CSS.sublime-syntax",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
+							"syntax": "Packages/CSS/CSS.sublime-syntax"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 2,
+					"stack_index": 5,
 					"type": "text"
 				}
 			]

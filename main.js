@@ -23,7 +23,7 @@ app.on('window-all-closed', () => {
 })
 
 app.on('ready', () => {
-  mainWindow = new BrowserWindow({ width: 1800, height: 1024, icon: './app/etc/zhLion.png' })
+  mainWindow = new BrowserWindow({ width: 1800, height: 1024, icon: './app/etc/zh3.png' })
 
   mainWindow.loadURL(`file://${__dirname}/app/app.html`)
 
