@@ -69,18 +69,18 @@ export function filtereGeschaefteNachVolltext (filter) {
 'use strict'
 
 import { push } from 'react-router-redux'
-import getGeschaeft from '../src/getGeschaeft.js'
 import neuesGeschaeft from '../src/newGeschaeft.js'
 import deleteGeschaeft from '../src/deleteGeschaeft.js'
 
 export const GESCHAEFT_NEU_ERSTELLEN = 'GESCHAEFT_NEU_ERSTELLEN'
 export function erstelleNeuesGeschaeft () {
   return (dispatch, getState) => {
-    const { app } = getState()
+    const { app, geschaefte } = getState()
     dispatch(eroeffneGeschaeft())
     neuesGeschaeft(app.db)
-      .then((geschaeft) => {
-        dispatch(erhalteGeschaeft(geschaeft))
+      .then((idGeschaeft) => {
+        geschaefte.geschaefte.unshift({idGeschaeft})
+        dispatch(erhalteGeschaeft(idGeschaeft))
         dispatch(push('/geschaeft'))
       })
       .catch((error) => dispatch(nichtEroeffnetesGeschaeft(error)))
@@ -109,9 +109,8 @@ export function entferneGeschaeft (idGeschaeft) {
     dispatch(loescheGeschaeft())
     deleteGeschaeft(app.db, idGeschaeft)
       .then(() => {
-        dispatch(erhalteGeschaeft({}))
+        dispatch(erhalteGeschaeft(null))
         dispatch(entferneGeschaeftNicht(idGeschaeft))
-        dispatch()
         dispatch(push('/geschaefte'))
       })
       .catch((error) => dispatch(nichtGelöschtesGeschaeft(error)))
@@ -155,18 +154,11 @@ export function aendereGeschaeft () {
   }
 }
 
-export const GESCHAEFT_BESTELLEN = 'GESCHAEFT_BESTELLEN'
-function bestelleGeschaeft () {
-  return {
-    type: GESCHAEFT_BESTELLEN
-  }
-}
-
 export const GESCHAEFT_ERHALTEN = 'GESCHAEFT_ERHALTEN'
-function erhalteGeschaeft (geschaeft) {
+function erhalteGeschaeft (idGeschaeft) {
   return {
     type: GESCHAEFT_ERHALTEN,
-    geschaeft
+    idGeschaeft
   }
 }
 
@@ -181,14 +173,14 @@ function nichtErhaltenesGeschaeft (error) {
 export const GESCHAEFT_HOLEN = 'GESCHAEFT_HOLEN'
 export function holenGeschaeft (idGeschaeft) {
   return (dispatch, getState) => {
-    const { app } = getState()
-    dispatch(bestelleGeschaeft())
-    getGeschaeft(app.db, idGeschaeft)
-      .then((geschaeft) => {
-        dispatch(erhalteGeschaeft(geschaeft))
-        dispatch(push('/geschaeft'))
-      })
-      .catch((error) => dispatch(nichtErhaltenesGeschaeft(error)))
+    const { geschaefte } = getState()
+    const geschaeft = geschaefte.geschaefte.find((geschaeft) => geschaeft.idGeschaeft === idGeschaeft)
+    if (geschaeft) {
+      dispatch(erhalteGeschaeft(idGeschaeft))
+      dispatch(push('/geschaeft'))
+    } else {
+      dispatch(nichtErhaltenesGeschaeft(`kein Geschäft mit ID ${idGeschaeft} gefunden`))
+    }
   }
 }
 

@@ -15,7 +15,8 @@ class Geschaefte extends Component {
     filterFulltext: PropTypes.string,
     holenGeschaefte: PropTypes.func.isRequired,
     holenGeschaeft: PropTypes.func.isRequired,
-    willDeleteGeschaeft: PropTypes.bool
+    willDeleteGeschaeft: PropTypes.bool,
+    activeId: PropTypes.number
   }
 
   componentDidMount () {
@@ -27,13 +28,12 @@ class Geschaefte extends Component {
 
   onClickGeschaeft (idGeschaeft) {
     const { holenGeschaeft } = this.props
-    console.log('geschaeft clicked, id:', idGeschaeft)
     holenGeschaeft(idGeschaeft)
   }
 
   renderItem (index, key) {
-    const { geschaefte, geschaeft } = this.props
-    const isActive = geschaeft && geschaeft.idGeschaeft && geschaeft.idGeschaeft === geschaefte[index].idGeschaeft
+    const { geschaefte, activeId } = this.props
+    const isActive = activeId && activeId === geschaefte[index].idGeschaeft
     const className = isActive ? [styles.row, styles.active].join(' ') : styles.row
     return (
       <Row
@@ -59,7 +59,6 @@ class Geschaefte extends Component {
 
   render() {
     const { geschaefte, willDeleteGeschaeft } = this.props
-    console.log('Geschaefte.js, willDeleteGeschaeft', willDeleteGeschaeft)
     return (
       <div className = {styles.body}>
         <Navbar />

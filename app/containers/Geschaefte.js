@@ -3,10 +3,9 @@ import { connect } from 'react-redux'
 import Geschaefte from '../components/Geschaefte'
 import * as UserActions from '../actions/user'
 import * as GeschaefteActions from '../actions/geschaefte'
-import * as GeschaeftActions from '../actions/geschaeft'
 import * as AppActions from '../actions/app'
 
-const actions = Object.assign(GeschaefteActions, GeschaeftActions, AppActions, UserActions)
+const actions = Object.assign(GeschaefteActions, AppActions, UserActions)
 
 function mapStateToProps (state) {
   return {
@@ -16,8 +15,8 @@ function mapStateToProps (state) {
     db: state.app.db,
     filterFields: state.geschaefte.filterFields,
     filterFulltext: state.geschaefte.filterFulltext,
-    geschaeft: state.geschaeft.geschaeft,
-    willDeleteGeschaeft: state.geschaeft.willDelete
+    activeId: state.geschaefte.activeId,
+    willDeleteGeschaeft: state.geschaefte.willDelete
   }
 }
 

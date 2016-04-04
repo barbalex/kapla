@@ -9,7 +9,7 @@ class MyToolbar extends Component {
     username: PropTypes.string,
     erstelleNeuesGeschaeft: PropTypes.func.isRequired,
     willGeschaeftEntfernen: PropTypes.func.isRequired,
-    geschaeft: PropTypes.object
+    activeId: PropTypes.number
   }
 
   onClickNewGeschaeft () {
@@ -27,10 +27,8 @@ class MyToolbar extends Component {
       holenDb,
       username,
       erstelleNeuesGeschaeft,
-      geschaeft
+      activeId
     } = this.props
-    const geschaeftIsActive = Object.keys(geschaeft).length > 0
-    console.log('geschaeftIsActive', geschaeftIsActive)
 
     return (
       <Navbar inverse fluid>
@@ -59,16 +57,14 @@ class MyToolbar extends Component {
               title='neues Geschäft'>
               <Glyphicon glyph='plus' />
             </NavItem>
-            geschaeftIsActive && (
-              <NavItem
-                eventKey = {5}
-                onClick = {this.onClickDeleteGeschaeft.bind(this, geschaeft.idGeschaeft)}
-                title = 'Geschäft löschen'
-                disabled = {!geschaeftIsActive}
-              >
-                <Glyphicon glyph = 'trash' />
-              </NavItem>
-            )
+            <NavItem
+              eventKey = {5}
+              onClick = {this.onClickDeleteGeschaeft.bind(this, activeId)}
+              title = 'Geschäft löschen'
+              disabled = {!activeId}
+            >
+              <Glyphicon glyph = 'trash' />
+            </NavItem>
           </Nav>
           <Nav pullRight>
             <NavDropdown eventKey={4} title='Menu' id='basic-nav-dropdown'>

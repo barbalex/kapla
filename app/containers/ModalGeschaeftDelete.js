@@ -1,7 +1,7 @@
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import ModalGeschaeftDelete from '../components/ModalGeschaeftDelete'
-import * as GeschaeftActions from '../actions/geschaeft'
+import * as GeschaefteActions from '../actions/geschaefte'
 
 function mapStateToProps (state) {
   return {
@@ -10,7 +10,7 @@ function mapStateToProps (state) {
 }
 
 function mapDispatchToProps (dispatch) {
-  return bindActionCreators(GeschaeftActions, dispatch)
+  return bindActionCreators(GeschaefteActions, dispatch)
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(ModalGeschaeftDelete)
