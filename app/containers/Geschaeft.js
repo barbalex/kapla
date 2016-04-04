@@ -9,7 +9,8 @@ const actions = Object.assign(GeschaefteActions, AppActions)
 function mapStateToProps (state) {
   return {
     geschaefte: state.geschaefte.geschaefte,
-    activeId: state.geschaefte.activeId
+    activeId: state.geschaefte.activeId,
+    willDeleteGeschaeft: state.geschaefte.willDelete
   }
 }
 

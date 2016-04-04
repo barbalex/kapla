@@ -2,17 +2,20 @@ import React, { Component, PropTypes } from 'react'
 import { Input, Grid, Row, Col, ButtonGroup, Button } from 'react-bootstrap'
 import styles from './Geschaeft.css'
 import Navbar from '../containers/Navbar.js'
+import ModalGeschaeftDelete from '../containers/ModalGeschaeftDelete.js'
 
 class Geschaeft extends Component {
   static propTypes = {
     geschaefte: PropTypes.array.isRequired,
-    activeId: PropTypes.number
+    activeId: PropTypes.number,
+    willDeleteGeschaeft: PropTypes.bool
   }
 
   render() {
     const {
       geschaefte,
-      activeId
+      activeId,
+      willDeleteGeschaeft
     } = this.props
 
     const geschaeft = geschaefte.find((geschaeft) => geschaeft.idGeschaeft === activeId)
@@ -20,6 +23,7 @@ class Geschaeft extends Component {
     if (geschaeft && geschaeft.idGeschaeft) {
       return (
         <div>
+          {willDeleteGeschaeft && <ModalGeschaeftDelete />}
           <Navbar />
           <Grid fluid>
             <Row>
