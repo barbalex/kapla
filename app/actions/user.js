@@ -27,12 +27,16 @@ export function didntGetUsername (error) {
 }
 
 export function fetchUsername () {
-  return dispatch => {
-    const username = getMyName.sync()
-    if (username) {
-      dispatch(gotUsername(username))
-    } else {
-      dispatch(didntGetUsername('keinen Benutzernamen erhalten'))
+  return (dispatch, getState) => {
+    // first check if username has not yet been gotten
+    const { user } = getState()
+    if (!user.username) {
+      const username = getMyName.sync()
+      if (username) {
+        dispatch(gotUsername(username))
+      } else {
+        dispatch(didntGetUsername('keinen Benutzernamen erhalten'))
+      }
     }
   }
 }

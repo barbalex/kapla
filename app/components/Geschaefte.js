@@ -19,8 +19,9 @@ class Geschaefte extends Component {
     activeId: PropTypes.number
   }
 
-  componentDidMount () {
+  componentWillMount () {
     const { fetchUsername, holeDbAusConfig, holenGeschaefte, filterFields, filterFulltext } = this.props
+    console.log('components/Geschaefte, componentWillMount')
     fetchUsername()
     holeDbAusConfig()
     holenGeschaefte(filterFields, filterFulltext)

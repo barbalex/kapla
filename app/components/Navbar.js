@@ -42,7 +42,7 @@ class MyToolbar extends Component {
         </Navbar.Header>
         <Navbar.Collapse>
           <Nav>
-            <LinkContainer to={{ pathname: '/' }}>
+            <LinkContainer to={{ pathname: '/geschaefte' }}>
               <NavItem eventKey={1} href='#'>Geschäfte</NavItem>
             </LinkContainer>
             <LinkContainer to={{ pathname: '/geschaeft' }}>

@@ -5,14 +5,14 @@ class ModalGeschaeftDelete extends Component {
   static propTypes = {
     entferneGeschaeft: PropTypes.func.isRequired,
     entferneGeschaeftNicht: PropTypes.func.isRequired,
-    geschaeft: PropTypes.object.isRequired
+    activeId: PropTypes.number
   }
 
   render() {
     const {
       entferneGeschaeft,
       entferneGeschaeftNicht,
-      geschaeft
+      activeId
     } = this.props
 
     return (
@@ -22,12 +22,12 @@ class ModalGeschaeftDelete extends Component {
         </Modal.Header>
 
         <Modal.Body>
-          Möchten Sie das Geschäft Nr. {geschaeft.idGeschaeft} wirklich löschen?
+          Möchten Sie das Geschäft Nr. {activeId} wirklich löschen?
         </Modal.Body>
 
         <Modal.Footer>
           <Button onClick={() => entferneGeschaeftNicht()}>Nein</Button>
-          <Button bsStyle='primary' onClick={() => entferneGeschaeft(geschaeft.idGeschaeft)}>Ja</Button>
+          <Button bsStyle='primary' onClick={() => entferneGeschaeft(activeId)}>Ja</Button>
         </Modal.Footer>
 
       </Modal.Dialog>

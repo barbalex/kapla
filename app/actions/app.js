@@ -31,13 +31,17 @@ function nichtGewaehlteDb (error) {
 
 export const DB_AUS_CONFIG_HOLEN = 'DB_AUS_CONFIG_HOLEN'
 export function holeDbAusConfig () {
-  return dispatch => {
-    const dbPath = getConfig().dbPath
-    if (!dbPath) {
-      dispatch(holenDb())
-    } else {
-      const db = new sqlite3.Database(dbPath)
-      dispatch(erhalteDb(dbPath, db))
+  return (dispatch, getState) => {
+    // only do this if not yet done
+    const { app } = getState()
+    if (!app.dbPath) {
+      const dbPath = getConfig().dbPath
+      if (!dbPath) {
+        dispatch(holenDb())
+      } else {
+        const db = new sqlite3.Database(dbPath)
+        dispatch(erhalteDb(dbPath, db))
+      }
     }
   }
 }

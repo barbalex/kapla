@@ -5,7 +5,7 @@ import * as GeschaefteActions from '../actions/geschaefte'
 
 function mapStateToProps (state) {
   return {
-    geschaeft: state.geschaeft.geschaeft
+    activeId: state.geschaefte.activeId
   }
 }
 
