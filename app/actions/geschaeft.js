@@ -10,8 +10,8 @@ export function erstelleNeuesGeschaeft () {
     const { app } = getState()
     dispatch(eroeffneGeschaeft())
     neuesGeschaeft(app.db)
-      .then((idGeschaeft) => {
-        dispatch(erhalteGeschaeft({idGeschaeft}))
+      .then((geschaeft) => {
+        dispatch(erhalteGeschaeft(geschaeft))
         dispatch(push('/geschaeft'))
       })
       .catch((error) => dispatch(nichtEroeffnetesGeschaeft(error)))

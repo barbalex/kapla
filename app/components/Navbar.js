@@ -4,10 +4,6 @@ import { Link } from 'react-router'
 import { LinkContainer } from 'react-router-bootstrap'
 
 class MyToolbar extends Component {
-  /*constructor(props) {
-    super(props);
-  }*/
-
   static propTypes = {
     holenDb: PropTypes.func.isRequired,
     username: PropTypes.string,
@@ -15,9 +11,7 @@ class MyToolbar extends Component {
   }
 
   onClickNewGeschaeft () {
-    console.log('onClickNewGeschaeft, this', this)
     const { erstelleNeuesGeschaeft } = this.props
-    console.log('onClickNewGeschaeft, erstelleNeuesGeschaeft', erstelleNeuesGeschaeft)
     erstelleNeuesGeschaeft()
   }
 
