@@ -43,7 +43,7 @@ class MyToolbar extends Component {
             <LinkContainer to={{ pathname: '/filter' }}>
               <NavItem eventKey={3} href='#'>Filter</NavItem>
             </LinkContainer>
-            <NavItem eventKey={4} onClick={this.onClickNewGeschaeft.bind(this)} title='neues Geschäft' href='#'><Glyphicon glyph='plus' /></NavItem>
+            <NavItem eventKey={4} onClick={this.onClickNewGeschaeft.bind(this)} title='neues Geschäft'><Glyphicon glyph='plus' /></NavItem>
           </Nav>
           <Nav pullRight>
             <NavDropdown eventKey={4} title='Menu' id='basic-nav-dropdown'>
