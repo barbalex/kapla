@@ -16,10 +16,7 @@ export default function (db) {
      */
     db.run(sql, function (error, result) {
       if (error) reject(error)
-      const geschaeft = {
-        idGeschaeft: this.lastID
-      }
-      resolve(geschaeft)
+      resolve(this.lastID)
     })
   })
 }

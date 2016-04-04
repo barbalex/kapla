@@ -21,7 +21,6 @@ class Geschaefte extends Component {
 
   componentWillMount () {
     const { fetchUsername, holeDbAusConfig, holenGeschaefte, filterFields, filterFulltext } = this.props
-    console.log('components/Geschaefte, componentWillMount')
     fetchUsername()
     holeDbAusConfig()
     holenGeschaefte(filterFields, filterFulltext)
@@ -36,6 +35,7 @@ class Geschaefte extends Component {
     const { geschaefte, activeId } = this.props
     const isActive = activeId && activeId === geschaefte[index].idGeschaeft
     const className = isActive ? [styles.row, styles.active].join(' ') : styles.row
+
     return (
       <Row
         key={key}
