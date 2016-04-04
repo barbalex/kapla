@@ -8,6 +8,8 @@ export default function (db, idGeschaeft) {
       WHERE
         idGeschaeft = ${idGeschaeft}`
 
+    console.log('deleteGeschaeft.js, sql', sql)
+
     db.run(sql, function (error, result) {
       if (error) reject(error)
       resolve(true)

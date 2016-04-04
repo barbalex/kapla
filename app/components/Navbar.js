@@ -7,7 +7,9 @@ class MyToolbar extends Component {
   static propTypes = {
     holenDb: PropTypes.func.isRequired,
     username: PropTypes.string,
-    erstelleNeuesGeschaeft: PropTypes.func.isRequired
+    erstelleNeuesGeschaeft: PropTypes.func.isRequired,
+    entferneGeschaeft: PropTypes.func.isRequired,
+    geschaeft: PropTypes.object
   }
 
   onClickNewGeschaeft () {
@@ -15,12 +17,20 @@ class MyToolbar extends Component {
     erstelleNeuesGeschaeft()
   }
 
+  onClickDeleteGeschaeft (idGeschaeft) {
+    const { entferneGeschaeft } = this.props
+    entferneGeschaeft(idGeschaeft)
+  }
+
   render() {
     const {
       holenDb,
       username,
-      erstelleNeuesGeschaeft
+      erstelleNeuesGeschaeft,
+      geschaeft
     } = this.props
+    const geschaeftIsActive = Object.keys(geschaeft).length > 0
+    console.log('geschaeftIsActive', geschaeftIsActive)
 
     return (
       <Navbar inverse fluid>
@@ -43,7 +53,22 @@ class MyToolbar extends Component {
             <LinkContainer to={{ pathname: '/filter' }}>
               <NavItem eventKey={3} href='#'>Filter</NavItem>
             </LinkContainer>
-            <NavItem eventKey={4} onClick={this.onClickNewGeschaeft.bind(this)} title='neues Geschäft'><Glyphicon glyph='plus' /></NavItem>
+            <NavItem
+              eventKey={4}
+              onClick={this.onClickNewGeschaeft.bind(this)}
+              title='neues Geschäft'>
+              <Glyphicon glyph='plus' />
+            </NavItem>
+            geschaeftIsActive && (
+              <NavItem
+                eventKey = {5}
+                onClick = {this.onClickDeleteGeschaeft.bind(this, geschaeft.idGeschaeft)}
+                title = 'Geschäft löschen'
+                disabled = {!geschaeftIsActive}
+              >
+                <Glyphicon glyph = 'trash' />
+              </NavItem>
+            )
           </Nav>
           <Nav pullRight>
             <NavDropdown eventKey={4} title='Menu' id='basic-nav-dropdown'>

@@ -3,8 +3,9 @@
 import { push } from 'react-router-redux'
 import getGeschaeft from '../src/getGeschaeft.js'
 import neuesGeschaeft from '../src/newGeschaeft.js'
+import deleteGeschaeft from '../src/deleteGeschaeft.js'
 
-export const GESCHAEFTE_NEU_ERSTELLEN = 'GESCHAEFTE_HOLEN'
+export const GESCHAEFTE_NEU_ERSTELLEN = 'GESCHAEFTE_NEU_ERSTELLEN'
 export function erstelleNeuesGeschaeft () {
   return (dispatch, getState) => {
     const { app } = getState()
@@ -33,10 +34,32 @@ export function nichtEroeffnetesGeschaeft (error) {
   }
 }
 
+export const GESCHAEFTE_ENTFERNEN = 'GESCHAEFTE_ENTFERNEN'
+export function entferneGeschaeft (idGeschaeft) {
+  return (dispatch, getState) => {
+    const { app } = getState()
+    dispatch(loescheGeschaeft())
+    deleteGeschaeft(app.db, idGeschaeft)
+      .then(() => {
+        dispatch(erhalteGeschaeft({}))
+        dispatch(push('/geschaefte'))
+      })
+      .catch((error) => dispatch(nichtGelöschtesGeschaeft(error)))
+  }
+}
+
 export const GESCHAEFT_LOESCHEN = 'GESCHAEFT_LOESCHEN'
 export function loescheGeschaeft () {
   return {
     type: GESCHAEFT_LOESCHEN
+  }
+}
+
+export const GESCHAEFT_NICHT_GELOESCHT = 'GESCHAEFT_NICHT_GELOESCHT'
+export function nichtGelöschtesGeschaeft (error) {
+  return {
+    type: GESCHAEFT_NICHT_GELOESCHT,
+    error
   }
 }
 
