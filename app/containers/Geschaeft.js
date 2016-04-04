@@ -7,11 +7,9 @@ import * as AppActions from '../actions/app'
 const actions = Object.assign(GeschaefteActions, AppActions)
 
 function mapStateToProps (state) {
-  const activeId = state.geschaefte.activeId
-  const geschaeft = state.geschaefte.geschaefte.find((geschaeft) => geschaeft.idGeschaeft === activeId)
-  console.log('container/Geschaeft.js, geschaeft', geschaeft)
   return {
-    geschaeft: geschaeft
+    geschaefte: state.geschaefte.geschaefte,
+    activeId: state.geschaefte.activeId
   }
 }
 

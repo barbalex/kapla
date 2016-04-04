@@ -5,15 +5,17 @@ import Navbar from '../containers/Navbar.js'
 
 class Geschaeft extends Component {
   static propTypes = {
-    holenGeschaeft: PropTypes.func.isRequired,
-    geschaeft: PropTypes.object.isRequired
+    geschaefte: PropTypes.array.isRequired,
+    activeId: PropTypes.number
   }
 
   render() {
     const {
-      holenGeschaeft,
-      geschaeft
+      geschaefte,
+      activeId
     } = this.props
+
+    const geschaeft = geschaefte.find((geschaeft) => geschaeft.idGeschaeft === activeId)
 
     return (
       <div>

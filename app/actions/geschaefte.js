@@ -80,7 +80,7 @@ export function erstelleNeuesGeschaeft () {
     neuesGeschaeft(app.db)
       .then((idGeschaeft) => {
         geschaefte.geschaefte.unshift({idGeschaeft})
-        dispatch(erhalteGeschaeft(idGeschaeft))
+        dispatch(aktiviereGeschaeft(idGeschaeft))
         dispatch(push('/geschaeft'))
       })
       .catch((error) => dispatch(nichtEroeffnetesGeschaeft(error)))
@@ -109,7 +109,7 @@ export function entferneGeschaeft (idGeschaeft) {
     dispatch(loescheGeschaeft())
     deleteGeschaeft(app.db, idGeschaeft)
       .then(() => {
-        dispatch(erhalteGeschaeft(null))
+        dispatch(aktiviereGeschaeft(null))
         dispatch(entferneGeschaeftNicht(idGeschaeft))
         dispatch(push('/geschaefte'))
       })
@@ -154,33 +154,13 @@ export function aendereGeschaeft () {
   }
 }
 
-export const GESCHAEFT_ERHALTEN = 'GESCHAEFT_ERHALTEN'
-function erhalteGeschaeft (idGeschaeft) {
-  return {
-    type: GESCHAEFT_ERHALTEN,
-    idGeschaeft
+export const GESCHAEFT_AKTIVIEREN = 'GESCHAEFT_AKTIVIEREN'
+export function aktiviereGeschaeft (idGeschaeft) {
+  return (dispatch) => {
+    dispatch({
+      type: GESCHAEFT_AKTIVIEREN,
+      idGeschaeft
+    })
+    dispatch(push('/geschaeft'))
   }
 }
-
-export const GESCHAEFT_NICHT_ERHALTEN = 'GESCHAEFT_NICHT_ERHALTEN'
-function nichtErhaltenesGeschaeft (error) {
-  return {
-    type: GESCHAEFT_NICHT_ERHALTEN,
-    error
-  }
-}
-
-export const GESCHAEFT_HOLEN = 'GESCHAEFT_HOLEN'
-export function holenGeschaeft (idGeschaeft) {
-  return (dispatch, getState) => {
-    const { geschaefte } = getState()
-    const geschaeft = geschaefte.geschaefte.find((geschaeft) => geschaeft.idGeschaeft === idGeschaeft)
-    if (geschaeft) {
-      dispatch(erhalteGeschaeft(idGeschaeft))
-      dispatch(push('/geschaeft'))
-    } else {
-      dispatch(nichtErhaltenesGeschaeft(`kein Geschäft mit ID ${idGeschaeft} gefunden`))
-    }
-  }
-}
-

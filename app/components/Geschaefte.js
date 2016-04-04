@@ -14,7 +14,7 @@ class Geschaefte extends Component {
     filterFields: PropTypes.object,
     filterFulltext: PropTypes.string,
     holenGeschaefte: PropTypes.func.isRequired,
-    holenGeschaeft: PropTypes.func.isRequired,
+    aktiviereGeschaeft: PropTypes.func.isRequired,
     willDeleteGeschaeft: PropTypes.bool,
     activeId: PropTypes.number
   }
@@ -27,8 +27,8 @@ class Geschaefte extends Component {
   }
 
   onClickGeschaeft (idGeschaeft) {
-    const { holenGeschaeft } = this.props
-    holenGeschaeft(idGeschaeft)
+    const { aktiviereGeschaeft } = this.props
+    aktiviereGeschaeft(idGeschaeft)
   }
 
   renderItem (index, key) {

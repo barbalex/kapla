@@ -54,7 +54,7 @@ export default function geschaefte (state = standardState, action) {
       })
     case GESCHAEFT_AKTIVIEREN:
       return Object.assign({}, state, {
-        activeId: action.activeId
+        activeId: action.idGeschaeft
       })
     case GESCHAEFT_DEAKTIVIEREN:
       return Object.assign({}, state, {
