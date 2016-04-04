@@ -2,7 +2,7 @@
 
 import { push } from 'react-router-redux'
 import getGeschaeft from '../src/getGeschaeft.js'
-import neuesGeschaeft from '../src/neuesGeschaeft.js'
+import neuesGeschaeft from '../src/newGeschaeft.js'
 
 export const GESCHAEFTE_NEU_ERSTELLEN = 'GESCHAEFTE_HOLEN'
 export function erstelleNeuesGeschaeft () {
@@ -12,7 +12,7 @@ export function erstelleNeuesGeschaeft () {
     neuesGeschaeft(app.db)
       .then((idGeschaeft) => {
         dispatch(erhalteGeschaeft({idGeschaeft}))
-        //dispatch(push('/geschaeft'))
+        dispatch(push('/geschaeft'))
       })
       .catch((error) => dispatch(nichtEroeffnetesGeschaeft(error)))
   }

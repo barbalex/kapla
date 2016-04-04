@@ -4,6 +4,10 @@ import { Link } from 'react-router'
 import { LinkContainer } from 'react-router-bootstrap'
 
 class MyToolbar extends Component {
+  /*constructor(props) {
+    super(props);
+  }*/
+
   static propTypes = {
     holenDb: PropTypes.func.isRequired,
     username: PropTypes.string,
@@ -11,7 +15,9 @@ class MyToolbar extends Component {
   }
 
   onClickNewGeschaeft () {
+    console.log('onClickNewGeschaeft, this', this)
     const { erstelleNeuesGeschaeft } = this.props
+    console.log('onClickNewGeschaeft, erstelleNeuesGeschaeft', erstelleNeuesGeschaeft)
     erstelleNeuesGeschaeft()
   }
 
@@ -43,7 +49,7 @@ class MyToolbar extends Component {
             <LinkContainer to={{ pathname: '/filter' }}>
               <NavItem eventKey={3} href='#'>Filter</NavItem>
             </LinkContainer>
-            <NavItem eventKey={4} onClick={this.onClickNewGeschaeft} title='neues Geschäft'><Glyphicon glyph='plus' /></NavItem>
+            <NavItem eventKey={4} onClick={this.onClickNewGeschaeft.bind(this)} title='neues Geschäft' href='#'><Glyphicon glyph='plus' /></NavItem>
           </Nav>
           <Nav pullRight>
             <NavDropdown eventKey={4} title='Menu' id='basic-nav-dropdown'>
