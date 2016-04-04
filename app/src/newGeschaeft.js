@@ -1,7 +1,6 @@
 'use strict'
 
 export default function (db) {
-  console.log('newGeschaeft.js, db', db)
   return new Promise((resolve, reject) => {
     const sql = `
       INSERT INTO
