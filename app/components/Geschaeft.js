@@ -297,7 +297,6 @@ class Geschaeft extends Component {
                       type = 'radio'
                       label = '1'
                       data-value = {1}
-                      value = {geschaeft.parlVorstossStufe}
                       checked = {geschaeft.parlVorstossStufe == 1}
                       onChange = {this.change}
                       bsSize = 'small'
@@ -307,7 +306,6 @@ class Geschaeft extends Component {
                       type = 'radio'
                       label = '2'
                       data-value = {2}
-                      value = {geschaeft.parlVorstossStufe}
                       checked = {geschaeft.parlVorstossStufe == 2}
                       name = 'parlVorstossStufe'
                       onChange = {this.change}
@@ -326,7 +324,6 @@ class Geschaeft extends Component {
                       type = 'radio'
                       label = 'Kanton'
                       data-value = 'Kanton'
-                      value = {geschaeft.parlVorstossEbene}
                       checked = {geschaeft.parlVorstossEbene === 'Kanton'}
                       name = 'parlVorstossEbene'
                       onChange = {this.change}
@@ -336,7 +333,6 @@ class Geschaeft extends Component {
                       type = 'radio'
                       label = 'Bund'
                       data-value = 'Bund'
-                      value = {geschaeft.parlVorstossEbene}
                       checked = {geschaeft.parlVorstossEbene === 'Bund'}
                       onChange = {this.change}
                       name = 'parlVorstossEbene'
@@ -368,7 +364,8 @@ class Geschaeft extends Component {
                     <Input
                       type = 'radio'
                       label = 'haupt'
-                      value = 'hauptzuständig'
+                      data-value = 'hauptzuständig'
+                      checked = {geschaeft.parlVorstossZustaendigkeitAwel === 'hauptzuständig'}
                       name = 'parlVorstossZustaendigkeitAwel'
                       onChange = {this.change}
                       bsSize = 'small'
@@ -376,7 +373,8 @@ class Geschaeft extends Component {
                     <Input
                       type = 'radio'
                       label = 'mitbericht'
-                      value = 'mitberichtzuständig'
+                      data-value = 'mitberichtzuständig'
+                      checked = {geschaeft.parlVorstossZustaendigkeitAwel === 'mitberichtzuständig'}
                       name = 'parlVorstossZustaendigkeitAwel'
                       onChange = {this.change}
                       bsSize = 'small'
@@ -393,7 +391,8 @@ class Geschaeft extends Component {
                     <Input
                       type = 'radio'
                       label = 'Gesetz'
-                      value = 'Gesetz'
+                      data-value = 'Gesetz'
+                      checked = {geschaeft.erlassform === 'Gesetz'}
                       name = 'erlassform'
                       onChange = {this.change}
                       bsSize = 'small'
@@ -401,7 +400,8 @@ class Geschaeft extends Component {
                     <Input
                       type = 'radio'
                       label = 'Verordnung'
-                      value = 'Verordnung'
+                      data-value = 'Verordnung'
+                      checked = {geschaeft.erlassform === 'Verordnung'}
                       name = 'erlassform'
                       onChange = {this.change}
                       bsSize = 'small'
