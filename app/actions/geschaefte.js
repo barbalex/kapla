@@ -148,16 +148,6 @@ export function nichtGelöschtesGeschaeft (error) {
   }
 }
 
-export const GESCHAEFT_AENDERN = 'GESCHAEFT_AENDERN'
-export function aendereGeschaeft (idGeschaeft, field, value) {
-  return {
-    type: GESCHAEFT_AENDERN,
-    idGeschaeft,
-    field,
-    value
-  }
-}
-
 export const GESCHAEFT_AENDERN_FEHLER = 'GESCHAEFT_AENDERN_FEHLER'
 export function aendereGeschaeftFehler (error) {
   return {
@@ -166,16 +156,19 @@ export function aendereGeschaeftFehler (error) {
   }
 }
 
-export const GESCHAEFT_AENDERE_FELD = 'GESCHAEFT_AENDERE_FELD'
-export function aendereGeschaeftFeld (idGeschaeft, field, value) {
+export const GESCHAEFTE_AENDERN = 'GESCHAEFTE_AENDERN'
+export function aendereGeschaeft (idGeschaeft, field, value) {
   return (dispatch, getState) => {
-    const { app, geschaefte } = getState()
-    dispatch(loescheGeschaeft())
+    const { app } = getState()
     updateGeschaeft(app.db, idGeschaeft, field, value)
       .then(() => {
         // update geschaeft in store
-        const geschaeft = geschaefte.geschaefte.find((g) => g.idGeschaeft === idGeschaeft)
-        geschaeft[field] = value
+        dispatch({
+          type: GESCHAEFTE_AENDERN,
+          idGeschaeft,
+          field,
+          value
+        })
       })
       .catch((error) => {
         // TODO: reset ui

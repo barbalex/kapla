@@ -6,7 +6,7 @@ export default function (db, idGeschaeft, field, value) {
       UPDATE
         geschaefte
       SET
-        ${field} = ${value}
+        ${field} = '${value}'
       WHERE
         idGeschaeft = ${idGeschaeft}`
 

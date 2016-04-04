@@ -10,7 +10,7 @@ import {
   GESCHAEFT_DEAKTIVIEREN,
   GESCHAEFT_ENTFERNEN_WILL,
   GESCHAEFT_ENTFERNEN_WILL_NICHT,
-  GESCHAEFT_AENDERN,
+  GESCHAEFTE_AENDERN,
   GESCHAEFT_EROEFFNEN
 } from '../actions/geschaefte'
 
@@ -23,6 +23,21 @@ const standardState = {
   // following: state for active geschaeft
   activeId: null,
   willDelete: false
+}
+
+function geschaeft (state = {}, action) {
+  switch (action.type) {
+    case GESCHAEFTE_AENDERN:
+      if (state.idGeschaeft !== action.idGeschaeft) {
+        return state
+      }
+      return {
+        ...state,
+        [action.field]: action.value
+      }
+    default:
+      return state
+  }
 }
 
 export default function geschaefte (state = standardState, action) {
@@ -70,13 +85,11 @@ export default function geschaefte (state = standardState, action) {
       return Object.assign({}, state, {
         willDelete: false
       })
-    case GESCHAEFT_AENDERN:
-      // TODO:
-      // get index of geschaeft with idGeschaeft
-      // remove that object from geschaefte
-      return Object.assign({}, state, {
-        geschaefte: ''
-      })
+    case GESCHAEFTE_AENDERN:
+      return {
+        ...state,
+        geschaefte: state.geschaefte.map((g) => geschaeft(g, action))
+      }
     case GESCHAEFT_EROEFFNEN:
       return Object.assign({}, state, {
         geschaefte: [{idGeschaeft: action.idGeschaeft}, ...state.geschaefte]

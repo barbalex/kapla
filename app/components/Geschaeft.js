@@ -9,16 +9,18 @@ class Geschaeft extends Component {
     geschaefte: PropTypes.array.isRequired,
     activeId: PropTypes.number,
     willDeleteGeschaeft: PropTypes.bool,
-    aendereGeschaeftFeld: PropTypes.func.isRequired
+    aendereGeschaeft: PropTypes.func.isRequired
   }
 
-  onChange (e, field) {
-    const { activeId, aendereGeschaeftFeld } = this.props
-    const value = e.target.value
-    aendereGeschaeftFeld(activeId, field, value)
+  change = (e) => {
+    const { activeId, aendereGeschaeft } = this.props
+    const { type, name, dataset } = e.target
+    let { value } = e.target
+    if (type === 'radio') value = dataset.value
+    aendereGeschaeft(activeId, name, value)
   }
 
-  render() {
+  render () {
     const {
       geschaefte,
       activeId,
@@ -43,7 +45,8 @@ class Geschaeft extends Component {
                   type = 'textarea'
                   label = 'Gegenstand'
                   value = {geschaeft.gegenstand}
-                  onChange = {this.onChange(this, 'gegenstand')}
+                  name = 'gegenstand'
+                  onChange = {this.change}
                   bsSize = 'small'
                   className = {[styles.geschaeft, styles.gegenstand].join(' ')}
                 />
@@ -67,6 +70,8 @@ class Geschaeft extends Component {
                   type = 'text'
                   label = 'Ort'
                   value = {geschaeft.ort}
+                  name = 'ort'
+                  onChange = {this.change}
                   bsSize = 'small'
                   className={styles.geschaeft}
                 />
@@ -78,6 +83,8 @@ class Geschaeft extends Component {
                   type = 'number'
                   label = 'AWEL Nr.'
                   value = {geschaeft.entscheidAwelNr}
+                  name = 'entscheidAwelNr'
+                  onChange = {this.change}
                   bsSize = 'small'
                   className={styles.nr}
                 />
@@ -87,6 +94,8 @@ class Geschaeft extends Component {
                   type = 'number'
                   label = 'Jahr'
                   value = {geschaeft.entscheidAwelJahr}
+                  name = 'entscheidAwelJahr'
+                  onChange = {this.change}
                   bsSize = 'small'
                   className={styles.nr}
                 />
@@ -98,6 +107,8 @@ class Geschaeft extends Component {
                   type = 'text'
                   label = 'Geschäftsart'
                   value = {geschaeft.geschaeftsart}
+                  name = 'geschaeftsart'
+                  onChange = {this.change}
                   bsSize = 'small'
                   className={styles.geschaeft}
                 />
@@ -109,6 +120,8 @@ class Geschaeft extends Component {
                   type = 'number'
                   label = 'BDV&nbsp;&nbsp;&nbsp;&nbsp;Nr.'
                   value = {geschaeft.entscheidBdvNr}
+                  name = 'entscheidBdvNr'
+                  onChange = {this.change}
                   bsSize = 'small'
                   className={styles.nr}
                 />
@@ -118,6 +131,8 @@ class Geschaeft extends Component {
                   type = 'number'
                   label = 'Jahr'
                   value = {geschaeft.entscheidBdvJahr}
+                  name = 'entscheidBdvJahr'
+                  onChange = {this.change}
                   bsSize = 'small'
                   className={styles.nr}
                 />
@@ -129,6 +144,8 @@ class Geschaeft extends Component {
                   type = 'text'
                   label = 'Status'
                   value = {geschaeft.status}
+                  name = 'status'
+                  onChange = {this.change}
                   bsSize = 'small'
                   className={styles.geschaeft}
                 />
@@ -140,6 +157,8 @@ class Geschaeft extends Component {
                   type = 'number'
                   label = 'KR&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Nr.'
                   value = {geschaeft.entscheidKrNr}
+                  name = 'entscheidKrNr'
+                  onChange = {this.change}
                   bsSize = 'small'
                   className={styles.nr}
                 />
@@ -149,6 +168,8 @@ class Geschaeft extends Component {
                   type = 'number'
                   label = 'Jahr'
                   value = {geschaeft.entscheidKrJahr}
+                  name = 'entscheidKrJahr'
+                  onChange = {this.change}
                   bsSize = 'small'
                   className={styles.nr}
                 />
@@ -160,6 +181,8 @@ class Geschaeft extends Component {
                   type = 'text'
                   label = 'Direktion'
                   value = {geschaeft.zustaendigeDirektion}
+                  name = 'zustaendigeDirektion'
+                  onChange = {this.change}
                   bsSize = 'small'
                   className={styles.geschaeft}
                 />
@@ -171,6 +194,8 @@ class Geschaeft extends Component {
                   type = 'number'
                   label = 'RRB&nbsp;&nbsp;&nbsp;&nbsp;Nr.'
                   value = {geschaeft.entscheidRrbNr}
+                  name = 'entscheidRrbNr'
+                  onChange = {this.change}
                   bsSize = 'small'
                   className={styles.nr}
                 />
@@ -180,6 +205,8 @@ class Geschaeft extends Component {
                   type = 'number'
                   label = 'Jahr'
                   value = {geschaeft.entscheidRrbJahr}
+                  name = 'entscheidRrbJahr'
+                  onChange = {this.change}
                   bsSize = 'small'
                   className={styles.nr}
                 />
@@ -191,6 +218,8 @@ class Geschaeft extends Component {
                   type = 'number'
                   label = 'ID Vorgeschäft'
                   value = {geschaeft.idVorgeschaeft}
+                  name = 'idVorgeschaeft'
+                  onChange = {this.change}
                   bsSize = 'small'
                   className = {styles.geschaeft}
                 />
@@ -201,6 +230,8 @@ class Geschaeft extends Component {
                   type = 'text'
                   label = 'Aktenstandort'
                   value = {geschaeft.aktenstandort}
+                  name = 'aktenstandort'
+                  onChange = {this.change}
                   bsSize = 'small'
                   className={styles.nr}
                 />
@@ -210,6 +241,8 @@ class Geschaeft extends Component {
                   type = 'text'
                   label = 'Nr.'
                   value = {geschaeft.aktennummer}
+                  name = 'aktennummer'
+                  onChange = {this.change}
                   bsSize = 'small'
                   className={styles.nr}
                 />
@@ -221,6 +254,8 @@ class Geschaeft extends Component {
                   type = 'textarea'
                   label = 'Details'
                   value = {geschaeft.details}
+                  name = 'details'
+                  onChange = {this.change}
                   bsSize = 'small'
                   className={styles.geschaeft}
                 />
@@ -235,6 +270,8 @@ class Geschaeft extends Component {
                   type = 'textarea'
                   label = 'Nächster Schritt'
                   value = {geschaeft.naechsterSchritt}
+                  name = 'naechsterSchritt'
+                  onChange = {this.change}
                   bsSize = 'small'
                   className = {styles.geschaeft}
                 />
@@ -244,6 +281,8 @@ class Geschaeft extends Component {
                   type = 'text'
                   label = 'Typ'
                   value = {geschaeft.parlVorstossTyp}
+                  name = 'parlVorstossTyp'
+                  onChange = {this.change}
                   bsSize = 'small'
                   className={styles.parlVorstoss}
                 />
@@ -257,16 +296,22 @@ class Geschaeft extends Component {
                     <Input
                       type = 'radio'
                       label = '1'
-                      value = '1'
+                      data-value = {1}
+                      value = {geschaeft.parlVorstossStufe}
+                      checked = {geschaeft.parlVorstossStufe == 1}
+                      onChange = {this.change}
                       bsSize = 'small'
                       name = 'parlVorstossStufe'
                     />
                     <Input
                       type = 'radio'
                       label = '2'
-                      value = '2'
-                      bsSize = 'small'
+                      data-value = {2}
+                      value = {geschaeft.parlVorstossStufe}
+                      checked = {geschaeft.parlVorstossStufe == 2}
                       name = 'parlVorstossStufe'
+                      onChange = {this.change}
+                      bsSize = 'small'
                     />
                   </div>
                 </Input>
@@ -280,16 +325,22 @@ class Geschaeft extends Component {
                     <Input
                       type = 'radio'
                       label = 'Kanton'
-                      value = 'Kanton'
-                      bsSize = 'small'
+                      data-value = 'Kanton'
+                      value = {geschaeft.parlVorstossEbene}
+                      checked = {geschaeft.parlVorstossEbene === 'Kanton'}
                       name = 'parlVorstossEbene'
+                      onChange = {this.change}
+                      bsSize = 'small'
                     />
                     <Input
                       type = 'radio'
                       label = 'Bund'
-                      value = 'Bund'
-                      bsSize = 'small'
+                      data-value = 'Bund'
+                      value = {geschaeft.parlVorstossEbene}
+                      checked = {geschaeft.parlVorstossEbene === 'Bund'}
+                      onChange = {this.change}
                       name = 'parlVorstossEbene'
+                      bsSize = 'small'
                     />
                   </div>
                 </Input>
@@ -301,6 +352,8 @@ class Geschaeft extends Component {
                   type = 'textarea'
                   label = 'Vermerk'
                   value = {geschaeft.vermerk}
+                  name = 'vermerk'
+                  onChange = {this.change}
                   bsSize = 'small'
                   className={styles.geschaeft}
                 />
@@ -316,15 +369,17 @@ class Geschaeft extends Component {
                       type = 'radio'
                       label = 'haupt'
                       value = 'hauptzuständig'
-                      bsSize = 'small'
                       name = 'parlVorstossZustaendigkeitAwel'
+                      onChange = {this.change}
+                      bsSize = 'small'
                     />
                     <Input
                       type = 'radio'
                       label = 'mitbericht'
                       value = 'mitberichtzuständig'
-                      bsSize = 'small'
                       name = 'parlVorstossZustaendigkeitAwel'
+                      onChange = {this.change}
+                      bsSize = 'small'
                     />
                   </div>
                 </Input>
@@ -339,15 +394,17 @@ class Geschaeft extends Component {
                       type = 'radio'
                       label = 'Gesetz'
                       value = 'Gesetz'
-                      bsSize = 'small'
                       name = 'erlassform'
+                      onChange = {this.change}
+                      bsSize = 'small'
                     />
                     <Input
                       type = 'radio'
                       label = 'Verordnung'
                       value = 'Verordnung'
-                      bsSize = 'small'
                       name = 'erlassform'
+                      onChange = {this.change}
+                      bsSize = 'small'
                     />
                   </div>
                 </Input>
