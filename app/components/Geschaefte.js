@@ -19,7 +19,8 @@ class Geschaefte extends Component {
     activeId: PropTypes.number,
     holenRechtsmittelerledigungOptions: PropTypes.func.isRequired,
     holenParlVorstossTypOptions: PropTypes.func.isRequired,
-    holenStatusOptions: PropTypes.func.isRequired
+    holenStatusOptions: PropTypes.func.isRequired,
+    holenGeschaeftsartOptions: PropTypes.func.isRequired
   }
 
   componentWillMount () {
@@ -31,7 +32,8 @@ class Geschaefte extends Component {
       filterFulltext,
       holenRechtsmittelerledigungOptions,
       holenParlVorstossTypOptions,
-      holenStatusOptions
+      holenStatusOptions,
+      holenGeschaeftsartOptions
     } = this.props
 
     fetchUsername()
@@ -40,6 +42,7 @@ class Geschaefte extends Component {
     holenRechtsmittelerledigungOptions()
     holenParlVorstossTypOptions()
     holenStatusOptions()
+    holenGeschaeftsartOptions()
   }
 
   onClickGeschaeft (idGeschaeft) {

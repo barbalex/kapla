@@ -257,3 +257,26 @@ function nichtErhalteneStatusOptions (error) {
     error
   }
 }
+
+export const GESCHAEFTSART_OPTIONS_HOLEN = 'GESCHAEFTSART_OPTIONS_HOLEN'
+export function holenGeschaeftsartOptions () {
+  return (dispatch, getState) => {
+    const { app, geschaefte } = getState()
+    if (geschaefte.geschaeftsartOptions.length === 0) {
+      getDropdownOptions(app.db, 'geschaeftsart')
+        .then((geschaeftsartOptions) => dispatch({
+          type: GESCHAEFTSART_OPTIONS_HOLEN,
+          geschaeftsartOptions
+        }))
+        .catch((error) => dispatch(nichtErhalteneGeschaeftsartOptions(error)))
+    }
+  }
+}
+
+export const GESCHAEFTSART_OPTIONS_HOLEN_FEHLER = 'GESCHAEFTSART_OPTIONS_HOLEN_FEHLER'
+function nichtErhalteneGeschaeftsartOptions (error) {
+  return {
+    type: GESCHAEFTSART_OPTIONS_HOLEN_FEHLER,
+    error
+  }
+}

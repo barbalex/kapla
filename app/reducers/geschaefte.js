@@ -17,7 +17,9 @@ import {
   PARLVORSTOSSTYP_OPTIONS_HOLEN,
   PARLVORSTOSSTYP_OPTIONS_HOLEN_FEHLER,
   STATUS_OPTIONS_HOLEN,
-  STATUS_OPTIONS_HOLEN_FEHLER
+  STATUS_OPTIONS_HOLEN_FEHLER,
+  GESCHAEFTSART_OPTIONS_HOLEN,
+  GESCHAEFTSART_OPTIONS_HOLEN_FEHLER
 } from '../actions/geschaefte'
 
 const standardState = {
@@ -31,7 +33,8 @@ const standardState = {
   willDelete: false,
   rechtsmittelerledigungOptions: [],
   parlVorstossTypOptions: [],
-  statusOptions: []
+  statusOptions: [],
+  geschaeftsartOptions: []
 }
 
 function geschaeft (state = {}, action) {
@@ -108,27 +111,25 @@ export default function geschaefte (state = standardState, action) {
         ...state,
         rechtsmittelerledigungOptions: action.rechtsmittelerledigungOptions
       }
-    case RECHTSMITTELERLEDIGUNG_OPTIONS_HOLEN_FEHLER:
-      return {
-        ...state,
-        error: [...state.error, action.error]
-      }
     case PARLVORSTOSSTYP_OPTIONS_HOLEN:
       return {
         ...state,
         parlVorstossTypOptions: action.parlVorstossTypOptions
-      }
-    case PARLVORSTOSSTYP_OPTIONS_HOLEN_FEHLER:
-      return {
-        ...state,
-        error: [...state.error, action.error]
       }
     case STATUS_OPTIONS_HOLEN:
       return {
         ...state,
         statusOptions: action.statusOptions
       }
+    case GESCHAEFTSART_OPTIONS_HOLEN:
+      return {
+        ...state,
+        geschaeftsartOptions: action.geschaeftsartOptions
+      }
+    case RECHTSMITTELERLEDIGUNG_OPTIONS_HOLEN_FEHLER:
+    case PARLVORSTOSSTYP_OPTIONS_HOLEN_FEHLER:
     case STATUS_OPTIONS_HOLEN_FEHLER:
+    case GESCHAEFTSART_OPTIONS_HOLEN_FEHLER:
       return {
         ...state,
         error: [...state.error, action.error]
