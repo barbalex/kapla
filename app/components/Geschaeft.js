@@ -9,7 +9,11 @@ class Geschaeft extends Component {
     geschaefte: PropTypes.array.isRequired,
     activeId: PropTypes.number,
     willDeleteGeschaeft: PropTypes.bool,
-    aendereGeschaeft: PropTypes.func.isRequired
+    aendereGeschaeft: PropTypes.func.isRequired,
+    rechtsmittelerledigungOptions: PropTypes.array.isRequired,
+    parlVorstossTypOptions: PropTypes.array.isRequired,
+    statusOptions: PropTypes.array.isRequired,
+    geschaeftsartOptions: PropTypes.array.isRequired
   }
 
   change = (e) => {
@@ -20,15 +24,21 @@ class Geschaeft extends Component {
     aendereGeschaeft(activeId, name, value)
   }
 
-  rechtsmittelerledigungOptions = () => {
-    
+  options = (values) => {
+    let options = values.map((val, index) => <option key={index + 1} value={val}>{val}</option>)
+    options.unshift(<option key={0} value=''></option>)
+    return options
   }
 
   render () {
     const {
       geschaefte,
       activeId,
-      willDeleteGeschaeft
+      willDeleteGeschaeft,
+      rechtsmittelerledigungOptions,
+      parlVorstossTypOptions,
+      statusOptions,
+      geschaeftsartOptions
     } = this.props
 
     const geschaeft = geschaefte.find((geschaeft) => geschaeft.idGeschaeft === activeId)
@@ -425,7 +435,7 @@ class Geschaeft extends Component {
                   bsSize = 'small'
                   className={styles.geschaeft}
                 >
-                  {this.rechtsmittelerledigungOptions()}
+                  {this.options(rechtsmittelerledigungOptions)}
                 </Input>
               </Col>
               <Col xs={3} sm={3} md={3} lg={3}></Col>

@@ -12,7 +12,8 @@ export default function (db, name) {
 
     db.all(sql, (error, result) => {
       if (error) reject(error)
-      resolve(result)
+      const options = result.map((res) => res[name])
+      resolve(options)
     })
   })
 }
