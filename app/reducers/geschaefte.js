@@ -11,18 +11,24 @@ import {
   GESCHAEFT_ENTFERNEN_WILL,
   GESCHAEFT_ENTFERNEN_WILL_NICHT,
   GESCHAEFTE_AENDERN,
-  GESCHAEFT_EROEFFNEN
+  GESCHAEFT_EROEFFNEN,
+  RECHTSMITTELERLEDIGUNG_OPTIONS_HOLEN,
+  RECHTSMITTELERLEDIGUNG_OPTIONS_HOLEN_FEHLER,
+  PARLVORSTOSSTYP_OPTIONS_HOLEN,
+  PARLVORSTOSSTYP_OPTIONS_HOLEN_FEHLER
 } from '../actions/geschaefte'
 
 const standardState = {
   fetching: false,
-  error: null,
+  error: [],
   geschaefte: [],
   filterFields: {},
   filterFulltext: null,
   // following: state for active geschaeft
   activeId: null,
-  willDelete: false
+  willDelete: false,
+  rechtsmittelerledigungOptions: [],
+  parlVorstossTypOptions: []
 }
 
 function geschaeft (state = {}, action) {
@@ -45,18 +51,18 @@ export default function geschaefte (state = standardState, action) {
     case GESCHAEFTE_BESTELLEN:
       return Object.assign({}, state, {
         fetching: true,
-        error: null
+        error: []
       })
     case GESCHAEFTE_ERHALTEN:
       return Object.assign({}, state, {
         fetching: false,
-        error: null,
+        error: [],
         geschaefte: action.geschaefte
       })
     case GESCHAEFTE_NICHT_ERHALTEN:
       return Object.assign({}, state, {
         fetching: false,
-        error: action.error,
+        error: [...state.error, action.error],
         geschaefte: []
       })
     case GESCHAEFTE_FILTERN_FELDER:
@@ -94,6 +100,26 @@ export default function geschaefte (state = standardState, action) {
       return Object.assign({}, state, {
         geschaefte: [{idGeschaeft: action.idGeschaeft}, ...state.geschaefte]
       })
+    case RECHTSMITTELERLEDIGUNG_OPTIONS_HOLEN:
+      return {
+        ...state,
+        rechtsmittelerledigungOptions: action.rechtsmittelerledigungOptions
+      }
+    case RECHTSMITTELERLEDIGUNG_OPTIONS_HOLEN_FEHLER:
+      return {
+        ...state,
+        error: [...state.error, action.error]
+      }
+    case PARLVORSTOSSTYP_OPTIONS_HOLEN:
+      return {
+        ...state,
+        parlVorstossTypOptions: action.parlVorstossTypOptions
+      }
+    case PARLVORSTOSSTYP_OPTIONS_HOLEN_FEHLER:
+      return {
+        ...state,
+        error: [...state.error, action.error]
+      }
     default:
       return state
   }

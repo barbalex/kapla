@@ -5,6 +5,7 @@
 // see: https://github.com/mapbox/node-pre-gyp/pull/187
 // solve with: http://verysimple.com/2015/05/30/using-node_sqlite3-with-electron/
 import getGeschaefte from '../src/getGeschaefte.js'
+import getDropdownOptions from '../src/getDropdownOptions.js'
 import updateGeschaeft from '../src/updateGeschaeft.js'
 
 export const GESCHAEFTE_BESTELLEN = 'GESCHAEFTE_BESTELLEN'
@@ -185,5 +186,47 @@ export function aktiviereGeschaeft (idGeschaeft) {
       idGeschaeft
     })
     dispatch(push('/geschaeft'))
+  }
+}
+
+export const RECHTSMITTELERLEDIGUNG_OPTIONS_HOLEN = 'RECHTSMITTELERLEDIGUNG_OPTIONS_HOLEN'
+export function holenRechtsmittelerledigungOptions () {
+  return (dispatch, getState) => {
+    const { app } = getState()
+    getDropdownOptions(app.db, 'rechtsmittelerledigung')
+      .then((rechtsmittelerledigungOptions) => dispatch({
+        type: RECHTSMITTELERLEDIGUNG_OPTIONS_HOLEN,
+        rechtsmittelerledigungOptions
+      }))
+      .catch((error) => dispatch(nichtErhalteneRechtsmittelerledigungOptions(error)))
+  }
+}
+
+export const RECHTSMITTELERLEDIGUNG_OPTIONS_HOLEN_FEHLER = 'RECHTSMITTELERLEDIGUNG_OPTIONS_HOLEN_FEHLER'
+function nichtErhalteneRechtsmittelerledigungOptions (error) {
+  return {
+    type: RECHTSMITTELERLEDIGUNG_OPTIONS_HOLEN_FEHLER,
+    error
+  }
+}
+
+export const PARLVORSTOSSTYP_OPTIONS_HOLEN = 'PARLVORSTOSSTYP_OPTIONS_HOLEN'
+export function holenParlVorstossTypOptions () {
+  return (dispatch, getState) => {
+    const { app } = getState()
+    getDropdownOptions(app.db, 'parlVorstossTyp')
+      .then((parlVorstossTypOptions) => dispatch({
+        type: PARLVORSTOSSTYP_OPTIONS_HOLEN,
+        parlVorstossTypOptions
+      }))
+      .catch((error) => dispatch(nichtErhalteneParlVorstossTypOptions(error)))
+  }
+}
+
+export const PARLVORSTOSSTYP_OPTIONS_HOLEN_FEHLER = 'PARLVORSTOSSTYP_OPTIONS_HOLEN_FEHLER'
+function nichtErhalteneParlVorstossTypOptions (error) {
+  return {
+    type: PARLVORSTOSSTYP_OPTIONS_HOLEN_FEHLER,
+    error
   }
 }

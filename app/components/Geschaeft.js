@@ -20,6 +20,10 @@ class Geschaeft extends Component {
     aendereGeschaeft(activeId, name, value)
   }
 
+  rechtsmittelerledigungOptions = () => {
+    
+  }
+
   render () {
     const {
       geschaefte,
@@ -408,6 +412,26 @@ class Geschaeft extends Component {
                     />
                   </div>
                 </Input>
+              </Col>
+            </Row>
+            <Row>
+              <Col xs={7} sm={7} md={7} lg={7}>
+                <Input
+                  type = 'select'
+                  label = 'Erledigung'
+                  value = {geschaeft.rechtsmittelerledigung}
+                  name = 'rechtsmittelerledigung'
+                  onChange = {this.change}
+                  bsSize = 'small'
+                  className={styles.geschaeft}
+                >
+                  {this.rechtsmittelerledigungOptions()}
+                </Input>
+              </Col>
+              <Col xs={3} sm={3} md={3} lg={3}></Col>
+              <Col xs={1} sm={1} md={1} lg={1}>
+              </Col>
+              <Col xs={1} sm={1} md={1} lg={1}>
               </Col>
             </Row>
             <Row>

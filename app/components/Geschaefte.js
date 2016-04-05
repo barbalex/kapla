@@ -16,14 +16,27 @@ class Geschaefte extends Component {
     holenGeschaefte: PropTypes.func.isRequired,
     aktiviereGeschaeft: PropTypes.func.isRequired,
     willDeleteGeschaeft: PropTypes.bool,
-    activeId: PropTypes.number
+    activeId: PropTypes.number,
+    holenRechtsmittelerledigungOptions: PropTypes.func.isRequired,
+    holenParlVorstossTypOptions: PropTypes.func.isRequired
   }
 
   componentWillMount () {
-    const { fetchUsername, holeDbAusConfig, holenGeschaefte, filterFields, filterFulltext } = this.props
+    const {
+      fetchUsername,
+      holeDbAusConfig,
+      holenGeschaefte,
+      filterFields,
+      filterFulltext,
+      holenRechtsmittelerledigungOptions,
+      holenParlVorstossTypOptions
+    } = this.props
+
     fetchUsername()
     holeDbAusConfig()
     holenGeschaefte(filterFields, filterFulltext)
+    holenRechtsmittelerledigungOptions()
+    holenParlVorstossTypOptions()
   }
 
   onClickGeschaeft (idGeschaeft) {
