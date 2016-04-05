@@ -192,13 +192,15 @@ export function aktiviereGeschaeft (idGeschaeft) {
 export const RECHTSMITTELERLEDIGUNG_OPTIONS_HOLEN = 'RECHTSMITTELERLEDIGUNG_OPTIONS_HOLEN'
 export function holenRechtsmittelerledigungOptions () {
   return (dispatch, getState) => {
-    const { app } = getState()
-    getDropdownOptions(app.db, 'rechtsmittelerledigung')
-      .then((rechtsmittelerledigungOptions) => dispatch({
-        type: RECHTSMITTELERLEDIGUNG_OPTIONS_HOLEN,
-        rechtsmittelerledigungOptions
-      }))
-      .catch((error) => dispatch(nichtErhalteneRechtsmittelerledigungOptions(error)))
+    const { app, geschaefte } = getState()
+    if (geschaefte.rechtsmittelerledigungOptions.length === 0) {
+      getDropdownOptions(app.db, 'rechtsmittelerledigung')
+        .then((rechtsmittelerledigungOptions) => dispatch({
+          type: RECHTSMITTELERLEDIGUNG_OPTIONS_HOLEN,
+          rechtsmittelerledigungOptions
+        }))
+        .catch((error) => dispatch(nichtErhalteneRechtsmittelerledigungOptions(error)))
+    }
   }
 }
 
@@ -213,13 +215,15 @@ function nichtErhalteneRechtsmittelerledigungOptions (error) {
 export const PARLVORSTOSSTYP_OPTIONS_HOLEN = 'PARLVORSTOSSTYP_OPTIONS_HOLEN'
 export function holenParlVorstossTypOptions () {
   return (dispatch, getState) => {
-    const { app } = getState()
-    getDropdownOptions(app.db, 'parlVorstossTyp')
-      .then((parlVorstossTypOptions) => dispatch({
-        type: PARLVORSTOSSTYP_OPTIONS_HOLEN,
-        parlVorstossTypOptions
-      }))
-      .catch((error) => dispatch(nichtErhalteneParlVorstossTypOptions(error)))
+    const { app, geschaefte } = getState()
+    if (geschaefte.parlVorstossTypOptions.length === 0) {
+      getDropdownOptions(app.db, 'parlVorstossTyp')
+        .then((parlVorstossTypOptions) => dispatch({
+          type: PARLVORSTOSSTYP_OPTIONS_HOLEN,
+          parlVorstossTypOptions
+        }))
+        .catch((error) => dispatch(nichtErhalteneParlVorstossTypOptions(error)))
+    }
   }
 }
 
@@ -234,13 +238,15 @@ function nichtErhalteneParlVorstossTypOptions (error) {
 export const STATUS_OPTIONS_HOLEN = 'STATUS_OPTIONS_HOLEN'
 export function holenStatusOptions () {
   return (dispatch, getState) => {
-    const { app } = getState()
-    getDropdownOptions(app.db, 'status')
-      .then((statusOptions) => dispatch({
-        type: STATUS_OPTIONS_HOLEN,
-        statusOptions
-      }))
-      .catch((error) => dispatch(nichtErhalteneStatusOptions(error)))
+    const { app, geschaefte } = getState()
+    if (geschaefte.statusOptions.length === 0) {
+      getDropdownOptions(app.db, 'status')
+        .then((statusOptions) => dispatch({
+          type: STATUS_OPTIONS_HOLEN,
+          statusOptions
+        }))
+        .catch((error) => dispatch(nichtErhalteneStatusOptions(error)))
+    }
   }
 }
 
