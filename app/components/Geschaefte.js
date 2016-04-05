@@ -83,7 +83,7 @@ class Geschaefte extends Component {
       <div className = {styles.body}>
         <Navbar />
         {willDeleteGeschaeft && <ModalGeschaeftDelete />}
-        <div className={styles.grid}>
+        <div className={[styles.grid, 'reactList'].join(' ')}>
           <ReactList
             itemRenderer={::this.renderItem}
             length={geschaefte.length}
