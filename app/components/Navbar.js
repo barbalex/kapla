@@ -1,7 +1,8 @@
 import React, { Component, PropTypes } from 'react'
-import { Navbar, NavDropdown, MenuItem, Nav, NavItem, Glyphicon, Input } from 'react-bootstrap'
+import { Navbar, NavDropdown, MenuItem, Nav, NavItem, Glyphicon, Input, Badge } from 'react-bootstrap'
 import { Link } from 'react-router'
 import { LinkContainer } from 'react-router-bootstrap'
+import styles from './Navbar.css'
 
 class MyToolbar extends Component {
   static propTypes = {
@@ -12,7 +13,8 @@ class MyToolbar extends Component {
     erstelleNeuesGeschaeft: PropTypes.func.isRequired,
     willGeschaeftEntfernen: PropTypes.func.isRequired,
     activeId: PropTypes.number,
-    filterFulltext: PropTypes.string
+    filterFulltext: PropTypes.string,
+    geschaefte: PropTypes.array
   }
 
   onClickNewGeschaeft = () => {
@@ -25,13 +27,7 @@ class MyToolbar extends Component {
     willGeschaeftEntfernen(activeId)
   }
 
-  onKeyPressFilterFulltext = (e) => {
-    if (e.key === 'Enter') {
-      this.filterFulltext(e.target.value)
-    }
-  }
-
-  onBlurFilterFulltext = (e) => {
+  onChangeFilterFulltext = (e) => {
     this.filterFulltext(e.target.value)
   }
 
@@ -45,12 +41,18 @@ class MyToolbar extends Component {
     }
   }
 
+  onClickFilterGlyph = () => {
+    this.filterFulltext('')
+  }
+
   render() {
     const {
       holenDb,
       username,
       erstelleNeuesGeschaeft,
-      activeId
+      activeId,
+      geschaefte,
+      filterFulltext
     } = this.props
 
     return (
@@ -66,10 +68,10 @@ class MyToolbar extends Component {
         <Navbar.Collapse>
           <Nav>
             <LinkContainer to={{ pathname: '/geschaefte' }}>
-              <NavItem eventKey={1} href='#'>Geschäfte</NavItem>
+              <NavItem eventKey={1} href='#'>Geschäfte <Badge className={styles.badge}>{geschaefte.length}</Badge></NavItem>
             </LinkContainer>
-            <LinkContainer to={{ pathname: '/geschaeft' }}>
-              <NavItem eventKey={2} href='#'>Geschäft</NavItem>
+            <LinkContainer to={{ pathname: '/geschaeft' }} disabled = {!activeId}>
+              <NavItem eventKey={2} href='#' disabled = {!activeId}>Geschäft</NavItem>
             </LinkContainer>
             <LinkContainer to={{ pathname: '/filter' }}>
               <NavItem eventKey={3} href='#'>Filter</NavItem>
@@ -94,8 +96,13 @@ class MyToolbar extends Component {
               <Input
                 type='text'
                 placeholder='Volltext filtern'
-                onKeyPress={this.onKeyPressFilterFulltext}
-                onBlur={this.onBlurFilterFulltext}
+                value={filterFulltext}
+                onChange={this.onChangeFilterFulltext}
+              />
+              <Glyphicon
+                glyph='remove'
+                className={styles.filterGlyph}
+                onClick={this.onClickFilterGlyph}
               />
             </Navbar.Form>
             <NavDropdown eventKey={4} title='Menu' id='basic-nav-dropdown'>

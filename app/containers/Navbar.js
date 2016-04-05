@@ -11,7 +11,8 @@ function mapStateToProps (state) {
   return {
     username: state.user.username,
     activeId: state.geschaefte.activeId,
-    filterFulltext: state.geschaefte.filterFulltext
+    filterFulltext: state.geschaefte.filterFulltext,
+    geschaefte: state.geschaefte.geschaefte
   }
 }
 

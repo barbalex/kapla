@@ -1,0 +1,9 @@
+.badge {
+  background-color: #007D08;
+}
+
+.filterGlyph {
+  right: 20px;
+  top: 3px;
+  cursor: pointer;
+}
