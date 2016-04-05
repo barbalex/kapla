@@ -118,14 +118,16 @@ class Geschaeft extends Component {
             <Row>
               <Col xs={7} sm={7} md={7} lg={7}>
                 <Input
-                  type = 'text'
+                  type = 'select'
                   label = 'Geschäftsart'
                   value = {geschaeft.geschaeftsart}
                   name = 'geschaeftsart'
                   onChange = {this.change}
                   bsSize = 'small'
                   className={styles.geschaeft}
-                />
+                >
+                  {this.options(geschaeftsartOptions)}
+                </Input>
               </Col>
               <Col xs={3} sm={3} md={3} lg={3}>
               </Col>
@@ -155,14 +157,16 @@ class Geschaeft extends Component {
             <Row>
               <Col xs={7} sm={7} md={7} lg={7}>
                 <Input
-                  type = 'text'
+                  type = 'select'
                   label = 'Status'
                   value = {geschaeft.status}
                   name = 'status'
                   onChange = {this.change}
                   bsSize = 'small'
                   className={styles.geschaeft}
-                />
+                >
+                  {this.options(statusOptions)}
+                </Input>
               </Col>
               <Col xs={3} sm={3} md={3} lg={3}>
               </Col>
@@ -292,14 +296,16 @@ class Geschaeft extends Component {
               </Col>
               <Col xs={3} sm={3} md={3} lg={3}>
                 <Input
-                  type = 'text'
+                  type = 'select'
                   label = 'Typ'
                   value = {geschaeft.parlVorstossTyp}
                   name = 'parlVorstossTyp'
                   onChange = {this.change}
                   bsSize = 'small'
                   className={styles.parlVorstoss}
-                />
+                >
+                  {this.options(parlVorstossTypOptions)}
+                </Input>
               </Col>
               <Col xs={1} sm={1} md={1} lg={1}>
                 <Input
