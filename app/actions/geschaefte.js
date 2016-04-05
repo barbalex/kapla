@@ -32,11 +32,15 @@ function nichtErhalteneGeschaefte (error) {
 }
 
 export const GESCHAEFTE_HOLEN = 'GESCHAEFTE_HOLEN'
-export function holenGeschaefte (fieldFilter, fulltextFilter) {
+export function holenGeschaefte () {
   return (dispatch, getState) => {
-    const { app } = getState()
+    // TODO: get fieldFilter and ftFilter from state
+    const { app, geschaefte } = getState()
+    const { filterFields, filterFulltext } = geschaefte
+    console.log('actions/holenGeschaefte, filterFields', filterFields)
+    console.log('actions/holenGeschaefte, filterFulltext', filterFulltext)
     dispatch(bestelleGeschaefte())
-    getGeschaefte(app.db, fieldFilter, fulltextFilter)
+    getGeschaefte(app.db, filterFields, filterFulltext)
       .then((geschaefte) => dispatch(erhalteGeschaefte(geschaefte)))
       .catch((error) => dispatch(nichtErhalteneGeschaefte(error)))
   }

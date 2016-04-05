@@ -13,8 +13,6 @@ function mapStateToProps (state) {
     username: state.user.username,
     dbPath: state.app.dbPath,
     db: state.app.db,
-    filterFields: state.geschaefte.filterFields,
-    filterFulltext: state.geschaefte.filterFulltext,
     activeId: state.geschaefte.activeId,
     willDeleteGeschaeft: state.geschaefte.willDelete
   }

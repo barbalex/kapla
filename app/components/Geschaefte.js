@@ -11,8 +11,6 @@ class Geschaefte extends Component {
     fetchUsername: PropTypes.func.isRequired,
     username: PropTypes.string,
     holeDbAusConfig: PropTypes.func.isRequired,
-    filterFields: PropTypes.object,
-    filterFulltext: PropTypes.string,
     holenGeschaefte: PropTypes.func.isRequired,
     aktiviereGeschaeft: PropTypes.func.isRequired,
     willDeleteGeschaeft: PropTypes.bool,
@@ -28,8 +26,6 @@ class Geschaefte extends Component {
       fetchUsername,
       holeDbAusConfig,
       holenGeschaefte,
-      filterFields,
-      filterFulltext,
       holenRechtsmittelerledigungOptions,
       holenParlVorstossTypOptions,
       holenStatusOptions,
@@ -38,7 +34,7 @@ class Geschaefte extends Component {
 
     fetchUsername()
     holeDbAusConfig()
-    holenGeschaefte(filterFields, filterFulltext)
+    holenGeschaefte()
     holenRechtsmittelerledigungOptions()
     holenParlVorstossTypOptions()
     holenStatusOptions()
