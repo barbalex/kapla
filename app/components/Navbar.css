@@ -2,6 +2,10 @@
   background-color: #007D08;
 }
 
+.badgeWithActiveFilter {
+  background-color: #FF9416;
+}
+
 .filterGlyph {
   right: 20px;
   top: 3px;
@@ -10,4 +14,8 @@
 
 .filterInput {
   padding-right: 24px;
+}
+
+.filterInputActive {
+  background-color: #FFBF73;
 }

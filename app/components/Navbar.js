@@ -55,6 +55,9 @@ class MyToolbar extends Component {
       filterFulltext
     } = this.props
 
+    const classNameFilterInput = filterFulltext ? [styles.filterInput, styles.filterInputActive].join(' ') : styles.filterInput
+    const classNameBadge = filterFulltext ? styles.badgeWithActiveFilter : styles.badge
+
     return (
       <Navbar inverse fluid>
         <Navbar.Header>
@@ -68,7 +71,7 @@ class MyToolbar extends Component {
         <Navbar.Collapse>
           <Nav>
             <LinkContainer to={{ pathname: '/geschaefte' }}>
-              <NavItem eventKey={1} href='#'>Geschäfte <Badge className={styles.badge}>{geschaefte.length}</Badge></NavItem>
+              <NavItem eventKey={1} href='#'>Geschäfte <Badge className={classNameBadge}>{geschaefte.length}</Badge></NavItem>
             </LinkContainer>
             <LinkContainer to={{ pathname: '/geschaeft' }} disabled = {!activeId}>
               <NavItem eventKey={2} href='#' disabled = {!activeId}>Geschäft</NavItem>
@@ -98,7 +101,7 @@ class MyToolbar extends Component {
                 placeholder='Volltext filtern'
                 value={filterFulltext}
                 onChange={this.onChangeFilterFulltext}
-                className={styles.filterInput}
+                className={classNameFilterInput}
               />
               <Glyphicon
                 glyph='remove'
