@@ -60,60 +60,50 @@ class MyToolbar extends Component {
 
     return (
       <Navbar inverse fluid>
-        <Navbar.Header>
-          <LinkContainer to={{ pathname: '/' }}>
-            <Navbar.Brand>
-              <a href='#'>KAPLA</a>
-            </Navbar.Brand>
+        <Nav>
+          <LinkContainer to={{ pathname: '/geschaefte' }}>
+            <NavItem eventKey={1} href='#'>Geschäfte <Badge className={classNameBadge}>{geschaefte.length}</Badge></NavItem>
           </LinkContainer>
-          <Navbar.Toggle />
-        </Navbar.Header>
-        <Navbar.Collapse>
-          <Nav>
-            <LinkContainer to={{ pathname: '/geschaefte' }}>
-              <NavItem eventKey={1} href='#'>Geschäfte <Badge className={classNameBadge}>{geschaefte.length}</Badge></NavItem>
-            </LinkContainer>
-            <LinkContainer to={{ pathname: '/geschaeft' }} disabled = {!activeId}>
-              <NavItem eventKey={2} href='#' disabled = {!activeId}>Geschäft</NavItem>
-            </LinkContainer>
-            <LinkContainer to={{ pathname: '/filter' }}>
-              <NavItem eventKey={3} href='#'>Filter</NavItem>
-            </LinkContainer>
-            <NavItem
-              eventKey={4}
-              onClick={this.onClickNewGeschaeft}
-              title='neues Geschäft'>
-              <Glyphicon glyph='plus' />
-            </NavItem>
-            <NavItem
-              eventKey = {5}
-              onClick = {this.onClickDeleteGeschaeft}
-              title = 'Geschäft löschen'
-              disabled = {!activeId}
-            >
-              <Glyphicon glyph = 'trash' />
-            </NavItem>
-          </Nav>
-          <Nav pullRight>
-            <Navbar.Form pullLeft>
-              <Input
-                type='text'
-                placeholder='Volltext filtern'
-                value={filterFulltext}
-                onChange={this.onChangeFilterFulltext}
-                className={classNameFilterInput}
-              />
-              <Glyphicon
-                glyph='remove'
-                className={styles.filterGlyph}
-                onClick={this.onClickFilterGlyph}
-              />
-            </Navbar.Form>
-            <NavDropdown eventKey={4} title='Menu' id='basic-nav-dropdown'>
-              <MenuItem eventKey={4.1} onClick={holenDb}>Datenbank wählen</MenuItem>
-            </NavDropdown>
-          </Nav>
-        </Navbar.Collapse>
+          <LinkContainer to={{ pathname: '/geschaeft' }} disabled = {!activeId}>
+            <NavItem eventKey={2} href='#' disabled = {!activeId}>Geschäft</NavItem>
+          </LinkContainer>
+          <LinkContainer to={{ pathname: '/filter' }}>
+            <NavItem eventKey={3} href='#'>Filter</NavItem>
+          </LinkContainer>
+          <NavItem
+            eventKey={4}
+            onClick={this.onClickNewGeschaeft}
+            title='neues Geschäft'>
+            <Glyphicon glyph='plus' />
+          </NavItem>
+          <NavItem
+            eventKey = {5}
+            onClick = {this.onClickDeleteGeschaeft}
+            title = 'Geschäft löschen'
+            disabled = {!activeId}
+          >
+            <Glyphicon glyph = 'trash' />
+          </NavItem>
+        </Nav>
+        <Nav pullRight>
+          <Navbar.Form pullLeft>
+            <Input
+              type='text'
+              placeholder='Volltext filtern'
+              value={filterFulltext}
+              onChange={this.onChangeFilterFulltext}
+              className={classNameFilterInput}
+            />
+            <Glyphicon
+              glyph='remove'
+              className={styles.filterGlyph}
+              onClick={this.onClickFilterGlyph}
+            />
+          </Navbar.Form>
+          <NavDropdown eventKey={4} title='Menu' id='basic-nav-dropdown'>
+            <MenuItem eventKey={4.1} onClick={holenDb}>Datenbank wählen</MenuItem>
+          </NavDropdown>
+        </Nav>
       </Navbar>
     )
   }
