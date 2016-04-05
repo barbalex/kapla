@@ -39,7 +39,10 @@ export function holenGeschaefte () {
     const { filterFields, filterFulltext } = geschaefte
     dispatch(bestelleGeschaefte())
     getGeschaefte(app.db, filterFields, filterFulltext)
-      .then((geschaefte) => dispatch(erhalteGeschaefte(geschaefte)))
+      .then((geschaefte) => {
+        dispatch(erhalteGeschaefte(geschaefte))
+        dispatch(push('/geschaefte'))
+      })
       .catch((error) => dispatch(nichtErhalteneGeschaefte(error)))
   }
 }

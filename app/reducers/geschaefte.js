@@ -74,12 +74,14 @@ export default function geschaefte (state = standardState, action) {
     case GESCHAEFTE_FILTERN_FELDER:
       return Object.assign({}, state, {
         filterFields: action.filter,
-        filterFulltext: null
+        filterFulltext: null,
+        activeId: null
       })
     case GESCHAEFTE_FILTERN_VOLLTEXT:
       return Object.assign({}, state, {
         filterFields: {},
-        filterFulltext: action.filter
+        filterFulltext: action.filter,
+        activeId: null
       })
     case GESCHAEFT_AKTIVIEREN:
       return Object.assign({}, state, {
