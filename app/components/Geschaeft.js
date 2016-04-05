@@ -63,6 +63,7 @@ class Geschaeft extends Component {
                   onChange = {this.change}
                   bsSize = 'small'
                   className = {[styles.geschaeft, styles.gegenstand].join(' ')}
+                  tabIndex = {1}
                 />
               </Col>
               <Col xs={4} sm={4} md={4} lg={4}>
@@ -88,9 +89,8 @@ class Geschaeft extends Component {
                   onChange = {this.change}
                   bsSize = 'small'
                   className={styles.geschaeft}
+                  tabIndex = {2}
                 />
-              </Col>
-              <Col xs={3} sm={3} md={3} lg={3}>
               </Col>
               <Col xs={1} sm={1} md={1} lg={1}>
                 <Input
@@ -101,6 +101,7 @@ class Geschaeft extends Component {
                   onChange = {this.change}
                   bsSize = 'small'
                   className={styles.nr}
+                  tabIndex = {11}
                 />
               </Col>
               <Col xs={1} sm={1} md={1} lg={1}>
@@ -112,24 +113,10 @@ class Geschaeft extends Component {
                   onChange = {this.change}
                   bsSize = 'small'
                   className={styles.nr}
+                  tabIndex = {12}
                 />
               </Col>
-            </Row>
-            <Row>
-              <Col xs={7} sm={7} md={7} lg={7}>
-                <Input
-                  type = 'select'
-                  label = 'Geschäftsart'
-                  value = {geschaeft.geschaeftsart}
-                  name = 'geschaeftsart'
-                  onChange = {this.change}
-                  bsSize = 'small'
-                  className={styles.geschaeft}
-                >
-                  {this.options(geschaeftsartOptions)}
-                </Input>
-              </Col>
-              <Col xs={3} sm={3} md={3} lg={3}>
+              <Col xs={1} sm={1} md={1} lg={1}>
               </Col>
               <Col xs={1} sm={1} md={1} lg={1}>
                 <Input
@@ -140,6 +127,7 @@ class Geschaeft extends Component {
                   onChange = {this.change}
                   bsSize = 'small'
                   className={styles.nr}
+                  tabIndex = {13}
                 />
               </Col>
               <Col xs={1} sm={1} md={1} lg={1}>
@@ -151,11 +139,26 @@ class Geschaeft extends Component {
                   onChange = {this.change}
                   bsSize = 'small'
                   className={styles.nr}
+                  tabIndex = {14}
                 />
               </Col>
             </Row>
             <Row>
-              <Col xs={7} sm={7} md={7} lg={7}>
+              <Col xs={3} sm={3} md={3} lg={3}>
+                <Input
+                  type = 'select'
+                  label = 'Geschäftsart'
+                  value = {geschaeft.geschaeftsart}
+                  name = 'geschaeftsart'
+                  onChange = {this.change}
+                  bsSize = 'small'
+                  className={styles.geschaeft}
+                  tabIndex = {3}
+                >
+                  {this.options(geschaeftsartOptions)}
+                </Input>
+              </Col>
+              <Col xs={2} sm={2} md={2} lg={2}>
                 <Input
                   type = 'select'
                   label = 'Status'
@@ -164,11 +167,35 @@ class Geschaeft extends Component {
                   onChange = {this.change}
                   bsSize = 'small'
                   className={styles.geschaeft}
+                  tabIndex = {4}
                 >
                   {this.options(statusOptions)}
                 </Input>
               </Col>
-              <Col xs={3} sm={3} md={3} lg={3}>
+              <Col xs={1} sm={1} md={1} lg={1}>
+                <Input
+                  type = 'number'
+                  label = 'Vorgeschäft'
+                  value = {geschaeft.idVorgeschaeft}
+                  name = 'idVorgeschaeft'
+                  onChange = {this.change}
+                  bsSize = 'small'
+                  className = {styles.geschaeft}
+                  placeholder = 'ID'
+                  tabIndex = {5}
+                />
+              </Col>
+              <Col xs={1} sm={1} md={1} lg={1}>
+                <Input
+                  type = 'text'
+                  label = 'Direktion'
+                  value = {geschaeft.zustaendigeDirektion}
+                  name = 'zustaendigeDirektion'
+                  onChange = {this.change}
+                  bsSize = 'small'
+                  className={styles.geschaeft}
+                  tabIndex = {6}
+                />
               </Col>
               <Col xs={1} sm={1} md={1} lg={1}>
                 <Input
@@ -179,6 +206,7 @@ class Geschaeft extends Component {
                   onChange = {this.change}
                   bsSize = 'small'
                   className={styles.nr}
+                  tabIndex = {15}
                 />
               </Col>
               <Col xs={1} sm={1} md={1} lg={1}>
@@ -190,22 +218,10 @@ class Geschaeft extends Component {
                   onChange = {this.change}
                   bsSize = 'small'
                   className={styles.nr}
+                  tabIndex = {16}
                 />
               </Col>
-            </Row>
-            <Row>
-              <Col xs={7} sm={7} md={7} lg={7}>
-                <Input
-                  type = 'text'
-                  label = 'Direktion'
-                  value = {geschaeft.zustaendigeDirektion}
-                  name = 'zustaendigeDirektion'
-                  onChange = {this.change}
-                  bsSize = 'small'
-                  className={styles.geschaeft}
-                />
-              </Col>
-              <Col xs={3} sm={3} md={3} lg={3}>
+              <Col xs={1} sm={1} md={1} lg={1}>
               </Col>
               <Col xs={1} sm={1} md={1} lg={1}>
                 <Input
@@ -216,6 +232,7 @@ class Geschaeft extends Component {
                   onChange = {this.change}
                   bsSize = 'small'
                   className={styles.nr}
+                  tabIndex = {17}
                 />
               </Col>
               <Col xs={1} sm={1} md={1} lg={1}>
@@ -227,42 +244,7 @@ class Geschaeft extends Component {
                   onChange = {this.change}
                   bsSize = 'small'
                   className={styles.nr}
-                />
-              </Col>
-            </Row>
-            <Row>
-              <Col xs={7} sm={7} md={7} lg={7}>
-                <Input
-                  type = 'number'
-                  label = 'ID Vorgeschäft'
-                  value = {geschaeft.idVorgeschaeft}
-                  name = 'idVorgeschaeft'
-                  onChange = {this.change}
-                  bsSize = 'small'
-                  className = {styles.geschaeft}
-                />
-              </Col>
-              <Col xs={2} sm={2} md={2} lg={2}></Col>
-              <Col xs={2} sm={2} md={2} lg={2}>
-                <Input
-                  type = 'text'
-                  label = 'Aktenstandort'
-                  value = {geschaeft.aktenstandort}
-                  name = 'aktenstandort'
-                  onChange = {this.change}
-                  bsSize = 'small'
-                  className={styles.nr}
-                />
-              </Col>
-              <Col xs={1} sm={1} md={1} lg={1}>
-                <Input
-                  type = 'text'
-                  label = 'Nr.'
-                  value = {geschaeft.aktennummer}
-                  name = 'aktennummer'
-                  onChange = {this.change}
-                  bsSize = 'small'
-                  className={styles.nr}
+                  tabIndex = {18}
                 />
               </Col>
             </Row>
@@ -276,10 +258,33 @@ class Geschaeft extends Component {
                   onChange = {this.change}
                   bsSize = 'small'
                   className={styles.geschaeft}
+                  rows = {4}
+                  tabIndex = {7}
                 />
               </Col>
-              <Col xs={5} sm={5} md={5} lg={5} className={[styles.bereichTitel, styles.bereichTitelParlVorst].join(' ')}>
-                <p className={styles.bereichTitelParlVorstP}>Parlamentarische Vorstösse</p>
+              <Col xs={4} sm={4} md={4} lg={4}>
+                <Input
+                  type = 'text'
+                  label = 'Aktenstandort'
+                  value = {geschaeft.aktenstandort}
+                  name = 'aktenstandort'
+                  onChange = {this.change}
+                  bsSize = 'small'
+                  className={styles.nr}
+                  tabIndex = {19}
+                />
+              </Col>
+              <Col xs={1} sm={1} md={1} lg={1}>
+                <Input
+                  type = 'text'
+                  label = 'Nr.'
+                  value = {geschaeft.aktennummer}
+                  name = 'aktennummer'
+                  onChange = {this.change}
+                  bsSize = 'small'
+                  className={styles.nr}
+                  tabIndex = {20}
+                />
               </Col>
             </Row>
             <Row>
@@ -292,9 +297,12 @@ class Geschaeft extends Component {
                   onChange = {this.change}
                   bsSize = 'small'
                   className = {styles.geschaeft}
+                  rows = {3}
+                  tabIndex = {8}
                 />
               </Col>
-              <Col xs={3} sm={3} md={3} lg={3}>
+              <Col xs={5} sm={5} md={5} lg={5} className={styles.bereichTitel}>
+                <p className={styles.bereichTitelParlVorstP}>Parlamentarische Vorstösse</p>
                 <Input
                   type = 'select'
                   label = 'Typ'
@@ -303,9 +311,25 @@ class Geschaeft extends Component {
                   onChange = {this.change}
                   bsSize = 'small'
                   className={styles.parlVorstoss}
+                  tabIndex = {21}
                 >
                   {this.options(parlVorstossTypOptions)}
                 </Input>
+              </Col>
+            </Row>
+            <Row>
+              <Col xs={7} sm={7} md={7} lg={7}>
+                <Input
+                  type = 'textarea'
+                  label = 'Vermerk'
+                  value = {geschaeft.vermerk}
+                  name = 'vermerk'
+                  onChange = {this.change}
+                  bsSize = 'small'
+                  className={styles.geschaeft}
+                  rows = {4}
+                  tabIndex = {9}
+                />
               </Col>
               <Col xs={1} sm={1} md={1} lg={1}>
                 <Input
@@ -321,6 +345,7 @@ class Geschaeft extends Component {
                       onChange = {this.change}
                       bsSize = 'small'
                       name = 'parlVorstossStufe'
+                      tabIndex = {22}
                     />
                     <Input
                       type = 'radio'
@@ -330,6 +355,7 @@ class Geschaeft extends Component {
                       name = 'parlVorstossStufe'
                       onChange = {this.change}
                       bsSize = 'small'
+                      tabIndex = {23}
                     />
                   </div>
                 </Input>
@@ -348,6 +374,7 @@ class Geschaeft extends Component {
                       name = 'parlVorstossEbene'
                       onChange = {this.change}
                       bsSize = 'small'
+                      tabIndex = {24}
                     />
                     <Input
                       type = 'radio'
@@ -357,24 +384,11 @@ class Geschaeft extends Component {
                       onChange = {this.change}
                       name = 'parlVorstossEbene'
                       bsSize = 'small'
+                      tabIndex = {25}
                     />
                   </div>
                 </Input>
               </Col>
-            </Row>
-            <Row>
-              <Col xs={7} sm={7} md={7} lg={7}>
-                <Input
-                  type = 'textarea'
-                  label = 'Vermerk'
-                  value = {geschaeft.vermerk}
-                  name = 'vermerk'
-                  onChange = {this.change}
-                  bsSize = 'small'
-                  className={styles.geschaeft}
-                />
-              </Col>
-              <Col xs={3} sm={3} md={3} lg={3}></Col>
               <Col xs={1} sm={1} md={1} lg={1}>
                 <Input
                   label='Zuständigkeit'
@@ -389,6 +403,7 @@ class Geschaeft extends Component {
                       name = 'parlVorstossZustaendigkeitAwel'
                       onChange = {this.change}
                       bsSize = 'small'
+                      tabIndex = {26}
                     />
                     <Input
                       type = 'radio'
@@ -398,6 +413,7 @@ class Geschaeft extends Component {
                       name = 'parlVorstossZustaendigkeitAwel'
                       onChange = {this.change}
                       bsSize = 'small'
+                      tabIndex = {27}
                     />
                   </div>
                 </Input>
@@ -416,6 +432,7 @@ class Geschaeft extends Component {
                       name = 'erlassform'
                       onChange = {this.change}
                       bsSize = 'small'
+                      tabIndex = {28}
                     />
                     <Input
                       type = 'radio'
@@ -425,9 +442,12 @@ class Geschaeft extends Component {
                       name = 'erlassform'
                       onChange = {this.change}
                       bsSize = 'small'
+                      tabIndex = {29}
                     />
                   </div>
                 </Input>
+              </Col>
+              <Col xs={1} sm={1} md={1} lg={1}>
               </Col>
             </Row>
             <Row>
@@ -440,9 +460,27 @@ class Geschaeft extends Component {
                   onChange = {this.change}
                   bsSize = 'small'
                   className={styles.geschaeft}
+                  tabIndex = {10}
                 >
                   {this.options(rechtsmittelerledigungOptions)}
                 </Input>
+              </Col>
+              <Col xs={5} sm={5} md={5} lg={5}>
+              </Col>
+            </Row>
+            <Row>
+              <Col xs={7} sm={7} md={7} lg={7}>
+              </Col>
+              <Col xs={5} sm={5} md={5} lg={5}>
+              </Col>
+            </Row>
+            <Row>
+              <Col xs={7} sm={7} md={7} lg={7}>
+              </Col>
+              <Col xs={5} sm={5} md={5} lg={5}></Col>
+            </Row>
+            <Row>
+              <Col xs={7} sm={7} md={7} lg={7}>
               </Col>
               <Col xs={3} sm={3} md={3} lg={3}></Col>
               <Col xs={1} sm={1} md={1} lg={1}>
