@@ -7,3 +7,7 @@
   top: 3px;
   cursor: pointer;
 }
+
+.filterInput {
+  padding-right: 24px;
+}

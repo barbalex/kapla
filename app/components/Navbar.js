@@ -98,6 +98,7 @@ class MyToolbar extends Component {
                 placeholder='Volltext filtern'
                 value={filterFulltext}
                 onChange={this.onChangeFilterFulltext}
+                className={styles.filterInput}
               />
               <Glyphicon
                 glyph='remove'
@@ -107,10 +108,6 @@ class MyToolbar extends Component {
             </Navbar.Form>
             <NavDropdown eventKey={4} title='Menu' id='basic-nav-dropdown'>
               <MenuItem eventKey={4.1} onClick={holenDb}>Datenbank wählen</MenuItem>
-              <MenuItem divider />
-              <LinkContainer to={{ pathname: '/counter' }}>
-                <MenuItem eventKey={4.2}>Counter</MenuItem>
-              </LinkContainer>
             </NavDropdown>
           </Nav>
         </Navbar.Collapse>
