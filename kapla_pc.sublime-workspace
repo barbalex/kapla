@@ -4,6 +4,34 @@
 		"selected_items":
 		[
 			[
+				"ge",
+				"geschaeft"
+			],
+			[
+				"ges",
+				"geschaefte"
+			],
+			[
+				"com",
+				"componentDidMount"
+			],
+			[
+				"gesch",
+				"geschaefte"
+			],
+			[
+				"acti",
+				"activeId"
+			],
+			[
+				"en",
+				"entferneGeschaeftNicht"
+			],
+			[
+				"onC",
+				"onClickNewGeschaeft"
+			],
+			[
 				"marg",
 				"margin-bottom"
 			],
@@ -30,14 +58,6 @@
 			[
 				"border-bo",
 				"border-bottom-style"
-			],
-			[
-				"ges",
-				"geschaeft"
-			],
-			[
-				"ge",
-				"geschaeft"
 			],
 			[
 				"Ge",
@@ -99,49 +119,55 @@
 			"file": "package.json",
 			"settings":
 			{
-				"buffer_size": 0,
+				"buffer_size": 4236,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"contents": "Searching 85 files for \"BrowserWindow\" (case sensitive)\n\nC:\\Users\\alex\\kapla\\main.js:\n    5  const electron = require('electron')\n    6  const app = electron.app\n    7: const BrowserWindow = electron.BrowserWindow\n    8  const Menu = electron.Menu\n    9  const crashReporter = electron.crashReporter\n   ..\n   24  \n   25  app.on('ready', () => {\n   26:   mainWindow = new BrowserWindow({ width: 1800, height: 1024 })\n   27  \n   28    mainWindow.loadURL(`file://${__dirname}/app/app.html`)\n\n3 matches in 1 file\n",
+			"file": "app/actions/geschaefte.js",
 			"settings":
 			{
-				"buffer_size": 509,
-				"line_ending": "Windows",
-				"name": "Find Results",
-				"scratch": true
+				"buffer_size": 4890,
+				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "main.js",
+			"file": "app/reducers/geschaefte.js",
 			"settings":
 			{
-				"buffer_size": 5834,
-				"line_ending": "Unix"
+				"buffer_size": 2473,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "app/containers/Geschaefte.js",
+			"settings":
+			{
+				"buffer_size": 902,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "app/containers/Geschaeft.js",
+			"settings":
+			{
+				"buffer_size": 650,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "app/components/Geschaefte.js",
+			"settings":
+			{
+				"buffer_size": 2417,
+				"line_ending": "Windows"
 			}
 		},
 		{
 			"file": "app/components/Geschaeft.js",
 			"settings":
 			{
-				"buffer_size": 11281,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "app/components/Geschaeft.css",
-			"settings":
-			{
-				"buffer_size": 391,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "app/app.global.css",
-			"settings":
-			{
-				"buffer_size": 0,
+				"buffer_size": 15304,
 				"line_ending": "Windows"
 			}
 		}
@@ -196,51 +222,61 @@
 		"/C/Users/alex/kapla/app/actions",
 		"/C/Users/alex/kapla/app/components",
 		"/C/Users/alex/kapla/app/containers",
-		"/C/Users/alex/kapla/app/reducers"
+		"/C/Users/alex/kapla/app/reducers",
+		"/C/Users/alex/kapla/app/src"
 	],
 	"file_history":
 	[
+		"/C/Users/alex/kapla/app/src/updateGeschaeft.js",
+		"/C/Users/alex/kapla/app/actions/geschaefte.js",
+		"/C/Users/alex/kapla/app/components/Geschaefte.js",
+		"/C/Users/alex/kapla/app/index.js",
+		"/C/Users/alex/kapla/app/actions/user.js",
+		"/C/Users/alex/kapla/app/reducers/user.js",
+		"/C/Users/alex/kapla/app/src/deleteGeschaeft.js",
+		"/C/Users/alex/kapla/app/src/newGeschaeft.js",
+		"/C/Users/alex/kapla/app/components/Geschaeft.js",
+		"/C/Users/alex/kapla/app/components/Navbar.js",
+		"/C/Users/alex/kapla/app/containers/Geschaefte.js",
+		"/C/Users/alex/kapla/app/reducers/geschaefte.js",
+		"/C/Users/alex/kapla/app/reducers/app.js",
+		"/C/Users/alex/kapla/app/actions/app.js",
+		"/C/Users/alex/kapla/main.js",
+		"/C/Users/alex/kapla/app/containers/Geschaeft.js",
+		"/C/Users/alex/kapla/app/routes.js",
+		"/C/Users/alex/kapla/app/components/ModalGeschaeftDelete.js",
+		"/C/Users/alex/kapla/app/containers/ModalGeschaeftDelete.js",
+		"/C/Users/alex/kapla/app/containers/Navbar.js",
+		"/C/Users/alex/kapla/app/reducers/index.js",
+		"/C/Users/alex/kapla/app/reducers/geschaeft.js",
+		"/C/Users/alex/kapla/app/actions/geschaeft.js",
+		"/C/Users/alex/kapla/app/components/Geschaeft.css",
+		"/C/Users/alex/kapla/app/app.global.css",
 		"/C/Users/alex/kapla/.gitignore",
 		"/C/Users/alex/kapla/app/app.html",
 		"/C/Users/alex/kapla/test/e2e.js",
 		"/C/Users/alex/kapla/app/components/Geschaeft1.js",
-		"/C/Users/alex/kapla/app/app.global.css",
-		"/C/Users/alex/kapla/app/components/Geschaefte.js",
 		"/C/Users/alex/kapla/app/components/Geschaefte.css",
-		"/C/Users/alex/kapla/app/components/Navbar.js",
 		"/C/Users/alex/kapla/app/containers/HomePage.js",
-		"/C/Users/alex/kapla/app/containers/Geschaefte.js",
 		"/C/Users/alex/kapla/app/components/Home.js",
-		"/C/Users/alex/kapla/app/routes.js",
-		"/C/Users/alex/kapla/app/containers/Geschaeft.js",
 		"/C/Users/alex/kapla/app/components/Home.css",
-		"/C/Users/alex/kapla/app/containers/Navbar.js",
-		"/C/Users/alex/kapla/app/reducers/index.js",
-		"/C/Users/alex/kapla/app/index.js",
 		"/C/Users/alex/kapla/app/containers/GeschaefteList.js",
 		"/C/Users/alex/kapla/app/components/GeschaefteList.js",
 		"/C/Users/alex/kapla/app/components/Toolbar.js",
 		"/C/Users/alex/kapla/app/components/GeschaefteList.css",
 		"/C/Users/alex/kapla/app/components/GeschaefteList.sik2",
 		"/C/Users/alex/kapla/app/components/GeschaefteList.sik",
-		"/C/Users/alex/kapla/app/reducers/geschaefte.js",
 		"/C/Users/alex/kapla/app/components/GeschaefteList_sik.js",
 		"/C/Users/alex/kapla/app/src/initializeDb.js",
-		"/C/Users/alex/kapla/app/actions/app.js",
 		"/C/Users/alex/kapla/app/containers/Toolbar.js",
 		"/C/Users/alex/kapla/app/src/getGeschaefte.js",
 		"/C/Users/alex/kapla/app/actions/counter.js",
 		"/C/Users/alex/kapla/app/containers/GeschaeftePage.js",
-		"/C/Users/alex/kapla/app/actions/geschaefte.js",
 		"/C/Users/alex/AppData/Roaming/ElectronReact/kaplaConfig.json",
 		"/C/Users/alex/kapla/app/src/getGeschaefteWithFieldFilter.js",
 		"/C/Users/alex/kapla/app/src/getGeschaefteWithFulltextFilter.js",
 		"/C/Users/alex/kapla/app/src/saveConfigValue.js",
 		"/C/Users/alex/kapla/app/src/saveConfigValues.js",
-		"/C/Users/alex/kapla/main.js",
-		"/C/Users/alex/kapla/app/actions/user.js",
-		"/C/Users/alex/kapla/app/reducers/user.js",
-		"/C/Users/alex/kapla/app/reducers/app.js",
 		"/C/Users/alex/kapla/app/src/getConfig.js",
 		"/C/Users/alex/kapla/app/src/saveConfig.js",
 		"/C/Users/alex/kapla/app/src/chooseDb.js",
@@ -318,16 +354,7 @@
 		"/C/Users/alex/apflora_api/sql/countRows.sql",
 		"/C/Users/alex/apflora_api/queries/tabelleInsertApflora.js",
 		"/C/Users/alex/apf2_api/sql/create_tables_apflora.sql",
-		"/C/Users/alex/apf2_api/sql/triggers.sql",
-		"/C/Users/alex/apflora_api/src/routes/apflora.js",
-		"/C/Users/alex/apflora_api/queries/tree/assozarten.js",
-		"/C/Users/alex/apflora_api/queries/tree/apziel.js",
-		"/C/Users/alex/apflora_api/queries/tree/beobNichtBeurteilt.js",
-		"/C/Users/alex/apflora_api/queries/tree/ber.js",
-		"/C/Users/alex/apflora_api/queries/tabelleInsertMultipleApflora.js",
-		"/C/Users/alex/apflora_api/test/apfloraInsertMultiple.js",
-		"/C/Users/alex/apflora_api/server.js",
-		"/C/Users/alex/apflora_api/queries/tabelleSelectApfloraNumber.js"
+		"/C/Users/alex/apf2_api/sql/triggers.sql"
 	],
 	"find":
 	{
@@ -352,6 +379,47 @@
 		"case_sensitive": true,
 		"find_history":
 		[
+			"radio",
+			"log('state",
+			"radio",
+			"aendereGeschaeft",
+			"aendereGeschaeftFeld",
+			"GESCHAEFT_AENDERE_FELD",
+			"aendereGeschaeft",
+			"GESCHAEFT_AENDERN_FEHLER",
+			"GESCHAEFT_AENDERN",
+			"holenGeschaefte",
+			"GESCHAEFT_AKTIVIEREN",
+			"aktiviereGeschaeft",
+			"ModalGeschaeftDelete",
+			"willDeleteGeschaeft",
+			"getGeschaeft",
+			"{idGeschaeft",
+			"activeId",
+			"holeDbAusConfig",
+			"getMyName",
+			"store",
+			"initializeDb",
+			"initializeDb.js",
+			"holeDbAusConfig",
+			"erhalteDb",
+			"holenDb",
+			"aktiviereGeschaeft",
+			"holenGeschaeft",
+			"erhalteGeschaeft",
+			"bestelleGeschaeft",
+			"GESCHAEFT_BESTELLEN",
+			"getGeschaeft",
+			"geschaeftIsActive",
+			"GESCHAEFTE_NEU_ERSTELLEN",
+			"ModalGeschaeftDelete",
+			"GESCHAEFT_ENTFERNEN_WILL_DOCH_NICHT",
+			"entferneGeschaeft",
+			"\"",
+			"Geschaeft",
+			"GESCHAEFTE_ENTFERNEN",
+			"neuesGeschaeft.js",
+			"neuesGeschaeft",
 			"BrowserWindow",
 			"app.icns",
 			"Hello Electron React",
@@ -438,48 +506,7 @@
 			"\"",
 			"\"Z",
 			"\"W",
-			"\"V",
-			"\"T",
-			"\"S",
-			"\"R",
-			"AWEL",
-			"\"P",
-			"ä",
-			"\"N",
-			"\"M",
-			"\"K",
-			"\"I",
-			"\"G",
-			"_",
-			"\"F",
-			"\"Entscheid",
-			"AWEL",
-			";",
-			"\"",
-			";",
-			"\"",
-			";",
-			"\"",
-			";",
-			"click()",
-			";",
-			"config.db.userName",
-			"dbPass",
-			"insert/apflora/tabelle",
-			"\"",
-			"RETURNING",
-			"to_number",
-			"tpopInsertKopie",
-			"\"",
-			"apfloraPut",
-			"apfloraDelete.js",
-			"jberUebersicht.js",
-			"jber.js",
-			"jberUebersicht",
-			"\"",
-			"beobNichtZuordnen",
-			"connection",
-			"\""
+			"\"V"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -487,6 +514,19 @@
 		"regex": false,
 		"replace_history":
 		[
+			"aendereGeschaeft",
+			"aendereGeschaeftFeld",
+			"GESCHAEFTE_AENDERN",
+			"GESCHAEFT_AENDERN_FEHLER",
+			"GESCHAEFTE_AENDERN",
+			"aktiviereGeschaeft",
+			"GESCHAEFT_NEU_ERSTELLEN",
+			"GESCHAEFT_ENTFERNEN_WILL_NICHT",
+			"willGeschaeftEntfernen",
+			"'",
+			"ModalGeschaeftDelete",
+			"GESCHAEFT_ENTFERNEN",
+			"newGeschaeft.js",
 			"'",
 			"<Row>\n            <Col xs={7} sm={7} md={7} lg={7}>",
 			"'",
@@ -601,31 +641,18 @@
 			"''",
 			"",
 			"apber",
-			"apberuebersicht",
-			"assozart",
-			"ber",
-			"erfkrit",
-			"ap_erfbeurtkrit_werte",
-			"idealbiotop",
-			"ap",
-			"popber",
-			"popmassnber",
-			"pop",
-			"pop_status_werte",
-			"tpop_apberrelevant_werte",
-			"tpopber",
-			"pop_entwicklung_werte"
+			"apberuebersicht"
 		],
 		"reverse": false,
 		"show_context": true,
 		"use_buffer2": true,
-		"whole_word": false,
+		"whole_word": true,
 		"wrap": true
 	},
 	"groups":
 	[
 		{
-			"selected": 2,
+			"selected": 6,
 			"sheets":
 			[
 				{
@@ -634,7 +661,7 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 0,
+						"buffer_size": 4236,
 						"regions":
 						{
 						},
@@ -655,144 +682,120 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 2,
+					"stack_index": 6,
 					"type": "text"
 				},
 				{
 					"buffer": 1,
+					"file": "app/actions/geschaefte.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 509,
-						"regions":
-						{
-							"match":
-							{
-								"flags": 112,
-								"regions":
-								[
-									[
-										175,
-										188
-									],
-									[
-										200,
-										213
-									],
-									[
-										371,
-										384
-									]
-								],
-								"scope": ""
-							}
-						},
-						"selection":
-						[
-							[
-								381,
-								381
-							]
-						],
-						"settings":
-						{
-							"detect_indentation": false,
-							"line_numbers": false,
-							"output_tag": 1,
-							"result_base_dir": "",
-							"result_file_regex": "^([^ 	].*):$",
-							"result_line_regex": "^ +([0-9]+):",
-							"scroll_past_end": true,
-							"syntax": "Packages/Default/Find Results.hidden-tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "main.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 5834,
+						"buffer_size": 4890,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								539,
-								539
+								4331,
+								4336
 							]
 						],
 						"settings":
 						{
+							"history_list_is_closing": true,
 							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
 							"tab_size": 2,
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 191.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "app/components/Geschaeft.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 11281,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								9131,
-								9131
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 8896.0,
+						"translation.y": 4769.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 3,
 					"type": "text"
 				},
 				{
-					"buffer": 4,
-					"file": "app/components/Geschaeft.css",
+					"buffer": 2,
+					"file": "app/reducers/geschaefte.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 391,
+						"buffer_size": 2473,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								82,
-								82
+								2167,
+								2167
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/CSS/CSS.sublime-syntax"
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 2270.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "app/containers/Geschaefte.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 902,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								731,
+								678
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "app/containers/Geschaeft.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 650,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								427,
+								427
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -803,30 +806,63 @@
 				},
 				{
 					"buffer": 5,
-					"file": "app/app.global.css",
+					"file": "app/components/Geschaefte.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 0,
+						"buffer_size": 2417,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								0
+								1901,
+								1901
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/CSS/CSS.sublime-syntax"
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 1339.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 5,
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "app/components/Geschaeft.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 15304,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								14866,
+								14866
+							]
+						],
+						"settings":
+						{
+							"history_list_is_closing": true,
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 12788.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
 					"type": "text"
 				}
 			]
