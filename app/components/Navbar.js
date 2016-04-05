@@ -11,7 +11,8 @@ class MyToolbar extends Component {
     username: PropTypes.string,
     erstelleNeuesGeschaeft: PropTypes.func.isRequired,
     willGeschaeftEntfernen: PropTypes.func.isRequired,
-    activeId: PropTypes.number
+    activeId: PropTypes.number,
+    filterFulltext: PropTypes.string
   }
 
   onClickNewGeschaeft = () => {
@@ -24,10 +25,22 @@ class MyToolbar extends Component {
     willGeschaeftEntfernen(activeId)
   }
 
-  onKeyPressFulltextFilter = (e) => {
-    const { filtereGeschaefteNachVolltext, holenGeschaefte } = this.props
+  onKeyPressFilterFulltext = (e) => {
     if (e.key === 'Enter') {
-      filtereGeschaefteNachVolltext(e.target.value)
+      this.filterFulltext(e.target.value)
+    }
+  }
+
+  onBlurFilterFulltext = (e) => {
+    this.filterFulltext(e.target.value)
+  }
+
+  filterFulltext = (value) => {
+    const { filtereGeschaefteNachVolltext, holenGeschaefte, filterFulltext } = this.props
+    // only filter if value differs from existing
+    // reason: blur happens also after enter
+    if (value !== filterFulltext) {
+      filtereGeschaefteNachVolltext(value)
       holenGeschaefte()
     }
   }
@@ -81,7 +94,8 @@ class MyToolbar extends Component {
               <Input
                 type='text'
                 placeholder='Volltext filtern'
-                onKeyPress={this.onKeyPressFulltextFilter}
+                onKeyPress={this.onKeyPressFilterFulltext}
+                onBlur={this.onBlurFilterFulltext}
               />
             </Navbar.Form>
             <NavDropdown eventKey={4} title='Menu' id='basic-nav-dropdown'>

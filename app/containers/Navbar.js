@@ -10,7 +10,8 @@ const actions = Object.assign(UserActions, AppActions, GeschaefteActions)
 function mapStateToProps (state) {
   return {
     username: state.user.username,
-    activeId: state.geschaefte.activeId
+    activeId: state.geschaefte.activeId,
+    filterFulltext: state.geschaefte.filterFulltext
   }
 }
 

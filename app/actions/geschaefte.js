@@ -37,8 +37,6 @@ export function holenGeschaefte () {
     // TODO: get fieldFilter and ftFilter from state
     const { app, geschaefte } = getState()
     const { filterFields, filterFulltext } = geschaefte
-    console.log('actions/holenGeschaefte, filterFields', filterFields)
-    console.log('actions/holenGeschaefte, filterFulltext', filterFulltext)
     dispatch(bestelleGeschaefte())
     getGeschaefte(app.db, filterFields, filterFulltext)
       .then((geschaefte) => dispatch(erhalteGeschaefte(geschaefte)))
