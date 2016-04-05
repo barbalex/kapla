@@ -18,7 +18,8 @@ class Geschaefte extends Component {
     willDeleteGeschaeft: PropTypes.bool,
     activeId: PropTypes.number,
     holenRechtsmittelerledigungOptions: PropTypes.func.isRequired,
-    holenParlVorstossTypOptions: PropTypes.func.isRequired
+    holenParlVorstossTypOptions: PropTypes.func.isRequired,
+    holenStatusOptions: PropTypes.func.isRequired
   }
 
   componentWillMount () {
@@ -29,7 +30,8 @@ class Geschaefte extends Component {
       filterFields,
       filterFulltext,
       holenRechtsmittelerledigungOptions,
-      holenParlVorstossTypOptions
+      holenParlVorstossTypOptions,
+      holenStatusOptions
     } = this.props
 
     fetchUsername()
@@ -37,6 +39,7 @@ class Geschaefte extends Component {
     holenGeschaefte(filterFields, filterFulltext)
     holenRechtsmittelerledigungOptions()
     holenParlVorstossTypOptions()
+    holenStatusOptions()
   }
 
   onClickGeschaeft (idGeschaeft) {

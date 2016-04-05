@@ -230,3 +230,24 @@ function nichtErhalteneParlVorstossTypOptions (error) {
     error
   }
 }
+
+export const STATUS_OPTIONS_HOLEN = 'STATUS_OPTIONS_HOLEN'
+export function holenStatusOptions () {
+  return (dispatch, getState) => {
+    const { app } = getState()
+    getDropdownOptions(app.db, 'status')
+      .then((statusOptions) => dispatch({
+        type: STATUS_OPTIONS_HOLEN,
+        statusOptions
+      }))
+      .catch((error) => dispatch(nichtErhalteneStatusOptions(error)))
+  }
+}
+
+export const STATUS_OPTIONS_HOLEN_FEHLER = 'STATUS_OPTIONS_HOLEN_FEHLER'
+function nichtErhalteneStatusOptions (error) {
+  return {
+    type: STATUS_OPTIONS_HOLEN_FEHLER,
+    error
+  }
+}
