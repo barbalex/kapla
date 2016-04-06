@@ -9,7 +9,7 @@ export default function (db, fieldFilter) {
       SELECT
         *
       FROM
-        geschaefte
+        v_geschaefte
       ${whereString}
       ORDER BY
         idGeschaeft DESC`
