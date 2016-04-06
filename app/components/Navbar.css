@@ -16,4 +16,6 @@
 
 .filterInputRemoveIcon {
   cursor: pointer;
+  right: 23px;
+  top: 2px;
 }

@@ -30,24 +30,21 @@ class MyToolbar extends Component {
     willGeschaeftEntfernen(activeId)
   }
 
-  onKeyPressFilterFulltext = (e) => {
-    if (e.key === 'Enter') this.filterFulltext(e.target.value)
-  }
-
   onChangeFilterFulltext = (e) => {
     const { setzeGeschaefteVolltextFilter } = this.props
     setzeGeschaefteVolltextFilter(e.target.value)
   }
 
-  filterFulltext = (value) => {
+  onBlurFilterFulltext = (e) => {
     const { filtereGeschaefteNachVolltext } = this.props
-    filtereGeschaefteNachVolltext(value)
+    filtereGeschaefteNachVolltext(e.target.value)
   }
 
-  onClickFilterGlyph = () => {
-    const { setzeGeschaefteVolltextFilter, filtereGeschaefteNachVolltext, filterFulltext } = this.props
-    setzeGeschaefteVolltextFilter(filterFulltext)
-    filtereGeschaefteNachVolltext(filterFulltext)
+  onKeyPressFilterFulltext = (e) => {
+    const { filtereGeschaefteNachVolltext } = this.props
+    if (e.key === 'Enter') {
+      filtereGeschaefteNachVolltext(e.target.value)
+    }
   }
 
   onClickRemoveFilterGlyph = () => {
@@ -111,10 +108,16 @@ class MyToolbar extends Component {
               value={filterFulltext}
               onChange={this.onChangeFilterFulltext}
               onKeyPress={this.onKeyPressFilterFulltext}
+              onBlur={this.onBlurFilterFulltext}
               className={classNameFilterInput}
-              addonBefore={<Glyphicon glyph='search' onClick={this.onClickFilterGlyph} className={styles.filterInputRemoveIcon} />}
-              addonAfter={<Glyphicon glyph='remove' onClick={this.onClickRemoveFilterGlyph} className={styles.filterInputRemoveIcon} />}
+              title='Drücken Sie die Enter-Taste oder verlassen Sie das Feld, um den Filter anzuwenden'
             />
+          <Glyphicon
+            glyph='remove'
+            onClick={this.onClickRemoveFilterGlyph}
+            className={styles.filterInputRemoveIcon}
+            title='Filter entfernen'
+          />
           </Navbar.Form>
           <NavDropdown eventKey={4} title='Menu' id='basic-nav-dropdown'>
             <MenuItem eventKey={4.1} onClick={holenDb}>Datenbank wählen</MenuItem>
