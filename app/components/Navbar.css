@@ -6,16 +6,15 @@
   background-color: #FF9416;
 }
 
-.filterGlyph {
-  right: 20px;
-  top: 3px;
-  cursor: pointer;
-}
-
 .filterInput {
   padding-right: 24px;
 }
 
 .filterInputActive {
   background-color: #FFBF73;
+}
+
+.filterInputRemoveIcon {
+  cursor: pointer;
+  padding: 0;
 }

@@ -8,13 +8,18 @@ import * as AppActions from '../actions/app'
 const actions = Object.assign(GeschaefteActions, AppActions, UserActions)
 
 function mapStateToProps (state) {
+  const { geschaefte, geschaefteGefiltert, activeId, willDelete } = state.geschaefte
+  const { username } = state.user
+  const { dbPath, db } = state.app
+
   return {
-    geschaefte: state.geschaefte.geschaefte,
-    username: state.user.username,
-    dbPath: state.app.dbPath,
-    db: state.app.db,
-    activeId: state.geschaefte.activeId,
-    willDeleteGeschaeft: state.geschaefte.willDelete
+    geschaefte,
+    geschaefteGefiltert,
+    username,
+    dbPath,
+    db,
+    activeId,
+    willDeleteGeschaeft: willDelete
   }
 }
 

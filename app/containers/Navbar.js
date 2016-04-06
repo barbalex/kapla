@@ -8,11 +8,14 @@ import * as GeschaefteActions from '../actions/geschaefte'
 const actions = Object.assign(UserActions, AppActions, GeschaefteActions)
 
 function mapStateToProps (state) {
+  const { activeId, filterFulltext, geschaefte, geschaefteGefiltert } = state.geschaefte
+  const { username } = state.user
   return {
-    username: state.user.username,
-    activeId: state.geschaefte.activeId,
-    filterFulltext: state.geschaefte.filterFulltext,
-    geschaefte: state.geschaefte.geschaefte
+    username,
+    activeId,
+    filterFulltext,
+    geschaefte,
+    geschaefteGefiltert
   }
 }
 

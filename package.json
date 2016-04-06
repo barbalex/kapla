@@ -95,6 +95,7 @@
     "css-modules-require-hook": "4.0.0",
     "electron-debug": "0.5.2",
     "font-awesome": "4.5.0",
+    "lodash": "^4.8.2",
     "postcss": "5.0.19",
     "react": "0.14.8",
     "react-bootstrap": "0.28.5",

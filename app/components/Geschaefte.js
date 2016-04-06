@@ -8,6 +8,7 @@ import styles from './Geschaefte.css'
 class Geschaefte extends Component {
   static propTypes = {
     geschaefte: PropTypes.array.isRequired,
+    geschaefteGefiltert: PropTypes.array.isRequired,
     fetchUsername: PropTypes.func.isRequired,
     username: PropTypes.string,
     holeDbAusConfig: PropTypes.func.isRequired,
@@ -47,10 +48,10 @@ class Geschaefte extends Component {
   }
 
   renderItem (index, key) {
-    const { geschaefte, activeId } = this.props
-    const isActive = activeId && activeId === geschaefte[index].idGeschaeft
+    const { geschaefteGefiltert, activeId } = this.props
+    const isActive = activeId && activeId === geschaefteGefiltert[index].idGeschaeft
     const className = isActive ? [styles.row, styles.active].join(' ') : styles.row
-    const geschaeft = geschaefte[index]
+    const geschaeft = geschaefteGefiltert[index]
     const fristMitarbeiter = geschaeft.fristMitarbeiter ? `Frist: ${geschaeft.fristMitarbeiter}` : null
 
     return (
@@ -104,7 +105,7 @@ class Geschaefte extends Component {
   }
 
   render() {
-    const { geschaefte, willDeleteGeschaeft } = this.props
+    const { geschaefteGefiltert, willDeleteGeschaeft } = this.props
     return (
       <div className = {styles.body}>
         <Navbar />
@@ -112,7 +113,7 @@ class Geschaefte extends Component {
         <div className={[styles.grid, 'reactList'].join(' ')}>
           <ReactList
             itemRenderer={::this.renderItem}
-            length={geschaefte.length}
+            length={geschaefteGefiltert.length}
             type='variable'
           />
         </div>

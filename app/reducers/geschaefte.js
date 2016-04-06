@@ -26,6 +26,7 @@ const standardState = {
   fetching: false,
   error: [],
   geschaefte: [],
+  geschaefteGefiltert: [],
   filterFields: {},
   filterFulltext: null,
   // following: state for active geschaeft
@@ -55,59 +56,71 @@ function geschaeft (state = {}, action) {
 export default function geschaefte (state = standardState, action) {
   switch (action.type) {
     case GESCHAEFTE_BESTELLEN:
-      return Object.assign({}, state, {
+      return {
+        ...state,
         fetching: true,
         error: []
-      })
+      }
     case GESCHAEFTE_ERHALTEN:
-      return Object.assign({}, state, {
+      return {
+        ...state,
         fetching: false,
         error: [],
-        geschaefte: action.geschaefte
-      })
+        geschaefte: action.geschaefte,
+        geschaefteGefiltert: action.geschaefteGefiltert
+      }
     case GESCHAEFTE_NICHT_ERHALTEN:
-      return Object.assign({}, state, {
+      return {
+        ...state,
         fetching: false,
-        error: [...state.error, action.error],
-        geschaefte: []
-      })
+        error: [...state.error, action.error]
+      }
     case GESCHAEFTE_FILTERN_FELDER:
-      return Object.assign({}, state, {
-        filterFields: action.filter,
+      return {
+        ...state,
+        filterFields: action.filterFulltext,
         filterFulltext: null,
-        activeId: null
-      })
+        activeId: null,
+        geschaefteGefiltert: action.geschaefteGefiltert
+      }
     case GESCHAEFTE_FILTERN_VOLLTEXT:
-      return Object.assign({}, state, {
+      return {
+        ...state,
         filterFields: {},
-        filterFulltext: action.filter,
-        activeId: null
-      })
+        filterFulltext: action.filterFulltext,
+        activeId: null,
+        geschaefteGefiltert: action.geschaefteGefiltert
+      }
     case GESCHAEFT_AKTIVIEREN:
-      return Object.assign({}, state, {
+      return {
+        ...state,
         activeId: action.idGeschaeft
-      })
+      }
     case GESCHAEFT_DEAKTIVIEREN:
-      return Object.assign({}, state, {
+      return {
+        ...state,
         activeId: null
-      })
+      }
     case GESCHAEFT_ENTFERNEN_WILL:
-      return Object.assign({}, state, {
+      return {
+        ...state,
         willDelete: true
-      })
+      }
     case GESCHAEFT_ENTFERNEN_WILL_NICHT:
-      return Object.assign({}, state, {
+      return {
+        ...state,
         willDelete: false
-      })
+      }
     case GESCHAEFTE_AENDERN:
       return {
         ...state,
         geschaefte: state.geschaefte.map((g) => geschaeft(g, action))
       }
     case GESCHAEFT_EROEFFNEN:
-      return Object.assign({}, state, {
+      return {
+        ...state,
         geschaefte: [{idGeschaeft: action.idGeschaeft}, ...state.geschaefte]
-      })
+      }
     case RECHTSMITTELERLEDIGUNG_OPTIONS_HOLEN:
       return {
         ...state,

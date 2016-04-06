@@ -2,6 +2,7 @@ import React, { Component, PropTypes } from 'react'
 import { Navbar, NavDropdown, MenuItem, Nav, NavItem, Glyphicon, Input, Badge } from 'react-bootstrap'
 import { Link } from 'react-router'
 import { LinkContainer } from 'react-router-bootstrap'
+import { debounce } from 'lodash'
 import styles from './Navbar.css'
 
 class MyToolbar extends Component {
@@ -14,7 +15,8 @@ class MyToolbar extends Component {
     willGeschaeftEntfernen: PropTypes.func.isRequired,
     activeId: PropTypes.number,
     filterFulltext: PropTypes.string,
-    geschaefte: PropTypes.array
+    geschaefte: PropTypes.array,
+    geschaefteGefiltert: PropTypes.array
   }
 
   onClickNewGeschaeft = () => {
@@ -36,14 +38,17 @@ class MyToolbar extends Component {
     // only filter if value differs from existing
     // reason: blur happens also after enter
     if (value !== filterFulltext) {
-      filtereGeschaefteNachVolltext(value)
-      holenGeschaefte()
+      debounce(filtereGeschaefteNachVolltext, 200)(value)
     }
   }
 
   onClickFilterGlyph = () => {
     this.filterFulltext('')
   }
+
+  filterFulltextSearchGlyphicon = () => (
+    <Button><Glyphicon glyph='filter' /></Button>
+  )
 
   render() {
     const {
@@ -52,6 +57,7 @@ class MyToolbar extends Component {
       erstelleNeuesGeschaeft,
       activeId,
       geschaefte,
+      geschaefteGefiltert,
       filterFulltext
     } = this.props
 
@@ -62,7 +68,7 @@ class MyToolbar extends Component {
       <Navbar inverse fluid>
         <Nav>
           <LinkContainer to={{ pathname: '/geschaefte' }}>
-            <NavItem eventKey={1} href='#'>Geschäfte <Badge className={classNameBadge}>{geschaefte.length}</Badge></NavItem>
+            <NavItem eventKey={1} href='#'>Geschäfte <Badge className={classNameBadge}>{geschaefteGefiltert.length}</Badge></NavItem>
           </LinkContainer>
           <LinkContainer to={{ pathname: '/geschaeft' }} disabled = {!activeId}>
             <NavItem eventKey={2} href='#' disabled = {!activeId}>Geschäft</NavItem>
@@ -90,14 +96,9 @@ class MyToolbar extends Component {
             <Input
               type='text'
               placeholder='Volltext filtern'
-              value={filterFulltext}
               onChange={this.onChangeFilterFulltext}
               className={classNameFilterInput}
-            />
-            <Glyphicon
-              glyph='remove'
-              className={styles.filterGlyph}
-              onClick={this.onClickFilterGlyph}
+              addonAfter={<Glyphicon glyph='remove' onClick={this.onClickFilterGlyph} className={styles.filterInputRemoveIcon} />}
             />
           </Navbar.Form>
           <NavDropdown eventKey={4} title='Menu' id='basic-nav-dropdown'>

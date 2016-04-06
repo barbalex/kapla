@@ -1,18 +1,18 @@
 'use strict'
 
-import getGeschaefteWithFieldFilter from './getGeschaefteWithFieldFilter.js'
-import getGeschaefteWithFulltextFilter from './getGeschaefteWithFulltextFilter.js'
-
-export default function (db, fieldFilter, fulltextFilter) {
+export default function (db) {
   return new Promise((resolve, reject) => {
-    if (fulltextFilter) {
-      getGeschaefteWithFulltextFilter(db, fulltextFilter)
-        .then((result) => resolve(result))
-        .catch((error) => reject(error))
-    } else {
-      getGeschaefteWithFieldFilter(db, fieldFilter)
-        .then((result) => resolve(result))
-        .catch((error) => reject(error))
-    }
+    const sql = `
+      SELECT
+        *
+      FROM
+        v_geschaefte
+      ORDER BY
+        idGeschaeft DESC`
+
+    db.all(sql, (error, result) => {
+      if (error) reject(error)
+      resolve(result)
+    })
   })
 }

@@ -7,6 +7,7 @@
 import getGeschaefte from '../src/getGeschaefte.js'
 import getDropdownOptions from '../src/getDropdownOptions.js'
 import updateGeschaeft from '../src/updateGeschaeft.js'
+import createGeschaefteGefiltert from '../src/createGeschaefteGefiltert.js'
 
 export const GESCHAEFTE_BESTELLEN = 'GESCHAEFTE_BESTELLEN'
 function bestelleGeschaefte () {
@@ -16,10 +17,17 @@ function bestelleGeschaefte () {
 }
 
 export const GESCHAEFTE_ERHALTEN = 'GESCHAEFTE_ERHALTEN'
-function erhalteGeschaefte (geschaefte) {
-  return {
-    type: GESCHAEFTE_ERHALTEN,
-    geschaefte
+function erhalteGeschaefte (geschaefteArray) {
+  return (dispatch, getState) => {
+    const { geschaefte } = getState()
+    const { filterFields, filterFulltext } = geschaefte
+    // create geschaefteGefiltert
+    const geschaefteGefiltert = createGeschaefteGefiltert(geschaefteArray, filterFulltext, filterFields)
+    dispatch({
+      type: GESCHAEFTE_ERHALTEN,
+      geschaefte: geschaefteArray,
+      geschaefteGefiltert
+    })
   }
 }
 
@@ -34,11 +42,9 @@ function nichtErhalteneGeschaefte (error) {
 export const GESCHAEFTE_HOLEN = 'GESCHAEFTE_HOLEN'
 export function holenGeschaefte () {
   return (dispatch, getState) => {
-    // TODO: get fieldFilter and ftFilter from state
-    const { app, geschaefte } = getState()
-    const { filterFields, filterFulltext } = geschaefte
+    const { app } = getState()
     dispatch(bestelleGeschaefte())
-    getGeschaefte(app.db, filterFields, filterFulltext)
+    getGeschaefte(app.db)
       .then((geschaefte) => {
         dispatch(erhalteGeschaefte(geschaefte))
         dispatch(push('/geschaefte'))
@@ -53,19 +59,33 @@ export const GESCHAEFTE_FILTERN_FELDER = 'GESCHAEFTE_FILTERN_FELDER'
  * keys = field names
  * values = filter values
  */
-export function filtereGeschaefteNachFeldern (filter) {
-  return {
-    type: GESCHAEFTE_FILTERN_FELDER,
-    filter
+export function filtereGeschaefteNachFeldern (filterFields) {
+  return (dispatch, getState) => {
+    const { geschaefte } = getState()
+    const { filterFulltext } = geschaefte
+    // create geschaefteGefiltert
+    const geschaefteGefiltert = createGeschaefteGefiltert(geschaefte.geschaefte, filterFulltext, filterFields)
+    dispatch({
+      type: GESCHAEFTE_FILTERN_FELDER,
+      filterFields,
+      geschaefteGefiltert
+    })
   }
 }
 
 export const GESCHAEFTE_FILTERN_VOLLTEXT = 'GESCHAEFTE_FILTERN_VOLLTEXT'
 // filter = word
-export function filtereGeschaefteNachVolltext (filter) {
-  return {
-    type: GESCHAEFTE_FILTERN_VOLLTEXT,
-    filter
+export function filtereGeschaefteNachVolltext (filterFulltext) {
+  return (dispatch, getState) => {
+    const { geschaefte } = getState()
+    const { filterFields } = geschaefte
+    // create geschaefteGefiltert
+    const geschaefteGefiltert = createGeschaefteGefiltert(geschaefte.geschaefte, filterFulltext, filterFields)
+    dispatch({
+      type: GESCHAEFTE_FILTERN_VOLLTEXT,
+      filterFulltext,
+      geschaefteGefiltert
+    })
   }
 }
 
