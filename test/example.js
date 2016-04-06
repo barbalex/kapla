@@ -1,4 +1,6 @@
 /* eslint func-names: 0 */
+'use strict'
+
 import { expect } from 'chai'
 
 describe('description', () => {

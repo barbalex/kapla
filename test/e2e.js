@@ -1,3 +1,5 @@
+'use strict'
+
 import path from 'path'
 import chromedriver from 'chromedriver'
 import webdriver from 'selenium-webdriver'

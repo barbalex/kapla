@@ -1,4 +1,6 @@
 /* eslint no-unused-expressions: 0 */
+'use strict'
+
 import { expect } from 'chai'
 import { spy } from 'sinon'
 import React from 'react'
@@ -10,7 +12,7 @@ import {
 } from 'react-addons-test-utils'
 import Counter from '../../app/components/Counter'
 
-function setup () {
+function setup() {
   const actions = {
     increment: spy(),
     incrementIfOdd: spy(),
