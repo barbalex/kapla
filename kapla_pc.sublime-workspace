@@ -4,12 +4,40 @@
 		"selected_items":
 		[
 			[
-				"onC",
-				"onChangeFilterFulltext"
+				"fil",
+				"filtereGeschaefteNachFeldern"
+			],
+			[
+				"ges",
+				"geschaefteArray"
+			],
+			[
+				"ge",
+				"geschaefteGefiltert"
+			],
+			[
+				"gesch",
+				"geschaefte"
+			],
+			[
+				"satis",
+				"satisfiesFilter"
+			],
+			[
+				"con",
+				"containsFilter"
 			],
 			[
 				"filter",
 				"filterFulltext"
+			],
+			[
+				"gesc",
+				"geschaeft"
+			],
+			[
+				"onC",
+				"onChangeFilterFulltext"
 			],
 			[
 				"res",
@@ -20,24 +48,12 @@
 				"options"
 			],
 			[
-				"gesch",
-				"geschaefte"
-			],
-			[
 				"P",
 				"PARLVORSTOSS_OPTIONS_HOLEN_FEHLER"
 			],
 			[
 				"IN",
 				"INTEGER"
-			],
-			[
-				"ge",
-				"geschaeftsart"
-			],
-			[
-				"ges",
-				"geschaefte"
 			],
 			[
 				"com",
@@ -139,7 +155,7 @@
 			"file": "package.json",
 			"settings":
 			{
-				"buffer_size": 4236,
+				"buffer_size": 4623,
 				"line_ending": "Windows"
 			}
 		},
@@ -147,7 +163,7 @@
 			"file": "app/actions/geschaefte.js",
 			"settings":
 			{
-				"buffer_size": 8155,
+				"buffer_size": 9156,
 				"line_ending": "Windows"
 			}
 		},
@@ -155,23 +171,7 @@
 			"file": "app/reducers/geschaefte.js",
 			"settings":
 			{
-				"buffer_size": 3764,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "app/routes.js",
-			"settings":
-			{
-				"buffer_size": 422,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "app/components/Geschaefte.js",
-			"settings":
-			{
-				"buffer_size": 2837,
+				"buffer_size": 3993,
 				"line_ending": "Windows"
 			}
 		},
@@ -179,15 +179,31 @@
 			"file": "app/containers/Navbar.js",
 			"settings":
 			{
-				"buffer_size": 735,
+				"buffer_size": 773,
 				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/C/Users/alex/AppData/Roaming/Sublime Text 3/Packages/User/Preferences.sublime-settings",
+			"settings":
+			{
+				"buffer_size": 812,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/C/Users/alex/AppData/Roaming/Sublime Text 3/Packages/SublimeLinter/SublimeLinter.sublime-settings",
+			"settings":
+			{
+				"buffer_size": 1124,
+				"line_ending": "Unix"
 			}
 		},
 		{
 			"file": "app/components/Navbar.js",
 			"settings":
 			{
-				"buffer_size": 3632,
+				"buffer_size": 4391,
 				"line_ending": "Windows"
 			}
 		},
@@ -195,7 +211,7 @@
 			"file": "app/components/Navbar.css",
 			"settings":
 			{
-				"buffer_size": 254,
+				"buffer_size": 264,
 				"line_ending": "Windows"
 			}
 		}
@@ -207,10 +223,14 @@
 	"build_varint": "",
 	"command_palette":
 	{
-		"height": 173.0,
-		"last_filter": "install",
+		"height": 81.0,
+		"last_filter": "linter settings",
 		"selected_items":
 		[
+			[
+				"linter settings",
+				"Preferences: SublimeLinter Settings – Default"
+			],
 			[
 				"install",
 				"Package Control: Install Package"
@@ -252,42 +272,46 @@
 		"/C/Users/alex/kapla/app/containers",
 		"/C/Users/alex/kapla/app/reducers",
 		"/C/Users/alex/kapla/app/src",
-		"/C/Users/alex/kapla/app/src/createTables"
+		"/C/Users/alex/kapla/app/src/sql"
 	],
 	"file_history":
 	[
+		"/C/Users/alex/kapla/package.js",
+		"/C/Users/alex/kapla/app/containers/Geschaefte.js",
+		"/C/Users/alex/kapla/app/components/Geschaefte.js",
+		"/C/Users/alex/kapla/app/src/createGeschaefteGefiltert.js",
+		"/C/Users/alex/kapla/app/components/Navbar.css",
+		"/C/Users/alex/kapla/app/reducers/geschaefte.js",
+		"/C/Users/alex/kapla/app/src/getGeschaefte.js",
+		"/C/Users/alex/kapla/app/src/getGeschaefteWithFieldFilter.js",
+		"/C/Users/alex/kapla/app/routes.js",
+		"/C/Users/alex/kapla/app/components/Geschaefte.css",
+		"/C/Users/alex/kapla/app/src/getGeschaefteWithFulltextFilter.js",
+		"/C/Users/alex/kapla/app/src/sql/createViews.sql",
+		"/C/Users/alex/kapla/app/containers/Navbar.js",
+		"/C/Users/alex/kapla/app/components/Navbar.js",
 		"/C/Users/alex/AppData/Roaming/ElectronReact/kaplaConfig.json",
 		"/C/Users/alex/kapla/app/reducers/index.js",
 		"/C/Users/alex/kapla/app/components/Geschaeft.js",
-		"/C/Users/alex/kapla/app/components/Navbar.css",
-		"/C/Users/alex/kapla/app/containers/Geschaefte.js",
-		"/C/Users/alex/kapla/app/components/Geschaefte.js",
 		"/C/Users/alex/kapla/app/containers/Geschaeft.js",
-		"/C/Users/alex/kapla/app/components/Geschaefte.css",
 		"/C/Users/alex/kapla/app/app.global.css",
 		"/C/Users/alex/kapla/app/components/Geschaeft.css",
 		"/C/Users/alex/kapla/app/src/resizeTextareas.js",
 		"/C/Users/alex/kapla/app/index.js",
-		"/C/Users/alex/kapla/app/src/getGeschaefte.js",
 		"/C/Users/alex/kapla/app/src/getDropdownOptions.js",
 		"/C/Users/alex/kapla/app/src/getConfig.js",
 		"/C/Users/alex/kapla/app/src/createTables/createTables.sql",
 		"/C/Users/alex/kapla/app/actions/app.js",
-		"/C/Users/alex/kapla/app/src/getGeschaefteWithFieldFilter.js",
 		"/C/Users/alex/kapla/app/src/updateGeschaeft.js",
 		"/C/Users/alex/kapla/app/actions/geschaefte.js",
 		"/C/Users/alex/kapla/app/actions/user.js",
 		"/C/Users/alex/kapla/app/reducers/user.js",
 		"/C/Users/alex/kapla/app/src/deleteGeschaeft.js",
 		"/C/Users/alex/kapla/app/src/newGeschaeft.js",
-		"/C/Users/alex/kapla/app/components/Navbar.js",
-		"/C/Users/alex/kapla/app/reducers/geschaefte.js",
 		"/C/Users/alex/kapla/app/reducers/app.js",
 		"/C/Users/alex/kapla/main.js",
-		"/C/Users/alex/kapla/app/routes.js",
 		"/C/Users/alex/kapla/app/components/ModalGeschaeftDelete.js",
 		"/C/Users/alex/kapla/app/containers/ModalGeschaeftDelete.js",
-		"/C/Users/alex/kapla/app/containers/Navbar.js",
 		"/C/Users/alex/kapla/app/reducers/geschaeft.js",
 		"/C/Users/alex/kapla/app/actions/geschaeft.js",
 		"/C/Users/alex/kapla/.gitignore",
@@ -308,7 +332,6 @@
 		"/C/Users/alex/kapla/app/containers/Toolbar.js",
 		"/C/Users/alex/kapla/app/actions/counter.js",
 		"/C/Users/alex/kapla/app/containers/GeschaeftePage.js",
-		"/C/Users/alex/kapla/app/src/getGeschaefteWithFulltextFilter.js",
 		"/C/Users/alex/kapla/app/src/saveConfigValue.js",
 		"/C/Users/alex/kapla/app/src/saveConfigValues.js",
 		"/C/Users/alex/kapla/app/src/saveConfig.js",
@@ -380,10 +403,7 @@
 		"/D/Google Drive/apflora/v2/installDb.txt",
 		"/C/Users/alex/.ssh/alex",
 		"/C/Users/alex/.ssh/alex.ppk",
-		"/C/Users/alex/apflora_api/sql/triggers.sql",
-		"/C/Users/alex/apflora_api/sql/createViews.sql",
-		"/C/Users/alex/apflora_api/sql/create_tables_beob.sql",
-		"/C/Users/alex/apflora_api/sql/create_tables_apflora.sql"
+		"/C/Users/alex/apflora_api/sql/triggers.sql"
 	],
 	"find":
 	{
@@ -408,6 +428,22 @@
 		"case_sensitive": true,
 		"find_history":
 		[
+			"filtereGeschaefteNachVolltext",
+			"onBlurFilterFulltext",
+			";",
+			"36.9",
+			"geschaefte",
+			"filtereGeschaefteNachVolltext",
+			"onChangeFilterFulltext",
+			"geschaefte",
+			"erhalteGeschaefte",
+			"holenGeschaefte",
+			"getGeschaefteWithFieldFilter",
+			"geschaefte",
+			"containsFilter",
+			"onChangeFilterFulltext",
+			"\"",
+			"geschaefte[index]",
 			"doFilterFulltext",
 			"onKeyPressFilterFulltext",
 			"onBlurFilterFulltext",
@@ -519,23 +555,7 @@
 			"getConfig",
 			"saveConfigValue",
 			"ToolbarPage",
-			"electron",
-			";",
-			"var",
-			"electron",
-			"ToolbarSeparator",
-			"RaisedButton",
-			"\"",
-			";",
-			"Geschaefte",
-			"GESCHAEFTE_HOLEN",
-			"username",
-			"getMyUsername",
-			"^",
-			"GeschaefteActions",
-			"Geschaefte",
-			"whereStringForFieldsAnd",
-			"whereStringForFields"
+			"electron"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -543,6 +563,11 @@
 		"regex": false,
 		"replace_history":
 		[
+			"",
+			"geschaefteGefiltert",
+			"satisfiesFilter",
+			"'",
+			"geschaeft",
 			"filterFulltext",
 			"onChangeFilterFulltext",
 			" ",
@@ -665,23 +690,18 @@
 			"tpop",
 			"popmassnber",
 			"popber",
-			"pop_entwicklung_werte",
-			"pop",
-			"smallint",
-			"double precision",
-			"integer",
-			"smallint"
+			"pop_entwicklung_werte"
 		],
-		"reverse": false,
+		"reverse": true,
 		"show_context": true,
 		"use_buffer2": true,
-		"whole_word": true,
+		"whole_word": false,
 		"wrap": true
 	},
 	"groups":
 	[
 		{
-			"selected": 6,
+			"selected": 4,
 			"sheets":
 			[
 				{
@@ -690,15 +710,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 4236,
+						"buffer_size": 4623,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								917,
-								917
+								1563,
+								1563
 							]
 						],
 						"settings":
@@ -708,10 +728,10 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 198.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 1,
+					"stack_index": 7,
 					"type": "text"
 				},
 				{
@@ -720,15 +740,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 8155,
+						"buffer_size": 9156,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1372,
-								1372
+								2682,
+								2711
 							]
 						],
 						"settings":
@@ -739,10 +759,10 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 891.0,
+						"translation.y": 2501.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 5,
+					"stack_index": 4,
 					"type": "text"
 				},
 				{
@@ -751,15 +771,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 3764,
+						"buffer_size": 3993,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2119,
-								2119
+								2274,
+								2274
 							]
 						],
 						"settings":
@@ -769,96 +789,97 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 2329.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 4,
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "app/routes.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 422,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								422,
-								422
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 2079.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 3,
 					"type": "text"
 				},
 				{
-					"buffer": 4,
-					"file": "app/components/Geschaefte.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 2837,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 7,
-					"type": "text"
-				},
-				{
-					"buffer": 5,
+					"buffer": 3,
 					"file": "app/containers/Navbar.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 735,
+						"buffer_size": 773,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								476,
-								490
+								118,
+								118
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax"
+							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 6,
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "/C/Users/alex/AppData/Roaming/Sublime Text 3/Packages/User/Preferences.sublime-settings",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 812,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								118,
+								118
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JSON.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "/C/Users/alex/AppData/Roaming/Sublime Text 3/Packages/SublimeLinter/SublimeLinter.sublime-settings",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1124,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1115,
+								1115
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JSON.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 297.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
 					"type": "text"
 				},
 				{
@@ -867,15 +888,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 3632,
+						"buffer_size": 4391,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1899,
-								3575
+								1373,
+								1402
 							]
 						],
 						"settings":
@@ -885,10 +906,10 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 2756.0,
+						"translation.y": 1007.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
+					"stack_index": 5,
 					"type": "text"
 				},
 				{
@@ -897,15 +918,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 254,
+						"buffer_size": 264,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								93,
-								93
+								247,
+								247
 							]
 						],
 						"settings":
@@ -916,7 +937,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 2,
+					"stack_index": 6,
 					"type": "text"
 				}
 			]
@@ -924,7 +945,7 @@
 	],
 	"incremental_find":
 	{
-		"height": 41.0
+		"height": 49.0
 	},
 	"input":
 	{
