@@ -8,6 +8,7 @@ import styles from './Navbar.css'
 class MyToolbar extends Component {
   static propTypes = {
     holenDb: PropTypes.func.isRequired,
+    setzeGeschaefteVolltextFilter: PropTypes.func.isRequired,
     filtereGeschaefteNachVolltext: PropTypes.func.isRequired,
     holenGeschaefte: PropTypes.func.isRequired,
     username: PropTypes.string,
@@ -34,13 +35,18 @@ class MyToolbar extends Component {
   }
 
   filterFulltext = (value) => {
-    const { filtereGeschaefteNachVolltext, holenGeschaefte, filterFulltext } = this.props
+    const {
+      setzeGeschaefteVolltextFilter,
+      filtereGeschaefteNachVolltext,
+      holenGeschaefte,
+      filterFulltext
+    } = this.props
     // only filter if value differs from existing
     // reason: blur happens also after enter
     if (value !== filterFulltext) {
-      //debounce(filtereGeschaefteNachVolltext, 200)(value)
-      // TODO: debouce only actual filtering, not passing the filterFulltext
-      filtereGeschaefteNachVolltext(value)
+      // debouce only actual filtering, NOT passing the filterFulltext
+      setzeGeschaefteVolltextFilter(value)
+      debounce(filtereGeschaefteNachVolltext, 200)(value)
     }
   }
 

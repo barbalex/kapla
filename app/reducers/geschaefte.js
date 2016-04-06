@@ -5,6 +5,7 @@ import {
   GESCHAEFTE_ERHALTEN,
   GESCHAEFTE_NICHT_ERHALTEN,
   GESCHAEFTE_FILTERN_FELDER,
+  GESCHAEFTE_VOLLTEXTFILTER_SETZEN,
   GESCHAEFTE_FILTERN_VOLLTEXT,
   GESCHAEFT_AKTIVIEREN,
   GESCHAEFT_DEAKTIVIEREN,
@@ -83,12 +84,16 @@ export default function geschaefte (state = standardState, action) {
         activeId: null,
         geschaefteGefiltert: action.geschaefteGefiltert
       }
+    case GESCHAEFTE_VOLLTEXTFILTER_SETZEN:
+      return {
+        ...state,
+        filterFulltext: action.filterFulltext,
+        filterFields: {},
+        activeId: null
+      }
     case GESCHAEFTE_FILTERN_VOLLTEXT:
       return {
         ...state,
-        filterFields: {},
-        filterFulltext: action.filterFulltext,
-        activeId: null,
         geschaefteGefiltert: action.geschaefteGefiltert
       }
     case GESCHAEFT_AKTIVIEREN:

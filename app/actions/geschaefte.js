@@ -73,17 +73,27 @@ export function filtereGeschaefteNachFeldern (filterFields) {
   }
 }
 
+export const GESCHAEFTE_VOLLTEXTFILTER_SETZEN = 'GESCHAEFTE_VOLLTEXTFILTER_SETZEN'
+
+export function setzeGeschaefteVolltextFilter (filterFulltext) {
+  return (dispatch, getState) => {
+    dispatch({
+      type: GESCHAEFTE_VOLLTEXTFILTER_SETZEN,
+      filterFulltext
+    })
+  }
+}
+
 export const GESCHAEFTE_FILTERN_VOLLTEXT = 'GESCHAEFTE_FILTERN_VOLLTEXT'
 // filter = word
-export function filtereGeschaefteNachVolltext (filterFulltext) {
+export function filtereGeschaefteNachVolltext () {
   return (dispatch, getState) => {
     const { geschaefte } = getState()
-    const { filterFields } = geschaefte
+    const { filterFulltext, filterFields } = geschaefte
     // create geschaefteGefiltert
     const geschaefteGefiltert = createGeschaefteGefiltert(geschaefte.geschaefte, filterFulltext, filterFields)
     dispatch({
       type: GESCHAEFTE_FILTERN_VOLLTEXT,
-      filterFulltext,
       geschaefteGefiltert
     })
   }
