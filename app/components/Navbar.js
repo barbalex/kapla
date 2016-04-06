@@ -38,7 +38,9 @@ class MyToolbar extends Component {
     // only filter if value differs from existing
     // reason: blur happens also after enter
     if (value !== filterFulltext) {
-      debounce(filtereGeschaefteNachVolltext, 200)(value)
+      //debounce(filtereGeschaefteNachVolltext, 200)(value)
+      // TODO: debouce only actual filtering, not passing the filterFulltext
+      filtereGeschaefteNachVolltext(value)
     }
   }
 
@@ -96,6 +98,7 @@ class MyToolbar extends Component {
             <Input
               type='text'
               placeholder='Volltext filtern'
+              value={filterFulltext}
               onChange={this.onChangeFilterFulltext}
               className={classNameFilterInput}
               addonAfter={<Glyphicon glyph='remove' onClick={this.onClickFilterGlyph} className={styles.filterInputRemoveIcon} />}
