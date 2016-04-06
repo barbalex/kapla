@@ -7,7 +7,7 @@
 import getGeschaefte from '../src/getGeschaefte.js'
 import getDropdownOptions from '../src/getDropdownOptions.js'
 import updateGeschaeft from '../src/updateGeschaeft.js'
-import createGeschaefteGefiltert from '../src/createGeschaefteGefiltert.js'
+import filterGeschaefte from '../src/filterGeschaefte.js'
 
 export const GESCHAEFTE_BESTELLEN = 'GESCHAEFTE_BESTELLEN'
 function bestelleGeschaefte () {
@@ -22,7 +22,7 @@ function erhalteGeschaefte (geschaefteArray) {
     const { geschaefte } = getState()
     const { filterFields, filterFulltext } = geschaefte
     // create geschaefteGefiltert
-    const geschaefteGefiltert = createGeschaefteGefiltert(geschaefteArray, filterFulltext, filterFields)
+    const geschaefteGefiltert = filterGeschaefte(geschaefteArray, filterFulltext, filterFields)
     dispatch({
       type: GESCHAEFTE_ERHALTEN,
       geschaefte: geschaefteArray,
@@ -64,7 +64,7 @@ export function filtereGeschaefteNachFeldern (filterFields) {
     const { geschaefte } = getState()
     const { filterFulltext } = geschaefte
     // create geschaefteGefiltert
-    const geschaefteGefiltert = createGeschaefteGefiltert(geschaefte.geschaefte, filterFulltext, filterFields)
+    const geschaefteGefiltert = filterGeschaefte(geschaefte.geschaefte, filterFulltext, filterFields)
     dispatch({
       type: GESCHAEFTE_FILTERN_FELDER,
       filterFields,
@@ -91,7 +91,7 @@ export function filtereGeschaefteNachVolltext () {
     const { geschaefte } = getState()
     const { filterFulltext, filterFields } = geschaefte
     // create geschaefteGefiltert
-    const geschaefteGefiltert = createGeschaefteGefiltert(geschaefte.geschaefte, filterFulltext, filterFields)
+    const geschaefteGefiltert = filterGeschaefte(geschaefte.geschaefte, filterFulltext, filterFields)
     dispatch({
       type: GESCHAEFTE_FILTERN_VOLLTEXT,
       geschaefteGefiltert
