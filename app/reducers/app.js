@@ -13,7 +13,7 @@ const standardState = {
   db: null
 }
 
-export default function app (state = standardState, action) {
+export default function app(state = standardState, action) {
   switch (action.type) {
     case DB_WAEHLEN:
       return Object.assign({}, state, {

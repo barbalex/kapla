@@ -1,3 +1,5 @@
+'use strict'
+
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import Navbar from '../components/Navbar'
@@ -7,7 +9,7 @@ import * as GeschaefteActions from '../actions/geschaefte'
 
 const actions = Object.assign(UserActions, AppActions, GeschaefteActions)
 
-function mapStateToProps (state) {
+function mapStateToProps(state) {
   const { activeId, filterFulltext, geschaefte, geschaefteGefiltert } = state.geschaefte
   const { username } = state.user
   return {
@@ -19,7 +21,7 @@ function mapStateToProps (state) {
   }
 }
 
-function mapDispatchToProps (dispatch) {
+function mapDispatchToProps(dispatch) {
   return bindActionCreators(actions, dispatch)
 }
 

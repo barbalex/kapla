@@ -1,3 +1,5 @@
+'use strict'
+
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import Geschaefte from '../components/Geschaefte'
@@ -7,7 +9,7 @@ import * as AppActions from '../actions/app'
 
 const actions = Object.assign(GeschaefteActions, AppActions, UserActions)
 
-function mapStateToProps (state) {
+function mapStateToProps(state) {
   const { geschaefte, geschaefteGefiltert, activeId, willDelete } = state.geschaefte
   const { username } = state.user
   const { dbPath, db } = state.app
@@ -23,7 +25,7 @@ function mapStateToProps (state) {
   }
 }
 
-function mapDispatchToProps (dispatch) {
+function mapDispatchToProps(dispatch) {
   return bindActionCreators(actions, dispatch)
 }
 
