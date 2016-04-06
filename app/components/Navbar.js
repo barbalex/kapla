@@ -46,7 +46,7 @@ class MyToolbar extends Component {
     if (value !== filterFulltext) {
       // debouce only actual filtering, NOT passing the filterFulltext
       setzeGeschaefteVolltextFilter(value)
-      debounce(filtereGeschaefteNachVolltext, 200)(value)
+      debounce(filtereGeschaefteNachVolltext, 500)(value)
     }
   }
 
