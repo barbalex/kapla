@@ -1,3 +1,5 @@
+'use strict'
+
 import React, { Component, PropTypes } from 'react'
 import { Modal, Button } from 'react-bootstrap'
 
@@ -27,7 +29,7 @@ class ModalGeschaeftDelete extends Component {
 
         <Modal.Footer>
           <Button onClick={() => entferneGeschaeftNicht()}>Nein</Button>
-          <Button bsStyle='primary' onClick={() => entferneGeschaeft(activeId)}>Ja</Button>
+          <Button bsStyle="primary" onClick={() => entferneGeschaeft(activeId)}>Ja</Button>
         </Modal.Footer>
 
       </Modal.Dialog>
