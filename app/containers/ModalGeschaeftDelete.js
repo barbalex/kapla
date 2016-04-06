@@ -6,9 +6,8 @@ import ModalGeschaeftDelete from '../components/ModalGeschaeftDelete'
 import * as GeschaefteActions from '../actions/geschaefte'
 
 function mapStateToProps(state) {
-  return {
-    activeId: state.geschaefte.activeId
-  }
+  const { activeId } = state.geschaefte
+  return { activeId }
 }
 
 function mapDispatchToProps(dispatch) {
