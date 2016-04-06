@@ -14,7 +14,7 @@ export default function (db) {
      * NOT in the result
      * so DO NOT USE ARROW FUNCTION
      */
-    db.run(sql, function (error, result) {
+    db.run(sql, function callback(error) {
       if (error) reject(error)
       resolve(this.lastID)
     })

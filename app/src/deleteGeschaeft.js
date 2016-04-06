@@ -8,7 +8,7 @@ export default function (db, idGeschaeft) {
       WHERE
         idGeschaeft = ${idGeschaeft}`
 
-    db.run(sql, function (error, result) {
+    db.run(sql, (error) => {
       if (error) reject(error)
       resolve(true)
     })

@@ -12,7 +12,7 @@ const standardState = {
   username: null
 }
 
-export default function geschaefte (state = standardState, action) {
+export default function geschaefte(state = standardState, action) {
   switch (action.type) {
     case GET_USERNAME:
       return Object.assign({}, state, {
