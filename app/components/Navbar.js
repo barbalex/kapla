@@ -30,33 +30,36 @@ class MyToolbar extends Component {
     willGeschaeftEntfernen(activeId)
   }
 
+  onKeyPressFilterFulltext = (e) => {
+    if (e.key === 'Enter') this.filterFulltext(e.target.value)
+  }
+
   onChangeFilterFulltext = (e) => {
-    this.filterFulltext(e.target.value)
+    const { setzeGeschaefteVolltextFilter } = this.props
+    setzeGeschaefteVolltextFilter(e.target.value)
   }
 
   filterFulltext = (value) => {
-    const {
-      setzeGeschaefteVolltextFilter,
-      filtereGeschaefteNachVolltext,
-      holenGeschaefte,
-      filterFulltext
-    } = this.props
-    // only filter if value differs from existing
-    // reason: blur happens also after enter
-    if (value !== filterFulltext) {
-      // debouce only actual filtering, NOT passing the filterFulltext
-      setzeGeschaefteVolltextFilter(value)
-      debounce(filtereGeschaefteNachVolltext, 500)(value)
-    }
+    const { filtereGeschaefteNachVolltext } = this.props
+    filtereGeschaefteNachVolltext(value)
   }
 
   onClickFilterGlyph = () => {
-    this.filterFulltext('')
+    const { setzeGeschaefteVolltextFilter, filtereGeschaefteNachVolltext, filterFulltext } = this.props
+    setzeGeschaefteVolltextFilter(filterFulltext)
+    filtereGeschaefteNachVolltext(filterFulltext)
   }
 
-  filterFulltextSearchGlyphicon = () => (
-    <Button><Glyphicon glyph='filter' /></Button>
-  )
+  onClickRemoveFilterGlyph = () => {
+    const { setzeGeschaefteVolltextFilter, filtereGeschaefteNachVolltext } = this.props
+    const filterFulltext = ''
+    setzeGeschaefteVolltextFilter(filterFulltext)
+    filtereGeschaefteNachVolltext(filterFulltext)
+  }
+
+  filterFulltextSearchGlyphicon = () => {
+    return (<Glyphicon glyph='filter' onClick={this.onClickFilterGlyph} className={styles.filterInputRemoveIcon} />)
+  }
 
   render() {
     const {
@@ -69,8 +72,9 @@ class MyToolbar extends Component {
       filterFulltext
     } = this.props
 
-    const classNameFilterInput = filterFulltext ? [styles.filterInput, styles.filterInputActive].join(' ') : styles.filterInput
-    const classNameBadge = filterFulltext ? styles.badgeWithActiveFilter : styles.badge
+    const dataIsFiltered = geschaefte.length !== geschaefteGefiltert.length
+    const classNameFilterInput = dataIsFiltered ? [styles.filterInput, styles.filterInputActive].join(' ') : styles.filterInput
+    const classNameBadge = dataIsFiltered ? styles.badgeWithActiveFilter : styles.badge
 
     return (
       <Navbar inverse fluid>
@@ -106,8 +110,10 @@ class MyToolbar extends Component {
               placeholder='Volltext filtern'
               value={filterFulltext}
               onChange={this.onChangeFilterFulltext}
+              onKeyPress={this.onKeyPressFilterFulltext}
               className={classNameFilterInput}
-              addonAfter={<Glyphicon glyph='remove' onClick={this.onClickFilterGlyph} className={styles.filterInputRemoveIcon} />}
+              addonBefore={<Glyphicon glyph='search' onClick={this.onClickFilterGlyph} className={styles.filterInputRemoveIcon} />}
+              addonAfter={<Glyphicon glyph='remove' onClick={this.onClickRemoveFilterGlyph} className={styles.filterInputRemoveIcon} />}
             />
           </Navbar.Form>
           <NavDropdown eventKey={4} title='Menu' id='basic-nav-dropdown'>
