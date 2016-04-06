@@ -50,17 +50,44 @@ class Geschaefte extends Component {
     const { geschaefte, activeId } = this.props
     const isActive = activeId && activeId === geschaefte[index].idGeschaeft
     const className = isActive ? [styles.row, styles.active].join(' ') : styles.row
+    const geschaeft = geschaefte[index]
+    const fristMitarbeiter = geschaeft.fristMitarbeiter ? `Frist: ${geschaeft.fristMitarbeiter}` : null
 
     return (
       <Row
         key={key}
         className={className}
-        onClick={this.onClickGeschaeft.bind(this, geschaefte[index].idGeschaeft)}
+        onClick={this.onClickGeschaeft.bind(this, geschaeft.idGeschaeft)}
       >
-        <Col xs={1} sm={1} md={1} lg={1}>{geschaefte[index].idGeschaeft}</Col>
-        <Col xs={8} sm={8} md={8} lg={8}>{geschaefte[index].gegenstand}</Col>
-        <Col xs={2} sm={2} md={2} lg={2}>{geschaefte[index].status}</Col>
-        <Col xs={1} sm={1} md={1} lg={1}>{geschaefte[index].idKontaktIntern}</Col>
+        <Col xs={1} sm={1} md={1} lg={1}>
+          <div>
+            {geschaeft.idGeschaeft}
+          </div>
+        </Col>
+        <Col xs={8} sm={8} md={8} lg={8}>
+          <div className={styles.fieldGegenstand}>
+            {geschaeft.gegenstand}
+          </div>
+          <div>
+            {geschaeft.details}
+          </div>
+        </Col>
+        <Col xs={2} sm={2} md={2} lg={2}>
+          <div>
+            {geschaeft.status}
+          </div>
+          <div>
+            {fristMitarbeiter}
+          </div>
+          <div>
+            {geschaeft.faelligkeitText}
+          </div>
+        </Col>
+        <Col xs={1} sm={1} md={1} lg={1}>
+          <div>
+            {geschaeft.idKontaktIntern}
+          </div>
+        </Col>
       </Row>
     )
   }
