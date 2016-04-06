@@ -6,27 +6,27 @@ export const GET_USERNAME = 'GET_USERNAME'
 export const GOT_USERNAME = 'GOT_USERNAME'
 export const DIDNT_GET_USERNAME = 'DIDNT_GET_USERNAME'
 
-export function getUsername () {
+export function getUsername() {
   return {
     type: GET_USERNAME
   }
 }
 
-export function gotUsername (username) {
+export function gotUsername(username) {
   return {
     type: GOT_USERNAME,
     username
   }
 }
 
-export function didntGetUsername (error) {
+export function didntGetUsername(error) {
   return {
     type: DIDNT_GET_USERNAME,
     error
   }
 }
 
-export function fetchUsername () {
+export function fetchUsername() {
   return (dispatch, getState) => {
     // first check if username has not yet been gotten
     const { user } = getState()

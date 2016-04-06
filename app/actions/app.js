@@ -6,14 +6,14 @@ import saveConfigValue from '../src/saveConfigValue.js'
 const sqlite3 = require('sqlite3').verbose()
 
 export const DB_WAEHLEN = 'DB_WAEHLEN'
-function waehleDb () {
+function waehleDb() {
   return {
     type: DB_WAEHLEN
   }
 }
 
 export const DB_GEWAEHLT = 'DB_GEWAEHLT'
-function erhalteDb (dbPath, db) {
+function erhalteDb(dbPath, db) {
   return {
     type: DB_GEWAEHLT,
     db,
@@ -22,7 +22,7 @@ function erhalteDb (dbPath, db) {
 }
 
 export const DB_NICHT_GEWAEHLT = 'DB_NICHT_GEWAEHLT'
-function nichtGewaehlteDb (error) {
+function nichtGewaehlteDb(error) {
   return {
     type: DB_NICHT_GEWAEHLT,
     error
@@ -30,7 +30,7 @@ function nichtGewaehlteDb (error) {
 }
 
 export const DB_AUS_CONFIG_HOLEN = 'DB_AUS_CONFIG_HOLEN'
-export function holeDbAusConfig () {
+export function holeDbAusConfig() {
   return (dispatch, getState) => {
     // only do this if not yet done
     const { app } = getState()
@@ -47,7 +47,7 @@ export function holeDbAusConfig () {
 }
 
 export const DB_HOLEN = 'DB_HOLEN'
-export function holenDb () {
+export function holenDb() {
   return dispatch => {
     dispatch(waehleDb())
     chooseDb()

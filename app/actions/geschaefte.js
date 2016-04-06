@@ -10,14 +10,14 @@ import updateGeschaeft from '../src/updateGeschaeft.js'
 import filterGeschaefte from '../src/filterGeschaefte.js'
 
 export const GESCHAEFTE_BESTELLEN = 'GESCHAEFTE_BESTELLEN'
-function bestelleGeschaefte () {
+function bestelleGeschaefte() {
   return {
     type: GESCHAEFTE_BESTELLEN
   }
 }
 
 export const GESCHAEFTE_ERHALTEN = 'GESCHAEFTE_ERHALTEN'
-function erhalteGeschaefte (geschaefteArray) {
+function erhalteGeschaefte(geschaefteArray) {
   return (dispatch, getState) => {
     const { geschaefte } = getState()
     const { filterFields, filterFulltext } = geschaefte
@@ -32,7 +32,7 @@ function erhalteGeschaefte (geschaefteArray) {
 }
 
 export const GESCHAEFTE_NICHT_ERHALTEN = 'GESCHAEFTE_NICHT_ERHALTEN'
-function nichtErhalteneGeschaefte (error) {
+function nichtErhalteneGeschaefte(error) {
   return {
     type: GESCHAEFTE_NICHT_ERHALTEN,
     error
@@ -40,7 +40,7 @@ function nichtErhalteneGeschaefte (error) {
 }
 
 export const GESCHAEFTE_HOLEN = 'GESCHAEFTE_HOLEN'
-export function holenGeschaefte () {
+export function holenGeschaefte() {
   return (dispatch, getState) => {
     const { app } = getState()
     dispatch(bestelleGeschaefte())
@@ -59,7 +59,7 @@ export const GESCHAEFTE_FILTERN_FELDER = 'GESCHAEFTE_FILTERN_FELDER'
  * keys = field names
  * values = filter values
  */
-export function filtereGeschaefteNachFeldern (filterFields) {
+export function filtereGeschaefteNachFeldern(filterFields) {
   return (dispatch, getState) => {
     const { geschaefte } = getState()
     const { filterFulltext } = geschaefte
@@ -75,18 +75,16 @@ export function filtereGeschaefteNachFeldern (filterFields) {
 
 export const GESCHAEFTE_VOLLTEXTFILTER_SETZEN = 'GESCHAEFTE_VOLLTEXTFILTER_SETZEN'
 
-export function setzeGeschaefteVolltextFilter (filterFulltext) {
-  return (dispatch, getState) => {
-    dispatch({
-      type: GESCHAEFTE_VOLLTEXTFILTER_SETZEN,
-      filterFulltext
-    })
+export function setzeGeschaefteVolltextFilter(filterFulltext) {
+  return {
+    type: GESCHAEFTE_VOLLTEXTFILTER_SETZEN,
+    filterFulltext
   }
 }
 
 export const GESCHAEFTE_FILTERN_VOLLTEXT = 'GESCHAEFTE_FILTERN_VOLLTEXT'
 // filter = word
-export function filtereGeschaefteNachVolltext () {
+export function filtereGeschaefteNachVolltext() {
   return (dispatch, getState) => {
     const { geschaefte } = getState()
     const { filterFulltext, filterFields } = geschaefte
@@ -103,14 +101,12 @@ export function filtereGeschaefteNachVolltext () {
  * GESCHAEFT
  */
 
-'use strict'
-
 import { push } from 'react-router-redux'
 import neuesGeschaeft from '../src/newGeschaeft.js'
 import deleteGeschaeft from '../src/deleteGeschaeft.js'
 
 export const GESCHAEFT_NEU_ERSTELLEN = 'GESCHAEFT_NEU_ERSTELLEN'
-export function erstelleNeuesGeschaeft () {
+export function erstelleNeuesGeschaeft() {
   return (dispatch, getState) => {
     const { app } = getState()
     neuesGeschaeft(app.db)
@@ -124,7 +120,7 @@ export function erstelleNeuesGeschaeft () {
 }
 
 export const GESCHAEFT_EROEFFNEN = 'GESCHAEFT_EROEFFNEN'
-export function eroeffneGeschaeft (idGeschaeft) {
+export function eroeffneGeschaeft(idGeschaeft) {
   return {
     type: GESCHAEFT_EROEFFNEN,
     idGeschaeft
@@ -132,7 +128,7 @@ export function eroeffneGeschaeft (idGeschaeft) {
 }
 
 export const GESCHAEFT_NICHT_EROEFFNET = 'GESCHAEFT_NICHT_EROEFFNET'
-export function nichtEroeffnetesGeschaeft (error) {
+export function nichtEroeffnetesGeschaeft(error) {
   return {
     type: GESCHAEFT_NICHT_EROEFFNET,
     error
@@ -140,7 +136,7 @@ export function nichtEroeffnetesGeschaeft (error) {
 }
 
 export const GESCHAEFT_ENTFERNEN = 'GESCHAEFT_ENTFERNEN'
-export function entferneGeschaeft (idGeschaeft) {
+export function entferneGeschaeft(idGeschaeft) {
   return (dispatch, getState) => {
     const { app } = getState()
     dispatch(loescheGeschaeft())
@@ -155,7 +151,7 @@ export function entferneGeschaeft (idGeschaeft) {
 }
 
 export const GESCHAEFT_ENTFERNEN_WILL = 'GESCHAEFT_ENTFERNEN_WILL'
-export function willGeschaeftEntfernen (idGeschaeft) {
+export function willGeschaeftEntfernen(idGeschaeft) {
   return {
     type: GESCHAEFT_ENTFERNEN_WILL,
     idGeschaeft
@@ -163,21 +159,21 @@ export function willGeschaeftEntfernen (idGeschaeft) {
 }
 
 export const GESCHAEFT_ENTFERNEN_WILL_NICHT = 'GESCHAEFT_ENTFERNEN_WILL_NICHT'
-export function entferneGeschaeftNicht (idGeschaeft) {
+export function entferneGeschaeftNicht() {
   return {
     type: GESCHAEFT_ENTFERNEN_WILL_NICHT
   }
 }
 
 export const GESCHAEFT_LOESCHEN = 'GESCHAEFT_LOESCHEN'
-export function loescheGeschaeft () {
+export function loescheGeschaeft() {
   return {
     type: GESCHAEFT_LOESCHEN
   }
 }
 
 export const GESCHAEFT_NICHT_GELOESCHT = 'GESCHAEFT_NICHT_GELOESCHT'
-export function nichtGelöschtesGeschaeft (error) {
+export function nichtGelöschtesGeschaeft(error) {
   return {
     type: GESCHAEFT_NICHT_GELOESCHT,
     error
@@ -185,7 +181,7 @@ export function nichtGelöschtesGeschaeft (error) {
 }
 
 export const GESCHAEFT_AENDERN_FEHLER = 'GESCHAEFT_AENDERN_FEHLER'
-export function aendereGeschaeftFehler (error) {
+export function aendereGeschaeftFehler(error) {
   return {
     type: GESCHAEFT_AENDERN_FEHLER,
     error
@@ -193,7 +189,7 @@ export function aendereGeschaeftFehler (error) {
 }
 
 export const GESCHAEFTE_AENDERN = 'GESCHAEFTE_AENDERN'
-export function aendereGeschaeft (idGeschaeft, field, value) {
+export function aendereGeschaeft(idGeschaeft, field, value) {
   return (dispatch, getState) => {
     const { app } = getState()
     updateGeschaeft(app.db, idGeschaeft, field, value)
@@ -214,7 +210,7 @@ export function aendereGeschaeft (idGeschaeft, field, value) {
 }
 
 export const GESCHAEFT_AKTIVIEREN = 'GESCHAEFT_AKTIVIEREN'
-export function aktiviereGeschaeft (idGeschaeft) {
+export function aktiviereGeschaeft(idGeschaeft) {
   return (dispatch) => {
     dispatch({
       type: GESCHAEFT_AKTIVIEREN,
@@ -225,7 +221,7 @@ export function aktiviereGeschaeft (idGeschaeft) {
 }
 
 export const RECHTSMITTELERLEDIGUNG_OPTIONS_HOLEN = 'RECHTSMITTELERLEDIGUNG_OPTIONS_HOLEN'
-export function holenRechtsmittelerledigungOptions () {
+export function holenRechtsmittelerledigungOptions() {
   return (dispatch, getState) => {
     const { app, geschaefte } = getState()
     if (geschaefte.rechtsmittelerledigungOptions.length === 0) {
@@ -240,7 +236,7 @@ export function holenRechtsmittelerledigungOptions () {
 }
 
 export const RECHTSMITTELERLEDIGUNG_OPTIONS_HOLEN_FEHLER = 'RECHTSMITTELERLEDIGUNG_OPTIONS_HOLEN_FEHLER'
-function nichtErhalteneRechtsmittelerledigungOptions (error) {
+function nichtErhalteneRechtsmittelerledigungOptions(error) {
   return {
     type: RECHTSMITTELERLEDIGUNG_OPTIONS_HOLEN_FEHLER,
     error
@@ -248,7 +244,7 @@ function nichtErhalteneRechtsmittelerledigungOptions (error) {
 }
 
 export const PARLVORSTOSSTYP_OPTIONS_HOLEN = 'PARLVORSTOSSTYP_OPTIONS_HOLEN'
-export function holenParlVorstossTypOptions () {
+export function holenParlVorstossTypOptions() {
   return (dispatch, getState) => {
     const { app, geschaefte } = getState()
     if (geschaefte.parlVorstossTypOptions.length === 0) {
@@ -263,7 +259,7 @@ export function holenParlVorstossTypOptions () {
 }
 
 export const PARLVORSTOSSTYP_OPTIONS_HOLEN_FEHLER = 'PARLVORSTOSSTYP_OPTIONS_HOLEN_FEHLER'
-function nichtErhalteneParlVorstossTypOptions (error) {
+function nichtErhalteneParlVorstossTypOptions(error) {
   return {
     type: PARLVORSTOSSTYP_OPTIONS_HOLEN_FEHLER,
     error
@@ -271,7 +267,7 @@ function nichtErhalteneParlVorstossTypOptions (error) {
 }
 
 export const STATUS_OPTIONS_HOLEN = 'STATUS_OPTIONS_HOLEN'
-export function holenStatusOptions () {
+export function holenStatusOptions() {
   return (dispatch, getState) => {
     const { app, geschaefte } = getState()
     if (geschaefte.statusOptions.length === 0) {
@@ -286,7 +282,7 @@ export function holenStatusOptions () {
 }
 
 export const STATUS_OPTIONS_HOLEN_FEHLER = 'STATUS_OPTIONS_HOLEN_FEHLER'
-function nichtErhalteneStatusOptions (error) {
+function nichtErhalteneStatusOptions(error) {
   return {
     type: STATUS_OPTIONS_HOLEN_FEHLER,
     error
@@ -294,7 +290,7 @@ function nichtErhalteneStatusOptions (error) {
 }
 
 export const GESCHAEFTSART_OPTIONS_HOLEN = 'GESCHAEFTSART_OPTIONS_HOLEN'
-export function holenGeschaeftsartOptions () {
+export function holenGeschaeftsartOptions() {
   return (dispatch, getState) => {
     const { app, geschaefte } = getState()
     if (geschaefte.geschaeftsartOptions.length === 0) {
@@ -309,7 +305,7 @@ export function holenGeschaeftsartOptions () {
 }
 
 export const GESCHAEFTSART_OPTIONS_HOLEN_FEHLER = 'GESCHAEFTSART_OPTIONS_HOLEN_FEHLER'
-function nichtErhalteneGeschaeftsartOptions (error) {
+function nichtErhalteneGeschaeftsartOptions(error) {
   return {
     type: GESCHAEFTSART_OPTIONS_HOLEN_FEHLER,
     error

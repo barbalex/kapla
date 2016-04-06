@@ -6,6 +6,7 @@ export default function (geschaefte, filterFulltext, filterFields) {
   const existsFilterFulltext = !!filterFulltext
   const existsFilterFields = Object.keys(filterFields).length > 0
   let geschaefteGefiltert = geschaefte
+
   if (existsFilterFulltext) {
     geschaefteGefiltert = geschaefte.filter((geschaeft) => {
       // if any value satisfies the filter, include the geschaeft

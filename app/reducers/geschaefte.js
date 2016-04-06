@@ -39,7 +39,7 @@ const standardState = {
   geschaeftsartOptions: []
 }
 
-function geschaeft (state = {}, action) {
+function geschaeft(state = {}, action) {
   switch (action.type) {
     case GESCHAEFTE_AENDERN:
       if (state.idGeschaeft !== action.idGeschaeft) {
@@ -54,7 +54,7 @@ function geschaeft (state = {}, action) {
   }
 }
 
-export default function geschaefte (state = standardState, action) {
+export default function geschaefte(state = standardState, action) {
   switch (action.type) {
     case GESCHAEFTE_BESTELLEN:
       return {
@@ -124,7 +124,7 @@ export default function geschaefte (state = standardState, action) {
     case GESCHAEFT_EROEFFNEN:
       return {
         ...state,
-        geschaefte: [{idGeschaeft: action.idGeschaeft}, ...state.geschaefte]
+        geschaefte: [{ idGeschaeft: action.idGeschaeft }, ...state.geschaefte]
       }
     case RECHTSMITTELERLEDIGUNG_OPTIONS_HOLEN:
       return {

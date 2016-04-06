@@ -1,8 +1,17 @@
+'use strict'
+
 import React, { Component, PropTypes } from 'react'
-import { Navbar, NavDropdown, MenuItem, Nav, NavItem, Glyphicon, Input, Badge } from 'react-bootstrap'
-import { Link } from 'react-router'
+import {
+  Navbar,
+  NavDropdown,
+  MenuItem,
+  Nav,
+  NavItem,
+  Glyphicon,
+  Input,
+  Badge
+} from 'react-bootstrap'
 import { LinkContainer } from 'react-router-bootstrap'
-import { debounce } from 'lodash'
 import styles from './Navbar.css'
 
 class MyToolbar extends Component {
@@ -54,15 +63,9 @@ class MyToolbar extends Component {
     filtereGeschaefteNachVolltext(filterFulltext)
   }
 
-  filterFulltextSearchGlyphicon = () => {
-    return (<Glyphicon glyph='filter' onClick={this.onClickFilterGlyph} className={styles.filterInputRemoveIcon} />)
-  }
-
   render() {
     const {
       holenDb,
-      username,
-      erstelleNeuesGeschaeft,
       activeId,
       geschaefte,
       geschaefteGefiltert,
@@ -70,56 +73,60 @@ class MyToolbar extends Component {
     } = this.props
 
     const dataIsFiltered = geschaefte.length !== geschaefteGefiltert.length
-    const classNameFilterInput = dataIsFiltered ? [styles.filterInput, styles.filterInputActive].join(' ') : styles.filterInput
+    const dataIsFilteredStyle = [styles.filterInput, styles.filterInputActive].join(' ')
+    const classNameFilterInput = dataIsFiltered ? dataIsFilteredStyle : styles.filterInput
     const classNameBadge = dataIsFiltered ? styles.badgeWithActiveFilter : styles.badge
 
     return (
       <Navbar inverse fluid>
         <Nav>
           <LinkContainer to={{ pathname: '/geschaefte' }}>
-            <NavItem eventKey={1} href='#'>Geschäfte <Badge className={classNameBadge}>{geschaefteGefiltert.length}</Badge></NavItem>
+            <NavItem eventKey={1} href="#">
+              Geschäfte <Badge className={classNameBadge}>{geschaefteGefiltert.length}</Badge>
+            </NavItem>
           </LinkContainer>
           <LinkContainer to={{ pathname: '/geschaeft' }} disabled = {!activeId}>
-            <NavItem eventKey={2} href='#' disabled = {!activeId}>Geschäft</NavItem>
+            <NavItem eventKey={2} href="#" disabled = {!activeId}>Geschäft</NavItem>
           </LinkContainer>
           <LinkContainer to={{ pathname: '/filter' }}>
-            <NavItem eventKey={3} href='#'>Filter</NavItem>
+            <NavItem eventKey={3} href="#">Filter</NavItem>
           </LinkContainer>
           <NavItem
             eventKey={4}
             onClick={this.onClickNewGeschaeft}
-            title='neues Geschäft'>
-            <Glyphicon glyph='plus' />
+            title="neues Geschäft"
+          >
+            <Glyphicon glyph="plus" />
           </NavItem>
           <NavItem
             eventKey = {5}
             onClick = {this.onClickDeleteGeschaeft}
-            title = 'Geschäft löschen'
+            title = "Geschäft löschen"
             disabled = {!activeId}
           >
-            <Glyphicon glyph = 'trash' />
+            <Glyphicon glyph = "trash" />
           </NavItem>
         </Nav>
         <Nav pullRight>
           <Navbar.Form pullLeft>
             <Input
-              type='text'
-              placeholder='Volltext filtern'
+              type="text"
+              placeholder="Volltext filtern"
               value={filterFulltext}
               onChange={this.onChangeFilterFulltext}
               onKeyPress={this.onKeyPressFilterFulltext}
               onBlur={this.onBlurFilterFulltext}
               className={classNameFilterInput}
-              title='Drücken Sie die Enter-Taste oder verlassen Sie das Feld, um den Filter anzuwenden'
+              title="Zum Filtern drücken Sie die Enter-Taste oder verlassen Sie das Feld"
             />
           <Glyphicon
-            glyph='remove'
+            glyph="remove"
             onClick={this.onClickRemoveFilterGlyph}
             className={styles.filterInputRemoveIcon}
-            title='Filter entfernen'
+            title="Filter entfernen"
           />
           </Navbar.Form>
-          <NavDropdown eventKey={4} title='Menu' id='basic-nav-dropdown'>
+          <NavDropdown eventKey={4} title="Menu" id="basic-nav-dropdown">
             <MenuItem eventKey={4.1} onClick={holenDb}>Datenbank wählen</MenuItem>
           </NavDropdown>
         </Nav>

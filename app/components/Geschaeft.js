@@ -1,5 +1,7 @@
+'use strict'
+
 import React, { Component, PropTypes } from 'react'
-import { Input, Grid, Row, Col, ButtonGroup, Button } from 'react-bootstrap'
+import { Input, Grid, Row, Col } from 'react-bootstrap'
 import styles from './Geschaeft.css'
 import Navbar from '../containers/Navbar.js'
 import ModalGeschaeftDelete from '../containers/ModalGeschaeftDelete.js'
@@ -25,12 +27,12 @@ class Geschaeft extends Component {
   }
 
   options = (values) => {
-    let options = values.map((val, index) => <option key={index + 1} value={val}>{val}</option>)
-    options.unshift(<option key={0} value=''></option>)
+    const options = values.map((val, index) => <option key={index + 1} value={val}>{val}</option>)
+    options.unshift(<option key={0} value=""></option>)
     return options
   }
 
-  render () {
+  render() {
     const {
       geschaefte,
       activeId,
@@ -41,7 +43,7 @@ class Geschaeft extends Component {
       geschaeftsartOptions
     } = this.props
 
-    const geschaeft = geschaefte.find((geschaeft) => geschaeft.idGeschaeft === activeId)
+    const geschaeft = geschaefte.find((g) => g.idGeschaeft === activeId)
 
     if (geschaeft && geschaeft.idGeschaeft) {
       return (
@@ -56,24 +58,23 @@ class Geschaeft extends Component {
             <Row>
               <Col xs={7} sm={7} md={7} lg={7}>
                 <Input
-                  type = 'textarea'
-                  label = 'Gegenstand'
+                  type = "textarea"
+                  label = "Gegenstand"
                   value = {geschaeft.gegenstand}
-                  name = 'gegenstand'
+                  name = "gegenstand"
                   onChange = {this.change}
-                  bsSize = 'small'
+                  bsSize = "small"
                   className = {[styles.geschaeft, styles.gegenstand].join(' ')}
                   tabIndex = {1}
                 />
               </Col>
-              <Col xs={4} sm={4} md={4} lg={4}>
-              </Col>
+              <Col xs={4} sm={4} md={4} lg={4} />
               <Col xs={1} sm={1} md={1} lg={1}>
                 <Input
-                  type = 'number'
-                  label = 'ID'
+                  type = "number"
+                  label = "ID"
                   value = {geschaeft.idGeschaeft}
-                  bsSize = 'small'
+                  bsSize = "small"
                   disabled
                   className={[styles.nr, styles.idGeschaeft].join(' ')}
                 />
@@ -82,62 +83,61 @@ class Geschaeft extends Component {
             <Row>
               <Col xs={7} sm={7} md={7} lg={7}>
                 <Input
-                  type = 'text'
-                  label = 'Ort'
+                  type = "text"
+                  label = "Ort"
                   value = {geschaeft.ort}
-                  name = 'ort'
+                  name = "ort"
                   onChange = {this.change}
-                  bsSize = 'small'
+                  bsSize = "small"
                   className={styles.geschaeft}
                   tabIndex = {2}
                 />
               </Col>
               <Col xs={1} sm={1} md={1} lg={1}>
                 <Input
-                  type = 'number'
-                  label = 'AWEL Nr.'
+                  type = "number"
+                  label = "AWEL Nr."
                   value = {geschaeft.entscheidAwelNr}
-                  name = 'entscheidAwelNr'
+                  name = "entscheidAwelNr"
                   onChange = {this.change}
-                  bsSize = 'small'
+                  bsSize = "small"
                   className={styles.nr}
                   tabIndex = {11}
                 />
               </Col>
               <Col xs={1} sm={1} md={1} lg={1}>
                 <Input
-                  type = 'number'
-                  label = 'Jahr'
+                  type = "number"
+                  label = "Jahr"
                   value = {geschaeft.entscheidAwelJahr}
-                  name = 'entscheidAwelJahr'
+                  name = "entscheidAwelJahr"
                   onChange = {this.change}
-                  bsSize = 'small'
+                  bsSize = "small"
                   className={styles.nr}
                   tabIndex = {12}
                 />
               </Col>
-              <Col xs={1} sm={1} md={1} lg={1}>
-              </Col>
+              <Col xs={1} sm={1} md={1} lg={1} />
               <Col xs={1} sm={1} md={1} lg={1}>
                 <Input
-                  type = 'number'
-                  label = 'BDV&nbsp;&nbsp;&nbsp;&nbsp;Nr.'
+                  type = "number"
+                  label = "BDV&nbsp;&nbsp;&nbsp;&nbsp;Nr."
                   value = {geschaeft.entscheidBdvNr}
-                  name = 'entscheidBdvNr'
+                  name = "entscheidBdvNr"
                   onChange = {this.change}
-                  bsSize = 'small'
+                  bsSize = "small"
                   className={styles.nr}
                   tabIndex = {13}
                 />
               </Col>
               <Col xs={1} sm={1} md={1} lg={1}>
                 <Input
-                  type = 'number'
-                  label = 'Jahr'
+                  type = "number"
+                  label = "Jahr"
                   value = {geschaeft.entscheidBdvJahr}
-                  name = 'entscheidBdvJahr'
+                  name = "entscheidBdvJahr"
                   onChange = {this.change}
-                  bsSize = 'small'
+                  bsSize = "small"
                   className={styles.nr}
                   tabIndex = {14}
                 />
@@ -146,12 +146,12 @@ class Geschaeft extends Component {
             <Row>
               <Col xs={3} sm={3} md={3} lg={3}>
                 <Input
-                  type = 'select'
-                  label = 'Geschäftsart'
+                  type = "select"
+                  label = "Geschäftsart"
                   value = {geschaeft.geschaeftsart}
-                  name = 'geschaeftsart'
+                  name = "geschaeftsart"
                   onChange = {this.change}
-                  bsSize = 'small'
+                  bsSize = "small"
                   className={styles.geschaeft}
                   tabIndex = {3}
                 >
@@ -160,12 +160,12 @@ class Geschaeft extends Component {
               </Col>
               <Col xs={2} sm={2} md={2} lg={2}>
                 <Input
-                  type = 'select'
-                  label = 'Status'
+                  type = "select"
+                  label = "Status"
                   value = {geschaeft.status}
-                  name = 'status'
+                  name = "status"
                   onChange = {this.change}
-                  bsSize = 'small'
+                  bsSize = "small"
                   className={styles.geschaeft}
                   tabIndex = {4}
                 >
@@ -174,75 +174,74 @@ class Geschaeft extends Component {
               </Col>
               <Col xs={1} sm={1} md={1} lg={1}>
                 <Input
-                  type = 'number'
-                  label = 'Vorgeschäft'
+                  type = "number"
+                  label = "Vorgeschäft"
                   value = {geschaeft.idVorgeschaeft}
-                  name = 'idVorgeschaeft'
+                  name = "idVorgeschaeft"
                   onChange = {this.change}
-                  bsSize = 'small'
+                  bsSize = "small"
                   className = {styles.geschaeft}
-                  placeholder = 'ID'
+                  placeholder = "ID"
                   tabIndex = {5}
                 />
               </Col>
               <Col xs={1} sm={1} md={1} lg={1}>
                 <Input
-                  type = 'text'
-                  label = 'Direktion'
+                  type = "text"
+                  label = "Direktion"
                   value = {geschaeft.zustaendigeDirektion}
-                  name = 'zustaendigeDirektion'
+                  name = "zustaendigeDirektion"
                   onChange = {this.change}
-                  bsSize = 'small'
+                  bsSize = "small"
                   className={styles.geschaeft}
                   tabIndex = {6}
                 />
               </Col>
               <Col xs={1} sm={1} md={1} lg={1}>
                 <Input
-                  type = 'number'
-                  label = 'KR&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Nr.'
+                  type = "number"
+                  label = "KR&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Nr."
                   value = {geschaeft.entscheidKrNr}
-                  name = 'entscheidKrNr'
+                  name = "entscheidKrNr"
                   onChange = {this.change}
-                  bsSize = 'small'
+                  bsSize = "small"
                   className={styles.nr}
                   tabIndex = {15}
                 />
               </Col>
               <Col xs={1} sm={1} md={1} lg={1}>
                 <Input
-                  type = 'number'
-                  label = 'Jahr'
+                  type = "number"
+                  label = "Jahr"
                   value = {geschaeft.entscheidKrJahr}
-                  name = 'entscheidKrJahr'
+                  name = "entscheidKrJahr"
                   onChange = {this.change}
-                  bsSize = 'small'
+                  bsSize = "small"
                   className={styles.nr}
                   tabIndex = {16}
                 />
               </Col>
-              <Col xs={1} sm={1} md={1} lg={1}>
-              </Col>
+              <Col xs={1} sm={1} md={1} lg={1} />
               <Col xs={1} sm={1} md={1} lg={1}>
                 <Input
-                  type = 'number'
-                  label = 'RRB&nbsp;&nbsp;&nbsp;&nbsp;Nr.'
+                  type = "number"
+                  label = "RRB&nbsp;&nbsp;&nbsp;&nbsp;Nr."
                   value = {geschaeft.entscheidRrbNr}
-                  name = 'entscheidRrbNr'
+                  name = "entscheidRrbNr"
                   onChange = {this.change}
-                  bsSize = 'small'
+                  bsSize = "small"
                   className={styles.nr}
                   tabIndex = {17}
                 />
               </Col>
               <Col xs={1} sm={1} md={1} lg={1}>
                 <Input
-                  type = 'number'
-                  label = 'Jahr'
+                  type = "number"
+                  label = "Jahr"
                   value = {geschaeft.entscheidRrbJahr}
-                  name = 'entscheidRrbJahr'
+                  name = "entscheidRrbJahr"
                   onChange = {this.change}
-                  bsSize = 'small'
+                  bsSize = "small"
                   className={styles.nr}
                   tabIndex = {18}
                 />
@@ -251,12 +250,12 @@ class Geschaeft extends Component {
             <Row>
               <Col xs={7} sm={7} md={7} lg={7}>
                 <Input
-                  type = 'textarea'
-                  label = 'Details'
+                  type = "textarea"
+                  label = "Details"
                   value = {geschaeft.details}
-                  name = 'details'
+                  name = "details"
                   onChange = {this.change}
-                  bsSize = 'small'
+                  bsSize = "small"
                   className={styles.geschaeft}
                   rows = {4}
                   tabIndex = {7}
@@ -264,24 +263,24 @@ class Geschaeft extends Component {
               </Col>
               <Col xs={4} sm={4} md={4} lg={4}>
                 <Input
-                  type = 'text'
-                  label = 'Aktenstandort'
+                  type = "text"
+                  label = "Aktenstandort"
                   value = {geschaeft.aktenstandort}
-                  name = 'aktenstandort'
+                  name = "aktenstandort"
                   onChange = {this.change}
-                  bsSize = 'small'
+                  bsSize = "small"
                   className={styles.nr}
                   tabIndex = {19}
                 />
               </Col>
               <Col xs={1} sm={1} md={1} lg={1}>
                 <Input
-                  type = 'text'
-                  label = 'Nr.'
+                  type = "text"
+                  label = "Nr."
                   value = {geschaeft.aktennummer}
-                  name = 'aktennummer'
+                  name = "aktennummer"
                   onChange = {this.change}
-                  bsSize = 'small'
+                  bsSize = "small"
                   className={styles.nr}
                   tabIndex = {20}
                 />
@@ -290,12 +289,12 @@ class Geschaeft extends Component {
             <Row>
               <Col xs={7} sm={7} md={7} lg={7}>
                 <Input
-                  type = 'textarea'
-                  label = 'Nächster Schritt'
+                  type = "textarea"
+                  label = "Nächster Schritt"
                   value = {geschaeft.naechsterSchritt}
-                  name = 'naechsterSchritt'
+                  name = "naechsterSchritt"
                   onChange = {this.change}
-                  bsSize = 'small'
+                  bsSize = "small"
                   className = {styles.geschaeft}
                   rows = {3}
                   tabIndex = {8}
@@ -304,12 +303,12 @@ class Geschaeft extends Component {
               <Col xs={5} sm={5} md={5} lg={5} className={styles.bereichTitel}>
                 <p className={styles.bereichTitelParlVorstP}>Parlamentarische Vorstösse</p>
                 <Input
-                  type = 'select'
-                  label = 'Typ'
+                  type = "select"
+                  label = "Typ"
                   value = {geschaeft.parlVorstossTyp}
-                  name = 'parlVorstossTyp'
+                  name = "parlVorstossTyp"
                   onChange = {this.change}
-                  bsSize = 'small'
+                  bsSize = "small"
                   className={styles.parlVorstoss}
                   tabIndex = {21}
                 >
@@ -320,12 +319,12 @@ class Geschaeft extends Component {
             <Row>
               <Col xs={7} sm={7} md={7} lg={7}>
                 <Input
-                  type = 'textarea'
-                  label = 'Vermerk'
+                  type = "textarea"
+                  label = "Vermerk"
                   value = {geschaeft.vermerk}
-                  name = 'vermerk'
+                  name = "vermerk"
                   onChange = {this.change}
-                  bsSize = 'small'
+                  bsSize = "small"
                   className={styles.geschaeft}
                   rows = {4}
                   tabIndex = {9}
@@ -333,28 +332,28 @@ class Geschaeft extends Component {
               </Col>
               <Col xs={1} sm={1} md={1} lg={1}>
                 <Input
-                  label='Stufe'
-                  wrapperClassName='wrapper'
+                  label="Stufe"
+                  wrapperClassName="wrapper"
                 >
-                  <div className='verticalRadioDiv'>
+                  <div className="verticalRadioDiv">
                     <Input
-                      type = 'radio'
-                      label = '1'
+                      type = "radio"
+                      label = "1"
                       data-value = {1}
                       checked = {geschaeft.parlVorstossStufe == 1}
                       onChange = {this.change}
-                      bsSize = 'small'
-                      name = 'parlVorstossStufe'
+                      bsSize = "small"
+                      name = "parlVorstossStufe"
                       tabIndex = {22}
                     />
                     <Input
-                      type = 'radio'
-                      label = '2'
+                      type = "radio"
+                      label = "2"
                       data-value = {2}
                       checked = {geschaeft.parlVorstossStufe == 2}
-                      name = 'parlVorstossStufe'
+                      name = "parlVorstossStufe"
                       onChange = {this.change}
-                      bsSize = 'small'
+                      bsSize = "small"
                       tabIndex = {23}
                     />
                   </div>
@@ -362,28 +361,28 @@ class Geschaeft extends Component {
               </Col>
               <Col xs={1} sm={1} md={1} lg={1}>
                 <Input
-                  label='Ebene'
-                  wrapperClassName='wrapper'
+                  label="Ebene"
+                  wrapperClassName="wrapper"
                 >
-                  <div className='verticalRadioDiv'>
+                  <div className="verticalRadioDiv">
                     <Input
-                      type = 'radio'
-                      label = 'Kanton'
-                      data-value = 'Kanton'
+                      type = "radio"
+                      label = "Kanton"
+                      data-value = "Kanton"
                       checked = {geschaeft.parlVorstossEbene === 'Kanton'}
-                      name = 'parlVorstossEbene'
+                      name = "parlVorstossEbene"
                       onChange = {this.change}
-                      bsSize = 'small'
+                      bsSize = "small"
                       tabIndex = {24}
                     />
                     <Input
-                      type = 'radio'
-                      label = 'Bund'
-                      data-value = 'Bund'
+                      type = "radio"
+                      label = "Bund"
+                      data-value = "Bund"
                       checked = {geschaeft.parlVorstossEbene === 'Bund'}
                       onChange = {this.change}
-                      name = 'parlVorstossEbene'
-                      bsSize = 'small'
+                      name = "parlVorstossEbene"
+                      bsSize = "small"
                       tabIndex = {25}
                     />
                   </div>
@@ -391,28 +390,28 @@ class Geschaeft extends Component {
               </Col>
               <Col xs={1} sm={1} md={1} lg={1}>
                 <Input
-                  label='Zuständigkeit'
-                  wrapperClassName='wrapper'
+                  label="Zuständigkeit"
+                  wrapperClassName="wrapper"
                 >
-                  <div className='verticalRadioDiv'>
+                  <div className="verticalRadioDiv">
                     <Input
-                      type = 'radio'
-                      label = 'haupt'
-                      data-value = 'hauptzuständig'
+                      type = "radio"
+                      label = "haupt"
+                      data-value = "hauptzuständig"
                       checked = {geschaeft.parlVorstossZustaendigkeitAwel === 'hauptzuständig'}
-                      name = 'parlVorstossZustaendigkeitAwel'
+                      name = "parlVorstossZustaendigkeitAwel"
                       onChange = {this.change}
-                      bsSize = 'small'
+                      bsSize = "small"
                       tabIndex = {26}
                     />
                     <Input
-                      type = 'radio'
-                      label = 'mitbericht'
-                      data-value = 'mitberichtzuständig'
+                      type = "radio"
+                      label = "mitbericht"
+                      data-value = "mitberichtzuständig"
                       checked = {geschaeft.parlVorstossZustaendigkeitAwel === 'mitberichtzuständig'}
-                      name = 'parlVorstossZustaendigkeitAwel'
+                      name = "parlVorstossZustaendigkeitAwel"
                       onChange = {this.change}
-                      bsSize = 'small'
+                      bsSize = "small"
                       tabIndex = {27}
                     />
                   </div>
@@ -420,86 +419,65 @@ class Geschaeft extends Component {
               </Col>
               <Col xs={1} sm={1} md={1} lg={1}>
                 <Input
-                  label='Erlassform'
-                  wrapperClassName='wrapper'
+                  label="Erlassform"
+                  wrapperClassName="wrapper"
                 >
-                  <div className='verticalRadioDiv'>
+                  <div className="verticalRadioDiv">
                     <Input
-                      type = 'radio'
-                      label = 'Gesetz'
-                      data-value = 'Gesetz'
+                      type = "radio"
+                      label = "Gesetz"
+                      data-value = "Gesetz"
                       checked = {geschaeft.erlassform === 'Gesetz'}
-                      name = 'erlassform'
+                      name = "erlassform"
                       onChange = {this.change}
-                      bsSize = 'small'
+                      bsSize = "small"
                       tabIndex = {28}
                     />
                     <Input
-                      type = 'radio'
-                      label = 'Verordnung'
-                      data-value = 'Verordnung'
+                      type = "radio"
+                      label = "Verordnung"
+                      data-value = "Verordnung"
                       checked = {geschaeft.erlassform === 'Verordnung'}
-                      name = 'erlassform'
+                      name = "erlassform"
                       onChange = {this.change}
-                      bsSize = 'small'
+                      bsSize = "small"
                       tabIndex = {29}
                     />
                   </div>
                 </Input>
               </Col>
-              <Col xs={1} sm={1} md={1} lg={1}>
-              </Col>
+              <Col xs={1} sm={1} md={1} lg={1} />
             </Row>
             <Row>
               <Col xs={7} sm={7} md={7} lg={7}>
                 <Input
-                  type = 'select'
-                  label = 'Erledigung'
+                  type = "select"
+                  label = "Erledigung"
                   value = {geschaeft.rechtsmittelerledigung}
-                  name = 'rechtsmittelerledigung'
+                  name = "rechtsmittelerledigung"
                   onChange = {this.change}
-                  bsSize = 'small'
+                  bsSize = "small"
                   className={styles.geschaeft}
                   tabIndex = {10}
                 >
                   {this.options(rechtsmittelerledigungOptions)}
                 </Input>
               </Col>
-              <Col xs={5} sm={5} md={5} lg={5}>
-              </Col>
+              <Col xs={5} sm={5} md={5} lg={5} />
             </Row>
             <Row>
-              <Col xs={7} sm={7} md={7} lg={7}>
-              </Col>
-              <Col xs={5} sm={5} md={5} lg={5}>
-              </Col>
+              <Col xs={7} sm={7} md={7} lg={7} />
+              <Col xs={5} sm={5} md={5} lg={5} />
             </Row>
             <Row>
-              <Col xs={7} sm={7} md={7} lg={7}>
-              </Col>
-              <Col xs={5} sm={5} md={5} lg={5}></Col>
-            </Row>
-            <Row>
-              <Col xs={7} sm={7} md={7} lg={7}>
-              </Col>
-              <Col xs={3} sm={3} md={3} lg={3}></Col>
-              <Col xs={1} sm={1} md={1} lg={1}>
-              </Col>
-              <Col xs={1} sm={1} md={1} lg={1}>
-              </Col>
-            </Row>
-            <Row>
-              <Col xs={7} sm={7} md={7} lg={7}>
-              </Col>
-              <Col xs={5} sm={5} md={5} lg={5}>
-              </Col>
+              <Col xs={7} sm={7} md={7} lg={7} />
+              <Col xs={5} sm={5} md={5} lg={5} />
             </Row>
           </Grid>
         </div>
       )
-    } else {
-      return null
     }
+    return null
   }
 }
 
