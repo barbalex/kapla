@@ -1,4 +1,4 @@
-/* eslint strict: 0, no-console: 0 */
+/* eslint no-console: 0 */
 'use strict'
 
 const express = require('express')

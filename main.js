@@ -1,4 +1,3 @@
-/* eslint strict: 0 */
 'use strict'
 
 process.env.NODE_ENV = process.env.NODE_ENV || 'production'
