@@ -4,8 +4,36 @@
 		"selected_items":
 		[
 			[
+				"onC",
+				"onChangeFilterFulltext"
+			],
+			[
+				"filter",
+				"filterFulltext"
+			],
+			[
+				"res",
+				"resizeSingleTextarea"
+			],
+			[
+				"op",
+				"options"
+			],
+			[
+				"gesch",
+				"geschaefte"
+			],
+			[
+				"P",
+				"PARLVORSTOSS_OPTIONS_HOLEN_FEHLER"
+			],
+			[
+				"IN",
+				"INTEGER"
+			],
+			[
 				"ge",
-				"geschaeft"
+				"geschaeftsart"
 			],
 			[
 				"ges",
@@ -16,20 +44,12 @@
 				"componentDidMount"
 			],
 			[
-				"gesch",
-				"geschaefte"
-			],
-			[
 				"acti",
 				"activeId"
 			],
 			[
 				"en",
 				"entferneGeschaeftNicht"
-			],
-			[
-				"onC",
-				"onClickNewGeschaeft"
 			],
 			[
 				"marg",
@@ -127,7 +147,7 @@
 			"file": "app/actions/geschaefte.js",
 			"settings":
 			{
-				"buffer_size": 4890,
+				"buffer_size": 8155,
 				"line_ending": "Windows"
 			}
 		},
@@ -135,23 +155,15 @@
 			"file": "app/reducers/geschaefte.js",
 			"settings":
 			{
-				"buffer_size": 2473,
+				"buffer_size": 3764,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "app/containers/Geschaefte.js",
+			"file": "app/routes.js",
 			"settings":
 			{
-				"buffer_size": 902,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "app/containers/Geschaeft.js",
-			"settings":
-			{
-				"buffer_size": 650,
+				"buffer_size": 422,
 				"line_ending": "Windows"
 			}
 		},
@@ -159,15 +171,31 @@
 			"file": "app/components/Geschaefte.js",
 			"settings":
 			{
-				"buffer_size": 2417,
+				"buffer_size": 2837,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "app/components/Geschaeft.js",
+			"file": "app/containers/Navbar.js",
 			"settings":
 			{
-				"buffer_size": 15304,
+				"buffer_size": 735,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "app/components/Navbar.js",
+			"settings":
+			{
+				"buffer_size": 3632,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "app/components/Navbar.css",
+			"settings":
+			{
+				"buffer_size": 254,
 				"line_ending": "Windows"
 			}
 		}
@@ -223,40 +251,49 @@
 		"/C/Users/alex/kapla/app/components",
 		"/C/Users/alex/kapla/app/containers",
 		"/C/Users/alex/kapla/app/reducers",
-		"/C/Users/alex/kapla/app/src"
+		"/C/Users/alex/kapla/app/src",
+		"/C/Users/alex/kapla/app/src/createTables"
 	],
 	"file_history":
 	[
+		"/C/Users/alex/AppData/Roaming/ElectronReact/kaplaConfig.json",
+		"/C/Users/alex/kapla/app/reducers/index.js",
+		"/C/Users/alex/kapla/app/components/Geschaeft.js",
+		"/C/Users/alex/kapla/app/components/Navbar.css",
+		"/C/Users/alex/kapla/app/containers/Geschaefte.js",
+		"/C/Users/alex/kapla/app/components/Geschaefte.js",
+		"/C/Users/alex/kapla/app/containers/Geschaeft.js",
+		"/C/Users/alex/kapla/app/components/Geschaefte.css",
+		"/C/Users/alex/kapla/app/app.global.css",
+		"/C/Users/alex/kapla/app/components/Geschaeft.css",
+		"/C/Users/alex/kapla/app/src/resizeTextareas.js",
+		"/C/Users/alex/kapla/app/index.js",
+		"/C/Users/alex/kapla/app/src/getGeschaefte.js",
+		"/C/Users/alex/kapla/app/src/getDropdownOptions.js",
+		"/C/Users/alex/kapla/app/src/getConfig.js",
+		"/C/Users/alex/kapla/app/src/createTables/createTables.sql",
+		"/C/Users/alex/kapla/app/actions/app.js",
+		"/C/Users/alex/kapla/app/src/getGeschaefteWithFieldFilter.js",
 		"/C/Users/alex/kapla/app/src/updateGeschaeft.js",
 		"/C/Users/alex/kapla/app/actions/geschaefte.js",
-		"/C/Users/alex/kapla/app/components/Geschaefte.js",
-		"/C/Users/alex/kapla/app/index.js",
 		"/C/Users/alex/kapla/app/actions/user.js",
 		"/C/Users/alex/kapla/app/reducers/user.js",
 		"/C/Users/alex/kapla/app/src/deleteGeschaeft.js",
 		"/C/Users/alex/kapla/app/src/newGeschaeft.js",
-		"/C/Users/alex/kapla/app/components/Geschaeft.js",
 		"/C/Users/alex/kapla/app/components/Navbar.js",
-		"/C/Users/alex/kapla/app/containers/Geschaefte.js",
 		"/C/Users/alex/kapla/app/reducers/geschaefte.js",
 		"/C/Users/alex/kapla/app/reducers/app.js",
-		"/C/Users/alex/kapla/app/actions/app.js",
 		"/C/Users/alex/kapla/main.js",
-		"/C/Users/alex/kapla/app/containers/Geschaeft.js",
 		"/C/Users/alex/kapla/app/routes.js",
 		"/C/Users/alex/kapla/app/components/ModalGeschaeftDelete.js",
 		"/C/Users/alex/kapla/app/containers/ModalGeschaeftDelete.js",
 		"/C/Users/alex/kapla/app/containers/Navbar.js",
-		"/C/Users/alex/kapla/app/reducers/index.js",
 		"/C/Users/alex/kapla/app/reducers/geschaeft.js",
 		"/C/Users/alex/kapla/app/actions/geschaeft.js",
-		"/C/Users/alex/kapla/app/components/Geschaeft.css",
-		"/C/Users/alex/kapla/app/app.global.css",
 		"/C/Users/alex/kapla/.gitignore",
 		"/C/Users/alex/kapla/app/app.html",
 		"/C/Users/alex/kapla/test/e2e.js",
 		"/C/Users/alex/kapla/app/components/Geschaeft1.js",
-		"/C/Users/alex/kapla/app/components/Geschaefte.css",
 		"/C/Users/alex/kapla/app/containers/HomePage.js",
 		"/C/Users/alex/kapla/app/components/Home.js",
 		"/C/Users/alex/kapla/app/components/Home.css",
@@ -269,15 +306,11 @@
 		"/C/Users/alex/kapla/app/components/GeschaefteList_sik.js",
 		"/C/Users/alex/kapla/app/src/initializeDb.js",
 		"/C/Users/alex/kapla/app/containers/Toolbar.js",
-		"/C/Users/alex/kapla/app/src/getGeschaefte.js",
 		"/C/Users/alex/kapla/app/actions/counter.js",
 		"/C/Users/alex/kapla/app/containers/GeschaeftePage.js",
-		"/C/Users/alex/AppData/Roaming/ElectronReact/kaplaConfig.json",
-		"/C/Users/alex/kapla/app/src/getGeschaefteWithFieldFilter.js",
 		"/C/Users/alex/kapla/app/src/getGeschaefteWithFulltextFilter.js",
 		"/C/Users/alex/kapla/app/src/saveConfigValue.js",
 		"/C/Users/alex/kapla/app/src/saveConfigValues.js",
-		"/C/Users/alex/kapla/app/src/getConfig.js",
 		"/C/Users/alex/kapla/app/src/saveConfig.js",
 		"/C/Users/alex/kapla/app/src/chooseDb.js",
 		"/C/Users/alex/kapla/app/src/getGeschaefteFieldNames.js",
@@ -350,11 +383,7 @@
 		"/C/Users/alex/apflora_api/sql/triggers.sql",
 		"/C/Users/alex/apflora_api/sql/createViews.sql",
 		"/C/Users/alex/apflora_api/sql/create_tables_beob.sql",
-		"/C/Users/alex/apflora_api/sql/create_tables_apflora.sql",
-		"/C/Users/alex/apflora_api/sql/countRows.sql",
-		"/C/Users/alex/apflora_api/queries/tabelleInsertApflora.js",
-		"/C/Users/alex/apf2_api/sql/create_tables_apflora.sql",
-		"/C/Users/alex/apf2_api/sql/triggers.sql"
+		"/C/Users/alex/apflora_api/sql/create_tables_apflora.sql"
 	],
 	"find":
 	{
@@ -379,6 +408,32 @@
 		"case_sensitive": true,
 		"find_history":
 		[
+			"doFilterFulltext",
+			"onKeyPressFilterFulltext",
+			"onBlurFilterFulltext",
+			"Zuständigkeit",
+			"Aktenstandort",
+			"status",
+			"  ",
+			";",
+			"rechtsmittelerledigungOptions",
+			"holeDbAusConfig",
+			"PARLVORSTOSS_OPTIONS_HOLEN_FEHLER",
+			"nichtErhalteneParlVorstossOptions",
+			"parlVorstossOptions",
+			"holenParlVorstossOptions",
+			"PARLVORSTOSS_OPTIONS_HOLEN",
+			"getRechtsmittelerledigungOptions",
+			"RECHTSMITTELERLEDIGUNG_OPTIONS_HOLEN_FEHLER",
+			"holenRechtsmittelerledigungOptions",
+			"holenRechtsmittelOptions",
+			"rechtsmittelOptions",
+			"RECHTSMITTEL_OPTIONS_HOLEN_FEHLER",
+			"nichtErhalteneRechtsmittelOptions",
+			"getRechtsmittelOptions",
+			"RECHTSMITTEL_OPTIONS_HOLEN",
+			"getGeschaefte",
+			"holenGeschaefte",
 			"radio",
 			"log('state",
 			"radio",
@@ -480,33 +535,7 @@
 			"GeschaefteActions",
 			"Geschaefte",
 			"whereStringForFieldsAnd",
-			"whereStringForFields",
-			"store",
-			";",
-			"store",
-			"createStore",
-			"Counter",
-			"incrementAsync",
-			"Counter",
-			"^",
-			"rebuild_native_modules",
-			"electron-rebuild",
-			"require-rebuild",
-			"electron-rebuild",
-			", ",
-			"\"",
-			" ",
-			"Europapolitische Standortbestimmung / Innerstaatliche Reformen",
-			"",
-			"",
-			"VCALENDAR",
-			"lotus",
-			"",
-			"\",",
-			"\"",
-			"\"Z",
-			"\"W",
-			"\"V"
+			"whereStringForFields"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -514,6 +543,22 @@
 		"regex": false,
 		"replace_history":
 		[
+			"filterFulltext",
+			"onChangeFilterFulltext",
+			" ",
+			"",
+			"PARLVORSTOSSTYP_OPTIONS_HOLEN_FEHLER",
+			"nichtErhalteneParlVorstossTypOptions",
+			"parlVorstossTypOptions",
+			"holenParlVorstossTypOptions",
+			"PARLVORSTOSSTYP_OPTIONS_HOLEN",
+			"getDropdownOptions",
+			"holenRechtsmittelerledigungOptions",
+			"rechtsmittelerledigungOptions",
+			"RECHTSMITTELERLEDIGUNG_OPTIONS_HOLEN_FEHLER",
+			"nichtErhalteneRechtsmittelerledigungOptions",
+			"getRechtsmittelerledigungOptions",
+			"RECHTSMITTELERLEDIGUNG_OPTIONS_HOLEN",
 			"aendereGeschaeft",
 			"aendereGeschaeftFeld",
 			"GESCHAEFTE_AENDERN",
@@ -625,23 +670,7 @@
 			"smallint",
 			"double precision",
 			"integer",
-			"smallint",
-			"integer",
-			"text",
-			".\"MutWer\" IS",
-			".\"MutWann\" IS",
-			"smallint",
-			"integer",
-			"smallint",
-			"integer",
-			"",
-			"Von wem wurde der Datensatz zuletzt geändert?",
-			"Wann wurde der Datensatz zuletzt geändert?",
-			"",
-			"''",
-			"",
-			"apber",
-			"apberuebersicht"
+			"smallint"
 		],
 		"reverse": false,
 		"show_context": true,
@@ -668,8 +697,8 @@
 						"selection":
 						[
 							[
-								0,
-								0
+								917,
+								917
 							]
 						],
 						"settings":
@@ -682,7 +711,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 6,
+					"stack_index": 1,
 					"type": "text"
 				},
 				{
@@ -691,15 +720,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 4890,
+						"buffer_size": 8155,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								4331,
-								4336
+								1372,
+								1372
 							]
 						],
 						"settings":
@@ -710,10 +739,10 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 4769.0,
+						"translation.y": 891.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 3,
+					"stack_index": 5,
 					"type": "text"
 				},
 				{
@@ -722,15 +751,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 2473,
+						"buffer_size": 3764,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2167,
-								2167
+								2119,
+								2119
 							]
 						],
 						"settings":
@@ -740,57 +769,27 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 2270.0,
+						"translation.y": 2329.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 2,
+					"stack_index": 4,
 					"type": "text"
 				},
 				{
 					"buffer": 3,
-					"file": "app/containers/Geschaefte.js",
+					"file": "app/routes.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 902,
+						"buffer_size": 422,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								731,
-								678
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 5,
-					"type": "text"
-				},
-				{
-					"buffer": 4,
-					"file": "app/containers/Geschaeft.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 650,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								427,
-								427
+								422,
+								422
 							]
 						],
 						"settings":
@@ -801,24 +800,24 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 4,
+					"stack_index": 3,
 					"type": "text"
 				},
 				{
-					"buffer": 5,
+					"buffer": 4,
 					"file": "app/components/Geschaefte.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 2417,
+						"buffer_size": 2837,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1901,
-								1901
+								0,
+								0
 							]
 						],
 						"settings":
@@ -828,41 +827,96 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 1339.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 1,
+					"stack_index": 7,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "app/containers/Navbar.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 735,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								476,
+								490
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 6,
 					"type": "text"
 				},
 				{
 					"buffer": 6,
-					"file": "app/components/Geschaeft.js",
+					"file": "app/components/Navbar.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 15304,
+						"buffer_size": 3632,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								14866,
-								14866
+								1899,
+								3575
 							]
 						],
 						"settings":
 						{
-							"history_list_is_closing": true,
 							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
 							"tab_size": 2,
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 12788.0,
+						"translation.y": 2756.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "app/components/Navbar.css",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 254,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								93,
+								93
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/CSS/CSS.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
 					"type": "text"
 				}
 			]
