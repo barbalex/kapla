@@ -87,6 +87,9 @@ class Geschaefte extends Component {
           <div>
             {geschaeft.idKontaktIntern}
           </div>
+          <div>
+            {geschaeft.kontaktInternVornameName}
+          </div>
         </Col>
       </Row>
     )
