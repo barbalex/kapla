@@ -1,3 +1,5 @@
+'use strict'
+
 // for babel-plugin-webpack-loaders
 const devConfigs = require('./webpack.config.development')
 
