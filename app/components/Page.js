@@ -1,5 +1,9 @@
 'use strict'
 
+/*
+ * This component display a page
+ */
+
 import React, { Component, PropTypes } from 'react'
 import { Grid, Row, Col } from 'react-bootstrap'
 import ReactList from 'react-list'
@@ -8,10 +12,11 @@ import Navbar from '../containers/Navbar.js'
 
 class Page extends Component {
   static propTypes = {
-    geschaefteGefiltert: PropTypes.array.isRequired,
-    pages: PropTypes.array.isRequired,
-    title: PropTypes.string.isRequired,
-    reportType: PropTypes.string.isRequired
+    geschaefte: PropTypes.array.isRequired,
+    activePageIndex: PropTypes.number.isRequired,
+    pageAddGeschaeft: PropTypes.func.isRequired,
+    pageRemoveGeschaeft: PropTypes.func.isRequired,
+    pagesNewPage: PropTypes.func.isRequired
   }
 
   componentDidUpdate() {
@@ -27,8 +32,8 @@ class Page extends Component {
   }
 
   renderItem(index, key) {
-    const { geschaefteGefiltert } = this.props
-    const geschaeft = geschaefteGefiltert[index]
+    const { geschaefte } = this.props
+    const geschaeft = geschaefte[index]
     const fristMitarbeiter = geschaeft.fristMitarbeiter ? `Frist: ${geschaeft.fristMitarbeiter}` : null
 
     return (
@@ -81,14 +86,14 @@ class Page extends Component {
   }
 
   render() {
-    const { geschaefteGefiltert } = this.props
+    const { geschaefte } = this.props
     return (
       <div className = {styles.body}>
         <Navbar />
         <div className={[styles.grid, 'reactList'].join(' ')}>
           <ReactList
             itemRenderer={::this.renderItem}
-            length={geschaefteGefiltert.length}
+            length={geschaefte.length}
             type="variable"
           />
         </div>

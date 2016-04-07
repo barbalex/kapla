@@ -33,7 +33,7 @@ class Pages extends Component {
   }
 
   render() {
-    const { title } = this.props
+    const { title, activePageIndex } = this.props
     return (
       <div className = {styles.body}>
         <Navbar />
@@ -41,6 +41,7 @@ class Pages extends Component {
         <div className={styles.pagesList}>
           {this.pages()}
         </div>
+        <p>Seite {activePageIndex}</p>
       </div>
     )
   }
