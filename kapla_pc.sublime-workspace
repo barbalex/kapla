@@ -152,14 +152,6 @@
 	"buffers":
 	[
 		{
-			"file": "package.json",
-			"settings":
-			{
-				"buffer_size": 4623,
-				"line_ending": "Windows"
-			}
-		},
-		{
 			"file": "app/actions/geschaefte.js",
 			"settings":
 			{
@@ -176,27 +168,19 @@
 			}
 		},
 		{
-			"file": "app/containers/Navbar.js",
+			"file": "app/components/ModalGeschaeftDelete.js",
 			"settings":
 			{
-				"buffer_size": 773,
+				"buffer_size": 973,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "/C/Users/alex/AppData/Roaming/Sublime Text 3/Packages/User/Preferences.sublime-settings",
+			"file": "app/components/Geschaefte.js",
 			"settings":
 			{
-				"buffer_size": 812,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "/C/Users/alex/AppData/Roaming/Sublime Text 3/Packages/SublimeLinter/SublimeLinter.sublime-settings",
-			"settings":
-			{
-				"buffer_size": 1124,
-				"line_ending": "Unix"
+				"buffer_size": 3588,
+				"line_ending": "Windows"
 			}
 		},
 		{
@@ -208,10 +192,18 @@
 			}
 		},
 		{
-			"file": "app/components/Navbar.css",
+			"file": "app/components/Geschaeft.js",
 			"settings":
 			{
-				"buffer_size": 264,
+				"buffer_size": 17393,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "app/containers/ModalGeschaeftDelete.js",
+			"settings":
+			{
+				"buffer_size": 506,
 				"line_ending": "Windows"
 			}
 		}
@@ -272,51 +264,76 @@
 		"/C/Users/alex/kapla/app/containers",
 		"/C/Users/alex/kapla/app/reducers",
 		"/C/Users/alex/kapla/app/src",
-		"/C/Users/alex/kapla/app/src/sql"
+		"/C/Users/alex/kapla/app/store",
+		"/C/Users/alex/kapla/test",
+		"/C/Users/alex/kapla/test/actions",
+		"/C/Users/alex/kapla/test/components",
+		"/C/Users/alex/kapla/test/containers"
 	],
 	"file_history":
 	[
+		"/C/Users/alex/kapla/app/containers/Geschaeft.js",
+		"/C/Users/alex/kapla/package.json",
 		"/C/Users/alex/kapla/package.js",
+		"/C/Users/alex/kapla/main.js",
+		"/C/Users/alex/kapla/license.md",
+		"/C/Users/alex/kapla/test/setup.js",
+		"/C/Users/alex/kapla/test/example.js",
+		"/C/Users/alex/kapla/test/e2e.js",
+		"/C/Users/alex/kapla/test/containers/CounterPage.spec.js",
+		"/C/Users/alex/kapla/test/components/Counter.spec.js",
+		"/C/Users/alex/kapla/test/actions/counter.spec.js",
+		"/C/Users/alex/kapla/app/routes.js",
+		"/C/Users/alex/kapla/app/index.js",
+		"/C/Users/alex/kapla/app/store/configureStore.production.js",
+		"/C/Users/alex/kapla/app/store/configureStore.js",
+		"/C/Users/alex/kapla/app/store/configureStore.development.js",
+		"/C/Users/alex/kapla/app/src/updateGeschaeft.js",
+		"/C/Users/alex/kapla/app/src/saveConfigValues.js",
+		"/C/Users/alex/kapla/app/src/saveConfigValue.js",
+		"/C/Users/alex/kapla/app/src/newGeschaeft.js",
+		"/C/Users/alex/kapla/app/src/deleteGeschaeft.js",
+		"/C/Users/alex/kapla/app/reducers/user.js",
+		"/C/Users/alex/kapla/app/reducers/index.js",
+		"/C/Users/alex/kapla/app/reducers/app.js",
+		"/C/Users/alex/kapla/app/containers/Navbar.js",
+		"/C/Users/alex/kapla/app/containers/ModalGeschaeftDelete.js",
 		"/C/Users/alex/kapla/app/containers/Geschaefte.js",
+		"/C/Users/alex/kapla/app/actions/geschaefte.js",
+		"/C/Users/alex/kapla/webpack.config.production.js",
+		"/C/Users/alex/kapla/webpack.config.node.js",
+		"/C/Users/alex/kapla/webpack.config.development.js",
+		"/C/Users/alex/kapla/webpack.config.base.js",
+		"/C/Users/alex/kapla/server.js",
+		"/C/Users/alex/kapla/app/containers/DevTools.js",
+		"/C/Users/alex/kapla/app/containers/App.js",
+		"/C/Users/alex/kapla/app/components/ModalGeschaeftDelete.js",
 		"/C/Users/alex/kapla/app/components/Geschaefte.js",
-		"/C/Users/alex/kapla/app/src/createGeschaefteGefiltert.js",
-		"/C/Users/alex/kapla/app/components/Navbar.css",
+		"/C/Users/alex/kapla/app/components/Navbar.js",
 		"/C/Users/alex/kapla/app/reducers/geschaefte.js",
+		"/C/Users/alex/kapla/app/components/Navbar.css",
+		"/C/Users/alex/AppData/Roaming/Sublime Text 3/Packages/SublimeLinter/SublimeLinter.sublime-settings",
+		"/C/Users/alex/AppData/Roaming/Sublime Text 3/Packages/User/Preferences.sublime-settings",
+		"/C/Users/alex/kapla/app/components/Geschaefte.css",
+		"/C/Users/alex/kapla/app/src/createGeschaefteGefiltert.js",
 		"/C/Users/alex/kapla/app/src/getGeschaefte.js",
 		"/C/Users/alex/kapla/app/src/getGeschaefteWithFieldFilter.js",
-		"/C/Users/alex/kapla/app/routes.js",
-		"/C/Users/alex/kapla/app/components/Geschaefte.css",
 		"/C/Users/alex/kapla/app/src/getGeschaefteWithFulltextFilter.js",
 		"/C/Users/alex/kapla/app/src/sql/createViews.sql",
-		"/C/Users/alex/kapla/app/containers/Navbar.js",
-		"/C/Users/alex/kapla/app/components/Navbar.js",
 		"/C/Users/alex/AppData/Roaming/ElectronReact/kaplaConfig.json",
-		"/C/Users/alex/kapla/app/reducers/index.js",
 		"/C/Users/alex/kapla/app/components/Geschaeft.js",
-		"/C/Users/alex/kapla/app/containers/Geschaeft.js",
 		"/C/Users/alex/kapla/app/app.global.css",
 		"/C/Users/alex/kapla/app/components/Geschaeft.css",
 		"/C/Users/alex/kapla/app/src/resizeTextareas.js",
-		"/C/Users/alex/kapla/app/index.js",
 		"/C/Users/alex/kapla/app/src/getDropdownOptions.js",
 		"/C/Users/alex/kapla/app/src/getConfig.js",
 		"/C/Users/alex/kapla/app/src/createTables/createTables.sql",
 		"/C/Users/alex/kapla/app/actions/app.js",
-		"/C/Users/alex/kapla/app/src/updateGeschaeft.js",
-		"/C/Users/alex/kapla/app/actions/geschaefte.js",
 		"/C/Users/alex/kapla/app/actions/user.js",
-		"/C/Users/alex/kapla/app/reducers/user.js",
-		"/C/Users/alex/kapla/app/src/deleteGeschaeft.js",
-		"/C/Users/alex/kapla/app/src/newGeschaeft.js",
-		"/C/Users/alex/kapla/app/reducers/app.js",
-		"/C/Users/alex/kapla/main.js",
-		"/C/Users/alex/kapla/app/components/ModalGeschaeftDelete.js",
-		"/C/Users/alex/kapla/app/containers/ModalGeschaeftDelete.js",
 		"/C/Users/alex/kapla/app/reducers/geschaeft.js",
 		"/C/Users/alex/kapla/app/actions/geschaeft.js",
 		"/C/Users/alex/kapla/.gitignore",
 		"/C/Users/alex/kapla/app/app.html",
-		"/C/Users/alex/kapla/test/e2e.js",
 		"/C/Users/alex/kapla/app/components/Geschaeft1.js",
 		"/C/Users/alex/kapla/app/containers/HomePage.js",
 		"/C/Users/alex/kapla/app/components/Home.js",
@@ -332,25 +349,15 @@
 		"/C/Users/alex/kapla/app/containers/Toolbar.js",
 		"/C/Users/alex/kapla/app/actions/counter.js",
 		"/C/Users/alex/kapla/app/containers/GeschaeftePage.js",
-		"/C/Users/alex/kapla/app/src/saveConfigValue.js",
-		"/C/Users/alex/kapla/app/src/saveConfigValues.js",
 		"/C/Users/alex/kapla/app/src/saveConfig.js",
 		"/C/Users/alex/kapla/app/src/chooseDb.js",
 		"/C/Users/alex/kapla/app/src/getGeschaefteFieldNames.js",
 		"/C/Users/alex/kapla/app/src/whereStringForFieldsAnd.js",
 		"/C/Users/alex/kapla/app/src/whereStringForFieldsOr.js",
-		"/C/Users/alex/kapla/app/store/configureStore.development.js",
-		"/C/Users/alex/kapla/test/components/Counter.spec.js",
-		"/C/Users/alex/kapla/test/containers/CounterPage.spec.js",
 		"/C/Users/alex/kapla/test/reducers/counter.spec.js",
-		"/C/Users/alex/kapla/test/example.js",
-		"/C/Users/alex/kapla/test/setup.js",
-		"/C/Users/alex/kapla/test/actions/counter.spec.js",
 		"/C/Users/alex/kapla/app/actions/geschaefteFiltern.js",
 		"/C/Users/alex/kapla/app/containers/CounterPage.js",
 		"/C/Users/alex/kapla/app/reducers/counter.js",
-		"/C/Users/alex/kapla/webpack.config.base.js",
-		"/C/Users/alex/kapla/webpack.config.node.js",
 		"/C/Users/alex/kapla/app/src/rebuild_sqlite3",
 		"/C/Users/alex/kapla/app/src/fieldnamesImportCorrected/geschaefte.csv",
 		"/D/Google Drive/awel-kapla/2016 03 15 Daten/interne.csv",
@@ -360,7 +367,6 @@
 		"/D/Google Drive/awel-kapla/DatenProbleme.txt",
 		"/D/Google Drive/awel-kapla/2016 03 15 Daten/gdeplz.csv",
 		"/C/Users/alex/kapla/app/src/fieldnamesImportCorrected/externe.csv",
-		"/C/Users/alex/kapla/server.js",
 		"/D/Google Drive/awel-kapla/2016 03 15 Daten/tab_interne.csv",
 		"/D/Google Drive/awel-kapla/2016 03 15 Daten/tab_geschaefte.csv",
 		"/D/Google Drive/awel-kapla/2016 03 15 Daten/tab_externe.csv",
@@ -376,10 +382,6 @@
 		"/C/Users/alex/kapla/app/src/fieldnamesGeschaefte.csv",
 		"/C/Users/alex/kapla/app/components/Counter.css",
 		"/C/Users/alex/kapla/app/components/Counter.js",
-		"/C/Users/alex/kapla/app/containers/App.js",
-		"/C/Users/alex/kapla/app/containers/DevTools.js",
-		"/C/Users/alex/kapla/app/store/configureStore.js",
-		"/C/Users/alex/kapla/app/store/configureStore.production.js",
 		"/C/Users/alex/kapla/app/app.icns",
 		"/C/Users/alex/apflora_api/configuration.js",
 		"/C/Users/alex/apflora_api/pgDbPass.json",
@@ -397,17 +399,11 @@
 		"/C/Users/alex/apflora_api/pgPlugin.js",
 		"/C/Users/alex/apflora_api/.gitignore",
 		"/C/Users/alex/apflora_api/dbConnection.js",
-		"/C/Users/alex/apflora_api/sql/create_databases.sql",
-		"/C/Users/alex/AppData/Roaming/postgresql/pgpass.conf",
-		"/D/Google Drive/apflora/v2/createDbStructure.txt",
-		"/D/Google Drive/apflora/v2/installDb.txt",
-		"/C/Users/alex/.ssh/alex",
-		"/C/Users/alex/.ssh/alex.ppk",
-		"/C/Users/alex/apflora_api/sql/triggers.sql"
+		"/C/Users/alex/apflora_api/sql/create_databases.sql"
 	],
 	"find":
 	{
-		"height": 49.0
+		"height": 47.0
 	},
 	"find_in_files":
 	{
@@ -428,6 +424,10 @@
 		"case_sensitive": true,
 		"find_history":
 		[
+			"GESCHAEFT_ENTFERNEN_WILL",
+			"willGeschaeftEntfernen",
+			"'",
+			" ()",
 			"filtereGeschaefteNachVolltext",
 			"onBlurFilterFulltext",
 			";",
@@ -551,11 +551,7 @@
 			"getGeschaefte",
 			"getState",
 			"holenGeschaefte",
-			"getGeschaefte",
-			"getConfig",
-			"saveConfigValue",
-			"ToolbarPage",
-			"electron"
+			"getGeschaefte"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -563,6 +559,8 @@
 		"regex": false,
 		"replace_history":
 		[
+			"\"",
+			"()",
 			"",
 			"geschaefteGefiltert",
 			"satisfiesFilter",
@@ -688,54 +686,22 @@
 			"tpopkontr",
 			"tpopber",
 			"tpop",
-			"popmassnber",
-			"popber",
-			"pop_entwicklung_werte"
+			"popmassnber"
 		],
-		"reverse": true,
+		"reverse": false,
 		"show_context": true,
 		"use_buffer2": true,
-		"whole_word": false,
+		"whole_word": true,
 		"wrap": true
 	},
 	"groups":
 	[
 		{
-			"selected": 4,
+			"selected": 3,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "package.json",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 4623,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1563,
-								1563
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JSON.sublime-syntax",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 198.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 7,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
 					"file": "app/actions/geschaefte.js",
 					"semi_transient": false,
 					"settings":
@@ -747,26 +713,25 @@
 						"selection":
 						[
 							[
-								2682,
-								2711
+								4621,
+								4632
 							]
 						],
 						"settings":
 						{
-							"history_list_is_closing": true,
-							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
+							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax",
 							"tab_size": 2,
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 2501.0,
+						"translation.y": 4413.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 4,
 					"type": "text"
 				},
 				{
-					"buffer": 2,
+					"buffer": 1,
 					"file": "app/reducers/geschaefte.js",
 					"semi_transient": false,
 					"settings":
@@ -778,43 +743,45 @@
 						"selection":
 						[
 							[
-								2274,
-								2274
+								2717,
+								2717
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
+							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax",
 							"tab_size": 2,
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 2079.0,
+						"translation.y": 3149.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 3,
+					"stack_index": 6,
 					"type": "text"
 				},
 				{
-					"buffer": 3,
-					"file": "app/containers/Navbar.js",
+					"buffer": 2,
+					"file": "app/components/ModalGeschaeftDelete.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 773,
+						"buffer_size": 973,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								118,
-								118
+								0,
+								0
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax"
+							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -824,66 +791,37 @@
 					"type": "text"
 				},
 				{
-					"buffer": 4,
-					"file": "/C/Users/alex/AppData/Roaming/Sublime Text 3/Packages/User/Preferences.sublime-settings",
+					"buffer": 3,
+					"file": "app/components/Geschaefte.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 812,
+						"buffer_size": 3588,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								118,
-								118
+								3106,
+								3106
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/JavaScript/JSON.sublime-syntax",
-							"translate_tabs_to_spaces": false
+							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 2970.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
 					"type": "text"
 				},
 				{
-					"buffer": 5,
-					"file": "/C/Users/alex/AppData/Roaming/Sublime Text 3/Packages/SublimeLinter/SublimeLinter.sublime-settings",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1124,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1115,
-								1115
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JSON.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 297.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 2,
-					"type": "text"
-				},
-				{
-					"buffer": 6,
+					"buffer": 4,
 					"file": "app/components/Navbar.js",
 					"semi_transient": false,
 					"settings":
@@ -895,49 +833,79 @@
 						"selection":
 						[
 							[
-								1373,
-								1402
+								1052,
+								1074
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
+							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax",
 							"tab_size": 2,
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 1007.0,
+						"translation.y": 891.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 5,
 					"type": "text"
 				},
 				{
-					"buffer": 7,
-					"file": "app/components/Navbar.css",
+					"buffer": 5,
+					"file": "app/components/Geschaeft.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 264,
+						"buffer_size": 17393,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								247,
-								247
+								17291,
+								17311
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/CSS/CSS.sublime-syntax"
+							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 14667.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "app/containers/ModalGeschaeftDelete.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 506,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								319,
+								319
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 6,
+					"stack_index": 2,
 					"type": "text"
 				}
 			]
@@ -982,7 +950,7 @@
 	"project": "kapla_pc.sublime-project",
 	"replace":
 	{
-		"height": 92.0
+		"height": 90.0
 	},
 	"save_all_on_build": true,
 	"select_file":
