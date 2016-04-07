@@ -2,7 +2,7 @@
 
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
-import GeschaefteReport from '../components/GeschaefteReport'
+import Pages from '../components/Pages'
 import * as GeschaefteActions from '../actions/geschaefte'
 import * as PagesActions from '../actions/pages'
 
@@ -24,4 +24,4 @@ function mapDispatchToProps(dispatch) {
   return bindActionCreators(actions, dispatch)
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(GeschaefteReport)
+export default connect(mapStateToProps, mapDispatchToProps)(Pages)

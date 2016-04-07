@@ -11,7 +11,7 @@ import {
 const standardPagesState = {
   pages: [],
   title: 'Geschäfte',
-  reportType: 'GeschaefteReport'
+  reportType: 'fristen'
 }
 
 const standardPageState = {
@@ -27,7 +27,7 @@ function page(state = standardPageState, action, index) {
           geschaefte: [...state.geschaefte, action.geschaeft]
         }
       }
-      return state 
+      return state
     case PAGE_REMOVE_GESCHAEFT:
       if (index === action.pageIndex) {
         return {
@@ -59,6 +59,7 @@ export default function pages(state = standardPagesState, action) {
         pages: [...state.pages, { geschaefte: action.geschaefte }]
       }
     case PAGE_ADD_GESCHAEFT:
+    case PAGE_REMOVE_GESCHAEFT:
       return {
         ...state,
         geschaefte: state.pages.map((g, index) => page(g, action, index))

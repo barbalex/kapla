@@ -1,0 +1,33 @@
+.backButton {
+  position: absolute;
+  z-index: 1;
+}
+
+.grid {
+  position: absolute;
+  top: 52px;
+  overflow: auto;
+  height: calc(100vh - 52px);
+  width: 100%;
+}
+
+.row {
+  padding: 10px;
+  border-bottom-width: 1px;
+  border-bottom-color: #717171;
+  border-bottom-style: solid;
+  cursor: pointer;
+}
+
+.active {
+  background-color: #FFBF73;
+}
+
+.body {
+  background-image: linear-gradient(45deg, rgba(235, 255, 229, .5) 10%, rgba(216, 255, 200, .7));
+  height: 100vh;
+}
+
+.fieldGegenstand {
+  font-weight: 700;
+}

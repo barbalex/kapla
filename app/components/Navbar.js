@@ -106,6 +106,11 @@ class MyToolbar extends Component {
           >
             <Glyphicon glyph = "trash" />
           </NavItem>
+          <NavDropdown eventKey={6} title="Berichte" id="basic-nav-dropdown">
+            <LinkContainer to={{ pathname: '/pages' }}>
+              <MenuItem eventKey={6.1}>Fristen</MenuItem>
+            </LinkContainer>
+          </NavDropdown>
         </Nav>
         <Nav pullRight>
           <Navbar.Form pullLeft>
@@ -126,8 +131,8 @@ class MyToolbar extends Component {
             title="Filter entfernen"
           />
           </Navbar.Form>
-          <NavDropdown eventKey={4} title="Menu" id="basic-nav-dropdown">
-            <MenuItem eventKey={4.1} onClick={holenDb}>Datenbank wählen</MenuItem>
+          <NavDropdown eventKey={7} title="Menu" id="basic-nav-dropdown">
+            <MenuItem eventKey={7.1} onClick={holenDb}>Datenbank wählen</MenuItem>
           </NavDropdown>
         </Nav>
       </Navbar>

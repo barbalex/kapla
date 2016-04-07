@@ -3,15 +3,26 @@
 import React, { Component, PropTypes } from 'react'
 import { Grid, Row, Col } from 'react-bootstrap'
 import ReactList from 'react-list'
-import styles from './GeschaefteReport.css'
+import styles from './Pages.css'
 
 class Geschaefte extends Component {
   static propTypes = {
-    geschaefteGefiltert: PropTypes.array.isRequired
+    geschaefteGefiltert: PropTypes.array.isRequired,
+    pages: PropTypes.array.isRequired,
+    title: PropTypes.string.isRequired,
+    reportType: PropTypes.string.isRequired
   }
 
   componentDidUpdate() {
-    // TODO
+    /**
+     * - measure height of pageSize-component
+     * - if > desired page height:
+     *  - move last row to next page
+     *  - render
+     * - else:
+     *  - insert next row
+     *  - render
+     */
   }
 
   renderItem(index, key) {
