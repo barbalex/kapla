@@ -180,23 +180,34 @@ export function nichtGelöschtesGeschaeft(error) {
   }
 }
 
-export const GESCHAEFT_AENDERN_FEHLER = 'GESCHAEFT_AENDERN_FEHLER'
-export function aendereGeschaeftFehler(error) {
+export const GESCHAEFTE_AENDERN_STATE = 'GESCHAEFTE_AENDERN_STATE'
+export function aendereGeschaefteState(idGeschaeft, field, value) {
   return {
-    type: GESCHAEFT_AENDERN_FEHLER,
+    type: GESCHAEFTE_AENDERN_STATE,
+    idGeschaeft,
+    field,
+    value
+  }
+}
+
+export const GESCHAEFT_AENDERN_DB_FEHLER = 'GESCHAEFT_AENDERN_DB_FEHLER'
+export function aendereGeschaeftDbFehler(error) {
+  // TODO: reload data from db
+  return {
+    type: GESCHAEFT_AENDERN_DB_FEHLER,
     error
   }
 }
 
-export const GESCHAEFTE_AENDERN = 'GESCHAEFTE_AENDERN'
-export function aendereGeschaeft(idGeschaeft, field, value) {
+export const GESCHAEFT_AENDERN_DB = 'GESCHAEFT_AENDERN_DB'
+export function aendereGeschaeftDb(idGeschaeft, field, value) {
   return (dispatch, getState) => {
     const { app } = getState()
     updateGeschaeft(app.db, idGeschaeft, field, value)
       .then(() => {
         // update geschaeft in store
         dispatch({
-          type: GESCHAEFTE_AENDERN,
+          type: GESCHAEFT_AENDERN_DB,
           idGeschaeft,
           field,
           value
@@ -204,7 +215,7 @@ export function aendereGeschaeft(idGeschaeft, field, value) {
       })
       .catch((error) => {
         // TODO: reset ui
-        dispatch(aendereGeschaeftFehler(error))
+        dispatch(aendereGeschaeftDbFehler(error))
       })
   }
 }

@@ -11,7 +11,8 @@ class Geschaeft extends Component {
     geschaefte: PropTypes.array.isRequired,
     activeId: PropTypes.number,
     willDeleteGeschaeft: PropTypes.bool,
-    aendereGeschaeft: PropTypes.func.isRequired,
+    aendereGeschaefteState: PropTypes.func.isRequired,
+    aendereGeschaeftDb: PropTypes.func.isRequired,
     rechtsmittelerledigungOptions: PropTypes.array.isRequired,
     parlVorstossTypOptions: PropTypes.array.isRequired,
     statusOptions: PropTypes.array.isRequired,
@@ -19,11 +20,23 @@ class Geschaeft extends Component {
   }
 
   change = (e) => {
-    const { activeId, aendereGeschaeft } = this.props
+    const { activeId, aendereGeschaefteState } = this.props
+    const { type, name, dataset } = e.target
+    let { value } = e.target
+    if (type === 'radio') {
+      value = dataset.value
+      // blur does not occur in radio
+      this.blur(e)
+    }
+    aendereGeschaefteState(activeId, name, value)
+  }
+
+  blur = (e) => {
+    const { activeId, aendereGeschaeftDb } = this.props
     const { type, name, dataset } = e.target
     let { value } = e.target
     if (type === 'radio') value = dataset.value
-    aendereGeschaeft(activeId, name, value)
+    aendereGeschaeftDb(activeId, name, value)
   }
 
   options = (values) => {
@@ -63,6 +76,7 @@ class Geschaeft extends Component {
                   value = {geschaeft.gegenstand}
                   name = "gegenstand"
                   onChange = {this.change}
+                  onBlur = {this.blur}
                   bsSize = "small"
                   className = {[styles.geschaeft, styles.gegenstand].join(' ')}
                   tabIndex = {1}
@@ -88,6 +102,7 @@ class Geschaeft extends Component {
                   value = {geschaeft.ort}
                   name = "ort"
                   onChange = {this.change}
+                  onBlur = {this.blur}
                   bsSize = "small"
                   className={styles.geschaeft}
                   tabIndex = {2}
@@ -100,6 +115,7 @@ class Geschaeft extends Component {
                   value = {geschaeft.entscheidAwelNr}
                   name = "entscheidAwelNr"
                   onChange = {this.change}
+                  onBlur = {this.blur}
                   bsSize = "small"
                   className={styles.nr}
                   tabIndex = {11}
@@ -112,6 +128,7 @@ class Geschaeft extends Component {
                   value = {geschaeft.entscheidAwelJahr}
                   name = "entscheidAwelJahr"
                   onChange = {this.change}
+                  onBlur = {this.blur}
                   bsSize = "small"
                   className={styles.nr}
                   tabIndex = {12}
@@ -125,6 +142,7 @@ class Geschaeft extends Component {
                   value = {geschaeft.entscheidBdvNr}
                   name = "entscheidBdvNr"
                   onChange = {this.change}
+                  onBlur = {this.blur}
                   bsSize = "small"
                   className={styles.nr}
                   tabIndex = {13}
@@ -137,6 +155,7 @@ class Geschaeft extends Component {
                   value = {geschaeft.entscheidBdvJahr}
                   name = "entscheidBdvJahr"
                   onChange = {this.change}
+                  onBlur = {this.blur}
                   bsSize = "small"
                   className={styles.nr}
                   tabIndex = {14}
@@ -151,6 +170,7 @@ class Geschaeft extends Component {
                   value = {geschaeft.geschaeftsart}
                   name = "geschaeftsart"
                   onChange = {this.change}
+                  onBlur = {this.blur}
                   bsSize = "small"
                   className={styles.geschaeft}
                   tabIndex = {3}
@@ -165,6 +185,7 @@ class Geschaeft extends Component {
                   value = {geschaeft.status}
                   name = "status"
                   onChange = {this.change}
+                  onBlur = {this.blur}
                   bsSize = "small"
                   className={styles.geschaeft}
                   tabIndex = {4}
@@ -179,6 +200,7 @@ class Geschaeft extends Component {
                   value = {geschaeft.idVorgeschaeft}
                   name = "idVorgeschaeft"
                   onChange = {this.change}
+                  onBlur = {this.blur}
                   bsSize = "small"
                   className = {styles.geschaeft}
                   placeholder = "ID"
@@ -192,6 +214,7 @@ class Geschaeft extends Component {
                   value = {geschaeft.zustaendigeDirektion}
                   name = "zustaendigeDirektion"
                   onChange = {this.change}
+                  onBlur = {this.blur}
                   bsSize = "small"
                   className={styles.geschaeft}
                   tabIndex = {6}
@@ -204,6 +227,7 @@ class Geschaeft extends Component {
                   value = {geschaeft.entscheidKrNr}
                   name = "entscheidKrNr"
                   onChange = {this.change}
+                  onBlur = {this.blur}
                   bsSize = "small"
                   className={styles.nr}
                   tabIndex = {15}
@@ -216,6 +240,7 @@ class Geschaeft extends Component {
                   value = {geschaeft.entscheidKrJahr}
                   name = "entscheidKrJahr"
                   onChange = {this.change}
+                  onBlur = {this.blur}
                   bsSize = "small"
                   className={styles.nr}
                   tabIndex = {16}
@@ -229,6 +254,7 @@ class Geschaeft extends Component {
                   value = {geschaeft.entscheidRrbNr}
                   name = "entscheidRrbNr"
                   onChange = {this.change}
+                  onBlur = {this.blur}
                   bsSize = "small"
                   className={styles.nr}
                   tabIndex = {17}
@@ -241,6 +267,7 @@ class Geschaeft extends Component {
                   value = {geschaeft.entscheidRrbJahr}
                   name = "entscheidRrbJahr"
                   onChange = {this.change}
+                  onBlur = {this.blur}
                   bsSize = "small"
                   className={styles.nr}
                   tabIndex = {18}
@@ -255,6 +282,7 @@ class Geschaeft extends Component {
                   value = {geschaeft.details}
                   name = "details"
                   onChange = {this.change}
+                  onBlur = {this.blur}
                   bsSize = "small"
                   className={styles.geschaeft}
                   rows = {4}
@@ -268,6 +296,7 @@ class Geschaeft extends Component {
                   value = {geschaeft.aktenstandort}
                   name = "aktenstandort"
                   onChange = {this.change}
+                  onBlur = {this.blur}
                   bsSize = "small"
                   className={styles.nr}
                   tabIndex = {19}
@@ -280,6 +309,7 @@ class Geschaeft extends Component {
                   value = {geschaeft.aktennummer}
                   name = "aktennummer"
                   onChange = {this.change}
+                  onBlur = {this.blur}
                   bsSize = "small"
                   className={styles.nr}
                   tabIndex = {20}
@@ -294,6 +324,7 @@ class Geschaeft extends Component {
                   value = {geschaeft.naechsterSchritt}
                   name = "naechsterSchritt"
                   onChange = {this.change}
+                  onBlur = {this.blur}
                   bsSize = "small"
                   className = {styles.geschaeft}
                   rows = {3}
@@ -308,6 +339,7 @@ class Geschaeft extends Component {
                   value = {geschaeft.parlVorstossTyp}
                   name = "parlVorstossTyp"
                   onChange = {this.change}
+                  onBlur = {this.blur}
                   bsSize = "small"
                   className={styles.parlVorstoss}
                   tabIndex = {21}
@@ -324,6 +356,7 @@ class Geschaeft extends Component {
                   value = {geschaeft.vermerk}
                   name = "vermerk"
                   onChange = {this.change}
+                  onBlur = {this.blur}
                   bsSize = "small"
                   className={styles.geschaeft}
                   rows = {4}
@@ -456,6 +489,7 @@ class Geschaeft extends Component {
                   value = {geschaeft.rechtsmittelerledigung}
                   name = "rechtsmittelerledigung"
                   onChange = {this.change}
+                  onBlur = {this.blur}
                   bsSize = "small"
                   className={styles.geschaeft}
                   tabIndex = {10}

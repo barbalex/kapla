@@ -11,7 +11,8 @@ import {
   GESCHAEFT_DEAKTIVIEREN,
   GESCHAEFT_ENTFERNEN_WILL,
   GESCHAEFT_ENTFERNEN_WILL_NICHT,
-  GESCHAEFTE_AENDERN,
+  GESCHAEFTE_AENDERN_STATE,
+  GESCHAEFT_AENDERN_DB_FEHLER,
   GESCHAEFT_EROEFFNEN,
   RECHTSMITTELERLEDIGUNG_OPTIONS_HOLEN,
   RECHTSMITTELERLEDIGUNG_OPTIONS_HOLEN_FEHLER,
@@ -41,7 +42,7 @@ const standardState = {
 
 function geschaeft(state = {}, action) {
   switch (action.type) {
-    case GESCHAEFTE_AENDERN:
+    case GESCHAEFTE_AENDERN_STATE:
       if (state.idGeschaeft !== action.idGeschaeft) {
         return state
       }
@@ -116,7 +117,7 @@ export default function geschaefte(state = standardState, action) {
         ...state,
         willDelete: false
       }
-    case GESCHAEFTE_AENDERN:
+    case GESCHAEFTE_AENDERN_STATE:
       return {
         ...state,
         geschaefte: state.geschaefte.map((g) => geschaeft(g, action))
@@ -150,6 +151,7 @@ export default function geschaefte(state = standardState, action) {
     case PARLVORSTOSSTYP_OPTIONS_HOLEN_FEHLER:
     case STATUS_OPTIONS_HOLEN_FEHLER:
     case GESCHAEFTSART_OPTIONS_HOLEN_FEHLER:
+    case GESCHAEFT_AENDERN_DB_FEHLER:
       return {
         ...state,
         error: [...state.error, action.error]
