@@ -10,6 +10,8 @@ import {
 
 const standardPagesState = {
   pages: [],
+  activePageIndex: 0,
+  remainingGeschaefte: [],
   title: 'Geschäfte',
   reportType: 'fristen'
 }
@@ -24,7 +26,10 @@ function page(state = standardPageState, action, index) {
       if (index === action.pageIndex) {
         return {
           ...state,
-          geschaefte: [...state.geschaefte, action.geschaeft]
+          geschaefte: [...state.geschaefte, action.geschaeft],
+          remainingGeschaefte: state.pages.remainingGeschaefte.filter(
+            (g) => g.idGeschaeft !== action.geschaeft.idGeschaeft
+          )
         }
       }
       return state
@@ -32,7 +37,10 @@ function page(state = standardPageState, action, index) {
       if (index === action.pageIndex) {
         return {
           ...state,
-          geschaefte: state.geschaefte.filter((g) => g.idGeschaeft !== action.geschaeft.idGeschaeft)
+          geschaefte: state.geschaefte.filter(
+            (g) => g.idGeschaeft !== action.geschaeft.idGeschaeft
+          ),
+          remainingGeschaefte: [action.geschaeft, ...state.geschaefte]
         }
       }
       return state
@@ -46,7 +54,8 @@ export default function pages(state = standardPagesState, action) {
     case PAGES_INITIATE:
       return {
         ...standardPagesState,
-        reportType: action.reportType
+        reportType: action.reportType,
+        remainingGeschaefte: action.geschaefteGefiltert
       }
     case PAGES_SET_TITLE:
       return {
@@ -56,7 +65,7 @@ export default function pages(state = standardPagesState, action) {
     case PAGES_NEW_PAGE:
       return {
         ...state,
-        pages: [...state.pages, { geschaefte: action.geschaefte }]
+        activePageIndex: state.pages.activePageIndex + 1
       }
     case PAGE_ADD_GESCHAEFT:
     case PAGE_REMOVE_GESCHAEFT:

@@ -2,9 +2,14 @@
 
 export const PAGES_INITIATE = 'PAGES_INITIATE'
 export function pagesInitiate(reportType) {
-  return {
-    type: PAGES_INITIATE,
-    reportType
+  return (dispatch, getState) => {
+    const { geschaefte } = getState()
+    const { geschaefteGefiltert } = geschaefte
+    dispatch({
+      type: PAGES_INITIATE,
+      reportType,
+      geschaefteGefiltert
+    })
   }
 }
 
@@ -17,10 +22,9 @@ export function pagesSetTitle(title) {
 }
 
 export const PAGES_NEW_PAGE = 'PAGES_NEW_PAGE'
-export function pagesNewPage(geschaefte = []) {
+export function pagesNewPage() {
   return {
-    type: PAGES_NEW_PAGE,
-    geschaefte
+    type: PAGES_NEW_PAGE
   }
 }
 
