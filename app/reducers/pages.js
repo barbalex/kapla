@@ -1,26 +1,33 @@
 'use strict'
 
 import {
-  PAGE_GESCHAEFT_ERGAENZEN,
-  PAGE_GESCHAEFT_VERSCHIEBEN,
-  PAGE_NEU,
-  PAGES_TITEL_SETZEN,
-  PAGES_INITIIEREN
+  PAGES_NEW_PAGE,
+  PAGES_SET_TITLE,
+  PAGES_INITIATE
 } from '../actions/pages'
 
 const standardState = {
   pages: [],
-  title: 'Geschäfte'
+  title: 'Geschäfte',
+  reportType: 'GeschaefteReport'
 }
 
 export default function pages(state = standardState, action) {
   switch (action.type) {
-    case PAGES_INITIIEREN:
-      return standardState
-    case PAGES_TITEL_SETZEN:
+    case PAGES_INITIATE:
+      return {
+        ...standardState,
+        reportType: action.reportType
+      }
+    case PAGES_SET_TITLE:
       return {
         ...state,
         title: action.title
+      }
+    case PAGES_NEW_PAGE:
+      return {
+        ...state,
+        pages: [...state.pages, { geschaefte: action.geschaefte }]
       }
     default:
       return state
