@@ -12,6 +12,7 @@ import {
   Badge
 } from 'react-bootstrap'
 import { LinkContainer } from 'react-router-bootstrap'
+import ModalGeschaeftDelete from '../containers/ModalGeschaeftDelete.js'
 import styles from './Navbar.css'
 
 class NavbarComponent extends Component {
@@ -32,7 +33,8 @@ class NavbarComponent extends Component {
     holenRechtsmittelerledigungOptions: PropTypes.func.isRequired,
     holenParlVorstossTypOptions: PropTypes.func.isRequired,
     holenStatusOptions: PropTypes.func.isRequired,
-    holenGeschaeftsartOptions: PropTypes.func.isRequired
+    holenGeschaeftsartOptions: PropTypes.func.isRequired,
+    willDeleteGeschaeft: PropTypes.bool
   }
 
   componentWillMount() {
@@ -90,7 +92,8 @@ class NavbarComponent extends Component {
       activeId,
       geschaefte,
       geschaefteGefiltert,
-      filterFulltext
+      filterFulltext,
+      willDeleteGeschaeft
     } = this.props
 
     const dataIsFiltered = geschaefte.length !== geschaefteGefiltert.length
@@ -99,63 +102,66 @@ class NavbarComponent extends Component {
     const classNameBadge = dataIsFiltered ? styles.badgeWithActiveFilter : styles.badge
     const geschaeftPath = `/geschaefte/${activeId}`
     return (
-      <Navbar inverse fluid className={styles.navbar}>
-        <Nav>
-          <LinkContainer to={{ pathname: '/geschaefte' }}>
-            <NavItem eventKey={1} href="#">
-              Geschäfte <Badge className={classNameBadge}>{geschaefteGefiltert.length}</Badge>
-            </NavItem>
-          </LinkContainer>
-          <LinkContainer to={{ pathname: geschaeftPath }} disabled = {!activeId}>
-            <NavItem eventKey={2} href="#" disabled = {!activeId}>Geschäft</NavItem>
-          </LinkContainer>
-          <LinkContainer to={{ pathname: '/filter' }}>
-            <NavItem eventKey={3} href="#">Filter</NavItem>
-          </LinkContainer>
-          <NavItem
-            eventKey={4}
-            onClick={this.onClickNewGeschaeft}
-            title="neues Geschäft"
-          >
-            <Glyphicon glyph="plus" />
-          </NavItem>
-          <NavItem
-            eventKey = {5}
-            onClick = {this.onClickDeleteGeschaeft}
-            title = "Geschäft löschen"
-            disabled = {!activeId}
-          >
-            <Glyphicon glyph = "trash" />
-          </NavItem>
-          <NavDropdown eventKey={6} title="Berichte" id="basic-nav-dropdown">
-            <LinkContainer to={{ pathname: '/pages' }}>
-              <MenuItem eventKey={6.1}>Fristen</MenuItem>
+      <div>
+        {willDeleteGeschaeft && <ModalGeschaeftDelete />}
+        <Navbar inverse fluid className={styles.navbar}>
+          <Nav>
+            <LinkContainer to={{ pathname: '/geschaefte' }}>
+              <NavItem eventKey={1} href="#">
+                Geschäfte <Badge className={classNameBadge}>{geschaefteGefiltert.length}</Badge>
+              </NavItem>
             </LinkContainer>
-          </NavDropdown>
-        </Nav>
-        <Nav pullRight>
-          <Navbar.Form pullLeft>
-            <Input
-              type="text"
-              placeholder="Volltext filtern"
-              value={filterFulltext}
-              onChange={this.onChangeFilterFulltext}
-              onKeyPress={this.onKeyPressFilterFulltext}
-              className={classNameFilterInput}
-              title="Zum Filtern drücken Sie die Enter-Taste"
+            <LinkContainer to={{ pathname: geschaeftPath }} disabled = {!activeId}>
+              <NavItem eventKey={2} href="#" disabled = {!activeId}>Geschäft</NavItem>
+            </LinkContainer>
+            <LinkContainer to={{ pathname: '/filter' }}>
+              <NavItem eventKey={3} href="#">Filter</NavItem>
+            </LinkContainer>
+            <NavItem
+              eventKey={4}
+              onClick={this.onClickNewGeschaeft}
+              title="neues Geschäft"
+            >
+              <Glyphicon glyph="plus" />
+            </NavItem>
+            <NavItem
+              eventKey = {5}
+              onClick = {this.onClickDeleteGeschaeft}
+              title = "Geschäft löschen"
+              disabled = {!activeId}
+            >
+              <Glyphicon glyph = "trash" />
+            </NavItem>
+            <NavDropdown eventKey={6} title="Berichte" id="basic-nav-dropdown">
+              <LinkContainer to={{ pathname: '/pages' }}>
+                <MenuItem eventKey={6.1}>Fristen</MenuItem>
+              </LinkContainer>
+            </NavDropdown>
+          </Nav>
+          <Nav pullRight>
+            <Navbar.Form pullLeft>
+              <Input
+                type="text"
+                placeholder="Volltext filtern"
+                value={filterFulltext}
+                onChange={this.onChangeFilterFulltext}
+                onKeyPress={this.onKeyPressFilterFulltext}
+                className={classNameFilterInput}
+                title="Zum Filtern drücken Sie die Enter-Taste"
+              />
+            <Glyphicon
+              glyph="remove"
+              onClick={this.onClickRemoveFilterGlyph}
+              className={styles.filterInputRemoveIcon}
+              title="Filter entfernen"
             />
-          <Glyphicon
-            glyph="remove"
-            onClick={this.onClickRemoveFilterGlyph}
-            className={styles.filterInputRemoveIcon}
-            title="Filter entfernen"
-          />
-          </Navbar.Form>
-          <NavDropdown eventKey={7} title="Menu" id="basic-nav-dropdown">
-            <MenuItem eventKey={7.1} onClick={holenDb}>Datenbank wählen</MenuItem>
-          </NavDropdown>
-        </Nav>
-      </Navbar>
+            </Navbar.Form>
+            <NavDropdown eventKey={7} title="Menu" id="basic-nav-dropdown">
+              <MenuItem eventKey={7.1} onClick={holenDb}>Datenbank wählen</MenuItem>
+            </NavDropdown>
+          </Nav>
+        </Navbar>
+      </div>
     )
   }
 }

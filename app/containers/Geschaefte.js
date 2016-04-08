@@ -10,7 +10,7 @@ import * as AppActions from '../actions/app'
 const actions = Object.assign(GeschaefteActions, AppActions, UserActions)
 
 function mapStateToProps(state, props) {
-  const { geschaefte, geschaefteGefiltert, activeId, willDelete } = state.geschaefte
+  const { geschaefte, geschaefteGefiltert, activeId } = state.geschaefte
   const { username } = state.user
   const { dbPath, db } = state.app
   const { children } = props
@@ -22,8 +22,7 @@ function mapStateToProps(state, props) {
     username,
     dbPath,
     db,
-    activeId,
-    willDeleteGeschaeft: willDelete
+    activeId
   }
 }
 

@@ -3,7 +3,6 @@
 import React, { Component, PropTypes } from 'react'
 import { Grid, Row, Col } from 'react-bootstrap'
 import ReactList from 'react-list'
-import ModalGeschaeftDelete from '../containers/ModalGeschaeftDelete.js'
 import styles from './Geschaefte.css'
 
 class Geschaefte extends Component {
@@ -15,7 +14,6 @@ class Geschaefte extends Component {
     holeDbAusConfig: PropTypes.func.isRequired,
     holenGeschaefte: PropTypes.func.isRequired,
     aktiviereGeschaeft: PropTypes.func.isRequired,
-    willDeleteGeschaeft: PropTypes.bool,
     activeId: PropTypes.number,
     holenRechtsmittelerledigungOptions: PropTypes.func.isRequired,
     holenParlVorstossTypOptions: PropTypes.func.isRequired,
@@ -107,10 +105,9 @@ class Geschaefte extends Component {
   }
 
   render() {
-    const { geschaefteGefiltert, willDeleteGeschaeft, children } = this.props
+    const { geschaefteGefiltert, children } = this.props
     return (
       <div className = {styles.body}>
-        {willDeleteGeschaeft && <ModalGeschaeftDelete />}
         <div className={[styles.grid, 'reactList'].join(' ')}>
           <ReactList
             itemRenderer={::this.renderItem}

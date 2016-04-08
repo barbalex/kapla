@@ -12,7 +12,6 @@ function mapStateToProps(state) {
   const {
     geschaefte,
     activeId,
-    willDelete,
     rechtsmittelerledigungOptions,
     parlVorstossTypOptions,
     statusOptions,
@@ -22,7 +21,6 @@ function mapStateToProps(state) {
   return {
     geschaefte,
     activeId,
-    willDelete,
     rechtsmittelerledigungOptions,
     parlVorstossTypOptions,
     statusOptions,

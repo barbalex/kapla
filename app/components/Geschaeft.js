@@ -3,13 +3,11 @@
 import React, { Component, PropTypes } from 'react'
 import { Input, Grid, Row, Col } from 'react-bootstrap'
 import styles from './Geschaeft.css'
-import ModalGeschaeftDelete from '../containers/ModalGeschaeftDelete.js'
 
 class Geschaeft extends Component {
   static propTypes = {
     geschaefte: PropTypes.array.isRequired,
     activeId: PropTypes.number,
-    willDeleteGeschaeft: PropTypes.bool,
     aendereGeschaefteState: PropTypes.func.isRequired,
     aendereGeschaeftDb: PropTypes.func.isRequired,
     rechtsmittelerledigungOptions: PropTypes.array.isRequired,
@@ -48,7 +46,6 @@ class Geschaeft extends Component {
     const {
       geschaefte,
       activeId,
-      willDeleteGeschaeft,
       rechtsmittelerledigungOptions,
       parlVorstossTypOptions,
       statusOptions,
@@ -60,7 +57,6 @@ class Geschaeft extends Component {
     if (geschaeft && geschaeft.idGeschaeft) {
       return (
         <div>
-          {willDeleteGeschaeft && <ModalGeschaeftDelete />}
           <Grid fluid>
             <Row>
               <Col xs={7} sm={7} md={7} lg={7} className={styles.bereichTitel}>Geschäft</Col>
