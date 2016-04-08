@@ -20,7 +20,8 @@ class Geschaefte extends Component {
     holenRechtsmittelerledigungOptions: PropTypes.func.isRequired,
     holenParlVorstossTypOptions: PropTypes.func.isRequired,
     holenStatusOptions: PropTypes.func.isRequired,
-    holenGeschaeftsartOptions: PropTypes.func.isRequired
+    holenGeschaeftsartOptions: PropTypes.func.isRequired,
+    children: PropTypes.element.isRequired
   }
 
   componentWillMount() {
@@ -106,7 +107,7 @@ class Geschaefte extends Component {
   }
 
   render() {
-    const { geschaefteGefiltert, willDeleteGeschaeft } = this.props
+    const { geschaefteGefiltert, willDeleteGeschaeft, children } = this.props
     return (
       <div className = {styles.body}>
         {willDeleteGeschaeft && <ModalGeschaeftDelete />}
@@ -117,6 +118,7 @@ class Geschaefte extends Component {
             type="variable"
           />
         </div>
+        {children}
       </div>
     )
   }

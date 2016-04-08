@@ -31,13 +31,14 @@ const standardState = {
   geschaefteGefiltert: [],
   filterFields: {},
   filterFulltext: null,
-  // following: state for active geschaeft
-  activeId: null,
-  willDelete: false,
+  // dropdown lists
   rechtsmittelerledigungOptions: [],
   parlVorstossTypOptions: [],
   statusOptions: [],
-  geschaeftsartOptions: []
+  geschaeftsartOptions: [],
+  // following: state for active geschaeft
+  activeId: null,
+  willDelete: false
 }
 
 function geschaeft(state = {}, action) {

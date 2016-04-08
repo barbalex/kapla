@@ -10,8 +10,9 @@ import Pages from './containers/Pages'
 export default (
   <Route path="/" component={App}>
     <IndexRoute component={Geschaefte} />
-    <Route path="/geschaeft" component={Geschaeft} />
-    <Route path="/geschaefte" component={Geschaefte} />
+    <Route path="/geschaefte" component={Geschaefte}>
+      <Route path="/geschaefte/:idGeschaeft" component={Geschaeft} />
+    </Route>
     <Route path="/pages" component={Pages} />
   </Route>
 )
