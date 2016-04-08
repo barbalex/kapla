@@ -5,27 +5,40 @@
  */
 
 import React, { Component, PropTypes } from 'react'
-import ReactList from 'react-list'
-import styles from './Pages.css'
+import ReactDOM from 'react-dom'
+import { Input } from 'react-bootstrap'
+import styles from './Page.css'
+
+const desiredPageHeight = 800
 
 class Page extends Component {
   static propTypes = {
     geschaefte: PropTypes.array,
     remainingGeschaefte: PropTypes.array,
     activePageIndex: PropTypes.number,
-    index: PropTypes.number.isRequired,
+    pageIndex: PropTypes.number.isRequired,
     pageAddGeschaeft: PropTypes.func.isRequired,
     pageRemoveGeschaeft: PropTypes.func.isRequired,
-    pagesNewPage: PropTypes.func.isRequired
+    pagesNewPage: PropTypes.func.isRequired,
+    pagesQueryTitle: PropTypes.func.isRequired,
+    pagesSetTitle: PropTypes.func.isRequired,
+    title: PropTypes.string,
+    queryTitle: PropTypes.bool
   }
 
   componentDidMount = () => {
-    const { index } = this.props
-    console.log('components/Page.js, componentDidMount, index', index)
+    const { pageIndex } = this.props
+    console.log('components/Page.js, componentDidMount, pageIndex', pageIndex)
+    this.nextStepp()
   }
 
   componentDidUpdate = () => {
-    const { index } = this.props
+    const { pageIndex } = this.props
+    console.log('components/Page.js, componentDidUpdate, pageIndex', pageIndex)
+    this.nextStepp()
+  }
+
+  nextStepp = () => {
     /**
      * - measure height of pageSize-component
      * - if > desired page height:
@@ -35,17 +48,72 @@ class Page extends Component {
      *  - insert next row
      *  - render
      */
-    console.log('components/Page.js, componentDidUpdate, index', index)
+    const { pageIndex, geschaefte, remainingGeschaefte, pageAddGeschaeft, pageRemoveGeschaeft, pagesNewPage } = this.props
+    const pageHeight = ReactDOM.findDOMNode(this).offsetHeight
+    if (pageHeight < desiredPageHeight) {
+      pageAddGeschaeft(pageIndex, remainingGeschaefte[0])
+    } else if (pageHeight > desiredPageHeight) {
+      const lastGeschaeft = geschaefte[geschaefte.length - 1]
+      pageRemoveGeschaeft(pageIndex, lastGeschaeft)
+      pagesNewPage()
+    }
   }
 
-  renderItem(index, key) {
-    const { geschaefte } = this.props
-    const geschaeft = geschaefte[index]
+  onClickH1 = () => {
+    const { pagesQueryTitle } = this.props
+    pagesQueryTitle(true)
+  }
+
+  onKeyPressTitle = (e) => {
+    const { pagesQueryTitle, title } = this.props
+    if (e.key === 'Enter' && title) {
+      pagesQueryTitle(false)
+    }
+  }
+
+  onBlurTitle = () => {
+    const { pagesQueryTitle, title } = this.props
+    if (title) pagesQueryTitle(false)
+  }
+
+  changeQueryTitle = (e) => {
+    const { pagesSetTitle } = this.props
+    const { value } = e.target
+    pagesSetTitle(value)
+  }
+
+  inputPagesTitle = () => {
+    const { title } = this.props
+    return (
+      <Input
+        type="text"
+        value={title}
+        placeholder="Titel erfassen"
+        onChange={this.changeQueryTitle}
+        onKeyPress={this.onKeyPressTitle}
+        onBlur={this.onBlurTitle}
+        bsSize="large"
+        autoFocus
+      />
+    )
+  }
+
+  textPagesTitle = () => {
+    const { title } = this.props
+    return (
+      <h1 onClick={this.onClickH1} className={styles.h1}>
+        {title}
+      </h1>
+    )
+  }
+
+  tableRow = (geschaeft) => {
     const fristMitarbeiter = geschaeft.fristMitarbeiter ? `Frist: ${geschaeft.fristMitarbeiter}` : null
 
     return (
       <div
-        key={key}
+        key={geschaeft.idGeschaeft}
+        className={styles.tableBodyRow}
       >
         <div className={[styles.columnIdGeschaeft, styles.tableBodyCell].join(' ')}>
           <div>
@@ -83,42 +151,30 @@ class Page extends Component {
     )
   }
 
-  renderItems(items, ref) {
-    return (
-      <div ref={ref} className={styles.table}>
-        {items}
-      </div>
-    )
+  tableRows = () => {
+    const { geschaefte } = this.props
+    return geschaefte.map((geschaeft) => this.tableRow(geschaeft))
   }
 
-  render() {
-    /**
-     * class 'reactList' is needed to
-     * apply ::-webkit-scrollbar: display: none;
-     */
-    const { geschaefte, index } = this.props
-
-    console.log('components/Page.js, render, this.props', this.props)
-    console.log('components/Page.js, render, index', index)
-
+  render = () => {
+    const { pageIndex, activePageIndex, queryTitle } = this.props
+    const tbRef = `page${pageIndex}`
+    const showPagesTitle = pageIndex === 0
     return (
-      <div className={styles.body}>
-        <div className={styles.table}>
-          <div className={styles.tableHeader}>
-            <div className={styles.tableHeaderRow}>
-              <div className={[styles.columnIdGeschaeft, styles.tableHeaderCell].join(' ')}>ID</div>
-              <div className={[styles.columnGegenstand, styles.tableHeaderCell].join(' ')}>Gegenstand</div>
-              <div className={[styles.columnStatus, styles.tableHeaderCell].join(' ')}>Status</div>
-              <div className={[styles.columnKontaktIntern, styles.tableHeaderCell].join(' ')}>Kontakt</div>
-            </div>
+      <div className={styles.body} ref={tbRef}>
+        {showPagesTitle && queryTitle && this.inputPagesTitle()}
+        {showPagesTitle && !queryTitle && this.textPagesTitle()}
+        {showPagesTitle && <p>Seite {activePageIndex}</p>}
+        <div className={styles.tableHeader}>
+          <div className={styles.tableHeaderRow}>
+            <div className={[styles.columnIdGeschaeft, styles.tableHeaderCell].join(' ')}>ID</div>
+            <div className={[styles.columnGegenstand, styles.tableHeaderCell].join(' ')}>Gegenstand</div>
+            <div className={[styles.columnStatus, styles.tableHeaderCell].join(' ')}>Status</div>
+            <div className={[styles.columnKontaktIntern, styles.tableHeaderCell].join(' ')}>Kontakt</div>
           </div>
-          <div className={[styles.tableBody, 'reactList'].join(' ')}>
-            <ReactList
-              itemRenderer={::this.renderItem}
-              length={geschaefte.length}
-              type="variable"
-            />
-          </div>
+        </div>
+        <div className={styles.tableBody}>
+          {this.tableRows()}
         </div>
       </div>
     )

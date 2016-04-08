@@ -9,18 +9,19 @@ import * as PagesActions from '../actions/pages'
 const actions = Object.assign(GeschaefteActions, PagesActions)
 
 function mapStateToProps(state, props) {
-  console.log('containers/Page, state', state)
   const { pages } = state
-  const { index } = props
-  const { remainingGeschaefte, activePageIndex } = pages
+  const { pageIndex } = props
+  const { remainingGeschaefte, activePageIndex, title, queryTitle } = pages
   const myPages = pages.pages
-  const myGeschaefte = myPages.geschaefte
+  const myGeschaefte = myPages[pageIndex].geschaefte
 
   return {
     geschaefte: myGeschaefte,
     remainingGeschaefte,
     activePageIndex,
-    index
+    pageIndex,
+    title,
+    queryTitle
   }
 }
 

@@ -1,4 +1,5 @@
-.table {
+.body {
+  background-color: white;
   position: absolute;
   top: 52px;
   width: 100%;
@@ -11,7 +12,6 @@
 
 .tableBody {
   overflow: auto;
-  height: calc(100vh - 82px);
 }
 
 .tableHeaderRow,
@@ -34,15 +34,6 @@
 .tableBodyCell {
   flex: 1;
   padding: 5px;
-}
-
-.active {
-  background-color: #FFBF73;
-}
-
-.body {
-  background-image: linear-gradient(45deg, rgba(235, 255, 229, .5) 10%, rgba(216, 255, 200, .7));
-  height: 100vh;
 }
 
 .fieldGegenstand {

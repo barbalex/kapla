@@ -22,13 +22,13 @@ const standardPageState = {
   geschaefte: []
 }
 
-function page(state = standardPageState, action, index) {
+function page(state, geschaeft, action, pageIndex) {
   switch (action.type) {
     case PAGE_ADD_GESCHAEFT:
-      if (index === action.pageIndex) {
+      if (pageIndex === action.pageIndex) {
         return {
           ...state,
-          geschaefte: [...state.geschaefte, action.geschaeft],
+          geschaefte: [...state.pages.pages[pageIndex].geschaefte, action.geschaeft],
           remainingGeschaefte: state.pages.remainingGeschaefte.filter(
             (g) => g.idGeschaeft !== action.geschaeft.idGeschaeft
           )
@@ -36,10 +36,10 @@ function page(state = standardPageState, action, index) {
       }
       return state
     case PAGE_REMOVE_GESCHAEFT:
-      if (index === action.pageIndex) {
+      if (pageIndex === action.pageIndex) {
         return {
           ...state,
-          geschaefte: state.geschaefte.filter(
+          geschaefte: state.pages.pages[pageIndex].geschaefte.filter(
             (g) => g.idGeschaeft !== action.geschaeft.idGeschaeft
           ),
           remainingGeschaefte: [action.geschaeft, ...state.geschaefte]
@@ -78,7 +78,7 @@ export default function pages(state = standardPagesState, action) {
     case PAGE_REMOVE_GESCHAEFT:
       return {
         ...state,
-        geschaefte: state.pages.map((g, index) => page(g, action, index))
+        geschaefte: state.pages.map((g, pageIndex) => page(state, g, action, pageIndex))
       }
     default:
       return state
