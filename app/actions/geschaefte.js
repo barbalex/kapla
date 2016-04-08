@@ -113,8 +113,8 @@ import deleteGeschaeft from '../src/deleteGeschaeft.js'
 export const GESCHAEFT_NEU_ERSTELLEN = 'GESCHAEFT_NEU_ERSTELLEN'
 export function erstelleNeuesGeschaeft() {
   return (dispatch, getState) => {
-    const { app } = getState()
-    neuesGeschaeft(app.db)
+    const { app, user } = getState()
+    neuesGeschaeft(app.db, user.username)
       .then((idGeschaeft) => {
         dispatch(eroeffneGeschaeft(idGeschaeft))
         dispatch(aktiviereGeschaeft(idGeschaeft))
@@ -207,8 +207,8 @@ export function aendereGeschaeftDbFehler(error) {
 export const GESCHAEFT_AENDERN_DB = 'GESCHAEFT_AENDERN_DB'
 export function aendereGeschaeftDb(idGeschaeft, field, value) {
   return (dispatch, getState) => {
-    const { app } = getState()
-    updateGeschaeft(app.db, idGeschaeft, field, value)
+    const { app, user } = getState()
+    updateGeschaeft(app.db, idGeschaeft, field, value, user.username)
       .then(() => {
         // update geschaeft in store
         dispatch({

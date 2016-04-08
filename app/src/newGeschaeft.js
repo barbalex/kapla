@@ -1,11 +1,16 @@
 'use strict'
 
-export default function (db) {
+import moment from 'moment'
+
+export default function (db, username) {
   return new Promise((resolve, reject) => {
+    const now = moment().format('YYYY-MM-DD HH:mm:ss')
     const sql = `
       INSERT INTO
-        geschaefte
-      default VALUES`
+        geschaefte (mutationsdatum, mutationsperson)
+      VALUES
+        ('${now}', '${username}')`
+    console.log('newGeschaeft, sql', sql)
 
     /*
      * This is weird:
