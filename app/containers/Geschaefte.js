@@ -9,14 +9,12 @@ import * as AppActions from '../actions/app'
 
 const actions = Object.assign(GeschaefteActions, AppActions, UserActions)
 
-function mapStateToProps(state, props) {
+function mapStateToProps(state) {
   const { geschaefte, geschaefteGefiltert, activeId } = state.geschaefte
   const { username } = state.user
   const { dbPath, db } = state.app
-  const { children } = props
 
   return {
-    children,
     geschaefte,
     geschaefteGefiltert,
     username,
