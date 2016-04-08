@@ -1,8 +1,8 @@
 'use strict'
 
 import React, { Component, PropTypes } from 'react'
+import { Input } from 'react-bootstrap'
 import styles from './Pages.css'
-import ModalPagesTitle from '../containers/ModalPagesTitle.js'
 
 class Pages extends Component {
   static propTypes = {
@@ -11,7 +11,9 @@ class Pages extends Component {
     queryTitle: PropTypes.bool,
     reportType: PropTypes.string,
     activePageIndex: PropTypes.number.isRequired,
-    remainingGeschaefte: PropTypes.array.isRequired
+    remainingGeschaefte: PropTypes.array.isRequired,
+    pagesQueryTitle: PropTypes.func.isRequired,
+    pagesSetTitle: PropTypes.func.isRequired
   }
 
   componentDidUpdate() {
@@ -26,18 +28,65 @@ class Pages extends Component {
      */
   }
 
+  onClickH1 = () => {
+    const { pagesQueryTitle } = this.props
+    pagesQueryTitle(true)
+  }
+
+  onKeyPressTitle = (e) => {
+    const { pagesQueryTitle } = this.props
+    if (e.key === 'Enter') {
+      pagesQueryTitle(false)
+    }
+  }
+
+  onBlurTitle = () => {
+    const { pagesQueryTitle } = this.props
+    pagesQueryTitle(false)
+  }
+
+  changeQueryTitle = (e) => {
+    const { pagesSetTitle } = this.props
+    const { value } = e.target
+    pagesSetTitle(value)
+  }
+
   pages = () => {
     // TODO
     const { remainingGeschaefte } = this.props
   }
 
+  inputPagesTitle = () => {
+    const { title } = this.props
+    return (
+      <Input
+        type="text"
+        label="Titel"
+        value={title}
+        onChange={this.changeQueryTitle}
+        onKeyPress={this.onKeyPressTitle}
+        onBlur={this.onBlurTitle}
+        bsSize="small"
+      />
+    )
+  }
+
+  textPagesTitle = () => {
+    const { title } = this.props
+    return (
+      <h1 onClick={this.onClickH1} className={styles.h1}>
+        {title}
+      </h1>
+    )
+  }
+
   render() {
-    const { title, queryTitle, activePageIndex } = this.props
+    const { queryTitle, activePageIndex } = this.props
 
     return (
       <div className = {styles.body}>
-        {queryTitle && <ModalPagesTitle />}
-        <h1>{title}</h1>
+        {queryTitle && this.inputPagesTitle()}
+        {!queryTitle && this.textPagesTitle()}
         <div className={styles.pagesList}>
           {this.pages()}
         </div>
