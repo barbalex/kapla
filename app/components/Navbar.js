@@ -97,7 +97,7 @@ class NavbarComponent extends Component {
     const dataIsFilteredStyle = [styles.filterInput, styles.filterInputActive].join(' ')
     const classNameFilterInput = dataIsFiltered ? dataIsFilteredStyle : styles.filterInput
     const classNameBadge = dataIsFiltered ? styles.badgeWithActiveFilter : styles.badge
-
+    const geschaeftPath = `/geschaefte/${activeId}`
     return (
       <Navbar inverse fluid className={styles.navbar}>
         <Nav>
@@ -106,7 +106,7 @@ class NavbarComponent extends Component {
               Geschäfte <Badge className={classNameBadge}>{geschaefteGefiltert.length}</Badge>
             </NavItem>
           </LinkContainer>
-          <LinkContainer to={{ pathname: '/geschaeft' }} disabled = {!activeId}>
+          <LinkContainer to={{ pathname: geschaeftPath }} disabled = {!activeId}>
             <NavItem eventKey={2} href="#" disabled = {!activeId}>Geschäft</NavItem>
           </LinkContainer>
           <LinkContainer to={{ pathname: '/filter' }}>
