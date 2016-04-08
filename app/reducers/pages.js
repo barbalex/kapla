@@ -4,6 +4,7 @@ import {
   PAGES_NEW_PAGE,
   PAGES_SET_TITLE,
   PAGES_INITIATE,
+  PAGES_QUERY_TITLE,
   PAGE_ADD_GESCHAEFT,
   PAGE_REMOVE_GESCHAEFT
 } from '../actions/pages'
@@ -13,6 +14,7 @@ const standardPagesState = {
   activePageIndex: 0,
   remainingGeschaefte: [],
   title: 'Geschäfte',
+  queryTitle: false,
   reportType: 'fristen'
 }
 
@@ -55,7 +57,13 @@ export default function pages(state = standardPagesState, action) {
       return {
         ...standardPagesState,
         reportType: action.reportType,
-        remainingGeschaefte: action.geschaefteGefiltert
+        remainingGeschaefte: action.geschaefteGefiltert,
+        queryTitle: true
+      }
+    case PAGES_QUERY_TITLE:
+      return {
+        ...state,
+        queryTitle: action.queryTitle
       }
     case PAGES_SET_TITLE:
       return {

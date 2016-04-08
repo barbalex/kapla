@@ -1,5 +1,7 @@
 'use strict'
 
+import { push } from 'react-router-redux'
+
 export const PAGES_INITIATE = 'PAGES_INITIATE'
 export function pagesInitiate(reportType) {
   return (dispatch, getState) => {
@@ -10,6 +12,15 @@ export function pagesInitiate(reportType) {
       reportType,
       geschaefteGefiltert
     })
+    dispatch(push('/pages'))
+  }
+}
+
+export const PAGES_QUERY_TITLE = 'PAGES_QUERY_TITLE'
+export function pagesQueryTitle(queryTitle) {
+  return {
+    type: PAGES_QUERY_TITLE,
+    queryTitle
   }
 }
 

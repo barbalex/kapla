@@ -2,12 +2,14 @@
 
 import React, { Component, PropTypes } from 'react'
 import styles from './Pages.css'
+import ModalPagesTitle from '../containers/ModalPagesTitle.js'
 
 class Pages extends Component {
   static propTypes = {
     pages: PropTypes.array.isRequired,
     title: PropTypes.string.isRequired,
-    reportType: PropTypes.string.isRequired,
+    queryTitle: PropTypes.bool,
+    reportType: PropTypes.string,
     activePageIndex: PropTypes.number.isRequired,
     remainingGeschaefte: PropTypes.array.isRequired
   }
@@ -30,9 +32,11 @@ class Pages extends Component {
   }
 
   render() {
-    const { title, activePageIndex } = this.props
+    const { title, queryTitle, activePageIndex } = this.props
+
     return (
       <div className = {styles.body}>
+        {queryTitle && <ModalPagesTitle />}
         <h1>{title}</h1>
         <div className={styles.pagesList}>
           {this.pages()}

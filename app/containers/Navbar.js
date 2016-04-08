@@ -6,8 +6,9 @@ import Navbar from '../components/Navbar'
 import * as UserActions from '../actions/user'
 import * as AppActions from '../actions/app'
 import * as GeschaefteActions from '../actions/geschaefte'
+import * as PagesActions from '../actions/pages'
 
-const actions = Object.assign(UserActions, AppActions, GeschaefteActions)
+const actions = Object.assign(UserActions, AppActions, GeschaefteActions, PagesActions)
 
 function mapStateToProps(state) {
   const { activeId, filterFulltext, geschaefte, geschaefteGefiltert, willDelete } = state.geschaefte

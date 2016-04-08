@@ -34,7 +34,8 @@ class NavbarComponent extends Component {
     holenParlVorstossTypOptions: PropTypes.func.isRequired,
     holenStatusOptions: PropTypes.func.isRequired,
     holenGeschaeftsartOptions: PropTypes.func.isRequired,
-    willDeleteGeschaeft: PropTypes.bool
+    willDeleteGeschaeft: PropTypes.bool,
+    pagesInitiate: PropTypes.func.isRequired
   }
 
   componentWillMount() {
@@ -86,6 +87,11 @@ class NavbarComponent extends Component {
     filtereGeschaefteNachVolltext(filterFulltext)
   }
 
+  onClickReportFristen = () => {
+    const { pagesInitiate } = this.props
+    pagesInitiate()
+  }
+
   render() {
     const {
       holenDb,
@@ -133,9 +139,7 @@ class NavbarComponent extends Component {
               <Glyphicon glyph = "trash" />
             </NavItem>
             <NavDropdown eventKey={6} title="Berichte" id="basic-nav-dropdown">
-              <LinkContainer to={{ pathname: '/pages' }}>
-                <MenuItem eventKey={6.1}>Fristen</MenuItem>
-              </LinkContainer>
+              <MenuItem eventKey={6.1} onClick={this.onClickReportFristen}>Fristen</MenuItem>
             </NavDropdown>
           </Nav>
           <Nav pullRight>

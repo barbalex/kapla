@@ -9,6 +9,7 @@ function mapStateToProps(state) {
   const {
     pages,
     title,
+    queryTitle,
     reportType,
     activePageIndex,
     remainingGeschaefte
@@ -17,6 +18,7 @@ function mapStateToProps(state) {
   return {
     pages,
     title,
+    queryTitle,
     reportType,
     activePageIndex,
     remainingGeschaefte
