@@ -1,6 +1,7 @@
 'use strict'
 
 import React, { Component, PropTypes } from 'react'
+import ReactDOM from 'react-dom'
 import { Input } from 'react-bootstrap'
 import styles from './Pages.css'
 
@@ -16,7 +17,7 @@ class Pages extends Component {
     pagesSetTitle: PropTypes.func.isRequired
   }
 
-  componentDidUpdate() {
+  componentDidUpdate = () => {
     /**
      * - measure height of pageSize-component
      * - if > desired page height:
@@ -66,7 +67,8 @@ class Pages extends Component {
         onChange={this.changeQueryTitle}
         onKeyPress={this.onKeyPressTitle}
         onBlur={this.onBlurTitle}
-        bsSize="small"
+        bsSize="large"
+        autoFocus
       />
     )
   }
@@ -80,7 +82,7 @@ class Pages extends Component {
     )
   }
 
-  render() {
+  render = () => {
     const { queryTitle, activePageIndex } = this.props
 
     return (
