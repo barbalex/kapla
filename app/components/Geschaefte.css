@@ -1,25 +1,37 @@
-.listElement {
+.table {
   position: absolute;
   top: 52px;
-  overflow: auto;
-  height: calc(100vh - 52px);
   width: 100%;
 }
 
-.table {
-  padding: 5px;
+.tableHeader {
+  border-bottom: 2px solid #717171;
+  font-weight: 700;
 }
 
-.bodyRow {
+.tableBody {
+  overflow: auto;
+  height: calc(100vh - 82px);
+}
+
+.tableHeaderRow,
+.tableBodyRow {
   display: flex;
   padding: 5px;
-  border-bottom-width: 1px;
-  border-bottom-color: #717171;
-  border-bottom-style: solid;
   cursor: pointer;
 }
 
-.bodyCell {
+.tableBodyRow {
+  border-bottom: 1px solid #BBBBBB;
+}
+
+.tableHeaderRow {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+.tableHeaderCell,
+.tableBodyCell {
   flex: 1;
   padding: 5px;
 }
@@ -38,8 +50,8 @@
 }
 
 .columnIdGeschaeft {
-  min-width: 70px;
-  max-width: 70px;
+  min-width: 50px;
+  max-width: 50px;
 }
 
 .columnGegenstand {
@@ -47,8 +59,8 @@
 }
 
 .columnStatus {
-  min-width: 160px;
-  max-width: 160px;
+  min-width: 140px;
+  max-width: 140px;
 }
 
 .columnKontaktIntern {

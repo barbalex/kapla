@@ -48,7 +48,7 @@ class Geschaefte extends Component {
   renderItem(index, key) {
     const { geschaefteGefiltert, activeId } = this.props
     const isActive = activeId && activeId === geschaefteGefiltert[index].idGeschaeft
-    const trClassName = isActive ? [styles.bodyRow, styles.active].join(' ') : styles.bodyRow
+    const trClassName = isActive ? [styles.tableBodyRow, styles.active].join(' ') : styles.tableBodyRow
     const geschaeft = geschaefteGefiltert[index]
     const fristMitarbeiter = geschaeft.fristMitarbeiter ? `Frist: ${geschaeft.fristMitarbeiter}` : null
 
@@ -58,12 +58,12 @@ class Geschaefte extends Component {
         className={trClassName}
         onClick={this.onClickGeschaeft.bind(this, geschaeft.idGeschaeft)}
       >
-        <div className={[styles.columnIdGeschaeft, styles.bodyCell].join(' ')}>
+        <div className={[styles.columnIdGeschaeft, styles.tableBodyCell].join(' ')}>
           <div>
             {geschaeft.idGeschaeft}
           </div>
         </div>
-        <div className={[styles.columnGegenstand, styles.bodyCell].join(' ')}>
+        <div className={[styles.columnGegenstand, styles.tableBodyCell].join(' ')}>
           <div className={styles.fieldGegenstand}>
             {geschaeft.gegenstand}
           </div>
@@ -71,7 +71,7 @@ class Geschaefte extends Component {
             {geschaeft.details}
           </div>
         </div>
-        <div className={[styles.columnStatus, styles.bodyCell].join(' ')}>
+        <div className={[styles.columnStatus, styles.tableBodyCell].join(' ')}>
           <div>
             {geschaeft.status}
           </div>
@@ -82,7 +82,7 @@ class Geschaefte extends Component {
             {geschaeft.faelligkeitText}
           </div>
         </div>
-        <div className={[styles.columnKontaktIntern, styles.bodyCell].join(' ')}>
+        <div className={[styles.columnKontaktIntern, styles.tableBodyCell].join(' ')}>
           <div>
             {geschaeft.idKontaktIntern}
           </div>
@@ -109,13 +109,23 @@ class Geschaefte extends Component {
      */
     const { geschaefteGefiltert } = this.props
     return (
-      <div className={styles.body}>
-        <div className={[styles.listElement, 'reactList'].join(' ')}>
-          <ReactList
-            itemRenderer={::this.renderItem}
-            length={geschaefteGefiltert.length}
-            type="variable"
-          />
+    <div className={styles.body}>
+        <div className={styles.table}>
+          <div className={styles.tableHeader}>
+            <div className={styles.tableHeaderRow}>
+              <div className={[styles.columnIdGeschaeft, styles.tableHeaderCell].join(' ')}>ID</div>
+              <div className={[styles.columnGegenstand, styles.tableHeaderCell].join(' ')}>Gegenstand</div>
+              <div className={[styles.columnStatus, styles.tableHeaderCell].join(' ')}>Status</div>
+              <div className={[styles.columnKontaktIntern, styles.tableHeaderCell].join(' ')}>Kontakt</div>
+            </div>
+          </div>
+          <div className={[styles.tableBody, 'reactList'].join(' ')}>
+            <ReactList
+              itemRenderer={::this.renderItem}
+              length={geschaefteGefiltert.length}
+              type="variable"
+            />
+          </div>
         </div>
       </div>
     )
