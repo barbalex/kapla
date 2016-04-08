@@ -10,7 +10,6 @@ export default function (db, username) {
         geschaefte (mutationsdatum, mutationsperson)
       VALUES
         ('${now}', '${username}')`
-    console.log('newGeschaeft, sql', sql)
 
     /*
      * This is weird:
