@@ -1,4 +1,4 @@
-.grid {
+.listElement {
   position: absolute;
   top: 52px;
   overflow: auto;
@@ -6,12 +6,22 @@
   width: 100%;
 }
 
-.row {
-  padding: 10px;
+.table {
+  padding: 5px;
+}
+
+.bodyRow {
+  display: flex;
+  padding: 5px;
   border-bottom-width: 1px;
   border-bottom-color: #717171;
   border-bottom-style: solid;
   cursor: pointer;
+}
+
+.bodyCell {
+  flex: 1;
+  padding: 5px;
 }
 
 .active {
@@ -25,4 +35,23 @@
 
 .fieldGegenstand {
   font-weight: 700;
+}
+
+.columnIdGeschaeft {
+  min-width: 70px;
+  max-width: 70px;
+}
+
+.columnGegenstand {
+  width: 100%;
+}
+
+.columnStatus {
+  min-width: 160px;
+  max-width: 160px;
+}
+
+.columnKontaktIntern {
+  min-width: 100px;
+  max-width: 100px;
 }

@@ -1,7 +1,6 @@
 'use strict'
 
 import React, { Component, PropTypes } from 'react'
-import { Grid, Row, Col } from 'react-bootstrap'
 import ReactList from 'react-list'
 import styles from './Geschaefte.css'
 
@@ -49,30 +48,30 @@ class Geschaefte extends Component {
   renderItem(index, key) {
     const { geschaefteGefiltert, activeId } = this.props
     const isActive = activeId && activeId === geschaefteGefiltert[index].idGeschaeft
-    const className = isActive ? [styles.row, styles.active].join(' ') : styles.row
+    const trClassName = isActive ? [styles.bodyRow, styles.active].join(' ') : styles.bodyRow
     const geschaeft = geschaefteGefiltert[index]
     const fristMitarbeiter = geschaeft.fristMitarbeiter ? `Frist: ${geschaeft.fristMitarbeiter}` : null
 
     return (
-      <Row
+      <div
         key={key}
-        className={className}
+        className={trClassName}
         onClick={this.onClickGeschaeft.bind(this, geschaeft.idGeschaeft)}
       >
-        <Col xs={1} sm={1} md={1} lg={1}>
+        <div className={[styles.columnIdGeschaeft, styles.bodyCell].join(' ')}>
           <div>
             {geschaeft.idGeschaeft}
           </div>
-        </Col>
-        <Col xs={8} sm={8} md={8} lg={8}>
+        </div>
+        <div className={[styles.columnGegenstand, styles.bodyCell].join(' ')}>
           <div className={styles.fieldGegenstand}>
             {geschaeft.gegenstand}
           </div>
           <div>
             {geschaeft.details}
           </div>
-        </Col>
-        <Col xs={2} sm={2} md={2} lg={2}>
+        </div>
+        <div className={[styles.columnStatus, styles.bodyCell].join(' ')}>
           <div>
             {geschaeft.status}
           </div>
@@ -82,32 +81,36 @@ class Geschaefte extends Component {
           <div>
             {geschaeft.faelligkeitText}
           </div>
-        </Col>
-        <Col xs={1} sm={1} md={1} lg={1}>
+        </div>
+        <div className={[styles.columnKontaktIntern, styles.bodyCell].join(' ')}>
           <div>
             {geschaeft.idKontaktIntern}
           </div>
           <div>
             {geschaeft.kontaktInternVornameName}
           </div>
-        </Col>
-      </Row>
+        </div>
+      </div>
     )
   }
 
   renderItems(items, ref) {
     return (
-      <Grid ref={ref}>
+      <div ref={ref} className={styles.table}>
         {items}
-      </Grid>
+      </div>
     )
   }
 
   render() {
+    /**
+     * class 'reactList' is needed to
+     * apply ::-webkit-scrollbar: display: none;
+     */
     const { geschaefteGefiltert } = this.props
     return (
-      <div className = {styles.body}>
-        <div className={[styles.grid, 'reactList'].join(' ')}>
+      <div className={styles.body}>
+        <div className={[styles.listElement, 'reactList'].join(' ')}>
           <ReactList
             itemRenderer={::this.renderItem}
             length={geschaefteGefiltert.length}
