@@ -11,11 +11,12 @@ import styles from './Pages.css'
 class Page extends Component {
   static propTypes = {
     geschaefte: PropTypes.array,
+    remainingGeschaefte: PropTypes.array,
     activePageIndex: PropTypes.number,
+    index: PropTypes.number.isRequired,
     pageAddGeschaeft: PropTypes.func.isRequired,
     pageRemoveGeschaeft: PropTypes.func.isRequired,
-    pagesNewPage: PropTypes.func.isRequired,
-    index: PropTypes.number.isRequired
+    pagesNewPage: PropTypes.func.isRequired
   }
 
   componentDidMount = () => {
