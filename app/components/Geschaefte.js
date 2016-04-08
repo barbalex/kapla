@@ -109,7 +109,7 @@ class Geschaefte extends Component {
      */
     const { geschaefteGefiltert } = this.props
     return (
-    <div className={styles.body}>
+      <div className={styles.body}>
         <div className={styles.table}>
           <div className={styles.tableHeader}>
             <div className={styles.tableHeaderRow}>

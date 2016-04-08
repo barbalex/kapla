@@ -10,7 +10,7 @@ import {
 } from '../actions/pages'
 
 const standardPagesState = {
-  pages: [],
+  pages: [{ geschaefte: [] }],
   activePageIndex: 0,
   remainingGeschaefte: [],
   title: '',

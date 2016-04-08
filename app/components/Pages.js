@@ -3,6 +3,7 @@
 import React, { Component, PropTypes } from 'react'
 import ReactDOM from 'react-dom'
 import { Input } from 'react-bootstrap'
+import Page from '../containers/Page.js'
 import styles from './Pages.css'
 
 class Pages extends Component {
@@ -52,11 +53,6 @@ class Pages extends Component {
     pagesSetTitle(value)
   }
 
-  pages = () => {
-    // TODO
-    const { remainingGeschaefte } = this.props
-  }
-
   inputPagesTitle = () => {
     const { title } = this.props
     return (
@@ -71,6 +67,12 @@ class Pages extends Component {
         autoFocus
       />
     )
+  }
+
+  pages = () => {
+    // TODO
+    const { pages } = this.props
+    return pages.map((page, index) => <Page key={index} index={index} />)
   }
 
   textPagesTitle = () => {

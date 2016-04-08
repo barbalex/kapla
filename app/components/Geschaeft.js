@@ -74,6 +74,7 @@ class Geschaeft extends Component {
                   bsSize = "small"
                   className = {[styles.geschaeft, styles.gegenstand].join(' ')}
                   tabIndex = {1}
+                  autoFocus
                 />
               </Col>
               <Col xs={4} sm={4} md={4} lg={4} />

@@ -1,25 +1,30 @@
 'use strict'
 
 /*
- * This component display a page
+ * This component builds and displays a single page
  */
 
 import React, { Component, PropTypes } from 'react'
-import { Grid, Row, Col } from 'react-bootstrap'
 import ReactList from 'react-list'
 import styles from './Pages.css'
-import Navbar from '../containers/Navbar.js'
 
 class Page extends Component {
   static propTypes = {
-    geschaefte: PropTypes.array.isRequired,
-    activePageIndex: PropTypes.number.isRequired,
+    geschaefte: PropTypes.array,
+    activePageIndex: PropTypes.number,
     pageAddGeschaeft: PropTypes.func.isRequired,
     pageRemoveGeschaeft: PropTypes.func.isRequired,
-    pagesNewPage: PropTypes.func.isRequired
+    pagesNewPage: PropTypes.func.isRequired,
+    index: PropTypes.number.isRequired
   }
 
-  componentDidUpdate() {
+  componentDidMount = () => {
+    const { index } = this.props
+    console.log('components/Page.js, componentDidMount, index', index)
+  }
+
+  componentDidUpdate = () => {
+    const { index } = this.props
     /**
      * - measure height of pageSize-component
      * - if > desired page height:
@@ -29,6 +34,7 @@ class Page extends Component {
      *  - insert next row
      *  - render
      */
+    console.log('components/Page.js, componentDidUpdate, index', index)
   }
 
   renderItem(index, key) {
@@ -37,24 +43,23 @@ class Page extends Component {
     const fristMitarbeiter = geschaeft.fristMitarbeiter ? `Frist: ${geschaeft.fristMitarbeiter}` : null
 
     return (
-      <Row
+      <div
         key={key}
-        className={styles.row}
       >
-        <Col xs={1} sm={1} md={1} lg={1}>
+        <div className={[styles.columnIdGeschaeft, styles.tableBodyCell].join(' ')}>
           <div>
             {geschaeft.idGeschaeft}
           </div>
-        </Col>
-        <Col xs={8} sm={8} md={8} lg={8}>
+        </div>
+        <div className={[styles.columnGegenstand, styles.tableBodyCell].join(' ')}>
           <div className={styles.fieldGegenstand}>
             {geschaeft.gegenstand}
           </div>
           <div>
             {geschaeft.details}
           </div>
-        </Col>
-        <Col xs={2} sm={2} md={2} lg={2}>
+        </div>
+        <div className={[styles.columnStatus, styles.tableBodyCell].join(' ')}>
           <div>
             {geschaeft.status}
           </div>
@@ -64,38 +69,55 @@ class Page extends Component {
           <div>
             {geschaeft.faelligkeitText}
           </div>
-        </Col>
-        <Col xs={1} sm={1} md={1} lg={1}>
+        </div>
+        <div className={[styles.columnKontaktIntern, styles.tableBodyCell].join(' ')}>
           <div>
             {geschaeft.idKontaktIntern}
           </div>
           <div>
             {geschaeft.kontaktInternVornameName}
           </div>
-        </Col>
-      </Row>
+        </div>
+      </div>
     )
   }
 
   renderItems(items, ref) {
     return (
-      <Grid ref={ref}>
+      <div ref={ref} className={styles.table}>
         {items}
-      </Grid>
+      </div>
     )
   }
 
   render() {
-    const { geschaefte } = this.props
+    /**
+     * class 'reactList' is needed to
+     * apply ::-webkit-scrollbar: display: none;
+     */
+    const { geschaefte, index } = this.props
+
+    console.log('components/Page.js, render, this.props', this.props)
+    console.log('components/Page.js, render, index', index)
+
     return (
-      <div className = {styles.body}>
-        <Navbar />
-        <div className={[styles.grid, 'reactList'].join(' ')}>
-          <ReactList
-            itemRenderer={::this.renderItem}
-            length={geschaefte.length}
-            type="variable"
-          />
+      <div className={styles.body}>
+        <div className={styles.table}>
+          <div className={styles.tableHeader}>
+            <div className={styles.tableHeaderRow}>
+              <div className={[styles.columnIdGeschaeft, styles.tableHeaderCell].join(' ')}>ID</div>
+              <div className={[styles.columnGegenstand, styles.tableHeaderCell].join(' ')}>Gegenstand</div>
+              <div className={[styles.columnStatus, styles.tableHeaderCell].join(' ')}>Status</div>
+              <div className={[styles.columnKontaktIntern, styles.tableHeaderCell].join(' ')}>Kontakt</div>
+            </div>
+          </div>
+          <div className={[styles.tableBody, 'reactList'].join(' ')}>
+            <ReactList
+              itemRenderer={::this.renderItem}
+              length={geschaefte.length}
+              type="variable"
+            />
+          </div>
         </div>
       </div>
     )
