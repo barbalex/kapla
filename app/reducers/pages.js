@@ -13,8 +13,8 @@ const standardPagesState = {
   pages: [],
   activePageIndex: 0,
   remainingGeschaefte: [],
-  title: 'Geschäfte',
-  queryTitle: false,
+  title: '',
+  queryTitle: true,
   reportType: 'fristen'
 }
 

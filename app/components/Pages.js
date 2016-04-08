@@ -34,15 +34,15 @@ class Pages extends Component {
   }
 
   onKeyPressTitle = (e) => {
-    const { pagesQueryTitle } = this.props
-    if (e.key === 'Enter') {
+    const { pagesQueryTitle, title } = this.props
+    if (e.key === 'Enter' && title) {
       pagesQueryTitle(false)
     }
   }
 
   onBlurTitle = () => {
-    const { pagesQueryTitle } = this.props
-    pagesQueryTitle(false)
+    const { pagesQueryTitle, title } = this.props
+    if (title) pagesQueryTitle(false)
   }
 
   changeQueryTitle = (e) => {
@@ -61,8 +61,8 @@ class Pages extends Component {
     return (
       <Input
         type="text"
-        label="Titel"
         value={title}
+        placeholder="Titel erfassen"
         onChange={this.changeQueryTitle}
         onKeyPress={this.onKeyPressTitle}
         onBlur={this.onBlurTitle}
