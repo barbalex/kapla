@@ -118,7 +118,7 @@ export function erstelleNeuesGeschaeft() {
       .then((idGeschaeft) => {
         dispatch(eroeffneGeschaeft(idGeschaeft))
         dispatch(aktiviereGeschaeft(idGeschaeft))
-        dispatch(push('/geschaeft'))
+        dispatch(push(`/geschaefte/${idGeschaeft}`))
       })
       .catch((error) => dispatch(nichtEroeffnetesGeschaeft(error)))
   }
