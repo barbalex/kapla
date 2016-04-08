@@ -76,9 +76,13 @@ export function filtereGeschaefteNachFeldern(filterFields) {
 export const GESCHAEFTE_VOLLTEXTFILTER_SETZEN = 'GESCHAEFTE_VOLLTEXTFILTER_SETZEN'
 
 export function setzeGeschaefteVolltextFilter(filterFulltext) {
-  return {
-    type: GESCHAEFTE_VOLLTEXTFILTER_SETZEN,
-    filterFulltext
+  return (dispatch, getState) => {
+    const { routing } = getState()
+    dispatch({
+      type: GESCHAEFTE_VOLLTEXTFILTER_SETZEN,
+      filterFulltext
+    })
+    if (routing.locationBeforeTransitions.pathname !== '/geschaefte') dispatch(push('/geschaefte'))
   }
 }
 
@@ -86,7 +90,7 @@ export const GESCHAEFTE_FILTERN_VOLLTEXT = 'GESCHAEFTE_FILTERN_VOLLTEXT'
 // filter = word
 export function filtereGeschaefteNachVolltext() {
   return (dispatch, getState) => {
-    const { geschaefte } = getState()
+    const { geschaefte, routing } = getState()
     const { filterFulltext, filterFields } = geschaefte
     // create geschaefteGefiltert
     const geschaefteGefiltert = filterGeschaefte(geschaefte.geschaefte, filterFulltext, filterFields)
@@ -94,6 +98,7 @@ export function filtereGeschaefteNachVolltext() {
       type: GESCHAEFTE_FILTERN_VOLLTEXT,
       geschaefteGefiltert
     })
+    if (routing.locationBeforeTransitions.pathname !== '/geschaefte') dispatch(push('/geschaefte'))
   }
 }
 

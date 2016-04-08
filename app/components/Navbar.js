@@ -14,19 +14,45 @@ import {
 import { LinkContainer } from 'react-router-bootstrap'
 import styles from './Navbar.css'
 
-class MyToolbar extends Component {
+class NavbarComponent extends Component {
   static propTypes = {
     holenDb: PropTypes.func.isRequired,
     setzeGeschaefteVolltextFilter: PropTypes.func.isRequired,
     filtereGeschaefteNachVolltext: PropTypes.func.isRequired,
-    holenGeschaefte: PropTypes.func.isRequired,
     username: PropTypes.string,
     erstelleNeuesGeschaeft: PropTypes.func.isRequired,
     willGeschaeftEntfernen: PropTypes.func.isRequired,
     activeId: PropTypes.number,
     filterFulltext: PropTypes.string,
     geschaefte: PropTypes.array,
-    geschaefteGefiltert: PropTypes.array
+    geschaefteGefiltert: PropTypes.array,
+    fetchUsername: PropTypes.func.isRequired,
+    holeDbAusConfig: PropTypes.func.isRequired,
+    holenGeschaefte: PropTypes.func.isRequired,
+    holenRechtsmittelerledigungOptions: PropTypes.func.isRequired,
+    holenParlVorstossTypOptions: PropTypes.func.isRequired,
+    holenStatusOptions: PropTypes.func.isRequired,
+    holenGeschaeftsartOptions: PropTypes.func.isRequired
+  }
+
+  componentWillMount() {
+    const {
+      fetchUsername,
+      holeDbAusConfig,
+      holenGeschaefte,
+      holenRechtsmittelerledigungOptions,
+      holenParlVorstossTypOptions,
+      holenStatusOptions,
+      holenGeschaeftsartOptions
+    } = this.props
+
+    fetchUsername()
+    holeDbAusConfig()
+    holenGeschaefte()
+    holenRechtsmittelerledigungOptions()
+    holenParlVorstossTypOptions()
+    holenStatusOptions()
+    holenGeschaeftsartOptions()
   }
 
   onClickNewGeschaeft = () => {
@@ -42,11 +68,6 @@ class MyToolbar extends Component {
   onChangeFilterFulltext = (e) => {
     const { setzeGeschaefteVolltextFilter } = this.props
     setzeGeschaefteVolltextFilter(e.target.value)
-  }
-
-  onBlurFilterFulltext = (e) => {
-    const { filtereGeschaefteNachVolltext } = this.props
-    filtereGeschaefteNachVolltext(e.target.value)
   }
 
   onKeyPressFilterFulltext = (e) => {
@@ -78,7 +99,7 @@ class MyToolbar extends Component {
     const classNameBadge = dataIsFiltered ? styles.badgeWithActiveFilter : styles.badge
 
     return (
-      <Navbar inverse fluid>
+      <Navbar inverse fluid className={styles.navbar}>
         <Nav>
           <LinkContainer to={{ pathname: '/geschaefte' }}>
             <NavItem eventKey={1} href="#">
@@ -120,9 +141,8 @@ class MyToolbar extends Component {
               value={filterFulltext}
               onChange={this.onChangeFilterFulltext}
               onKeyPress={this.onKeyPressFilterFulltext}
-              onBlur={this.onBlurFilterFulltext}
               className={classNameFilterInput}
-              title="Zum Filtern drücken Sie die Enter-Taste oder verlassen Sie das Feld"
+              title="Zum Filtern drücken Sie die Enter-Taste"
             />
           <Glyphicon
             glyph="remove"
@@ -140,4 +160,4 @@ class MyToolbar extends Component {
   }
 }
 
-export default MyToolbar
+export default NavbarComponent

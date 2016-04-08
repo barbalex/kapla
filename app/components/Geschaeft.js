@@ -3,7 +3,6 @@
 import React, { Component, PropTypes } from 'react'
 import { Input, Grid, Row, Col } from 'react-bootstrap'
 import styles from './Geschaeft.css'
-import Navbar from '../containers/Navbar.js'
 import ModalGeschaeftDelete from '../containers/ModalGeschaeftDelete.js'
 
 class Geschaeft extends Component {
@@ -62,7 +61,6 @@ class Geschaeft extends Component {
       return (
         <div>
           {willDeleteGeschaeft && <ModalGeschaeftDelete />}
-          <Navbar />
           <Grid fluid>
             <Row>
               <Col xs={7} sm={7} md={7} lg={7} className={styles.bereichTitel}>Geschäft</Col>

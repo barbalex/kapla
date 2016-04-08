@@ -3,7 +3,6 @@
 import React, { Component, PropTypes } from 'react'
 import { Grid, Row, Col } from 'react-bootstrap'
 import ReactList from 'react-list'
-import Navbar from '../containers/Navbar.js'
 import ModalGeschaeftDelete from '../containers/ModalGeschaeftDelete.js'
 import styles from './Geschaefte.css'
 
@@ -110,7 +109,6 @@ class Geschaefte extends Component {
     const { geschaefteGefiltert, willDeleteGeschaeft } = this.props
     return (
       <div className = {styles.body}>
-        <Navbar />
         {willDeleteGeschaeft && <ModalGeschaeftDelete />}
         <div className={[styles.grid, 'reactList'].join(' ')}>
           <ReactList

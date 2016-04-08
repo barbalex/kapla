@@ -1,10 +1,7 @@
 'use strict'
 
 import React, { Component, PropTypes } from 'react'
-import { Grid, Row, Col } from 'react-bootstrap'
-import ReactList from 'react-list'
 import styles from './Pages.css'
-import Navbar from '../containers/Navbar.js'
 
 class Pages extends Component {
   static propTypes = {
@@ -36,7 +33,6 @@ class Pages extends Component {
     const { title, activePageIndex } = this.props
     return (
       <div className = {styles.body}>
-        <Navbar />
         <h1>{title}</h1>
         <div className={styles.pagesList}>
           {this.pages()}

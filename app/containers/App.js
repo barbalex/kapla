@@ -1,6 +1,7 @@
 'use strict'
 
 import React, { Component, PropTypes } from 'react'
+import Navbar from '../containers/Navbar.js'
 
 export default class App extends Component {
   static propTypes = {
@@ -10,6 +11,7 @@ export default class App extends Component {
   render() {
     return (
       <div>
+        <Navbar />
         {this.props.children}
         {
           (() => {
