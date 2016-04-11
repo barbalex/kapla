@@ -32,18 +32,17 @@ export function pagesSetTitle(title) {
   }
 }
 
-export const PAGES_NEW_PAGE = 'PAGES_NEW_PAGE'
+export const PAGES_NEW_PAGE_WITH_GESCHAEFT = 'PAGES_NEW_PAGE_WITH_GESCHAEFT'
 export function pagesNewPage() {
   return {
-    type: PAGES_NEW_PAGE
+    type: PAGES_NEW_PAGE_WITH_GESCHAEFT
   }
 }
 
 export const PAGE_ADD_GESCHAEFT = 'PAGE_ADD_GESCHAEFT'
-export function pageAddGeschaeft(pageIndex, geschaeft) {
+export function pageAddGeschaeft(geschaeft) {
   return {
     type: PAGE_ADD_GESCHAEFT,
-    pageIndex,
     geschaeft
   }
 }

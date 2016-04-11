@@ -20,6 +20,7 @@ class Page extends Component {
     pageAddGeschaeft: PropTypes.func.isRequired,
     pageRemoveGeschaeft: PropTypes.func.isRequired,
     pagesNewPage: PropTypes.func.isRequired,
+    pagesNewPageWithGeschaeft: PropTypes.func.isRequired,
     pagesQueryTitle: PropTypes.func.isRequired,
     pagesSetTitle: PropTypes.func.isRequired,
     title: PropTypes.string,
@@ -54,7 +55,8 @@ class Page extends Component {
       remainingGeschaefte,
       pageAddGeschaeft,
       pageRemoveGeschaeft,
-      pagesNewPage
+      pagesMoveGeschaeftToNewPage,
+      pagesNewPageWithGeschaeft
     } = this.props
     const pageHeight = ReactDOM.findDOMNode(this).offsetHeight
 
@@ -64,14 +66,12 @@ class Page extends Component {
     console.log('components/Page.js, nextStepp, desiredPageHeight', desiredPageHeight)
 
     if (pageHeight < desiredPageHeight) {
-      pageAddGeschaeft(pageIndex, remainingGeschaefte[0])
+      pageAddGeschaeft(remainingGeschaefte[0])
     } else if (pageHeight > desiredPageHeight) {
       const lastGeschaeft = geschaefte[geschaefte.length - 1]
-      pageRemoveGeschaeft(pageIndex, lastGeschaeft)
-      pagesNewPage()
+      pagesMoveGeschaeftToNewPage(lastGeschaeft)
     } else if (pageHeight === desiredPageHeight) {
-      pagesNewPage()
-      pageAddGeschaeft(pageIndex, remainingGeschaefte[0])
+      pagesNewPageWithGeschaeft()
     }
   }
 

@@ -1,12 +1,13 @@
 'use strict'
 
 import {
-  PAGES_NEW_PAGE,
+  PAGES_NEW_PAGE_WITH_GESCHAEFT,
   PAGES_SET_TITLE,
   PAGES_INITIATE,
   PAGES_QUERY_TITLE,
   PAGE_ADD_GESCHAEFT,
-  PAGE_REMOVE_GESCHAEFT
+  PAGE_REMOVE_GESCHAEFT,
+  PAGE_MOVE_GESCHAEFT_TO_NEW_PAGE
 } from '../actions/pages'
 
 const standardPagesState = {
@@ -77,7 +78,7 @@ export default function pages(state = standardPagesState, action) {
         remainingGeschaefte: state.remainingGeschaefte.filter(
           (g) => g.idGeschaeft !== action.geschaeft.idGeschaeft
         ),
-        pageIndex: action.pageIndex + 1
+        pageIndex: state.pages.activePageIndex + 1
       }
     case PAGE_REMOVE_GESCHAEFT:
       return {
