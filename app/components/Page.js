@@ -62,13 +62,15 @@ class Page extends Component {
     console.log('components/Page.js, nextStepp, pageHeight', pageHeight)
     console.log('components/Page.js, nextStepp, desiredPageHeight', desiredPageHeight)
 
-    if (pageHeight < desiredPageHeight) {
-      pageAddGeschaeft(remainingGeschaefte[0])
-    } else if (pageHeight > desiredPageHeight) {
-      const lastGeschaeft = geschaefte[geschaefte.length - 1]
-      pagesMoveGeschaeftToNewPage(lastGeschaeft)
-    } else if (pageHeight === desiredPageHeight) {
-      pagesNewPageWithGeschaeft()
+    if (remainingGeschaefte.length > 0) {
+      if (pageHeight < desiredPageHeight) {
+        pageAddGeschaeft()
+      } else if (pageHeight > desiredPageHeight) {
+        const lastGeschaeft = geschaefte[geschaefte.length - 1]
+        pagesMoveGeschaeftToNewPage(lastGeschaeft)
+      } else if (pageHeight === desiredPageHeight) {
+        pagesNewPageWithGeschaeft()
+      }
     }
   }
 

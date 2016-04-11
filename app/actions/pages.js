@@ -33,17 +33,24 @@ export function pagesSetTitle(title) {
 }
 
 export const PAGES_NEW_PAGE_WITH_GESCHAEFT = 'PAGES_NEW_PAGE_WITH_GESCHAEFT'
+export function pagesNewPageWithGeschaeft() {
+  return (dispatch) => {
+    dispatch(pagesNewPage())
+    dispatch(pageAddGeschaeft())
+  }
+}
+
+export const PAGES_NEW_PAGE = 'PAGES_NEW_PAGE'
 export function pagesNewPage() {
   return {
-    type: PAGES_NEW_PAGE_WITH_GESCHAEFT
+    type: PAGES_NEW_PAGE
   }
 }
 
 export const PAGE_ADD_GESCHAEFT = 'PAGE_ADD_GESCHAEFT'
-export function pageAddGeschaeft(geschaeft) {
+export function pageAddGeschaeft() {
   return {
-    type: PAGE_ADD_GESCHAEFT,
-    geschaeft
+    type: PAGE_ADD_GESCHAEFT
   }
 }
 
@@ -53,5 +60,15 @@ export function pageRemoveGeschaeft(pageIndex, geschaeft) {
     type: PAGE_REMOVE_GESCHAEFT,
     pageIndex,
     geschaeft
+  }
+}
+
+export const PAGE_MOVE_GESCHAEFT_TO_NEW_PAGE = 'PAGE_MOVE_GESCHAEFT_TO_NEW_PAGE'
+export function pagesMoveGeschaeftToNewPage(geschaeft) {
+  return (dispatch, getState) => {
+    const { pages } = getState()
+    dispatch(pageRemoveGeschaeft(pages.activePageIndex, geschaeft))
+    dispatch(pagesNewPage())
+    dispatch(pageAddGeschaeft())
   }
 }
