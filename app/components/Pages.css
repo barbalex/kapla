@@ -12,13 +12,13 @@
   width: 29.7cm;
   /* Reflect the paper height in the screen rendering (must match size from @page rule) */
   min-height: 21cm;
+  max-height: 21cm;
 
   /* Reflect the actual page margin/padding on paper in the screen rendering (must match margin from @page rule) */
   padding-left: 2cm;
   padding-top: 2cm;
   padding-right: 2cm;
   padding-bottom: 2cm;
-  overflow-y: auto;
 }
 
 .h1 {

@@ -54,23 +54,24 @@ class Page extends Component {
       pageIndex,
       pagesNewPageWithGeschaeft
     } = this.props
-    const pageHeight = ReactDOM.findDOMNode(this).offsetHeight
-    const scrollHeight = ReactDOM.findDOMNode(this).parentNode.offsetHeight
+    const parentHeight = ReactDOM.findDOMNode(this).parentNode.offsetHeight
+    const pageHeight = ReactDOM.findDOMNode(this).scrollHeight
+
 
     console.log('components/Page.js, nextStepp, remainingGeschaefte.length', remainingGeschaefte.length)
     console.log('components/Page.js, nextStepp, geschaefte.length', geschaefte.length)
+    console.log('components/Page.js, nextStepp, parentHeight', parentHeight)
     console.log('components/Page.js, nextStepp, pageHeight', pageHeight)
-    console.log('components/Page.js, nextStepp, scrollHeight', scrollHeight)
 
     if (remainingGeschaefte.length > 0) {
-      if (pageHeight <= scrollHeight) {
+      if (parentHeight > pageHeight) {
         pageAddGeschaeft()
-      } else {
+      } else if (parentHeight < pageHeight) {
         const lastGeschaeft = geschaefte[geschaefte.length - 1]
         pagesMoveGeschaeftToNewPage(lastGeschaeft)
-      }/* else if (pageHeight === scrollHeight) {
+      } else if (parentHeight === pageHeight) {
         pagesNewPageWithGeschaeft()
-      }*/
+      }
     }
   }
 
