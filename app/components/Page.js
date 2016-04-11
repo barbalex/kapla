@@ -50,6 +50,12 @@ class Page extends Component {
      */
     const { pageIndex, geschaefte, remainingGeschaefte, pageAddGeschaeft, pageRemoveGeschaeft, pagesNewPage } = this.props
     const pageHeight = ReactDOM.findDOMNode(this).offsetHeight
+
+    console.log('components/Page.js, nextStepp, remainingGeschaefte.length', remainingGeschaefte.length)
+    console.log('components/Page.js, nextStepp, geschaefte.length', geschaefte.length)
+    console.log('components/Page.js, nextStepp, pageHeight', pageHeight)
+    console.log('components/Page.js, nextStepp, desiredPageHeight', desiredPageHeight)
+
     if (pageHeight < desiredPageHeight) {
       pageAddGeschaeft(pageIndex, remainingGeschaefte[0])
     } else if (pageHeight > desiredPageHeight) {

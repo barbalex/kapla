@@ -18,20 +18,18 @@ const standardPagesState = {
   reportType: 'fristen'
 }
 
-const standardPageState = {
-  geschaefte: []
-}
-
-function page(state, geschaeft, action, pageIndex) {
+function page(state, action, pageIndex) {
+  console.log('reducers/pages, page, state', state)
+  console.log('reducers/pages, page, action', action)
+  console.log('reducers/pages, page, pageIndex', pageIndex)
   switch (action.type) {
     case PAGE_ADD_GESCHAEFT:
       if (pageIndex === action.pageIndex) {
+        const geschaefte = [...state.geschaefte, action.geschaeft]
+        console.log('reducers/pages, page/PAGE_ADD_GESCHAEFT, new geschaefte', geschaefte)
         return {
           ...state,
-          geschaefte: [...state.pages.pages[pageIndex].geschaefte, action.geschaeft],
-          remainingGeschaefte: state.pages.remainingGeschaefte.filter(
-            (g) => g.idGeschaeft !== action.geschaeft.idGeschaeft
-          )
+          geschaefte
         }
       }
       return state
@@ -39,10 +37,9 @@ function page(state, geschaeft, action, pageIndex) {
       if (pageIndex === action.pageIndex) {
         return {
           ...state,
-          geschaefte: state.pages.pages[pageIndex].geschaefte.filter(
+          geschaefte: state.geschaefte.filter(
             (g) => g.idGeschaeft !== action.geschaeft.idGeschaeft
-          ),
-          remainingGeschaefte: [action.geschaeft, ...state.geschaefte]
+          )
         }
       }
       return state
@@ -52,6 +49,8 @@ function page(state, geschaeft, action, pageIndex) {
 }
 
 export default function pages(state = standardPagesState, action) {
+  console.log('reducers/pages, pages, state', state)
+  console.log('reducers/pages, pages, action', action)
   switch (action.type) {
     case PAGES_INITIATE:
       return {
@@ -75,10 +74,18 @@ export default function pages(state = standardPagesState, action) {
         activePageIndex: state.pages.activePageIndex + 1
       }
     case PAGE_ADD_GESCHAEFT:
+      return {
+        ...state,
+        pages: state.pages.map((p, pageIndex) => page(p, action, pageIndex)),
+        remainingGeschaefte: state.remainingGeschaefte.filter(
+          (g) => g.idGeschaeft !== action.geschaeft.idGeschaeft
+        )
+      }
     case PAGE_REMOVE_GESCHAEFT:
       return {
         ...state,
-        geschaefte: state.pages.map((g, pageIndex) => page(state, g, action, pageIndex))
+        pages: state.pages.map((p, pageIndex) => page(p, action, pageIndex)),
+        remainingGeschaefte: [action.geschaeft, ...state.geschaefte]
       }
     default:
       return state
