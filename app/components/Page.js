@@ -18,8 +18,7 @@ class Page extends Component {
     activePageIndex: PropTypes.number,
     pageIndex: PropTypes.number.isRequired,
     pageAddGeschaeft: PropTypes.func.isRequired,
-    pageRemoveGeschaeft: PropTypes.func.isRequired,
-    pagesNewPage: PropTypes.func.isRequired,
+    pagesMoveGeschaeftToNewPage: PropTypes.func.isRequired,
     pagesNewPageWithGeschaeft: PropTypes.func.isRequired,
     pagesQueryTitle: PropTypes.func.isRequired,
     pagesSetTitle: PropTypes.func.isRequired,
@@ -50,11 +49,9 @@ class Page extends Component {
      *  - render
      */
     const {
-      pageIndex,
       geschaefte,
       remainingGeschaefte,
       pageAddGeschaeft,
-      pageRemoveGeschaeft,
       pagesMoveGeschaeftToNewPage,
       pagesNewPageWithGeschaeft
     } = this.props

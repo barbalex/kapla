@@ -19,14 +19,14 @@ const standardPagesState = {
   reportType: 'fristen'
 }
 
-function page(state, action, pageIndex) {
+function page(state, action, remainingGeschaefte, pageIndex) {
   // console.log('reducers/pages, page, state', state)
   // console.log('reducers/pages, page, action', action)
   // console.log('reducers/pages, page, pageIndex', pageIndex)
   switch (action.type) {
     case PAGE_ADD_GESCHAEFT:
       if (pageIndex === action.pageIndex) {
-        const geschaefte = [...state.geschaefte, action.geschaeft]
+        const geschaefte = [...state.geschaefte, remainingGeschaefte[0]]
         return { ...state, geschaefte }
       }
       return state
@@ -65,16 +65,16 @@ export default function pages(state = standardPagesState, action) {
         ...state,
         title: action.title
       }
-    case PAGES_NEW_PAGE:
+    case PAGES_NEW_PAGE_WITH_GESCHAEFT:
       return {
         ...state,
         activePageIndex: state.pages.activePageIndex + 1,
-        pages: [...state.pages, { geschaefte: [] }]
+        pages: [...state.pages, { geschaefte: [state.remainingGeschaefte[0]] }]
       }
     case PAGE_ADD_GESCHAEFT:
       return {
         ...state,
-        pages: state.pages.map((p, pageIndex) => page(p, action, pageIndex)),
+        pages: state.pages.map((p, pageIndex) => page(p, action, state.remainingGeschaefte, pageIndex)),
         remainingGeschaefte: state.remainingGeschaefte.filter(
           (g) => g.idGeschaeft !== action.geschaeft.idGeschaeft
         ),
@@ -83,7 +83,7 @@ export default function pages(state = standardPagesState, action) {
     case PAGE_REMOVE_GESCHAEFT:
       return {
         ...state,
-        pages: state.pages.map((p, pageIndex) => page(p, action, pageIndex)),
+        pages: state.pages.map((p, pageIndex) => page(p, action, state.remainingGeschaefte, pageIndex)),
         remainingGeschaefte: [action.geschaeft, ...state.remainingGeschaefte]
       }
     default:
