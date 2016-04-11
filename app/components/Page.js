@@ -71,11 +71,6 @@ class Page extends Component {
     const parentHeight = ReactDOM.findDOMNode(this).parentNode.offsetHeight
     const pageHeight = ReactDOM.findDOMNode(this).scrollHeight
 
-    console.log('components/Page.js, nextStepp, remainingGeschaefte.length', remainingGeschaefte.length)
-    console.log('components/Page.js, nextStepp, geschaefte.length', geschaefte.length)
-    console.log('components/Page.js, nextStepp, parentHeight', parentHeight)
-    console.log('components/Page.js, nextStepp, pageHeight', pageHeight)
-
     if (!full && remainingGeschaefte.length > 0) {
       if (parentHeight > pageHeight) {
         pageAddGeschaeft()

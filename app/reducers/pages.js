@@ -27,9 +27,6 @@ function page(state, action, pagesState, pageIndex) {
   switch (action.type) {
     case PAGE_ADD_GESCHAEFT:
       if (pageIndex === pagesState.activePageIndex) {
-        console.log('reducers/pages, page, state', state)
-        console.log('reducers/pages, page, action', action)
-        console.log('reducers/pages, page, pageIndex', pageIndex)
         const geschaefte = [...state.geschaefte, pagesState.remainingGeschaefte[0]]
         return { ...state, geschaefte }
       }
