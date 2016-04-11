@@ -48,7 +48,14 @@ class Page extends Component {
      *  - insert next row
      *  - render
      */
-    const { pageIndex, geschaefte, remainingGeschaefte, pageAddGeschaeft, pageRemoveGeschaeft, pagesNewPage } = this.props
+    const {
+      pageIndex,
+      geschaefte,
+      remainingGeschaefte,
+      pageAddGeschaeft,
+      pageRemoveGeschaeft,
+      pagesNewPage
+    } = this.props
     const pageHeight = ReactDOM.findDOMNode(this).offsetHeight
 
     console.log('components/Page.js, nextStepp, remainingGeschaefte.length', remainingGeschaefte.length)
@@ -64,7 +71,7 @@ class Page extends Component {
       pagesNewPage()
     } else if (pageHeight === desiredPageHeight) {
       pagesNewPage()
-      pageAddGeschaeft(pageIndex + 1, remainingGeschaefte[0])
+      pageAddGeschaeft(pageIndex, remainingGeschaefte[0])
     }
   }
 

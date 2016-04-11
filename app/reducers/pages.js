@@ -76,7 +76,8 @@ export default function pages(state = standardPagesState, action) {
         pages: state.pages.map((p, pageIndex) => page(p, action, pageIndex)),
         remainingGeschaefte: state.remainingGeschaefte.filter(
           (g) => g.idGeschaeft !== action.geschaeft.idGeschaeft
-        )
+        ),
+        pageIndex: action.pageIndex + 1
       }
     case PAGE_REMOVE_GESCHAEFT:
       return {
