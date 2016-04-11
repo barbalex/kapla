@@ -21,8 +21,15 @@ app.on('window-all-closed', () => {
   if (process.platform !== 'darwin') app.quit()
 })
 
+const browserWindowOptions = {
+  width: 1800,
+  height: 1024,
+  icon: './app/etc/zh3.png',
+  experimentalFeatures: true
+}
+
 app.on('ready', () => {
-  mainWindow = new BrowserWindow({ width: 1800, height: 1024, icon: './app/etc/zh3.png' })
+  mainWindow = new BrowserWindow(browserWindowOptions)
 
   mainWindow.loadURL(`file://${__dirname}/app/app.html`)
 
