@@ -19,28 +19,24 @@ const standardPagesState = {
 }
 
 function page(state, action, pageIndex) {
-  console.log('reducers/pages, page, state', state)
-  console.log('reducers/pages, page, action', action)
-  console.log('reducers/pages, page, pageIndex', pageIndex)
+  // console.log('reducers/pages, page, state', state)
+  // console.log('reducers/pages, page, action', action)
+  // console.log('reducers/pages, page, pageIndex', pageIndex)
   switch (action.type) {
     case PAGE_ADD_GESCHAEFT:
       if (pageIndex === action.pageIndex) {
         const geschaefte = [...state.geschaefte, action.geschaeft]
-        console.log('reducers/pages, page/PAGE_ADD_GESCHAEFT, new geschaefte', geschaefte)
-        return {
-          ...state,
-          geschaefte
-        }
+        return { ...state, geschaefte }
       }
       return state
     case PAGE_REMOVE_GESCHAEFT:
       if (pageIndex === action.pageIndex) {
-        return {
-          ...state,
-          geschaefte: state.geschaefte.filter(
-            (g) => g.idGeschaeft !== action.geschaeft.idGeschaeft
-          )
-        }
+        const geschaefte = state.geschaefte.filter(
+          (g) => g.idGeschaeft !== action.geschaeft.idGeschaeft
+        )
+        // console.log('reducers/pages/PAGE_REMOVE_GESCHAEFT, state.geschaefte.length', state.geschaefte.length)
+        // console.log('reducers/pages/PAGE_REMOVE_GESCHAEFT, new geschaefte.length', geschaefte.length)
+        return { ...state, geschaefte }
       }
       return state
     default:
@@ -49,8 +45,8 @@ function page(state, action, pageIndex) {
 }
 
 export default function pages(state = standardPagesState, action) {
-  console.log('reducers/pages, pages, state', state)
-  console.log('reducers/pages, pages, action', action)
+  // console.log('reducers/pages, pages, state', state)
+  // console.log('reducers/pages, pages, action', action)
   switch (action.type) {
     case PAGES_INITIATE:
       return {
@@ -71,7 +67,8 @@ export default function pages(state = standardPagesState, action) {
     case PAGES_NEW_PAGE:
       return {
         ...state,
-        activePageIndex: state.pages.activePageIndex + 1
+        activePageIndex: state.pages.activePageIndex + 1,
+        pages: [...state.pages, { geschaefte: [] }]
       }
     case PAGE_ADD_GESCHAEFT:
       return {
@@ -85,7 +82,7 @@ export default function pages(state = standardPagesState, action) {
       return {
         ...state,
         pages: state.pages.map((p, pageIndex) => page(p, action, pageIndex)),
-        remainingGeschaefte: [action.geschaeft, ...state.geschaefte]
+        remainingGeschaefte: [action.geschaeft, ...state.remainingGeschaefte]
       }
     default:
       return state

@@ -62,6 +62,9 @@ class Page extends Component {
       const lastGeschaeft = geschaefte[geschaefte.length - 1]
       pageRemoveGeschaeft(pageIndex, lastGeschaeft)
       pagesNewPage()
+    } else if (pageHeight === desiredPageHeight) {
+      pagesNewPage()
+      pageAddGeschaeft(pageIndex + 1, remainingGeschaefte[0])
     }
   }
 
