@@ -14,10 +14,9 @@ function mapStateToProps(state, props) {
   const { remainingGeschaefte, activePageIndex, title, queryTitle } = pages
   const myGeschaefte = pages.pages[pageIndex].geschaefte
 
-  console.log('containers/Pages, pages state', pages)
-
   return {
     geschaefte: myGeschaefte,
+    full: pages.pages[pageIndex].full,
     remainingGeschaefte,
     activePageIndex,
     pageIndex,

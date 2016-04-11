@@ -11,7 +11,6 @@ class Pages extends Component {
   }
 
   pages = () => {
-    // TODO
     const { pages } = this.props
     return pages.map((page, pageIndex) => (
       <div key={pageIndex} className={styles.pageContainer}>

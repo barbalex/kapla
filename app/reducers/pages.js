@@ -9,8 +9,13 @@ import {
   PAGE_REMOVE_GESCHAEFT
 } from '../actions/pages'
 
+const standardPageState = {
+  geschaefte: [],
+  full: false
+}
+
 const standardPagesState = {
-  pages: [{ geschaefte: [] }],
+  pages: [Object.assign(standardPageState)],
   activePageIndex: 0,
   remainingGeschaefte: [],
   title: '',
@@ -34,7 +39,8 @@ function page(state, action, pagesState, pageIndex) {
         const geschaefte = state.geschaefte.filter(
           (g) => g.idGeschaeft !== action.geschaeft.idGeschaeft
         )
-        return { ...state, geschaefte }
+        const full = true
+        return { ...state, geschaefte, full }
       }
       return state
     default:
@@ -66,7 +72,7 @@ export default function pages(state = standardPagesState, action) {
       return {
         ...state,
         activePageIndex: state.activePageIndex + 1,
-        pages: [...state.pages, { geschaefte: [] }]
+        pages: [...state.pages, Object.assign(standardPageState)]
       }
     case PAGE_ADD_GESCHAEFT:
       return {

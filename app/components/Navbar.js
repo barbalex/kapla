@@ -12,6 +12,7 @@ import {
   Badge
 } from 'react-bootstrap'
 import { LinkContainer } from 'react-router-bootstrap'
+import { throttle } from 'lodash'
 import ModalGeschaeftDelete from '../containers/ModalGeschaeftDelete.js'
 import styles from './Navbar.css'
 
@@ -51,11 +52,11 @@ class NavbarComponent extends Component {
 
     fetchUsername()
     holeDbAusConfig()
-    holenGeschaefte()
-    holenRechtsmittelerledigungOptions()
-    holenParlVorstossTypOptions()
-    holenStatusOptions()
-    holenGeschaeftsartOptions()
+    throttle(holenGeschaefte, 200)
+    throttle(holenRechtsmittelerledigungOptions, 1000)
+    throttle(holenParlVorstossTypOptions, 1000)
+    throttle(holenStatusOptions, 1000)
+    throttle(holenGeschaeftsartOptions, 1000)
   }
 
   onClickNewGeschaeft = () => {

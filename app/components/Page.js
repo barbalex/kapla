@@ -12,6 +12,7 @@ import styles from './Page.css'
 class Page extends Component {
   static propTypes = {
     geschaefte: PropTypes.array,
+    full: PropTypes.bool,
     remainingGeschaefte: PropTypes.array,
     activePageIndex: PropTypes.number,
     pageIndex: PropTypes.number.isRequired,
@@ -25,54 +26,11 @@ class Page extends Component {
   }
 
   componentDidMount = () => {
-    const { pageIndex } = this.props
-    console.log('components/Page.js, componentDidMount, pageIndex', pageIndex)
     this.nextStepp()
   }
 
   componentDidUpdate = () => {
-    const { pageIndex } = this.props
-    console.log('components/Page.js, componentDidUpdate, pageIndex', pageIndex)
     this.nextStepp()
-  }
-
-  nextStepp = () => {
-    /**
-     * - measure height of pageSize-component
-     * - if > desired page height:
-     *  - move last row to next page
-     *  - render
-     * - else:
-     *  - insert next row
-     *  - render
-     */
-    const {
-      geschaefte,
-      remainingGeschaefte,
-      pageAddGeschaeft,
-      pagesMoveGeschaeftToNewPage,
-      pageIndex,
-      pagesNewPageWithGeschaeft
-    } = this.props
-    const parentHeight = ReactDOM.findDOMNode(this).parentNode.offsetHeight
-    const pageHeight = ReactDOM.findDOMNode(this).scrollHeight
-
-
-    console.log('components/Page.js, nextStepp, remainingGeschaefte.length', remainingGeschaefte.length)
-    console.log('components/Page.js, nextStepp, geschaefte.length', geschaefte.length)
-    console.log('components/Page.js, nextStepp, parentHeight', parentHeight)
-    console.log('components/Page.js, nextStepp, pageHeight', pageHeight)
-
-    if (remainingGeschaefte.length > 0) {
-      if (parentHeight > pageHeight) {
-        pageAddGeschaeft()
-      } else if (parentHeight < pageHeight) {
-        const lastGeschaeft = geschaefte[geschaefte.length - 1]
-        pagesMoveGeschaeftToNewPage(lastGeschaeft)
-      } else if (parentHeight === pageHeight) {
-        pagesNewPageWithGeschaeft()
-      }
-    }
   }
 
   onClickH1 = () => {
@@ -90,6 +48,44 @@ class Page extends Component {
   onBlurTitle = () => {
     const { pagesQueryTitle, title } = this.props
     if (title) pagesQueryTitle(false)
+  }
+
+  nextStepp = () => {
+    /**
+     * - measure height of pageSize-component
+     * - if > desired page height:
+     *  - move last row to next page
+     *  - render
+     * - else:
+     *  - insert next row
+     *  - render
+     */
+    const {
+      geschaefte,
+      full,
+      remainingGeschaefte,
+      pageAddGeschaeft,
+      pagesMoveGeschaeftToNewPage,
+      pagesNewPageWithGeschaeft
+    } = this.props
+    const parentHeight = ReactDOM.findDOMNode(this).parentNode.offsetHeight
+    const pageHeight = ReactDOM.findDOMNode(this).scrollHeight
+
+    console.log('components/Page.js, nextStepp, remainingGeschaefte.length', remainingGeschaefte.length)
+    console.log('components/Page.js, nextStepp, geschaefte.length', geschaefte.length)
+    console.log('components/Page.js, nextStepp, parentHeight', parentHeight)
+    console.log('components/Page.js, nextStepp, pageHeight', pageHeight)
+
+    if (!full && remainingGeschaefte.length > 0) {
+      if (parentHeight > pageHeight) {
+        pageAddGeschaeft()
+      } else if (parentHeight < pageHeight) {
+        const lastGeschaeft = geschaefte[geschaefte.length - 1]
+        pagesMoveGeschaeftToNewPage(lastGeschaeft)
+      } else if (full || parentHeight === pageHeight) {
+        pagesNewPageWithGeschaeft()
+      }
+    }
   }
 
   changeQueryTitle = (e) => {

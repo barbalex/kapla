@@ -30,7 +30,7 @@ const standardState = {
   geschaefte: [],
   geschaefteGefiltert: [],
   filterFields: {},
-  filterFulltext: null,
+  filterFulltext: '',
   // dropdown lists
   rechtsmittelerledigungOptions: [],
   parlVorstossTypOptions: [],

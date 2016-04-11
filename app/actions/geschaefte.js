@@ -240,6 +240,7 @@ export const RECHTSMITTELERLEDIGUNG_OPTIONS_HOLEN = 'RECHTSMITTELERLEDIGUNG_OPTI
 export function holenRechtsmittelerledigungOptions() {
   return (dispatch, getState) => {
     const { app, geschaefte } = getState()
+    // only get once
     if (geschaefte.rechtsmittelerledigungOptions.length === 0) {
       getDropdownOptions(app.db, 'rechtsmittelerledigung')
         .then((rechtsmittelerledigungOptions) => dispatch({
@@ -263,6 +264,7 @@ export const PARLVORSTOSSTYP_OPTIONS_HOLEN = 'PARLVORSTOSSTYP_OPTIONS_HOLEN'
 export function holenParlVorstossTypOptions() {
   return (dispatch, getState) => {
     const { app, geschaefte } = getState()
+    // only get once
     if (geschaefte.parlVorstossTypOptions.length === 0) {
       getDropdownOptions(app.db, 'parlVorstossTyp')
         .then((parlVorstossTypOptions) => dispatch({
@@ -286,6 +288,7 @@ export const STATUS_OPTIONS_HOLEN = 'STATUS_OPTIONS_HOLEN'
 export function holenStatusOptions() {
   return (dispatch, getState) => {
     const { app, geschaefte } = getState()
+    // only get once
     if (geschaefte.statusOptions.length === 0) {
       getDropdownOptions(app.db, 'status')
         .then((statusOptions) => dispatch({
@@ -309,6 +312,7 @@ export const GESCHAEFTSART_OPTIONS_HOLEN = 'GESCHAEFTSART_OPTIONS_HOLEN'
 export function holenGeschaeftsartOptions() {
   return (dispatch, getState) => {
     const { app, geschaefte } = getState()
+    // only get once
     if (geschaefte.geschaeftsartOptions.length === 0) {
       getDropdownOptions(app.db, 'geschaeftsart')
         .then((geschaeftsartOptions) => dispatch({
