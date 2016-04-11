@@ -9,8 +9,6 @@ import ReactDOM from 'react-dom'
 import { Input } from 'react-bootstrap'
 import styles from './Page.css'
 
-const desiredPageHeight = 800
-
 class Page extends Component {
   static propTypes = {
     geschaefte: PropTypes.array,
@@ -53,24 +51,26 @@ class Page extends Component {
       remainingGeschaefte,
       pageAddGeschaeft,
       pagesMoveGeschaeftToNewPage,
+      pageIndex,
       pagesNewPageWithGeschaeft
     } = this.props
     const pageHeight = ReactDOM.findDOMNode(this).offsetHeight
+    const scrollHeight = ReactDOM.findDOMNode(this).parentNode.offsetHeight
 
     console.log('components/Page.js, nextStepp, remainingGeschaefte.length', remainingGeschaefte.length)
     console.log('components/Page.js, nextStepp, geschaefte.length', geschaefte.length)
     console.log('components/Page.js, nextStepp, pageHeight', pageHeight)
-    console.log('components/Page.js, nextStepp, desiredPageHeight', desiredPageHeight)
+    console.log('components/Page.js, nextStepp, scrollHeight', scrollHeight)
 
     if (remainingGeschaefte.length > 0) {
-      if (pageHeight < desiredPageHeight) {
+      if (pageHeight <= scrollHeight) {
         pageAddGeschaeft()
-      } else if (pageHeight > desiredPageHeight) {
+      } else {
         const lastGeschaeft = geschaefte[geschaefte.length - 1]
         pagesMoveGeschaeftToNewPage(lastGeschaeft)
-      } else if (pageHeight === desiredPageHeight) {
+      }/* else if (pageHeight === scrollHeight) {
         pagesNewPageWithGeschaeft()
-      }
+      }*/
     }
   }
 

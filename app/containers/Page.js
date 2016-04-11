@@ -12,8 +12,9 @@ function mapStateToProps(state, props) {
   const { pages } = state
   const { pageIndex } = props
   const { remainingGeschaefte, activePageIndex, title, queryTitle } = pages
-  const myPages = pages.pages
-  const myGeschaefte = myPages[pageIndex].geschaefte
+  const myGeschaefte = pages.pages[pageIndex].geschaefte
+
+  console.log('containers/Pages, pages state', pages)
 
   return {
     geschaefte: myGeschaefte,

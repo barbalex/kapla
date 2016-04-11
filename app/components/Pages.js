@@ -4,6 +4,7 @@ import React, { Component, PropTypes } from 'react'
 import Page from '../containers/Page.js'
 import styles from './Pages.css'
 
+
 class Pages extends Component {
   static propTypes = {
     pages: PropTypes.array.isRequired
@@ -12,18 +13,20 @@ class Pages extends Component {
   pages = () => {
     // TODO
     const { pages } = this.props
-    return pages.map((page, pageIndex) => <Page key={pageIndex} pageIndex={pageIndex} />)
+    return pages.map((page, pageIndex) => (
+      <div key={pageIndex} className={styles.pageContainer} ref={`Container${pageIndex}`}>
+        <Page pageIndex={pageIndex} />
+      </div>
+    ))
   }
 
-  render = () => {
-    return (
-      <div className = {styles.body}>
-        <div className={styles.pagesList}>
-          {this.pages()}
-        </div>
+  render = () => (
+    <div className = {styles.body}>
+      <div className={styles.pagesList}>
+        {this.pages()}
       </div>
-    )
-  }
+    </div>
+  )
 }
 
 export default Pages

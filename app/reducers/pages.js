@@ -6,8 +6,7 @@ import {
   PAGES_INITIATE,
   PAGES_QUERY_TITLE,
   PAGE_ADD_GESCHAEFT,
-  PAGE_REMOVE_GESCHAEFT,
-  PAGE_MOVE_GESCHAEFT_TO_NEW_PAGE
+  PAGE_REMOVE_GESCHAEFT
 } from '../actions/pages'
 
 const standardPagesState = {
@@ -78,7 +77,6 @@ export default function pages(state = standardPagesState, action) {
         )
       }
     case PAGE_REMOVE_GESCHAEFT:
-    case PAGE_MOVE_GESCHAEFT_TO_NEW_PAGE:
       return {
         ...state,
         pages: state.pages.map((p, pageIndex) => page(p, action, state, pageIndex)),
