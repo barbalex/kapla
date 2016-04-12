@@ -101,6 +101,7 @@ class Page extends Component {
         onBlur={this.onBlurTitle}
         bsSize="large"
         autoFocus
+        className={styles.titleInput}
       />
     )
   }

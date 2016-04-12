@@ -10,6 +10,8 @@
   background: #fff;
   /* Show a drop shadow beneath each page */
   box-shadow: 0 4px 5px rgba(75, 75, 75, 0.2);
+
+  page-break-after: always;
 }
 
 /* Styles that are shared by all elements */
@@ -47,6 +49,11 @@
     /* Force page breaks after each .page element of the document */
     page-break-after: always;
   }
+}
+
+.titleInput {
+  margin-top: 16px;
+  margin-bottom: 7px;
 }
 
 .tableHeader {
