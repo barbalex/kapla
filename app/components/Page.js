@@ -7,10 +7,12 @@
 import React, { Component, PropTypes } from 'react'
 import ReactDOM from 'react-dom'
 import { Input } from 'react-bootstrap'
+import moment from 'moment'
 import styles from './Page.css'
 
 class Page extends Component {
   static propTypes = {
+    pages: PropTypes.array,
     geschaefte: PropTypes.array,
     full: PropTypes.bool,
     remainingGeschaefte: PropTypes.array,
@@ -18,7 +20,6 @@ class Page extends Component {
     pageIndex: PropTypes.number.isRequired,
     pageAddGeschaeft: PropTypes.func.isRequired,
     pagesMoveGeschaeftToNewPage: PropTypes.func.isRequired,
-    pagesNewPageWithGeschaeft: PropTypes.func.isRequired,
     pagesQueryTitle: PropTypes.func.isRequired,
     pagesSetTitle: PropTypes.func.isRequired,
     title: PropTypes.string,
@@ -65,20 +66,17 @@ class Page extends Component {
       full,
       remainingGeschaefte,
       pageAddGeschaeft,
-      pagesMoveGeschaeftToNewPage,
-      pagesNewPageWithGeschaeft
+      pagesMoveGeschaeftToNewPage
     } = this.props
     const parentHeight = ReactDOM.findDOMNode(this).parentNode.offsetHeight
-    const pageHeight = ReactDOM.findDOMNode(this).scrollHeight
+    const pageHeight = ReactDOM.findDOMNode(this).parentNode.scrollHeight
 
     if (!full && remainingGeschaefte.length > 0) {
-      if (parentHeight > pageHeight) {
-        pageAddGeschaeft()
-      } else if (parentHeight < pageHeight) {
+      if (parentHeight < pageHeight) {
         const lastGeschaeft = geschaefte[geschaefte.length - 1]
         pagesMoveGeschaeftToNewPage(lastGeschaeft)
-      } else if (full || parentHeight === pageHeight) {
-        pagesNewPageWithGeschaeft()
+      } else {
+        pageAddGeschaeft()
       }
     }
   }
@@ -112,6 +110,17 @@ class Page extends Component {
       <h1 onClick={this.onClickH1} className={styles.h1}>
         {title}
       </h1>
+    )
+  }
+
+  footer = () => {
+    const { pageIndex, pages } = this.props
+    const now = moment().format('DD.MM.YYYY')
+    return (
+      <div className={styles.footer}>
+        <p>{now}</p>
+        <p>Seite {pageIndex + 1}/{pages.length}</p>
+      </div>
     )
   }
 
@@ -165,14 +174,12 @@ class Page extends Component {
   }
 
   render = () => {
-    const { pageIndex, activePageIndex, queryTitle } = this.props
-    const tbRef = `page${pageIndex}`
+    const { pageIndex, queryTitle } = this.props
     const showPagesTitle = pageIndex === 0
     return (
-      <div className={styles.body} ref={tbRef}>
+      <div>
         {showPagesTitle && queryTitle && this.inputPagesTitle()}
         {showPagesTitle && !queryTitle && this.textPagesTitle()}
-        {showPagesTitle && <p>Seite {activePageIndex}</p>}
         <div className={styles.tableHeader}>
           <div className={styles.tableHeaderRow}>
             <div className={[styles.columnIdGeschaeft, styles.tableHeaderCell].join(' ')}>ID</div>
@@ -183,6 +190,7 @@ class Page extends Component {
         </div>
         <div className={styles.tableBody}>
           {this.tableRows()}
+          {this.footer()}
         </div>
       </div>
     )

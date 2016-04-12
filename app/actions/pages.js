@@ -32,14 +32,6 @@ export function pagesSetTitle(title) {
   }
 }
 
-export const PAGES_NEW_PAGE_WITH_GESCHAEFT = 'PAGES_NEW_PAGE_WITH_GESCHAEFT'
-export function pagesNewPageWithGeschaeft() {
-  return (dispatch) => {
-    dispatch(pagesNewPage())
-    dispatch(pageAddGeschaeft())
-  }
-}
-
 export const PAGES_NEW_PAGE = 'PAGES_NEW_PAGE'
 export function pagesNewPage() {
   return {

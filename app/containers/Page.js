@@ -15,6 +15,7 @@ function mapStateToProps(state, props) {
   const myGeschaefte = pages.pages[pageIndex].geschaefte
 
   return {
+    pages: pages.pages,
     geschaefte: myGeschaefte,
     full: pages.pages[pageIndex].full,
     remainingGeschaefte,
