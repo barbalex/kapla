@@ -1,6 +1,13 @@
-.body {
+/*.body {
   max-height: 17cm;
+  max-width: 24.7cm;
 }
+
+@media print {
+  .body {
+    max-width: 24.7cm
+  }
+}*/
 
 .titleInput {
   margin-top: 16px;
@@ -43,7 +50,7 @@
 }
 
 .columnGegenstand {
-  width: 100%;
+  width: calc(100% - 290px);
 }
 
 .columnStatus {

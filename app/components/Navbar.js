@@ -40,7 +40,10 @@ class NavbarComponent extends Component {
     holenStatusOptions: PropTypes.func.isRequired,
     holenGeschaeftsartOptions: PropTypes.func.isRequired,
     willDeleteGeschaeft: PropTypes.bool,
-    pagesInitiate: PropTypes.func.isRequired
+    pagesInitiate: PropTypes.func.isRequired,
+    navbarVisible: PropTypes.bool.isRequired,
+    hideNavbar: PropTypes.func.isRequired,
+    showNavbar: PropTypes.func.isRequired
   }
 
   componentWillMount() {
@@ -98,30 +101,40 @@ class NavbarComponent extends Component {
   }
 
   onClickPrint = (e) => {
+    const {
+      showNavbar,
+      hideNavbar
+    } = this.props
     e.preventDefault()
     const win = remote.getCurrentWindow()
     const printToPDFOptions = {
       marginsType: 1,
       pageSize: 'A4',
       landscape: true,
-      printBackground: false
+      printBackground: true
     }
     const dialogOptions = {
       title: 'pdf speichern',
       filters: [{ name: 'pdf', extensions: ['pdf'] }]
     }
-    /* does not work!?
-    win.webContents.print({ silent: false, printBackground: false }, function(error, data) {
-      console.log('error', error)
+    /* not working ?!
+    win.webContents.print({ silent: false, printBackground: false }, (error, data) => {
+      if (error) throw error
       console.log('data', data)
     })
     */
+    // TODO: first remove navbar
+    hideNavbar()
     win.webContents.printToPDF(printToPDFOptions, (error, data) => {
       if (error) throw error
       dialog.showSaveDialog(dialogOptions, (path) => {
         if (path) {
           fs.writeFile(path, data, (err) => {
-            if (err) throw err
+            if (err) {
+              showNavbar()
+              throw err
+            }
+            showNavbar()
           })
         }
       })
@@ -146,8 +159,11 @@ class NavbarComponent extends Component {
       geschaefteGefiltert,
       filterFulltext,
       willDeleteGeschaeft,
-      pages
+      pages,
+      navbarVisible
     } = this.props
+
+    if (!navbarVisible) return null
 
     const dataIsFiltered = geschaefte.length !== geschaefteGefiltert.length
     const dataIsFilteredStyle = [styles.filterInput, styles.filterInputActive].join(' ')

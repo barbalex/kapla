@@ -1,25 +1,18 @@
 html, body, .body {
   /* Reset the document's margin values */
-  margin: 0;
+  /*margin: 0;*/
   /* Reset the document's padding values */
-  padding: 0;
+  /*padding: 0;*/
 
   /* Styles for better appearance on screens only -- are reset to defaults in print styles later */
 
   /* Use a non-white background color to make the content areas stick out from the full page box */
-  background-color: #eee;
+  /*background-color: #eee;*/
 }
 
 .body {
+  background-color: #eee;
   font-size: 9pt;
-}
-
-/* When the document is actually printed */
-@media print {
-  html, body, .body {
-    /* Reset the document's background color */
-    background-color: #fff;
-  }
 }
 
 .pagesList {
@@ -53,30 +46,36 @@ html, body, .body {
 
 /* When the document is actually printed */
 @media print {
-  .pageContainer {
-    width: 29.7cm !important;
+  /*.body {
+    margin: 0 !important;
+    padding: 0 !important;
+  }*/
+  body {/* Reset the document's background color */
+    background-color: #fff;
+    min-width: 29.7cm !important;
+    max-width: 29.7cm !important;
     min-height: 21cm !important;
     max-height: 21cm !important;
-    margin: 0 !important;
-    padding: 1cm !important;
+    margin: initial !important;
+    padding: 0 !important;
     border: initial !important;
     border-radius: initial !important;
     background: initial !important;
     box-shadow: initial !important;
     font-size: 9pt !important;
-    page-break-after: always !important;
   }
-}
 
-/* Use CSS Paged Media to switch from continuous documents to sheet-like documents with separate pages */
-@page {
-  /* You can only change the size, margins, orphans, widows and page breaks here */
+  .pageContainer {
+    margin: 2cm !important;
+    padding: 2cm !important;
+    page-break-after: always !important;
+    overflow-y: hidden !important;
+  }
 
-  /* Paper size and page orientation */
-  size: A4 landscape;
-
-  /* Margin per single side of the page */
-  margin: 2cm;
+  .pagesList {
+    overflow-y: hidden !important;
+    height: 100%;
+  }
 }
 
 .h1 {

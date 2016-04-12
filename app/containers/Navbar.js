@@ -13,7 +13,7 @@ const actions = Object.assign(UserActions, AppActions, GeschaefteActions, PagesA
 function mapStateToProps(state) {
   const { activeId, filterFulltext, geschaefte, geschaefteGefiltert, willDelete } = state.geschaefte
   const { username } = state.user
-  const { dbPath, db } = state.app
+  const { dbPath, db, navbarVisible } = state.app
   const { pages } = state.pages
   return {
     username,
@@ -24,7 +24,8 @@ function mapStateToProps(state) {
     dbPath,
     db,
     willDeleteGeschaeft: willDelete,
-    pages
+    pages,
+    navbarVisible
   }
 }
 

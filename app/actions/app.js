@@ -5,6 +5,20 @@ import getConfig from '../src/getConfig.js'
 import saveConfigValue from '../src/saveConfigValue.js'
 const sqlite3 = require('sqlite3').verbose()
 
+export const NAVBAR_HIDE = 'NAVBAR_HIDE'
+export function hideNavbar() {
+  return {
+    type: NAVBAR_HIDE
+  }
+}
+
+export const NAVBAR_SHOW = 'NAVBAR_SHOW'
+export function showNavbar() {
+  return {
+    type: NAVBAR_SHOW
+  }
+}
+
 export const DB_WAEHLEN = 'DB_WAEHLEN'
 function waehleDb() {
   return {
