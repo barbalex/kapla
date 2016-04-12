@@ -14,6 +14,7 @@ function mapStateToProps(state) {
   const { activeId, filterFulltext, geschaefte, geschaefteGefiltert, willDelete } = state.geschaefte
   const { username } = state.user
   const { dbPath, db } = state.app
+  const { pages } = state.pages
   return {
     username,
     activeId,
@@ -22,7 +23,8 @@ function mapStateToProps(state) {
     geschaefteGefiltert,
     dbPath,
     db,
-    willDeleteGeschaeft: willDelete
+    willDeleteGeschaeft: willDelete,
+    pages
   }
 }
 

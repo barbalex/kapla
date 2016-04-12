@@ -1,5 +1,7 @@
 'use strict'
 
+import { remote } from 'electron'
+import fs from 'fs'
 import React, { Component, PropTypes } from 'react'
 import {
   Navbar,
@@ -28,6 +30,7 @@ class NavbarComponent extends Component {
     filterFulltext: PropTypes.string,
     geschaefte: PropTypes.array,
     geschaefteGefiltert: PropTypes.array,
+    pages: PropTypes.array,
     fetchUsername: PropTypes.func.isRequired,
     holeDbAusConfig: PropTypes.func.isRequired,
     holenGeschaefte: PropTypes.func.isRequired,
@@ -93,6 +96,35 @@ class NavbarComponent extends Component {
     pagesInitiate()
   }
 
+  onClickPrint = (e) => {
+    e.preventDefault()
+    const win = remote.getCurrentWindow()
+    console.log('win', win)
+    // win.printToPDF()
+    // win.print()
+    /*win.webContents.print({ silent: false, printBackground: false }, function(error, data) {
+      console.log('error', error)
+      console.log('data', data)
+    })*/
+    win.webContents.printToPDF({ marginsType: 1, pageSize: 'A4', landscape: true }, (error, data) => {
+      if (error) throw error
+      fs.writeFile('/tmp/print.pdf', data, (err) => {
+        if (err) throw err
+        console.log('Write PDF successfully.')
+      })
+    })
+  }
+
+  printNav = () => (
+    <NavItem
+      eventKey = {7}
+      onClick = {this.onClickPrint}
+      title = "Drucken"
+    >
+      <Glyphicon glyph = "print" />
+    </NavItem>
+  )
+
   render() {
     const {
       holenDb,
@@ -100,7 +132,8 @@ class NavbarComponent extends Component {
       geschaefte,
       geschaefteGefiltert,
       filterFulltext,
-      willDeleteGeschaeft
+      willDeleteGeschaeft,
+      pages
     } = this.props
 
     const dataIsFiltered = geschaefte.length !== geschaefteGefiltert.length
@@ -108,6 +141,7 @@ class NavbarComponent extends Component {
     const classNameFilterInput = dataIsFiltered ? dataIsFilteredStyle : styles.filterInput
     const classNameBadge = dataIsFiltered ? styles.badgeWithActiveFilter : styles.badge
     const geschaeftPath = `/geschaefte/${activeId}`
+    const showPrint = pages && pages[0] && pages[0].geschaefte && pages[0].geschaefte.length > 0
     return (
       <div>
         {willDeleteGeschaeft && <ModalGeschaeftDelete />}
@@ -142,6 +176,7 @@ class NavbarComponent extends Component {
             <NavDropdown eventKey={6} title="Berichte" id="basic-nav-dropdown">
               <MenuItem eventKey={6.1} onClick={this.onClickReportFristen}>Fristen</MenuItem>
             </NavDropdown>
+            {showPrint && this.printNav()}
           </Nav>
           <Nav pullRight>
             <Navbar.Form pullLeft>
@@ -161,8 +196,8 @@ class NavbarComponent extends Component {
               title="Filter entfernen"
             />
             </Navbar.Form>
-            <NavDropdown eventKey={7} title="Menu" id="basic-nav-dropdown">
-              <MenuItem eventKey={7.1} onClick={holenDb}>Datenbank wählen</MenuItem>
+            <NavDropdown eventKey={8} title="Menu" id="basic-nav-dropdown">
+              <MenuItem eventKey={8.1} onClick={holenDb}>Datenbank wählen</MenuItem>
             </NavDropdown>
           </Nav>
         </Navbar>
