@@ -1,3 +1,7 @@
+.body {
+  max-height: 17cm;
+}
+
 .titleInput {
   margin-top: 16px;
   margin-bottom: 7px;
@@ -8,15 +12,10 @@
   font-weight: 700;
 }
 
-.tableBody {
-  overflow: auto;
-}
-
 .tableHeaderRow,
 .tableBodyRow {
   display: flex;
-  padding: 5px;
-  cursor: pointer;
+  padding: 3px;
 }
 
 .tableBodyRow {
@@ -31,7 +30,7 @@
 .tableHeaderCell,
 .tableBodyCell {
   flex: 1;
-  padding: 3px;
+  padding: 2px;
 }
 
 .fieldGegenstand {

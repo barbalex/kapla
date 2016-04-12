@@ -3,13 +3,15 @@ html, body, .body {
   margin: 0;
   /* Reset the document's padding values */
   padding: 0;
-  /* Use a clean and well-readable base font */
-  font-size: 9pt;
 
   /* Styles for better appearance on screens only -- are reset to defaults in print styles later */
 
   /* Use a non-white background color to make the content areas stick out from the full page box */
   background-color: #eee;
+}
+
+.body {
+  font-size: 9pt;
 }
 
 /* When the document is actually printed */
@@ -34,8 +36,9 @@ html, body, .body {
   background: #fff;
   /* Show a drop shadow beneath each page */
   box-shadow: 0 4px 5px rgba(75, 75, 75, 0.2);
-
+  /*need this so list does not flow outside padding*/
   overflow-y: auto;
+
   /* Styles for better appearance on screens only -- are reset to defaults in print styles later */
 
   /* Reflect the paper width in the screen rendering (must match size from @page rule) */
@@ -46,25 +49,22 @@ html, body, .body {
 
   /* Reflect the actual page margin/padding on paper in the screen rendering (must match margin from @page rule) */
   padding: 2cm;
-
-  /* Force page breaks after each .page element of the document */
-  page-break-after: always;
 }
 
 /* When the document is actually printed */
 @media print {
-  html, body, .body {
-    /* Reset all page styles that have been for better screen appearance only */
-    /* Break cascading by using the !important rule */
-    /* These resets are absolute must-haves for the print styles and the specificity may be higher elsewhere */
-    width: initial !important;
-    min-height: initial !important;
+  .pageContainer {
+    width: 29.7cm !important;
+    min-height: 21cm !important;
+    max-height: 21cm !important;
     margin: 0 !important;
-    padding: 0 !important;
+    padding: 1cm !important;
     border: initial !important;
     border-radius: initial !important;
     background: initial !important;
     box-shadow: initial !important;
+    font-size: 9pt !important;
+    page-break-after: always !important;
   }
 }
 

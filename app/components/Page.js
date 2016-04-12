@@ -177,7 +177,7 @@ class Page extends Component {
     const { pageIndex, queryTitle } = this.props
     const showPagesTitle = pageIndex === 0
     return (
-      <div>
+      <div className={styles.body}>
         {showPagesTitle && queryTitle && this.inputPagesTitle()}
         {showPagesTitle && !queryTitle && this.textPagesTitle()}
         <div className={styles.tableHeader}>
@@ -188,7 +188,7 @@ class Page extends Component {
             <div className={[styles.columnKontaktIntern, styles.tableHeaderCell].join(' ')}>Kontakt</div>
           </div>
         </div>
-        <div className={styles.tableBody}>
+        <div>
           {this.tableRows()}
           {this.footer()}
         </div>

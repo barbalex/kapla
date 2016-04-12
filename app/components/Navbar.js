@@ -104,7 +104,7 @@ class NavbarComponent extends Component {
       marginsType: 1,
       pageSize: 'A4',
       landscape: true,
-      printBackground: true
+      printBackground: false
     }
     const dialogOptions = {
       title: 'pdf speichern',
