@@ -1,6 +1,7 @@
 'use strict'
 
 import { remote } from 'electron'
+const { dialog } = remote
 import fs from 'fs'
 import React, { Component, PropTypes } from 'react'
 import {
@@ -99,18 +100,29 @@ class NavbarComponent extends Component {
   onClickPrint = (e) => {
     e.preventDefault()
     const win = remote.getCurrentWindow()
-    console.log('win', win)
-    // win.printToPDF()
-    // win.print()
-    /*win.webContents.print({ silent: false, printBackground: false }, function(error, data) {
+    const printToPDFOptions = {
+      marginsType: 0,
+      pageSize: 'A4',
+      landscape: true
+    }
+    const dialogOptions = {
+      title: 'pdf speichern',
+      filters: [{ name: 'pdf', extensions: ['pdf'] }]
+    }
+    /* does not work!?
+    win.webContents.print({ silent: false, printBackground: false }, function(error, data) {
       console.log('error', error)
       console.log('data', data)
-    })*/
-    win.webContents.printToPDF({ marginsType: 1, pageSize: 'A4', landscape: true }, (error, data) => {
+    })
+    */
+    win.webContents.printToPDF(printToPDFOptions, (error, data) => {
       if (error) throw error
-      fs.writeFile('/tmp/print.pdf', data, (err) => {
-        if (err) throw err
-        console.log('Write PDF successfully.')
+      dialog.showSaveDialog(dialogOptions, (path) => {
+        if (path) {
+          fs.writeFile(path, data, (err) => {
+            if (err) throw err
+          })
+        }
       })
     })
   }

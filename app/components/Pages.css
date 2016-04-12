@@ -1,10 +1,10 @@
-.body {
+html, body, .body {
   /* Reset the document's margin values */
   margin: 0;
   /* Reset the document's padding values */
   padding: 0;
   /* Use a clean and well-readable base font */
-  font: 10pt 'Open Sans', 'Helvetica Neue', sans-serif;
+  font: 9pt 'Open Sans', 'Helvetica Neue', sans-serif;
 
   /* Styles for better appearance on screens only -- are reset to defaults in print styles later */
 
