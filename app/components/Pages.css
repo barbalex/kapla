@@ -12,16 +12,21 @@
   background: #fff;
   /* Show a drop shadow beneath each page */
   box-shadow: 0 4px 5px rgba(75, 75, 75, 0.2);
+
+  width: 29.7cm;
+  height: 21cm;
+  padding: 2cm;
+
+  overflow-y: visible;
+}
+
+.pageContainerOverflow {
   /*
    * need overflow while building list
    * so list does not flow outside padding
    * TODO: get rid of this when rows are built 
    */
   overflow-y: auto;
-
-  width: 29.7cm;
-  height: 21cm;
-  padding: 2cm;
 }
 
 /* When the document is actually printed */

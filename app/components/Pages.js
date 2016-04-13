@@ -7,13 +7,15 @@ import styles from './Pages.css'
 
 class Pages extends Component {
   static propTypes = {
-    pages: PropTypes.array.isRequired
+    pages: PropTypes.array.isRequired,
+    building: PropTypes.bool.isRequired
   }
 
   pages = () => {
-    const { pages } = this.props
+    const { pages, building } = this.props
+    const pageContainerStyle = building ? [styles.pageContainer, styles.pageContainerOverflow].join(' ') : styles.pageContainer
     return pages.map((page, pageIndex) => (
-      <div key={pageIndex} className={styles.pageContainer}>
+      <div key={pageIndex} className={pageContainerStyle}>
         <Page pageIndex={pageIndex} />
       </div>
     ))

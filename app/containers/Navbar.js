@@ -14,8 +14,8 @@ function mapStateToProps(state) {
   const { activeId, filterFulltext, geschaefte, geschaefteGefiltert, willDelete } = state.geschaefte
   const { username } = state.user
   const { dbPath, db, navbarVisible } = state.app
-  const { pages, building } = state.pages
-  const buildingPages = building
+  const buildingPages = state.pages.building
+  const path = state.routing.locationBeforeTransitions.pathname
   return {
     username,
     activeId,
@@ -25,9 +25,9 @@ function mapStateToProps(state) {
     dbPath,
     db,
     willDeleteGeschaeft: willDelete,
-    pages,
     navbarVisible,
-    buildingPages
+    buildingPages,
+    path
   }
 }
 

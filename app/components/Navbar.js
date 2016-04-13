@@ -4,7 +4,6 @@ import { remote } from 'electron'
 const { dialog } = remote
 import fs from 'fs'
 import React, { Component, PropTypes } from 'react'
-import ReactDOM from 'react-dom'
 import {
   Navbar,
   NavDropdown,
@@ -33,7 +32,6 @@ class NavbarComponent extends Component {
     filterFulltext: PropTypes.string,
     geschaefte: PropTypes.array,
     geschaefteGefiltert: PropTypes.array,
-    pages: PropTypes.array,
     fetchUsername: PropTypes.func.isRequired,
     holeDbAusConfig: PropTypes.func.isRequired,
     holenGeschaefte: PropTypes.func.isRequired,
@@ -46,7 +44,8 @@ class NavbarComponent extends Component {
     navbarVisible: PropTypes.bool.isRequired,
     hideNavbar: PropTypes.func.isRequired,
     showNavbar: PropTypes.func.isRequired,
-    buildingPages: PropTypes.bool.isRequired
+    buildingPages: PropTypes.bool.isRequired,
+    path: PropTypes.string.isRequired
   }
 
   componentWillMount() {
@@ -67,20 +66,6 @@ class NavbarComponent extends Component {
     throttle(holenParlVorstossTypOptions, 1000)
     throttle(holenStatusOptions, 1000)
     throttle(holenGeschaeftsartOptions, 1000)
-  }
-
-  componentDidMount() {
-    const navBar = ReactDOM.findDOMNode(this).querySelector('nav.navbar')
-    const collapsibleNav = navBar.querySelector('div.navbar-collapse')
-    const btnToggle = navBar.querySelector('button.navbar-toggle')
-
-    navBar.addEventListener('click', (evt) => {
-      if (evt.target.tagName !== 'A' || evt.target.classList.contains('dropdown-toggle') || ! collapsibleNav.classList.contains('in')) {
-        return
-      }
-
-      btnToggle.click()
-    }, false)
   }
 
   onChangeFilterFulltext = (e) => {
@@ -159,12 +144,12 @@ class NavbarComponent extends Component {
       geschaefteGefiltert,
       filterFulltext,
       willDeleteGeschaeft,
-      pages,
       navbarVisible,
       buildingPages,
       pagesInitiate,
       erstelleNeuesGeschaeft,
-      willGeschaeftEntfernen
+      willGeschaeftEntfernen,
+      path
     } = this.props
 
     if (!navbarVisible) return null
@@ -174,9 +159,9 @@ class NavbarComponent extends Component {
     const classNameFilterInput = dataIsFiltered ? dataIsFilteredStyle : styles.filterInput
     const classNameBadge = dataIsFiltered ? styles.badgeWithActiveFilter : styles.badge
     const geschaeftPath = `/geschaefte/${activeId}`
-    const showPrint = pages && pages[0] && pages[0].geschaefte && pages[0].geschaefte.length > 0
+    const showPrint = path === '/pages'
 
-    console.log('components/Navbar, render, buildingPages', buildingPages)
+    // console.log('components/Navbar, render, buildingPages', buildingPages)
 
     return (
       <div>
@@ -210,9 +195,26 @@ class NavbarComponent extends Component {
             >
               <Glyphicon glyph = "trash" />
             </NavItem>
-            <NavDropdown eventKey={6} title="Berichte" id="basic-nav-dropdown">
-              {/* TODO: react-bootstrap has an error causing the dropdown to stay open and the message modal not to show!!!! */}
-              <MenuItem eventKey={6.1} onSelect={() => pagesInitiate()}>Fristen</MenuItem>
+            <NavDropdown
+              eventKey={6}
+              title="Berichte"
+              id="basic-nav-dropdown"
+              onSelect={(a, b) => {
+                /*
+                 * react-bootstrap has an error causing the dropdown to stay open
+                 * and the message modal not to show!!!!
+                 *
+                 * this is an elaborate hack
+                 * to get the menu item to close immediately
+                 */
+                if (b === 6.1) {
+                  setTimeout(() => {
+                    pagesInitiate()
+                  }, 0)
+                }
+              }}
+            >
+              <MenuItem eventKey={6.1}>Fristen</MenuItem>
             </NavDropdown>
             {showPrint && this.printNav()}
           </Nav>
