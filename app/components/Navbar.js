@@ -17,7 +17,7 @@ import {
 import { LinkContainer } from 'react-router-bootstrap'
 import { throttle } from 'lodash'
 import ModalGeschaeftDelete from '../containers/ModalGeschaeftDelete.js'
-import ModalMessage from '../containers/ModalMessage.js'
+import ModalMessage from '../components/ModalMessage.js'
 import styles from './Navbar.css'
 
 class NavbarComponent extends Component {
@@ -45,7 +45,7 @@ class NavbarComponent extends Component {
     navbarVisible: PropTypes.bool.isRequired,
     hideNavbar: PropTypes.func.isRequired,
     showNavbar: PropTypes.func.isRequired,
-    buildingPages: PropTypes.func.isRequired
+    buildingPages: PropTypes.bool.isRequired
   }
 
   componentWillMount() {
@@ -68,16 +68,6 @@ class NavbarComponent extends Component {
     throttle(holenGeschaeftsartOptions, 1000)
   }
 
-  onClickNewGeschaeft = () => {
-    const { erstelleNeuesGeschaeft } = this.props
-    erstelleNeuesGeschaeft()
-  }
-
-  onClickDeleteGeschaeft = () => {
-    const { willGeschaeftEntfernen, activeId } = this.props
-    willGeschaeftEntfernen(activeId)
-  }
-
   onChangeFilterFulltext = (e) => {
     const { setzeGeschaefteVolltextFilter } = this.props
     setzeGeschaefteVolltextFilter(e.target.value)
@@ -95,11 +85,6 @@ class NavbarComponent extends Component {
     const filterFulltext = ''
     setzeGeschaefteVolltextFilter(filterFulltext)
     filtereGeschaefteNachVolltext(filterFulltext)
-  }
-
-  onClickReportFristen = () => {
-    const { pagesInitiate } = this.props
-    pagesInitiate()
   }
 
   onClickPrint = (e) => {
@@ -161,7 +146,10 @@ class NavbarComponent extends Component {
       willDeleteGeschaeft,
       pages,
       navbarVisible,
-      buildingPages
+      buildingPages,
+      pagesInitiate,
+      erstelleNeuesGeschaeft,
+      willGeschaeftEntfernen
     } = this.props
 
     if (!navbarVisible) return null
@@ -172,6 +160,9 @@ class NavbarComponent extends Component {
     const classNameBadge = dataIsFiltered ? styles.badgeWithActiveFilter : styles.badge
     const geschaeftPath = `/geschaefte/${activeId}`
     const showPrint = pages && pages[0] && pages[0].geschaefte && pages[0].geschaefte.length > 0
+
+    console.log('components/Navbar, render, buildingPages', buildingPages)
+
     return (
       <div>
         {willDeleteGeschaeft && <ModalGeschaeftDelete />}
@@ -191,21 +182,21 @@ class NavbarComponent extends Component {
             </LinkContainer>
             <NavItem
               eventKey={4}
-              onClick={this.onClickNewGeschaeft}
+              onClick={() => erstelleNeuesGeschaeft()}
               title="neues Geschäft"
             >
               <Glyphicon glyph="plus" />
             </NavItem>
             <NavItem
               eventKey = {5}
-              onClick = {this.onClickDeleteGeschaeft}
+              onClick = {() => willGeschaeftEntfernen(activeId)}
               title = "Geschäft löschen"
               disabled = {!activeId}
             >
               <Glyphicon glyph = "trash" />
             </NavItem>
             <NavDropdown eventKey={6} title="Berichte" id="basic-nav-dropdown">
-              <MenuItem eventKey={6.1} onClick={this.onClickReportFristen}>Fristen</MenuItem>
+              <MenuItem eventKey={6.1} onSelect={() => pagesInitiate()}>Fristen</MenuItem>
             </NavDropdown>
             {showPrint && this.printNav()}
           </Nav>

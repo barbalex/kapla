@@ -11,6 +11,8 @@ class ModalMessage extends Component {
   render() {
     const { message } = this.props
 
+    console.log('components/ModalMessage, render, message', message)
+
     return (
       <Modal.Dialog>
         <Modal.Body>
