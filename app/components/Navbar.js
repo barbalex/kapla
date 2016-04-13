@@ -195,8 +195,15 @@ class NavbarComponent extends Component {
             >
               <Glyphicon glyph = "trash" />
             </NavItem>
-            <NavDropdown
+            <NavItem
               eventKey={6}
+              onClick={() => {/*exportiereGeschaefte()*/}}
+              title="Geschäfte exportieren"
+            >
+              <Glyphicon glyph="share" />
+            </NavItem>
+            <NavDropdown
+              eventKey={7}
               title="Berichte"
               id="basic-nav-dropdown"
               onSelect={(a, b) => {
@@ -207,14 +214,14 @@ class NavbarComponent extends Component {
                  * this is an elaborate hack
                  * to get the menu item to close immediately
                  */
-                if (b === 6.1) {
+                if (b === 7.1) {
                   setTimeout(() => {
                     pagesInitiate()
                   }, 0)
                 }
               }}
             >
-              <MenuItem eventKey={6.1}>Fristen</MenuItem>
+              <MenuItem eventKey={7.1}>Fristen</MenuItem>
             </NavDropdown>
             {showPrint && this.printNav()}
           </Nav>
