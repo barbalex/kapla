@@ -1,6 +1,11 @@
 .body {
   background-color: #eee;
   font-size: 9pt;
+  cursor: default;
+  /* 
+   * need defined height to make the pages scrollable in UI
+   * is removed in print
+   */
   overflow-y: auto;
   height: calc(100vh - 52px)
 }
@@ -24,7 +29,8 @@
   /*
    * need overflow while building list
    * so list does not flow outside padding
-   * TODO: get rid of this when rows are built 
+   * is contained in seperate class so it can
+   * only be added while building 
    */
   overflow-y: auto;
 }
@@ -32,7 +38,7 @@
 /* When the document is actually printed */
 @media print {
   .body {
-    /*  */
+    /* remove grey backgrond set for nice UI */
     background-color: #fff;
     /* with overflow an empty page is inserted between each page */
     overflow-y: visible;
@@ -44,8 +50,4 @@
     /*page-break-after: always !important;*/
     overflow-y: hidden !important;
   }
-}
-
-.h1 {
-  cursor: pointer;
 }
