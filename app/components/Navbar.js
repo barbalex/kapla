@@ -4,6 +4,7 @@ import { remote } from 'electron'
 const { dialog } = remote
 import fs from 'fs'
 import React, { Component, PropTypes } from 'react'
+import ReactDOM from 'react-dom'
 import {
   Navbar,
   NavDropdown,
@@ -66,6 +67,20 @@ class NavbarComponent extends Component {
     throttle(holenParlVorstossTypOptions, 1000)
     throttle(holenStatusOptions, 1000)
     throttle(holenGeschaeftsartOptions, 1000)
+  }
+
+  componentDidMount() {
+    const navBar = ReactDOM.findDOMNode(this).querySelector('nav.navbar')
+    const collapsibleNav = navBar.querySelector('div.navbar-collapse')
+    const btnToggle = navBar.querySelector('button.navbar-toggle')
+
+    navBar.addEventListener('click', (evt) => {
+      if (evt.target.tagName !== 'A' || evt.target.classList.contains('dropdown-toggle') || ! collapsibleNav.classList.contains('in')) {
+        return
+      }
+
+      btnToggle.click()
+    }, false)
   }
 
   onChangeFilterFulltext = (e) => {
@@ -196,6 +211,7 @@ class NavbarComponent extends Component {
               <Glyphicon glyph = "trash" />
             </NavItem>
             <NavDropdown eventKey={6} title="Berichte" id="basic-nav-dropdown">
+              {/* TODO: react-bootstrap has an error causing the dropdown to stay open and the message modal not to show!!!! */}
               <MenuItem eventKey={6.1} onSelect={() => pagesInitiate()}>Fristen</MenuItem>
             </NavDropdown>
             {showPrint && this.printNav()}
