@@ -80,11 +80,13 @@ class Page extends Component {
       pagesFinishedBuilding,
       showMessage
     } = this.props
-    const parentHeight = ReactDOM.findDOMNode(this).offsetHeight
-    const pageHeight = ReactDOM.findDOMNode(this).scrollHeight
+    // const offsetHeight = ReactDOM.findDOMNode(this).offsetHeight
+    const offsetHeight = this.refs[`rowsContainer${pageIndex}`].offsetHeight
+    // const scrollHeight = ReactDOM.findDOMNode(this).scrollHeight
+    const scrollHeight = this.refs[`rowsContainer${pageIndex}`].scrollHeight
 
     if (!full && remainingGeschaefte.length > 0) {
-      if (parentHeight < pageHeight) {
+      if (offsetHeight < scrollHeight) {
         const lastGeschaeft = geschaefte[geschaefte.length - 1]
         pagesMoveGeschaeftToNewPage(lastGeschaeft)
       } else {
@@ -196,17 +198,19 @@ class Page extends Component {
 
     return (
       <div className={pageContainerStyle}>
-        {showPagesTitle && queryTitle && this.inputPagesTitle()}
-        {showPagesTitle && !queryTitle && this.textPagesTitle()}
-        <div className={styles.tableHeader}>
-          <div className={styles.tableHeaderRow}>
-            <div className={[styles.columnIdGeschaeft, styles.tableHeaderCell].join(' ')}>ID</div>
-            <div className={[styles.columnGegenstand, styles.tableHeaderCell].join(' ')}>Gegenstand</div>
-            <div className={[styles.columnStatus, styles.tableHeaderCell].join(' ')}>Status</div>
-            <div className={[styles.columnKontaktIntern, styles.tableHeaderCell].join(' ')}>Kontakt</div>
+        <div className={styles.rowsContainer} ref={`rowsContainer${pageIndex}`}>
+          {showPagesTitle && queryTitle && this.inputPagesTitle()}
+          {showPagesTitle && !queryTitle && this.textPagesTitle()}
+          <div className={styles.tableHeader}>
+            <div className={styles.tableHeaderRow}>
+              <div className={[styles.columnIdGeschaeft, styles.tableHeaderCell].join(' ')}>ID</div>
+              <div className={[styles.columnGegenstand, styles.tableHeaderCell].join(' ')}>Gegenstand</div>
+              <div className={[styles.columnStatus, styles.tableHeaderCell].join(' ')}>Status</div>
+              <div className={[styles.columnKontaktIntern, styles.tableHeaderCell].join(' ')}>Kontakt</div>
+            </div>
           </div>
+          {this.tableRows()}
         </div>
-        {this.tableRows()}
         {this.footer()}
       </div>
     )

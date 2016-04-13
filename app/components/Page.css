@@ -6,6 +6,9 @@
   /* Show a drop shadow beneath each page */
   box-shadow: 0 4px 5px rgba(75, 75, 75, 0.2);
 
+  /* enable placing footer absolute */
+  position: relative;
+
   width: 29.7cm;
   height: 21cm;
   padding: 2cm;
@@ -21,6 +24,10 @@
    * only be added while building 
    */
   overflow-y: auto;
+}
+
+.rowsContainer {
+  max-height: 16.5cm
 }
 
 /* When the document is actually printed */
@@ -88,14 +95,18 @@
 }
 
 .footer {
-  margin-top: 0.3cm;
+  position: absolute;
+  bottom: 2cm;
+  width: 25.7cm;
 }
 
 .footer p {
-  display: inline-block;
+  position: relative;
+  float: left;
 }
 
 .footer p:last-of-type {
+  position: relative;
   float: right;
 }
 
