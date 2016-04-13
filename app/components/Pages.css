@@ -31,14 +31,14 @@
 
 /* When the document is actually printed */
 @media print {
-  /*.body {
+  .body {
     margin: 0 !important;
     padding: 0 !important;
-  }*/
+    background-color: #fff;
+  }
   html, body {
     margin: initial !important;
     padding: initial !important;
-    background-color: #fff;
     min-width: 29.7cm !important;
     max-width: 29.7cm !important;
     min-height: 21cm !important;
@@ -52,13 +52,8 @@
   .pageContainer {
     margin: 0 !important;
     padding: 2cm !important;
-    page-break-after: always !important;
+    /*page-break-after: always !important;*/
     overflow-y: hidden !important;
-  }
-
-  .body {
-    overflow-y: hidden !important;
-    height: 100%;
   }
 }
 
