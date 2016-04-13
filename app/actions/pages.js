@@ -16,6 +16,13 @@ export function pagesInitiate(reportType) {
   }
 }
 
+export const PAGES_FINISHED_BUILDING = 'PAGES_FINISHED_BUILDING'
+export function pagesFinishedBuilding() {
+  return {
+    type: PAGES_FINISHED_BUILDING
+  }
+}
+
 export const PAGES_QUERY_TITLE = 'PAGES_QUERY_TITLE'
 export function pagesQueryTitle(queryTitle) {
   return {

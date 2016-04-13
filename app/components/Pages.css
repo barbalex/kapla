@@ -6,47 +6,31 @@
 }
 
 .pageContainer {
-  /* Styles for better appearance on screens only -- are reset to defaults in print styles later */
-
   /* Divide single pages with some space and center all pages horizontally */
   margin: 1cm auto;
   /* Define a white paper background that sticks out from the darker overall background */
   background: #fff;
   /* Show a drop shadow beneath each page */
   box-shadow: 0 4px 5px rgba(75, 75, 75, 0.2);
-  /*need this so list does not flow outside padding*/
+  /*
+   * need overflow while building list
+   * so list does not flow outside padding
+   * TODO: get rid of this when rows are built 
+   */
   overflow-y: auto;
 
-  /* Styles for better appearance on screens only -- are reset to defaults in print styles later */
-
-  /* Reflect the paper width in the screen rendering (must match size from @page rule) */
   width: 29.7cm;
-  /* Reflect the paper height in the screen rendering (must match size from @page rule) */
-  min-height: 21cm;
-  max-height: 21cm;
-
-  /* Reflect the actual page margin/padding on paper in the screen rendering (must match margin from @page rule) */
+  height: 21cm;
   padding: 2cm;
 }
 
 /* When the document is actually printed */
 @media print {
   .body {
-    margin: 0 !important;
-    padding: 0 !important;
+    /*  */
     background-color: #fff;
-  }
-  html, body {
-    margin: initial !important;
-    padding: initial !important;
-    min-width: 29.7cm !important;
-    max-width: 29.7cm !important;
-    min-height: 21cm !important;
-    max-height: 21cm !important;
-    border: initial !important;
-    border-radius: initial !important;
-    background: initial !important;
-    box-shadow: initial !important;
+    /* with overflow an empty page is inserted between each page */
+    overflow-y: visible;
   }
 
   .pageContainer {

@@ -22,6 +22,7 @@ class Page extends Component {
     pagesMoveGeschaeftToNewPage: PropTypes.func.isRequired,
     pagesQueryTitle: PropTypes.func.isRequired,
     pagesSetTitle: PropTypes.func.isRequired,
+    pagesFinishedBuilding: PropTypes.func.isRequired,
     title: PropTypes.string,
     queryTitle: PropTypes.bool
   }
@@ -62,11 +63,14 @@ class Page extends Component {
      *  - render
      */
     const {
+      activePageIndex,
+      pageIndex,
       geschaefte,
       full,
       remainingGeschaefte,
       pageAddGeschaeft,
-      pagesMoveGeschaeftToNewPage
+      pagesMoveGeschaeftToNewPage,
+      pagesFinishedBuilding
     } = this.props
     const parentHeight = ReactDOM.findDOMNode(this).parentNode.offsetHeight
     const pageHeight = ReactDOM.findDOMNode(this).parentNode.scrollHeight
@@ -79,6 +83,7 @@ class Page extends Component {
         pageAddGeschaeft()
       }
     }
+    if (remainingGeschaefte.length === 0 && pageIndex === activePageIndex) pagesFinishedBuilding()
   }
 
   changeQueryTitle = (e) => {

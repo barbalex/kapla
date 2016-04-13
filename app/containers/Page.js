@@ -11,7 +11,7 @@ const actions = Object.assign(GeschaefteActions, PagesActions)
 function mapStateToProps(state, props) {
   const { pages } = state
   const { pageIndex } = props
-  const { remainingGeschaefte, activePageIndex, title, queryTitle } = pages
+  const { remainingGeschaefte, activePageIndex, title, queryTitle, building } = pages
   const myGeschaefte = pages.pages[pageIndex].geschaefte
 
   return {
@@ -22,7 +22,8 @@ function mapStateToProps(state, props) {
     activePageIndex,
     pageIndex,
     title,
-    queryTitle
+    queryTitle,
+    building
   }
 }
 

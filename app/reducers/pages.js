@@ -6,7 +6,8 @@ import {
   PAGES_INITIATE,
   PAGES_QUERY_TITLE,
   PAGE_ADD_GESCHAEFT,
-  PAGE_REMOVE_GESCHAEFT
+  PAGE_REMOVE_GESCHAEFT,
+  PAGES_FINISHED_BUILDING
 } from '../actions/pages'
 
 const standardPageState = {
@@ -20,7 +21,8 @@ const standardPagesState = {
   remainingGeschaefte: [],
   title: '',
   queryTitle: true,
-  reportType: 'fristen'
+  reportType: 'fristen',
+  building: false
 }
 
 function page(state, action, pagesState, pageIndex) {
@@ -46,14 +48,13 @@ function page(state, action, pagesState, pageIndex) {
 }
 
 export default function pages(state = standardPagesState, action) {
-  // console.log('reducers/pages, pages, state', state)
-  // console.log('reducers/pages, pages, action', action)
   switch (action.type) {
     case PAGES_INITIATE:
       return {
         ...standardPagesState,
         reportType: action.reportType,
-        remainingGeschaefte: action.geschaefteGefiltert
+        remainingGeschaefte: action.geschaefteGefiltert,
+        building: true
       }
     case PAGES_QUERY_TITLE:
       return {
@@ -84,6 +85,11 @@ export default function pages(state = standardPagesState, action) {
         ...state,
         pages: state.pages.map((p, pageIndex) => page(p, action, state, pageIndex)),
         remainingGeschaefte: [action.geschaeft, ...state.remainingGeschaefte]
+      }
+    case PAGES_FINISHED_BUILDING:
+      return {
+        ...state,
+        building: false
       }
     default:
       return state

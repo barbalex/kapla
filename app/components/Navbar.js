@@ -43,7 +43,8 @@ class NavbarComponent extends Component {
     pagesInitiate: PropTypes.func.isRequired,
     navbarVisible: PropTypes.bool.isRequired,
     hideNavbar: PropTypes.func.isRequired,
-    showNavbar: PropTypes.func.isRequired
+    showNavbar: PropTypes.func.isRequired,
+    buildingPages: PropTypes.func.isRequired
   }
 
   componentWillMount() {
@@ -158,7 +159,8 @@ class NavbarComponent extends Component {
       filterFulltext,
       willDeleteGeschaeft,
       pages,
-      navbarVisible
+      navbarVisible,
+      buildingPages
     } = this.props
 
     if (!navbarVisible) return null
@@ -172,6 +174,7 @@ class NavbarComponent extends Component {
     return (
       <div>
         {willDeleteGeschaeft && <ModalGeschaeftDelete />}
+        {/* TODO: Add modal /other element that passes messages, like: building pages */}
         <Navbar inverse fluid className={styles.navbar}>
           <Nav>
             <LinkContainer to={{ pathname: '/geschaefte' }}>
