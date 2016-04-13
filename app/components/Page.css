@@ -63,3 +63,7 @@
 .footer p:last-of-type {
   float: right;
 }
+
+.h1 {
+  cursor: pointer;
+}
