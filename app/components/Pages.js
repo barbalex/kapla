@@ -21,9 +21,7 @@ class Pages extends Component {
 
   render = () => (
     <div className = {styles.body}>
-      <div className={styles.pagesList}>
-        {this.pages()}
-      </div>
+      {this.pages()}
     </div>
   )
 }

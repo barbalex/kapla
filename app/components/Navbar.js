@@ -123,18 +123,16 @@ class NavbarComponent extends Component {
       console.log('data', data)
     })
     */
-    // TODO: first remove navbar
+    // first remove navbar
     hideNavbar()
     win.webContents.printToPDF(printToPDFOptions, (error, data) => {
       if (error) throw error
       dialog.showSaveDialog(dialogOptions, (path) => {
         if (path) {
           fs.writeFile(path, data, (err) => {
-            if (err) {
-              showNavbar()
-              throw err
-            }
+            // re-add navbar
             showNavbar()
+            if (err) throw err
           })
         }
       })
