@@ -19,6 +19,7 @@ import { throttle } from 'lodash'
 import ModalGeschaeftDelete from '../containers/ModalGeschaeftDelete.js'
 import ModalMessage from '../components/ModalMessage.js'
 import styles from './Navbar.css'
+import exportGeschaefte from '../src/exportGeschaefte.js'
 
 class NavbarComponent extends Component {
   static propTypes = {
@@ -136,6 +137,12 @@ class NavbarComponent extends Component {
     </NavItem>
   )
 
+  exportGeschaefte = (e) => {
+    const { geschaefteGefiltert } = this.props
+    e.preventDefault()
+    exportGeschaefte(geschaefteGefiltert)
+  }
+
   render() {
     const {
       holenDb,
@@ -197,7 +204,7 @@ class NavbarComponent extends Component {
             </NavItem>
             <NavItem
               eventKey={6}
-              onClick={() => {/*exportiereGeschaefte()*/}}
+              onClick={this.exportGeschaefte}
               title="Geschäfte exportieren"
             >
               <Glyphicon glyph="share" />
