@@ -9,6 +9,14 @@ import getDropdownOptions from '../src/getDropdownOptions.js'
 import updateGeschaeft from '../src/updateGeschaeft.js'
 import filterGeschaefte from '../src/filterGeschaefte.js'
 
+export const GESCHAEFTE_WERDEN_EXPORTIERT = 'GESCHAEFTE_WERDEN_EXPORTIERT'
+export function geschaefteWerdenExportiert(exportieren) {
+  return {
+    type: GESCHAEFTE_WERDEN_EXPORTIERT,
+    exportieren
+  }
+}
+
 export const GESCHAEFTE_BESTELLEN = 'GESCHAEFTE_BESTELLEN'
 function bestelleGeschaefte() {
   return {

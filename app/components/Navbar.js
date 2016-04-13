@@ -33,6 +33,7 @@ class NavbarComponent extends Component {
     filterFulltext: PropTypes.string,
     geschaefte: PropTypes.array,
     geschaefteGefiltert: PropTypes.array,
+    geschaefteExportieren: PropTypes.bool.isRequired,
     fetchUsername: PropTypes.func.isRequired,
     holeDbAusConfig: PropTypes.func.isRequired,
     holenGeschaefte: PropTypes.func.isRequired,
@@ -46,7 +47,8 @@ class NavbarComponent extends Component {
     hideNavbar: PropTypes.func.isRequired,
     showNavbar: PropTypes.func.isRequired,
     buildingPages: PropTypes.bool.isRequired,
-    path: PropTypes.string.isRequired
+    path: PropTypes.string.isRequired,
+    geschaefteWerdenExportiert: PropTypes.func.isRequired
   }
 
   componentWillMount() {
@@ -138,9 +140,9 @@ class NavbarComponent extends Component {
   )
 
   exportGeschaefte = (e) => {
-    const { geschaefteGefiltert } = this.props
+    const { geschaefteGefiltert, geschaefteWerdenExportiert } = this.props
     e.preventDefault()
-    exportGeschaefte(geschaefteGefiltert)
+    exportGeschaefte(geschaefteGefiltert, geschaefteWerdenExportiert)
   }
 
   render() {
@@ -149,6 +151,7 @@ class NavbarComponent extends Component {
       activeId,
       geschaefte,
       geschaefteGefiltert,
+      geschaefteExportieren,
       filterFulltext,
       willDeleteGeschaeft,
       navbarVisible,
@@ -174,6 +177,7 @@ class NavbarComponent extends Component {
       <div>
         {willDeleteGeschaeft && <ModalGeschaeftDelete />}
         {buildingPages && <ModalMessage message="Die Seiten werden aufgebaut..." />}
+        {geschaefteExportieren && <ModalMessage message="Der Export wird aufgebaut..." />}
         <Navbar inverse fluid className={styles.navbar}>
           <Nav>
             <LinkContainer to={{ pathname: '/geschaefte' }}>

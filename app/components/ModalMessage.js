@@ -1,8 +1,7 @@
 'use strict'
 
 import React, { Component, PropTypes } from 'react'
-import ReactDOM from 'react-dom'
-import { Overlay } from 'react-bootstrap'
+import { Modal } from 'react-bootstrap'
 import styles from './ModalMessage.css'
 
 class ModalMessage extends Component {
@@ -12,19 +11,16 @@ class ModalMessage extends Component {
 
   render() {
     const { message } = this.props
-    // const appComponent = ReactDOM.findDOMNode('app')
-    const appComponent = this.refs.app
+    const bodyStyles = ['modal', styles.body].join(' ')
 
     console.log('components/ModalMessage, render, message', message)
 
     return (
-      <Overlay show className={styles.overlay} container={appComponent} placement="bottom">
-        <div className={styles.containerDiv}>
-          <div className={styles.posDiv}>
-            <p>{message}</p>
-          </div>
-        </div>
-      </Overlay>
+      <Modal.Dialog bsSize="small" dialogClassName={styles.modal}>
+        <Modal.Body bsClass={bodyStyles}>
+          <p>{message}</p>
+        </Modal.Body>
+      </Modal.Dialog>
     )
   }
 }

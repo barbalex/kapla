@@ -3,11 +3,11 @@
 import XLSX from 'xlsx'
 import { remote } from 'electron'
 const { dialog } = remote
-import fs from 'fs'
 
 function datenum(v, date1904) {
-  if (date1904) v += 1462
-  const epoch = Date.parse(v)
+  let vv = v
+  if (date1904) vv += 1462
+  const epoch = Date.parse(vv)
   return (epoch - new Date(Date.UTC(1899, 11, 30))) / (24 * 60 * 60 * 1000)
 }
 
@@ -73,7 +73,7 @@ function getDataArrayFromExportObjects(exportObjects) {
 
 const wsName = 'Geschäfte'
 
-export default (geschaefte) => {
+export default (geschaefte, geschaefteWerdenExportiert) => {
   const wb = new Workbook()
   const dataArray = getDataArrayFromExportObjects(geschaefte)
   const ws = sheetFromArrayOfArrays(dataArray)
@@ -86,7 +86,17 @@ export default (geschaefte) => {
   }
   dialog.showSaveDialog(dialogOptions, (path) => {
     if (path) {
-      XLSX.writeFile(wb, path, { bookType: 'xlsx', bookSST: true, type: 'binary' })
+      // TODO: message
+      /**
+       * XLSX.writeFile has no callback!!!
+       * it blocks execution for a while
+       * use this to message before, then remove message after blocking is finished
+       */
+      geschaefteWerdenExportiert(true)
+      setTimeout(() => {
+        XLSX.writeFile(wb, path, { bookType: 'xlsx', bookSST: true, type: 'binary' })
+        geschaefteWerdenExportiert(false)
+      }, 200)
     }
   })
 }

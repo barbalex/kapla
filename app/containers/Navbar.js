@@ -11,7 +11,7 @@ import * as PagesActions from '../actions/pages'
 const actions = Object.assign(UserActions, AppActions, GeschaefteActions, PagesActions)
 
 function mapStateToProps(state) {
-  const { activeId, filterFulltext, geschaefte, geschaefteGefiltert, willDelete } = state.geschaefte
+  const { activeId, filterFulltext, geschaefte, geschaefteGefiltert, willDelete, exportieren } = state.geschaefte
   const { username } = state.user
   const { dbPath, db, navbarVisible } = state.app
   const buildingPages = state.pages.building
@@ -22,6 +22,7 @@ function mapStateToProps(state) {
     filterFulltext,
     geschaefte,
     geschaefteGefiltert,
+    geschaefteExportieren: exportieren,
     dbPath,
     db,
     willDeleteGeschaeft: willDelete,
