@@ -6,9 +6,9 @@ import Pages from '../components/Pages'
 import * as PagesActions from '../actions/pages'
 
 function mapStateToProps(state) {
-  const { pages, building } = state.pages
+  const { pages } = state.pages
 
-  return { pages, building }
+  return { pages }
 }
 
 function mapDispatchToProps(dispatch) {

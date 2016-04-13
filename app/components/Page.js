@@ -25,7 +25,8 @@ class Page extends Component {
     pagesFinishedBuilding: PropTypes.func.isRequired,
     title: PropTypes.string,
     queryTitle: PropTypes.bool,
-    showMessage: PropTypes.func.isRequired
+    showMessage: PropTypes.func.isRequired,
+    building: PropTypes.bool.isRequired
   }
 
   componentDidMount = () => {
@@ -79,8 +80,8 @@ class Page extends Component {
       pagesFinishedBuilding,
       showMessage
     } = this.props
-    const parentHeight = ReactDOM.findDOMNode(this).parentNode.offsetHeight
-    const pageHeight = ReactDOM.findDOMNode(this).parentNode.scrollHeight
+    const parentHeight = ReactDOM.findDOMNode(this).offsetHeight
+    const pageHeight = ReactDOM.findDOMNode(this).scrollHeight
 
     if (!full && remainingGeschaefte.length > 0) {
       if (parentHeight < pageHeight) {
@@ -189,10 +190,12 @@ class Page extends Component {
   }
 
   render = () => {
-    const { pageIndex, queryTitle } = this.props
+    const { pageIndex, queryTitle, building } = this.props
     const showPagesTitle = pageIndex === 0
+    const pageContainerStyle = building ? [styles.pageContainer, styles.pageContainerOverflow].join(' ') : styles.pageContainer
+
     return (
-      <div className={styles.body}>
+      <div className={pageContainerStyle}>
         {showPagesTitle && queryTitle && this.inputPagesTitle()}
         {showPagesTitle && !queryTitle && this.textPagesTitle()}
         <div className={styles.tableHeader}>
@@ -203,10 +206,8 @@ class Page extends Component {
             <div className={[styles.columnKontaktIntern, styles.tableHeaderCell].join(' ')}>Kontakt</div>
           </div>
         </div>
-        <div>
-          {this.tableRows()}
-          {this.footer()}
-        </div>
+        {this.tableRows()}
+        {this.footer()}
       </div>
     )
   }
