@@ -17,6 +17,7 @@ import {
 import { LinkContainer } from 'react-router-bootstrap'
 import { throttle } from 'lodash'
 import ModalGeschaeftDelete from '../containers/ModalGeschaeftDelete.js'
+import ModalMessage from '../containers/ModalMessage.js'
 import styles from './Navbar.css'
 
 class NavbarComponent extends Component {
@@ -174,7 +175,7 @@ class NavbarComponent extends Component {
     return (
       <div>
         {willDeleteGeschaeft && <ModalGeschaeftDelete />}
-        {/* TODO: Add modal /other element that passes messages, like: building pages */}
+        {buildingPages && <ModalMessage message="Die Seiten werden aufgebaut..." />}
         <Navbar inverse fluid className={styles.navbar}>
           <Nav>
             <LinkContainer to={{ pathname: '/geschaefte' }}>
