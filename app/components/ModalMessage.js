@@ -6,19 +6,16 @@ import styles from './ModalMessage.css'
 
 class ModalMessage extends Component {
   static propTypes = {
-    message: PropTypes.string.isRequired
+    messageText: PropTypes.string.isRequired
   }
 
   render() {
-    const { message } = this.props
-    const bodyStyles = ['modal', styles.body].join(' ')
-
-    console.log('components/ModalMessage, render, message', message)
+    const { messageText } = this.props
 
     return (
       <Modal.Dialog bsSize="small" dialogClassName={styles.modal}>
-        <Modal.Body bsClass={bodyStyles}>
-          <p>{message}</p>
+        <Modal.Body>
+          <p className={styles.p}>{messageText}</p>
         </Modal.Body>
       </Modal.Dialog>
     )

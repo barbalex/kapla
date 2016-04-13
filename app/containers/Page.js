@@ -5,8 +5,9 @@ import { connect } from 'react-redux'
 import Page from '../components/Page'
 import * as GeschaefteActions from '../actions/geschaefte'
 import * as PagesActions from '../actions/pages'
+import * as AppActions from '../actions/app'
 
-const actions = Object.assign(GeschaefteActions, PagesActions)
+const actions = Object.assign(AppActions, GeschaefteActions, PagesActions)
 
 function mapStateToProps(state, props) {
   const { pages } = state

@@ -73,7 +73,7 @@ function getDataArrayFromExportObjects(exportObjects) {
 
 const wsName = 'Geschäfte'
 
-export default (geschaefte, geschaefteWerdenExportiert) => {
+export default (geschaefte, showMessage) => {
   const wb = new Workbook()
   const dataArray = getDataArrayFromExportObjects(geschaefte)
   const ws = sheetFromArrayOfArrays(dataArray)
@@ -92,10 +92,10 @@ export default (geschaefte, geschaefteWerdenExportiert) => {
        * it blocks execution for a while
        * use this to message before, then remove message after blocking is finished
        */
-      geschaefteWerdenExportiert(true)
+      showMessage(true, 'Der Export wird aufgebaut...')
       setTimeout(() => {
         XLSX.writeFile(wb, path, { bookType: 'xlsx', bookSST: true, type: 'binary' })
-        geschaefteWerdenExportiert(false)
+        showMessage(false, null)
       }, 200)
     }
   })

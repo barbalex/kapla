@@ -21,8 +21,7 @@ import {
   STATUS_OPTIONS_HOLEN,
   STATUS_OPTIONS_HOLEN_FEHLER,
   GESCHAEFTSART_OPTIONS_HOLEN,
-  GESCHAEFTSART_OPTIONS_HOLEN_FEHLER,
-  GESCHAEFTE_WERDEN_EXPORTIERT
+  GESCHAEFTSART_OPTIONS_HOLEN_FEHLER
 } from '../actions/geschaefte'
 
 const standardState = {
@@ -39,8 +38,7 @@ const standardState = {
   geschaeftsartOptions: [],
   // following: state for active geschaeft
   activeId: null,
-  willDelete: false,
-  exportieren: false
+  willDelete: false
 }
 
 function geschaeft(state = {}, action) {
@@ -149,12 +147,6 @@ export default function geschaefte(state = standardState, action) {
       return {
         ...state,
         geschaeftsartOptions: action.geschaeftsartOptions
-      }
-    case GESCHAEFTE_WERDEN_EXPORTIERT:
-      console.log('GESCHAEFTE_WERDEN_EXPORTIERT:', action.exportieren)
-      return {
-        ...state,
-        exportieren: action.exportieren
       }
     case RECHTSMITTELERLEDIGUNG_OPTIONS_HOLEN_FEHLER:
     case PARLVORSTOSSTYP_OPTIONS_HOLEN_FEHLER:

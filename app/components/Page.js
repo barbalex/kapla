@@ -24,11 +24,17 @@ class Page extends Component {
     pagesSetTitle: PropTypes.func.isRequired,
     pagesFinishedBuilding: PropTypes.func.isRequired,
     title: PropTypes.string,
-    queryTitle: PropTypes.bool
+    queryTitle: PropTypes.bool,
+    showMessage: PropTypes.func.isRequired
   }
 
   componentDidMount = () => {
-    this.nextStepp()
+    const { showMessage } = this.props
+    showMessage(true, 'Der Bericht wird aufgebaut...')
+    // wait with next stepp until message is shown
+    setTimeout(() => {
+      this.nextStepp()
+    }, 100)
   }
 
   componentDidUpdate = () => {
@@ -70,7 +76,8 @@ class Page extends Component {
       remainingGeschaefte,
       pageAddGeschaeft,
       pagesMoveGeschaeftToNewPage,
-      pagesFinishedBuilding
+      pagesFinishedBuilding,
+      showMessage
     } = this.props
     const parentHeight = ReactDOM.findDOMNode(this).parentNode.offsetHeight
     const pageHeight = ReactDOM.findDOMNode(this).parentNode.scrollHeight
@@ -83,7 +90,10 @@ class Page extends Component {
         pageAddGeschaeft()
       }
     }
-    if (remainingGeschaefte.length === 0 && pageIndex === activePageIndex) pagesFinishedBuilding()
+    if (remainingGeschaefte.length === 0 && pageIndex === activePageIndex) {
+      showMessage(false, null)
+      pagesFinishedBuilding()
+    }
   }
 
   changeQueryTitle = (e) => {

@@ -5,6 +5,15 @@ import getConfig from '../src/getConfig.js'
 import saveConfigValue from '../src/saveConfigValue.js'
 const sqlite3 = require('sqlite3').verbose()
 
+export const SHOW_MESSAGE = 'SHOW_MESSAGE'
+export function showMessage(showMessageModal, messageText) {
+  return {
+    type: SHOW_MESSAGE,
+    showMessageModal,
+    messageText
+  }
+}
+
 export const NAVBAR_HIDE = 'NAVBAR_HIDE'
 export function hideNavbar() {
   return {
