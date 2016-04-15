@@ -24,8 +24,23 @@ export default function (geschaefte, filterFulltext, filterFields) {
       let satisfiesFilter = true
       Object.keys(filterFields).forEach((key) => {
         const geschaeftValue = isString(geschaeft[key]) ? geschaeft[key].toLowerCase() : geschaeft[key]
-        const filterValue = isString(filterFields[key]) ? filterFields[key].toLowerCase() : filterFields[key]
-        if (!includes(geschaeftValue, filterValue)) satisfiesFilter = false
+        const filterValue = isString(filterFields[key]) ? filterFields[key].value.toLowerCase() : filterFields[key].value
+        const comparator = filterFields[key].comparator ? filterFields[key].comparator : '='
+        if (filterValue === null) {
+          if (!geschaeftValue) satisfiesFilter = false
+        } else if (comparator === '!==') {
+          if (!(geschaeftValue !== filterValue)) satisfiesFilter = false
+        } else if (comparator === '<') {
+          if (!(geschaeftValue < filterValue)) satisfiesFilter = false
+        } else if (comparator === '<=') {
+          if (!(geschaeftValue <= filterValue)) satisfiesFilter = false
+        } else if (comparator === '>') {
+          if (!(geschaeftValue > filterValue)) satisfiesFilter = false
+        } else if (comparator === '>=') {
+          if (!(geschaeftValue >= filterValue)) satisfiesFilter = false
+        } else {
+          if (!includes(geschaeftValue, filterValue)) satisfiesFilter = false
+        }
       })
       return satisfiesFilter
     })

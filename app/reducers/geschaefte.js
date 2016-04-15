@@ -81,7 +81,7 @@ export default function geschaefte(state = standardState, action) {
     case GESCHAEFTE_FILTERN_FELDER:
       return {
         ...state,
-        filterFields: action.filterFulltext,
+        filterFields: action.filterFields,
         filterFulltext: null,
         activeId: null,
         geschaefteGefiltert: action.geschaefteGefiltert

@@ -16,6 +16,7 @@ import {
 } from 'react-bootstrap'
 import { LinkContainer } from 'react-router-bootstrap'
 import { throttle } from 'lodash'
+import moment from 'moment'
 import ModalGeschaeftDelete from '../containers/ModalGeschaeftDelete.js'
 import ModalMessage from '../containers/ModalMessage.js'
 import styles from './Navbar.css'
@@ -31,7 +32,7 @@ class NavbarComponent extends Component {
     erstelleNeuesGeschaeft: PropTypes.func.isRequired,
     willGeschaeftEntfernen: PropTypes.func.isRequired,
     activeId: PropTypes.number,
-    filterFulltext: PropTypes.string.isRequired,
+    filterFulltext: PropTypes.string,
     geschaefte: PropTypes.array.isRequired,
     geschaefteGefiltert: PropTypes.array.isRequired,
     showMessageModal: PropTypes.bool.isRequired,
@@ -148,11 +149,54 @@ class NavbarComponent extends Component {
   onSelectFilterFaelligeGeschaefte = (e) => {
     const { filtereGeschaefteNachFeldern, username } = this.props
     e.preventDefault()
+    const now = moment().format('YYYY-MM-DD')
     const filter = {
-      //fristMitarbeiter: 'TODO',
+      status: {
+        value: 'zurückgestellt',
+        comparator: '!=='
+      },
+      status: {
+        value: 'erledigt',
+        comparator: '!=='
+      },
+      datumAusgangAwel: {
+        value: null,
+        comparator: '='
+      },
+      fristMitarbeiter: {
+        value: now,
+        comparator: '<'
+      }
+    }
+    filtereGeschaefteNachFeldern(filter)
+    // TODO: add ordering to state and call action here to order by frist desc
+  }
+
+  onSelectFilterFaelligeGeschaefteMitarbeiter = (e) => {
+    const { filtereGeschaefteNachFeldern, username } = this.props
+    e.preventDefault()
+    const now = moment().format('YYYY-MM-DD')
+    const filter = {
+      status: {
+        value: 'zurückgestellt',
+        comparator: '!=='
+      },
+      status: {
+        value: 'erledigt',
+        comparator: '!=='
+      },
+      datumAusgangAwel: {
+        value: null,
+        comparator: '='
+      },
+      fristMitarbeiter: {
+        value: now,
+        comparator: '<'
+      },
       itKonto: username
     }
     filtereGeschaefteNachFeldern(filter)
+    // TODO: add ordering to state and call action here to order by frist desc
   }
 
   render() {
@@ -203,7 +247,7 @@ class NavbarComponent extends Component {
                 <MenuItem eventKey={3.1}>nach Feldern</MenuItem>
               </LinkContainer>
               <MenuItem eventKey={3.2} onSelect={this.onSelectFilterFaelligeGeschaefte}>fällige</MenuItem>
-              <MenuItem eventKey={3.3}>eigene fällige</MenuItem>
+              <MenuItem eventKey={3.3} onSelect={this.onSelectFilterFaelligeGeschaefteMitarbeiter}>eigene fällige</MenuItem>
             </NavDropdown>
             <NavItem
               eventKey={4}
