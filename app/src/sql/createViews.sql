@@ -4,7 +4,8 @@ CREATE VIEW
 AS
   SELECT
     geschaefte.*,
-    interne.vornameName AS kontaktInternVornameName
+    interne.vornameName AS kontaktInternVornameName,
+    interne.itKonto
   FROM
     geschaefte
     LEFT JOIN
