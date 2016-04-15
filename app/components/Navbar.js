@@ -26,6 +26,7 @@ class NavbarComponent extends Component {
     holenDb: PropTypes.func.isRequired,
     setzeGeschaefteVolltextFilter: PropTypes.func.isRequired,
     filtereGeschaefteNachVolltext: PropTypes.func.isRequired,
+    filtereGeschaefteNachFeldern: PropTypes.func.isRequired,
     username: PropTypes.string,
     erstelleNeuesGeschaeft: PropTypes.func.isRequired,
     willGeschaeftEntfernen: PropTypes.func.isRequired,
@@ -144,6 +145,16 @@ class NavbarComponent extends Component {
     exportGeschaefte(geschaefteGefiltert, showMessage)
   }
 
+  onSelectFilterFaelligeGeschaefte = (e) => {
+    const { filtereGeschaefteNachFeldern, username } = this.props
+    e.preventDefault()
+    const filter = {
+      //fristMitarbeiter: 'TODO',
+      itKonto: username
+    }
+    filtereGeschaefteNachFeldern(filter)
+  }
+
   render() {
     const {
       holenDb,
@@ -183,9 +194,17 @@ class NavbarComponent extends Component {
             <LinkContainer to={{ pathname: geschaeftPath }} disabled = {!activeId}>
               <NavItem eventKey={2} href="#" disabled = {!activeId}>Geschäft</NavItem>
             </LinkContainer>
-            <LinkContainer to={{ pathname: '/filter' }}>
-              <NavItem eventKey={3} href="#">Filter</NavItem>
-            </LinkContainer>
+            <NavDropdown
+              eventKey={3}
+              title="Filter"
+              id="basic-nav-dropdown"
+            >
+              <LinkContainer to={{ pathname: '/filter' }}>
+                <MenuItem eventKey={3.1}>nach Feldern</MenuItem>
+              </LinkContainer>
+              <MenuItem eventKey={3.2} onSelect={this.onSelectFilterFaelligeGeschaefte}>fällige</MenuItem>
+              <MenuItem eventKey={3.3}>eigene fällige</MenuItem>
+            </NavDropdown>
             <NavItem
               eventKey={4}
               onClick={() => erstelleNeuesGeschaeft()}
