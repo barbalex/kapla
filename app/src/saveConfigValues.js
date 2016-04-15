@@ -1,9 +1,9 @@
 'use strict'
 
-import getConfig from './getConfig.js'
-import saveConfig from './saveConfig.js'
+const getConfig = require('./getConfig.js')
+const saveConfig = require('./saveConfig.js')
 
-export default function (val) {
+module.exports = function (val) {
   const config = getConfig()
   Object.keys(val).forEach((key) => {
     config[key] = val[key]

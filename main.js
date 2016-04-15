@@ -11,6 +11,10 @@ let menu
 let template
 let mainWindow = null
 
+
+const saveConfigValue = require('./app/src/saveConfigValue.js')
+const getConfig = require('./app/src/getConfig.js')
+
 crashReporter.start()
 
 if (process.env.NODE_ENV === 'development') {
@@ -21,6 +25,7 @@ app.on('window-all-closed', () => {
   if (process.platform !== 'darwin') app.quit()
 })
 
+let lastWindowState = getConfig().lastWindowState
 const browserWindowOptions = {
   width: 1800,
   height: 1024,
@@ -28,8 +33,17 @@ const browserWindowOptions = {
   experimentalFeatures: true
 }
 
+if (lastWindowState) {
+  if (lastWindowState.width) browserWindowOptions.width = lastWindowState.width
+  if (lastWindowState.height) browserWindowOptions.height = lastWindowState.height
+  if (lastWindowState.x) browserWindowOptions.x = lastWindowState.x
+  if (lastWindowState.y) browserWindowOptions.y = lastWindowState.y
+}
+
 app.on('ready', () => {
   mainWindow = new BrowserWindow(browserWindowOptions)
+
+  if (lastWindowState && lastWindowState.maximized) mainWindow.maximize()
 
   mainWindow.loadURL(`file://${__dirname}/app/app.html`)
 
@@ -40,6 +54,18 @@ app.on('ready', () => {
   if (process.env.NODE_ENV === 'development') {
     mainWindow.openDevTools()
   }
+
+  // save window state on close
+  mainWindow.on('close', function () {
+    var bounds = mainWindow.getBounds()
+    saveConfigValue("lastWindowState", {
+      x: bounds.x,
+      y: bounds.y,
+      width: bounds.width,
+      height: bounds.height,
+      maximized: mainWindow.isMaximized()
+    });
+  })
 
   if (process.platform === 'darwin') {
     template = [{
