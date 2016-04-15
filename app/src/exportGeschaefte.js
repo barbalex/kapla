@@ -93,7 +93,6 @@ export default (geschaefte, showMessage) => {
        * use this to message before, then remove message after blocking is finished
        */
       showMessage(true, 'Der Export wird aufgebaut...')
-      console.log('XLSX', XLSX)
       setTimeout(() => {
         // TODO: this fails in release package
         // either get solution from https://github.com/electron/electron/issues/5174
