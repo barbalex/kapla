@@ -24,8 +24,6 @@ if (process.env.NODE_ENV === 'development') {
 app.on('window-all-closed', () => {
   if (process.platform !== 'darwin') app.quit()
 })
-
-let lastWindowState = getConfig().lastWindowState
 const browserWindowOptions = {
   width: 1800,
   height: 1024,
@@ -33,6 +31,9 @@ const browserWindowOptions = {
   experimentalFeatures: true
 }
 
+// get last window state
+// and set it again
+let lastWindowState = getConfig().lastWindowState
 if (lastWindowState) {
   if (lastWindowState.width) browserWindowOptions.width = lastWindowState.width
   if (lastWindowState.height) browserWindowOptions.height = lastWindowState.height
