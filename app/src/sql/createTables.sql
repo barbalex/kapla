@@ -15,13 +15,14 @@ CREATE TABLE gdeplz (
   plz INTEGER
 );
 
+-- first remove id 231, see questions
 CREATE TABLE interne (
   id INTEGER PRIMARY KEY,
   abteilung TEXT,
   buero TEXT,
   eMail TEXT,
   itKonto TEXT,
-  kurzzeichen TEXT,
+  kurzzeichen TEXT not null unique,
   name TEXT,
   sort TEXT,
   telefon TEXT,
