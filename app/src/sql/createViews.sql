@@ -4,7 +4,7 @@ CREATE VIEW
 AS
   SELECT
     geschaefte.*,
-    interne.vornameName AS kontaktInternVornameName,
+    interne.vorname || ' ' || interne.name AS kontaktInternVornameName,
     interne.itKonto
   FROM
     geschaefte
