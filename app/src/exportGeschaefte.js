@@ -93,7 +93,13 @@ export default (geschaefte, showMessage) => {
        * use this to message before, then remove message after blocking is finished
        */
       showMessage(true, 'Der Export wird aufgebaut...')
+      console.log('XLSX', XLSX)
       setTimeout(() => {
+        // TODO: this fails in release package
+        // either get solution from https://github.com/electron/electron/issues/5174
+        // or implement https://github.com/guyonroche/exceljs
+        // solution using XLSX.write and fs.writeFile does not work
+        // because xlsx is a zipped folder
         XLSX.writeFile(wb, path, { bookType: 'xlsx', bookSST: true, type: 'binary' })
         showMessage(false, null)
       }, 200)
