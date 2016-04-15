@@ -177,11 +177,10 @@ CREATE INDEX statusSort ON status (sort);
 INSERT INTO
   status (status, sort)
 VALUES
-  ('überwachen int.', 1),
-  ('überwachen ext.', 2),
-  ('angekündigt', 3),
-  ('zurückgestellt', 4),
-  ('erledigt', 5);
+  ('pendent', 1),
+  ('überwachen int.', 2),
+  ('überwachen ext.', 3),
+  ('erledigt', 4);
 
 CREATE TABLE parlVorstossTyp (
   parlVorstossTyp TEXT PRIMARY KEY,
