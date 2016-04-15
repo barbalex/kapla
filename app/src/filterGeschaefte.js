@@ -24,7 +24,7 @@ export default function (geschaefte, filterFulltext, filterFields) {
       let satisfiesFilter = true
       Object.keys(filterFields).forEach((key) => {
         const geschaeftValue = isString(geschaeft[key]) ? geschaeft[key].toLowerCase() : geschaeft[key]
-        const filterValue = isString(filterFields[key]) ? filterFields[key].value.toLowerCase() : filterFields[key].value
+        const filterValue = isString(filterFields[key].value) ? filterFields[key].value.toLowerCase() : filterFields[key].value
         const comparator = filterFields[key].comparator ? filterFields[key].comparator : '='
         if (filterValue === null) {
           if (!geschaeftValue) satisfiesFilter = false
