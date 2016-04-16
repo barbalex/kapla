@@ -9,23 +9,32 @@ import * as AppActions from '../actions/app'
 
 const actions = Object.assign(GeschaefteActions, AppActions, UserActions)
 
-function mapStateToProps(state) {
-  const { geschaefte, geschaefteGefiltert, activeId } = state.geschaefte
-  const { username } = state.user
-  const { dbPath, db } = state.app
-
-  return {
-    geschaefte,
-    geschaefteGefiltert,
-    username,
-    dbPath,
-    db,
-    activeId
-  }
-}
+  
 
 function mapDispatchToProps(dispatch) {
   return bindActionCreators(actions, dispatch)
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Geschaefte)
+export default function(goldenLayoutProps) {
+  console.log('containers/Geschaefte, props', props)
+
+  function mapStateToProps(state, goldenLayoutProps) {
+    const { geschaefte, geschaefteGefiltert, activeId } = state.geschaefte
+    const { username } = state.user
+    const { dbPath, db } = state.app
+
+    const geschaefteProps = {
+      geschaefte,
+      geschaefteGefiltert,
+      username,
+      dbPath,
+      db,
+      activeId
+    }
+
+    console.log('containers/Geschaefte, geschaefteProps', geschaefteProps)
+
+    return Object.assign(geschaefteProps, goldenLayoutProps)
+  }
+  return connect(mapStateToProps, mapDispatchToProps)(Geschaefte)
+}

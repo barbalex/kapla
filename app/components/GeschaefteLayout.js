@@ -4,39 +4,11 @@ import React, { Component, PropTypes } from 'react'
 import GoldenLayout from 'golden-layout'
 import Geschaeft from '../containers/Geschaeft'
 import Geschaefte from '../containers/Geschaefte'
-import { bindActionCreators } from 'redux'
-import { connect } from 'react-redux'
-import GeschaefteLayoutComponent from '../components/GeschaefteLayout'
-import * as UserActions from '../actions/user'
-import * as GeschaefteActions from '../actions/geschaefte'
-import * as AppActions from '../actions/app'
 
 class GeschaefteLayout extends Component {
-  geschaefteConstructor = () => {
-    const actions = Object.assign(GeschaefteActions, AppActions, UserActions)
 
-    function mapStateToProps(state) {
-      const { geschaefte, geschaefteGefiltert, activeId } = state.geschaefte
-      const { username } = state.user
-      const { dbPath, db } = state.app
-
-      return {
-        geschaefte,
-        geschaefteGefiltert,
-        username,
-        dbPath,
-        db,
-        activeId
-      }
-    }
-
-    function mapDispatchToProps(dispatch) {
-      return bindActionCreators(actions, dispatch)
-    }
-
-    return connect(mapStateToProps, mapDispatchToProps)(GeschaefteLayoutComponent)
-  }
-  geschaeftConstructor = () => <Geschaeft />
+  geschaefteConstructor = () => <Geschaefte />
+  geschaeftConstructor = () => <Geschaeft goldenLayoutProps={props} />
 
   componentDidMount = () => {
     const TestComponent = React.createClass({
@@ -44,29 +16,33 @@ class GeschaefteLayout extends Component {
             return (<h1>test component 1</h1>)
         }
     })
+
     const TestComponent2 = React.createClass({
         render: function() {
             return (<h1>test component 2</h1>)
         }
     })
-    console.log('components/GeschaefteLayout, this', this)
     const layoutConfig = {
       content: [{
         type: 'row',
-        content:[{
-          type:'react-component',
-          component: 'geschaefte'
-        },{
-          type:'react-component',
-          component: 'geschaeft'
-        }]
+        content:[
+          {
+            type:'react-component',
+            component: 'geschaefte'
+          },
+          {
+            type:'react-component',
+            component: 'geschaeft'
+          }
+        ]
       }]
     }
     const geschaefteLayout = new GoldenLayout(layoutConfig)
+    console.log('components/GeschaefteLayout, geschaefteLayout', geschaefteLayout)
 
-    // geschaefteLayout.registerComponent('geschaefte', this.geschaefteConstructor)
+    geschaefteLayout.registerComponent('geschaefte', this.geschaefteConstructor)
     // geschaefteLayout.registerComponent('geschaeft', this.geschaeftConstructor)
-    geschaefteLayout.registerComponent('geschaefte', TestComponent)
+    // geschaefteLayout.registerComponent('geschaefte', TestComponent)
     geschaefteLayout.registerComponent('geschaeft', TestComponent2)
     geschaefteLayout.init()
   }
