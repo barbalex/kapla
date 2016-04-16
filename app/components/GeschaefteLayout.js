@@ -15,16 +15,28 @@ class GeschaefteLayout extends Component {
         }
     })
     const layoutConfig = {
+      settings: {
+        hasHeaders: true,
+        reorderEnabled: false,
+        showPopoutIcon: false,
+        showCloseIcon: false
+      },
+      labels: {
+        maximise: 'Breite maximieren',
+        minimise: 'Breite zurücksetzen'
+      },
       content: [{
         type: 'row',
         content:[
           {
             type:'react-component',
-            component: 'geschaefte'
+            component: 'geschaefte',
+            title: 'Geschäfte'
           },
           {
             type:'react-component',
-            component: 'geschaeft'
+            component: 'geschaeft',
+            title: 'Aktives Geschäft'
           }
         ]
       }]
