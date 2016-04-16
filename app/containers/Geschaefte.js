@@ -16,9 +16,9 @@ function mapDispatchToProps(dispatch) {
 }
 
 export default function(goldenLayoutProps) {
-  console.log('containers/Geschaefte, props', props)
+  console.log('containers/Geschaefte, goldenLayoutProps', goldenLayoutProps)
 
-  function mapStateToProps(state, goldenLayoutProps) {
+  function mapStateToProps(state) {
     const { geschaefte, geschaefteGefiltert, activeId } = state.geschaefte
     const { username } = state.user
     const { dbPath, db } = state.app
