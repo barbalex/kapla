@@ -2,21 +2,13 @@
 
 import React, { Component, PropTypes } from 'react'
 import GoldenLayout from 'golden-layout'
+import wrapComponentInProvider from '../containers/wrapComponentInProvider.js'
 import Geschaeft from '../containers/Geschaeft'
 import Geschaefte from '../containers/Geschaefte'
-import { store } from '../index.js'
-import { Provider } from 'react-redux'
 
 class GeschaefteLayout extends Component {
 
-  geschaefteConstructor = () => (
-    <Provider store={store}>
-      <Geschaefte />
-    </Provider>
-  )
-
   componentDidMount = () => {
-    console.log('components/GeschaefteLayout, componentDidMount, this', this)
     const TestComponent = React.createClass({
         render: function() {
             return (<h1>test component 1</h1>)
@@ -39,9 +31,8 @@ class GeschaefteLayout extends Component {
     }
     const geschaefteLayout = new GoldenLayout(layoutConfig)
 
-    geschaefteLayout.registerComponent('geschaefte', this.geschaefteConstructor)
-    // geschaefteLayout.registerComponent('geschaefte', TestComponent)
-    geschaefteLayout.registerComponent('geschaeft', TestComponent)
+    geschaefteLayout.registerComponent('geschaefte', wrapComponentInProvider(Geschaefte))
+    geschaefteLayout.registerComponent('geschaeft', wrapComponentInProvider(Geschaeft))
     geschaefteLayout.init()
   }
 

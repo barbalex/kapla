@@ -1,5 +1,5 @@
 @import '../node_modules/golden-layout/src/css/goldenlayout-base.css';
-@import '../node_modules/golden-layout/src/css/goldenlayout-dark-theme.css';
+@import '../node_modules/golden-layout/src/css/goldenlayout-light-theme.css';
 
 body {
   position: relative;

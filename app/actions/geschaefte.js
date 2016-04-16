@@ -232,7 +232,7 @@ export function aktiviereGeschaeft(idGeschaeft) {
       type: GESCHAEFT_AKTIVIEREN,
       idGeschaeft
     })
-    dispatch(push(`/geschaefte/${idGeschaeft}`))
+    // dispatch(push(`/geschaefte/${idGeschaeft}`))
   }
 }
 
