@@ -10,21 +10,16 @@ import { Provider } from 'react-redux'
 class GeschaefteLayout extends Component {
 
   geschaefteConstructor = () => (
-      <Provider store={store}>
-        <Geschaefte />
-      </Provider>
-    )
+    <Provider store={store}>
+      <Geschaefte />
+    </Provider>
+  )
 
   componentDidMount = () => {
     console.log('components/GeschaefteLayout, componentDidMount, this', this)
     const TestComponent = React.createClass({
         render: function() {
             return (<h1>test component 1</h1>)
-        }
-    })
-    const TestComponent2 = React.createClass({
-        render: function() {
-            return (<h1>test component 2</h1>)
         }
     })
     const layoutConfig = {
@@ -43,11 +38,10 @@ class GeschaefteLayout extends Component {
       }]
     }
     const geschaefteLayout = new GoldenLayout(layoutConfig)
-    console.log('components/GeschaefteLayout, geschaefteLayout', geschaefteLayout)
 
     geschaefteLayout.registerComponent('geschaefte', this.geschaefteConstructor)
     // geschaefteLayout.registerComponent('geschaefte', TestComponent)
-    geschaefteLayout.registerComponent('geschaeft', TestComponent2)
+    geschaefteLayout.registerComponent('geschaeft', TestComponent)
     geschaefteLayout.init()
   }
 
