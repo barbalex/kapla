@@ -4,13 +4,13 @@ import React from 'react'
 import { Route, IndexRoute } from 'react-router'
 import App from './containers/App'
 import Geschaeft from './containers/Geschaeft'
-import Geschaefte from './containers/Geschaefte'
+import GeschaefteLayout from './containers/GeschaefteLayout'
 import Pages from './containers/Pages'
 
 export default (
   <Route path="/" component={App}>
-    <IndexRoute component={Geschaefte} />
-    <Route path="/geschaefte" component={Geschaefte} />
+    <IndexRoute component={GeschaefteLayout} />
+    <Route path="/geschaefte" component={GeschaefteLayout} />
     <Route path="/geschaefte/:idGeschaeft" component={Geschaeft} />
     <Route path="/pages" component={Pages} />
   </Route>

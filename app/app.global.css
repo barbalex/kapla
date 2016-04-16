@@ -1,3 +1,6 @@
+@import '../node_modules/golden-layout/src/css/goldenlayout-base.css';
+@import '../node_modules/golden-layout/src/css/goldenlayout-dark-theme.css';
+
 body {
   position: relative;
   overflow-y: hidden;
