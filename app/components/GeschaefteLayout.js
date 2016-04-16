@@ -12,36 +12,6 @@ import * as GeschaefteActions from '../actions/geschaefte'
 import * as AppActions from '../actions/app'
 
 class GeschaefteLayout extends Component {
-  static propTypes = {
-    fetchUsername: PropTypes.func.isRequired,
-    holeDbAusConfig: PropTypes.func.isRequired,
-    holenGeschaefte: PropTypes.func.isRequired,
-    holenRechtsmittelerledigungOptions: PropTypes.func.isRequired,
-    holenParlVorstossTypOptions: PropTypes.func.isRequired,
-    holenStatusOptions: PropTypes.func.isRequired,
-    holenGeschaeftsartOptions: PropTypes.func.isRequired
-  }
-
-  componentWillMount = () => {
-    const {
-      fetchUsername,
-      holeDbAusConfig,
-      holenGeschaefte,
-      holenRechtsmittelerledigungOptions,
-      holenParlVorstossTypOptions,
-      holenStatusOptions,
-      holenGeschaeftsartOptions
-    } = this.props
-
-    fetchUsername()
-    holeDbAusConfig()
-    holenGeschaefte()
-    holenRechtsmittelerledigungOptions()
-    holenParlVorstossTypOptions()
-    holenStatusOptions()
-    holenGeschaeftsartOptions()
-  }
-
   geschaefteConstructor = () => {
     const actions = Object.assign(GeschaefteActions, AppActions, UserActions)
 
