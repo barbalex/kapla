@@ -235,9 +235,6 @@ class NavbarComponent extends Component {
                 Geschäfte <Badge className={classNameBadge}>{geschaefteGefiltert.length}</Badge>
               </NavItem>
             </LinkContainer>
-            <LinkContainer to={{ pathname: geschaeftPath }} disabled = {!activeId}>
-              <NavItem eventKey={2} href="#" disabled = {!activeId}>Geschäft</NavItem>
-            </LinkContainer>
             <NavDropdown
               eventKey={3}
               title="Filter"
