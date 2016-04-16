@@ -12,6 +12,8 @@ import './app.global.css'
 const store = configureStore()
 const history = syncHistoryWithStore(hashHistory, store)
 
+export { store }
+
 render(
   <Provider store={store}>
     <Router history={history} routes={routes} />
