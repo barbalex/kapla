@@ -1,7 +1,7 @@
 'use strict'
 
 import React, { Component, PropTypes } from 'react'
-const GoldenLayout = require('imports?React=react&ReactDOM=react-dom!golden-layout')
+import GoldenLayout from 'golden-layout'
 import Geschaeft from '../containers/Geschaeft'
 import Geschaefte from '../containers/Geschaefte'
 import { bindActionCreators } from 'redux'

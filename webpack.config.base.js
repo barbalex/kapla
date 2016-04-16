@@ -4,14 +4,21 @@ const path = require('path')
 
 module.exports = {
   module: {
-    loaders: [{
-      test: /\.jsx?$/,
-      loaders: ['babel-loader'],
-      exclude: /node_modules/
-    }, {
-      test: /\.json$/,
-      loader: 'json-loader'
-    }]
+    loaders: [
+      {
+        test: /\.jsx?$/,
+        loaders: ['babel-loader'],
+        exclude: /node_modules/
+      },
+      {
+        test: /\.json$/,
+        loader: 'json-loader'
+      },
+      {
+        test: require.resolve('golden-layout'),
+        loader: 'imports?React=react&ReactDOM=react-dom'
+      }
+    ]
   },
   output: {
     path: path.join(__dirname, 'dist'),
