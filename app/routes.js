@@ -4,7 +4,7 @@ import React from 'react'
 import { Route, IndexRoute } from 'react-router'
 import App from './containers/App'
 import Geschaeft from './containers/Geschaeft'
-import GeschaefteLayout from './containers/GeschaefteLayout'
+import GeschaefteLayout from './components/GeschaefteLayout'
 import Pages from './containers/Pages'
 
 export default (
