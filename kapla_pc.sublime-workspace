@@ -220,10 +220,13 @@
 			}
 		},
 		{
+			"contents": "'use strict'\n\nimport React, { Component, PropTypes } from 'react'\nimport GoldenLayout from 'golden-layout'\nimport wrapComponentInProvider from '../containers/wrapComponentInProvider.js'\nimport Geschaeft from '../containers/Geschaeft'\nimport Geschaefte from '../containers/Geschaefte'\n\nclass GeschaefteLayout extends Component {\n\n  componentDidMount = () => {\n    const layoutConfig = {\n      settings: {\n        hasHeaders: true,\n        reorderEnabled: false,\n        showPopoutIcon: false,\n        showCloseIcon: false\n      },\n      labels: {\n        maximise: 'Breite maximieren',\n        minimise: 'Breite zurücksetzen'\n      },\n      content: [{\n        type: 'row',\n        content:[\n          {\n            type:'react-component',\n            component: 'geschaefte',\n            title: 'Geschäfte'\n          },\n          {\n            type:'react-component',\n            component: 'geschaeft',\n            title: 'Aktives Geschäft'\n          }\n        ]\n      }]\n    }\n    const geschaefteLayout = new GoldenLayout(layoutConfig)\n\n    geschaefteLayout.registerComponent('geschaefte', wrapComponentInProvider(Geschaefte))\n    geschaefteLayout.registerComponent('geschaeft', wrapComponentInProvider(Geschaeft))\n    geschaefteLayout.init()\n  }\n\n  render = () => <div></div>\n}\n\nexport default GeschaefteLayout\n",
 			"file": "app/components/GeschaefteLayout.js",
+			"file_size": 1511,
+			"file_write_time": 131053165716446265,
 			"settings":
 			{
-				"buffer_size": 1454,
+				"buffer_size": 1315,
 				"line_ending": "Windows"
 			}
 		},
@@ -799,15 +802,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1454,
+						"buffer_size": 1315,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1177,
-								1177
+								989,
+								1005
 							]
 						],
 						"settings":
@@ -817,7 +820,7 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 693.0,
+						"translation.y": 396.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,

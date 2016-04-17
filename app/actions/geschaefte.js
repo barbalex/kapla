@@ -116,6 +116,7 @@ export function erstelleNeuesGeschaeft() {
     const { app, user, routing } = getState()
     neuesGeschaeft(app.db, user.username)
       .then((geschaeft) => {
+        console.log('actions/erstelleNeuesGeschaeft, geschaeft', geschaeft)
         dispatch(eroeffneGeschaeft(geschaeft))
         dispatch(aktiviereGeschaeft(geschaeft.idGeschaeft))
         if (routing.locationBeforeTransitions.pathname !== '/geschaefte') dispatch(push('/geschaefte'))

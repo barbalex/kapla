@@ -9,11 +9,6 @@ import Geschaefte from '../containers/Geschaefte'
 class GeschaefteLayout extends Component {
 
   componentDidMount = () => {
-    const TestComponent = React.createClass({
-        render: function() {
-            return (<h1>test component 1</h1>)
-        }
-    })
     const layoutConfig = {
       settings: {
         hasHeaders: true,

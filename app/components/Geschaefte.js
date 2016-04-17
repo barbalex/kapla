@@ -46,8 +46,7 @@ class Geschaefte extends Component {
   }
 
   renderItem(index, key) {
-    const { geschaefte, activeId } = this.props
-    let { geschaefteGefilterteIds } = this.props
+    const { geschaefte, geschaefteGefilterteIds, activeId } = this.props
     const isActive = activeId && activeId === geschaefteGefilterteIds[index]
     const trClassName = isActive ? [styles.tableBodyRow, styles.active].join(' ') : styles.tableBodyRow
     const geschaeft = geschaefte.find((g) => g.idGeschaeft === geschaefteGefilterteIds[index])
@@ -108,7 +107,7 @@ class Geschaefte extends Component {
      * class 'reactList' is needed to
      * apply ::-webkit-scrollbar: display: none;
      */
-    const { geschaefteGefiltert } = this.props
+    const { geschaefteGefilterteIds } = this.props
 
     console.log('components/Geschaefte, geschaefte.length', this.props.geschaefte.length)
     console.log('components/Geschaefte, geschaefte', this.props.geschaefte)
@@ -127,7 +126,7 @@ class Geschaefte extends Component {
           <div className={[styles.tableBody, 'reactList'].join(' ')}>
             <ReactList
               itemRenderer={::this.renderItem}
-              length={geschaefteGefiltert.length}
+              length={geschaefteGefilterteIds.length}
               type="variable"
             />
           </div>

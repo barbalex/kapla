@@ -125,14 +125,15 @@ export default function geschaefte(state = standardState, action) {
       }
     case GESCHAEFT_EROEFFNEN:
       /**
-       * need to set back filters when adding new geschaeft
+       * need to add new id to geschaefteGefilterteIds
        */
+      console.log('reducers, GESCHAEFT_EROEFFNEN, action.geschaeft', action.geschaeft)
+      console.log('reducers, GESCHAEFT_EROEFFNEN, action.geschaeft.idGeschaeft', action.geschaeft.idGeschaeft)
+      console.log('reducers, GESCHAEFT_EROEFFNEN, state.geschaefteGefilterteIds', state.geschaefteGefilterteIds)
       return {
         ...state,
         geschaefte: [action.geschaeft, ...state.geschaefte],
-        geschaefteGefilterteIds: [action.geschaeft.idGeschaeft, state.geschaefte.map((g) => g.idGeschaeft)],
-        filterFulltext: '',
-        filterFields: {}
+        geschaefteGefilterteIds: [action.geschaeft.idGeschaeft, ...state.geschaefteGefilterteIds]
       }
     case RECHTSMITTELERLEDIGUNG_OPTIONS_HOLEN:
       return {
