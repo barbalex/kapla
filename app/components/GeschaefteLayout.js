@@ -2,13 +2,15 @@
 
 import React, { Component, PropTypes } from 'react'
 import GoldenLayout from 'golden-layout'
-import wrapComponentInProvider from '../containers/wrapComponentInProvider.js'
+import wrapComponentInProvider from '../containers/wrapComponentInProvider'
 import Geschaeft from '../containers/Geschaeft'
 import Geschaefte from '../containers/Geschaefte'
+import saveConfigValue from '../src/saveConfigValue'
+import getConfig from '../src/getConfig.js'
 
 const layoutConfig = {
   settings: {
-    hasHeaders: true,
+    hasHeaders: false,
     reorderEnabled: false,
     showPopoutIcon: false,
     showCloseIcon: false
@@ -41,13 +43,18 @@ class GeschaefteLayout extends Component {
   }
 
   componentDidMount = () => {
-    const geschaefteLayout = new GoldenLayout(layoutConfig)
+    const savedState = getConfig().geschaefteLayoutState
+    let geschaefteLayout
+    if (savedState) {
+      geschaefteLayout = new GoldenLayout(JSON.parse(savedState))
+    } else {
+      geschaefteLayout = new GoldenLayout(layoutConfig)
+    }
     geschaefteLayout.registerComponent('geschaefte', wrapComponentInProvider(Geschaefte))
     geschaefteLayout.registerComponent('geschaeft', wrapComponentInProvider(Geschaeft))
     geschaefteLayout.init()
-    this.setState({
-      geschaefteLayout: geschaefteLayout
-    })
+    this.setState({ geschaefteLayout })
+    geschaefteLayout.on('stateChanged', () => this.saveGeschaefteState())
   }
 
   componentWillUnmount = () => {
@@ -55,9 +62,13 @@ class GeschaefteLayout extends Component {
     geschaefteLayout.destroy()
   }
 
-  render = () => {
-    return (<div></div>)
+  saveGeschaefteState = () => {
+    const { geschaefteLayout } = this.state
+    const state = JSON.stringify(geschaefteLayout.toConfig())
+    saveConfigValue('geschaefteLayoutState', state)
   }
+
+  render = () => <div></div>
 }
 
 export default GeschaefteLayout
