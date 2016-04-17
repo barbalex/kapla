@@ -124,9 +124,15 @@ export default function geschaefte(state = standardState, action) {
         geschaefte: state.geschaefte.map((g) => geschaeft(g, action))
       }
     case GESCHAEFT_EROEFFNEN:
+      /**
+       * need to set back filters when adding new geschaeft
+       */
       return {
         ...state,
-        geschaefte: [action.geschaeft, ...state.geschaefte]
+        geschaefte: [action.geschaeft, ...state.geschaefte],
+        geschaefteGefiltert: [action.geschaeft, ...state.geschaefte],
+        filterFulltext: '',
+        filterFields: {}
       }
     case RECHTSMITTELERLEDIGUNG_OPTIONS_HOLEN:
       return {

@@ -108,6 +108,10 @@ class Geschaefte extends Component {
      * apply ::-webkit-scrollbar: display: none;
      */
     const { geschaefteGefiltert } = this.props
+
+    console.log('components/Geschaefte, geschaefte.length', this.props.geschaefte.length)
+    console.log('components/Geschaefte, geschaefte', this.props.geschaefte)
+
     return (
       <div className={styles.body}>
         <div className={styles.table}>
