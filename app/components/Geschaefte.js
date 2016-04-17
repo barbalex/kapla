@@ -109,9 +109,6 @@ class Geschaefte extends Component {
      */
     const { geschaefteGefilterteIds } = this.props
 
-    console.log('components/Geschaefte, geschaefte.length', this.props.geschaefte.length)
-    console.log('components/Geschaefte, geschaefte', this.props.geschaefte)
-
     return (
       <div className={styles.body}>
         <div className={styles.table}>

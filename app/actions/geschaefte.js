@@ -116,7 +116,6 @@ export function erstelleNeuesGeschaeft() {
     const { app, user, routing } = getState()
     neuesGeschaeft(app.db, user.username)
       .then((geschaeft) => {
-        console.log('actions/erstelleNeuesGeschaeft, geschaeft', geschaeft)
         dispatch(eroeffneGeschaeft(geschaeft))
         dispatch(aktiviereGeschaeft(geschaeft.idGeschaeft))
         if (routing.locationBeforeTransitions.pathname !== '/geschaefte') dispatch(push('/geschaefte'))
@@ -145,11 +144,11 @@ export const GESCHAEFT_ENTFERNEN = 'GESCHAEFT_ENTFERNEN'
 export function entferneGeschaeft(idGeschaeft) {
   return (dispatch, getState) => {
     const { app } = getState()
-    dispatch(loescheGeschaeft())
     deleteGeschaeft(app.db, idGeschaeft)
       .then(() => {
         dispatch(aktiviereGeschaeft(null))
         dispatch(entferneGeschaeftNicht(idGeschaeft))
+        dispatch(actionLoescheGeschaeft(idGeschaeft))
       })
       .catch((error) => dispatch(nichtGelöschtesGeschaeft(error)))
   }
@@ -171,9 +170,10 @@ export function entferneGeschaeftNicht() {
 }
 
 export const GESCHAEFT_LOESCHEN = 'GESCHAEFT_LOESCHEN'
-export function loescheGeschaeft() {
+export function actionLoescheGeschaeft(idGeschaeft) {
   return {
-    type: GESCHAEFT_LOESCHEN
+    type: GESCHAEFT_LOESCHEN,
+    idGeschaeft
   }
 }
 

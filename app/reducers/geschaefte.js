@@ -9,6 +9,7 @@ import {
   GESCHAEFTE_FILTERN_VOLLTEXT,
   GESCHAEFT_AKTIVIEREN,
   GESCHAEFT_DEAKTIVIEREN,
+  GESCHAEFT_LOESCHEN,
   GESCHAEFT_ENTFERNEN_WILL,
   GESCHAEFT_ENTFERNEN_WILL_NICHT,
   GESCHAEFTE_AENDERN_STATE,
@@ -118,6 +119,12 @@ export default function geschaefte(state = standardState, action) {
         ...state,
         willDelete: false
       }
+    case GESCHAEFT_LOESCHEN:
+      return {
+        ...state,
+        geschaefte: [...state.geschaefte.filter((g) => g.idGeschaeft !== action.idGeschaeft)],
+        geschaefteGefilterteIds: [...state.geschaefteGefilterteIds.filter((id) => id !== action.idGeschaeft)]
+      }
     case GESCHAEFTE_AENDERN_STATE:
       return {
         ...state,
@@ -127,9 +134,6 @@ export default function geschaefte(state = standardState, action) {
       /**
        * need to add new id to geschaefteGefilterteIds
        */
-      console.log('reducers, GESCHAEFT_EROEFFNEN, action.geschaeft', action.geschaeft)
-      console.log('reducers, GESCHAEFT_EROEFFNEN, action.geschaeft.idGeschaeft', action.geschaeft.idGeschaeft)
-      console.log('reducers, GESCHAEFT_EROEFFNEN, state.geschaefteGefilterteIds', state.geschaefteGefilterteIds)
       return {
         ...state,
         geschaefte: [action.geschaeft, ...state.geschaefte],
