@@ -12,12 +12,12 @@ class Geschaefte extends Component {
     username: PropTypes.string,
     dbGetFromConfig: PropTypes.func.isRequired,
     getGeschaefte: PropTypes.func.isRequired,
-    aktiviereGeschaeft: PropTypes.func.isRequired,
+    geschaeftActivate: PropTypes.func.isRequired,
     activeId: PropTypes.number,
-    holenRechtsmittelerledigungOptions: PropTypes.func.isRequired,
-    holenParlVorstossTypOptions: PropTypes.func.isRequired,
-    holenStatusOptions: PropTypes.func.isRequired,
-    holenGeschaeftsartOptions: PropTypes.func.isRequired
+    rechtsmittelerledigungOptionsGet: PropTypes.func.isRequired,
+    parlVorstossTypOptionsGet: PropTypes.func.isRequired,
+    statusOptionsGet: PropTypes.func.isRequired,
+    geschaeftsartOptionsGet: PropTypes.func.isRequired
   }
 
   componentWillMount() {
@@ -25,24 +25,24 @@ class Geschaefte extends Component {
       fetchUsername,
       dbGetFromConfig,
       getGeschaefte,
-      holenRechtsmittelerledigungOptions,
-      holenParlVorstossTypOptions,
-      holenStatusOptions,
-      holenGeschaeftsartOptions
+      rechtsmittelerledigungOptionsGet,
+      parlVorstossTypOptionsGet,
+      statusOptionsGet,
+      geschaeftsartOptionsGet
     } = this.props
 
     fetchUsername()
     dbGetFromConfig()
     getGeschaefte()
-    holenRechtsmittelerledigungOptions()
-    holenParlVorstossTypOptions()
-    holenStatusOptions()
-    holenGeschaeftsartOptions()
+    rechtsmittelerledigungOptionsGet()
+    parlVorstossTypOptionsGet()
+    statusOptionsGet()
+    geschaeftsartOptionsGet()
   }
 
   onClickGeschaeft(idGeschaeft) {
-    const { aktiviereGeschaeft } = this.props
-    aktiviereGeschaeft(idGeschaeft)
+    const { geschaeftActivate } = this.props
+    geschaeftActivate(idGeschaeft)
   }
 
   renderItem(index, key) {

@@ -115,7 +115,7 @@ export function geschaeftNewCreate() {
     newGeschaeftInDb(app.db, user.username)
       .then((geschaeft) => {
         dispatch(geschaeftNew(geschaeft))
-        dispatch(aktiviereGeschaeft(geschaeft.idGeschaeft))
+        dispatch(geschaeftActivate(geschaeft.idGeschaeft))
         if (routing.locationBeforeTransitions.pathname !== '/geschaefte') dispatch(push('/geschaefte'))
       })
       .catch((error) => dispatch(geschaeftNewError(error)))
@@ -143,7 +143,7 @@ export function geschaeftRemove(idGeschaeft) {
     const { app } = getState()
     deleteGeschaeft(app.db, idGeschaeft)
       .then(() => {
-        dispatch(aktiviereGeschaeft(null))
+        dispatch(geschaeftActivate(null))
         dispatch(geschaeftRemoveDeleteIntended(idGeschaeft))
         dispatch(geschaeftDelete(idGeschaeft))
       })
@@ -183,7 +183,7 @@ export function geschaeftDeleteError(error) {
 }
 
 export const GESCHAEFTE_CHANGE_STATE = 'GESCHAEFTE_CHANGE_STATE'
-export function aendereGeschaefteState(idGeschaeft, field, value) {
+export function geschaefteChangeState(idGeschaeft, field, value) {
   return {
     type: GESCHAEFTE_CHANGE_STATE,
     idGeschaeft,
@@ -193,7 +193,7 @@ export function aendereGeschaefteState(idGeschaeft, field, value) {
 }
 
 export const GESCHAEFTE_CHANGE_DB_ERROR = 'GESCHAEFTE_CHANGE_DB_ERROR'
-export function aendereGeschaeftDbFehler(error) {
+export function geschaefteChangeDbError(error) {
   // TODO: reload data from db
   return {
     type: GESCHAEFTE_CHANGE_DB_ERROR,
@@ -209,13 +209,13 @@ export function changeGeschaeftInDb(idGeschaeft, field, value) {
     updateGeschaeft(app.db, idGeschaeft, field, value, user.username)
       .catch((error) => {
         // TODO: reset ui
-        dispatch(aendereGeschaeftDbFehler(error))
+        dispatch(geschaefteChangeDbError(error))
       })
   }
 }
 
 export const GESCHAEFT_ACTIVATE = 'GESCHAEFT_ACTIVATE'
-export function aktiviereGeschaeft(idGeschaeft) {
+export function geschaeftActivate(idGeschaeft) {
   return (dispatch) => {
     dispatch({
       type: GESCHAEFT_ACTIVATE,
@@ -224,48 +224,56 @@ export function aktiviereGeschaeft(idGeschaeft) {
   }
 }
 
-export const RECHTSMITTELERLEDIGUNG_OPTIONS_GET = 'RECHTSMITTELERLEDIGUNG_OPTIONS_GET'
-export function holenRechtsmittelerledigungOptions() {
+export function rechtsmittelerledigungOptionsGet() {
   return (dispatch, getState) => {
     const { app, geschaefte } = getState()
     // only get once
     if (geschaefte.rechtsmittelerledigungOptions.length === 0) {
       getDropdownOptions(app.db, 'rechtsmittelerledigung')
-        .then((rechtsmittelerledigungOptions) => dispatch({
-          type: RECHTSMITTELERLEDIGUNG_OPTIONS_GET,
-          rechtsmittelerledigungOptions
-        }))
-        .catch((error) => dispatch(nichtErhalteneRechtsmittelerledigungOptions(error)))
+        .then((rechtsmittelerledigungOptions) => dispatch(rechtsmittelerledigungOptionsGetSuccess(rechtsmittelerledigungOptions)))
+        .catch((error) => dispatch(rechtsmittelerledigungOptionsGetError(error)))
     }
   }
 }
 
+export const RECHTSMITTELERLEDIGUNG_OPTIONS_GET_SUCCESS = 'RECHTSMITTELERLEDIGUNG_OPTIONS_GET_SUCCESS'
+function rechtsmittelerledigungOptionsGetSuccess(rechtsmittelerledigungOptions) {
+  return {
+    type: RECHTSMITTELERLEDIGUNG_OPTIONS_GET_SUCCESS,
+    rechtsmittelerledigungOptions
+  }
+}
+
 export const RECHTSMITTELERLEDIGUNG_OPTIONS_GET_ERROR = 'RECHTSMITTELERLEDIGUNG_OPTIONS_GET_ERROR'
-function nichtErhalteneRechtsmittelerledigungOptions(error) {
+function rechtsmittelerledigungOptionsGetError(error) {
   return {
     type: RECHTSMITTELERLEDIGUNG_OPTIONS_GET_ERROR,
     error
   }
 }
 
-export const PARLVORSTOSSTYP_OPTIONS_GET = 'PARLVORSTOSSTYP_OPTIONS_GET'
-export function holenParlVorstossTypOptions() {
+export function parlVorstossTypOptionsGet() {
   return (dispatch, getState) => {
     const { app, geschaefte } = getState()
     // only get once
     if (geschaefte.parlVorstossTypOptions.length === 0) {
       getDropdownOptions(app.db, 'parlVorstossTyp')
-        .then((parlVorstossTypOptions) => dispatch({
-          type: PARLVORSTOSSTYP_OPTIONS_GET,
-          parlVorstossTypOptions
-        }))
-        .catch((error) => dispatch(nichtErhalteneParlVorstossTypOptions(error)))
+        .then((parlVorstossTypOptions) => dispatch(parlVorstossTypOptionsGetSuccess(parlVorstossTypOptions)))
+        .catch((error) => dispatch(parlVorstossTypOptionsGetError(error)))
     }
   }
 }
 
+export const PARLVORSTOSSTYP_OPTIONS_GET_SUCCESS = 'PARLVORSTOSSTYP_OPTIONS_GET_SUCCESS'
+function parlVorstossTypOptionsGetSuccess(parlVorstossTypOptions) {
+  return {
+    type: PARLVORSTOSSTYP_OPTIONS_GET_SUCCESS,
+    parlVorstossTypOptions
+  }
+}
+
 export const PARLVORSTOSSTYP_OPTIONS_GET_ERROR = 'PARLVORSTOSSTYP_OPTIONS_GET_ERROR'
-function nichtErhalteneParlVorstossTypOptions(error) {
+function parlVorstossTypOptionsGetError(error) {
   return {
     type: PARLVORSTOSSTYP_OPTIONS_GET_ERROR,
     error
@@ -273,47 +281,56 @@ function nichtErhalteneParlVorstossTypOptions(error) {
 }
 
 export const STATUS_OPTIONS_GET = 'STATUS_OPTIONS_GET'
-export function holenStatusOptions() {
+export function statusOptionsGet() {
   return (dispatch, getState) => {
     const { app, geschaefte } = getState()
     // only get once
     if (geschaefte.statusOptions.length === 0) {
       getDropdownOptions(app.db, 'status')
-        .then((statusOptions) => dispatch({
-          type: STATUS_OPTIONS_GET,
-          statusOptions
-        }))
-        .catch((error) => dispatch(nichtErhalteneStatusOptions(error)))
+        .then((statusOptions) => dispatch(statusOptionsGetSuccess(statusOptions)))
+        .catch((error) => dispatch(statusOptionsGetError(error)))
     }
   }
 }
 
+export const STATUS_OPTIONS_GET_SUCCESS = 'STATUS_OPTIONS_GET_SUCCESS'
+function statusOptionsGetSuccess(statusOptions) {
+  return {
+    type: STATUS_OPTIONS_GET_SUCCESS,
+    statusOptions
+  }
+}
+
 export const STATUS_OPTIONS_GET_ERROR = 'STATUS_OPTIONS_GET_ERROR'
-function nichtErhalteneStatusOptions(error) {
+function statusOptionsGetError(error) {
   return {
     type: STATUS_OPTIONS_GET_ERROR,
     error
   }
 }
 
-export const GESCHAEFTSART_OPTIONS_GET = 'GESCHAEFTSART_OPTIONS_GET'
-export function holenGeschaeftsartOptions() {
+export function geschaeftsartOptionsGet() {
   return (dispatch, getState) => {
     const { app, geschaefte } = getState()
     // only get once
     if (geschaefte.geschaeftsartOptions.length === 0) {
       getDropdownOptions(app.db, 'geschaeftsart')
-        .then((geschaeftsartOptions) => dispatch({
-          type: GESCHAEFTSART_OPTIONS_GET,
-          geschaeftsartOptions
-        }))
-        .catch((error) => dispatch(nichtErhalteneGeschaeftsartOptions(error)))
+        .then((geschaeftsartOptions) => dispatch(geschaeftsartOptionsGetSuccess(geschaeftsartOptions)))
+        .catch((error) => dispatch(geschaeftsartOptionsGetError(error)))
     }
   }
 }
 
+export const GESCHAEFTSART_OPTIONS_GET_SUCCESS = 'GESCHAEFTSART_OPTIONS_GET_SUCCESS'
+function geschaeftsartOptionsGetSuccess(geschaeftsartOptions) {
+  return {
+    type: GESCHAEFTSART_OPTIONS_GET_SUCCESS,
+    geschaeftsartOptions
+  }
+}
+
 export const GESCHAEFTSART_OPTIONS_GET_ERROR = 'GESCHAEFTSART_OPTIONS_GET_ERROR'
-function nichtErhalteneGeschaeftsartOptions(error) {
+function geschaeftsartOptionsGetError(error) {
   return {
     type: GESCHAEFTSART_OPTIONS_GET_ERROR,
     error

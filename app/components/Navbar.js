@@ -39,10 +39,10 @@ class NavbarComponent extends Component {
     fetchUsername: PropTypes.func.isRequired,
     dbGetFromConfig: PropTypes.func.isRequired,
     getGeschaefte: PropTypes.func.isRequired,
-    holenRechtsmittelerledigungOptions: PropTypes.func.isRequired,
-    holenParlVorstossTypOptions: PropTypes.func.isRequired,
-    holenStatusOptions: PropTypes.func.isRequired,
-    holenGeschaeftsartOptions: PropTypes.func.isRequired,
+    rechtsmittelerledigungOptionsGet: PropTypes.func.isRequired,
+    parlVorstossTypOptionsGet: PropTypes.func.isRequired,
+    statusOptionsGet: PropTypes.func.isRequired,
+    geschaeftsartOptionsGet: PropTypes.func.isRequired,
     willDeleteGeschaeft: PropTypes.bool.isRequired,
     pagesInitiate: PropTypes.func.isRequired,
     navbarVisible: PropTypes.bool.isRequired,
@@ -57,19 +57,19 @@ class NavbarComponent extends Component {
       fetchUsername,
       dbGetFromConfig,
       getGeschaefte,
-      holenRechtsmittelerledigungOptions,
-      holenParlVorstossTypOptions,
-      holenStatusOptions,
-      holenGeschaeftsartOptions
+      rechtsmittelerledigungOptionsGet,
+      parlVorstossTypOptionsGet,
+      statusOptionsGet,
+      geschaeftsartOptionsGet
     } = this.props
 
     fetchUsername()
     dbGetFromConfig()
     throttle(getGeschaefte, 200)
-    throttle(holenRechtsmittelerledigungOptions, 1000)
-    throttle(holenParlVorstossTypOptions, 1000)
-    throttle(holenStatusOptions, 1000)
-    throttle(holenGeschaeftsartOptions, 1000)
+    throttle(rechtsmittelerledigungOptionsGet, 1000)
+    throttle(parlVorstossTypOptionsGet, 1000)
+    throttle(statusOptionsGet, 1000)
+    throttle(geschaeftsartOptionsGet, 1000)
   }
 
   onChangeFilterFulltext = (e) => {

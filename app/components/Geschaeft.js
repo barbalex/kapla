@@ -8,7 +8,7 @@ class Geschaeft extends Component {
   static propTypes = {
     geschaefte: PropTypes.array.isRequired,
     activeId: PropTypes.number,
-    aendereGeschaefteState: PropTypes.func.isRequired,
+    geschaefteChangeState: PropTypes.func.isRequired,
     changeGeschaeftInDb: PropTypes.func.isRequired,
     rechtsmittelerledigungOptions: PropTypes.array.isRequired,
     parlVorstossTypOptions: PropTypes.array.isRequired,
@@ -17,7 +17,7 @@ class Geschaeft extends Component {
   }
 
   change = (e) => {
-    const { activeId, aendereGeschaefteState } = this.props
+    const { activeId, geschaefteChangeState } = this.props
     const { type, name, dataset } = e.target
     let { value } = e.target
     if (type === 'radio') {
@@ -25,7 +25,7 @@ class Geschaeft extends Component {
       // blur does not occur in radio
       this.blur(e)
     }
-    aendereGeschaefteState(activeId, name, value)
+    geschaefteChangeState(activeId, name, value)
   }
 
   blur = (e) => {

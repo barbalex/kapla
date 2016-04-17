@@ -15,13 +15,13 @@ import {
   GESCHAEFTE_CHANGE_STATE,
   GESCHAEFTE_CHANGE_DB_ERROR,
   GESCHAEFT_NEW,
-  RECHTSMITTELERLEDIGUNG_OPTIONS_GET,
+  RECHTSMITTELERLEDIGUNG_OPTIONS_GET_SUCCESS,
   RECHTSMITTELERLEDIGUNG_OPTIONS_GET_ERROR,
-  PARLVORSTOSSTYP_OPTIONS_GET,
+  PARLVORSTOSSTYP_OPTIONS_GET_SUCCESS,
   PARLVORSTOSSTYP_OPTIONS_GET_ERROR,
-  STATUS_OPTIONS_GET,
+  STATUS_OPTIONS_GET_SUCCESS,
   STATUS_OPTIONS_GET_ERROR,
-  GESCHAEFTSART_OPTIONS_GET,
+  GESCHAEFTSART_OPTIONS_GET_SUCCESS,
   GESCHAEFTSART_OPTIONS_GET_ERROR
 } from '../actions/geschaefte'
 
@@ -139,22 +139,22 @@ export default function geschaefte(state = standardState, action) {
         geschaefte: [action.geschaeft, ...state.geschaefte],
         geschaefteGefilterteIds: [action.geschaeft.idGeschaeft, ...state.geschaefteGefilterteIds]
       }
-    case RECHTSMITTELERLEDIGUNG_OPTIONS_GET:
+    case RECHTSMITTELERLEDIGUNG_OPTIONS_GET_SUCCESS:
       return {
         ...state,
         rechtsmittelerledigungOptions: action.rechtsmittelerledigungOptions
       }
-    case PARLVORSTOSSTYP_OPTIONS_GET:
+    case PARLVORSTOSSTYP_OPTIONS_GET_SUCCESS:
       return {
         ...state,
         parlVorstossTypOptions: action.parlVorstossTypOptions
       }
-    case STATUS_OPTIONS_GET:
+    case STATUS_OPTIONS_GET_SUCCESS:
       return {
         ...state,
         statusOptions: action.statusOptions
       }
-    case GESCHAEFTSART_OPTIONS_GET:
+    case GESCHAEFTSART_OPTIONS_GET_SUCCESS:
       return {
         ...state,
         geschaeftsartOptions: action.geschaeftsartOptions
