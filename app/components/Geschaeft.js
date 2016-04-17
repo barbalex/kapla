@@ -67,7 +67,7 @@ class Geschaeft extends Component {
                 <Input
                   type = "textarea"
                   label = "Gegenstand"
-                  value = {geschaeft.gegenstand}
+                  value = {geschaeft.gegenstand || ''}
                   name = "gegenstand"
                   onChange = {this.change}
                   onBlur = {this.blur}
@@ -94,7 +94,7 @@ class Geschaeft extends Component {
                 <Input
                   type = "text"
                   label = "Ort"
-                  value = {geschaeft.ort}
+                  value = {geschaeft.ort || ''}
                   name = "ort"
                   onChange = {this.change}
                   onBlur = {this.blur}
@@ -107,7 +107,7 @@ class Geschaeft extends Component {
                 <Input
                   type = "number"
                   label = "AWEL Nr."
-                  value = {geschaeft.entscheidAwelNr}
+                  value = {geschaeft.entscheidAwelNr || ''}
                   name = "entscheidAwelNr"
                   onChange = {this.change}
                   onBlur = {this.blur}
@@ -120,7 +120,7 @@ class Geschaeft extends Component {
                 <Input
                   type = "number"
                   label = "Jahr"
-                  value = {geschaeft.entscheidAwelJahr}
+                  value = {geschaeft.entscheidAwelJahr || ''}
                   name = "entscheidAwelJahr"
                   onChange = {this.change}
                   onBlur = {this.blur}
@@ -134,7 +134,7 @@ class Geschaeft extends Component {
                 <Input
                   type = "number"
                   label = "BDV&nbsp;&nbsp;&nbsp;&nbsp;Nr."
-                  value = {geschaeft.entscheidBdvNr}
+                  value = {geschaeft.entscheidBdvNr || ''}
                   name = "entscheidBdvNr"
                   onChange = {this.change}
                   onBlur = {this.blur}
@@ -147,7 +147,7 @@ class Geschaeft extends Component {
                 <Input
                   type = "number"
                   label = "Jahr"
-                  value = {geschaeft.entscheidBdvJahr}
+                  value = {geschaeft.entscheidBdvJahr || ''}
                   name = "entscheidBdvJahr"
                   onChange = {this.change}
                   onBlur = {this.blur}
@@ -162,7 +162,7 @@ class Geschaeft extends Component {
                 <Input
                   type = "select"
                   label = "Geschäftsart"
-                  value = {geschaeft.geschaeftsart}
+                  value = {geschaeft.geschaeftsart || ''}
                   name = "geschaeftsart"
                   onChange = {this.change}
                   onBlur = {this.blur}
@@ -177,7 +177,7 @@ class Geschaeft extends Component {
                 <Input
                   type = "select"
                   label = "Status"
-                  value = {geschaeft.status}
+                  value = {geschaeft.status || ''}
                   name = "status"
                   onChange = {this.change}
                   onBlur = {this.blur}
@@ -192,7 +192,7 @@ class Geschaeft extends Component {
                 <Input
                   type = "number"
                   label = "Vorgeschäft"
-                  value = {geschaeft.idVorgeschaeft}
+                  value = {geschaeft.idVorgeschaeft || ''}
                   name = "idVorgeschaeft"
                   onChange = {this.change}
                   onBlur = {this.blur}
@@ -206,7 +206,7 @@ class Geschaeft extends Component {
                 <Input
                   type = "text"
                   label = "Direktion"
-                  value = {geschaeft.zustaendigeDirektion}
+                  value = {geschaeft.zustaendigeDirektion || ''}
                   name = "zustaendigeDirektion"
                   onChange = {this.change}
                   onBlur = {this.blur}
@@ -219,7 +219,7 @@ class Geschaeft extends Component {
                 <Input
                   type = "number"
                   label = "KR&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Nr."
-                  value = {geschaeft.entscheidKrNr}
+                  value = {geschaeft.entscheidKrNr || ''}
                   name = "entscheidKrNr"
                   onChange = {this.change}
                   onBlur = {this.blur}
@@ -232,7 +232,7 @@ class Geschaeft extends Component {
                 <Input
                   type = "number"
                   label = "Jahr"
-                  value = {geschaeft.entscheidKrJahr}
+                  value = {geschaeft.entscheidKrJahr || ''}
                   name = "entscheidKrJahr"
                   onChange = {this.change}
                   onBlur = {this.blur}
@@ -246,7 +246,7 @@ class Geschaeft extends Component {
                 <Input
                   type = "number"
                   label = "RRB&nbsp;&nbsp;&nbsp;&nbsp;Nr."
-                  value = {geschaeft.entscheidRrbNr}
+                  value = {geschaeft.entscheidRrbNr || ''}
                   name = "entscheidRrbNr"
                   onChange = {this.change}
                   onBlur = {this.blur}
@@ -259,7 +259,7 @@ class Geschaeft extends Component {
                 <Input
                   type = "number"
                   label = "Jahr"
-                  value = {geschaeft.entscheidRrbJahr}
+                  value = {geschaeft.entscheidRrbJahr || ''}
                   name = "entscheidRrbJahr"
                   onChange = {this.change}
                   onBlur = {this.blur}
@@ -274,7 +274,7 @@ class Geschaeft extends Component {
                 <Input
                   type = "textarea"
                   label = "Details"
-                  value = {geschaeft.details}
+                  value = {geschaeft.details || ''}
                   name = "details"
                   onChange = {this.change}
                   onBlur = {this.blur}
@@ -288,7 +288,7 @@ class Geschaeft extends Component {
                 <Input
                   type = "text"
                   label = "Aktenstandort"
-                  value = {geschaeft.aktenstandort}
+                  value = {geschaeft.aktenstandort || ''}
                   name = "aktenstandort"
                   onChange = {this.change}
                   onBlur = {this.blur}
@@ -301,7 +301,7 @@ class Geschaeft extends Component {
                 <Input
                   type = "text"
                   label = "Nr."
-                  value = {geschaeft.aktennummer}
+                  value = {geschaeft.aktennummer || ''}
                   name = "aktennummer"
                   onChange = {this.change}
                   onBlur = {this.blur}
@@ -316,7 +316,7 @@ class Geschaeft extends Component {
                 <Input
                   type = "textarea"
                   label = "Nächster Schritt"
-                  value = {geschaeft.naechsterSchritt}
+                  value = {geschaeft.naechsterSchritt || ''}
                   name = "naechsterSchritt"
                   onChange = {this.change}
                   onBlur = {this.blur}
@@ -331,7 +331,7 @@ class Geschaeft extends Component {
                 <Input
                   type = "select"
                   label = "Typ"
-                  value = {geschaeft.parlVorstossTyp}
+                  value = {geschaeft.parlVorstossTyp || ''}
                   name = "parlVorstossTyp"
                   onChange = {this.change}
                   onBlur = {this.blur}
@@ -348,7 +348,7 @@ class Geschaeft extends Component {
                 <Input
                   type = "textarea"
                   label = "Vermerk"
-                  value = {geschaeft.vermerk}
+                  value = {geschaeft.vermerk || ''}
                   name = "vermerk"
                   onChange = {this.change}
                   onBlur = {this.blur}
@@ -481,7 +481,7 @@ class Geschaeft extends Component {
                 <Input
                   type = "select"
                   label = "Erledigung"
-                  value = {geschaeft.rechtsmittelerledigung}
+                  value = {geschaeft.rechtsmittelerledigung || ''}
                   name = "rechtsmittelerledigung"
                   onChange = {this.change}
                   onBlur = {this.blur}
