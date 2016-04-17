@@ -42,12 +42,12 @@ function nichtErhalteneGeschaefte(error) {
 export const GESCHAEFTE_HOLEN = 'GESCHAEFTE_HOLEN'
 export function holenGeschaefte() {
   return (dispatch, getState) => {
-    const { app } = getState()
+    const { app, routing } = getState()
     dispatch(bestelleGeschaefte())
     getGeschaefte(app.db)
       .then((geschaefte) => {
         dispatch(erhalteGeschaefte(geschaefte))
-        // dispatch(push('/geschaefte'))
+        if (routing.locationBeforeTransitions.pathname !== '/geschaefte') dispatch(push('/geschaefte'))
       })
       .catch((error) => dispatch(nichtErhalteneGeschaefte(error)))
   }
@@ -113,12 +113,12 @@ import deleteGeschaeft from '../src/deleteGeschaeft.js'
 export const GESCHAEFT_NEU_ERSTELLEN = 'GESCHAEFT_NEU_ERSTELLEN'
 export function erstelleNeuesGeschaeft() {
   return (dispatch, getState) => {
-    const { app, user } = getState()
+    const { app, user, routing } = getState()
     neuesGeschaeft(app.db, user.username)
       .then((geschaeft) => {
         dispatch(eroeffneGeschaeft(geschaeft))
         dispatch(aktiviereGeschaeft(geschaeft.idGeschaeft))
-        // dispatch(push(`/geschaefte/${idGeschaeft}`))
+        if (routing.locationBeforeTransitions.pathname !== '/geschaefte') dispatch(push('/geschaefte'))
       })
       .catch((error) => dispatch(nichtEroeffnetesGeschaeft(error)))
   }
@@ -149,7 +149,6 @@ export function entferneGeschaeft(idGeschaeft) {
       .then(() => {
         dispatch(aktiviereGeschaeft(null))
         dispatch(entferneGeschaeftNicht(idGeschaeft))
-        // dispatch(push('/geschaefte'))
       })
       .catch((error) => dispatch(nichtGelöschtesGeschaeft(error)))
   }
@@ -232,7 +231,6 @@ export function aktiviereGeschaeft(idGeschaeft) {
       type: GESCHAEFT_AKTIVIEREN,
       idGeschaeft
     })
-    // dispatch(push(`/geschaefte/${idGeschaeft}`))
   }
 }
 
