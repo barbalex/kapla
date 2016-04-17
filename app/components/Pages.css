@@ -17,5 +17,9 @@
     background-color: #fff;
     /* with overflow an empty page is inserted between each page */
     overflow-y: visible;
+    /* necessary? */
+    height: 100vh;
+    margin-left: -2cm;
+    margin-top: -2cm;
   }
 }
