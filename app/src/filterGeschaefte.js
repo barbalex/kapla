@@ -45,5 +45,5 @@ export default function (geschaefte, filterFulltext, filterFields) {
       return satisfiesFilter
     })
   }
-  return geschaefteGefiltert
+  return geschaefteGefiltert.map((g) => g.idGeschaeft)
 }

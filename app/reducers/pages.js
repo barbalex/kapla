@@ -53,7 +53,7 @@ export default function pages(state = standardPagesState, action) {
       return {
         ...standardPagesState,
         reportType: action.reportType,
-        remainingGeschaefte: action.geschaefteGefiltert,
+        remainingGeschaefte: action.geschaefteGefilterteIds,
         building: true
       }
     case PAGES_QUERY_TITLE:

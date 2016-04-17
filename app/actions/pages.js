@@ -6,7 +6,8 @@ export const PAGES_INITIATE = 'PAGES_INITIATE'
 export function pagesInitiate(reportType) {
   return (dispatch, getState) => {
     const { geschaefte } = getState()
-    const { geschaefteGefiltert } = geschaefte
+    const { geschaefteGefilterteIds } = geschaefte
+    const geschaefteGefiltert = geschaefte.filter((g) => geschaefteGefilterteIds.includes(g.idGeschaeft))
     dispatch({
       type: PAGES_INITIATE,
       reportType,

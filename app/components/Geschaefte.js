@@ -7,7 +7,7 @@ import styles from './Geschaefte.css'
 class Geschaefte extends Component {
   static propTypes = {
     geschaefte: PropTypes.array.isRequired,
-    geschaefteGefiltert: PropTypes.array.isRequired,
+    geschaefteGefilterteIds: PropTypes.array.isRequired,
     fetchUsername: PropTypes.func.isRequired,
     username: PropTypes.string,
     holeDbAusConfig: PropTypes.func.isRequired,
@@ -46,10 +46,11 @@ class Geschaefte extends Component {
   }
 
   renderItem(index, key) {
-    const { geschaefteGefiltert, activeId } = this.props
-    const isActive = activeId && activeId === geschaefteGefiltert[index].idGeschaeft
+    const { geschaefte, activeId } = this.props
+    let { geschaefteGefilterteIds } = this.props
+    const isActive = activeId && activeId === geschaefteGefilterteIds[index]
     const trClassName = isActive ? [styles.tableBodyRow, styles.active].join(' ') : styles.tableBodyRow
-    const geschaeft = geschaefteGefiltert[index]
+    const geschaeft = geschaefte.find((g) => g.idGeschaeft === geschaefteGefilterteIds[index])
     const fristMitarbeiter = geschaeft.fristMitarbeiter ? `Frist: ${geschaeft.fristMitarbeiter}` : null
 
     return (

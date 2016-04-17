@@ -21,12 +21,12 @@ function erhalteGeschaefte(geschaefteArray) {
   return (dispatch, getState) => {
     const { geschaefte } = getState()
     const { filterFields, filterFulltext } = geschaefte
-    // create geschaefteGefiltert
-    const geschaefteGefiltert = filterGeschaefte(geschaefteArray, filterFulltext, filterFields)
+    // create geschaefteGefilterteIds
+    const geschaefteGefilterteIds = filterGeschaefte(geschaefteArray, filterFulltext, filterFields)
     dispatch({
       type: GESCHAEFTE_ERHALTEN,
       geschaefte: geschaefteArray,
-      geschaefteGefiltert
+      geschaefteGefilterteIds
     })
   }
 }
@@ -63,12 +63,12 @@ export function filtereGeschaefteNachFeldern(filterFields) {
   return (dispatch, getState) => {
     const { geschaefte } = getState()
     const { filterFulltext } = geschaefte
-    // create geschaefteGefiltert
-    const geschaefteGefiltert = filterGeschaefte(geschaefte.geschaefte, filterFulltext, filterFields)
+    // create geschaefteGefilterteIds
+    const geschaefteGefilterteIds = filterGeschaefte(geschaefte.geschaefte, filterFulltext, filterFields)
     dispatch({
       type: GESCHAEFTE_FILTERN_FELDER,
       filterFields,
-      geschaefteGefiltert
+      geschaefteGefilterteIds
     })
   }
 }
@@ -92,11 +92,11 @@ export function filtereGeschaefteNachVolltext() {
   return (dispatch, getState) => {
     const { geschaefte, routing } = getState()
     const { filterFulltext, filterFields } = geschaefte
-    // create geschaefteGefiltert
-    const geschaefteGefiltert = filterGeschaefte(geschaefte.geschaefte, filterFulltext, filterFields)
+    // create geschaefteGefilterteIds
+    const geschaefteGefilterteIds = filterGeschaefte(geschaefte.geschaefte, filterFulltext, filterFields)
     dispatch({
       type: GESCHAEFTE_FILTERN_VOLLTEXT,
-      geschaefteGefiltert
+      geschaefteGefilterteIds
     })
     if (routing.locationBeforeTransitions.pathname !== '/geschaefte') dispatch(push('/geschaefte'))
   }

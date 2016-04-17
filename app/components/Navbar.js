@@ -34,7 +34,7 @@ class NavbarComponent extends Component {
     activeId: PropTypes.number,
     filterFulltext: PropTypes.string,
     geschaefte: PropTypes.array.isRequired,
-    geschaefteGefiltert: PropTypes.array.isRequired,
+    geschaefteGefilterteIds: PropTypes.array.isRequired,
     showMessageModal: PropTypes.bool.isRequired,
     fetchUsername: PropTypes.func.isRequired,
     holeDbAusConfig: PropTypes.func.isRequired,
@@ -141,8 +141,9 @@ class NavbarComponent extends Component {
   )
 
   exportGeschaefte = (e) => {
-    const { geschaefteGefiltert, showMessage } = this.props
+    const { geschaefteGefilterteIds, geschaefte, showMessage } = this.props
     e.preventDefault()
+    const geschaefteGefiltert = geschaefte.filter((g) => geschaefteGefilterteIds.includes(g.idGeschaeft))
     exportGeschaefte(geschaefteGefiltert, showMessage)
   }
 
@@ -204,7 +205,7 @@ class NavbarComponent extends Component {
       holenDb,
       activeId,
       geschaefte,
-      geschaefteGefiltert,
+      geschaefteGefilterteIds,
       showMessageModal,
       filterFulltext,
       willDeleteGeschaeft,
@@ -217,7 +218,7 @@ class NavbarComponent extends Component {
 
     if (!navbarVisible) return null
 
-    const dataIsFiltered = geschaefte.length !== geschaefteGefiltert.length
+    const dataIsFiltered = geschaefte.length !== geschaefteGefilterteIds.length
     const dataIsFilteredStyle = [styles.filterInput, styles.filterInputActive].join(' ')
     const classNameFilterInput = dataIsFiltered ? dataIsFilteredStyle : styles.filterInput
     const classNameBadge = dataIsFiltered ? styles.badgeWithActiveFilter : styles.badge
@@ -232,7 +233,7 @@ class NavbarComponent extends Component {
           <Nav>
             <LinkContainer to={{ pathname: '/geschaefte' }}>
               <NavItem eventKey={1} href="#">
-                Geschäfte <Badge className={classNameBadge}>{geschaefteGefiltert.length}</Badge>
+                Geschäfte <Badge className={classNameBadge}>{geschaefteGefilterteIds.length}</Badge>
               </NavItem>
             </LinkContainer>
             <NavDropdown

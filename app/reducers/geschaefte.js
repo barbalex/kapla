@@ -28,7 +28,7 @@ const standardState = {
   fetching: false,
   error: [],
   geschaefte: [],
-  geschaefteGefiltert: [],
+  geschaefteGefilterteIds: [],
   filterFields: {},
   filterFulltext: '',
   // dropdown lists
@@ -70,7 +70,7 @@ export default function geschaefte(state = standardState, action) {
         fetching: false,
         error: [],
         geschaefte: action.geschaefte,
-        geschaefteGefiltert: action.geschaefteGefiltert
+        geschaefteGefilterteIds: action.geschaefteGefilterteIds
       }
     case GESCHAEFTE_NICHT_ERHALTEN:
       return {
@@ -84,7 +84,7 @@ export default function geschaefte(state = standardState, action) {
         filterFields: action.filterFields,
         filterFulltext: null,
         activeId: null,
-        geschaefteGefiltert: action.geschaefteGefiltert
+        geschaefteGefilterteIds: action.geschaefteGefilterteIds
       }
     case GESCHAEFTE_VOLLTEXTFILTER_SETZEN:
       return {
@@ -96,7 +96,7 @@ export default function geschaefte(state = standardState, action) {
     case GESCHAEFTE_FILTERN_VOLLTEXT:
       return {
         ...state,
-        geschaefteGefiltert: action.geschaefteGefiltert
+        geschaefteGefilterteIds: action.geschaefteGefilterteIds
       }
     case GESCHAEFT_AKTIVIEREN:
       return {
@@ -130,7 +130,7 @@ export default function geschaefte(state = standardState, action) {
       return {
         ...state,
         geschaefte: [action.geschaeft, ...state.geschaefte],
-        geschaefteGefiltert: [action.geschaeft, ...state.geschaefte],
+        geschaefteGefilterteIds: [action.geschaeft.idGeschaeft, state.geschaefte.map((g) => g.idGeschaeft)],
         filterFulltext: '',
         filterFields: {}
       }

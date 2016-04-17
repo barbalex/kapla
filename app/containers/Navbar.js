@@ -11,7 +11,7 @@ import * as PagesActions from '../actions/pages'
 const actions = Object.assign(UserActions, AppActions, GeschaefteActions, PagesActions)
 
 function mapStateToProps(state) {
-  const { activeId, filterFulltext, geschaefte, geschaefteGefiltert, willDelete } = state.geschaefte
+  const { activeId, filterFulltext, geschaefte, geschaefteGefilterteIds, willDelete } = state.geschaefte
   const { username } = state.user
   const { dbPath, db, navbarVisible, showMessageModal } = state.app
   const path = state.routing.locationBeforeTransitions.pathname
@@ -20,7 +20,7 @@ function mapStateToProps(state) {
     activeId,
     filterFulltext,
     geschaefte,
-    geschaefteGefiltert,
+    geschaefteGefilterteIds,
     dbPath,
     db,
     willDeleteGeschaeft: willDelete,
