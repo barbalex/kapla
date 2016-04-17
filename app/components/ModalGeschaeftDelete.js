@@ -5,15 +5,15 @@ import { Modal, Button } from 'react-bootstrap'
 
 class ModalGeschaeftDelete extends Component {
   static propTypes = {
-    entferneGeschaeft: PropTypes.func.isRequired,
-    entferneGeschaeftNicht: PropTypes.func.isRequired,
+    geschaeftRemove: PropTypes.func.isRequired,
+    geschaeftRemoveDeleteIntended: PropTypes.func.isRequired,
     activeId: PropTypes.number
   }
 
   render() {
     const {
-      entferneGeschaeft,
-      entferneGeschaeftNicht,
+      geschaeftRemove,
+      geschaeftRemoveDeleteIntended,
       activeId
     } = this.props
 
@@ -26,8 +26,8 @@ class ModalGeschaeftDelete extends Component {
           Möchten Sie das Geschäft Nr. {activeId} wirklich löschen?
         </Modal.Body>
         <Modal.Footer>
-          <Button onClick={() => entferneGeschaeftNicht()}>Nein</Button>
-          <Button bsStyle="primary" onClick={() => entferneGeschaeft(activeId)}>Ja</Button>
+          <Button onClick={() => geschaeftRemoveDeleteIntended()}>Nein</Button>
+          <Button bsStyle="primary" onClick={() => geschaeftRemove(activeId)}>Ja</Button>
         </Modal.Footer>
       </Modal.Dialog>
     )

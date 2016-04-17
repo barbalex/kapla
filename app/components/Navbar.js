@@ -24,21 +24,21 @@ import exportGeschaefte from '../src/exportGeschaefte.js'
 
 class NavbarComponent extends Component {
   static propTypes = {
-    holenDb: PropTypes.func.isRequired,
-    setzeGeschaefteVolltextFilter: PropTypes.func.isRequired,
-    filtereGeschaefteNachVolltext: PropTypes.func.isRequired,
-    filtereGeschaefteNachFeldern: PropTypes.func.isRequired,
+    dbGet: PropTypes.func.isRequired,
+    geschaefteFilterByFulltextSet: PropTypes.func.isRequired,
+    geschaefteFilterByFulltext: PropTypes.func.isRequired,
+    geschaefteFilterByFields: PropTypes.func.isRequired,
     username: PropTypes.string,
-    erstelleNeuesGeschaeft: PropTypes.func.isRequired,
-    willGeschaeftEntfernen: PropTypes.func.isRequired,
+    geschaeftNewCreate: PropTypes.func.isRequired,
+    geschaeftSetDeleteIntended: PropTypes.func.isRequired,
     activeId: PropTypes.number,
     filterFulltext: PropTypes.string,
     geschaefte: PropTypes.array.isRequired,
     geschaefteGefilterteIds: PropTypes.array.isRequired,
     showMessageModal: PropTypes.bool.isRequired,
     fetchUsername: PropTypes.func.isRequired,
-    holeDbAusConfig: PropTypes.func.isRequired,
-    holenGeschaefte: PropTypes.func.isRequired,
+    dbGetFromConfig: PropTypes.func.isRequired,
+    getGeschaefte: PropTypes.func.isRequired,
     holenRechtsmittelerledigungOptions: PropTypes.func.isRequired,
     holenParlVorstossTypOptions: PropTypes.func.isRequired,
     holenStatusOptions: PropTypes.func.isRequired,
@@ -46,17 +46,17 @@ class NavbarComponent extends Component {
     willDeleteGeschaeft: PropTypes.bool.isRequired,
     pagesInitiate: PropTypes.func.isRequired,
     navbarVisible: PropTypes.bool.isRequired,
-    hideNavbar: PropTypes.func.isRequired,
-    showNavbar: PropTypes.func.isRequired,
+    navbarHide: PropTypes.func.isRequired,
+    navbarShow: PropTypes.func.isRequired,
     path: PropTypes.string.isRequired,
-    showMessage: PropTypes.func.isRequired
+    messageShow: PropTypes.func.isRequired
   }
 
   componentWillMount() {
     const {
       fetchUsername,
-      holeDbAusConfig,
-      holenGeschaefte,
+      dbGetFromConfig,
+      getGeschaefte,
       holenRechtsmittelerledigungOptions,
       holenParlVorstossTypOptions,
       holenStatusOptions,
@@ -64,8 +64,8 @@ class NavbarComponent extends Component {
     } = this.props
 
     fetchUsername()
-    holeDbAusConfig()
-    throttle(holenGeschaefte, 200)
+    dbGetFromConfig()
+    throttle(getGeschaefte, 200)
     throttle(holenRechtsmittelerledigungOptions, 1000)
     throttle(holenParlVorstossTypOptions, 1000)
     throttle(holenStatusOptions, 1000)
@@ -73,28 +73,28 @@ class NavbarComponent extends Component {
   }
 
   onChangeFilterFulltext = (e) => {
-    const { setzeGeschaefteVolltextFilter } = this.props
-    setzeGeschaefteVolltextFilter(e.target.value)
+    const { geschaefteFilterByFulltextSet } = this.props
+    geschaefteFilterByFulltextSet(e.target.value)
   }
 
   onKeyPressFilterFulltext = (e) => {
-    const { filtereGeschaefteNachVolltext } = this.props
+    const { geschaefteFilterByFulltext } = this.props
     if (e.key === 'Enter') {
-      filtereGeschaefteNachVolltext(e.target.value)
+      geschaefteFilterByFulltext(e.target.value)
     }
   }
 
   onClickRemoveFilterGlyph = () => {
-    const { setzeGeschaefteVolltextFilter, filtereGeschaefteNachVolltext } = this.props
+    const { geschaefteFilterByFulltextSet, geschaefteFilterByFulltext } = this.props
     const filterFulltext = ''
-    setzeGeschaefteVolltextFilter(filterFulltext)
-    filtereGeschaefteNachVolltext(filterFulltext)
+    geschaefteFilterByFulltextSet(filterFulltext)
+    geschaefteFilterByFulltext(filterFulltext)
   }
 
   onClickPrint = (e) => {
     const {
-      showNavbar,
-      hideNavbar
+      navbarShow,
+      navbarHide
     } = this.props
     e.preventDefault()
     const win = remote.getCurrentWindow()
@@ -115,14 +115,14 @@ class NavbarComponent extends Component {
     })
     */
     // first remove navbar
-    hideNavbar()
+    navbarHide()
     win.webContents.printToPDF(printToPDFOptions, (error, data) => {
       if (error) throw error
       dialog.showSaveDialog(dialogOptions, (path) => {
         if (path) {
           fs.writeFile(path, data, (err) => {
             // re-add navbar
-            showNavbar()
+            navbarShow()
             if (err) throw err
           })
         }
@@ -141,14 +141,14 @@ class NavbarComponent extends Component {
   )
 
   exportGeschaefte = (e) => {
-    const { geschaefteGefilterteIds, geschaefte, showMessage } = this.props
+    const { geschaefteGefilterteIds, geschaefte, messageShow } = this.props
     e.preventDefault()
     const geschaefteGefiltert = geschaefte.filter((g) => geschaefteGefilterteIds.includes(g.idGeschaeft))
-    exportGeschaefte(geschaefteGefiltert, showMessage)
+    exportGeschaefte(geschaefteGefiltert, messageShow)
   }
 
   onSelectFilterFaelligeGeschaefte = (e) => {
-    const { filtereGeschaefteNachFeldern, username } = this.props
+    const { geschaefteFilterByFields, username } = this.props
     e.preventDefault()
     const now = moment().format('YYYY-MM-DD')
     const filter = {
@@ -169,12 +169,12 @@ class NavbarComponent extends Component {
         comparator: '<'
       }
     }
-    filtereGeschaefteNachFeldern(filter)
+    geschaefteFilterByFields(filter)
     // TODO: add ordering to state and call action here to order by frist desc
   }
 
   onSelectFilterFaelligeGeschaefteMitarbeiter = (e) => {
-    const { filtereGeschaefteNachFeldern, username } = this.props
+    const { geschaefteFilterByFields, username } = this.props
     e.preventDefault()
     const now = moment().format('YYYY-MM-DD')
     const filter = {
@@ -196,13 +196,13 @@ class NavbarComponent extends Component {
       },
       itKonto: username
     }
-    filtereGeschaefteNachFeldern(filter)
+    geschaefteFilterByFields(filter)
     // TODO: add ordering to state and call action here to order by frist desc
   }
 
   render() {
     const {
-      holenDb,
+      dbGet,
       activeId,
       geschaefte,
       geschaefteGefilterteIds,
@@ -211,8 +211,8 @@ class NavbarComponent extends Component {
       willDeleteGeschaeft,
       navbarVisible,
       pagesInitiate,
-      erstelleNeuesGeschaeft,
-      willGeschaeftEntfernen,
+      geschaeftNewCreate,
+      geschaeftSetDeleteIntended,
       path
     } = this.props
 
@@ -249,14 +249,14 @@ class NavbarComponent extends Component {
             </NavDropdown>
             <NavItem
               eventKey={4}
-              onClick={() => erstelleNeuesGeschaeft()}
+              onClick={() => geschaeftNewCreate()}
               title="neues Geschäft"
             >
               <Glyphicon glyph="plus" />
             </NavItem>
             <NavItem
               eventKey = {5}
-              onClick = {() => willGeschaeftEntfernen(activeId)}
+              onClick = {() => geschaeftSetDeleteIntended(activeId)}
               title = "Geschäft löschen"
               disabled = {!activeId}
             >
@@ -311,7 +311,7 @@ class NavbarComponent extends Component {
             />
             </Navbar.Form>
             <NavDropdown eventKey={8} title="Menu" id="basic-nav-dropdown">
-              <MenuItem eventKey={8.1} onClick={holenDb}>Datenbank wählen</MenuItem>
+              <MenuItem eventKey={8.1} onClick={dbGet}>Datenbank wählen</MenuItem>
             </NavDropdown>
           </Nav>
         </Navbar>

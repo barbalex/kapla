@@ -25,13 +25,13 @@ class Page extends Component {
     pagesFinishedBuilding: PropTypes.func.isRequired,
     title: PropTypes.string,
     queryTitle: PropTypes.bool,
-    showMessage: PropTypes.func.isRequired,
+    messageShow: PropTypes.func.isRequired,
     building: PropTypes.bool.isRequired
   }
 
   componentDidMount = () => {
-    const { showMessage } = this.props
-    showMessage(true, 'Der Bericht wird aufgebaut...')
+    const { messageShow } = this.props
+    messageShow(true, 'Der Bericht wird aufgebaut...')
     // wait with next stepp until message is shown
     setTimeout(() => {
       this.nextStepp()
@@ -78,7 +78,7 @@ class Page extends Component {
       pageAddGeschaeft,
       pagesMoveGeschaeftToNewPage,
       pagesFinishedBuilding,
-      showMessage
+      messageShow
     } = this.props
     // const offsetHeight = ReactDOM.findDOMNode(this).offsetHeight
     const offsetHeight = this.refs[`rowsContainer${pageIndex}`].offsetHeight
@@ -94,7 +94,7 @@ class Page extends Component {
       }
     }
     if (remainingGeschaefte.length === 0 && pageIndex === activePageIndex) {
-      showMessage(false, null)
+      messageShow(false, null)
       pagesFinishedBuilding()
     }
   }

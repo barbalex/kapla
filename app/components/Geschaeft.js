@@ -9,7 +9,7 @@ class Geschaeft extends Component {
     geschaefte: PropTypes.array.isRequired,
     activeId: PropTypes.number,
     aendereGeschaefteState: PropTypes.func.isRequired,
-    aendereGeschaeftDb: PropTypes.func.isRequired,
+    changeGeschaeftInDb: PropTypes.func.isRequired,
     rechtsmittelerledigungOptions: PropTypes.array.isRequired,
     parlVorstossTypOptions: PropTypes.array.isRequired,
     statusOptions: PropTypes.array.isRequired,
@@ -29,11 +29,11 @@ class Geschaeft extends Component {
   }
 
   blur = (e) => {
-    const { activeId, aendereGeschaeftDb } = this.props
+    const { activeId, changeGeschaeftInDb } = this.props
     const { type, name, dataset } = e.target
     let { value } = e.target
     if (type === 'radio') value = dataset.value
-    aendereGeschaeftDb(activeId, name, value)
+    changeGeschaeftInDb(activeId, name, value)
   }
 
   options = (values) => {

@@ -1,12 +1,12 @@
 'use strict'
 
 import {
-  DB_WAEHLEN,
-  DB_GEWAEHLT,
-  DB_NICHT_GEWAEHLT,
+  DB_CHOOSE,
+  DB_CHOOSE_SUCCESS,
+  DB_CHOOSE_ERROR,
   NAVBAR_HIDE,
   NAVBAR_SHOW,
-  SHOW_MESSAGE
+  MESSAGE_SHOW
 } from '../actions/app'
 
 const standardState = {
@@ -21,7 +21,7 @@ const standardState = {
 
 export default function app(state = standardState, action) {
   switch (action.type) {
-    case SHOW_MESSAGE:
+    case MESSAGE_SHOW:
       return {
         ...state,
         showMessageModal: action.showMessageModal,
@@ -37,13 +37,13 @@ export default function app(state = standardState, action) {
         ...state,
         navbarVisible: false
       }
-    case DB_WAEHLEN:
+    case DB_CHOOSE:
       return {
         ...state,
         fetchingDb: true,
         errorFetchingDb: null
       }
-    case DB_GEWAEHLT:
+    case DB_CHOOSE_SUCCESS:
       return {
         ...state,
         fetchingDb: false,
@@ -51,7 +51,7 @@ export default function app(state = standardState, action) {
         dbPath: action.dbPath,
         db: action.db
       }
-    case DB_NICHT_GEWAEHLT:
+    case DB_CHOOSE_ERROR:
       return {
         ...state,
         fetchingDb: false,

@@ -4,98 +4,97 @@
 // see: https://github.com/mapbox/node-sqlite3/issues/621
 // see: https://github.com/mapbox/node-pre-gyp/pull/187
 // solve with: http://verysimple.com/2015/05/30/using-node_sqlite3-with-electron/
-import getGeschaefte from '../src/getGeschaefte.js'
+import getGeschaefteFromDb from '../src/getGeschaefteFromDb.js'
 import getDropdownOptions from '../src/getDropdownOptions.js'
 import updateGeschaeft from '../src/updateGeschaeft.js'
 import filterGeschaefte from '../src/filterGeschaefte.js'
 
-export const GESCHAEFTE_BESTELLEN = 'GESCHAEFTE_BESTELLEN'
-function bestelleGeschaefte() {
-  return {
-    type: GESCHAEFTE_BESTELLEN
+export function getGeschaefte() {
+  return (dispatch, getState) => {
+    const { app, routing } = getState()
+    dispatch(geschaefteGet())
+    getGeschaefteFromDb(app.db)
+      .then((geschaefte) => {
+        dispatch(geschaefteGetSuccess(geschaefte))
+        if (routing.locationBeforeTransitions.pathname !== '/geschaefte') dispatch(push('/geschaefte'))
+      })
+      .catch((error) => dispatch(geschaefteGetError(error)))
   }
 }
 
-export const GESCHAEFTE_ERHALTEN = 'GESCHAEFTE_ERHALTEN'
-function erhalteGeschaefte(geschaefteArray) {
+export const GESCHAEFTE_GET = 'GESCHAEFTE_GET'
+function geschaefteGet() {
+  return {
+    type: GESCHAEFTE_GET
+  }
+}
+
+export const GESCHAEFTE_GET_SUCCESS = 'GESCHAEFTE_GET_SUCCESS'
+function geschaefteGetSuccess(geschaefteArray) {
   return (dispatch, getState) => {
     const { geschaefte } = getState()
     const { filterFields, filterFulltext } = geschaefte
     // create geschaefteGefilterteIds
     const geschaefteGefilterteIds = filterGeschaefte(geschaefteArray, filterFulltext, filterFields)
     dispatch({
-      type: GESCHAEFTE_ERHALTEN,
+      type: GESCHAEFTE_GET_SUCCESS,
       geschaefte: geschaefteArray,
       geschaefteGefilterteIds
     })
   }
 }
 
-export const GESCHAEFTE_NICHT_ERHALTEN = 'GESCHAEFTE_NICHT_ERHALTEN'
-function nichtErhalteneGeschaefte(error) {
+export const GESCHAEFTE_GET_ERROR = 'GESCHAEFTE_GET_ERROR'
+function geschaefteGetError(error) {
   return {
-    type: GESCHAEFTE_NICHT_ERHALTEN,
+    type: GESCHAEFTE_GET_ERROR,
     error
   }
 }
 
-export const GESCHAEFTE_HOLEN = 'GESCHAEFTE_HOLEN'
-export function holenGeschaefte() {
-  return (dispatch, getState) => {
-    const { app, routing } = getState()
-    dispatch(bestelleGeschaefte())
-    getGeschaefte(app.db)
-      .then((geschaefte) => {
-        dispatch(erhalteGeschaefte(geschaefte))
-        if (routing.locationBeforeTransitions.pathname !== '/geschaefte') dispatch(push('/geschaefte'))
-      })
-      .catch((error) => dispatch(nichtErhalteneGeschaefte(error)))
-  }
-}
-
-export const GESCHAEFTE_FILTERN_FELDER = 'GESCHAEFTE_FILTERN_FELDER'
+export const GESCHAEFTE_FILTER_BY_FIELDS = 'GESCHAEFTE_FILTER_BY_FIELDS'
 /*
  * filter is an object
  * keys = field names
  * values = filter values
  */
-export function filtereGeschaefteNachFeldern(filterFields) {
+export function geschaefteFilterByFields(filterFields) {
   return (dispatch, getState) => {
     const { geschaefte } = getState()
     const { filterFulltext } = geschaefte
     // create geschaefteGefilterteIds
     const geschaefteGefilterteIds = filterGeschaefte(geschaefte.geschaefte, filterFulltext, filterFields)
     dispatch({
-      type: GESCHAEFTE_FILTERN_FELDER,
+      type: GESCHAEFTE_FILTER_BY_FIELDS,
       filterFields,
       geschaefteGefilterteIds
     })
   }
 }
 
-export const GESCHAEFTE_VOLLTEXTFILTER_SETZEN = 'GESCHAEFTE_VOLLTEXTFILTER_SETZEN'
+export const GESCHAEFTE_FILTER_BY_FULLTEXT_SET = 'GESCHAEFTE_FILTER_BY_FULLTEXT_SET'
 
-export function setzeGeschaefteVolltextFilter(filterFulltext) {
+export function geschaefteFilterByFulltextSet(filterFulltext) {
   return (dispatch, getState) => {
     const { routing } = getState()
     dispatch({
-      type: GESCHAEFTE_VOLLTEXTFILTER_SETZEN,
+      type: GESCHAEFTE_FILTER_BY_FULLTEXT_SET,
       filterFulltext
     })
     if (routing.locationBeforeTransitions.pathname !== '/geschaefte') dispatch(push('/geschaefte'))
   }
 }
 
-export const GESCHAEFTE_FILTERN_VOLLTEXT = 'GESCHAEFTE_FILTERN_VOLLTEXT'
+export const GESCHAEFTE_FILTER_BY_FULLTEXT = 'GESCHAEFTE_FILTER_BY_FULLTEXT'
 // filter = word
-export function filtereGeschaefteNachVolltext() {
+export function geschaefteFilterByFulltext() {
   return (dispatch, getState) => {
     const { geschaefte, routing } = getState()
     const { filterFulltext, filterFields } = geschaefte
     // create geschaefteGefilterteIds
     const geschaefteGefilterteIds = filterGeschaefte(geschaefte.geschaefte, filterFulltext, filterFields)
     dispatch({
-      type: GESCHAEFTE_FILTERN_VOLLTEXT,
+      type: GESCHAEFTE_FILTER_BY_FULLTEXT,
       geschaefteGefilterteIds
     })
     if (routing.locationBeforeTransitions.pathname !== '/geschaefte') dispatch(push('/geschaefte'))
@@ -107,117 +106,107 @@ export function filtereGeschaefteNachVolltext() {
  */
 
 import { push } from 'react-router-redux'
-import neuesGeschaeft from '../src/newGeschaeft.js'
+import newGeschaeftInDb from '../src/newGeschaeftInDb.js'
 import deleteGeschaeft from '../src/deleteGeschaeft.js'
 
-export const GESCHAEFT_NEU_ERSTELLEN = 'GESCHAEFT_NEU_ERSTELLEN'
-export function erstelleNeuesGeschaeft() {
+export function geschaeftNewCreate() {
   return (dispatch, getState) => {
     const { app, user, routing } = getState()
-    neuesGeschaeft(app.db, user.username)
+    newGeschaeftInDb(app.db, user.username)
       .then((geschaeft) => {
-        dispatch(eroeffneGeschaeft(geschaeft))
+        dispatch(geschaeftNew(geschaeft))
         dispatch(aktiviereGeschaeft(geschaeft.idGeschaeft))
         if (routing.locationBeforeTransitions.pathname !== '/geschaefte') dispatch(push('/geschaefte'))
       })
-      .catch((error) => dispatch(nichtEroeffnetesGeschaeft(error)))
+      .catch((error) => dispatch(geschaeftNewError(error)))
   }
 }
 
-export const GESCHAEFT_EROEFFNEN = 'GESCHAEFT_EROEFFNEN'
-export function eroeffneGeschaeft(geschaeft) {
+export const GESCHAEFT_NEW = 'GESCHAEFT_NEW'
+export function geschaeftNew(geschaeft) {
   return {
-    type: GESCHAEFT_EROEFFNEN,
+    type: GESCHAEFT_NEW,
     geschaeft
   }
 }
 
-export const GESCHAEFT_NICHT_EROEFFNET = 'GESCHAEFT_NICHT_EROEFFNET'
-export function nichtEroeffnetesGeschaeft(error) {
+export const GESCHAEFT_NEW_ERROR = 'GESCHAEFT_NEW_ERROR'
+export function geschaeftNewError(error) {
   return {
-    type: GESCHAEFT_NICHT_EROEFFNET,
+    type: GESCHAEFT_NEW_ERROR,
     error
   }
 }
 
-export const GESCHAEFT_ENTFERNEN = 'GESCHAEFT_ENTFERNEN'
-export function entferneGeschaeft(idGeschaeft) {
+export function geschaeftRemove(idGeschaeft) {
   return (dispatch, getState) => {
     const { app } = getState()
     deleteGeschaeft(app.db, idGeschaeft)
       .then(() => {
         dispatch(aktiviereGeschaeft(null))
-        dispatch(entferneGeschaeftNicht(idGeschaeft))
-        dispatch(actionLoescheGeschaeft(idGeschaeft))
+        dispatch(geschaeftRemoveDeleteIntended(idGeschaeft))
+        dispatch(geschaeftDelete(idGeschaeft))
       })
-      .catch((error) => dispatch(nichtGelöschtesGeschaeft(error)))
+      .catch((error) => dispatch(geschaeftDeleteError(error)))
   }
 }
 
-export const GESCHAEFT_ENTFERNEN_WILL = 'GESCHAEFT_ENTFERNEN_WILL'
-export function willGeschaeftEntfernen(idGeschaeft) {
+export const GESCHAEFT_SET_DELETE_INTENDED = 'GESCHAEFT_SET_DELETE_INTENDED'
+export function geschaeftSetDeleteIntended(idGeschaeft) {
   return {
-    type: GESCHAEFT_ENTFERNEN_WILL,
+    type: GESCHAEFT_SET_DELETE_INTENDED,
     idGeschaeft
   }
 }
 
-export const GESCHAEFT_ENTFERNEN_WILL_NICHT = 'GESCHAEFT_ENTFERNEN_WILL_NICHT'
-export function entferneGeschaeftNicht() {
+export const GESCHAEFT_REMOVE_DELETE_INTENDED = 'GESCHAEFT_REMOVE_DELETE_INTENDED'
+export function geschaeftRemoveDeleteIntended() {
   return {
-    type: GESCHAEFT_ENTFERNEN_WILL_NICHT
+    type: GESCHAEFT_REMOVE_DELETE_INTENDED
   }
 }
 
-export const GESCHAEFT_LOESCHEN = 'GESCHAEFT_LOESCHEN'
-export function actionLoescheGeschaeft(idGeschaeft) {
+export const GESCHAEFT_DELETE = 'GESCHAEFT_DELETE'
+export function geschaeftDelete(idGeschaeft) {
   return {
-    type: GESCHAEFT_LOESCHEN,
+    type: GESCHAEFT_DELETE,
     idGeschaeft
   }
 }
 
-export const GESCHAEFT_NICHT_GELOESCHT = 'GESCHAEFT_NICHT_GELOESCHT'
-export function nichtGelöschtesGeschaeft(error) {
+export const GESCHAEFT_DELETE_ERROR = 'GESCHAEFT_DELETE_ERROR'
+export function geschaeftDeleteError(error) {
   return {
-    type: GESCHAEFT_NICHT_GELOESCHT,
+    type: GESCHAEFT_DELETE_ERROR,
     error
   }
 }
 
-export const GESCHAEFTE_AENDERN_STATE = 'GESCHAEFTE_AENDERN_STATE'
+export const GESCHAEFTE_CHANGE_STATE = 'GESCHAEFTE_CHANGE_STATE'
 export function aendereGeschaefteState(idGeschaeft, field, value) {
   return {
-    type: GESCHAEFTE_AENDERN_STATE,
+    type: GESCHAEFTE_CHANGE_STATE,
     idGeschaeft,
     field,
     value
   }
 }
 
-export const GESCHAEFT_AENDERN_DB_FEHLER = 'GESCHAEFT_AENDERN_DB_FEHLER'
+export const GESCHAEFTE_CHANGE_DB_ERROR = 'GESCHAEFTE_CHANGE_DB_ERROR'
 export function aendereGeschaeftDbFehler(error) {
   // TODO: reload data from db
   return {
-    type: GESCHAEFT_AENDERN_DB_FEHLER,
+    type: GESCHAEFTE_CHANGE_DB_ERROR,
     error
   }
 }
 
-export const GESCHAEFT_AENDERN_DB = 'GESCHAEFT_AENDERN_DB'
-export function aendereGeschaeftDb(idGeschaeft, field, value) {
+export function changeGeschaeftInDb(idGeschaeft, field, value) {
   return (dispatch, getState) => {
     const { app, user } = getState()
+    // no need to do something on then
+    // ui was updated on GESCHAEFTE_CHANGE_STATE
     updateGeschaeft(app.db, idGeschaeft, field, value, user.username)
-      .then(() => {
-        // update geschaeft in store
-        dispatch({
-          type: GESCHAEFT_AENDERN_DB,
-          idGeschaeft,
-          field,
-          value
-        })
-      })
       .catch((error) => {
         // TODO: reset ui
         dispatch(aendereGeschaeftDbFehler(error))
@@ -225,17 +214,17 @@ export function aendereGeschaeftDb(idGeschaeft, field, value) {
   }
 }
 
-export const GESCHAEFT_AKTIVIEREN = 'GESCHAEFT_AKTIVIEREN'
+export const GESCHAEFT_ACTIVATE = 'GESCHAEFT_ACTIVATE'
 export function aktiviereGeschaeft(idGeschaeft) {
   return (dispatch) => {
     dispatch({
-      type: GESCHAEFT_AKTIVIEREN,
+      type: GESCHAEFT_ACTIVATE,
       idGeschaeft
     })
   }
 }
 
-export const RECHTSMITTELERLEDIGUNG_OPTIONS_HOLEN = 'RECHTSMITTELERLEDIGUNG_OPTIONS_HOLEN'
+export const RECHTSMITTELERLEDIGUNG_OPTIONS_GET = 'RECHTSMITTELERLEDIGUNG_OPTIONS_GET'
 export function holenRechtsmittelerledigungOptions() {
   return (dispatch, getState) => {
     const { app, geschaefte } = getState()
@@ -243,7 +232,7 @@ export function holenRechtsmittelerledigungOptions() {
     if (geschaefte.rechtsmittelerledigungOptions.length === 0) {
       getDropdownOptions(app.db, 'rechtsmittelerledigung')
         .then((rechtsmittelerledigungOptions) => dispatch({
-          type: RECHTSMITTELERLEDIGUNG_OPTIONS_HOLEN,
+          type: RECHTSMITTELERLEDIGUNG_OPTIONS_GET,
           rechtsmittelerledigungOptions
         }))
         .catch((error) => dispatch(nichtErhalteneRechtsmittelerledigungOptions(error)))
@@ -251,15 +240,15 @@ export function holenRechtsmittelerledigungOptions() {
   }
 }
 
-export const RECHTSMITTELERLEDIGUNG_OPTIONS_HOLEN_FEHLER = 'RECHTSMITTELERLEDIGUNG_OPTIONS_HOLEN_FEHLER'
+export const RECHTSMITTELERLEDIGUNG_OPTIONS_GET_ERROR = 'RECHTSMITTELERLEDIGUNG_OPTIONS_GET_ERROR'
 function nichtErhalteneRechtsmittelerledigungOptions(error) {
   return {
-    type: RECHTSMITTELERLEDIGUNG_OPTIONS_HOLEN_FEHLER,
+    type: RECHTSMITTELERLEDIGUNG_OPTIONS_GET_ERROR,
     error
   }
 }
 
-export const PARLVORSTOSSTYP_OPTIONS_HOLEN = 'PARLVORSTOSSTYP_OPTIONS_HOLEN'
+export const PARLVORSTOSSTYP_OPTIONS_GET = 'PARLVORSTOSSTYP_OPTIONS_GET'
 export function holenParlVorstossTypOptions() {
   return (dispatch, getState) => {
     const { app, geschaefte } = getState()
@@ -267,7 +256,7 @@ export function holenParlVorstossTypOptions() {
     if (geschaefte.parlVorstossTypOptions.length === 0) {
       getDropdownOptions(app.db, 'parlVorstossTyp')
         .then((parlVorstossTypOptions) => dispatch({
-          type: PARLVORSTOSSTYP_OPTIONS_HOLEN,
+          type: PARLVORSTOSSTYP_OPTIONS_GET,
           parlVorstossTypOptions
         }))
         .catch((error) => dispatch(nichtErhalteneParlVorstossTypOptions(error)))
@@ -275,15 +264,15 @@ export function holenParlVorstossTypOptions() {
   }
 }
 
-export const PARLVORSTOSSTYP_OPTIONS_HOLEN_FEHLER = 'PARLVORSTOSSTYP_OPTIONS_HOLEN_FEHLER'
+export const PARLVORSTOSSTYP_OPTIONS_GET_ERROR = 'PARLVORSTOSSTYP_OPTIONS_GET_ERROR'
 function nichtErhalteneParlVorstossTypOptions(error) {
   return {
-    type: PARLVORSTOSSTYP_OPTIONS_HOLEN_FEHLER,
+    type: PARLVORSTOSSTYP_OPTIONS_GET_ERROR,
     error
   }
 }
 
-export const STATUS_OPTIONS_HOLEN = 'STATUS_OPTIONS_HOLEN'
+export const STATUS_OPTIONS_GET = 'STATUS_OPTIONS_GET'
 export function holenStatusOptions() {
   return (dispatch, getState) => {
     const { app, geschaefte } = getState()
@@ -291,7 +280,7 @@ export function holenStatusOptions() {
     if (geschaefte.statusOptions.length === 0) {
       getDropdownOptions(app.db, 'status')
         .then((statusOptions) => dispatch({
-          type: STATUS_OPTIONS_HOLEN,
+          type: STATUS_OPTIONS_GET,
           statusOptions
         }))
         .catch((error) => dispatch(nichtErhalteneStatusOptions(error)))
@@ -299,15 +288,15 @@ export function holenStatusOptions() {
   }
 }
 
-export const STATUS_OPTIONS_HOLEN_FEHLER = 'STATUS_OPTIONS_HOLEN_FEHLER'
+export const STATUS_OPTIONS_GET_ERROR = 'STATUS_OPTIONS_GET_ERROR'
 function nichtErhalteneStatusOptions(error) {
   return {
-    type: STATUS_OPTIONS_HOLEN_FEHLER,
+    type: STATUS_OPTIONS_GET_ERROR,
     error
   }
 }
 
-export const GESCHAEFTSART_OPTIONS_HOLEN = 'GESCHAEFTSART_OPTIONS_HOLEN'
+export const GESCHAEFTSART_OPTIONS_GET = 'GESCHAEFTSART_OPTIONS_GET'
 export function holenGeschaeftsartOptions() {
   return (dispatch, getState) => {
     const { app, geschaefte } = getState()
@@ -315,7 +304,7 @@ export function holenGeschaeftsartOptions() {
     if (geschaefte.geschaeftsartOptions.length === 0) {
       getDropdownOptions(app.db, 'geschaeftsart')
         .then((geschaeftsartOptions) => dispatch({
-          type: GESCHAEFTSART_OPTIONS_HOLEN,
+          type: GESCHAEFTSART_OPTIONS_GET,
           geschaeftsartOptions
         }))
         .catch((error) => dispatch(nichtErhalteneGeschaeftsartOptions(error)))
@@ -323,10 +312,10 @@ export function holenGeschaeftsartOptions() {
   }
 }
 
-export const GESCHAEFTSART_OPTIONS_HOLEN_FEHLER = 'GESCHAEFTSART_OPTIONS_HOLEN_FEHLER'
+export const GESCHAEFTSART_OPTIONS_GET_ERROR = 'GESCHAEFTSART_OPTIONS_GET_ERROR'
 function nichtErhalteneGeschaeftsartOptions(error) {
   return {
-    type: GESCHAEFTSART_OPTIONS_HOLEN_FEHLER,
+    type: GESCHAEFTSART_OPTIONS_GET_ERROR,
     error
   }
 }

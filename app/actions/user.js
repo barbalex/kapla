@@ -2,26 +2,26 @@
 
 import getMyName from 'username'
 
-export const GET_USERNAME = 'GET_USERNAME'
-export const GOT_USERNAME = 'GOT_USERNAME'
-export const DIDNT_GET_USERNAME = 'DIDNT_GET_USERNAME'
+export const USERNAME_GET = 'USERNAME_GET'
+export const USERNAME_GET_SUCCESS = 'USERNAME_GET_SUCCESS'
+export const USERNAME_GET_ERROR = 'USERNAME_GET_ERROR'
 
 export function getUsername() {
   return {
-    type: GET_USERNAME
+    type: USERNAME_GET
   }
 }
 
 export function gotUsername(username) {
   return {
-    type: GOT_USERNAME,
+    type: USERNAME_GET_SUCCESS,
     username
   }
 }
 
 export function didntGetUsername(error) {
   return {
-    type: DIDNT_GET_USERNAME,
+    type: USERNAME_GET_ERROR,
     error
   }
 }

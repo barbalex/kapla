@@ -1,9 +1,9 @@
 'use strict'
 
 import {
-  GET_USERNAME,
-  GOT_USERNAME,
-  DIDNT_GET_USERNAME
+  USERNAME_GET,
+  USERNAME_GET_SUCCESS,
+  USERNAME_GET_ERROR
 } from '../actions/user'
 
 const standardState = {
@@ -14,20 +14,20 @@ const standardState = {
 
 export default function geschaefte(state = standardState, action) {
   switch (action.type) {
-    case GET_USERNAME:
+    case USERNAME_GET:
       return {
         ...state,
         fetching: true,
         error: null
       }
-    case GOT_USERNAME:
+    case USERNAME_GET_SUCCESS:
       return {
         ...state,
         fetching: false,
         error: null,
         username: action.username
       }
-    case DIDNT_GET_USERNAME:
+    case USERNAME_GET_ERROR:
       return {
         ...state,
         fetching: false,

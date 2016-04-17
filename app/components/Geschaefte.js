@@ -10,8 +10,8 @@ class Geschaefte extends Component {
     geschaefteGefilterteIds: PropTypes.array.isRequired,
     fetchUsername: PropTypes.func.isRequired,
     username: PropTypes.string,
-    holeDbAusConfig: PropTypes.func.isRequired,
-    holenGeschaefte: PropTypes.func.isRequired,
+    dbGetFromConfig: PropTypes.func.isRequired,
+    getGeschaefte: PropTypes.func.isRequired,
     aktiviereGeschaeft: PropTypes.func.isRequired,
     activeId: PropTypes.number,
     holenRechtsmittelerledigungOptions: PropTypes.func.isRequired,
@@ -23,8 +23,8 @@ class Geschaefte extends Component {
   componentWillMount() {
     const {
       fetchUsername,
-      holeDbAusConfig,
-      holenGeschaefte,
+      dbGetFromConfig,
+      getGeschaefte,
       holenRechtsmittelerledigungOptions,
       holenParlVorstossTypOptions,
       holenStatusOptions,
@@ -32,8 +32,8 @@ class Geschaefte extends Component {
     } = this.props
 
     fetchUsername()
-    holeDbAusConfig()
-    holenGeschaefte()
+    dbGetFromConfig()
+    getGeschaefte()
     holenRechtsmittelerledigungOptions()
     holenParlVorstossTypOptions()
     holenStatusOptions()
