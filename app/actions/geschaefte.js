@@ -47,7 +47,7 @@ export function holenGeschaefte() {
     getGeschaefte(app.db)
       .then((geschaefte) => {
         dispatch(erhalteGeschaefte(geschaefte))
-        dispatch(push('/geschaefte'))
+        // dispatch(push('/geschaefte'))
       })
       .catch((error) => dispatch(nichtErhalteneGeschaefte(error)))
   }
@@ -115,20 +115,20 @@ export function erstelleNeuesGeschaeft() {
   return (dispatch, getState) => {
     const { app, user } = getState()
     neuesGeschaeft(app.db, user.username)
-      .then((idGeschaeft) => {
-        dispatch(eroeffneGeschaeft(idGeschaeft))
-        dispatch(aktiviereGeschaeft(idGeschaeft))
-        dispatch(push(`/geschaefte/${idGeschaeft}`))
+      .then((geschaeft) => {
+        dispatch(eroeffneGeschaeft(geschaeft))
+        dispatch(aktiviereGeschaeft(geschaeft.idGeschaeft))
+        // dispatch(push(`/geschaefte/${idGeschaeft}`))
       })
       .catch((error) => dispatch(nichtEroeffnetesGeschaeft(error)))
   }
 }
 
 export const GESCHAEFT_EROEFFNEN = 'GESCHAEFT_EROEFFNEN'
-export function eroeffneGeschaeft(idGeschaeft) {
+export function eroeffneGeschaeft(geschaeft) {
   return {
     type: GESCHAEFT_EROEFFNEN,
-    idGeschaeft
+    geschaeft
   }
 }
 
@@ -149,7 +149,7 @@ export function entferneGeschaeft(idGeschaeft) {
       .then(() => {
         dispatch(aktiviereGeschaeft(null))
         dispatch(entferneGeschaeftNicht(idGeschaeft))
-        dispatch(push('/geschaefte'))
+        // dispatch(push('/geschaefte'))
       })
       .catch((error) => dispatch(nichtGelöschtesGeschaeft(error)))
   }

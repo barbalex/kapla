@@ -126,7 +126,7 @@ export default function geschaefte(state = standardState, action) {
     case GESCHAEFT_EROEFFNEN:
       return {
         ...state,
-        geschaefte: [{ idGeschaeft: action.idGeschaeft }, ...state.geschaefte]
+        geschaefte: [action.geschaeft, ...state.geschaefte]
       }
     case RECHTSMITTELERLEDIGUNG_OPTIONS_HOLEN:
       return {

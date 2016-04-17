@@ -1,6 +1,7 @@
 'use strict'
 
 import moment from 'moment'
+import getGeschaeft from './getGeschaeft.js'
 
 export default function (db, username) {
   return new Promise((resolve, reject) => {
@@ -20,7 +21,11 @@ export default function (db, username) {
      */
     db.run(sql, function callback(error) {
       if (error) reject(error)
-      resolve(this.lastID)
+      const idGeschaeft = this.lastID
+      // return full dataset
+      getGeschaeft(db, idGeschaeft)
+        .then((geschaeft) => resolve(geschaeft))
+        .catch((error) => reject(error))
     })
   })
 }
