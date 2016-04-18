@@ -3,14 +3,14 @@
 import { combineReducers } from 'redux'
 import { routerReducer as routing } from 'react-router-redux'
 import geschaefte from './geschaefte'
-import tabelle from './tabelle'
+import table from './table'
 import user from './user'
 import app from './app'
 import pages from './pages'
 
 const rootReducer = combineReducers({
   geschaefte,
-  tabelle,
+  table,
   pages,
   user,
   app,
