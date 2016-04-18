@@ -17,11 +17,6 @@ class Table extends Component {
     offsetWidth: 0
   }
 
-  setOffsetWidth = () => {
-    const offsetWidth = ReactDOM.findDOMNode(this).offsetWidth
-    this.setState({ offsetWidth })
-  }
-
   componentDidMount = () => {
     this.setOffsetWidth()
     window.addEventListener('resize', this.setOffsetWidth)
@@ -31,14 +26,14 @@ class Table extends Component {
     window.removeEventListener('resize', this.setOffsetWidth)
   }
 
-  componentDidUpdate = () => {
-    const offsetWidth = ReactDOM.findDOMNode(this).offsetWidth
-    this.setState({ offsetWidth })
-  }
-
   onClickTableRow(id) {
     const { tableRowToggleActivated } = this.props
     tableRowToggleActivated(id)
+  }
+
+  setOffsetWidth = () => {
+    const offsetWidth = ReactDOM.findDOMNode(this).offsetWidth
+    this.setState({ offsetWidth })
   }
 
   itemColumns = (row) => {
