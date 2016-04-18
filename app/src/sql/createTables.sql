@@ -151,7 +151,8 @@ CREATE TABLE geschaefte (
 );
 
 CREATE TABLE geschaeftsart (
-  geschaeftsart TEXT PRIMARY KEY,
+  id INTEGER PRIMARY KEY,
+  geschaeftsart TEXT unique,
   sort INTEGER
 );
 
@@ -168,7 +169,8 @@ VALUES
   ('Diverses', 6);
 
 CREATE TABLE status (
-  status TEXT PRIMARY KEY,
+  id INTEGER PRIMARY KEY,
+  status TEXT unique,
   sort INTEGER
 );
 
@@ -183,7 +185,8 @@ VALUES
   ('erledigt', 4);
 
 CREATE TABLE parlVorstossTyp (
-  parlVorstossTyp TEXT PRIMARY KEY,
+  id INTEGER PRIMARY KEY,
+  parlVorstossTyp TEXT unique,
   sort INTEGER
 );
 
@@ -202,7 +205,8 @@ VALUES
   ('Vorlage', 8);
 
 CREATE TABLE rechtsmittelerledigung (
-  rechtsmittelerledigung TEXT PRIMARY KEY,
+  id INTEGER PRIMARY KEY,
+  rechtsmittelerledigung TEXT unique,
   sort INTEGER
 );
 
@@ -221,6 +225,3 @@ VALUES
   ('Rechtsmittelrückzug Rekurrent', 8),
   ('Rücknahme durch AWEL', 9),
   ('andere Gründe', 10);
-
-
-
