@@ -35,6 +35,14 @@
   padding: 5px;
 }
 
+.tableHeaderIdCell,
+.tableBodyIdCell {
+  flex: 1;
+  padding: 5px;
+  min-width: 50px;
+  max-width: 50px;
+}
+
 .active {
   background-color: #FFBF73;
 }
@@ -42,13 +50,4 @@
 .body {
   background-image: linear-gradient(45deg, rgba(235, 255, 229, .5) 10%, rgba(216, 255, 200, .7));
   height: 100vh;
-}
-
-.columnId {
-  min-width: 50px;
-  max-width: 50px;
-}
-
-.column {
-  width: 100%;
 }

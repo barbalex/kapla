@@ -317,7 +317,7 @@ class NavbarComponent extends Component {
               <MenuItem eventKey={8.2} onClick={() => getTable('externe')}>Externe</MenuItem>
               <MenuItem eventKey={8.3} onClick={() => getTable('gdeplz')}>Gemeinden</MenuItem>
               <MenuItem eventKey={8.4} onClick={() => getTable('geschaeftsart')}>Auswahlliste Geschäftsart</MenuItem>
-              <MenuItem eventKey={8.6} onClick={() => getTable('parlamentVorstossTyp')}>Auswahlliste Parlament. Vorstoss Typ</MenuItem>
+              <MenuItem eventKey={8.6} onClick={() => getTable('parlVorstossTyp')}>Auswahlliste Parlament. Vorstoss Typ</MenuItem>
               <MenuItem eventKey={8.7} onClick={() => getTable('rechtsmittelerledigung')}>Auswahlliste Rechtsmittelerledigung</MenuItem>
               <MenuItem eventKey={8.8} onClick={() => getTable('status')}>Auswahlliste Status</MenuItem>
               <MenuItem divider />

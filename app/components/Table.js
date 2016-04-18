@@ -3,7 +3,7 @@
 import React, { Component, PropTypes } from 'react'
 import ReactList from 'react-list'
 import _ from 'lodash'
-import styles from './Geschaefte.css'
+import styles from './Table.css'
 
 class Table extends Component {
   static propTypes = {
@@ -22,8 +22,7 @@ class Table extends Component {
     const values = _.values(row)
 
     return values.map((val, index) => {
-      const columnClass = keys[index] === 'id' ? styles.columnId : styles.column
-      const className = [columnClass, styles.tableBodyCell].join(' ')
+      const className = keys[index] === 'id' ? styles.tableBodyIdCell : styles.tableBodyCell
 
       return <div key={index} className={className}>{val}</div>
     })
@@ -58,8 +57,7 @@ class Table extends Component {
     const { rows } = this.props
     const headers = Object.keys(rows[0])
     return headers.map((header, index) => {
-      const columnClass = header === 'id' ? styles.columnId : styles.column
-      const className = [columnClass, styles.tableHeaderCell].join(' ')
+      const className = header === 'id' ? styles.tableHeaderIdCell : styles.tableHeaderCell
       return <div key={index} className={className}>{header}</div>
     })
   }
