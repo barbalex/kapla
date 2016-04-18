@@ -1,6 +1,7 @@
 'use strict'
 
 import React, { Component, PropTypes } from 'react'
+import ReactDOM from 'react-dom'
 import ReactList from 'react-list'
 import _ from 'lodash'
 import styles from './Table.css'
@@ -12,6 +13,29 @@ class Table extends Component {
     tableRowToggleActivated: PropTypes.func.isRequired
   }
 
+  state = {
+    offsetWidth: 0
+  }
+
+  setOffsetWidth = () => {
+    const offsetWidth = ReactDOM.findDOMNode(this).offsetWidth
+    this.setState({ offsetWidth })
+  }
+
+  componentDidMount = () => {
+    this.setOffsetWidth()
+    window.addEventListener('resize', this.setOffsetWidth)
+  }
+
+  componentWillUnmount = () => {
+    window.removeEventListener('resize', this.setOffsetWidth)
+  }
+
+  componentDidUpdate = () => {
+    const offsetWidth = ReactDOM.findDOMNode(this).offsetWidth
+    this.setState({ offsetWidth })
+  }
+
   onClickTableRow(id) {
     const { tableRowToggleActivated } = this.props
     tableRowToggleActivated(id)
@@ -20,11 +44,13 @@ class Table extends Component {
   itemColumns = (row) => {
     const keys = Object.keys(row)
     const values = _.values(row)
+    const { offsetWidth } = this.state
+    const normalFieldWidth = (offsetWidth - 50) / (keys.length - 1)
 
     return values.map((val, index) => {
-      const className = keys[index] === 'id' ? styles.tableBodyIdCell : styles.tableBodyCell
+      const widthClass = keys[index] === 'id' ? { maxWidth: 50 } : { maxWidth: normalFieldWidth }
 
-      return <div key={index} className={className}>{val}</div>
+      return <div key={index} style={widthClass} className={styles.tableBodyCell}>{val}</div>
     })
   }
 
@@ -55,10 +81,12 @@ class Table extends Component {
 
   tableHeaders = () => {
     const { rows } = this.props
+    const { offsetWidth } = this.state
     const headers = Object.keys(rows[0])
+    const normalFieldWidth = (offsetWidth - 50) / (headers.length - 1)
     return headers.map((header, index) => {
-      const className = header === 'id' ? styles.tableHeaderIdCell : styles.tableHeaderCell
-      return <div key={index} className={className}>{header}</div>
+      const widthClass = header === 'id' ? { maxWidth: 50 } : { maxWidth: normalFieldWidth }
+      return <div key={index} style={widthClass} className={styles.tableHeaderCell}>{header}</div>
     })
   }
 
