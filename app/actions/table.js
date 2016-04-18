@@ -11,7 +11,7 @@ export function getTable(table) {
   return (dispatch, getState) => {
     const { app, routing } = getState()
     dispatch(tableGet(table))
-    getTableFromDb(app.db)
+    getTableFromDb(app.db, table)
       .then((rows) => {
         dispatch(tableGetSuccess(table, rows))
         if (routing.locationBeforeTransitions.pathname !== '/table') dispatch(push('/table'))
@@ -59,7 +59,7 @@ export function rowNewCreate(table) {
     newTableRowInDb(app.db, table)
       .then((row) => {
         dispatch(rowNew(table, row))
-        dispatch(tableRowActivate(row.id))
+        dispatch(tableRowToggleActivated(row.id))
         if (routing.locationBeforeTransitions.pathname !== '/table') dispatch(push('/table'))
       })
       .catch((error) => dispatch(tableNewError(error)))
@@ -88,7 +88,7 @@ export function tableRowRemove(table, id) {
     const { app } = getState()
     deleteTableRow(app.db, table, id)
       .then(() => {
-        dispatch(tableRowActivate(table, null))
+        dispatch(tableRowToggleActivated(table, null))
         dispatch(tableRowRemoveDeleteIntended(table, id))
         dispatch(tableRowDelete(table, id))
       })
@@ -161,10 +161,10 @@ export function changeGeschaeftInDb(table, id, field, value) {
   }
 }
 
-export const TABLE_ROW_ACTIVATE = 'TABLE_ROW_ACTIVATE'
-export function tableRowActivate(table, id) {
+export const TABLE_ROW_TOGGLE_ACTIVATED = 'TABLE_ROW_TOGGLE_ACTIVATED'
+export function tableRowToggleActivated(table, id) {
   return {
-    type: TABLE_ROW_ACTIVATE,
+    type: TABLE_ROW_TOGGLE_ACTIVATED,
     table,
     id
   }

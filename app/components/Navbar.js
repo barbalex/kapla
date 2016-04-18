@@ -49,7 +49,8 @@ class NavbarComponent extends Component {
     navbarHide: PropTypes.func.isRequired,
     navbarShow: PropTypes.func.isRequired,
     path: PropTypes.string.isRequired,
-    messageShow: PropTypes.func.isRequired
+    messageShow: PropTypes.func.isRequired,
+    getTable: PropTypes.func.isRequired
   }
 
   componentWillMount() {
@@ -213,7 +214,8 @@ class NavbarComponent extends Component {
       pagesInitiate,
       geschaeftNewCreate,
       geschaeftSetDeleteIntended,
-      path
+      path,
+      getTable
     } = this.props
 
     if (!navbarVisible) return null
@@ -311,7 +313,15 @@ class NavbarComponent extends Component {
             />
             </Navbar.Form>
             <NavDropdown eventKey={8} title="Menu" id="basic-nav-dropdown">
-              <MenuItem eventKey={8.1} onClick={dbGet}>Datenbank wählen</MenuItem>
+              <MenuItem eventKey={8.1} onClick={() => getTable('interne')}>Interne</MenuItem>
+              <MenuItem eventKey={8.2} onClick={() => getTable('externe')}>Externe</MenuItem>
+              <MenuItem eventKey={8.3} onClick={() => getTable('gdeplz')}>Gemeinden</MenuItem>
+              <MenuItem eventKey={8.4} onClick={() => getTable('geschaeftsart')}>Auswahlliste Geschäftsart</MenuItem>
+              <MenuItem eventKey={8.6} onClick={() => getTable('parlamentVorstossTyp')}>Auswahlliste Parlament. Vorstoss Typ</MenuItem>
+              <MenuItem eventKey={8.7} onClick={() => getTable('rechtsmittelerledigung')}>Auswahlliste Rechtsmittelerledigung</MenuItem>
+              <MenuItem eventKey={8.8} onClick={() => getTable('status')}>Auswahlliste Status</MenuItem>
+              <MenuItem divider />
+              <MenuItem eventKey={8.9} onClick={dbGet}>Datenbank wählen</MenuItem>
             </NavDropdown>
           </Nav>
         </Navbar>

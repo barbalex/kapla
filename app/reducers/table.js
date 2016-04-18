@@ -4,7 +4,7 @@ import {
   TABLE_GET,
   TABLE_GET_SUCCESS,
   TABLE_GET_ERROR,
-  TABLE_ROW_ACTIVATE,
+  TABLE_ROW_TOGGLE_ACTIVATED,
   TABLE_ROW_DEACTIVATE,
   TABLE_ROW_DELETE,
   TABLE_ROW_SET_DELETE_INTENDED,
@@ -53,10 +53,10 @@ export default function table(state = standardState, action) {
         error: [],
         rows: action.rows
       }
-    case TABLE_ROW_ACTIVATE:
+    case TABLE_ROW_TOGGLE_ACTIVATED:
       return {
         ...state,
-        id: action.id
+        id: !!state.id ? null : action.id
       }
     case TABLE_ROW_DEACTIVATE:
       return {
