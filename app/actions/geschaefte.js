@@ -115,7 +115,7 @@ export function geschaeftNewCreate() {
     newGeschaeftInDb(app.db, user.username)
       .then((geschaeft) => {
         dispatch(geschaeftNew(geschaeft))
-        dispatch(geschaeftActivate(geschaeft.idGeschaeft))
+        dispatch(geschaeftToggleActivated(geschaeft.idGeschaeft))
         if (routing.locationBeforeTransitions.pathname !== '/geschaefte') dispatch(push('/geschaefte'))
       })
       .catch((error) => dispatch(geschaeftNewError(error)))
@@ -143,7 +143,6 @@ export function geschaeftRemove(idGeschaeft) {
     const { app } = getState()
     deleteGeschaeft(app.db, idGeschaeft)
       .then(() => {
-        dispatch(geschaeftActivate(null))
         dispatch(geschaeftRemoveDeleteIntended(idGeschaeft))
         dispatch(geschaeftDelete(idGeschaeft))
       })
@@ -214,13 +213,11 @@ export function changeGeschaeftInDb(idGeschaeft, field, value) {
   }
 }
 
-export const GESCHAEFT_ACTIVATE = 'GESCHAEFT_ACTIVATE'
-export function geschaeftActivate(idGeschaeft) {
-  return (dispatch) => {
-    dispatch({
-      type: GESCHAEFT_ACTIVATE,
-      idGeschaeft
-    })
+export const GESCHAEFT_TOGGLE_ACTIVATED = 'GESCHAEFT_TOGGLE_ACTIVATED'
+export function geschaeftToggleActivated(idGeschaeft) {
+  return {
+    type: GESCHAEFT_TOGGLE_ACTIVATED,
+    idGeschaeft
   }
 }
 

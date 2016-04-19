@@ -9,13 +9,13 @@ class Geschaefte extends Component {
     geschaefte: PropTypes.array.isRequired,
     geschaefteGefilterteIds: PropTypes.array.isRequired,
     username: PropTypes.string,
-    geschaeftActivate: PropTypes.func.isRequired,
+    geschaeftToggleActivated: PropTypes.func.isRequired,
     activeId: PropTypes.number
   }
 
   onClickGeschaeft(idGeschaeft) {
-    const { geschaeftActivate } = this.props
-    geschaeftActivate(idGeschaeft)
+    const { geschaeftToggleActivated } = this.props
+    geschaeftToggleActivated(idGeschaeft)
   }
 
   renderItem(index, key) {

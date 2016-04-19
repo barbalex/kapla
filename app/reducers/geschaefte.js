@@ -7,8 +7,7 @@ import {
   GESCHAEFTE_FILTER_BY_FIELDS,
   GESCHAEFTE_FILTER_BY_FULLTEXT,
   GESCHAEFTE_FILTER_BY_FULLTEXT_SET,
-  GESCHAEFT_ACTIVATE,
-  GESCHAEFT_DEACTIVATE,
+  GESCHAEFT_TOGGLE_ACTIVATED,
   GESCHAEFT_DELETE,
   GESCHAEFT_SET_DELETE_INTENDED,
   GESCHAEFT_REMOVE_DELETE_INTENDED,
@@ -99,15 +98,10 @@ export default function geschaefte(state = standardState, action) {
         ...state,
         geschaefteGefilterteIds: action.geschaefteGefilterteIds
       }
-    case GESCHAEFT_ACTIVATE:
+    case GESCHAEFT_TOGGLE_ACTIVATED:
       return {
         ...state,
-        activeId: action.idGeschaeft
-      }
-    case GESCHAEFT_DEACTIVATE:
-      return {
-        ...state,
-        activeId: null
+        activeId: state.activeId && state.activeId === action.idGeschaeft ? null : action.idGeschaeft
       }
     case GESCHAEFT_SET_DELETE_INTENDED:
       return {
@@ -123,7 +117,8 @@ export default function geschaefte(state = standardState, action) {
       return {
         ...state,
         geschaefte: [...state.geschaefte.filter((g) => g.idGeschaeft !== action.idGeschaeft)],
-        geschaefteGefilterteIds: [...state.geschaefteGefilterteIds.filter((id) => id !== action.idGeschaeft)]
+        geschaefteGefilterteIds: [...state.geschaefteGefilterteIds.filter((id) => id !== action.idGeschaeft)],
+        activeId: null
       }
     case GESCHAEFTE_CHANGE_STATE:
       return {
