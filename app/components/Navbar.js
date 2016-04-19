@@ -15,7 +15,6 @@ import {
   Badge
 } from 'react-bootstrap'
 import { LinkContainer } from 'react-router-bootstrap'
-import { throttle } from 'lodash'
 import moment from 'moment'
 import ModalGeschaeftDelete from '../containers/ModalGeschaeftDelete.js'
 import ModalMessage from '../containers/ModalMessage.js'
@@ -36,13 +35,7 @@ class NavbarComponent extends Component {
     geschaefte: PropTypes.array.isRequired,
     geschaefteGefilterteIds: PropTypes.array.isRequired,
     showMessageModal: PropTypes.bool.isRequired,
-    fetchUsername: PropTypes.func.isRequired,
     dbGetFromConfig: PropTypes.func.isRequired,
-    getGeschaefte: PropTypes.func.isRequired,
-    rechtsmittelerledigungOptionsGet: PropTypes.func.isRequired,
-    parlVorstossTypOptionsGet: PropTypes.func.isRequired,
-    statusOptionsGet: PropTypes.func.isRequired,
-    geschaeftsartOptionsGet: PropTypes.func.isRequired,
     willDeleteGeschaeft: PropTypes.bool.isRequired,
     pagesInitiate: PropTypes.func.isRequired,
     navbarVisible: PropTypes.bool.isRequired,
@@ -54,23 +47,8 @@ class NavbarComponent extends Component {
   }
 
   componentWillMount() {
-    const {
-      fetchUsername,
-      dbGetFromConfig,
-      getGeschaefte,
-      rechtsmittelerledigungOptionsGet,
-      parlVorstossTypOptionsGet,
-      statusOptionsGet,
-      geschaeftsartOptionsGet
-    } = this.props
-
-    fetchUsername()
+    const { dbGetFromConfig } = this.props
     dbGetFromConfig()
-    throttle(getGeschaefte, 200)
-    throttle(rechtsmittelerledigungOptionsGet, 1000)
-    throttle(parlVorstossTypOptionsGet, 1000)
-    throttle(statusOptionsGet, 1000)
-    throttle(geschaeftsartOptionsGet, 1000)
   }
 
   onChangeFilterFulltext = (e) => {

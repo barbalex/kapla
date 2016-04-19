@@ -8,36 +8,9 @@ class Geschaefte extends Component {
   static propTypes = {
     geschaefte: PropTypes.array.isRequired,
     geschaefteGefilterteIds: PropTypes.array.isRequired,
-    fetchUsername: PropTypes.func.isRequired,
     username: PropTypes.string,
-    dbGetFromConfig: PropTypes.func.isRequired,
-    getGeschaefte: PropTypes.func.isRequired,
     geschaeftActivate: PropTypes.func.isRequired,
-    activeId: PropTypes.number,
-    rechtsmittelerledigungOptionsGet: PropTypes.func.isRequired,
-    parlVorstossTypOptionsGet: PropTypes.func.isRequired,
-    statusOptionsGet: PropTypes.func.isRequired,
-    geschaeftsartOptionsGet: PropTypes.func.isRequired
-  }
-
-  componentWillMount() {
-    const {
-      fetchUsername,
-      dbGetFromConfig,
-      getGeschaefte,
-      rechtsmittelerledigungOptionsGet,
-      parlVorstossTypOptionsGet,
-      statusOptionsGet,
-      geschaeftsartOptionsGet
-    } = this.props
-
-    fetchUsername()
-    dbGetFromConfig()
-    getGeschaefte()
-    rechtsmittelerledigungOptionsGet()
-    parlVorstossTypOptionsGet()
-    statusOptionsGet()
-    geschaeftsartOptionsGet()
+    activeId: PropTypes.number
   }
 
   onClickGeschaeft(idGeschaeft) {

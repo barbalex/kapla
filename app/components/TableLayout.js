@@ -1,6 +1,6 @@
 'use strict'
 
-import React, { Component, PropTypes } from 'react'
+import React, { Component } from 'react'
 import GoldenLayout from 'golden-layout'
 import wrapComponentInProvider from '../containers/wrapComponentInProvider'
 import Geschaeft from '../containers/Geschaeft'
@@ -19,21 +19,23 @@ const layoutConfig = {
     maximise: 'Breite maximieren',
     minimise: 'Breite zurücksetzen'
   },
-  content: [{
-    type: 'row',
-    content:[
-      {
-        type:'react-component',
-        component: 'table',
-        title: 'Tabelle'
-      },
-      {
-        type:'react-component',
-        component: 'geschaeft',
-        title: 'Aktives Geschäft'
-      }
-    ]
-  }]
+  content: [
+    {
+      type: 'row',
+      content: [
+        {
+          type: 'react-component',
+          component: 'table',
+          title: 'Tabelle'
+        },
+        {
+          type: 'react-component',
+          component: 'geschaeft',
+          title: 'Aktives Geschäft'
+        }
+      ]
+    }
+  ]
 }
 
 class TableLayout extends Component {
@@ -46,7 +48,7 @@ class TableLayout extends Component {
     const savedState = getConfig().tableLayoutState
     let tableLayout
     if (savedState) {
-      tableLayout = new GoldenLayout(JSON.parse(savedState))
+      tableLayout = new GoldenLayout(savedState)
     } else {
       tableLayout = new GoldenLayout(layoutConfig)
     }
@@ -54,7 +56,7 @@ class TableLayout extends Component {
     tableLayout.registerComponent('geschaeft', wrapComponentInProvider(Geschaeft))
     tableLayout.init()
     this.setState({ tableLayout })
-    tableLayout.on('stateChanged', () => this.saveGeschaefteState())
+    tableLayout.on('stateChanged', () => this.saveTableState())
   }
 
   componentWillUnmount = () => {
@@ -62,10 +64,9 @@ class TableLayout extends Component {
     tableLayout.destroy()
   }
 
-  saveGeschaefteState = () => {
+  saveTableState = () => {
     const { tableLayout } = this.state
-    const state = JSON.stringify(tableLayout.toConfig())
-    saveConfigValue('tableLayoutState', state)
+    saveConfigValue('tableLayoutState', tableLayout.toConfig())
   }
 
   render = () => <div></div>

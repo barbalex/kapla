@@ -55,7 +55,7 @@ import deleteTableRow from '../src/deleteTableRow.js'
 
 export function rowNewCreate(table) {
   return (dispatch, getState) => {
-    const { app, user, routing } = getState()
+    const { app, routing } = getState()
     newTableRowInDb(app.db, table)
       .then((row) => {
         dispatch(rowNew(table, row))
@@ -148,9 +148,9 @@ export function tableChangeDbError(error) {
   }
 }
 
-export function changeGeschaeftInDb(table, id, field, value) {
+export function changeTableInDb(table, id, field, value) {
   return (dispatch, getState) => {
-    const { app, user } = getState()
+    const { app } = getState()
     // no need to do something on then
     // ui was updated on TABLE_CHANGE_STATE
     updateTableRow(app.db, table, id, field, value)

@@ -11,7 +11,8 @@ const fs = require('fs')
 const path = require('path')
 const dataFilePath = path.join(app.getPath('userData'), 'kaplaConfig.json')
 
-module.exports = function () {
+module.exports = function getConfig() {
   if (!fs.existsSync(dataFilePath)) return {}
-  return JSON.parse(fs.readFileSync(dataFilePath, 'utf-8'))
+  const config = JSON.parse(fs.readFileSync(dataFilePath, 'utf-8'))
+  return config
 }

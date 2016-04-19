@@ -1,6 +1,6 @@
 'use strict'
 
-import React, { Component, PropTypes } from 'react'
+import React, { Component } from 'react'
 import GoldenLayout from 'golden-layout'
 import wrapComponentInProvider from '../containers/wrapComponentInProvider'
 import Geschaeft from '../containers/Geschaeft'
@@ -21,14 +21,14 @@ const layoutConfig = {
   },
   content: [{
     type: 'row',
-    content:[
+    content: [
       {
-        type:'react-component',
+        type: 'react-component',
         component: 'geschaefte',
         title: 'Geschäfte'
       },
       {
-        type:'react-component',
+        type: 'react-component',
         component: 'geschaeft',
         title: 'Aktives Geschäft'
       }
@@ -46,7 +46,7 @@ class GeschaefteLayout extends Component {
     const savedState = getConfig().geschaefteLayoutState
     let geschaefteLayout
     if (savedState) {
-      geschaefteLayout = new GoldenLayout(JSON.parse(savedState))
+      geschaefteLayout = new GoldenLayout(savedState)
     } else {
       geschaefteLayout = new GoldenLayout(layoutConfig)
     }
@@ -64,8 +64,7 @@ class GeschaefteLayout extends Component {
 
   saveGeschaefteState = () => {
     const { geschaefteLayout } = this.state
-    const state = JSON.stringify(geschaefteLayout.toConfig())
-    saveConfigValue('geschaefteLayoutState', state)
+    saveConfigValue('geschaefteLayoutState', geschaefteLayout.toConfig())
   }
 
   render = () => <div></div>

@@ -1,9 +1,11 @@
 'use strict'
 
+const sqlite3 = require('sqlite3').verbose()
 import chooseDb from '../src/chooseDb.js'
 import getConfig from '../src/getConfig.js'
 import saveConfigValue from '../src/saveConfigValue.js'
-const sqlite3 = require('sqlite3').verbose()
+import * as GeschaefteActions from './geschaefte'
+import * as UserActions from './user'
 
 export const MESSAGE_SHOW = 'MESSAGE_SHOW'
 export function messageShow(showMessageModal, messageText) {
@@ -37,10 +39,19 @@ function dbChoose() {
 
 export const DB_CHOOSE_SUCCESS = 'DB_CHOOSE_SUCCESS'
 function dbChooseSuccess(dbPath, db) {
-  return {
-    type: DB_CHOOSE_SUCCESS,
-    db,
-    dbPath
+  return dispatch => {
+    dispatch({
+      type: DB_CHOOSE_SUCCESS,
+      db,
+      dbPath
+    })
+    // get data
+    dispatch(UserActions.fetchUsername())
+    dispatch(GeschaefteActions.getGeschaefte())
+    dispatch(GeschaefteActions.rechtsmittelerledigungOptionsGet())
+    dispatch(GeschaefteActions.parlVorstossTypOptionsGet())
+    dispatch(GeschaefteActions.statusOptionsGet())
+    dispatch(GeschaefteActions.geschaeftsartOptionsGet())
   }
 }
 

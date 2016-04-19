@@ -49,6 +49,17 @@ class Table extends Component {
     })
   }
 
+  tableHeaders = () => {
+    const { rows } = this.props
+    const { offsetWidth } = this.state
+    const headers = Object.keys(rows[0])
+    const normalFieldWidth = (offsetWidth - 50) / (headers.length - 1)
+    return headers.map((header, index) => {
+      const widthClass = header === 'id' ? { maxWidth: 50 } : { maxWidth: normalFieldWidth }
+      return <div key={index} style={widthClass} className={styles.tableHeaderCell}>{header}</div>
+    })
+  }
+
   renderItem(index, key) {
     const { rows, id } = this.props
     const isActive = !!id
@@ -72,17 +83,6 @@ class Table extends Component {
         {items}
       </div>
     )
-  }
-
-  tableHeaders = () => {
-    const { rows } = this.props
-    const { offsetWidth } = this.state
-    const headers = Object.keys(rows[0])
-    const normalFieldWidth = (offsetWidth - 50) / (headers.length - 1)
-    return headers.map((header, index) => {
-      const widthClass = header === 'id' ? { maxWidth: 50 } : { maxWidth: normalFieldWidth }
-      return <div key={index} style={widthClass} className={styles.tableHeaderCell}>{header}</div>
-    })
   }
 
   render() {
