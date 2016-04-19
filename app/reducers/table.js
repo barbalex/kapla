@@ -53,7 +53,8 @@ export default function table(state = standardState, action) {
         table: action.table,
         fetching: false,
         error: [],
-        rows: action.rows
+        rows: action.rows,
+        id: null
       }
     case TABLE_ROW_TOGGLE_ACTIVATED:
       return {

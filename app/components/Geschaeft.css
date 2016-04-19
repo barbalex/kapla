@@ -1,8 +1,52 @@
-.wrapper {
+.body {
+  background-image: linear-gradient(45deg, rgba(255, 166, 2, 0.2) 10%, rgba(255, 166, 2, 0.3));
+  height: 100%;
+}
+
+.wrapperNarrow {
+  width: 100%;
   display: grid;
   grid-gap: 1em;
   grid-template-areas:
    "geschaeft"
    "nummern"
-   "parlVorstoesse"
+   "Fristen"
+   "Personen"
+   "Baum"
+}
+
+.wrapperWide {
+  width: 100%;
+  display: grid;
+  grid-gap: 1em;
+  grid-template-columns: 8.333333% auto;
+  grid-template-areas:
+   "geschaeft geschaeft geschaeft geschaeft geschaeft geschaeft geschaeft nummern nummern nummern nummern nummern"
+   "Fristen Fristen Fristen Fristen Fristen Personen Personen Personen Personen Personen Personen Personen"
+   "Baum Baum Baum Baum Baum Baum Baum Baum Baum Baum Baum Baum Baum"
+}
+
+.geschaeft {
+  grid-area: geschaeft;
+  background-color: orange;
+}
+
+.nummern {
+  grid-area: nummern;
+  background-color: grey;
+}
+
+.fristen {
+  grid-area: fristen;
+  background-color: yellow;
+}
+
+.personen {
+  grid-area: personen;
+  background-color: green;
+}
+
+.baum {
+  grid-area: baum;
+  background-color: blue;
 }

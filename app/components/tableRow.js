@@ -33,17 +33,12 @@ class TableRow extends Component {
     changeTableInDb(table, id, name, value)
   }
 
-  fields = (row) => Object.keys(row).map((key, index) => {
-    const value = row[key]
-    const controlId = `formHorizontal${key}`
+  fields = (row) => Object.keys(row).map((fieldName, index) => {
+    const value = row[fieldName]
     const field = (
-      <FormGroup key={index} controlId={controlId} className={styles.formGroup}>
-        <Col componentClass={ControlLabel} sm={3} className={styles.controlLabel}>
-          {key}
-        </Col>
-        <Col sm={9}>
-          <FormControl type="text" name={key} value={value} onChange={this.change} onBlur={this.blur} />
-        </Col>
+      <FormGroup key={index} className={styles.formGroup}>
+        <ControlLabel>{fieldName}</ControlLabel>
+        <FormControl type="text" name={fieldName} value={value} onChange={this.change} onBlur={this.blur} />
       </FormGroup>
     )
     return field
@@ -56,9 +51,11 @@ class TableRow extends Component {
     if (row === undefined) return null
 
     return (
-      <Form horizontal>
-        {this.fields(row)}
-      </Form>
+      <div className={styles.body}>
+        <Form>
+          {this.fields(row)}
+        </Form>
+      </div>
     )
   }
 }
