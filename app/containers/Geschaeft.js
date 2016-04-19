@@ -8,7 +8,7 @@ import * as AppActions from '../actions/app'
 
 const actions = Object.assign(GeschaefteActions, AppActions)
 
-function mapStateToProps(state) {
+function mapStateToProps(state, props) {
   const {
     geschaefte,
     activeId,
@@ -17,6 +17,7 @@ function mapStateToProps(state) {
     statusOptions,
     geschaeftsartOptions
   } = state.geschaefte
+  const { layout } = props
 
   return {
     geschaefte,
@@ -24,7 +25,8 @@ function mapStateToProps(state) {
     rechtsmittelerledigungOptions,
     parlVorstossTypOptions,
     statusOptions,
-    geschaeftsartOptions
+    geschaeftsartOptions,
+    geschaefteLayout: layout
   }
 }
 

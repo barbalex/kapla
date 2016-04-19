@@ -13,7 +13,8 @@ class Geschaeft extends Component {
     rechtsmittelerledigungOptions: PropTypes.array.isRequired,
     parlVorstossTypOptions: PropTypes.array.isRequired,
     statusOptions: PropTypes.array.isRequired,
-    geschaeftsartOptions: PropTypes.array.isRequired
+    geschaeftsartOptions: PropTypes.array.isRequired,
+    geschaefteLayout: PropTypes.object.isRequired
   }
 
   change = (e) => {
@@ -49,10 +50,18 @@ class Geschaeft extends Component {
       rechtsmittelerledigungOptions,
       parlVorstossTypOptions,
       statusOptions,
-      geschaeftsartOptions
+      geschaeftsartOptions,
+      geschaefteLayout
     } = this.props
 
     const geschaeft = geschaefte.find((g) => g.idGeschaeft === activeId)
+
+    // need width to set layout for differing widths
+    const geschaefteLayoutWidth = geschaefteLayout.width
+    const geschaeftWidthPercent = geschaefteLayout.config.content[0].content[1].width
+    const geschaeftWidth = geschaefteLayoutWidth * geschaeftWidthPercent / 100
+
+    console.log('components/Geschaeft, render, geschaeftWidth', geschaeftWidth)
 
     if (geschaeft && geschaeft.idGeschaeft) {
       return (

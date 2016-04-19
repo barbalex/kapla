@@ -7,13 +7,13 @@ import * as TableActions from '../actions/table'
 
 function mapStateToProps(state, props) {
   const { table, rows, id } = state.table
-  const { tableLayout } = props
+  const { layout } = props
 
   return {
     table,
     rows,
     id,
-    tableLayout
+    tableLayout: layout
   }
 }
 

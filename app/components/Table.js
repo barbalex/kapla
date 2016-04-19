@@ -14,10 +14,6 @@ class Table extends Component {
     tableRowToggleActivated: PropTypes.func.isRequired
   }
 
-  state = {
-    offsetWidth: 0
-  }
-
   onClickTableRow(id) {
     const { tableRowToggleActivated, table } = this.props
     tableRowToggleActivated(table, id)

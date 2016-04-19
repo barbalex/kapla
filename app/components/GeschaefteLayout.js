@@ -8,34 +8,6 @@ import Geschaefte from '../containers/Geschaefte'
 import saveConfigValue from '../src/saveConfigValue'
 import getConfig from '../src/getConfig.js'
 
-const layoutConfig = {
-  settings: {
-    hasHeaders: false,
-    reorderEnabled: false,
-    showPopoutIcon: false,
-    showCloseIcon: false
-  },
-  labels: {
-    maximise: 'Breite maximieren',
-    minimise: 'Breite zurücksetzen'
-  },
-  content: [{
-    type: 'row',
-    content: [
-      {
-        type: 'react-component',
-        component: 'geschaefte',
-        title: 'Geschäfte'
-      },
-      {
-        type: 'react-component',
-        component: 'geschaeft',
-        title: 'Aktives Geschäft'
-      }
-    ]
-  }]
-}
-
 class GeschaefteLayout extends Component {
 
   state = {
@@ -43,15 +15,42 @@ class GeschaefteLayout extends Component {
   }
 
   componentDidMount = () => {
+    let { geschaefteLayout } = this.state
+    const layoutConfig = {
+      settings: {
+        hasHeaders: false,
+        reorderEnabled: false,
+        showPopoutIcon: false,
+        showCloseIcon: false
+      },
+      labels: {
+        maximise: 'Breite maximieren',
+        minimise: 'Breite zurücksetzen'
+      },
+      content: [{
+        type: 'row',
+        content: [
+          {
+            type: 'react-component',
+            component: 'geschaefte',
+            title: 'Geschäfte'
+          },
+          {
+            type: 'react-component',
+            component: 'geschaeft',
+            title: 'Aktives Geschäft'
+          }
+        ]
+      }]
+    }
     const savedState = getConfig().geschaefteLayoutState
-    let geschaefteLayout
     if (savedState) {
       geschaefteLayout = new GoldenLayout(savedState)
     } else {
       geschaefteLayout = new GoldenLayout(layoutConfig)
     }
     geschaefteLayout.registerComponent('geschaefte', wrapComponentInProvider(Geschaefte))
-    geschaefteLayout.registerComponent('geschaeft', wrapComponentInProvider(Geschaeft))
+    geschaefteLayout.registerComponent('geschaeft', wrapComponentInProvider(Geschaeft, geschaefteLayout))
     geschaefteLayout.init()
     this.setState({ geschaefteLayout })
     geschaefteLayout.on('stateChanged', () => this.saveGeschaefteState())
