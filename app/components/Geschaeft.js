@@ -61,8 +61,6 @@ class Geschaeft extends Component {
     const geschaeftWidthPercent = geschaefteLayout.config.content[0].content[1].width
     const geschaeftWidth = geschaefteLayoutWidth * geschaeftWidthPercent / 100
 
-    console.log('components/Geschaeft, render, geschaeftWidth', geschaeftWidth)
-
     if (geschaeft && geschaeft.idGeschaeft) {
       return (
         <div>
