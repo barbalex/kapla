@@ -4,49 +4,42 @@
 }
 
 .wrapperNarrow {
-  width: 100%;
   display: grid;
-  grid-gap: 1em;
-  grid-template-areas:
-   "geschaeft"
-   "nummern"
-   "Fristen"
-   "Personen"
-   "Baum"
+  grid-gap: 0;
 }
 
 .wrapperWide {
-  width: 100%;
   display: grid;
-  grid-gap: 1em;
-  grid-template-columns: 8.333333% auto;
-  grid-template-areas:
-   "geschaeft geschaeft geschaeft geschaeft geschaeft geschaeft geschaeft nummern nummern nummern nummern nummern"
-   "Fristen Fristen Fristen Fristen Fristen Personen Personen Personen Personen Personen Personen Personen"
-   "Baum Baum Baum Baum Baum Baum Baum Baum Baum Baum Baum Baum Baum"
+  grid-gap: 0;
+  grid-template-columns: 8.333333%;
 }
 
 .geschaeft {
-  grid-area: geschaeft;
+  grid-column: 1 / 7;
+  grid-row: 1 / 7;
   background-color: orange;
 }
 
 .nummern {
-  grid-area: nummern;
+  grid-column: 8 / 12;
+  grid-row: 1 / 4;
+  background-color: #DADADA;
+}
+
+.parlVorst {
+  grid-column: 8 / 12;
+  grid-row: 5 / 8;
   background-color: grey;
 }
 
-.fristen {
-  grid-area: fristen;
-  background-color: yellow;
+.formGroup {
+  margin-bottom: 2px;
 }
 
-.personen {
-  grid-area: personen;
-  background-color: green;
+.label {
+  margin-bottom: 0;
 }
 
-.baum {
-  grid-area: baum;
-  background-color: blue;
+.input {
+  display: block !important;
 }

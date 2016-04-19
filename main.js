@@ -28,7 +28,9 @@ const browserWindowOptions = {
   width: 1800,
   height: 1024,
   icon: './app/etc/zh3.png',
-  experimentalFeatures: true
+  webPreferences: {
+    experimentalFeatures: true
+  }
 }
 
 // get last window state

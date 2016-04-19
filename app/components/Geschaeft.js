@@ -1,7 +1,7 @@
 'use strict'
 
 import React, { Component, PropTypes } from 'react'
-import { FormGroup, FormControl, ControlLabel, Radio, InputGroup, Grid, Row, Col } from 'react-bootstrap'
+import { Form, FormGroup, FormControl, ControlLabel, Radio, InputGroup, Grid, Row, Col } from 'react-bootstrap'
 import styles from './Geschaeft.css'
 
 class Geschaeft extends Component {
@@ -66,12 +66,315 @@ class Geschaeft extends Component {
       return (
         <div>
           <div className={wrapperClass}>
-            <div className={styles.geschaeft}>geschaeft</div>
-            <div className={styles.nummern}>nummern</div>
-            <div className={styles.fristen}>Fristen</div>
-            <div className={styles.personen}>Personen</div>
-            <div className={styles.baum}>Baum</div>
+            <div className={styles.geschaeft}>
+              <Form>
+                <div className={styles.bereichTitel}>Geschäft</div>
+                <FormGroup>
+                    <ControlLabel>Gegenstand</ControlLabel>
+                    <FormControl
+                      type = "textarea"
+                      value = {geschaeft.gegenstand || ''}
+                      name = "gegenstand"
+                      onChange = {this.change}
+                      onBlur = {this.blur}
+                      bsSize = "small"
+                      className = {[styles.input, styles.gegenstand].join(' ')}
+                      tabIndex = {1}
+                      autoFocus
+                    />
+                  </FormGroup>
+                  <FormGroup>
+                    <ControlLabel>Ort</ControlLabel>
+                    <FormControl
+                      type = "text"
+                      value = {geschaeft.ort || ''}
+                      name = "ort"
+                      onChange = {this.change}
+                      onBlur = {this.blur}
+                      bsSize = "small"
+                      className={styles.input}
+                      tabIndex = {2}
+                    />
+                  </FormGroup>
+              </Form>
+              <Form inline>
+                <FormGroup className={styles.formGroup}>
+                  <ControlLabel className={styles.label}>Geschäftsart</ControlLabel>
+                  <FormControl
+                    componentClass="select"
+                    value = {geschaeft.geschaeftsart || ''}
+                    name = "geschaeftsart"
+                    onChange = {this.change}
+                    onBlur = {this.blur}
+                    bsSize = "small"
+                    className={styles.input}
+                    tabIndex = {3}
+                  >
+                    {this.options(geschaeftsartOptions)}
+                  </FormControl>
+                </FormGroup>
+                <FormGroup className={styles.formGroup}>
+                  <ControlLabel className={styles.label}>Status</ControlLabel>
+                  <FormControl
+                    componentClass="select"
+                    value = {geschaeft.status || ''}
+                    name = "status"
+                    onChange = {this.change}
+                    onBlur = {this.blur}
+                    bsSize = "small"
+                    className={styles.input}
+                    tabIndex = {4}
+                  >
+                    {this.options(statusOptions)}
+                  </FormControl>
+                </FormGroup>
+                <FormGroup className={styles.formGroup}>
+                  <ControlLabel className={styles.label}>Vorgeschäft</ControlLabel>
+                  <FormControl
+                    type = "number"
+                    value = {geschaeft.idVorgeschaeft || ''}
+                    name = "idVorgeschaeft"
+                    onChange = {this.change}
+                    onBlur = {this.blur}
+                    bsSize = "small"
+                    className = {styles.input}
+                    placeholder = "ID"
+                    tabIndex = {5}
+                  />
+                </FormGroup>
+                <FormGroup className={styles.formGroup}>
+                  <ControlLabel className={styles.label}>Direktion</ControlLabel>
+                  <FormControl
+                    type = "text"
+                    value = {geschaeft.zustaendigeDirektion || ''}
+                    name = "zustaendigeDirektion"
+                    onChange = {this.change}
+                    onBlur = {this.blur}
+                    bsSize = "small"
+                    className={styles.input}
+                    tabIndex = {6}
+                  />
+                </FormGroup>
+              </Form>
+              <Form>
+                <FormGroup className={styles.formGroup}>
+                  <ControlLabel className={styles.label}>Details</ControlLabel>
+                  <FormControl
+                    type = "textarea"
+                    value = {geschaeft.details || ''}
+                    name = "details"
+                    onChange = {this.change}
+                    onBlur = {this.blur}
+                    bsSize = "small"
+                    className={styles.input}
+                    rows = {4}
+                    tabIndex = {7}
+                  />
+                </FormGroup>
+                <FormGroup className={styles.formGroup}>
+                  <ControlLabel className={styles.label}>Nächster Schritt</ControlLabel>
+                  <FormControl
+                    type = "textarea"
+                    value = {geschaeft.naechsterSchritt || ''}
+                    name = "naechsterSchritt"
+                    onChange = {this.change}
+                    onBlur = {this.blur}
+                    bsSize = "small"
+                    className = {styles.input}
+                    rows = {3}
+                    tabIndex = {8}
+                  />
+                </FormGroup>
+                <FormGroup className={styles.formGroup}>
+                  <ControlLabel className={styles.label}>Vermerk</ControlLabel>
+                  <FormControl
+                    type = "textarea"
+                    value = {geschaeft.vermerk || ''}
+                    name = "vermerk"
+                    onChange = {this.change}
+                    onBlur = {this.blur}
+                    bsSize = "small"
+                    className={styles.input}
+                    rows = {4}
+                    tabIndex = {9}
+                  />
+                </FormGroup>
+                <FormGroup className={styles.formGroup}>
+                  <ControlLabel className={styles.label}>Erledigung</ControlLabel>
+                  <FormControl
+                    componentClass="select"
+                    value = {geschaeft.rechtsmittelerledigung || ''}
+                    name = "rechtsmittelerledigung"
+                    onChange = {this.change}
+                    onBlur = {this.blur}
+                    bsSize = "small"
+                    className={styles.input}
+                    tabIndex = {10}
+                  >
+                    {this.options(rechtsmittelerledigungOptions)}
+                  </FormControl>
+                </FormGroup>
+              </Form>
+            </div>
+            <div className={styles.nummern}>
+              <Form inline>
+                <FormGroup className={styles.formGroup}>
+                  <ControlLabel className={styles.label}>ID</ControlLabel>
+                  <FormControl
+                    type = "number"
+                    value = {geschaeft.idGeschaeft}
+                    bsSize = "small"
+                    disabled
+                    className={[styles.input, styles.idGeschaeft].join(' ')}
+                  />
+                </FormGroup>
+              </Form>
+              <Form inline>
+                <FormGroup className={styles.formGroup}>
+                  <ControlLabel className={styles.label}>AWEL Nr.</ControlLabel>
+                  <FormControl
+                    type = "number"
+                    value = {geschaeft.entscheidAwelNr || ''}
+                    name = "entscheidAwelNr"
+                    onChange = {this.change}
+                    onBlur = {this.blur}
+                    bsSize = "small"
+                    className={styles.input}
+                    tabIndex = {11}
+                  />
+                </FormGroup>
+                <FormGroup className={styles.formGroup}>
+                  <ControlLabel className={styles.label}>Jahr</ControlLabel>
+                  <FormControl
+                    type = "number"
+                    value = {geschaeft.entscheidAwelJahr || ''}
+                    name = "entscheidAwelJahr"
+                    onChange = {this.change}
+                    onBlur = {this.blur}
+                    bsSize = "small"
+                    className={styles.input}
+                    tabIndex = {12}
+                  />
+                </FormGroup>
+                <FormGroup className={styles.formGroup}>
+                  <ControlLabel className={styles.label}>BDV&nbsp;&nbsp;&nbsp;&nbsp;Nr.</ControlLabel>
+                  <FormControl
+                    type = "number"
+                    value = {geschaeft.entscheidBdvNr || ''}
+                    name = "entscheidBdvNr"
+                    onChange = {this.change}
+                    onBlur = {this.blur}
+                    bsSize = "small"
+                    className={styles.input}
+                    tabIndex = {13}
+                  />
+                </FormGroup>
+                <FormGroup className={styles.formGroup}>
+                  <ControlLabel className={styles.label}>Jahr</ControlLabel>
+                  <FormControl
+                    type = "number"
+                    value = {geschaeft.entscheidBdvJahr || ''}
+                    name = "entscheidBdvJahr"
+                    onChange = {this.change}
+                    onBlur = {this.blur}
+                    bsSize = "small"
+                    className={styles.input}
+                    tabIndex = {14}
+                  />
+                </FormGroup>
+              </Form>
+                <FormGroup className={styles.formGroup}>
+                  <ControlLabel className={styles.label}>KR&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Nr.</ControlLabel>
+                  <FormControl
+                    type = "number"
+                    value = {geschaeft.entscheidKrNr || ''}
+                    name = "entscheidKrNr"
+                    onChange = {this.change}
+                    onBlur = {this.blur}
+                    bsSize = "small"
+                    className={styles.input}
+                    tabIndex = {15}
+                  />
+                </FormGroup>
+                <FormGroup className={styles.formGroup}>
+                  <ControlLabel className={styles.label}>Jahr</ControlLabel>
+                  <FormControl
+                    type = "number"
+                    value = {geschaeft.entscheidKrJahr || ''}
+                    name = "entscheidKrJahr"
+                    onChange = {this.change}
+                    onBlur = {this.blur}
+                    bsSize = "small"
+                    className={styles.input}
+                    tabIndex = {16}
+                  />
+                </FormGroup>
+                <FormGroup className={styles.formGroup}>
+                  <ControlLabel className={styles.label}>RRB&nbsp;&nbsp;&nbsp;&nbsp;Nr.</ControlLabel>
+                  <FormControl
+                    type = "number"
+                    value = {geschaeft.entscheidRrbNr || ''}
+                    name = "entscheidRrbNr"
+                    onChange = {this.change}
+                    onBlur = {this.blur}
+                    bsSize = "small"
+                    className={styles.input}
+                    tabIndex = {17}
+                  />
+                </FormGroup>
+                <FormGroup className={styles.formGroup}>
+                  <ControlLabel className={styles.label}>Jahr</ControlLabel>
+                  <FormControl
+                    type = "number"
+                    value = {geschaeft.entscheidRrbJahr || ''}
+                    name = "entscheidRrbJahr"
+                    onChange = {this.change}
+                    onBlur = {this.blur}
+                    bsSize = "small"
+                    className={styles.input}
+                    tabIndex = {18}
+                  />
+                </FormGroup>
+              <Form inline>
+                <FormGroup className={styles.formGroup}>
+                  <ControlLabel className={styles.label}>Aktenstandort</ControlLabel>
+                  <FormControl
+                    type = "text"
+                    value = {geschaeft.aktenstandort || ''}
+                    name = "aktenstandort"
+                    onChange = {this.change}
+                    onBlur = {this.blur}
+                    bsSize = "small"
+                    className={styles.input}
+                    tabIndex = {19}
+                  />
+                </FormGroup>
+                <FormGroup className={styles.formGroup}>
+                  <ControlLabel className={styles.label}>Nr.</ControlLabel>
+                  <FormControl
+                    type = "text"
+                    value = {geschaeft.aktennummer || ''}
+                    name = "aktennummer"
+                    onChange = {this.change}
+                    onBlur = {this.blur}
+                    bsSize = "small"
+                    className={styles.input}
+                    tabIndex = {20}
+                  />
+                </FormGroup>
+              </Form>
+              <Form inline>
+              </Form>
+              <Form inline>
+              </Form>
+              <Form inline>
+              </Form>
+              <Form inline>
+              </Form>
+            </div>
+            <div className={styles.parlVorst}>parl. Vorstösse</div>
           </div>
+
           <div>
             <Grid fluid>
               <Row>
