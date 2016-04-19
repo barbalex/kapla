@@ -9,7 +9,7 @@ import React from 'react'
 import { store } from '../index.js'
 import { Provider } from 'react-redux'
 
-export default function wrapComponent(Component: Component, tableLayout) {
+export default function wrapComponent(Component, tableLayout) {
   class Wrapped extends React.Component {
     render() {
       return (
