@@ -58,7 +58,7 @@ export default function table(state = standardState, action) {
     case TABLE_ROW_TOGGLE_ACTIVATED:
       return {
         ...state,
-        id: !!state.id ? null : action.id
+        id: state.id && state.id === action.id ? null : action.id
       }
     case TABLE_ROW_DEACTIVATE:
       return {

@@ -6,6 +6,7 @@
 // solve with: http://verysimple.com/2015/05/30/using-node_sqlite3-with-electron/
 import getTableFromDb from '../src/getTableFromDb.js'
 import updateTableRow from '../src/updateTableRow.js'
+import * as GeschaefteActions from './geschaefte'
 
 export function getTable(table) {
   return (dispatch, getState) => {
@@ -154,6 +155,11 @@ export function changeTableInDb(table, id, field, value) {
     // no need to do something on then
     // ui was updated on TABLE_CHANGE_STATE
     updateTableRow(app.db, table, id, field, value)
+      .then(() => {
+        // need to reload this table in store
+        const action = `${table}OptionsGet`
+        dispatch(GeschaefteActions[action]())
+      })
       .catch((error) => {
         // TODO: reset ui
         dispatch(tableChangeDbError(error))

@@ -54,9 +54,9 @@ class Table extends Component {
 
   renderItem(index, key) {
     const { rows, id } = this.props
-    const isActive = !!id
-    const trClassName = isActive ? [styles.tableBodyRow, styles.active].join(' ') : styles.tableBodyRow
     const row = rows[index]
+    const isActive = !!id && id === row.id
+    const trClassName = isActive ? [styles.tableBodyRow, styles.active].join(' ') : styles.tableBodyRow
 
     return (
       <div

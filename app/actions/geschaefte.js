@@ -226,13 +226,10 @@ export function geschaeftActivate(idGeschaeft) {
 
 export function rechtsmittelerledigungOptionsGet() {
   return (dispatch, getState) => {
-    const { app, geschaefte } = getState()
-    // only get once
-    if (geschaefte.rechtsmittelerledigungOptions.length === 0) {
-      getDropdownOptions(app.db, 'rechtsmittelerledigung')
-        .then((rechtsmittelerledigungOptions) => dispatch(rechtsmittelerledigungOptionsGetSuccess(rechtsmittelerledigungOptions)))
-        .catch((error) => dispatch(rechtsmittelerledigungOptionsGetError(error)))
-    }
+    const { app } = getState()
+    getDropdownOptions(app.db, 'rechtsmittelerledigung')
+      .then((rechtsmittelerledigungOptions) => dispatch(rechtsmittelerledigungOptionsGetSuccess(rechtsmittelerledigungOptions)))
+      .catch((error) => dispatch(rechtsmittelerledigungOptionsGetError(error)))
   }
 }
 
@@ -254,13 +251,10 @@ function rechtsmittelerledigungOptionsGetError(error) {
 
 export function parlVorstossTypOptionsGet() {
   return (dispatch, getState) => {
-    const { app, geschaefte } = getState()
-    // only get once
-    if (geschaefte.parlVorstossTypOptions.length === 0) {
-      getDropdownOptions(app.db, 'parlVorstossTyp')
-        .then((parlVorstossTypOptions) => dispatch(parlVorstossTypOptionsGetSuccess(parlVorstossTypOptions)))
-        .catch((error) => dispatch(parlVorstossTypOptionsGetError(error)))
-    }
+    const { app } = getState()
+    getDropdownOptions(app.db, 'parlVorstossTyp')
+      .then((parlVorstossTypOptions) => dispatch(parlVorstossTypOptionsGetSuccess(parlVorstossTypOptions)))
+      .catch((error) => dispatch(parlVorstossTypOptionsGetError(error)))
   }
 }
 
@@ -283,13 +277,10 @@ function parlVorstossTypOptionsGetError(error) {
 export const STATUS_OPTIONS_GET = 'STATUS_OPTIONS_GET'
 export function statusOptionsGet() {
   return (dispatch, getState) => {
-    const { app, geschaefte } = getState()
-    // only get once
-    if (geschaefte.statusOptions.length === 0) {
-      getDropdownOptions(app.db, 'status')
-        .then((statusOptions) => dispatch(statusOptionsGetSuccess(statusOptions)))
-        .catch((error) => dispatch(statusOptionsGetError(error)))
-    }
+    const { app } = getState()
+    getDropdownOptions(app.db, 'status')
+      .then((statusOptions) => dispatch(statusOptionsGetSuccess(statusOptions)))
+      .catch((error) => dispatch(statusOptionsGetError(error)))
   }
 }
 
@@ -311,13 +302,10 @@ function statusOptionsGetError(error) {
 
 export function geschaeftsartOptionsGet() {
   return (dispatch, getState) => {
-    const { app, geschaefte } = getState()
-    // only get once
-    if (geschaefte.geschaeftsartOptions.length === 0) {
-      getDropdownOptions(app.db, 'geschaeftsart')
-        .then((geschaeftsartOptions) => dispatch(geschaeftsartOptionsGetSuccess(geschaeftsartOptions)))
-        .catch((error) => dispatch(geschaeftsartOptionsGetError(error)))
-    }
+    const { app } = getState()
+    getDropdownOptions(app.db, 'geschaeftsart')
+      .then((geschaeftsartOptions) => dispatch(geschaeftsartOptionsGetSuccess(geschaeftsartOptions)))
+      .catch((error) => dispatch(geschaeftsartOptionsGetError(error)))
   }
 }
 

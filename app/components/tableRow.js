@@ -1,7 +1,7 @@
 'use strict'
 
 import React, { Component, PropTypes } from 'react'
-import { Form, FormGroup, Col, FormControl } from 'react-bootstrap'
+import { Form, FormGroup, Col, FormControl, ControlLabel } from 'react-bootstrap'
 import styles from './TableRow.css'
 
 class TableRow extends Component {
@@ -36,20 +36,16 @@ class TableRow extends Component {
   fields = (row) => Object.keys(row).map((key, index) => {
     const value = row[key]
     const controlId = `formHorizontal${key}`
-    console.log('compoenents/TableRow, fields, key', key)
-    console.log('compoenents/TableRow, fields, value', value)
-
     const field = (
-      <FormGroup key={index} controlId={controlId}>
-        <Col sm={2}>
+      <FormGroup key={index} controlId={controlId} className={styles.formGroup}>
+        <Col componentClass={ControlLabel} sm={3} className={styles.controlLabel}>
           {key}
         </Col>
-        <Col sm={10}>
+        <Col sm={9}>
           <FormControl type="text" name={key} value={value} onChange={this.change} onBlur={this.blur} />
         </Col>
       </FormGroup>
     )
-    console.log('compoenents/TableRow, fields, field', field)
     return field
   })
 
@@ -58,11 +54,6 @@ class TableRow extends Component {
     const row = rows.find((r) => r.id === id)
 
     if (row === undefined) return null
-
-    console.log('compoenents/TableRow, render, row', row)
-
-    const fields = this.fields(row)
-    console.log('compoenents/TableRow, render, fields', fields)
 
     return (
       <Form horizontal>
