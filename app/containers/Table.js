@@ -6,10 +6,11 @@ import Table from '../components/Table'
 import * as TableActions from '../actions/table'
 
 function mapStateToProps(state, props) {
-  const { rows, id } = state.table
+  const { table, rows, id } = state.table
   const { tableLayout } = props
 
   return {
+    table,
     rows,
     id,
     tableLayout

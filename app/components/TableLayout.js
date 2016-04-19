@@ -3,7 +3,7 @@
 import React, { Component } from 'react'
 import GoldenLayout from 'golden-layout'
 import wrapComponentInProvider from '../containers/wrapComponentInProvider'
-import Geschaeft from '../containers/Geschaeft'
+import TableRow from '../containers/TableRow'
 import Table from '../containers/Table'
 import saveConfigValue from '../src/saveConfigValue'
 import getConfig from '../src/getConfig.js'
@@ -38,8 +38,8 @@ class TableLayout extends Component {
             },
             {
               type: 'react-component',
-              component: 'geschaeft',
-              title: 'Aktives Geschäft'
+              component: 'tableRow',
+              title: 'Aktiver Datensatz'
             }
           ]
         }
@@ -52,7 +52,7 @@ class TableLayout extends Component {
       tableLayout = new GoldenLayout(layoutConfig)
     }
     tableLayout.registerComponent('table', wrapComponentInProvider(Table, tableLayout))
-    tableLayout.registerComponent('geschaeft', wrapComponentInProvider(Geschaeft))
+    tableLayout.registerComponent('tableRow', wrapComponentInProvider(TableRow))
     tableLayout.init()
     this.setState({ tableLayout })
     tableLayout.on('stateChanged', () => this.saveTableState())

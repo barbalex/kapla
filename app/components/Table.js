@@ -1,13 +1,13 @@
 'use strict'
 
 import React, { Component, PropTypes } from 'react'
-import ReactDOM from 'react-dom'
 import ReactList from 'react-list'
 import _ from 'lodash'
 import styles from './Table.css'
 
 class Table extends Component {
   static propTypes = {
+    table: PropTypes.string.isRequired,
     rows: PropTypes.array.isRequired,
     id: PropTypes.number,
     tableLayout: PropTypes.object.isRequired,
@@ -19,8 +19,8 @@ class Table extends Component {
   }
 
   onClickTableRow(id) {
-    const { tableRowToggleActivated } = this.props
-    tableRowToggleActivated(id)
+    const { tableRowToggleActivated, table } = this.props
+    tableRowToggleActivated(table, id)
   }
 
   itemColumns = (row) => {

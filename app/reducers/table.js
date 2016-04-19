@@ -43,12 +43,14 @@ export default function table(state = standardState, action) {
     case TABLE_GET:
       return {
         ...state,
+        table: action.table,
         fetching: true,
         error: []
       }
     case TABLE_GET_SUCCESS:
       return {
         ...state,
+        table: action.table,
         fetching: false,
         error: [],
         rows: action.rows

@@ -8,17 +8,19 @@ import * as AppActions from '../actions/app'
 
 const actions = Object.assign(TableActions, AppActions)
 
-function mapStateToProps(state) {
+function mapStateToProps(state, props) {
   const {
     table,
     rows,
     id
   } = state.table
+  const { tableLayout } = props
 
   return {
     table,
     rows,
-    id
+    id,
+    tableLayout
   }
 }
 
