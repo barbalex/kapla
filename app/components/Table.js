@@ -18,30 +18,19 @@ class Table extends Component {
     offsetWidth: 0
   }
 
-  componentDidMount = () => {
-    this.setOffsetWidth()
-    window.addEventListener('resize', this.setOffsetWidth)
-  }
-
-  componentWillUnmount = () => {
-    window.removeEventListener('resize', this.setOffsetWidth)
-  }
-
   onClickTableRow(id) {
     const { tableRowToggleActivated } = this.props
     tableRowToggleActivated(id)
   }
 
-  setOffsetWidth = () => {
-    const offsetWidth = ReactDOM.findDOMNode(this).offsetWidth
-    this.setState({ offsetWidth })
-  }
-
   itemColumns = (row) => {
+    const { tableLayout } = this.props
     const keys = Object.keys(row)
     const values = _.values(row)
-    const { offsetWidth } = this.state
-    const normalFieldWidth = (offsetWidth - 50) / (keys.length - 1)
+    const tableLayoutWidth = tableLayout.width
+    const tableWidthPercent = tableLayout.config.content[0].content[0].width
+    const tableWidth = tableLayoutWidth * tableWidthPercent / 100
+    const normalFieldWidth = (tableWidth - 50) / (keys.length - 1)
 
     return values.map((val, index) => {
       const widthClass = keys[index] === 'id' ? { maxWidth: 50 } : { maxWidth: normalFieldWidth }
@@ -51,10 +40,12 @@ class Table extends Component {
   }
 
   tableHeaders = () => {
-    const { rows } = this.props
-    const { offsetWidth } = this.state
+    const { rows, tableLayout } = this.props
     const headers = Object.keys(rows[0])
-    const normalFieldWidth = (offsetWidth - 50) / (headers.length - 1)
+    const tableLayoutWidth = tableLayout.width
+    const tableWidthPercent = tableLayout.config.content[0].content[0].width
+    const tableWidth = tableLayoutWidth * tableWidthPercent / 100
+    const normalFieldWidth = (tableWidth - 50) / (headers.length - 1)
     return headers.map((header, index) => {
       const widthClass = header === 'id' ? { maxWidth: 50 } : { maxWidth: normalFieldWidth }
       return <div key={index} style={widthClass} className={styles.tableHeaderCell}>{header}</div>
@@ -91,9 +82,7 @@ class Table extends Component {
      * class 'reactList' is needed to
      * apply ::-webkit-scrollbar: display: none;
      */
-    const { rows, tableLayout } = this.props
-
-    console.log('components/Table, tableLayout', tableLayout)
+    const { rows } = this.props
 
     return (
       <div className={styles.body}>
