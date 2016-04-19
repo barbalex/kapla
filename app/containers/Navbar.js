@@ -3,13 +3,12 @@
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import Navbar from '../components/Navbar'
-import * as UserActions from '../actions/user'
 import * as AppActions from '../actions/app'
 import * as GeschaefteActions from '../actions/geschaefte'
 import * as TableActions from '../actions/table'
 import * as PagesActions from '../actions/pages'
 
-const actions = Object.assign(UserActions, AppActions, GeschaefteActions, TableActions, PagesActions)
+const actions = Object.assign(AppActions, GeschaefteActions, TableActions, PagesActions)
 
 function mapStateToProps(state) {
   const { activeId, filterFulltext, geschaefte, geschaefteGefilterteIds, willDelete } = state.geschaefte

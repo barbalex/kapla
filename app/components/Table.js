@@ -10,6 +10,7 @@ class Table extends Component {
   static propTypes = {
     rows: PropTypes.array.isRequired,
     id: PropTypes.number,
+    tableLayout: PropTypes.object.isRequired,
     tableRowToggleActivated: PropTypes.func.isRequired
   }
 
@@ -90,7 +91,9 @@ class Table extends Component {
      * class 'reactList' is needed to
      * apply ::-webkit-scrollbar: display: none;
      */
-    const { rows } = this.props
+    const { rows, tableLayout } = this.props
+
+    console.log('components/Table, tableLayout', tableLayout)
 
     return (
       <div className={styles.body}>

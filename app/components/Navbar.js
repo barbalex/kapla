@@ -127,7 +127,7 @@ class NavbarComponent extends Component {
   }
 
   onSelectFilterFaelligeGeschaefte = (e) => {
-    const { geschaefteFilterByFields, username } = this.props
+    const { geschaefteFilterByFields } = this.props
     e.preventDefault()
     const now = moment().format('YYYY-MM-DD')
     const filter = {

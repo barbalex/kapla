@@ -35,14 +35,6 @@
   padding: 5px;
 }
 
-/*.tableHeaderIdCell,
-.tableBodyIdCell {
-  flex: 1;
-  padding: 5px;
-  min-width: 50px;
-  max-width: 50px;
-}*/
-
 .active {
   background-color: #FFBF73;
 }

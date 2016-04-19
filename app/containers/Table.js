@@ -5,12 +5,14 @@ import { connect } from 'react-redux'
 import Table from '../components/Table'
 import * as TableActions from '../actions/table'
 
-function mapStateToProps(state) {
+function mapStateToProps(state, props) {
   const { rows, id } = state.table
+  const { tableLayout } = props
 
   return {
     rows,
-    id
+    id,
+    tableLayout
   }
 }
 

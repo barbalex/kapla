@@ -9,12 +9,12 @@ import React from 'react'
 import { store } from '../index.js'
 import { Provider } from 'react-redux'
 
-export default function wrapComponent(Component: Component) {
+export default function wrapComponent(Component: Component, tableLayout) {
   class Wrapped extends React.Component {
-    render () {
+    render() {
       return (
         <Provider store={store}>
-          <Component {...this.props} />
+          <Component {...this.props} tableLayout={tableLayout} />
         </Provider>
       )
     }
