@@ -5,8 +5,7 @@
  */
 
 import React, { Component, PropTypes } from 'react'
-import ReactDOM from 'react-dom'
-import { Input } from 'react-bootstrap'
+import { FormGroup, FormControl } from 'react-bootstrap'
 import moment from 'moment'
 import styles from './Page.css'
 
@@ -108,17 +107,19 @@ class Page extends Component {
   inputPagesTitle = () => {
     const { title } = this.props
     return (
-      <Input
-        type="text"
-        value={title}
-        placeholder="Titel erfassen"
-        onChange={this.changeQueryTitle}
-        onKeyPress={this.onKeyPressTitle}
-        onBlur={this.onBlurTitle}
-        bsSize="large"
-        autoFocus
-        className={styles.titleInput}
-      />
+      <FormGroup>
+        <FormControl
+          type="text"
+          value={title}
+          placeholder="Titel erfassen"
+          onChange={this.changeQueryTitle}
+          onKeyPress={this.onKeyPressTitle}
+          onBlur={this.onBlurTitle}
+          bsSize="large"
+          autoFocus
+          className={styles.titleInput}
+        />
+      </FormGroup>
     )
   }
 

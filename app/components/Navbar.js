@@ -11,7 +11,8 @@ import {
   Nav,
   NavItem,
   Glyphicon,
-  Input,
+  FormGroup,
+  FormControl,
   Badge
 } from 'react-bootstrap'
 import { LinkContainer } from 'react-router-bootstrap'
@@ -109,16 +110,6 @@ class NavbarComponent extends Component {
     })
   }
 
-  printNav = () => (
-    <NavItem
-      eventKey = {7}
-      onClick = {this.onClickPrint}
-      title = "Drucken"
-    >
-      <Glyphicon glyph = "print" />
-    </NavItem>
-  )
-
   exportGeschaefte = (e) => {
     const { geschaefteGefilterteIds, geschaefte, messageShow } = this.props
     e.preventDefault()
@@ -151,6 +142,16 @@ class NavbarComponent extends Component {
     geschaefteFilterByFields(filter)
     // TODO: add ordering to state and call action here to order by frist desc
   }
+
+  printNav = () => (
+    <NavItem
+      eventKey = {7}
+      onClick = {this.onClickPrint}
+      title = "Drucken"
+    >
+      <Glyphicon glyph = "print" />
+    </NavItem>
+  )
 
   onSelectFilterFaelligeGeschaefteMitarbeiter = (e) => {
     const { geschaefteFilterByFields, username } = this.props
@@ -202,7 +203,6 @@ class NavbarComponent extends Component {
     const dataIsFilteredStyle = [styles.filterInput, styles.filterInputActive].join(' ')
     const classNameFilterInput = dataIsFiltered ? dataIsFilteredStyle : styles.filterInput
     const classNameBadge = dataIsFiltered ? styles.badgeWithActiveFilter : styles.badge
-    const geschaeftPath = `/geschaefte/${activeId}`
     const showPrint = path === '/pages'
 
     return (
@@ -274,15 +274,17 @@ class NavbarComponent extends Component {
           </Nav>
           <Nav pullRight>
             <Navbar.Form pullLeft>
-              <Input
-                type="text"
-                placeholder="Volltext filtern"
-                value={filterFulltext}
-                onChange={this.onChangeFilterFulltext}
-                onKeyPress={this.onKeyPressFilterFulltext}
-                className={classNameFilterInput}
-                title="Zum Filtern drücken Sie die Enter-Taste"
-              />
+              <FormGroup>
+                <FormControl
+                  type="text"
+                  placeholder="Volltext filtern"
+                  value={filterFulltext}
+                  onChange={this.onChangeFilterFulltext}
+                  onKeyPress={this.onKeyPressFilterFulltext}
+                  className={classNameFilterInput}
+                  title="Zum Filtern drücken Sie die Enter-Taste"
+                />
+              </FormGroup>
             <Glyphicon
               glyph="remove"
               onClick={this.onClickRemoveFilterGlyph}
