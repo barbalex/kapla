@@ -109,6 +109,19 @@ class NavbarComponent extends Component {
         }
       })
     })
+    /**
+     * https://github.com/electron/electron/issues/1146
+     * Maybe better idea:
+     * 1. open new BrowserWindow, show = false (https://github.com/electron/electron/blob/master/docs/api/browser-window.md#new-browserwindowoptions)
+     * 2. injecting html to document.documentElement.innerHTML
+     * 3. print this (using webContents.printToPDF)
+     * 4. close
+     *
+     * How to inject?
+     * Maybe win.webContents: https://github.com/electron/electron/blob/master/docs/api/browser-window.md#winwebcontents
+     *   maybe using webContents.executeJavaScript:
+     *     https://github.com/electron/electron/blob/master/docs/api/web-contents.md#webcontentsexecutejavascriptcode-usergesture-callback
+     */
   }
 
   onSelectFilterFaelligeGeschaefte = () => {
