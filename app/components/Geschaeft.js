@@ -1,7 +1,7 @@
 'use strict'
 
 import React, { Component, PropTypes } from 'react'
-import { Form, div, FormControl, ControlLabel, Radio } from 'react-bootstrap'
+import { FormControl, ControlLabel, Radio } from 'react-bootstrap'
 import styles from './Geschaeft.css'
 
 class Geschaeft extends Component {

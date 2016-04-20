@@ -4,6 +4,10 @@
   overflow-y: auto;
 }
 
+.body::-webkit-scrollbar { 
+  display: none;
+}
+
 .bereichTitel {
   font-weight: 900;
   font-size: 16px;

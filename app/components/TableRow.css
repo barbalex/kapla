@@ -5,6 +5,10 @@
   overflow-y: auto;
 }
 
+.body::-webkit-scrollbar { 
+  display: none;
+}
+
 form {
   /*margin-top: 30px;*/
   margin-left: 10px;
