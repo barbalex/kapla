@@ -33,12 +33,13 @@
 /* When the document is actually printed */
 @media print {
   .pageContainer {
+    /* something seems to change the measurements! */
     width: 29.7cm !important;
     height: 21cm !important;
     margin: 0 !important;
     padding: 2cm !important;
-    /*page-break-after: always !important;*/
     overflow-y: hidden !important;
+    /*page-break-after: always !important;*/
   }
 }
 

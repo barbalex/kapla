@@ -21,7 +21,5 @@
     overflow-y: visible;
     /* necessary? */
     height: auto !important;
-    /*margin-left: -1cm;
-    margin-top: -1cm;*/
   }
 }
