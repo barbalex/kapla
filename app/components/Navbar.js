@@ -177,6 +177,88 @@ class NavbarComponent extends Component {
     geschaefteFilterByFulltext(filterFulltext)
   }
 
+  geschaefteFilterNav = () => (
+    <NavDropdown
+      eventKey={3}
+      title="Filter"
+      id="basic-nav-dropdown"
+    >
+      <LinkContainer to={{ pathname: '/filter' }}>
+        <MenuItem eventKey={3.1}>nach Feldern</MenuItem>
+      </LinkContainer>
+      <MenuItem eventKey={3.2} onSelect={this.focusFulltextFilter}>nach Volltext</MenuItem>
+      <MenuItem divider />
+      <MenuItem eventKey={3.3} onSelect={this.onSelectFilterFaelligeGeschaefte}>fällige</MenuItem>
+      <MenuItem eventKey={3.4} onSelect={this.onSelectFilterFaelligeGeschaefteMitarbeiter}>eigene fällige</MenuItem>
+      <MenuItem divider />
+      <MenuItem eventKey={3.5} onSelect={this.removeFilter}>Filter entfernen</MenuItem>
+    </NavDropdown>
+  )
+
+  geschaeftNeuNav = () => {
+    const { geschaeftNewCreate } = this.props
+    return (
+      <NavItem
+        eventKey={4}
+        onClick={() => geschaeftNewCreate()}
+        title="neues Geschäft"
+      >
+        <Glyphicon glyph="plus" />
+      </NavItem>
+    )
+  }
+
+  geschaeftLoeschenNav = () => {
+    const { geschaeftSetDeleteIntended, activeId } = this.props
+    return (
+      <NavItem
+        eventKey = {5}
+        onClick = {() => geschaeftSetDeleteIntended(activeId)}
+        title = "Geschäft löschen"
+        disabled = {!activeId}
+      >
+        <Glyphicon glyph = "trash" />
+      </NavItem>
+    )
+  }
+
+  exportGeschaefteNav = () => (
+    <NavItem
+      eventKey={6}
+      onClick={this.exportGeschaefte}
+      title="Geschäfte exportieren"
+    >
+      <Glyphicon glyph="share" />
+    </NavItem>
+  )
+
+  berichteNav = () => {
+    const { pagesInitiate } = this.props
+    return (
+      <NavDropdown
+        eventKey={7}
+        title="Berichte"
+        id="basic-nav-dropdown"
+        onSelect={(eventKey) => {
+          /*
+           * react-bootstrap has an error causing the dropdown to stay open
+           * and the message modal not to show!!!!
+           *
+           * this is an elaborate hack
+           * to get the menu item to close immediately
+           */
+          if (eventKey === 7.1) {
+            setTimeout(() => {
+              pagesInitiate()
+            }, 0)
+          }
+        }}
+      >
+        <MenuItem eventKey={7.1}>Fristen</MenuItem>
+      </NavDropdown>
+    )
+  }
+
   printNav = () => (
     <NavItem
       eventKey = {7}
@@ -201,7 +283,6 @@ class NavbarComponent extends Component {
   render() {
     const {
       dbGet,
-      activeId,
       geschaefte,
       geschaefteGefilterteIds,
       showMessageModal,
@@ -209,8 +290,6 @@ class NavbarComponent extends Component {
       willDeleteGeschaeft,
       navbarVisible,
       pagesInitiate,
-      geschaeftNewCreate,
-      geschaeftSetDeleteIntended,
       path,
       getTable,
       table,
@@ -224,6 +303,7 @@ class NavbarComponent extends Component {
     const classNameFilterInput = dataIsFiltered ? dataIsFilteredStyle : styles.filterInput
     const classNameBadge = dataIsFiltered ? styles.badgeWithActiveFilter : styles.badge
     const showPrint = path === '/pages'
+    const showGeschaefteStuff = path === '/geschaefte'
     const stammdatenTitle = table ? `${table} (${rows.length})` : 'Stammdaten'
     // does not work - should keep menu active when table is loaded
     // probably a bug in react-bootstrap
@@ -240,64 +320,11 @@ class NavbarComponent extends Component {
                 Geschäfte <Badge className={classNameBadge}>{geschaefteGefilterteIds.length}</Badge>
               </NavItem>
             </LinkContainer>
-            <NavDropdown
-              eventKey={3}
-              title="Filter"
-              id="basic-nav-dropdown"
-            >
-              <LinkContainer to={{ pathname: '/filter' }}>
-                <MenuItem eventKey={3.1}>nach Feldern</MenuItem>
-              </LinkContainer>
-              <MenuItem eventKey={3.2} onSelect={this.focusFulltextFilter}>nach Volltext</MenuItem>
-              <MenuItem divider />
-              <MenuItem eventKey={3.3} onSelect={this.onSelectFilterFaelligeGeschaefte}>fällige</MenuItem>
-              <MenuItem eventKey={3.4} onSelect={this.onSelectFilterFaelligeGeschaefteMitarbeiter}>eigene fällige</MenuItem>
-              <MenuItem divider />
-              <MenuItem eventKey={3.5} onSelect={this.removeFilter}>Filter entfernen</MenuItem>
-            </NavDropdown>
-            <NavItem
-              eventKey={4}
-              onClick={() => geschaeftNewCreate()}
-              title="neues Geschäft"
-            >
-              <Glyphicon glyph="plus" />
-            </NavItem>
-            <NavItem
-              eventKey = {5}
-              onClick = {() => geschaeftSetDeleteIntended(activeId)}
-              title = "Geschäft löschen"
-              disabled = {!activeId}
-            >
-              <Glyphicon glyph = "trash" />
-            </NavItem>
-            <NavItem
-              eventKey={6}
-              onClick={this.exportGeschaefte}
-              title="Geschäfte exportieren"
-            >
-              <Glyphicon glyph="share" />
-            </NavItem>
-            <NavDropdown
-              eventKey={7}
-              title="Berichte"
-              id="basic-nav-dropdown"
-              onSelect={(eventKey) => {
-                /*
-                 * react-bootstrap has an error causing the dropdown to stay open
-                 * and the message modal not to show!!!!
-                 *
-                 * this is an elaborate hack
-                 * to get the menu item to close immediately
-                 */
-                if (eventKey === 7.1) {
-                  setTimeout(() => {
-                    pagesInitiate()
-                  }, 0)
-                }
-              }}
-            >
-              <MenuItem eventKey={7.1}>Fristen</MenuItem>
-            </NavDropdown>
+            {showGeschaefteStuff && this.geschaefteFilterNav()}
+            {showGeschaefteStuff && this.geschaeftNeuNav()}
+            {showGeschaefteStuff && this.geschaeftLoeschenNav()}
+            {showGeschaefteStuff && this.exportGeschaefteNav()}
+            {showGeschaefteStuff && this.berichteNav()}
             {showPrint && this.printNav()}
             <NavDropdown eventKey={8} title={stammdatenTitle} id="basic-nav-dropdown" active={isStammdatenMenuActive}>
               <MenuItem eventKey={8.1} onClick={() => getTable('interne')}>Interne</MenuItem>
