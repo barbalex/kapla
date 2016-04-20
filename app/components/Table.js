@@ -11,7 +11,13 @@ class Table extends Component {
     rows: PropTypes.array.isRequired,
     id: PropTypes.number,
     tableLayout: PropTypes.object.isRequired,
-    tableRowToggleActivated: PropTypes.func.isRequired
+    tableRowToggleActivated: PropTypes.func.isRequired,
+    tableReset: PropTypes.func.isRequired
+  }
+
+  componentWillUnmount = () => {
+    const { tableReset } = this.props
+    tableReset()
   }
 
   onClickTableRow(id) {

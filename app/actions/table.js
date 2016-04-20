@@ -8,6 +8,13 @@ import getTableFromDb from '../src/getTableFromDb.js'
 import updateTableRow from '../src/updateTableRow.js'
 import * as GeschaefteActions from './geschaefte'
 
+export const TABLE_RESET = 'TABLE_RESET'
+export function tableReset() {
+  return {
+    type: TABLE_RESET
+  }
+}
+
 export function getTable(table) {
   return (dispatch, getState) => {
     const { app, routing } = getState()

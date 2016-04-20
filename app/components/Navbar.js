@@ -45,7 +45,9 @@ class NavbarComponent extends Component {
     navbarShow: PropTypes.func.isRequired,
     path: PropTypes.string.isRequired,
     messageShow: PropTypes.func.isRequired,
-    getTable: PropTypes.func.isRequired
+    getTable: PropTypes.func.isRequired,
+    table: PropTypes.string,
+    rows: PropTypes.array
   }
 
   componentWillMount() {
@@ -63,13 +65,6 @@ class NavbarComponent extends Component {
     if (e.key === 'Enter') {
       geschaefteFilterByFulltext(e.target.value)
     }
-  }
-
-  removeFilter = () => {
-    const { geschaefteFilterByFulltextSet, geschaefteFilterByFulltext } = this.props
-    const filterFulltext = ''
-    geschaefteFilterByFulltextSet(filterFulltext)
-    geschaefteFilterByFulltext(filterFulltext)
   }
 
   onClickPrint = (e) => {
@@ -175,6 +170,13 @@ class NavbarComponent extends Component {
     // TODO: add ordering to state and call action here to order by frist desc
   }
 
+  removeFilter = () => {
+    const { geschaefteFilterByFulltextSet, geschaefteFilterByFulltext } = this.props
+    const filterFulltext = ''
+    geschaefteFilterByFulltextSet(filterFulltext)
+    geschaefteFilterByFulltext(filterFulltext)
+  }
+
   printNav = () => (
     <NavItem
       eventKey = {7}
@@ -210,7 +212,9 @@ class NavbarComponent extends Component {
       geschaeftNewCreate,
       geschaeftSetDeleteIntended,
       path,
-      getTable
+      getTable,
+      table,
+      rows
     } = this.props
 
     if (!navbarVisible) return null
@@ -220,6 +224,10 @@ class NavbarComponent extends Component {
     const classNameFilterInput = dataIsFiltered ? dataIsFilteredStyle : styles.filterInput
     const classNameBadge = dataIsFiltered ? styles.badgeWithActiveFilter : styles.badge
     const showPrint = path === '/pages'
+    const stammdatenTitle = table ? `${table} (${rows.length})` : 'Stammdaten'
+    // does not work - should keep menu active when table is loaded
+    // probably a bug in react-bootstrap
+    const isStammdatenMenuActive = !!table
 
     return (
       <div>
@@ -291,6 +299,15 @@ class NavbarComponent extends Component {
               <MenuItem eventKey={7.1}>Fristen</MenuItem>
             </NavDropdown>
             {showPrint && this.printNav()}
+            <NavDropdown eventKey={8} title={stammdatenTitle} id="basic-nav-dropdown" active={isStammdatenMenuActive}>
+              <MenuItem eventKey={8.1} onClick={() => getTable('interne')}>Interne</MenuItem>
+              <MenuItem eventKey={8.2} onClick={() => getTable('externe')}>Externe</MenuItem>
+              <MenuItem eventKey={8.3} onClick={() => getTable('gdeplz')}>Gemeinden</MenuItem>
+              <MenuItem eventKey={8.4} onClick={() => getTable('geschaeftsart')}>Auswahlliste Geschäftsart</MenuItem>
+              <MenuItem eventKey={8.6} onClick={() => getTable('parlVorstossTyp')}>Auswahlliste Parlament. Vorstoss Typ</MenuItem>
+              <MenuItem eventKey={8.7} onClick={() => getTable('rechtsmittelerledigung')}>Auswahlliste Rechtsmittelerledigung</MenuItem>
+              <MenuItem eventKey={8.8} onClick={() => getTable('status')}>Auswahlliste Status</MenuItem>
+            </NavDropdown>
           </Nav>
           <Nav pullRight>
             <Navbar.Form pullLeft>
@@ -313,16 +330,8 @@ class NavbarComponent extends Component {
               title="Filter entfernen"
             />
             </Navbar.Form>
-            <NavDropdown eventKey={8} title="Menu" id="basic-nav-dropdown">
-              <MenuItem eventKey={8.1} onClick={() => getTable('interne')}>Interne</MenuItem>
-              <MenuItem eventKey={8.2} onClick={() => getTable('externe')}>Externe</MenuItem>
-              <MenuItem eventKey={8.3} onClick={() => getTable('gdeplz')}>Gemeinden</MenuItem>
-              <MenuItem eventKey={8.4} onClick={() => getTable('geschaeftsart')}>Auswahlliste Geschäftsart</MenuItem>
-              <MenuItem eventKey={8.6} onClick={() => getTable('parlVorstossTyp')}>Auswahlliste Parlament. Vorstoss Typ</MenuItem>
-              <MenuItem eventKey={8.7} onClick={() => getTable('rechtsmittelerledigung')}>Auswahlliste Rechtsmittelerledigung</MenuItem>
-              <MenuItem eventKey={8.8} onClick={() => getTable('status')}>Auswahlliste Status</MenuItem>
-              <MenuItem divider />
-              <MenuItem eventKey={8.9} onClick={dbGet}>Datenbank wählen</MenuItem>
+            <NavDropdown eventKey={9} title="Menu" id="basic-nav-dropdown">
+              <MenuItem eventKey={9.1} onClick={dbGet}>Datenbank wählen</MenuItem>
             </NavDropdown>
           </Nav>
         </Navbar>

@@ -11,7 +11,8 @@ import {
   TABLE_ROW_REMOVE_DELETE_INTENDED,
   TABLE_CHANGE_STATE,
   TABLE_CHANGE_DB_ERROR,
-  TABLE_ROW_NEW
+  TABLE_ROW_NEW,
+  TABLE_RESET
 } from '../actions/table'
 
 const standardState = {
@@ -93,6 +94,11 @@ export default function table(state = standardState, action) {
       return {
         ...state,
         rows: [action.row, ...state.rows]
+      }
+    case TABLE_RESET:
+      return {
+        ...state,
+        ...standardState
       }
     case TABLE_GET_ERROR:
     case TABLE_CHANGE_DB_ERROR:

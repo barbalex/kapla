@@ -3,7 +3,6 @@
 import React from 'react'
 import { Route, IndexRoute } from 'react-router'
 import App from './containers/App'
-import Geschaeft from './containers/Geschaeft'
 import GeschaefteLayout from './components/GeschaefteLayout'
 import TableLayout from './components/TableLayout'
 import Pages from './containers/Pages'
