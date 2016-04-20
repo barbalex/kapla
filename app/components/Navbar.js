@@ -269,6 +269,35 @@ class NavbarComponent extends Component {
     </NavItem>
   )
 
+  fulltextFilterNav = () => {
+    const { filterFulltext, geschaefte, geschaefteGefilterteIds } = this.props
+    const dataIsFiltered = geschaefte.length !== geschaefteGefilterteIds.length
+    const dataIsFilteredStyle = [styles.filterInput, styles.filterInputActive].join(' ')
+    const classNameFilterInput = dataIsFiltered ? dataIsFilteredStyle : styles.filterInput
+    return (
+      <Navbar.Form pullLeft>
+        <FormGroup>
+          <FormControl
+            type="text"
+            placeholder="Volltext filtern"
+            value={filterFulltext}
+            onChange={this.onChangeFilterFulltext}
+            onKeyPress={this.onKeyPressFilterFulltext}
+            className={classNameFilterInput}
+            title="Zum Filtern drücken Sie die Enter-Taste"
+            ref="filterFulltext"
+          />
+        </FormGroup>
+      <Glyphicon
+        glyph="remove"
+        onClick={this.removeFilter}
+        className={styles.filterInputRemoveIcon}
+        title="Filter entfernen"
+      />
+      </Navbar.Form>
+    )
+  }
+
   focusFulltextFilter = () => {
     ReactDOM.findDOMNode(this.refs.filterFulltext).focus()
   }
@@ -286,10 +315,8 @@ class NavbarComponent extends Component {
       geschaefte,
       geschaefteGefilterteIds,
       showMessageModal,
-      filterFulltext,
       willDeleteGeschaeft,
       navbarVisible,
-      pagesInitiate,
       path,
       getTable,
       table,
@@ -299,8 +326,6 @@ class NavbarComponent extends Component {
     if (!navbarVisible) return null
 
     const dataIsFiltered = geschaefte.length !== geschaefteGefilterteIds.length
-    const dataIsFilteredStyle = [styles.filterInput, styles.filterInputActive].join(' ')
-    const classNameFilterInput = dataIsFiltered ? dataIsFilteredStyle : styles.filterInput
     const classNameBadge = dataIsFiltered ? styles.badgeWithActiveFilter : styles.badge
     const showPrint = path === '/pages'
     const showGeschaefteStuff = path === '/geschaefte'
@@ -337,26 +362,7 @@ class NavbarComponent extends Component {
             </NavDropdown>
           </Nav>
           <Nav pullRight>
-            <Navbar.Form pullLeft>
-              <FormGroup>
-                <FormControl
-                  type="text"
-                  placeholder="Volltext filtern"
-                  value={filterFulltext}
-                  onChange={this.onChangeFilterFulltext}
-                  onKeyPress={this.onKeyPressFilterFulltext}
-                  className={classNameFilterInput}
-                  title="Zum Filtern drücken Sie die Enter-Taste"
-                  ref="filterFulltext"
-                />
-              </FormGroup>
-            <Glyphicon
-              glyph="remove"
-              onClick={this.removeFilter}
-              className={styles.filterInputRemoveIcon}
-              title="Filter entfernen"
-            />
-            </Navbar.Form>
+            {showGeschaefteStuff && this.fulltextFilterNav()}
             <NavDropdown eventKey={9} title="Menu" id="basic-nav-dropdown">
               <MenuItem eventKey={9.1} onClick={dbGet}>Datenbank wählen</MenuItem>
             </NavDropdown>
