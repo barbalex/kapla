@@ -59,12 +59,12 @@ class Geschaeft extends Component {
     // need width to set layout for differing widths
     const geschaefteLayoutWidth = geschaefteLayout.width
     const geschaeftWidthPercent = geschaefteLayout.config.content[0].content[1].width
-    const geschaeftWidth = geschaefteLayoutWidth * geschaeftWidthPercent / 100
-    const wrapperClass = geschaeftWidth < 500 ? styles.wrapperNarrow : styles.wrapperWide
+    const totalWidth = geschaefteLayoutWidth * geschaeftWidthPercent / 100
+    const wrapperClass = totalWidth < 500 ? styles.wrapperNarrow : styles.wrapperWide
 
     if (geschaeft && geschaeft.idGeschaeft) {
       return (
-        <div>
+        <div className={styles.body}>
           <div className={wrapperClass}>
             <div className={styles.geschaeft}>
               <Form>
@@ -72,7 +72,7 @@ class Geschaeft extends Component {
                 <FormGroup>
                     <ControlLabel>Gegenstand</ControlLabel>
                     <FormControl
-                      type = "textarea"
+                      componentClass="textarea"
                       value = {geschaeft.gegenstand || ''}
                       name = "gegenstand"
                       onChange = {this.change}
@@ -137,7 +137,7 @@ class Geschaeft extends Component {
                     onChange = {this.change}
                     onBlur = {this.blur}
                     bsSize = "small"
-                    className = {styles.input}
+                    className = {[styles.input, styles.typeNr].join(' ')}
                     placeholder = "ID"
                     tabIndex = {5}
                   />
@@ -151,7 +151,7 @@ class Geschaeft extends Component {
                     onChange = {this.change}
                     onBlur = {this.blur}
                     bsSize = "small"
-                    className={styles.input}
+                    className={[styles.input, styles.fieldDirektion].join(' ')}
                     tabIndex = {6}
                   />
                 </FormGroup>
@@ -160,7 +160,7 @@ class Geschaeft extends Component {
                 <FormGroup className={styles.formGroup}>
                   <ControlLabel className={styles.label}>Details</ControlLabel>
                   <FormControl
-                    type = "textarea"
+                    componentClass="textarea"
                     value = {geschaeft.details || ''}
                     name = "details"
                     onChange = {this.change}
@@ -174,7 +174,7 @@ class Geschaeft extends Component {
                 <FormGroup className={styles.formGroup}>
                   <ControlLabel className={styles.label}>Nächster Schritt</ControlLabel>
                   <FormControl
-                    type = "textarea"
+                    componentClass="textarea"
                     value = {geschaeft.naechsterSchritt || ''}
                     name = "naechsterSchritt"
                     onChange = {this.change}
@@ -188,7 +188,7 @@ class Geschaeft extends Component {
                 <FormGroup className={styles.formGroup}>
                   <ControlLabel className={styles.label}>Vermerk</ControlLabel>
                   <FormControl
-                    type = "textarea"
+                    componentClass="textarea"
                     value = {geschaeft.vermerk || ''}
                     name = "vermerk"
                     onChange = {this.change}
@@ -217,6 +217,7 @@ class Geschaeft extends Component {
               </Form>
             </div>
             <div className={styles.nummern}>
+              <div className={styles.bereichTitel}>Nummern</div>
               <Form inline>
                 <FormGroup className={styles.formGroup}>
                   <ControlLabel className={styles.label}>ID</ControlLabel>
@@ -225,7 +226,7 @@ class Geschaeft extends Component {
                     value = {geschaeft.idGeschaeft}
                     bsSize = "small"
                     disabled
-                    className={[styles.input, styles.idGeschaeft].join(' ')}
+                    className={[styles.input, styles.typeNr].join(' ')}
                   />
                 </FormGroup>
               </Form>
@@ -239,7 +240,7 @@ class Geschaeft extends Component {
                     onChange = {this.change}
                     onBlur = {this.blur}
                     bsSize = "small"
-                    className={styles.input}
+                    className={[styles.input, styles.typeNr].join(' ')}
                     tabIndex = {11}
                   />
                 </FormGroup>
@@ -252,7 +253,7 @@ class Geschaeft extends Component {
                     onChange = {this.change}
                     onBlur = {this.blur}
                     bsSize = "small"
-                    className={styles.input}
+                    className={[styles.input, styles.typeNr].join(' ')}
                     tabIndex = {12}
                   />
                 </FormGroup>
@@ -265,7 +266,7 @@ class Geschaeft extends Component {
                     onChange = {this.change}
                     onBlur = {this.blur}
                     bsSize = "small"
-                    className={styles.input}
+                    className={[styles.input, styles.typeNr].join(' ')}
                     tabIndex = {13}
                   />
                 </FormGroup>
@@ -278,11 +279,12 @@ class Geschaeft extends Component {
                     onChange = {this.change}
                     onBlur = {this.blur}
                     bsSize = "small"
-                    className={styles.input}
+                    className={[styles.input, styles.typeNr].join(' ')}
                     tabIndex = {14}
                   />
                 </FormGroup>
               </Form>
+              <Form inline>
                 <FormGroup className={styles.formGroup}>
                   <ControlLabel className={styles.label}>KR&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Nr.</ControlLabel>
                   <FormControl
@@ -292,7 +294,7 @@ class Geschaeft extends Component {
                     onChange = {this.change}
                     onBlur = {this.blur}
                     bsSize = "small"
-                    className={styles.input}
+                    className={[styles.input, styles.typeNr].join(' ')}
                     tabIndex = {15}
                   />
                 </FormGroup>
@@ -305,7 +307,7 @@ class Geschaeft extends Component {
                     onChange = {this.change}
                     onBlur = {this.blur}
                     bsSize = "small"
-                    className={styles.input}
+                    className={[styles.input, styles.typeNr].join(' ')}
                     tabIndex = {16}
                   />
                 </FormGroup>
@@ -318,7 +320,7 @@ class Geschaeft extends Component {
                     onChange = {this.change}
                     onBlur = {this.blur}
                     bsSize = "small"
-                    className={styles.input}
+                    className={[styles.input, styles.typeNr].join(' ')}
                     tabIndex = {17}
                   />
                 </FormGroup>
@@ -331,10 +333,11 @@ class Geschaeft extends Component {
                     onChange = {this.change}
                     onBlur = {this.blur}
                     bsSize = "small"
-                    className={styles.input}
+                    className={[styles.input, styles.typeNr].join(' ')}
                     tabIndex = {18}
                   />
                 </FormGroup>
+              </Form>
               <Form inline>
                 <FormGroup className={styles.formGroup}>
                   <ControlLabel className={styles.label}>Aktenstandort</ControlLabel>
@@ -345,7 +348,7 @@ class Geschaeft extends Component {
                     onChange = {this.change}
                     onBlur = {this.blur}
                     bsSize = "small"
-                    className={styles.input}
+                    className={[styles.input, styles.fieldAktenstandort].join(' ')}
                     tabIndex = {19}
                   />
                 </FormGroup>
@@ -358,21 +361,144 @@ class Geschaeft extends Component {
                     onChange = {this.change}
                     onBlur = {this.blur}
                     bsSize = "small"
-                    className={styles.input}
+                    className={[styles.input, styles.typeNr].join(' ')}
                     tabIndex = {20}
                   />
                 </FormGroup>
               </Form>
-              <Form inline>
+            </div>
+            <div className={styles.parlVorst}>
+              <p className={styles.bereichTitel}>Parlamentarische Vorstösse</p>
+              <Form>
+                <FormGroup className={styles.formGroup}>
+                  <ControlLabel className={styles.label}>Typ</ControlLabel>
+                  <FormControl
+                    componentClass="select"
+                    value = {geschaeft.parlVorstossTyp || ''}
+                    name = "parlVorstossTyp"
+                    onChange = {this.change}
+                    onBlur = {this.blur}
+                    bsSize = "small"
+                    className={styles.input}
+                    tabIndex = {21}
+                  >
+                    {this.options(parlVorstossTypOptions)}
+                  </FormControl>
+                </FormGroup>
               </Form>
               <Form inline>
-              </Form>
-              <Form inline>
+                <FormGroup className={styles.formGroup}>
+                  <ControlLabel className={styles.label}>Stufe</ControlLabel>
+                  <div>
+                    <Radio inline
+                      data-value = {1}
+                      checked = {geschaeft.parlVorstossStufe == 1}
+                      onChange = {this.change}
+                      bsSize = "small"
+                      name = "parlVorstossStufe"
+                      tabIndex = {22}
+                    >
+                      1
+                    </Radio>
+                  </div>
+                  <div>
+                    <Radio inline
+                      data-value = {2}
+                      checked = {geschaeft.parlVorstossStufe == 2}
+                      name = "parlVorstossStufe"
+                      onChange = {this.change}
+                      bsSize = "small"
+                      tabIndex = {23}
+                    >
+                      2
+                    </Radio>
+                  </div>
+                </FormGroup>
+                <FormGroup className={styles.formGroup}>
+                  <ControlLabel className={styles.label}>Ebene</ControlLabel>
+                  <InputGroup
+                    wrapperClassName="wrapper"
+                  >
+                    <div className="verticalRadioDiv">
+                      <ControlLabel className={styles.label}>Kanton</ControlLabel>
+                      <Radio
+                        data-value = "Kanton"
+                        checked = {geschaeft.parlVorstossEbene === 'Kanton'}
+                        name = "parlVorstossEbene"
+                        onChange = {this.change}
+                        bsSize = "small"
+                        tabIndex = {24}
+                      />
+                      <ControlLabel className={styles.label}>Bund</ControlLabel>
+                      <Radio
+                        data-value = "Bund"
+                        checked = {geschaeft.parlVorstossEbene === 'Bund'}
+                        onChange = {this.change}
+                        name = "parlVorstossEbene"
+                        bsSize = "small"
+                        tabIndex = {25}
+                      />
+                    </div>
+                  </InputGroup>
+                </FormGroup>
+                <FormGroup className={styles.formGroup}>
+                  <ControlLabel className={styles.label}>Zuständigkeit</ControlLabel>
+                  <InputGroup
+                    wrapperClassName="wrapper"
+                  >
+                    <div className="verticalRadioDiv">
+                      <ControlLabel className={styles.label}>haupt</ControlLabel>
+                      <Radio
+                        data-value = "hauptzuständig"
+                        checked = {geschaeft.parlVorstossZustaendigkeitAwel === 'hauptzuständig'}
+                        name = "parlVorstossZustaendigkeitAwel"
+                        onChange = {this.change}
+                        bsSize = "small"
+                        tabIndex = {26}
+                      />
+                      <ControlLabel className={styles.label}>mitbericht</ControlLabel>
+                      <Radio
+                        data-value = "mitberichtzuständig"
+                        checked = {geschaeft.parlVorstossZustaendigkeitAwel === 'mitberichtzuständig'}
+                        name = "parlVorstossZustaendigkeitAwel"
+                        onChange = {this.change}
+                        bsSize = "small"
+                        tabIndex = {27}
+                      />
+                    </div>
+                  </InputGroup>
+                </FormGroup>
+                <FormGroup className={styles.formGroup}>
+                  <ControlLabel className={styles.label}>Erlassform</ControlLabel>
+                  <InputGroup
+                    wrapperClassName="wrapper"
+                  >
+                    <div className="verticalRadioDiv">
+                      <ControlLabel className={styles.label}>Gesetz</ControlLabel>
+                      <Radio
+                        data-value = "Gesetz"
+                        checked = {geschaeft.erlassform === 'Gesetz'}
+                        name = "erlassform"
+                        onChange = {this.change}
+                        bsSize = "small"
+                        tabIndex = {28}
+                      />
+                      <ControlLabel className={styles.label}>Verordnung</ControlLabel>
+                      <Radio
+                        data-value = "Verordnung"
+                        checked = {geschaeft.erlassform === 'Verordnung'}
+                        name = "erlassform"
+                        onChange = {this.change}
+                        bsSize = "small"
+                        tabIndex = {29}
+                      />
+                    </div>
+                  </InputGroup>
+                </FormGroup>
               </Form>
               <Form inline>
               </Form>
             </div>
-            <div className={styles.parlVorst}>parl. Vorstösse</div>
           </div>
 
           <div>
@@ -392,7 +518,7 @@ class Geschaeft extends Component {
                       onChange = {this.change}
                       onBlur = {this.blur}
                       bsSize = "small"
-                      className = {[styles.geschaeft, styles.gegenstand].join(' ')}
+                      className = {[styles.gegenstand].join(' ')}
                       tabIndex = {1}
                       autoFocus
                     />
@@ -423,7 +549,6 @@ class Geschaeft extends Component {
                       onChange = {this.change}
                       onBlur = {this.blur}
                       bsSize = "small"
-                      className={styles.geschaeft}
                       tabIndex = {2}
                     />
                   </FormGroup>
@@ -501,7 +626,6 @@ class Geschaeft extends Component {
                       onChange = {this.change}
                       onBlur = {this.blur}
                       bsSize = "small"
-                      className={styles.geschaeft}
                       tabIndex = {3}
                     >
                       {this.options(geschaeftsartOptions)}
@@ -518,7 +642,6 @@ class Geschaeft extends Component {
                       onChange = {this.change}
                       onBlur = {this.blur}
                       bsSize = "small"
-                      className={styles.geschaeft}
                       tabIndex = {4}
                     >
                       {this.options(statusOptions)}
@@ -535,7 +658,6 @@ class Geschaeft extends Component {
                       onChange = {this.change}
                       onBlur = {this.blur}
                       bsSize = "small"
-                      className = {styles.geschaeft}
                       placeholder = "ID"
                       tabIndex = {5}
                     />
@@ -551,7 +673,6 @@ class Geschaeft extends Component {
                       onChange = {this.change}
                       onBlur = {this.blur}
                       bsSize = "small"
-                      className={styles.geschaeft}
                       tabIndex = {6}
                     />
                   </FormGroup>
@@ -629,7 +750,6 @@ class Geschaeft extends Component {
                       onChange = {this.change}
                       onBlur = {this.blur}
                       bsSize = "small"
-                      className={styles.geschaeft}
                       rows = {4}
                       tabIndex = {7}
                     />
@@ -677,7 +797,6 @@ class Geschaeft extends Component {
                       onChange = {this.change}
                       onBlur = {this.blur}
                       bsSize = "small"
-                      className = {styles.geschaeft}
                       rows = {3}
                       tabIndex = {8}
                     />
@@ -713,7 +832,6 @@ class Geschaeft extends Component {
                       onChange = {this.change}
                       onBlur = {this.blur}
                       bsSize = "small"
-                      className={styles.geschaeft}
                       rows = {4}
                       tabIndex = {9}
                     />
@@ -852,7 +970,6 @@ class Geschaeft extends Component {
                       onChange = {this.change}
                       onBlur = {this.blur}
                       bsSize = "small"
-                      className={styles.geschaeft}
                       tabIndex = {10}
                     >
                       {this.options(rechtsmittelerledigungOptions)}

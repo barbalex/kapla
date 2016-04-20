@@ -4,16 +4,28 @@
 		"selected_items":
 		[
 			[
+				"ge",
+				"geschaeftWidth"
+			],
+			[
+				"tabl",
+				"tableLayout"
+			],
+			[
+				"tab",
+				"tableLayout"
+			],
+			[
+				"Ges",
+				"GeschaefteLayout"
+			],
+			[
 				"tableL",
 				"tableLayoutState"
 			],
 			[
 				"Ge",
 				"GeschaefteLayout"
-			],
-			[
-				"ge",
-				"geschaeftsartOptions"
 			],
 			[
 				"g",
@@ -219,23 +231,15 @@
 			"file": "package.json",
 			"settings":
 			{
-				"buffer_size": 4489,
-				"line_ending": "Unix"
+				"buffer_size": 4467,
+				"line_ending": "Windows"
 			}
 		},
 		{
 			"file": "app/actions/table.js",
 			"settings":
 			{
-				"buffer_size": 4165,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "app/components/Navbar.js",
-			"settings":
-			{
-				"buffer_size": 10926,
+				"buffer_size": 4364,
 				"line_ending": "Windows"
 			}
 		},
@@ -243,47 +247,47 @@
 			"file": "app/reducers/table.js",
 			"settings":
 			{
-				"buffer_size": 2121,
+				"buffer_size": 2221,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "app/components/TableLayout.js",
+			"file": "app/actions/app.js",
 			"settings":
 			{
-				"buffer_size": 1803,
+				"buffer_size": 2171,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "/C/Users/alex/AppData/Roaming/Kapla/kaplaConfig.json",
+			"file": "app/components/TableRow.css",
 			"settings":
 			{
-				"buffer_size": 2976,
+				"buffer_size": 282,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "app/containers/Table.js",
+			"file": "app/components/tableRow.js",
 			"settings":
 			{
-				"buffer_size": 452,
+				"buffer_size": 1687,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "app/components/Table.js",
+			"file": "app/components/Geschaeft.js",
 			"settings":
 			{
-				"buffer_size": 3024,
+				"buffer_size": 35862,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "app/components/Table.css",
+			"file": "app/components/Geschaeft.css",
 			"settings":
 			{
-				"buffer_size": 724,
+				"buffer_size": 624,
 				"line_ending": "Windows"
 			}
 		}
@@ -343,35 +347,44 @@
 		"/C/Users/alex/kapla/app/components",
 		"/C/Users/alex/kapla/app/containers",
 		"/C/Users/alex/kapla/app/reducers",
-		"/C/Users/alex/kapla/app/src",
 		"/C/Users/alex/kapla/app/src/sql",
 		"/C/Users/alex/kapla/app/store"
 	],
 	"file_history":
 	[
-		"/C/Users/alex/AppData/Roaming/Kapla/kaplaConfig.json",
-		"/C/Users/alex/kapla/app/components/TableLayout.js",
-		"/C/Users/alex/kapla/app/components/Page.js",
-		"/C/Users/alex/kapla/app/components/Table.js",
-		"/C/Users/alex/kapla/app/src/getTableFromDb.js",
-		"/C/Users/alex/kapla/app/containers/tableRow.js",
-		"/C/Users/alex/kapla/app/src/sql/createTables.sql",
+		"/C/Users/alex/kapla/main.js",
+		"/C/Users/alex/kapla/app/components/tableRow.js",
 		"/C/Users/alex/kapla/app/components/Table.css",
-		"/C/Users/alex/kapla/app/routes.js",
+		"/C/Users/alex/kapla/app/components/Table.js",
+		"/C/Users/alex/kapla/app/containers/Table.js",
+		"/C/Users/alex/kapla/app/components/TableLayout.js",
+		"/C/Users/alex/kapla/app/reducers/geschaefte.js",
+		"/C/Users/alex/kapla/app/actions/table.js",
+		"/C/Users/alex/kapla/app/actions/geschaefte.js",
+		"/C/Users/alex/kapla/app/components/Geschaefte.css",
+		"/C/Users/alex/kapla/app/containers/tableRow.js",
+		"/C/Users/alex/kapla/app/containers/Geschaefte.js",
+		"/C/Users/alex/kapla/app/containers/wrapComponentInProvider.js",
+		"/C/Users/alex/kapla/app/components/GeschaefteLayout.js",
+		"/C/Users/alex/kapla/app/actions/app.js",
+		"/C/Users/alex/kapla/app/components/Geschaefte.js",
 		"/C/Users/alex/kapla/app/components/Navbar.js",
 		"/C/Users/alex/kapla/app/containers/Navbar.js",
+		"/C/Users/alex/kapla/app/actions/user.js",
+		"/C/Users/alex/kapla/app/src/saveConfig.js",
+		"/C/Users/alex/kapla/app/src/getConfig.js",
+		"/C/Users/alex/AppData/Roaming/Kapla/kaplaConfig.json",
+		"/C/Users/alex/kapla/app/components/Page.js",
+		"/C/Users/alex/kapla/app/src/getTableFromDb.js",
+		"/C/Users/alex/kapla/app/src/sql/createTables.sql",
+		"/C/Users/alex/kapla/app/routes.js",
 		"/C/Users/alex/kapla/app/actions/tabelle.js",
 		"/C/Users/alex/kapla/app/reducers/tabelle.js",
 		"/C/Users/alex/kapla/app/src/newTabelleRowInDb.js",
 		"/C/Users/alex/kapla/app/src/getTabelleRowFromDb.js",
 		"/C/Users/alex/kapla/app/src/getTabelleFromDb.js",
 		"/C/Users/alex/kapla/app/reducers/index.js",
-		"/C/Users/alex/kapla/app/actions/geschaefte.js",
-		"/C/Users/alex/kapla/app/reducers/geschaefte.js",
 		"/C/Users/alex/kapla/app/reducers/app.js",
-		"/C/Users/alex/kapla/app/containers/Geschaefte.js",
-		"/C/Users/alex/kapla/app/components/Geschaefte.js",
-		"/C/Users/alex/kapla/app/components/GeschaefteLayout.js",
 		"/C/Users/alex/kapla/app/containers/Geschaeft.js",
 		"/C/Users/alex/kapla/app/components/Geschaeft.js",
 		"/C/Users/alex/kapla/app/actions/pages.js",
@@ -379,9 +392,7 @@
 		"/C/Users/alex/kapla/app/src/exportGeschaefte.js",
 		"/C/Users/alex/kapla/app/reducers/user.js",
 		"/C/Users/alex/kapla/app/reducers/pages.js",
-		"/C/Users/alex/kapla/app/actions/app.js",
 		"/C/Users/alex/kapla/app/components/ModalGeschaeftDelete.js",
-		"/C/Users/alex/kapla/app/actions/user.js",
 		"/C/Users/alex/kapla/app/containers/tables.js",
 		"/C/Users/alex/kapla/release/win32-x64/Kapla-win32-x64/resources/app.asar",
 		"/C/Users/alex/kapla/app/reducers/tables.js",
@@ -391,8 +402,6 @@
 		"/C/Users/alex/kapla/app/src/deleteGeschaeft.js",
 		"/C/Users/alex/kapla/app/src/filterGeschaefte.js",
 		"/C/Users/alex/kapla/app/index.js",
-		"/C/Users/alex/kapla/app/components/Geschaefte.css",
-		"/C/Users/alex/kapla/app/containers/wrapComponentInProvider.js",
 		"/C/Users/alex/kapla/app/containers/App.js",
 		"/C/Users/alex/kapla/app/app.global.css",
 		"/C/Users/alex/kapla/app/containers/GeschaefteLayout.js",
@@ -401,15 +410,12 @@
 		"/C/Users/alex/kapla/kapla_pc.sublime-project",
 		"/C/Users/alex/kapla/app/components/GeschaefteLayout.css",
 		"/C/Users/alex/kapla/app/src/sql/createViews.sql",
-		"/C/Users/alex/kapla/main.js",
 		"/C/Users/alex/Downloads/[Content_Types].xml",
 		"/C/Users/alex/Downloads/test.xlsx",
 		"/C/Users/alex/Downloads/Stundenrapport.xlsx",
 		"/C/Users/alex/kapla/app/store/configureStore.production.js",
 		"/C/Users/alex/kapla/app/src/saveConfigValue.js",
 		"/C/Users/alex/kapla/app/src/saveConfigValues.js",
-		"/C/Users/alex/kapla/app/src/getConfig.js",
-		"/C/Users/alex/kapla/app/src/saveConfig.js",
 		"/C/Users/alex/kapla/src/getConfig.js",
 		"/C/Users/alex/kapla/app/components/Pages.js",
 		"/C/Users/alex/kapla/app/components/Pages.css",
@@ -473,10 +479,7 @@
 		"/C/Users/alex/kapla/app/components/GeschaefteList.sik2",
 		"/C/Users/alex/kapla/app/components/GeschaefteList.sik",
 		"/C/Users/alex/kapla/app/components/GeschaefteList_sik.js",
-		"/C/Users/alex/kapla/app/src/initializeDb.js",
-		"/C/Users/alex/kapla/app/containers/Toolbar.js",
-		"/C/Users/alex/kapla/app/actions/counter.js",
-		"/C/Users/alex/kapla/app/containers/GeschaeftePage.js"
+		"/C/Users/alex/kapla/app/src/initializeDb.js"
 	],
 	"find":
 	{
@@ -502,6 +505,48 @@
 		"case_sensitive": true,
 		"find_history":
 		[
+			"FormGroup",
+			"click ()",
+			"TABLE_GET_SUCCESS",
+			"length === 0",
+			"statusOptionsGet",
+			"GeschaefteActions",
+			"TABLE_ROW_TOGGLE_ACTIVATED",
+			"tableRowToggleActivated",
+			"changeTableInDb",
+			"geschaeft",
+			"Geschaeft",
+			"change",
+			"geschaeft",
+			"geschaefte",
+			"changeGeschaeftInDb",
+			"geschaefteChangeState",
+			"activeId",
+			"setOffsetWidth",
+			"messageShow",
+			"fetchUsername",
+			"didntGetUsername",
+			"gotUsername",
+			"getUsername",
+			"changeGeschaeftInDb",
+			"TABLE_CHANGE_DB_ERROR",
+			"tableChangeDbError",
+			"activate",
+			"fetchUsername",
+			"dbGet",
+			"fetchUsername",
+			"getGeschaefte",
+			"dbGetFromConfig",
+			"geschaeftsartOptionsGet",
+			"parlVorstossTypOptionsGet",
+			"dbGetFromConfig",
+			"dbGet",
+			"chooseDb",
+			"dbChoose",
+			"getConfig",
+			"JSON.stringify",
+			"geschaefteLayoutState",
+			"lastWindowState",
 			"saveConfigValue",
 			"saveGeschaefteState",
 			"setOffsetWidth",
@@ -587,49 +632,7 @@
 			"willGeschaeftEntfernen",
 			"GESCHAEFT_ENTFERNEN",
 			"nichtEroeffnetesGeschaeft",
-			"GESCHAEFT_NICHT_EROEFFNET",
-			"erstelleNeuesGeschaeft",
-			"eroeffneGeschaeft",
-			"GESCHAEFTE_NEW",
-			"neuesGeschaeft",
-			"newGeschaeft",
-			"GESCHAEFT_NEU_ERSTELLEN",
-			"filtereGeschaefteNachVolltext",
-			"setzeGeschaefteVolltextFilter",
-			"filtereGeschaefteNachFeldern",
-			"nichtErhalteneGeschaefte",
-			"erhalteGeschaefte",
-			"orderGeschaefte",
-			"holenDb",
-			"dbGet",
-			"DB_HOLEN",
-			"holeDbAusConfig",
-			"DB_AUS_CONFIG_HOLEN",
-			"nichtGewaehlteDb",
-			"erhalteDb",
-			"waehleDb",
-			"dbChoose",
-			"showNavbar",
-			"hideNavbar",
-			"showMessage",
-			"aendereGeschaeftDb",
-			"aendereGeschaefteState",
-			"GESCHAEFT_AENDERN_DB",
-			"GESCHAEFTE_CHANGE_STATE",
-			"GESCHAEFTE_FILTER_BY_FULLTEXT_SET_FILTER",
-			"GESCHAEFTE_RECEIVE_NOT",
-			"GESCHAEFTE_RECEIVE",
-			"GESCHAEFTE_ORDER",
-			"DB_CHOOSEN_ERROR",
-			"DB_CHOOSEN",
-			"USERNAME_RECEIVED",
-			"DIDNT_GET_USERNAME",
-			"GOT_USERNAME",
-			"GET_USERNAME",
-			"SHOW_MESSAGE",
-			"DB_NICHT_GEWAEHLT",
-			"DB_GEWAEHLT",
-			"DB_WAEHLEN"
+			"GESCHAEFT_NICHT_EROEFFNET"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -637,6 +640,15 @@
 		"regex": false,
 		"replace_history":
 		[
+			"click()",
+			"tableRow",
+			"TableRow",
+			"row",
+			"rows",
+			"changeTableInDb",
+			"tableChangeState",
+			"id",
+			"changeTableInDb",
 			"tableLayout",
 			"row",
 			"rows",
@@ -755,16 +767,7 @@
 			"GESCHAEFT_DELETE",
 			"GESCHAEFT_DEACTIVATE",
 			"GESCHAEFT_ACTIVATE",
-			"GESCHAEFTE_RECEIVE_NOT",
-			"GESCHAEFTE_RECEIVE",
-			"GESCHAEFTE_ORDER",
-			"orderGeschaefte",
-			"getGeschaefte",
-			"getGeschaeftFromDb",
-			"getGeschaefteFromDb",
-			"GeschaefteLayout",
-			"GeschaefteLayoutComponent",
-			"GeschaefteLayout"
+			"GESCHAEFTE_RECEIVE_NOT"
 		],
 		"reverse": false,
 		"show_context": true,
@@ -775,7 +778,7 @@
 	"groups":
 	[
 		{
-			"selected": 5,
+			"selected": 7,
 			"sheets":
 			[
 				{
@@ -784,15 +787,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 4489,
+						"buffer_size": 4467,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2944,
-								2944
+								1180,
+								1161
 							]
 						],
 						"settings":
@@ -802,7 +805,7 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 1400.0,
+						"translation.y": 377.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 7,
@@ -814,15 +817,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 4165,
+						"buffer_size": 4364,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								518,
-								518
+								4080,
+								4080
 							]
 						],
 						"settings":
@@ -832,27 +835,27 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 212.0,
+						"translation.y": 1542.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 8,
+					"stack_index": 6,
 					"type": "text"
 				},
 				{
 					"buffer": 2,
-					"file": "app/components/Navbar.js",
+					"file": "app/reducers/table.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 10926,
+						"buffer_size": 2221,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								10384,
-								10384
+								714,
+								714
 							]
 						],
 						"settings":
@@ -862,7 +865,7 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 839.0,
+						"translation.y": 1004.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 5,
@@ -870,19 +873,19 @@
 				},
 				{
 					"buffer": 3,
-					"file": "app/reducers/table.js",
+					"file": "app/actions/app.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 2121,
+						"buffer_size": 2171,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								844,
-								844
+								1155,
+								1145
 							]
 						],
 						"settings":
@@ -892,7 +895,7 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 311.0,
+						"translation.y": 641.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 4,
@@ -900,84 +903,24 @@
 				},
 				{
 					"buffer": 4,
-					"file": "app/components/TableLayout.js",
+					"file": "app/components/TableRow.css",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1803,
+						"buffer_size": 282,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1742,
-								1742
+								107,
+								10
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 1188.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
-					"type": "text"
-				},
-				{
-					"buffer": 5,
-					"file": "/C/Users/alex/AppData/Roaming/Kapla/kaplaConfig.json",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 2976,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								2899,
-								2914
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JSON.sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
-					"type": "text"
-				},
-				{
-					"buffer": 6,
-					"file": "app/containers/Table.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 452,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								254,
-								254
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
+							"syntax": "Packages/CSS/CSS.sublime-syntax"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -987,20 +930,54 @@
 					"type": "text"
 				},
 				{
-					"buffer": 7,
-					"file": "app/components/Table.js",
+					"buffer": 5,
+					"file": "app/components/tableRow.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 3024,
+						"buffer_size": 1687,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								605,
-								619
+								1362,
+								1133
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 990.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "app/components/Geschaeft.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 35862,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								14283,
+								14283
+							],
+							[
+								14834,
+								14834
 							]
 						],
 						"settings":
@@ -1011,40 +988,38 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 47.0,
+						"translation.y": 11301.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 2,
+					"stack_index": 1,
 					"type": "text"
 				},
 				{
-					"buffer": 8,
-					"file": "app/components/Table.css",
+					"buffer": 7,
+					"file": "app/components/Geschaeft.css",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 724,
+						"buffer_size": 624,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								448,
-								448
+								426,
+								426
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/CSS/CSS.sublime-syntax",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
+							"syntax": "Packages/CSS/CSS.sublime-syntax"
 						},
 						"translation.x": 0.0,
-						"translation.y": 66.0,
+						"translation.y": 99.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 6,
+					"stack_index": 0,
 					"type": "text"
 				}
 			]
