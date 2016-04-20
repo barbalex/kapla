@@ -350,7 +350,7 @@ class NavbarComponent extends Component {
           </Nav>
           <Nav pullRight>
             {showGeschaefteStuff && this.fulltextFilterNav()}
-            <NavDropdown eventKey={9} title="&#8942;" id="basic-nav-dropdown">
+            <NavDropdown eventKey={9} title="&#8942;" id="basic-nav-dropdown" noCaret>
               <MenuItem eventKey={9.1} onClick={dbGet}>Datenbank wählen</MenuItem>
             </NavDropdown>
           </Nav>
