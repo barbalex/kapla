@@ -8,6 +8,9 @@ export function pagesInitiate(reportType) {
     const { geschaefte } = getState()
     const { geschaefteGefilterteIds } = geschaefte
     const geschaefteGefiltert = geschaefte.geschaefte.filter((g) => geschaefteGefilterteIds.includes(g.idGeschaeft))
+
+    console.log('actions/pagesInitiate, geschaefteGefiltert', geschaefteGefiltert)
+
     dispatch({
       type: PAGES_INITIATE,
       reportType,

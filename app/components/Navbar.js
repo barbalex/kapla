@@ -110,13 +110,6 @@ class NavbarComponent extends Component {
     })
   }
 
-  exportGeschaefte = (e) => {
-    const { geschaefteGefilterteIds, geschaefte, messageShow } = this.props
-    e.preventDefault()
-    const geschaefteGefiltert = geschaefte.filter((g) => geschaefteGefilterteIds.includes(g.idGeschaeft))
-    exportGeschaefte(geschaefteGefiltert, messageShow)
-  }
-
   onSelectFilterFaelligeGeschaefte = (e) => {
     const { geschaefteFilterByFields } = this.props
     e.preventDefault()
@@ -178,6 +171,13 @@ class NavbarComponent extends Component {
     }
     geschaefteFilterByFields(filter)
     // TODO: add ordering to state and call action here to order by frist desc
+  }
+
+  exportGeschaefte = (e) => {
+    const { geschaefteGefilterteIds, geschaefte, messageShow } = this.props
+    e.preventDefault()
+    const geschaefteGefiltert = geschaefte.filter((g) => geschaefteGefilterteIds.includes(g.idGeschaeft))
+    exportGeschaefte(geschaefteGefiltert, messageShow)
   }
 
   render() {
@@ -253,7 +253,7 @@ class NavbarComponent extends Component {
               eventKey={7}
               title="Berichte"
               id="basic-nav-dropdown"
-              onSelect={(a, b) => {
+              onSelect={(eventKey) => {
                 /*
                  * react-bootstrap has an error causing the dropdown to stay open
                  * and the message modal not to show!!!!
@@ -261,7 +261,7 @@ class NavbarComponent extends Component {
                  * this is an elaborate hack
                  * to get the menu item to close immediately
                  */
-                if (b === 7.1) {
+                if (eventKey === 7.1) {
                   setTimeout(() => {
                     pagesInitiate()
                   }, 0)
