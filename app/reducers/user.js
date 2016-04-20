@@ -9,7 +9,7 @@ import {
 const standardState = {
   fetching: false,
   error: null,
-  username: null
+  username: ''
 }
 
 export default function geschaefte(state = standardState, action) {
@@ -32,7 +32,7 @@ export default function geschaefte(state = standardState, action) {
         ...state,
         fetching: false,
         error: action.error,
-        username: null
+        username: ''
       }
     default:
       return state

@@ -82,7 +82,7 @@ export default function geschaefte(state = standardState, action) {
       return {
         ...state,
         filterFields: action.filterFields,
-        filterFulltext: null,
+        filterFulltext: '',
         activeId: null,
         geschaefteGefilterteIds: action.geschaefteGefilterteIds
       }

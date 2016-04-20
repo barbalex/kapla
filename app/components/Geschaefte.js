@@ -23,7 +23,7 @@ class Geschaefte extends Component {
     const isActive = activeId && activeId === geschaefteGefilterteIds[index]
     const trClassName = isActive ? [styles.tableBodyRow, styles.active].join(' ') : styles.tableBodyRow
     const geschaeft = geschaefte.find((g) => g.idGeschaeft === geschaefteGefilterteIds[index])
-    const fristMitarbeiter = geschaeft.fristMitarbeiter ? `Frist: ${geschaeft.fristMitarbeiter}` : null
+    const fristMitarbeiter = geschaeft.fristMitarbeiter ? `Frist: ${geschaeft.fristMitarbeiter}` : ''
 
     return (
       <div

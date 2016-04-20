@@ -16,7 +16,7 @@ const standardState = {
   db: null,
   navbarVisible: true,
   showMessageModal: false,
-  messageText: null
+  messageText: ''
 }
 
 export default function app(state = standardState, action) {

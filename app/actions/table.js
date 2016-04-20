@@ -89,7 +89,7 @@ export function tableRowRemove(table, id) {
     const { app } = getState()
     deleteTableRow(app.db, table, id)
       .then(() => {
-        dispatch(tableRowToggleActivated(table, null))
+        dispatch(tableRowToggleActivated(table, ''))
         dispatch(tableRowRemoveDeleteIntended(table, id))
         dispatch(tableRowDelete(table, id))
       })

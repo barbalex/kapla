@@ -93,7 +93,7 @@ class Page extends Component {
       }
     }
     if (remainingGeschaefte.length === 0 && pageIndex === activePageIndex) {
-      messageShow(false, null)
+      messageShow(false, '')
       pagesFinishedBuilding()
     }
   }
@@ -144,7 +144,7 @@ class Page extends Component {
   }
 
   tableRow = (geschaeft) => {
-    const fristMitarbeiter = geschaeft.fristMitarbeiter ? `Frist: ${geschaeft.fristMitarbeiter}` : null
+    const fristMitarbeiter = geschaeft.fristMitarbeiter ? `Frist: ${geschaeft.fristMitarbeiter}` : ''
 
     return (
       <div

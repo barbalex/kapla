@@ -1,6 +1,7 @@
 'use strict'
 
 import { remote } from 'electron'
+import ReactDOM from 'react-dom'
 const { dialog } = remote
 import fs from 'fs'
 import React, { Component, PropTypes } from 'react'
@@ -64,7 +65,7 @@ class NavbarComponent extends Component {
     }
   }
 
-  onClickRemoveFilterGlyph = () => {
+  removeFilter = () => {
     const { geschaefteFilterByFulltextSet, geschaefteFilterByFulltext } = this.props
     const filterFulltext = ''
     geschaefteFilterByFulltextSet(filterFulltext)
@@ -110,9 +111,8 @@ class NavbarComponent extends Component {
     })
   }
 
-  onSelectFilterFaelligeGeschaefte = (e) => {
+  onSelectFilterFaelligeGeschaefte = () => {
     const { geschaefteFilterByFields } = this.props
-    e.preventDefault()
     const now = moment().format('YYYY-MM-DD')
     const filter = {
       status: {
@@ -124,13 +124,39 @@ class NavbarComponent extends Component {
         comparator: '!=='
       },
       datumAusgangAwel: {
-        value: null,
+        value: '',
         comparator: '='
       },
       fristMitarbeiter: {
         value: now,
         comparator: '<'
       }
+    }
+    geschaefteFilterByFields(filter)
+    // TODO: add ordering to state and call action here to order by frist desc
+  }
+
+  onSelectFilterFaelligeGeschaefteMitarbeiter = () => {
+    const { geschaefteFilterByFields, username } = this.props
+    const now = moment().format('YYYY-MM-DD')
+    const filter = {
+      status: {
+        value: 'zurückgestellt',
+        comparator: '!=='
+      },
+      status: {
+        value: 'erledigt',
+        comparator: '!=='
+      },
+      datumAusgangAwel: {
+        value: '',
+        comparator: '='
+      },
+      fristMitarbeiter: {
+        value: now,
+        comparator: '<'
+      },
+      itKonto: username
     }
     geschaefteFilterByFields(filter)
     // TODO: add ordering to state and call action here to order by frist desc
@@ -146,31 +172,8 @@ class NavbarComponent extends Component {
     </NavItem>
   )
 
-  onSelectFilterFaelligeGeschaefteMitarbeiter = (e) => {
-    const { geschaefteFilterByFields, username } = this.props
-    e.preventDefault()
-    const now = moment().format('YYYY-MM-DD')
-    const filter = {
-      status: {
-        value: 'zurückgestellt',
-        comparator: '!=='
-      },
-      status: {
-        value: 'erledigt',
-        comparator: '!=='
-      },
-      datumAusgangAwel: {
-        value: null,
-        comparator: '='
-      },
-      fristMitarbeiter: {
-        value: now,
-        comparator: '<'
-      },
-      itKonto: username
-    }
-    geschaefteFilterByFields(filter)
-    // TODO: add ordering to state and call action here to order by frist desc
+  focusFulltextFilter = () => {
+    ReactDOM.findDOMNode(this.refs.filterFulltext).focus()
   }
 
   exportGeschaefte = (e) => {
@@ -224,8 +227,12 @@ class NavbarComponent extends Component {
               <LinkContainer to={{ pathname: '/filter' }}>
                 <MenuItem eventKey={3.1}>nach Feldern</MenuItem>
               </LinkContainer>
-              <MenuItem eventKey={3.2} onSelect={this.onSelectFilterFaelligeGeschaefte}>fällige</MenuItem>
-              <MenuItem eventKey={3.3} onSelect={this.onSelectFilterFaelligeGeschaefteMitarbeiter}>eigene fällige</MenuItem>
+              <MenuItem eventKey={3.2} onSelect={this.focusFulltextFilter}>nach Volltext</MenuItem>
+              <MenuItem divider />
+              <MenuItem eventKey={3.3} onSelect={this.onSelectFilterFaelligeGeschaefte}>fällige</MenuItem>
+              <MenuItem eventKey={3.4} onSelect={this.onSelectFilterFaelligeGeschaefteMitarbeiter}>eigene fällige</MenuItem>
+              <MenuItem divider />
+              <MenuItem eventKey={3.5} onSelect={this.removeFilter}>Filter entfernen</MenuItem>
             </NavDropdown>
             <NavItem
               eventKey={4}
@@ -283,11 +290,12 @@ class NavbarComponent extends Component {
                   onKeyPress={this.onKeyPressFilterFulltext}
                   className={classNameFilterInput}
                   title="Zum Filtern drücken Sie die Enter-Taste"
+                  ref="filterFulltext"
                 />
               </FormGroup>
             <Glyphicon
               glyph="remove"
-              onClick={this.onClickRemoveFilterGlyph}
+              onClick={this.removeFilter}
               className={styles.filterInputRemoveIcon}
               title="Filter entfernen"
             />

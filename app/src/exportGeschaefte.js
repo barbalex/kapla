@@ -100,7 +100,7 @@ export default (geschaefte, messageShow) => {
         // solution using XLSX.write and fs.writeFile does not work
         // because xlsx is a zipped folder
         XLSX.writeFile(wb, path, { bookType: 'xlsx', bookSST: true, type: 'binary' })
-        messageShow(false, null)
+        messageShow(false, '')
       }, 200)
     }
   })
