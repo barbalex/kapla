@@ -67,6 +67,11 @@ textarea {
 }
 
 @media print {
+  /**
+   * make sure, html and body
+   * have no margins, no padding,
+   * grow and overflow as needed
+   */
   html,
   body {
     margin: 0 !important;

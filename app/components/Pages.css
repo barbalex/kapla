@@ -3,13 +3,12 @@
   font-size: 9pt;
   cursor: default;
   /* 
-   * need defined height to make the pages scrollable in UI
+   * need defined height and overflow
+   * to make the pages scrollable in UI
    * is removed in print
    */
   overflow-y: auto;
-  /*height: 100%;*/
   height: 100vh;
-  /*height: calc(100vh - 52px)*/
 }
 
 /* When the document is actually printed */
@@ -17,9 +16,9 @@
   .body {
     /* remove grey backgrond set for nice UI */
     background-color: #fff;
-    /* with overflow an empty page is inserted between each page */
+    /* with overflow auto an empty page is inserted between each page */
     overflow-y: visible;
-    /* necessary? */
+    /* make sure body grows as needed */
     height: auto !important;
   }
 }
