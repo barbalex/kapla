@@ -65,3 +65,13 @@ textarea {
 ::-webkit-scrollbar-corner {
   background: rgba(0,0,0,0);
 }
+
+@media print {
+  html,
+  body {
+    margin: 0 !important;
+    padding: 0 !important;
+    height: auto !important;
+    overflow: visible !important;
+  }
+}

@@ -7,7 +7,9 @@
    * is removed in print
    */
   overflow-y: auto;
-  height: calc(100vh - 52px)
+  /*height: 100%;*/
+  height: 100vh;
+  /*height: calc(100vh - 52px)*/
 }
 
 /* When the document is actually printed */
@@ -18,8 +20,8 @@
     /* with overflow an empty page is inserted between each page */
     overflow-y: visible;
     /* necessary? */
-    height: 100vh;
-    margin-left: -2cm;
-    margin-top: -2cm;
+    height: auto !important;
+    /*margin-left: -1cm;
+    margin-top: -1cm;*/
   }
 }
