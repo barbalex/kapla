@@ -17,11 +17,11 @@
 .tableBodyRow {
   display: flex;
   padding: 5px;
-  cursor: pointer;
 }
 
 .tableBodyRow {
   border-bottom: 1px solid #BBBBBB;
+  cursor: pointer;
 }
 
 .tableHeaderRow {
@@ -33,6 +33,8 @@
 .tableBodyCell {
   flex: 1;
   padding: 5px;
+  text-overflow: ellipsis;
+  overflow: hidden;
 }
 
 .active {
