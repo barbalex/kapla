@@ -1,7 +1,7 @@
 'use strict'
 
 import React, { Component, PropTypes } from 'react'
-import { Form, FormGroup, Col, FormControl, ControlLabel } from 'react-bootstrap'
+import { Form, FormGroup, FormControl, ControlLabel } from 'react-bootstrap'
 import styles from './TableRow.css'
 
 class TableRow extends Component {

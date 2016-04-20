@@ -1,6 +1,16 @@
-.wrapperNarrow {
+.body {
   background-color: white !important;
   height: 100%;
+  overflow-y: auto;
+}
+
+.bereichTitel {
+  font-weight: 900;
+  font-size: 16px;
+}
+
+.wrapperNarrow {
+  composes: body;
   display: grid;
   grid-template-areas:
     "areaNummern areaNummern areaNummern areaNummern areaNummern areaNummern areaNummern areaNummern areaNummern areaNummern areaNummern areaNummern"
@@ -9,8 +19,7 @@
 }
 
 .wrapperWide {
-  background-color: white !important;
-  height: 100%;
+  composes: body;
   display: grid;
   grid-template-areas:
     "areaGeschaeft areaGeschaeft areaGeschaeft areaGeschaeft areaGeschaeft areaGeschaeft areaGeschaeft areaNummern areaNummern areaNummern areaNummern areaNummern"
@@ -35,6 +44,7 @@
 }
 
 .areaGeschaeftTitle {
+  composes: bereichTitel;
   grid-area: areaGeschaeftTitle;
 }
 
@@ -78,6 +88,7 @@
   grid-area: fieldErledigung;
 }
 
+
 .areaNummern {
   grid-area: areaNummern;
   background-color: rgba(210, 210, 210, 0.2);
@@ -93,6 +104,7 @@
 }
 
 .areaNummernTitle {
+  composes: bereichTitel;
   grid-area: areaNummernTitle;
 }
 
@@ -147,13 +159,14 @@
   display: grid;
   grid-template-areas:
     "areaParlVorstTitle areaParlVorstTitle areaParlVorstTitle areaParlVorstTitle areaParlVorstTitle areaParlVorstTitle areaParlVorstTitle areaParlVorstTitle areaParlVorstTitle areaParlVorstTitle areaParlVorstTitle areaParlVorstTitle"
-    "fieldParlVorstossTyp fieldParlVorstossTyp fieldParlVorstossTyp fieldParlVorstossTyp fieldParlVorstossTyp fieldParlVorstossTyp fieldParlVorstossTyp fieldParlVorstossTyp fieldParlVorstossTyp fieldParlVorstossTyp fieldParlVorstossTyp fieldParlVorstossTyp "
+    "fieldParlVorstossTyp fieldParlVorstossTyp fieldParlVorstossTyp fieldParlVorstossTyp fieldParlVorstossTyp fieldParlVorstossTyp fieldParlVorstossTyp fieldParlVorstossTyp fieldParlVorstossTyp fieldParlVorstossTyp fieldParlVorstossTyp fieldParlVorstossTyp"
     "fieldStufe fieldStufe fieldStufe fieldEbene fieldEbene fieldEbene fieldZustaendigkeit fieldZustaendigkeit fieldZustaendigkeit fieldErlassform fieldErlassform fieldErlassform";
-  grid-gap: 5px 8px;
+  grid-gap: 15px 8px;
   padding: 8px;
 }
 
 .areaParlVorstTitle {
+  composes: bereichTitel;
   grid-area: areaParlVorstTitle;
 }
 
@@ -175,15 +188,4 @@
 
 .fieldErlassform {
   grid-area: fieldErlassform;
-}
-
-
-
-.input {
-  display: block !important;
-}
-
-.bereichTitel {
-  font-weight: 900;
-  font-size: 16px;
 }

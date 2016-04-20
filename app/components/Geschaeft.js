@@ -67,7 +67,7 @@ class Geschaeft extends Component {
         <div className={wrapperClass}>
           <div className={styles.areaGeschaeft}>
             <div className={styles.fieldGegenstand}>
-              <div className={[styles.bereichTitel, styles.areaGeschaeftTitle].join(' ')}>Geschäft</div>
+              <div className={styles.areaGeschaeftTitle}>Geschäft</div>
               <ControlLabel>Gegenstand</ControlLabel>
               <FormControl
                 componentClass="textarea"
@@ -210,7 +210,7 @@ class Geschaeft extends Component {
             </div>
           </div>
           <div className={styles.areaNummern}>
-            <div className={[styles.bereichTitel, styles.areaNummernTitle].join(' ')}>Nummern</div>
+            <div className={styles.areaNummernTitle}>Nummern</div>
             <div className={styles.fieldIdGeschaeft}>
               <ControlLabel className={styles.label}>ID</ControlLabel>
               <FormControl
@@ -353,7 +353,7 @@ class Geschaeft extends Component {
             </div>
           </div>
           <div className={styles.areaParlVorst}>
-            <p className={[styles.bereichTitel, styles.areaParlVorstTitle].join(' ')}>Parlamentarische Vorstösse</p>
+            <div className={styles.areaParlVorstTitle}>Parlamentarische Vorstösse</div>
             <div className={styles.fieldParlVorstossTyp}>
               <ControlLabel className={styles.label}>Typ</ControlLabel>
               <FormControl
@@ -381,7 +381,7 @@ class Geschaeft extends Component {
               >
                 1
               </Radio>
-              <Radio inline
+              <Radio
                 data-value = {2}
                 checked = {geschaeft.parlVorstossStufe == 2}
                 name = "parlVorstossStufe"
