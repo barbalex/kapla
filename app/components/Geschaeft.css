@@ -1,20 +1,20 @@
-.body {
+.wrapperNarrow {
   background-color: white !important;
   height: 100%;
-}
-
-.wrapperNarrow {
   display: grid;
-  grid-gap: 0 0;
+  grid-template-areas:
+    "areaNummern areaNummern areaNummern areaNummern areaNummern areaNummern areaNummern areaNummern areaNummern areaNummern areaNummern areaNummern"
+    "areaGeschaeft areaGeschaeft areaGeschaeft areaGeschaeft areaGeschaeft areaGeschaeft areaGeschaeft areaGeschaeft areaGeschaeft areaGeschaeft areaGeschaeft areaGeschaeft"
+    "areaParlVorst areaParlVorst areaParlVorst areaParlVorst areaParlVorst areaParlVorst areaParlVorst areaParlVorst areaParlVorst areaParlVorst areaParlVorst areaParlVorst";
 }
 
 .wrapperWide {
+  background-color: white !important;
+  height: 100%;
   display: grid;
   grid-template-areas:
     "areaGeschaeft areaGeschaeft areaGeschaeft areaGeschaeft areaGeschaeft areaGeschaeft areaGeschaeft areaNummern areaNummern areaNummern areaNummern areaNummern"
     "areaGeschaeft areaGeschaeft areaGeschaeft areaGeschaeft areaGeschaeft areaGeschaeft areaGeschaeft areaParlVorst areaParlVorst areaParlVorst areaParlVorst areaParlVorst";
-  /*grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-  grid-template-rows: auto;*/
 }
 
 .areaGeschaeft {
@@ -87,7 +87,7 @@
    ". . . . . . . . . . fieldIdGeschaeft fieldIdGeschaeft"
    "fieldEntscheidAwelNr fieldEntscheidAwelNr fieldEntscheidAwelNr fieldEntscheidAwelJahr fieldEntscheidAwelJahr fieldEntscheidAwelJahr fieldEntscheidBdvNr fieldEntscheidBdvNr fieldEntscheidBdvNr fieldEntscheidBdvJahr fieldEntscheidBdvJahr fieldEntscheidBdvJahr"
    "fieldEntscheidKrNr fieldEntscheidKrNr fieldEntscheidKrNr feildEntscheidKrJahr feildEntscheidKrJahr feildEntscheidKrJahr fieldEntscheidRrbNr fieldEntscheidRrbNr fieldEntscheidRrbNr fieldEntscheidRrbJahr fieldEntscheidRrbJahr fieldEntscheidRrbJahr"
-   "fieldAktenstandort fieldAktenstandort fieldAktenstandort fieldAktenstandort fieldAktenstandort fieldAktenstandort fieldAktenstandort fieldAktenstandort . fieldAktennummer fieldAktennummer fieldAktennummer";
+   "fieldAktenstandort fieldAktenstandort fieldAktenstandort fieldAktenstandort fieldAktenstandort fieldAktenstandort fieldAktenstandort fieldAktenstandort fieldAktenstandort fieldAktennummer fieldAktennummer fieldAktennummer";
   grid-gap: 5px 0;
   padding: 8px;
 }
@@ -147,7 +147,7 @@
   display: grid;
   grid-template-areas:
     "areaParlVorstTitle areaParlVorstTitle areaParlVorstTitle areaParlVorstTitle areaParlVorstTitle areaParlVorstTitle areaParlVorstTitle areaParlVorstTitle areaParlVorstTitle areaParlVorstTitle areaParlVorstTitle areaParlVorstTitle"
-    "fieldParlVorstossTyp fieldParlVorstossTyp fieldParlVorstossTyp fieldParlVorstossTyp fieldParlVorstossTyp fieldParlVorstossTyp . . . . . . "
+    "fieldParlVorstossTyp fieldParlVorstossTyp fieldParlVorstossTyp fieldParlVorstossTyp fieldParlVorstossTyp fieldParlVorstossTyp fieldParlVorstossTyp fieldParlVorstossTyp fieldParlVorstossTyp fieldParlVorstossTyp fieldParlVorstossTyp fieldParlVorstossTyp "
     "fieldStufe fieldStufe fieldStufe fieldEbene fieldEbene fieldEbene fieldZustaendigkeit fieldZustaendigkeit fieldZustaendigkeit fieldErlassform fieldErlassform fieldErlassform";
   grid-gap: 5px 8px;
   padding: 8px;

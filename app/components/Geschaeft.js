@@ -1,7 +1,7 @@
 'use strict'
 
 import React, { Component, PropTypes } from 'react'
-import { Form, FormGroup, FormControl, ControlLabel, Radio } from 'react-bootstrap'
+import { Form, div, FormControl, ControlLabel, Radio } from 'react-bootstrap'
 import styles from './Geschaeft.css'
 
 class Geschaeft extends Component {
@@ -60,13 +60,13 @@ class Geschaeft extends Component {
     const geschaefteLayoutWidth = geschaefteLayout.width
     const geschaeftWidthPercent = geschaefteLayout.config.content[0].content[1].width
     const totalWidth = geschaefteLayoutWidth * geschaeftWidthPercent / 100
-    const wrapperClass = totalWidth < 500 ? styles.wrapperNarrow : styles.wrapperWide
+    const wrapperClass = totalWidth < 750 ? styles.wrapperNarrow : styles.wrapperWide
 
     if (geschaeft && geschaeft.idGeschaeft) {
       return (
-        <div className={[styles.body, wrapperClass].join(' ')}>
+        <div className={wrapperClass}>
           <div className={styles.areaGeschaeft}>
-            <FormGroup className={styles.fieldGegenstand}>
+            <div className={styles.fieldGegenstand}>
               <div className={[styles.bereichTitel, styles.areaGeschaeftTitle].join(' ')}>Geschäft</div>
               <ControlLabel>Gegenstand</ControlLabel>
               <FormControl
@@ -80,8 +80,8 @@ class Geschaeft extends Component {
                 tabIndex = {1}
                 autoFocus
               />
-            </FormGroup>
-            <FormGroup className={styles.fieldOrt}>
+            </div>
+            <div className={styles.fieldOrt}>
               <ControlLabel>Ort</ControlLabel>
               <FormControl
                 type = "text"
@@ -93,8 +93,8 @@ class Geschaeft extends Component {
                 className={styles.input}
                 tabIndex = {2}
               />
-            </FormGroup>
-            <FormGroup className={styles.fieldGeschaeftsart}>
+            </div>
+            <div className={styles.fieldGeschaeftsart}>
               <ControlLabel className={styles.label}>Geschäftsart</ControlLabel>
               <FormControl
                 componentClass="select"
@@ -108,8 +108,8 @@ class Geschaeft extends Component {
               >
                 {this.options(geschaeftsartOptions)}
               </FormControl>
-            </FormGroup>
-            <FormGroup className={styles.fieldStatus}>
+            </div>
+            <div className={styles.fieldStatus}>
               <ControlLabel className={styles.label}>Status</ControlLabel>
               <FormControl
                 componentClass="select"
@@ -123,8 +123,8 @@ class Geschaeft extends Component {
               >
                 {this.options(statusOptions)}
               </FormControl>
-            </FormGroup>
-            <FormGroup className={styles.fieldVorgeschaeft}>
+            </div>
+            <div className={styles.fieldVorgeschaeft}>
               <ControlLabel className={styles.label}>Vorgeschäft</ControlLabel>
               <FormControl
                 type = "number"
@@ -137,8 +137,8 @@ class Geschaeft extends Component {
                 placeholder = "ID"
                 tabIndex = {5}
               />
-            </FormGroup>
-            <FormGroup className={styles.fieldDirektion}>
+            </div>
+            <div className={styles.fieldDirektion}>
               <ControlLabel className={styles.label}>Direktion</ControlLabel>
               <FormControl
                 type = "text"
@@ -150,8 +150,8 @@ class Geschaeft extends Component {
                 className={[styles.input, styles.fieldDirektion].join(' ')}
                 tabIndex = {6}
               />
-            </FormGroup>
-            <FormGroup className={styles.fieldDetails}>
+            </div>
+            <div className={styles.fieldDetails}>
               <ControlLabel className={styles.label}>Details</ControlLabel>
               <FormControl
                 componentClass="textarea"
@@ -164,8 +164,8 @@ class Geschaeft extends Component {
                 rows = {4}
                 tabIndex = {7}
               />
-            </FormGroup>
-            <FormGroup className={styles.fieldNaechsterSchritt}>
+            </div>
+            <div className={styles.fieldNaechsterSchritt}>
               <ControlLabel className={styles.label}>Nächster Schritt</ControlLabel>
               <FormControl
                 componentClass="textarea"
@@ -178,8 +178,8 @@ class Geschaeft extends Component {
                 rows = {3}
                 tabIndex = {8}
               />
-            </FormGroup>
-            <FormGroup className={styles.fieldVermerk}>
+            </div>
+            <div className={styles.fieldVermerk}>
               <ControlLabel className={styles.label}>Vermerk</ControlLabel>
               <FormControl
                 componentClass="textarea"
@@ -192,8 +192,8 @@ class Geschaeft extends Component {
                 rows = {4}
                 tabIndex = {9}
               />
-            </FormGroup>
-            <FormGroup className={styles.fieldErledigung}>
+            </div>
+            <div className={styles.fieldErledigung}>
               <ControlLabel className={styles.label}>Erledigung</ControlLabel>
               <FormControl
                 componentClass="select"
@@ -207,11 +207,11 @@ class Geschaeft extends Component {
               >
                 {this.options(rechtsmittelerledigungOptions)}
               </FormControl>
-            </FormGroup>
+            </div>
           </div>
           <div className={styles.areaNummern}>
             <div className={[styles.bereichTitel, styles.areaNummernTitle].join(' ')}>Nummern</div>
-            <FormGroup className={styles.fieldIdGeschaeft}>
+            <div className={styles.fieldIdGeschaeft}>
               <ControlLabel className={styles.label}>ID</ControlLabel>
               <FormControl
                 type = "number"
@@ -220,8 +220,8 @@ class Geschaeft extends Component {
                 disabled
                 className={[styles.input, styles.typeNr].join(' ')}
               />
-            </FormGroup>
-            <FormGroup className={styles.fieldEntscheidAwelNr}>
+            </div>
+            <div className={styles.fieldEntscheidAwelNr}>
               <ControlLabel className={styles.label}>AWEL Nr.</ControlLabel>
               <FormControl
                 type = "number"
@@ -233,8 +233,8 @@ class Geschaeft extends Component {
                 className={[styles.input, styles.typeNr].join(' ')}
                 tabIndex = {11}
               />
-            </FormGroup>
-            <FormGroup className={styles.fieldEntscheidAwelJahr}>
+            </div>
+            <div className={styles.fieldEntscheidAwelJahr}>
               <ControlLabel className={styles.label}>Jahr</ControlLabel>
               <FormControl
                 type = "number"
@@ -246,8 +246,8 @@ class Geschaeft extends Component {
                 className={[styles.input, styles.typeNr].join(' ')}
                 tabIndex = {12}
               />
-            </FormGroup>
-            <FormGroup className={styles.fieldEntscheidBdvNr}>
+            </div>
+            <div className={styles.fieldEntscheidBdvNr}>
               <ControlLabel className={styles.label}>BDV&nbsp;&nbsp;&nbsp;&nbsp;Nr.</ControlLabel>
               <FormControl
                 type = "number"
@@ -259,8 +259,8 @@ class Geschaeft extends Component {
                 className={[styles.input, styles.typeNr].join(' ')}
                 tabIndex = {13}
               />
-            </FormGroup>
-            <FormGroup className={styles.fieldEntscheidBdvJahr}>
+            </div>
+            <div className={styles.fieldEntscheidBdvJahr}>
               <ControlLabel className={styles.label}>Jahr</ControlLabel>
               <FormControl
                 type = "number"
@@ -272,8 +272,8 @@ class Geschaeft extends Component {
                 className={[styles.input, styles.typeNr].join(' ')}
                 tabIndex = {14}
               />
-            </FormGroup>
-            <FormGroup className={styles.fieldEntscheidKrNr}>
+            </div>
+            <div className={styles.fieldEntscheidKrNr}>
               <ControlLabel className={styles.label}>KR&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Nr.</ControlLabel>
               <FormControl
                 type = "number"
@@ -285,8 +285,8 @@ class Geschaeft extends Component {
                 className={[styles.input, styles.typeNr].join(' ')}
                 tabIndex = {15}
               />
-            </FormGroup>
-            <FormGroup className={styles.feildEntscheidKrJahr}>
+            </div>
+            <div className={styles.feildEntscheidKrJahr}>
               <ControlLabel className={styles.label}>Jahr</ControlLabel>
               <FormControl
                 type = "number"
@@ -298,8 +298,8 @@ class Geschaeft extends Component {
                 className={[styles.input, styles.typeNr].join(' ')}
                 tabIndex = {16}
               />
-            </FormGroup>
-            <FormGroup className={styles.fieldEntscheidRrbNr}>
+            </div>
+            <div className={styles.fieldEntscheidRrbNr}>
               <ControlLabel className={styles.label}>RRB&nbsp;&nbsp;&nbsp;&nbsp;Nr.</ControlLabel>
               <FormControl
                 type = "number"
@@ -311,8 +311,8 @@ class Geschaeft extends Component {
                 className={[styles.input, styles.typeNr].join(' ')}
                 tabIndex = {17}
               />
-            </FormGroup>
-            <FormGroup className={styles.fieldEntscheidRrbJahr}>
+            </div>
+            <div className={styles.fieldEntscheidRrbJahr}>
               <ControlLabel className={styles.label}>Jahr</ControlLabel>
               <FormControl
                 type = "number"
@@ -324,8 +324,8 @@ class Geschaeft extends Component {
                 className={[styles.input, styles.typeNr].join(' ')}
                 tabIndex = {18}
               />
-            </FormGroup>
-            <FormGroup className={styles.fieldAktenstandort}>
+            </div>
+            <div className={styles.fieldAktenstandort}>
               <ControlLabel className={styles.label}>Aktenstandort</ControlLabel>
               <FormControl
                 type = "text"
@@ -337,8 +337,8 @@ class Geschaeft extends Component {
                 className={styles.input}
                 tabIndex = {19}
               />
-            </FormGroup>
-            <FormGroup className={styles.fieldAktennummer}>
+            </div>
+            <div className={styles.fieldAktennummer}>
               <ControlLabel className={styles.label}>Nr.</ControlLabel>
               <FormControl
                 type = "text"
@@ -350,11 +350,11 @@ class Geschaeft extends Component {
                 className={[styles.input, styles.typeNr].join(' ')}
                 tabIndex = {20}
               />
-            </FormGroup>
+            </div>
           </div>
           <div className={styles.areaParlVorst}>
             <p className={[styles.bereichTitel, styles.areaParlVorstTitle].join(' ')}>Parlamentarische Vorstösse</p>
-            <FormGroup className={styles.fieldParlVorstossTyp}>
+            <div className={styles.fieldParlVorstossTyp}>
               <ControlLabel className={styles.label}>Typ</ControlLabel>
               <FormControl
                 componentClass="select"
@@ -368,8 +368,8 @@ class Geschaeft extends Component {
               >
                 {this.options(parlVorstossTypOptions)}
               </FormControl>
-            </FormGroup>
-            <FormGroup className={styles.fieldStufe}>
+            </div>
+            <div className={styles.fieldStufe}>
               <ControlLabel className={styles.label}>Stufe</ControlLabel>
               <Radio
                 data-value = {1}
@@ -391,8 +391,8 @@ class Geschaeft extends Component {
               >
                 2
               </Radio>
-            </FormGroup>
-            <FormGroup className={styles.fieldEbene}>
+            </div>
+            <div className={styles.fieldEbene}>
               <ControlLabel className={styles.label}>Ebene</ControlLabel>
               <Radio
                 data-value = "Kanton"
@@ -414,8 +414,8 @@ class Geschaeft extends Component {
               >
                 Bund
               </Radio>
-            </FormGroup>
-            <FormGroup className={styles.fieldZustaendigkeit}>
+            </div>
+            <div className={styles.fieldZustaendigkeit}>
               <ControlLabel className={styles.label}>Zuständigkeit</ControlLabel>
               <Radio
                 data-value = "hauptzuständig"
@@ -437,8 +437,8 @@ class Geschaeft extends Component {
               >
                 mitbericht
               </Radio>
-            </FormGroup>
-            <FormGroup className={styles.fieldErlassform}>
+            </div>
+            <div className={styles.fieldErlassform}>
               <ControlLabel className={styles.label}>Erlassform</ControlLabel>
               <Radio
                 data-value = "Gesetz"
@@ -460,7 +460,7 @@ class Geschaeft extends Component {
               >
                 Verordnung
               </Radio>
-            </FormGroup>
+            </div>
           </div>
         </div>
       )

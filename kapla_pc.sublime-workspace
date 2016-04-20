@@ -4,6 +4,14 @@
 		"selected_items":
 		[
 			[
+				"area",
+				"areaParlVorst"
+			],
+			[
+				"are",
+				"areaNummern"
+			],
+			[
 				"ge",
 				"geschaeftWidth"
 			],
@@ -279,7 +287,7 @@
 			"file": "app/components/Geschaeft.js",
 			"settings":
 			{
-				"buffer_size": 35862,
+				"buffer_size": 18301,
 				"line_ending": "Windows"
 			}
 		},
@@ -287,7 +295,7 @@
 			"file": "app/components/Geschaeft.css",
 			"settings":
 			{
-				"buffer_size": 624,
+				"buffer_size": 5914,
 				"line_ending": "Windows"
 			}
 		}
@@ -347,11 +355,11 @@
 		"/C/Users/alex/kapla/app/components",
 		"/C/Users/alex/kapla/app/containers",
 		"/C/Users/alex/kapla/app/reducers",
-		"/C/Users/alex/kapla/app/src/sql",
 		"/C/Users/alex/kapla/app/store"
 	],
 	"file_history":
 	[
+		"/C/Users/alex/kapla/app/components/GeschaeftBootstrap.css",
 		"/C/Users/alex/kapla/main.js",
 		"/C/Users/alex/kapla/app/components/tableRow.js",
 		"/C/Users/alex/kapla/app/components/Table.css",
@@ -478,8 +486,7 @@
 		"/C/Users/alex/kapla/app/components/GeschaefteList.css",
 		"/C/Users/alex/kapla/app/components/GeschaefteList.sik2",
 		"/C/Users/alex/kapla/app/components/GeschaefteList.sik",
-		"/C/Users/alex/kapla/app/components/GeschaefteList_sik.js",
-		"/C/Users/alex/kapla/app/src/initializeDb.js"
+		"/C/Users/alex/kapla/app/components/GeschaefteList_sik.js"
 	],
 	"find":
 	{
@@ -505,6 +512,20 @@
 		"case_sensitive": true,
 		"find_history":
 		[
+			"FormGroup",
+			"12",
+			"areaNummern",
+			"grid-template-columns",
+			"repeat(12, 8.333333%)",
+			"0px",
+			"textarea",
+			"bereichTitel",
+			"totalWidth",
+			"geschaeftWidth",
+			"number",
+			"\n                      className={}",
+			"\n                      className = {}",
+			"styles.geschaeft",
 			"FormGroup",
 			"click ()",
 			"TABLE_GET_SUCCESS",
@@ -618,21 +639,7 @@
 			"nichtErhalteneRechtsmittelerledigungOptions",
 			"RECHTSMITTELERLEDIGUNG_OPTIONS_GET_SUCCESS",
 			"RECHTSMITTELERLEDIGUNG_OPTIONS_GET",
-			"holenRechtsmittelerledigungOptions",
-			"aktiviereGeschaeft",
-			"aendereGeschaeftDbFehler",
-			"aendereGeschaefteState",
-			"entferneGeschaeft",
-			"geschaeftRemove",
-			"nichtGelöschtesGeschaeft",
-			"GESCHAEFT_NICHT_GELOESCHT",
-			"actionLoescheGeschaeft",
-			"geschaeftDelete",
-			"entferneGeschaeftNicht",
-			"willGeschaeftEntfernen",
-			"GESCHAEFT_ENTFERNEN",
-			"nichtEroeffnetesGeschaeft",
-			"GESCHAEFT_NICHT_EROEFFNET"
+			"holenRechtsmittelerledigungOptions"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -640,6 +647,12 @@
 		"regex": false,
 		"replace_history":
 		[
+			"div",
+			"13",
+			"repeat(12, 1fr)",
+			"0",
+			"totalWidth",
+			"",
 			"click()",
 			"tableRow",
 			"TableRow",
@@ -761,24 +774,18 @@
 			"GESCHAEFTE_NEW",
 			"GESCHAEFTE_CHANGE_STATE",
 			"GESCHAEFTE_CHANGE_DB_ERROR",
-			"GESCHAEFTe_CHANGE_STATE",
-			"GESCHAEFT_SET_DELETE_INTENDED_NOT",
-			"GESCHAEFT_SET_DELETE_INTENDED",
-			"GESCHAEFT_DELETE",
-			"GESCHAEFT_DEACTIVATE",
-			"GESCHAEFT_ACTIVATE",
-			"GESCHAEFTE_RECEIVE_NOT"
+			"GESCHAEFTe_CHANGE_STATE"
 		],
 		"reverse": false,
 		"show_context": true,
 		"use_buffer2": true,
-		"whole_word": false,
+		"whole_word": true,
 		"wrap": true
 	},
 	"groups":
 	[
 		{
-			"selected": 7,
+			"selected": 6,
 			"sheets":
 			[
 				{
@@ -953,7 +960,7 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 990.0,
+						"translation.y": 627.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 2,
@@ -965,19 +972,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 35862,
+						"buffer_size": 18301,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								14283,
-								14283
-							],
-							[
-								14834,
-								14834
+								7871,
+								7871
 							]
 						],
 						"settings":
@@ -988,10 +991,10 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 11301.0,
+						"translation.y": 6207.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 1,
+					"stack_index": 0,
 					"type": "text"
 				},
 				{
@@ -1000,15 +1003,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 624,
+						"buffer_size": 5914,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								426,
-								426
+								1302,
+								1320
 							]
 						],
 						"settings":
@@ -1016,10 +1019,10 @@
 							"syntax": "Packages/CSS/CSS.sublime-syntax"
 						},
 						"translation.x": 0.0,
-						"translation.y": 99.0,
+						"translation.y": 693.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
+					"stack_index": 1,
 					"type": "text"
 				}
 			]
@@ -1102,7 +1105,7 @@
 	"show_open_files": true,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 303.0,
+	"side_bar_width": 200.0,
 	"status_bar_visible": true,
 	"template_settings":
 	{
