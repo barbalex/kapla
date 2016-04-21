@@ -9,7 +9,6 @@ import saveConfigValue from '../src/saveConfigValue'
 import getConfig from '../src/getConfig.js'
 
 class GeschaefteLayout extends Component {
-
   state = {
     geschaefteLayout: null
   }

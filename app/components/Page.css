@@ -39,6 +39,7 @@
     margin: 0 !important;
     padding: 2cm !important;
     overflow-y: hidden !important;
+    /* no idea why this is not necessary: */
     /*page-break-after: always !important;*/
   }
 }
