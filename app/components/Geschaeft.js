@@ -1,6 +1,7 @@
 'use strict'
 
 import React, { Component, PropTypes } from 'react'
+import ReactDOM from 'react-dom'
 import { FormGroup, FormControl, ControlLabel, Radio } from 'react-bootstrap'
 import moment from 'moment'
 import styles from './Geschaeft.css'
@@ -51,6 +52,7 @@ class Geschaeft extends Component {
     const { activeId, changeGeschaeftInDb, geschaefteChangeState } = this.props
     const { type, name, dataset } = e.target
     let { value } = e.target
+    let select = false
     if (type === 'radio') value = dataset.value
     if (isDateField(name)) {
       if (this.validateDate(value)) {
@@ -60,8 +62,18 @@ class Geschaeft extends Component {
       // else: give user hint
       let value2 = ''
       if (value) value2 = moment(value, 'DD.MM.YYYY').format('DD.MM.YYYY')
-      value2 = value2.replace('Invalid date', 'Format: DD.MM.YYYY')
+      if (value2.includes('Invalid date')) {
+        select = true
+        value2 = value2.replace('Invalid date', 'Format: DD.MM.YYYY')
+      }
       geschaefteChangeState(activeId, name, value2)
+      // and set focus back into the input
+      if (select) {
+        // need timeout for it to work
+        setTimeout(() => {
+          ReactDOM.findDOMNode(this.refs[name]).select()
+        }, 0)
+      }
     } else {
       changeGeschaeftInDb(activeId, name, value)
     }
@@ -76,10 +88,10 @@ class Geschaeft extends Component {
   fristDauerBisMitarbeiter = () => {
     const { geschaeft } = this.props
     const now = moment()
-    const end = moment(geschaeft.fristMitarbeiter)
+    const end = moment(geschaeft.fristMitarbeiter, 'DD.MM.YYYY')
     const duration = moment.duration(end.diff(now))
     const days = duration.asDays()
-    return Math.ceil(days)
+    return days ? Math.ceil(days) : ''
   }
 
   render() {
@@ -509,6 +521,7 @@ class Geschaeft extends Component {
               type = "text"
               value = {geschaeft.datumEingangAwel}
               name = "datumEingangAwel"
+              ref = "datumEingangAwel"
               onChange = {this.change}
               onBlur = {this.blur}
               bsSize = "small"
@@ -519,9 +532,10 @@ class Geschaeft extends Component {
           <div className={styles.fieldFristAwel}>
             <ControlLabel className={styles.label}>Frist für Erledigung durch AWEL</ControlLabel>
             <FormControl
-              type = "date"
+              type = "text"
               value = {geschaeft.fristAwel || ''}
               name = "fristAwel"
+              ref = "fristAwel"
               onChange = {this.change}
               onBlur = {this.blur}
               bsSize = "small"
@@ -532,9 +546,10 @@ class Geschaeft extends Component {
           <div className={styles.fieldFristAmtschef}>
             <ControlLabel className={styles.label}>Frist Vorlage an Amtschef</ControlLabel>
             <FormControl
-              type = "date"
+              type = "text"
               value = {geschaeft.fristAmtschef || ''}
               name = "fristAmtschef"
+              ref = "fristAmtschef"
               onChange = {this.change}
               onBlur = {this.blur}
               bsSize = "small"
@@ -545,9 +560,10 @@ class Geschaeft extends Component {
           <div className={styles.fieldFristAbteilung}>
             <ControlLabel className={styles.label}>Frist für Erledigung durch Abteilung</ControlLabel>
             <FormControl
-              type = "date"
+              type = "text"
               value = {geschaeft.fristAbteilung || ''}
               name = "fristAbteilung"
+              ref = "fristAbteilung"
               onChange = {this.change}
               onBlur = {this.blur}
               bsSize = "small"
@@ -558,9 +574,10 @@ class Geschaeft extends Component {
           <div className={styles.fieldFristMitarbeiter}>
             <ControlLabel className={styles.label}>Frist Erledigung nächster Schritt RD</ControlLabel>
             <FormControl
-              type = "date"
+              type = "text"
               value = {geschaeft.fristMitarbeiter || ''}
               name = "fristMitarbeiter"
+              ref = "fristMitarbeiter"
               onChange = {this.change}
               onBlur = {this.blur}
               bsSize = "small"
@@ -572,6 +589,54 @@ class Geschaeft extends Component {
             <ControlLabel className={styles.label}>Dauer bis Frist Mitarbeiter</ControlLabel>
             <FormControl.Static>
               {this.fristDauerBisMitarbeiter()}
+            </FormControl.Static>
+          </div>
+          <div className={styles.fieldAufbewahrungsfrist}>
+            <ControlLabel className={styles.label}>Aufbewahrungsfrist</ControlLabel>
+            <FormControl
+              type = "text"
+              value = {geschaeft.aufbewahrungsfrist || ''}
+              name = "aufbewahrungsfrist"
+              ref = "aufbewahrungsfrist"
+              onChange = {this.change}
+              onBlur = {this.blur}
+              bsSize = "small"
+              className={styles.input}
+              tabIndex = {35}
+            />
+          </div>
+          <div className={styles.fieldDatumAusgangAwel}>
+            <ControlLabel className={styles.label}>Datum Ausgang AWEL (erledigt)</ControlLabel>
+            <FormControl
+              type = "text"
+              value = {geschaeft.datumAusgangAwel || ''}
+              name = "datumAusgangAwel"
+              ref = "datumAusgangAwel"
+              onChange = {this.change}
+              onBlur = {this.blur}
+              bsSize = "small"
+              className={styles.input}
+              tabIndex = {36}
+            />
+          </div>
+          <div className={styles.fieldFristDirektion}>
+            <ControlLabel className={styles.label}>Frist für Erledigung durch Direktion</ControlLabel>
+            <FormControl
+              type = "text"
+              value = {geschaeft.fristDirektion || ''}
+              name = "fristDirektion"
+              ref = "fristDirektion"
+              onChange = {this.change}
+              onBlur = {this.blur}
+              bsSize = "small"
+              className={styles.input}
+              tabIndex = {37}
+            />
+          </div>
+          <div className={styles.fieldMutationsdatum}>
+            <ControlLabel className={styles.label}>Letze Mutation</ControlLabel>
+            <FormControl.Static>
+              {geschaeft.mutationsdatum || ''}
             </FormControl.Static>
           </div>
         </div>

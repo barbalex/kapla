@@ -6,7 +6,10 @@ export default function isDateField(fieldName) {
     'fristAwel',
     'fristAmtschef',
     'fristAbteilung',
-    'fristMitarbeiter'
+    'fristMitarbeiter',
+    'aufbewahrungsfrist',
+    'datumAusgangAwel',
+    'fristDirektion'
   ]
   if (dateFieldNames.includes(fieldName)) return true
   return false
