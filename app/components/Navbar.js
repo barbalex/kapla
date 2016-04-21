@@ -170,11 +170,13 @@ class NavbarComponent extends Component {
       title="Filter"
       id="basic-nav-dropdown"
     >
+      <MenuItem header>individuell:</MenuItem>
       <LinkContainer to={{ pathname: '/filter' }}>
         <MenuItem eventKey={3.1}>nach Feldern</MenuItem>
       </LinkContainer>
       <MenuItem eventKey={3.2} onSelect={this.focusFulltextFilter}>nach Volltext</MenuItem>
       <MenuItem divider />
+      <MenuItem header>pfannenfertig:</MenuItem>
       <MenuItem eventKey={3.3} onSelect={this.onSelectFilterFaelligeGeschaefte}>fällige</MenuItem>
       <MenuItem eventKey={3.4} onSelect={this.onSelectFilterFaelligeGeschaefteMitarbeiter}>eigene fällige</MenuItem>
       <MenuItem divider />
@@ -341,11 +343,13 @@ class NavbarComponent extends Component {
             <NavDropdown eventKey={8} title={stammdatenTitle} id="basic-nav-dropdown" active={isStammdatenMenuActive}>
               <MenuItem eventKey={8.1} onClick={() => getTable('interne')}>Interne</MenuItem>
               <MenuItem eventKey={8.2} onClick={() => getTable('externe')}>Externe</MenuItem>
+              <MenuItem divider />
+              <MenuItem header>Auswahllisten:</MenuItem>
               <MenuItem eventKey={8.3} onClick={() => getTable('gdeplz')}>Gemeinden</MenuItem>
-              <MenuItem eventKey={8.4} onClick={() => getTable('geschaeftsart')}>Auswahlliste Geschäftsart</MenuItem>
-              <MenuItem eventKey={8.6} onClick={() => getTable('parlVorstossTyp')}>Auswahlliste Parlament. Vorstoss Typ</MenuItem>
-              <MenuItem eventKey={8.7} onClick={() => getTable('rechtsmittelerledigung')}>Auswahlliste Rechtsmittelerledigung</MenuItem>
-              <MenuItem eventKey={8.8} onClick={() => getTable('status')}>Auswahlliste Status</MenuItem>
+              <MenuItem eventKey={8.4} onClick={() => getTable('geschaeftsart')}>Geschäftsart</MenuItem>
+              <MenuItem eventKey={8.6} onClick={() => getTable('parlVorstossTyp')}>Parlament. Vorstoss Typ</MenuItem>
+              <MenuItem eventKey={8.7} onClick={() => getTable('rechtsmittelerledigung')}>Rechtsmittelerledigung</MenuItem>
+              <MenuItem eventKey={8.8} onClick={() => getTable('status')}>Status</MenuItem>
             </NavDropdown>
           </Nav>
           <Nav pullRight>
