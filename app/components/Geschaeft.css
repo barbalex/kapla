@@ -230,7 +230,15 @@
 }
 
 .fieldFristAbteilung {
-  grid-area: fieldFristAbteilung;
+  grid-area: 4;
+}
+
+.fieldFristMitarbeiter {
+  grid-area: 5;
+}
+
+.fieldFristDauerBisMitarbeiter {
+  grid-area: 6;
 }
 
 

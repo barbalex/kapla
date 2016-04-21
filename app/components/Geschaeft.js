@@ -73,6 +73,15 @@ class Geschaeft extends Component {
     return options
   }
 
+  fristDauerBisMitarbeiter = () => {
+    const { geschaeft } = this.props
+    const now = moment()
+    const end = moment(geschaeft.fristMitarbeiter)
+    const duration = moment.duration(end.diff(now))
+    const days = duration.asDays()
+    return Math.ceil(days)
+  }
+
   render() {
     const {
       geschaeft,
@@ -545,6 +554,25 @@ class Geschaeft extends Component {
               className={styles.input}
               tabIndex = {33}
             />
+          </div>
+          <div className={styles.fieldFristMitarbeiter}>
+            <ControlLabel className={styles.label}>Frist Erledigung nächster Schritt RD</ControlLabel>
+            <FormControl
+              type = "date"
+              value = {geschaeft.fristMitarbeiter || ''}
+              name = "fristMitarbeiter"
+              onChange = {this.change}
+              onBlur = {this.blur}
+              bsSize = "small"
+              className={styles.input}
+              tabIndex = {34}
+            />
+          </div>
+          <div className={styles.fieldFristDauerBisMitarbeiter}>
+            <ControlLabel className={styles.label}>Dauer bis Frist Mitarbeiter</ControlLabel>
+            <FormControl.Static>
+              {this.fristDauerBisMitarbeiter()}
+            </FormControl.Static>
           </div>
         </div>
         <div className={styles.areaPersonen}>
