@@ -6,7 +6,7 @@
  */
 
 import React from 'react'
-import { store } from '../index.js'
+import { store } from '../reducers/index.js'
 import { Provider } from 'react-redux'
 
 export default function wrapComponent(Component, layout) {
