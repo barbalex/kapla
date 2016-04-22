@@ -18,7 +18,7 @@ class Pages extends Component {
   }
 
   render = () => (
-    <div className = {styles.body}>
+    <div className={styles.body}>
       {this.pages()}
     </div>
   )

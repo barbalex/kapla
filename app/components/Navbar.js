@@ -201,12 +201,12 @@ class NavbarComponent extends Component {
     const { geschaeftSetDeleteIntended, activeId } = this.props
     return (
       <NavItem
-        eventKey = {5}
-        onClick = {() => geschaeftSetDeleteIntended(activeId)}
-        title = "Geschäft löschen"
-        disabled = {!activeId}
+        eventKey={5}
+        onClick={() => geschaeftSetDeleteIntended(activeId)}
+        title="Geschäft löschen"
+        disabled={!activeId}
       >
-        <Glyphicon glyph = "trash" />
+        <Glyphicon glyph="trash" />
       </NavItem>
     )
   }
@@ -250,11 +250,11 @@ class NavbarComponent extends Component {
 
   printNav = () => (
     <NavItem
-      eventKey = {7}
-      onClick = {this.onClickPrint}
-      title = "Drucken"
+      eventKey={7}
+      onClick={this.onClickPrint}
+      title="Drucken"
     >
-      <Glyphicon glyph = "print" />
+      <Glyphicon glyph="print" />
     </NavItem>
   )
 
