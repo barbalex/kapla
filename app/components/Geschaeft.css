@@ -252,45 +252,51 @@
    "6"
    "7"
    "8"
-   "9";
+   "9"
+   "10";
   grid-gap: 5px 0;
   padding: 8px;
 }
 
-.fieldDatumEingangAwel {
+.areaFristenTitle {
+  composes: bereichTitel;
   grid-area: 1;
 }
 
-.fieldFristAwel {
+.fieldDatumEingangAwel {
   grid-area: 2;
 }
 
-.fieldFristAmtschef {
+.fieldFristAwel {
   grid-area: 3;
 }
 
-.fieldFristAbteilung {
+.fieldFristAmtschef {
   grid-area: 4;
 }
 
-.fieldFristMitarbeiter {
+.fieldFristAbteilung {
   grid-area: 5;
 }
 
-.fieldFristDauerBisMitarbeiter {
+.fieldFristMitarbeiter {
   grid-area: 6;
 }
 
-.fieldDatumAusgangAwel {
+.fieldFristDauerBisMitarbeiter {
   grid-area: 7;
 }
 
-.fieldFristDirektion {
+.fieldDatumAusgangAwel {
   grid-area: 8;
 }
 
-.fieldMutationsdatum {
+.fieldFristDirektion {
   grid-area: 9;
+}
+
+.fieldMutationsdatum {
+  grid-area: 10;
 }
 
 

@@ -111,7 +111,10 @@ class Geschaeft extends Component {
     const wrapperClass = totalWidth < 750 ? styles.wrapperNarrow : styles.wrapperWide
     const showGeschaeft = geschaeft && geschaeft.idGeschaeft
     const nrOfGFields = 10
-    const nrOfNummernFields = 10
+    const nrOfNrFields = 10
+    const nrOfFieldsBeforePv = nrOfGFields + nrOfNrFields
+    const nrOfPvFields = 9
+    const nrOfFieldsBeforeFristen = nrOfFieldsBeforePv + nrOfPvFields
 
     if (!showGeschaeft) return null
     return (
@@ -128,8 +131,8 @@ class Geschaeft extends Component {
               onBlur={this.blur}
               bsSize="small"
               className={[styles.input, styles.gegenstand].join(' ')}
-              tabIndex={1 + (wrapperClass === styles.wrapperNarrow ? nrOfNummernFields : 0)}
-              autoFocus
+              tabIndex={1 + (wrapperClass === styles.wrapperNarrow ? nrOfNrFields : 0)}
+              autoFocus={wrapperClass !== styles.wrapperNarrow}
             />
           </div>
           <div className={styles.fieldOrt}>
@@ -142,7 +145,7 @@ class Geschaeft extends Component {
               onBlur={this.blur}
               bsSize="small"
               className={styles.input}
-              tabIndex={2 + (wrapperClass === styles.wrapperNarrow ? nrOfNummernFields : 0)}
+              tabIndex={2 + (wrapperClass === styles.wrapperNarrow ? nrOfNrFields : 0)}
             />
           </div>
           <div className={styles.fieldGeschaeftsart}>
@@ -155,7 +158,7 @@ class Geschaeft extends Component {
               onBlur={this.blur}
               bsSize="small"
               className={styles.input}
-              tabIndex={3 + (wrapperClass === styles.wrapperNarrow ? nrOfNummernFields : 0)}
+              tabIndex={3 + (wrapperClass === styles.wrapperNarrow ? nrOfNrFields : 0)}
             >
               {this.options(geschaeftsartOptions)}
             </FormControl>
@@ -170,7 +173,7 @@ class Geschaeft extends Component {
               onBlur={this.blur}
               bsSize="small"
               className={styles.input}
-              tabIndex={4 + (wrapperClass === styles.wrapperNarrow ? nrOfNummernFields : 0)}
+              tabIndex={4 + (wrapperClass === styles.wrapperNarrow ? nrOfNrFields : 0)}
             >
               {this.options(statusOptions)}
             </FormControl>
@@ -186,7 +189,7 @@ class Geschaeft extends Component {
               bsSize="small"
               className={[styles.input, styles.typeNr].join(' ')}
               placeholder="ID"
-              tabIndex={5 + (wrapperClass === styles.wrapperNarrow ? nrOfNummernFields : 0)}
+              tabIndex={5 + (wrapperClass === styles.wrapperNarrow ? nrOfNrFields : 0)}
             />
           </div>
           <div className={styles.fieldDirektion}>
@@ -199,7 +202,7 @@ class Geschaeft extends Component {
               onBlur={this.blur}
               bsSize="small"
               className={[styles.input, styles.fieldDirektion].join(' ')}
-              tabIndex={6 + (wrapperClass === styles.wrapperNarrow ? nrOfNummernFields : 0)}
+              tabIndex={6 + (wrapperClass === styles.wrapperNarrow ? nrOfNrFields : 0)}
             />
           </div>
           <div className={styles.fieldDetails}>
@@ -213,7 +216,7 @@ class Geschaeft extends Component {
               bsSize="small"
               className={styles.input}
               rows={4}
-              tabIndex={7 + (wrapperClass === styles.wrapperNarrow ? nrOfNummernFields : 0)}
+              tabIndex={7 + (wrapperClass === styles.wrapperNarrow ? nrOfNrFields : 0)}
             />
           </div>
           <div className={styles.fieldNaechsterSchritt}>
@@ -227,7 +230,7 @@ class Geschaeft extends Component {
               bsSize="small"
               className={styles.input}
               rows={3}
-              tabIndex={8 + (wrapperClass === styles.wrapperNarrow ? nrOfNummernFields : 0)}
+              tabIndex={8 + (wrapperClass === styles.wrapperNarrow ? nrOfNrFields : 0)}
             />
           </div>
           <div className={styles.fieldVermerk}>
@@ -241,7 +244,7 @@ class Geschaeft extends Component {
               bsSize="small"
               className={styles.input}
               rows={4}
-              tabIndex={9 + (wrapperClass === styles.wrapperNarrow ? nrOfNummernFields : 0)}
+              tabIndex={9 + (wrapperClass === styles.wrapperNarrow ? nrOfNrFields : 0)}
             />
           </div>
           <div className={styles.fieldErledigung}>
@@ -254,7 +257,7 @@ class Geschaeft extends Component {
               onBlur={this.blur}
               bsSize="small"
               className={styles.input}
-              tabIndex={10 + (wrapperClass === styles.wrapperNarrow ? nrOfNummernFields : 0)}
+              tabIndex={10 + (wrapperClass === styles.wrapperNarrow ? nrOfNrFields : 0)}
             >
               {this.options(rechtsmittelerledigungOptions)}
             </FormControl>
@@ -283,6 +286,7 @@ class Geschaeft extends Component {
               bsSize="small"
               className={[styles.input, styles.typeNr].join(' ')}
               tabIndex={1 + (wrapperClass === styles.wrapperNarrow ? 0 : nrOfGFields)}
+              autoFocus={wrapperClass === styles.wrapperNarrow}
             />
           </div>
           <div className={styles.slashAwel}>
@@ -427,7 +431,7 @@ class Geschaeft extends Component {
               onBlur={this.blur}
               bsSize="small"
               className={styles.input}
-              tabIndex={21}
+              tabIndex={1 + nrOfFieldsBeforePv}
             >
               {this.options(parlVorstossTypOptions)}
             </FormControl>
@@ -440,7 +444,7 @@ class Geschaeft extends Component {
               onChange={this.change}
               bsSize="small"
               name="parlVorstossStufe"
-              tabIndex={22}
+              tabIndex={2 + nrOfFieldsBeforePv}
             >
               1: nicht überwiesen
             </Radio>
@@ -450,7 +454,7 @@ class Geschaeft extends Component {
               name="parlVorstossStufe"
               onChange={this.change}
               bsSize="small"
-              tabIndex={23}
+              tabIndex={3 + nrOfFieldsBeforePv}
             >
               2: überwiesen
             </Radio>
@@ -463,7 +467,7 @@ class Geschaeft extends Component {
               name="parlVorstossEbene"
               onChange={this.change}
               bsSize="small"
-              tabIndex={24}
+              tabIndex={4 + nrOfFieldsBeforePv}
             >
               Kanton
             </Radio>
@@ -473,7 +477,7 @@ class Geschaeft extends Component {
               onChange={this.change}
               name="parlVorstossEbene"
               bsSize="small"
-              tabIndex={25}
+              tabIndex={5 + nrOfFieldsBeforePv}
             >
               Bund
             </Radio>
@@ -486,7 +490,7 @@ class Geschaeft extends Component {
               name="parlVorstossZustaendigkeitAwel"
               onChange={this.change}
               bsSize="small"
-              tabIndex={26}
+              tabIndex={6 + nrOfFieldsBeforePv}
             >
               haupt
             </Radio>
@@ -496,7 +500,7 @@ class Geschaeft extends Component {
               name="parlVorstossZustaendigkeitAwel"
               onChange={this.change}
               bsSize="small"
-              tabIndex={27}
+              tabIndex={7 + nrOfFieldsBeforePv}
             >
               mitbericht
             </Radio>
@@ -509,7 +513,7 @@ class Geschaeft extends Component {
               name="erlassform"
               onChange={this.change}
               bsSize="small"
-              tabIndex={28}
+              tabIndex={8 + nrOfFieldsBeforePv}
             >
               Gesetz
             </Radio>
@@ -519,13 +523,14 @@ class Geschaeft extends Component {
               name="erlassform"
               onChange={this.change}
               bsSize="small"
-              tabIndex={29}
+              tabIndex={9 + nrOfFieldsBeforePv}
             >
               Verordnung
             </Radio>
           </div>
         </div>
         <div className={styles.areaFristen}>
+          <div className={styles.areaFristenTitle}>Fristen</div>
           <FormGroup
             className={styles.fieldDatumEingangAwel}
             validationState={this.getDateValidationState(geschaeft.datumEingangAwel)}
@@ -540,7 +545,7 @@ class Geschaeft extends Component {
               onBlur={this.blur}
               bsSize="small"
               className={styles.input}
-              tabIndex={30}
+              tabIndex={1 + nrOfFieldsBeforeFristen}
             />
           </FormGroup>
           <div className={styles.fieldFristAwel}>
@@ -554,7 +559,7 @@ class Geschaeft extends Component {
               onBlur={this.blur}
               bsSize="small"
               className={styles.input}
-              tabIndex={31}
+              tabIndex={2 + nrOfFieldsBeforeFristen}
             />
           </div>
           <div className={styles.fieldFristAmtschef}>
@@ -568,7 +573,7 @@ class Geschaeft extends Component {
               onBlur={this.blur}
               bsSize="small"
               className={styles.input}
-              tabIndex={32}
+              tabIndex={3 + nrOfFieldsBeforeFristen}
             />
           </div>
           <div className={styles.fieldFristAbteilung}>
@@ -582,7 +587,7 @@ class Geschaeft extends Component {
               onBlur={this.blur}
               bsSize="small"
               className={styles.input}
-              tabIndex={33}
+              tabIndex={4 + nrOfFieldsBeforeFristen}
             />
           </div>
           <div className={styles.fieldFristMitarbeiter}>
@@ -596,7 +601,7 @@ class Geschaeft extends Component {
               onBlur={this.blur}
               bsSize="small"
               className={styles.input}
-              tabIndex={34}
+              tabIndex={5 + nrOfFieldsBeforeFristen}
             />
           </div>
           <div className={styles.fieldFristDauerBisMitarbeiter}>
@@ -616,7 +621,7 @@ class Geschaeft extends Component {
               onBlur={this.blur}
               bsSize="small"
               className={styles.input}
-              tabIndex={36}
+              tabIndex={6 + nrOfFieldsBeforeFristen}
             />
           </div>
           <div className={styles.fieldFristDirektion}>
@@ -630,7 +635,7 @@ class Geschaeft extends Component {
               onBlur={this.blur}
               bsSize="small"
               className={styles.input}
-              tabIndex={37}
+              tabIndex={7 + nrOfFieldsBeforeFristen}
             />
           </div>
           <div className={styles.fieldMutationsdatum}>
