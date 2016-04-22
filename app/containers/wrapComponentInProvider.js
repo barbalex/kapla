@@ -6,7 +6,9 @@
  */
 
 import React from 'react'
-import { store } from '../reducers/index.js'
+const indexPath = process.env.NODE_ENV === 'production' ? '../dist/index.js' : '../index.js'
+//const store = require('../index.js').store
+import { store } from '../index.js'
 import { Provider } from 'react-redux'
 
 export default function wrapComponent(Component, layout) {
