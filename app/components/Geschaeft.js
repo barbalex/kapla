@@ -110,6 +110,8 @@ class Geschaeft extends Component {
     const totalWidth = geschaefteLayoutWidth * geschaeftWidthPercent / 100
     const wrapperClass = totalWidth < 750 ? styles.wrapperNarrow : styles.wrapperWide
     const showGeschaeft = geschaeft && geschaeft.idGeschaeft
+    const nrOfGFields = 10
+    const nrOfNummernFields = 10
 
     if (!showGeschaeft) return null
     return (
@@ -126,7 +128,7 @@ class Geschaeft extends Component {
               onBlur={this.blur}
               bsSize="small"
               className={[styles.input, styles.gegenstand].join(' ')}
-              tabIndex={1}
+              tabIndex={1 + (wrapperClass === styles.wrapperNarrow ? nrOfNummernFields : 0)}
               autoFocus
             />
           </div>
@@ -140,7 +142,7 @@ class Geschaeft extends Component {
               onBlur={this.blur}
               bsSize="small"
               className={styles.input}
-              tabIndex={2}
+              tabIndex={2 + (wrapperClass === styles.wrapperNarrow ? nrOfNummernFields : 0)}
             />
           </div>
           <div className={styles.fieldGeschaeftsart}>
@@ -153,7 +155,7 @@ class Geschaeft extends Component {
               onBlur={this.blur}
               bsSize="small"
               className={styles.input}
-              tabIndex={3}
+              tabIndex={3 + (wrapperClass === styles.wrapperNarrow ? nrOfNummernFields : 0)}
             >
               {this.options(geschaeftsartOptions)}
             </FormControl>
@@ -168,7 +170,7 @@ class Geschaeft extends Component {
               onBlur={this.blur}
               bsSize="small"
               className={styles.input}
-              tabIndex={4}
+              tabIndex={4 + (wrapperClass === styles.wrapperNarrow ? nrOfNummernFields : 0)}
             >
               {this.options(statusOptions)}
             </FormControl>
@@ -184,7 +186,7 @@ class Geschaeft extends Component {
               bsSize="small"
               className={[styles.input, styles.typeNr].join(' ')}
               placeholder="ID"
-              tabIndex={5}
+              tabIndex={5 + (wrapperClass === styles.wrapperNarrow ? nrOfNummernFields : 0)}
             />
           </div>
           <div className={styles.fieldDirektion}>
@@ -197,7 +199,7 @@ class Geschaeft extends Component {
               onBlur={this.blur}
               bsSize="small"
               className={[styles.input, styles.fieldDirektion].join(' ')}
-              tabIndex={6}
+              tabIndex={6 + (wrapperClass === styles.wrapperNarrow ? nrOfNummernFields : 0)}
             />
           </div>
           <div className={styles.fieldDetails}>
@@ -211,7 +213,7 @@ class Geschaeft extends Component {
               bsSize="small"
               className={styles.input}
               rows={4}
-              tabIndex={7}
+              tabIndex={7 + (wrapperClass === styles.wrapperNarrow ? nrOfNummernFields : 0)}
             />
           </div>
           <div className={styles.fieldNaechsterSchritt}>
@@ -225,7 +227,7 @@ class Geschaeft extends Component {
               bsSize="small"
               className={styles.input}
               rows={3}
-              tabIndex={8}
+              tabIndex={8 + (wrapperClass === styles.wrapperNarrow ? nrOfNummernFields : 0)}
             />
           </div>
           <div className={styles.fieldVermerk}>
@@ -239,7 +241,7 @@ class Geschaeft extends Component {
               bsSize="small"
               className={styles.input}
               rows={4}
-              tabIndex={9}
+              tabIndex={9 + (wrapperClass === styles.wrapperNarrow ? nrOfNummernFields : 0)}
             />
           </div>
           <div className={styles.fieldErledigung}>
@@ -252,7 +254,7 @@ class Geschaeft extends Component {
               onBlur={this.blur}
               bsSize="small"
               className={styles.input}
-              tabIndex={10}
+              tabIndex={10 + (wrapperClass === styles.wrapperNarrow ? nrOfNummernFields : 0)}
             >
               {this.options(rechtsmittelerledigungOptions)}
             </FormControl>
@@ -271,7 +273,7 @@ class Geschaeft extends Component {
             />
           </div>
           <div className={styles.fieldEntscheidAwelNr}>
-            <ControlLabel className={styles.label}>AWEL Nr.</ControlLabel>
+            <ControlLabel className={styles.label}>AWEL&nbsp;&nbsp;Nr.</ControlLabel>
             <FormControl
               type="number"
               value={geschaeft.entscheidAwelNr || ''}
@@ -280,8 +282,11 @@ class Geschaeft extends Component {
               onBlur={this.blur}
               bsSize="small"
               className={[styles.input, styles.typeNr].join(' ')}
-              tabIndex={11}
+              tabIndex={1 + (wrapperClass === styles.wrapperNarrow ? 0 : nrOfGFields)}
             />
+          </div>
+          <div className={styles.slashAwel}>
+            <div>/</div>
           </div>
           <div className={styles.fieldEntscheidAwelJahr}>
             <ControlLabel className={styles.label}>Jahr</ControlLabel>
@@ -293,11 +298,11 @@ class Geschaeft extends Component {
               onBlur={this.blur}
               bsSize="small"
               className={[styles.input, styles.typeNr].join(' ')}
-              tabIndex={12}
+              tabIndex={2 + (wrapperClass === styles.wrapperNarrow ? 0 : nrOfGFields)}
             />
           </div>
           <div className={styles.fieldEntscheidBdvNr}>
-            <ControlLabel className={styles.label}>BDV&nbsp;&nbsp;&nbsp;&nbsp;Nr.</ControlLabel>
+            <ControlLabel className={styles.label}>BDV&nbsp;&nbsp;Nr.</ControlLabel>
             <FormControl
               type="number"
               value={geschaeft.entscheidBdvNr || ''}
@@ -306,8 +311,11 @@ class Geschaeft extends Component {
               onBlur={this.blur}
               bsSize="small"
               className={[styles.input, styles.typeNr].join(' ')}
-              tabIndex={13}
+              tabIndex={3 + (wrapperClass === styles.wrapperNarrow ? 0 : nrOfGFields)}
             />
+          </div>
+          <div className={styles.slashBdv}>
+            <div>/</div>
           </div>
           <div className={styles.fieldEntscheidBdvJahr}>
             <ControlLabel className={styles.label}>Jahr</ControlLabel>
@@ -319,11 +327,11 @@ class Geschaeft extends Component {
               onBlur={this.blur}
               bsSize="small"
               className={[styles.input, styles.typeNr].join(' ')}
-              tabIndex={14}
+              tabIndex={4 + (wrapperClass === styles.wrapperNarrow ? 0 : nrOfGFields)}
             />
           </div>
           <div className={styles.fieldEntscheidKrNr}>
-            <ControlLabel className={styles.label}>KR&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Nr.</ControlLabel>
+            <ControlLabel className={styles.label}>KR&nbsp;&nbsp;Nr.</ControlLabel>
             <FormControl
               type="number"
               value={geschaeft.entscheidKrNr || ''}
@@ -332,10 +340,13 @@ class Geschaeft extends Component {
               onBlur={this.blur}
               bsSize="small"
               className={[styles.input, styles.typeNr].join(' ')}
-              tabIndex={15}
+              tabIndex={5 + (wrapperClass === styles.wrapperNarrow ? 0 : nrOfGFields)}
             />
           </div>
-          <div className={styles.feildEntscheidKrJahr}>
+          <div className={styles.slashKr}>
+            <div>/</div>
+          </div>
+          <div className={styles.fieldEntscheidKrJahr}>
             <ControlLabel className={styles.label}>Jahr</ControlLabel>
             <FormControl
               type="number"
@@ -345,11 +356,11 @@ class Geschaeft extends Component {
               onBlur={this.blur}
               bsSize="small"
               className={[styles.input, styles.typeNr].join(' ')}
-              tabIndex={16}
+              tabIndex={6 + (wrapperClass === styles.wrapperNarrow ? 0 : nrOfGFields)}
             />
           </div>
           <div className={styles.fieldEntscheidRrbNr}>
-            <ControlLabel className={styles.label}>RRB&nbsp;&nbsp;&nbsp;&nbsp;Nr.</ControlLabel>
+            <ControlLabel className={styles.label}>RRB&nbsp;&nbsp;Nr.</ControlLabel>
             <FormControl
               type="number"
               value={geschaeft.entscheidRrbNr || ''}
@@ -358,8 +369,11 @@ class Geschaeft extends Component {
               onBlur={this.blur}
               bsSize="small"
               className={[styles.input, styles.typeNr].join(' ')}
-              tabIndex={17}
+              tabIndex={7 + (wrapperClass === styles.wrapperNarrow ? 0 : nrOfGFields)}
             />
+          </div>
+          <div className={styles.slashRrb}>
+            <div>/</div>
           </div>
           <div className={styles.fieldEntscheidRrbJahr}>
             <ControlLabel className={styles.label}>Jahr</ControlLabel>
@@ -371,7 +385,7 @@ class Geschaeft extends Component {
               onBlur={this.blur}
               bsSize="small"
               className={[styles.input, styles.typeNr].join(' ')}
-              tabIndex={18}
+              tabIndex={8 + (wrapperClass === styles.wrapperNarrow ? 0 : nrOfGFields)}
             />
           </div>
           <div className={styles.fieldAktenstandort}>
@@ -384,7 +398,7 @@ class Geschaeft extends Component {
               onBlur={this.blur}
               bsSize="small"
               className={styles.input}
-              tabIndex={19}
+              tabIndex={9 + (wrapperClass === styles.wrapperNarrow ? 0 : nrOfGFields)}
             />
           </div>
           <div className={styles.fieldAktennummer}>
@@ -397,7 +411,7 @@ class Geschaeft extends Component {
               onBlur={this.blur}
               bsSize="small"
               className={[styles.input, styles.typeNr].join(' ')}
-              tabIndex={20}
+              tabIndex={10 + (wrapperClass === styles.wrapperNarrow ? 0 : nrOfGFields)}
             />
           </div>
         </div>

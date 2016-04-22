@@ -16,7 +16,19 @@ body {
   color: #828282;
   font-size: 11px;
   font-weight: 500;
-  margin-bottom: 0;
+  margin-bottom: -2px;
+}
+
+/* optimize spacing of vertical radios */
+.control-label ~ .radio {
+  margin-top: 7px;
+}
+.radio + .radio {
+  margin-top: -8px;
+}
+/* make sure radio label is horizontally even with input */
+.radio > label > input[type=radio] {
+  margin-top: 2px;
 }
 
 .form-control {

@@ -106,16 +106,44 @@
   grid-area: areaNummern;
   background-color: rgba(210, 210, 210, 0.2);
   display: grid;
-  grid-template-columns: repeat(12, 0.0833333fr);
+  grid-template-columns: 0.3fr 5px 0.3fr 10px 0.3fr 5px 0.3fr;
   grid-template-rows: auto;
   grid-template-areas:
-   "areaNummernTitle areaNummernTitle areaNummernTitle areaNummernTitle areaNummernTitle areaNummernTitle areaNummernTitle areaNummernTitle areaNummernTitle areaNummernTitle areaNummernTitle areaNummernTitle"
-   ". . . . . . . . . fieldIdGeschaeft fieldIdGeschaeft fieldIdGeschaeft"
-   "fieldEntscheidAwelNr fieldEntscheidAwelNr fieldEntscheidAwelNr fieldEntscheidAwelJahr fieldEntscheidAwelJahr fieldEntscheidAwelJahr fieldEntscheidBdvNr fieldEntscheidBdvNr fieldEntscheidBdvNr fieldEntscheidBdvJahr fieldEntscheidBdvJahr fieldEntscheidBdvJahr"
-   "fieldEntscheidKrNr fieldEntscheidKrNr fieldEntscheidKrNr feildEntscheidKrJahr feildEntscheidKrJahr feildEntscheidKrJahr fieldEntscheidRrbNr fieldEntscheidRrbNr fieldEntscheidRrbNr fieldEntscheidRrbJahr fieldEntscheidRrbJahr fieldEntscheidRrbJahr"
-   "fieldAktenstandort fieldAktenstandort fieldAktenstandort fieldAktenstandort fieldAktenstandort fieldAktenstandort fieldAktenstandort fieldAktenstandort fieldAktenstandort fieldAktennummer fieldAktennummer fieldAktennummer";
+   "areaNummernTitle areaNummernTitle areaNummernTitle areaNummernTitle areaNummernTitle areaNummernTitle areaNummernTitle"
+   ". . . . fieldIdGeschaeft fieldIdGeschaeft fieldIdGeschaeft"
+   "fieldEntscheidAwelNr slashAwel fieldEntscheidAwelJahr . fieldEntscheidBdvNr slashBdv fieldEntscheidBdvJahr"
+   "fieldEntscheidKrNr slashKr fieldEntscheidKrJahr . fieldEntscheidRrbNr slashRrb fieldEntscheidRrbJahr"
+   "fieldAktenstandort fieldAktenstandort fieldAktenstandort fieldAktenstandort fieldAktenstandort . fieldAktennummer";
   grid-gap: 5px 0;
   padding: 8px;
+}
+
+.slash {
+  margin-top: 18px;
+  font-size: 22px;
+  color: #828282;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.slashAwel {
+  composes: slash;
+  grid-area: slashAwel;
+}
+
+.slashBdv {
+  composes: slash;
+  grid-area: slashBdv;
+}
+
+.slashKr {
+  composes: slash;
+  grid-area: slashKr;
+}
+
+.slashRrb {
+  composes: slash;
+  grid-area: slashRrb;
 }
 
 .areaNummernTitle {
@@ -147,8 +175,8 @@
   grid-area: fieldEntscheidKrNr;
 }
 
-.feildEntscheidKrJahr {
-  grid-area: feildEntscheidKrJahr;
+.fieldEntscheidKrJahr {
+  grid-area: fieldEntscheidKrJahr;
 }
 
 .fieldEntscheidRrbNr {
