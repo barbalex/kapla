@@ -428,7 +428,7 @@ class Geschaeft extends Component {
               name = "parlVorstossStufe"
               tabIndex = {22}
             >
-              1
+              1: nicht überwiesen
             </Radio>
             <Radio
               data-value = {2}
@@ -438,7 +438,7 @@ class Geschaeft extends Component {
               bsSize = "small"
               tabIndex = {23}
             >
-              2
+              2: überwiesen
             </Radio>
           </div>
           <div className={styles.fieldEbene}>
