@@ -16,32 +16,32 @@
 .wrapperNarrow {
   composes: body;
   display: grid;
-  grid-template-columns: repeat(12, 1fr);
+  grid-template-columns: repeat(1, 1fr);
   grid-template-rows: auto;
   grid-template-areas:
-    "areaNummern areaNummern areaNummern areaNummern areaNummern areaNummern areaNummern areaNummern areaNummern areaNummern areaNummern areaNummern"
-    "areaGeschaeft areaGeschaeft areaGeschaeft areaGeschaeft areaGeschaeft areaGeschaeft areaGeschaeft areaGeschaeft areaGeschaeft areaGeschaeft areaGeschaeft areaGeschaeft"
-    "areaParlVorst areaParlVorst areaParlVorst areaParlVorst areaParlVorst areaParlVorst areaParlVorst areaParlVorst areaParlVorst areaParlVorst areaParlVorst areaParlVorst"
-    "areaFristen areaFristen areaFristen areaFristen areaFristen areaFristen areaFristen areaFristen areaFristen areaFristen areaFristen areaFristen"
-    "areaPersonen areaPersonen areaPersonen areaPersonen areaPersonen areaPersonen areaPersonen areaPersonen areaPersonen areaPersonen areaPersonen areaPersonen";
+    "areaNummern"
+    "areaGeschaeft"
+    "areaParlVorst"
+    "areaFristen"
+    "areaPersonen";
 }
 
 .wrapperWide {
   composes: body;
   display: grid;
-  grid-template-columns: repeat(12, 1fr);
+  grid-template-columns: repeat(12, 0.08333333fr);
   grid-template-rows: auto;
   grid-template-areas:
     "areaGeschaeft areaGeschaeft areaGeschaeft areaGeschaeft areaGeschaeft areaGeschaeft areaGeschaeft areaNummern areaNummern areaNummern areaNummern areaNummern"
     "areaGeschaeft areaGeschaeft areaGeschaeft areaGeschaeft areaGeschaeft areaGeschaeft areaGeschaeft areaParlVorst areaParlVorst areaParlVorst areaParlVorst areaParlVorst"
-    "areaFristen areaFristen areaFristen areaFristen areaFristen areaPersonen areaPersonen areaPersonen areaPersonen areaPersonen areaPersonen areaPersonen";
+    "areaFristen areaFristen areaFristen areaFristen areaPersonen areaPersonen areaPersonen areaPersonen areaPersonen areaPersonen areaPersonen areaPersonen";
 }
 
 .areaGeschaeft {
   grid-area: areaGeschaeft;
   background-color: rgba(255, 110, 7, 0.4);
   display: grid;
-  grid-template-columns: repeat(12, 0.0833333fr);
+  grid-template-columns: repeat(12, 0.08333333fr);
   grid-template-rows: auto;
   grid-template-areas:
     "areaGeschaeftTitle areaGeschaeftTitle areaGeschaeftTitle areaGeschaeftTitle areaGeschaeftTitle areaGeschaeftTitle areaGeschaeftTitle areaGeschaeftTitle areaGeschaeftTitle areaGeschaeftTitle areaGeschaeftTitle areaGeschaeftTitle"
@@ -110,7 +110,7 @@
   grid-template-rows: auto;
   grid-template-areas:
    "areaNummernTitle areaNummernTitle areaNummernTitle areaNummernTitle areaNummernTitle areaNummernTitle areaNummernTitle areaNummernTitle areaNummernTitle areaNummernTitle areaNummernTitle areaNummernTitle"
-   ". . . . . . . . . . fieldIdGeschaeft fieldIdGeschaeft"
+   ". . . . . . . . . fieldIdGeschaeft fieldIdGeschaeft fieldIdGeschaeft"
    "fieldEntscheidAwelNr fieldEntscheidAwelNr fieldEntscheidAwelNr fieldEntscheidAwelJahr fieldEntscheidAwelJahr fieldEntscheidAwelJahr fieldEntscheidBdvNr fieldEntscheidBdvNr fieldEntscheidBdvNr fieldEntscheidBdvJahr fieldEntscheidBdvJahr fieldEntscheidBdvJahr"
    "fieldEntscheidKrNr fieldEntscheidKrNr fieldEntscheidKrNr feildEntscheidKrJahr feildEntscheidKrJahr feildEntscheidKrJahr fieldEntscheidRrbNr fieldEntscheidRrbNr fieldEntscheidRrbNr fieldEntscheidRrbJahr fieldEntscheidRrbJahr fieldEntscheidRrbJahr"
    "fieldAktenstandort fieldAktenstandort fieldAktenstandort fieldAktenstandort fieldAktenstandort fieldAktenstandort fieldAktenstandort fieldAktenstandort fieldAktenstandort fieldAktennummer fieldAktennummer fieldAktennummer";
@@ -172,13 +172,13 @@
   grid-area: areaParlVorst;
   background-color: rgba(255, 174, 0, 0.2);
   display: grid;
-  grid-template-columns: repeat(12, 0.0833333fr);
+  grid-template-columns: repeat(2, 0.5fr);
   grid-template-rows: auto;
   grid-template-areas:
-    "areaParlVorstTitle areaParlVorstTitle areaParlVorstTitle areaParlVorstTitle areaParlVorstTitle areaParlVorstTitle areaParlVorstTitle areaParlVorstTitle areaParlVorstTitle areaParlVorstTitle areaParlVorstTitle areaParlVorstTitle"
-    "fieldParlVorstossTyp fieldParlVorstossTyp fieldParlVorstossTyp fieldParlVorstossTyp fieldParlVorstossTyp fieldParlVorstossTyp fieldParlVorstossTyp fieldParlVorstossTyp fieldParlVorstossTyp fieldParlVorstossTyp fieldParlVorstossTyp fieldParlVorstossTyp"
-    "fieldStufe fieldStufe fieldStufe fieldStufe fieldStufe fieldStufe fieldEbene fieldEbene fieldEbene fieldEbene fieldEbene fieldEbene"
-    "fieldZustaendigkeit fieldZustaendigkeit fieldZustaendigkeit fieldZustaendigkeit fieldZustaendigkeit fieldZustaendigkeit fieldErlassform fieldErlassform fieldErlassform fieldErlassform fieldErlassform fieldErlassform";
+    "areaParlVorstTitle areaParlVorstTitle"
+    "fieldParlVorstossTyp fieldParlVorstossTyp"
+    "fieldStufe fieldEbene"
+    "fieldZustaendigkeit fieldErlassform";
   grid-gap: 15px 8px;
   padding: 8px;
 }
