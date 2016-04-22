@@ -2,7 +2,6 @@ CREATE TABLE externe (
   id INTEGER PRIMARY KEY,
   eMail TEXT,
   firma TEXT,
-  idNameVorname TEXT,
   name TEXT,
   telefon TEXT,
   titel TEXT,
@@ -15,7 +14,6 @@ CREATE TABLE gdeplz (
   plz INTEGER
 );
 
--- first remove id 231, see questions
 CREATE TABLE interne (
   id INTEGER PRIMARY KEY,
   abteilung TEXT,
@@ -24,17 +22,14 @@ CREATE TABLE interne (
   itKonto TEXT,
   kurzzeichen TEXT not null unique,
   name TEXT,
-  sort TEXT,
   telefon TEXT,
   titel TEXT,
-  vorname TEXT,
-  vornameName TEXT
+  vorname TEXT
 );
 
 CREATE TABLE geschaefte (
   aktennummer TEXT,
   aktenstandort TEXT,
-  aufbewahrungsfrist TEXT,
   baumFlag INTEGER,
   benutzer TEXT,
   datumAusgangAwel TEXT,

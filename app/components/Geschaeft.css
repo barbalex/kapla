@@ -241,20 +241,16 @@
   grid-area: 6;
 }
 
-.fieldAufbewahrungsfrist {
+.fieldDatumAusgangAwel {
   grid-area: 7;
 }
 
-.fieldDatumAusgangAwel {
+.fieldFristDirektion {
   grid-area: 8;
 }
 
-.fieldFristDirektion {
-  grid-area: 9;
-}
-
 .fieldMutationsdatum {
-  grid-area: 10;
+  grid-area: 9;
 }
 
 

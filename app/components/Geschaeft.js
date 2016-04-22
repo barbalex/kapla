@@ -591,20 +591,6 @@ class Geschaeft extends Component {
               {this.fristDauerBisMitarbeiter()}
             </FormControl.Static>
           </div>
-          <div className={styles.fieldAufbewahrungsfrist}>
-            <ControlLabel className={styles.label}>Aufbewahrungsfrist</ControlLabel>
-            <FormControl
-              type = "text"
-              value = {geschaeft.aufbewahrungsfrist || ''}
-              name = "aufbewahrungsfrist"
-              ref = "aufbewahrungsfrist"
-              onChange = {this.change}
-              onBlur = {this.blur}
-              bsSize = "small"
-              className={styles.input}
-              tabIndex = {35}
-            />
-          </div>
           <div className={styles.fieldDatumAusgangAwel}>
             <ControlLabel className={styles.label}>Datum Ausgang AWEL (erledigt)</ControlLabel>
             <FormControl
@@ -622,7 +608,7 @@ class Geschaeft extends Component {
           <div className={styles.fieldFristDirektion}>
             <ControlLabel className={styles.label}>Frist für Erledigung durch Direktion</ControlLabel>
             <FormControl
-              type = "date"
+              type = "text"
               value = {geschaeft.fristDirektion || ''}
               name = "fristDirektion"
               ref = "fristDirektion"
