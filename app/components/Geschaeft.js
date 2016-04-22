@@ -622,7 +622,7 @@ class Geschaeft extends Component {
           <div className={styles.fieldFristDirektion}>
             <ControlLabel className={styles.label}>Frist für Erledigung durch Direktion</ControlLabel>
             <FormControl
-              type = "text"
+              type = "date"
               value = {geschaeft.fristDirektion || ''}
               name = "fristDirektion"
               ref = "fristDirektion"

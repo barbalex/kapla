@@ -5,6 +5,7 @@ body {
   position: relative;
   overflow-y: hidden;
   font-family: Arial, Helvetica, Helvetica Neue;
+  font-size: 11px !important;
 }
 
 .navbar {
@@ -13,9 +14,13 @@ body {
 
 .control-label {
   color: #828282;
-  font-size: 12px;
+  font-size: 10px;
   font-weight: 500;
   margin-bottom: 0;
+}
+
+.form-control {
+  font-size: 11px;
 }
 
 .form-group {
