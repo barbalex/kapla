@@ -51,20 +51,40 @@
 }
 
 .columnIdGeschaeft {
+  composes: tableBodyCell;
   min-width: 50px;
   max-width: 50px;
 }
 
 .columnGegenstand {
+  composes: tableBodyCell;
   width: 100%;
 }
 
 .columnStatus {
+  composes: tableBodyCell;
   min-width: 140px;
   max-width: 140px;
 }
 
 .columnKontaktIntern {
+  composes: tableBodyCell;
   min-width: 100px;
   max-width: 100px;
+}
+
+.fieldFristInUeberfaellig {
+  font-weight: 900;
+  -webkit-text-fill-color: red; /* Will override color (regardless of order) */
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: black;
+  letter-spacing: 0.15em;
+}
+
+.fieldFristInHeute {
+  font-weight: 900;
+  -webkit-text-fill-color: yellow; /* Will override color (regardless of order) */
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: black;
+  letter-spacing: 0.15em;
 }
