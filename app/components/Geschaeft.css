@@ -110,7 +110,7 @@
   grid-template-rows: auto;
   grid-template-areas:
    "areaNummernTitle areaNummernTitle areaNummernTitle areaNummernTitle areaNummernTitle areaNummernTitle areaNummernTitle"
-   ". . . . fieldIdGeschaeft fieldIdGeschaeft fieldIdGeschaeft"
+   ". . . . . . fieldIdGeschaeft"
    "fieldEntscheidAwelNr slashAwel fieldEntscheidAwelJahr . fieldEntscheidBdvNr slashBdv fieldEntscheidBdvJahr"
    "fieldEntscheidKrNr slashKr fieldEntscheidKrJahr . fieldEntscheidRrbNr slashRrb fieldEntscheidRrbJahr"
    "fieldAktenstandort fieldAktenstandort fieldAktenstandort fieldAktenstandort fieldAktenstandort . fieldAktennummer";
