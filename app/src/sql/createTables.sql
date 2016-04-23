@@ -20,7 +20,7 @@ CREATE TABLE interne (
   buero TEXT,
   eMail TEXT,
   itKonto TEXT,
-  kurzzeichen TEXT not null unique,
+  kurzzeichen TEXT unique,
   name TEXT,
   telefon TEXT,
   titel TEXT,
