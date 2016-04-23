@@ -67,7 +67,7 @@ export function rowNewCreate(table) {
     newTableRowInDb(app.db, table)
       .then((row) => {
         dispatch(rowNew(table, row))
-        dispatch(tableRowToggleActivated(row.id))
+        dispatch(tableRowToggleActivated(table, row.id))
         if (routing.locationBeforeTransitions.pathname !== '/table') dispatch(push('/table'))
       })
       .catch((error) => dispatch(tableNewError(error)))
@@ -94,10 +94,11 @@ export function tableNewError(error) {
 export function tableRowRemove(table, id) {
   return (dispatch, getState) => {
     const { app } = getState()
+
     deleteTableRow(app.db, table, id)
       .then(() => {
-        dispatch(tableRowToggleActivated(table, ''))
-        dispatch(tableRowRemoveDeleteIntended(table, id))
+        dispatch(tableRowToggleActivated(table, null))
+        dispatch(tableRowRemoveDeleteIntended())
         dispatch(tableRowDelete(table, id))
       })
       .catch((error) => dispatch(tableRowDeleteError(error)))

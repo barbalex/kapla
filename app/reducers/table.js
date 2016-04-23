@@ -88,12 +88,9 @@ export default function table(state = standardState, action) {
         rows: state.rows.map((g) => row(g, action))
       }
     case TABLE_ROW_NEW:
-      /**
-       * need to add new id to geschaefteGefilterteIds
-       */
       return {
         ...state,
-        rows: [action.row, ...state.rows]
+        rows: [...state.rows, action.row]
       }
     case TABLE_RESET:
       return {

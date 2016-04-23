@@ -23,7 +23,7 @@ export default function (db, table) {
       // return full dataset
       getTableRowFromDb(db, table, id)
         .then((row) => resolve(row))
-        .catch((error) => reject(error))
+        .catch((err) => reject(err))
     })
   })
 }

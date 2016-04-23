@@ -10,9 +10,13 @@ export default function (db, table, id) {
       WHERE
         id = ${id}`
 
-    db.get(sql, (error, result) => {
+    db.get(sql, (error, row) => {
       if (error) reject(error)
-      resolve(result)
+      // react does not want to get null values
+      Object.keys(row).forEach((key) => {
+        if (row[key] === null) row[key] = ''
+      })
+      resolve(row)
     })
   })
 }

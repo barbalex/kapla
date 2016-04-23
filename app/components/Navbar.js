@@ -228,11 +228,11 @@ class NavbarComponent extends Component {
   }
 
   tableRowLoeschenNav = () => {
-    const { tableRowRemove, activeTableRowId } = this.props
+    const { tableRowRemove, table, activeTableRowId } = this.props
     return (
       <NavItem
         eventKey={5}
-        onClick={() => tableRowRemove(activeTableRowId)}
+        onClick={() => tableRowRemove(table, activeTableRowId)}
         title="Datensatz löschen"
         disabled={!activeTableRowId}
       >

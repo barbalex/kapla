@@ -34,7 +34,9 @@ class TableRow extends Component {
   }
 
   fields = (row) => Object.keys(row).map((fieldName, index) => {
-    const value = row[fieldName]
+    let value = row[fieldName]
+    // react complains if value is null
+    if (value === null) value = ''
     const field = (
       <FormGroup key={index} className={styles.formGroup}>
         <ControlLabel>{fieldName}</ControlLabel>
