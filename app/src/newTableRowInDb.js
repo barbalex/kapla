@@ -1,5 +1,7 @@
 'use strict'
 
+import getTableRowFromDb from './getTableRowFromDb'
+
 export default function (db, table) {
   return new Promise((resolve, reject) => {
     const sql = `
@@ -18,7 +20,10 @@ export default function (db, table) {
     db.run(sql, function callback(error) {
       if (error) reject(error)
       const id = this.lastID
-      resolve(id)
+      // return full dataset
+      getTableRowFromDb(db, table, id)
+        .then((row) => resolve(row))
+        .catch((error) => reject(error))
     })
   })
 }

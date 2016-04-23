@@ -14,7 +14,7 @@ function mapStateToProps(state) {
   const { activeId, filterFulltext, geschaefte, geschaefteGefilterteIds, willDelete } = state.geschaefte
   const { username } = state.user
   const { dbPath, db, navbarVisible, showMessageModal } = state.app
-  const { table, rows } = state.table
+  const { table, rows, id } = state.table
   const path = state.routing.locationBeforeTransitions.pathname
   return {
     username,
@@ -29,7 +29,8 @@ function mapStateToProps(state) {
     path,
     showMessageModal,
     table,
-    rows
+    rows,
+    activeTableRowId: id
   }
 }
 

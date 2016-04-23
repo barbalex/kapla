@@ -47,7 +47,10 @@ class NavbarComponent extends Component {
     messageShow: PropTypes.func.isRequired,
     getTable: PropTypes.func.isRequired,
     table: PropTypes.string,
-    rows: PropTypes.array
+    rows: PropTypes.array,
+    activeTableRowId: PropTypes.number,
+    rowNewCreate: PropTypes.func.isRequired,
+    tableRowRemove: PropTypes.func.isRequired
   }
 
   componentWillMount() {
@@ -211,6 +214,33 @@ class NavbarComponent extends Component {
     )
   }
 
+  tableRowNeuNav = () => {
+    const { rowNewCreate, table } = this.props
+    return (
+      <NavItem
+        eventKey={4}
+        onClick={() => rowNewCreate(table)}
+        title="neuer Datensatz"
+      >
+        <Glyphicon glyph="plus" />
+      </NavItem>
+    )
+  }
+
+  tableRowLoeschenNav = () => {
+    const { tableRowRemove, activeTableRowId } = this.props
+    return (
+      <NavItem
+        eventKey={5}
+        onClick={() => tableRowRemove(activeTableRowId)}
+        title="Datensatz löschen"
+        disabled={!activeTableRowId}
+      >
+        <Glyphicon glyph="trash" />
+      </NavItem>
+    )
+  }
+
   exportGeschaefteNav = () => (
     <NavItem
       eventKey={6}
@@ -318,6 +348,7 @@ class NavbarComponent extends Component {
     const classNameBadge = dataIsFiltered ? styles.badgeWithActiveFilter : styles.badge
     const showPrint = path === '/pages'
     const showGeschaefteStuff = path === '/geschaefte'
+    const showTableStuff = path === '/table'
     const stammdatenTitle = table ? `${table} (${rows.length})` : 'Stammdaten'
     // does not work - should keep menu active when table is loaded
     // probably a bug in react-bootstrap
@@ -351,6 +382,8 @@ class NavbarComponent extends Component {
               <MenuItem eventKey={8.7} onClick={() => getTable('rechtsmittelerledigung')}>Rechtsmittelerledigung</MenuItem>
               <MenuItem eventKey={8.8} onClick={() => getTable('status')}>Status</MenuItem>
             </NavDropdown>
+            {showTableStuff && this.tableRowNeuNav()}
+            {showTableStuff && this.tableRowLoeschenNav()}
           </Nav>
           <Nav pullRight>
             {showGeschaefteStuff && this.fulltextFilterNav()}
