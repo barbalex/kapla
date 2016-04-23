@@ -15,6 +15,23 @@ class Table extends Component {
     tableReset: PropTypes.func.isRequired
   }
 
+  componentDidUpdate = () => {
+    const { rows, id } = this.props
+    const rL = this.refs.reactList
+    if (!!id) {
+      // get visible indexes
+      const visibleRange = rL.getVisibleRange()
+      // get index of active id
+      const index = _.findIndex(rows, (r) => r.id === id)
+      // scroll to active id
+      // but only if necessary
+      const visibleRangeIncludesId = visibleRange[0] <= index && index <= visibleRange[1]
+      if (!visibleRangeIncludesId) {
+        rL.scrollAround(id)
+      }
+    }
+  }
+
   componentWillUnmount = () => {
     const { tableReset } = this.props
     tableReset()
@@ -98,7 +115,8 @@ class Table extends Component {
             <ReactList
               itemRenderer={::this.renderItem}
               length={rows.length}
-              type="variable"
+              type="uniform"
+              ref={"reactList"}
             />
           </div>
         </div>
