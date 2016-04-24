@@ -110,7 +110,7 @@
   grid-template-rows: auto;
   grid-template-areas:
    "areaNummernTitle areaNummernTitle areaNummernTitle areaNummernTitle areaNummernTitle areaNummernTitle areaNummernTitle"
-   ". . . . . . fieldIdGeschaeft"
+   "fieldIdGeschaeft . . . . . fieldGekoNr"
    "fieldEntscheidAwelNr slashAwel fieldEntscheidAwelJahr . fieldEntscheidBdvNr slashBdv fieldEntscheidBdvJahr"
    "fieldEntscheidKrNr slashKr fieldEntscheidKrJahr . fieldEntscheidRrbNr slashRrb fieldEntscheidRrbJahr"
    "fieldAktenstandort fieldAktenstandort fieldAktenstandort fieldAktenstandort fieldAktenstandort . fieldAktennummer";
@@ -153,6 +153,14 @@
 
 .fieldIdGeschaeft {
   grid-area: fieldIdGeschaeft;
+}
+
+.inputIdGeschaeft {
+  background: transparent !important;
+}
+
+.fieldGekoNr {
+  grid-area: fieldGekoNr;
 }
 
 .fieldEntscheidAwelNr {
