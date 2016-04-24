@@ -2,7 +2,7 @@
 
 import React, { Component, PropTypes } from 'react'
 import ReactDOM from 'react-dom'
-import { FormGroup, FormControl, ControlLabel, Radio } from 'react-bootstrap'
+import { FormGroup, InputGroup, FormControl, ControlLabel, Radio, Glyphicon } from 'react-bootstrap'
 import moment from 'moment'
 moment.locale('de')
 import DateRangePicker from 'react-bootstrap-daterangepicker'
@@ -22,11 +22,11 @@ class Geschaeft extends Component {
     geschaefteLayout: PropTypes.object.isRequired
   }
 
-  onChangeDatePicker = (e, picker) => {
+  onChangeDatePicker = (name, e, picker) => {
     const rVal = {
       target: {
         type: 'text',
-        name: e.target.children[0].name,
+        name,
         value: picker.startDate
       }
     }
@@ -635,53 +635,53 @@ class Geschaeft extends Component {
           </div>
           <div className={styles.fieldDatumAusgangAwel}>
             <ControlLabel className={styles.label}>Datum Ausgang AWEL (erledigt)</ControlLabel>
-            <FormControl
-              type="text"
-              value={geschaeft.datumAusgangAwel || ''}
-              name="datumAusgangAwel"
-              ref="datumAusgangAwel"
-              onChange={this.change}
-              onBlur={this.blur}
-              bsSize="small"
-              className={styles.input}
-              tabIndex={6 + nrOfFieldsBeforeFristen}
-            />
-          </div>
-          <div className={styles.fieldFristDirektion}>
-            <ControlLabel className={styles.label}>Frist für Erledigung durch Direktion</ControlLabel>
-            <FormControl
-              type="text"
-              value={geschaeft.fristDirektion || ''}
-              name="fristDirektion"
-              ref="fristDirektion"
-              onChange={this.change}
-              onBlur={this.blur}
-              bsSize="small"
-              className={styles.input}
-              tabIndex={7 + nrOfFieldsBeforeFristen}
-            />
+            <InputGroup>
+              <FormControl
+                type="text"
+                value={geschaeft.datumAusgangAwel || ''}
+                name="datumAusgangAwel"
+                ref="datumAusgangAwel"
+                onChange={this.change}
+                onBlur={this.blur}
+                bsSize="small"
+                className={styles.input}
+                tabIndex={6 + nrOfFieldsBeforeFristen}
+              />
+              <InputGroup.Addon>
+                <DateRangePicker
+                  singleDatePicker
+                  drops="up"
+                  onApply={this.onChangeDatePicker.bind(this, 'datumAusgangAwel')}
+                >
+                  <Glyphicon glyph="calendar" />
+                </DateRangePicker>
+              </InputGroup.Addon>
+            </InputGroup>
           </div>
           <div className={[styles.fieldFristDirektion2, 'datePopupTopLeft'].join(' ')}>
             <ControlLabel className={styles.label}>Frist für Erledigung durch Direktion</ControlLabel>
-            <div className={styles.dateField}>
-              <DateRangePicker
-                singleDatePicker
-                drops="up"
-                onApply={this.onChangeDatePicker}
-              >
-                <FormControl
-                  type="text"
-                  value={geschaeft.fristDirektion || ''}
-                  name="fristDirektion"
-                  ref="fristDirektion"
-                  onChange={this.change}
-                  onBlur={this.blur}
-                  bsSize="small"
-                  className={styles.input}
-                  tabIndex={8 + nrOfFieldsBeforeFristen}
-                />
-              </DateRangePicker>
-            </div>
+            <InputGroup>
+              <FormControl
+                type="text"
+                value={geschaeft.fristDirektion || ''}
+                name="fristDirektion"
+                ref="fristDirektion"
+                onChange={this.change}
+                onBlur={this.blur}
+                bsSize="small"
+                className={styles.input}
+                tabIndex={7 + nrOfFieldsBeforeFristen}
+              />
+              <InputGroup.Addon>
+                <DateRangePicker
+                  singleDatePicker
+                  drops="up"
+                  onApply={this.onChangeDatePicker.bind(this, 'fristDirektion')}
+                >
+                  <Glyphicon glyph="calendar" />
+                </DateRangePicker>
+              </InputGroup.Addon>
+            </InputGroup>
           </div>
           <div className={styles.fieldMutationsdatum}>
             <ControlLabel className={styles.label}>Letze Mutation</ControlLabel>
