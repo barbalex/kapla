@@ -5,7 +5,7 @@ import ReactDOM from 'react-dom'
 import { FormGroup, FormControl, ControlLabel, Radio } from 'react-bootstrap'
 import moment from 'moment'
 moment.locale('de')
-import DateTimeField from 'react-bootstrap-datetimepicker'
+import DateRangePicker from 'react-bootstrap-daterangepicker'
 import styles from './Geschaeft.css'
 import isDateField from '../src/isDateField'
 
@@ -20,6 +20,17 @@ class Geschaeft extends Component {
     statusOptions: PropTypes.array.isRequired,
     geschaeftsartOptions: PropTypes.array.isRequired,
     geschaefteLayout: PropTypes.object.isRequired
+  }
+
+  onChangeDatePicker = (e, picker) => {
+    const rVal = {
+      target: {
+        type: 'text',
+        name: e.target.children[0].name,
+        value: picker.startDate
+      }
+    }
+    this.blur(rVal)
   }
 
   getDateValidationState = (date) => {
@@ -48,30 +59,6 @@ class Geschaeft extends Component {
       this.blur(e)
     }
     geschaefteChangeState(activeId, name, value)
-  }
-
-  onChangeDate = (name, value) => {
-    const rVal = {
-      target: {
-        type: 'text',
-        name,
-        value
-      }
-    }
-    /**
-     * Problem:
-     * need to only blur when change comes from date-field-component
-     * maybe see where focus is on?
-     */
-    this.blur(rVal)
-  }
-
-  handleDateFieldFocus = (e) => {
-    const parent = e.target.parentElement
-    const children = parent.childNodes
-    for (let i = 0; i < children.length; i++) {
-      if (children[i].tagName.toLowerCase() === 'span') return children[i].click()
-    }
   }
 
   blur = (e) => {
@@ -677,15 +664,23 @@ class Geschaeft extends Component {
           <div className={[styles.fieldFristDirektion2, 'datePopupTopLeft'].join(' ')}>
             <ControlLabel className={styles.label}>Frist für Erledigung durch Direktion</ControlLabel>
             <div className={styles.dateField}>
-              <DateTimeField
-                dateTime={moment(geschaeft.fristDirektion, 'DD.MM.YYYY').format('DD.MM.YYYY')}
-                format="DD.MM.YYYY"
-                inputFormat="DD.MM.YYYY"
-                mode="date"
-                showToday
-                onChange={this.onChangeDate.bind(this, 'fristDirektion')}
-                inputProps={dateFieldInputProps}
-              />
+              <DateRangePicker
+                singleDatePicker
+                drops="up"
+                onApply={this.onChangeDatePicker}
+              >
+                <FormControl
+                  type="text"
+                  value={geschaeft.fristDirektion || ''}
+                  name="fristDirektion"
+                  ref="fristDirektion"
+                  onChange={this.change}
+                  onBlur={this.blur}
+                  bsSize="small"
+                  className={styles.input}
+                  tabIndex={8 + nrOfFieldsBeforeFristen}
+                />
+              </DateRangePicker>
             </div>
           </div>
           <div className={styles.fieldMutationsdatum}>

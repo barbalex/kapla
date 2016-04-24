@@ -94,7 +94,7 @@
     "postcss": "5.0.19",
     "react": "15.0.1",
     "react-bootstrap": "0.29.1",
-    "react-bootstrap-datetimepicker": "0.0.22",
+    "react-bootstrap-daterangepicker": "^3.0.0",
     "react-dom": "15.0.1",
     "react-list": "0.7.18",
     "react-redux": "4.4.5",

@@ -1,5 +1,6 @@
 @import '../node_modules/golden-layout/src/css/goldenlayout-base.css';
 @import '../node_modules/golden-layout/src/css/goldenlayout-light-theme.css';
+@import '../node_modules/react-bootstrap-daterangepicker/css/daterangepicker.css';
 
 body {
   position: relative;
@@ -81,15 +82,6 @@ textarea {
 
 ::-webkit-scrollbar-corner {
   background: rgba(0,0,0,0);
-}
-
-.datePopupTopLeft .bootstrap-datetimepicker-widget {
-  bottom: 40px;
-  top: auto !important;
-}
-
-.bootstrap-datetimepicker-widget .day {
-  cursor: default;
 }
 
 @media print {
