@@ -678,8 +678,8 @@ class Geschaeft extends Component {
             </InputGroup>
           </div>
           <div className={styles.fieldFristDauerBisMitarbeiter}>
-            <ControlLabel className={styles.label}>Dauer bis Frist Mitarbeiter</ControlLabel>
-            <FormControl.Static>
+            <ControlLabel className={styles.label}>Tage bis Frist Mitarbeiter</ControlLabel>
+            <FormControl.Static className={styles.formControlStatic}>
               {this.fristDauerBisMitarbeiter()}
             </FormControl.Static>
           </div>
@@ -709,7 +709,7 @@ class Geschaeft extends Component {
               </InputGroup.Addon>
             </InputGroup>
           </div>
-          <div className={[styles.fieldFristDirektion2, 'datePopupTopLeft'].join(' ')}>
+          <div className={styles.fieldFristDirektion}>
             <ControlLabel className={styles.label}>Frist für Erledigung durch Direktion</ControlLabel>
             <InputGroup>
               <FormControl
@@ -737,7 +737,7 @@ class Geschaeft extends Component {
           </div>
           <div className={styles.fieldMutationsdatum}>
             <ControlLabel className={styles.label}>Letze Mutation</ControlLabel>
-            <FormControl.Static>
+            <FormControl.Static className={styles.formControlStatic}>
               {geschaeft.mutationsdatum || ''}
             </FormControl.Static>
           </div>

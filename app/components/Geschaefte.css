@@ -73,20 +73,20 @@
   max-width: 100px;
 }
 
-.fieldFristInUeberfaellig {
+.fieldFristIn {
   font-weight: 900;
-  -webkit-text-fill-color: red; /* Will override color (regardless of order) */
-  -webkit-text-stroke-width: 1px;
-  -webkit-text-stroke-color: black;
   letter-spacing: 0.15em;
   font-size: 14px;
+  -webkit-text-fill-color: black;
+  -webkit-text-stroke-width: 1px;
+}
+
+.fieldFristInUeberfaellig {
+  composes: fieldFristIn;
+  -webkit-text-stroke-color: red;
 }
 
 .fieldFristInHeute {
-  font-weight: 900;
-  -webkit-text-fill-color: yellow; /* Will override color (regardless of order) */
-  -webkit-text-stroke-width: 1px;
-  -webkit-text-stroke-color: black;
-  letter-spacing: 0.15em;
-  font-size: 14px;
+  composes: fieldFristIn;
+  -webkit-text-stroke-color: yellow;
 }

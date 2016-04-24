@@ -253,8 +253,7 @@
    "7"
    "8"
    "9"
-   "10"
-   "11";
+   "10";
   grid-gap: 5px 0;
   padding: 8px;
 }
@@ -286,6 +285,8 @@
 
 .fieldFristDauerBisMitarbeiter {
   grid-area: 7;
+  font-weight: 700;
+  font-size: 14px;
 }
 
 .fieldDatumAusgangAwel {
@@ -296,12 +297,8 @@
   grid-area: 9;
 }
 
-.fieldFristDirektion2 {
-  grid-area: 10;
-}
-
 .fieldMutationsdatum {
-  grid-area: 11;
+  grid-area: 10;
 }
 
 
@@ -328,4 +325,8 @@
 
 .datePicker {
   cursor: pointer;
+}
+
+.formControlStatic {
+  padding-top: 4px;
 }
