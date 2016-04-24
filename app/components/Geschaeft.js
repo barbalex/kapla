@@ -128,16 +128,6 @@ class Geschaeft extends Component {
     const nrOfFieldsBeforePv = nrOfGFields + nrOfNrFields
     const nrOfPvFields = 9
     const nrOfFieldsBeforeFristen = nrOfFieldsBeforePv + nrOfPvFields
-    const that = this
-    const dateFieldInputProps = {
-      onFocus(e) {
-        that.handleDateFieldFocus(e)
-      }
-    }
-
-    moment.updateLocale('de', {
-      weekdaysMin: 'So_Mo_Di_Mi_Do_Fr_Sa'.split('_')
-    })
 
     if (!showGeschaeft) return null
     return (
@@ -559,73 +549,133 @@ class Geschaeft extends Component {
             validationState={this.getDateValidationState(geschaeft.datumEingangAwel)}
           >
             <ControlLabel className={styles.label}>Datum des Eingangs im AWEL</ControlLabel>
-            <FormControl
-              type="text"
-              value={geschaeft.datumEingangAwel}
-              name="datumEingangAwel"
-              ref="datumEingangAwel"
-              onChange={this.change}
-              onBlur={this.blur}
-              bsSize="small"
-              className={styles.input}
-              tabIndex={1 + nrOfFieldsBeforeFristen}
-            />
+            <InputGroup>
+              <FormControl
+                type="text"
+                value={geschaeft.datumEingangAwel}
+                name="datumEingangAwel"
+                ref="datumEingangAwel"
+                onChange={this.change}
+                onBlur={this.blur}
+                bsSize="small"
+                className={styles.input}
+                tabIndex={1 + nrOfFieldsBeforeFristen}
+              />
+              <InputGroup.Addon>
+                <DateRangePicker
+                  singleDatePicker
+                  drops="up"
+                  onApply={this.onChangeDatePicker.bind(this, 'datumEingangAwel')}
+                  className={styles.datePicker}
+                >
+                  <Glyphicon glyph="calendar" />
+                </DateRangePicker>
+              </InputGroup.Addon>
+            </InputGroup>
           </FormGroup>
           <div className={styles.fieldFristAwel}>
             <ControlLabel className={styles.label}>Frist für Erledigung durch AWEL</ControlLabel>
-            <FormControl
-              type="text"
-              value={geschaeft.fristAwel || ''}
-              name="fristAwel"
-              ref="fristAwel"
-              onChange={this.change}
-              onBlur={this.blur}
-              bsSize="small"
-              className={styles.input}
-              tabIndex={2 + nrOfFieldsBeforeFristen}
-            />
+            <InputGroup>
+              <FormControl
+                type="text"
+                value={geschaeft.fristAwel || ''}
+                name="fristAwel"
+                ref="fristAwel"
+                onChange={this.change}
+                onBlur={this.blur}
+                bsSize="small"
+                className={styles.input}
+                tabIndex={2 + nrOfFieldsBeforeFristen}
+              />
+              <InputGroup.Addon>
+                <DateRangePicker
+                  singleDatePicker
+                  drops="up"
+                  onApply={this.onChangeDatePicker.bind(this, 'fristAwel')}
+                  className={styles.datePicker}
+                >
+                  <Glyphicon glyph="calendar" />
+                </DateRangePicker>
+              </InputGroup.Addon>
+            </InputGroup>
           </div>
           <div className={styles.fieldFristAmtschef}>
             <ControlLabel className={styles.label}>Frist Vorlage an Amtschef</ControlLabel>
-            <FormControl
-              type="text"
-              value={geschaeft.fristAmtschef || ''}
-              name="fristAmtschef"
-              ref="fristAmtschef"
-              onChange={this.change}
-              onBlur={this.blur}
-              bsSize="small"
-              className={styles.input}
-              tabIndex={3 + nrOfFieldsBeforeFristen}
-            />
+            <InputGroup>
+              <FormControl
+                type="text"
+                value={geschaeft.fristAmtschef || ''}
+                name="fristAmtschef"
+                ref="fristAmtschef"
+                onChange={this.change}
+                onBlur={this.blur}
+                bsSize="small"
+                className={styles.input}
+                tabIndex={3 + nrOfFieldsBeforeFristen}
+              />
+              <InputGroup.Addon>
+                <DateRangePicker
+                  singleDatePicker
+                  drops="up"
+                  onApply={this.onChangeDatePicker.bind(this, 'fristAmtschef')}
+                  className={styles.datePicker}
+                >
+                  <Glyphicon glyph="calendar" />
+                </DateRangePicker>
+              </InputGroup.Addon>
+            </InputGroup>
           </div>
           <div className={styles.fieldFristAbteilung}>
             <ControlLabel className={styles.label}>Frist für Erledigung durch Abteilung</ControlLabel>
-            <FormControl
-              type="text"
-              value={geschaeft.fristAbteilung || ''}
-              name="fristAbteilung"
-              ref="fristAbteilung"
-              onChange={this.change}
-              onBlur={this.blur}
-              bsSize="small"
-              className={styles.input}
-              tabIndex={4 + nrOfFieldsBeforeFristen}
-            />
+            <InputGroup>
+              <FormControl
+                type="text"
+                value={geschaeft.fristAbteilung || ''}
+                name="fristAbteilung"
+                ref="fristAbteilung"
+                onChange={this.change}
+                onBlur={this.blur}
+                bsSize="small"
+                className={styles.input}
+                tabIndex={4 + nrOfFieldsBeforeFristen}
+              />
+              <InputGroup.Addon>
+                <DateRangePicker
+                  singleDatePicker
+                  drops="up"
+                  onApply={this.onChangeDatePicker.bind(this, 'fristAbteilung')}
+                  className={styles.datePicker}
+                >
+                  <Glyphicon glyph="calendar" />
+                </DateRangePicker>
+              </InputGroup.Addon>
+            </InputGroup>
           </div>
           <div className={styles.fieldFristMitarbeiter}>
             <ControlLabel className={styles.label}>Frist Erledigung nächster Schritt RD</ControlLabel>
-            <FormControl
-              type="text"
-              value={geschaeft.fristMitarbeiter || ''}
-              name="fristMitarbeiter"
-              ref="fristMitarbeiter"
-              onChange={this.change}
-              onBlur={this.blur}
-              bsSize="small"
-              className={styles.input}
-              tabIndex={5 + nrOfFieldsBeforeFristen}
-            />
+            <InputGroup>
+              <FormControl
+                type="text"
+                value={geschaeft.fristMitarbeiter || ''}
+                name="fristMitarbeiter"
+                ref="fristMitarbeiter"
+                onChange={this.change}
+                onBlur={this.blur}
+                bsSize="small"
+                className={styles.input}
+                tabIndex={5 + nrOfFieldsBeforeFristen}
+              />
+              <InputGroup.Addon>
+                <DateRangePicker
+                  singleDatePicker
+                  drops="up"
+                  onApply={this.onChangeDatePicker.bind(this, 'fristMitarbeiter')}
+                  className={styles.datePicker}
+                >
+                  <Glyphicon glyph="calendar" />
+                </DateRangePicker>
+              </InputGroup.Addon>
+            </InputGroup>
           </div>
           <div className={styles.fieldFristDauerBisMitarbeiter}>
             <ControlLabel className={styles.label}>Dauer bis Frist Mitarbeiter</ControlLabel>
@@ -652,6 +702,7 @@ class Geschaeft extends Component {
                   singleDatePicker
                   drops="up"
                   onApply={this.onChangeDatePicker.bind(this, 'datumAusgangAwel')}
+                  className={styles.datePicker}
                 >
                   <Glyphicon glyph="calendar" />
                 </DateRangePicker>
@@ -677,6 +728,7 @@ class Geschaeft extends Component {
                   singleDatePicker
                   drops="up"
                   onApply={this.onChangeDatePicker.bind(this, 'fristDirektion')}
+                  className={styles.datePicker}
                 >
                   <Glyphicon glyph="calendar" />
                 </DateRangePicker>
