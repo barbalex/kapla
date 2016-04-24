@@ -83,10 +83,10 @@ class Geschaefte extends Component {
         </div>
         <div className={styles.columnKontaktIntern}>
           <div>
-            {geschaeft.idKontaktIntern}
+            {geschaeft.verantwortlich}
           </div>
           <div>
-            {geschaeft.kontaktInternVornameName}
+            {geschaeft.verantwortlichVornameName}
           </div>
         </div>
       </div>

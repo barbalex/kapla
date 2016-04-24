@@ -4,12 +4,12 @@ CREATE VIEW
 AS
   SELECT
     geschaefte.*,
-    interne.vorname || ' ' || interne.name AS kontaktInternVornameName,
+    interne.vorname || ' ' || interne.name AS verantwortlichVornameName,
     interne.itKonto
   FROM
     geschaefte
     LEFT JOIN
       interne
-      ON geschaefte.idKontaktIntern = interne.kurzzeichen
+      ON geschaefte.verantwortlich = interne.kurzzeichen
   ORDER BY
     idGeschaeft DESC;
