@@ -79,6 +79,7 @@
   -webkit-text-stroke-width: 1px;
   -webkit-text-stroke-color: black;
   letter-spacing: 0.15em;
+  font-size: 14px;
 }
 
 .fieldFristInHeute {
@@ -87,4 +88,5 @@
   -webkit-text-stroke-width: 1px;
   -webkit-text-stroke-color: black;
   letter-spacing: 0.15em;
+  font-size: 14px;
 }
