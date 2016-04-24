@@ -83,6 +83,15 @@ textarea {
   background: rgba(0,0,0,0);
 }
 
+.datePopupTopLeft .bootstrap-datetimepicker-widget {
+  bottom: 40px;
+  top: auto !important;
+}
+
+.bootstrap-datetimepicker-widget .day {
+  cursor: default;
+}
+
 @media print {
   /**
    * make sure, html and body

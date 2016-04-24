@@ -253,7 +253,8 @@
    "7"
    "8"
    "9"
-   "10";
+   "10"
+   "11";
   grid-gap: 5px 0;
   padding: 8px;
 }
@@ -295,8 +296,12 @@
   grid-area: 9;
 }
 
-.fieldMutationsdatum {
+.fieldFristDirektion2 {
   grid-area: 10;
+}
+
+.fieldMutationsdatum {
+  grid-area: 11;
 }
 
 
@@ -319,4 +324,8 @@
    "10 10 10 10 10 10 10 10 10 10 10 10";
   grid-gap: 5px 0;
   padding: 8px;
+}
+
+.dateField {
+  position: relative;
 }
