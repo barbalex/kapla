@@ -4,6 +4,7 @@ import React, { Component, PropTypes } from 'react'
 import ReactDOM from 'react-dom'
 import { FormGroup, FormControl, ControlLabel, Radio } from 'react-bootstrap'
 import moment from 'moment'
+moment.locale('de')
 import DateTimeField from 'react-bootstrap-datetimepicker'
 import styles from './Geschaeft.css'
 import isDateField from '../src/isDateField'
@@ -38,7 +39,6 @@ class Geschaeft extends Component {
   }
 
   change = (e) => {
-    console.log('change, e.target', e.target)
     const { activeId, geschaefteChangeState } = this.props
     const { type, name, dataset } = e.target
     let { value } = e.target
@@ -51,8 +51,6 @@ class Geschaeft extends Component {
   }
 
   onChangeDate = (name, value) => {
-    console.log('date', value)
-    console.log('name', name)
     const rVal = {
       target: {
         type: 'text',
@@ -66,6 +64,14 @@ class Geschaeft extends Component {
      * maybe see where focus is on?
      */
     this.blur(rVal)
+  }
+
+  handleDateFieldFocus = (e) => {
+    const parent = e.target.parentElement
+    const children = parent.childNodes
+    for (let i = 0; i < children.length; i++) {
+      if (children[i].tagName.toLowerCase() === 'span') return children[i].click()
+    }
   }
 
   blur = (e) => {
@@ -135,18 +141,16 @@ class Geschaeft extends Component {
     const nrOfFieldsBeforePv = nrOfGFields + nrOfNrFields
     const nrOfPvFields = 9
     const nrOfFieldsBeforeFristen = nrOfFieldsBeforePv + nrOfPvFields
-    /*
     const that = this
     const dateFieldInputProps = {
-      onChange(e) {
-        console.log('change')
-        that.change(e)
-      },
-      onBlur(e) {
-        console.log('blur, e', e)
-        that.blur(e)
+      onFocus(e) {
+        that.handleDateFieldFocus(e)
       }
-    }*/
+    }
+
+    moment.updateLocale('de', {
+      weekdaysMin: 'So_Mo_Di_Mi_Do_Fr_Sa'.split('_')
+    })
 
     if (!showGeschaeft) return null
     return (
@@ -680,7 +684,7 @@ class Geschaeft extends Component {
                 mode="date"
                 showToday
                 onChange={this.onChangeDate.bind(this, 'fristDirektion')}
-                // inputProps={dateFieldInputProps}
+                inputProps={dateFieldInputProps}
               />
             </div>
           </div>
