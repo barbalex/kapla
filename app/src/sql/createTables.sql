@@ -108,7 +108,8 @@ SELECT geschaefte.idGeschaeft, externe.id
 FROM
   geschaefte
   INNER JOIN externe
-  ON instr(externe.name || ' ' || externe.vorname, geschaefte.idKontaktExtern) > 0
+  -- ON instr(geschaefte.idKontaktExtern, externe.name || ' ' || externe.vorname) > 0
+  ON geschaefte.idKontaktExtern LIKE '%' || externe.name || ' ' || externe.vorname || '%'
 WHERE
   geschaefte.idKontaktExtern <> '';
 
