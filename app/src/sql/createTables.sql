@@ -77,6 +77,18 @@ CREATE TABLE geschaefte (
   zustaendigeDirektion TEXT
 );
 
+CREATE TABLE geschaefteKontakteIntern (
+  idGeschaeft INTEGER,
+  idKontakt INTEGER,
+  PRIMARY KEY (idGeschaeft, idKontakt)
+);
+
+CREATE TABLE geschaefteKontakteExtern (
+  idGeschaeft INTEGER,
+  idKontakt INTEGER,
+  PRIMARY KEY (idGeschaeft, idKontakt)
+);
+
 CREATE TABLE geschaeftsart (
   id INTEGER PRIMARY KEY,
   geschaeftsart TEXT unique,

@@ -4,6 +4,10 @@
 		"selected_items":
 		[
 			[
+				"sta",
+				"statusFristInText"
+			],
+			[
 				"REa",
 				"ReactDOM"
 			],
@@ -263,15 +267,31 @@
 			"file": "package.json",
 			"settings":
 			{
-				"buffer_size": 4468,
+				"buffer_size": 4507,
 				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/components/Geschaefte.js",
+			"settings":
+			{
+				"buffer_size": 4483,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "app/components/Geschaefte.css",
+			"settings":
+			{
+				"buffer_size": 1365,
+				"line_ending": "Windows"
 			}
 		},
 		{
 			"file": "app/components/Geschaeft.js",
 			"settings":
 			{
-				"buffer_size": 23724,
+				"buffer_size": 29133,
 				"line_ending": "Windows"
 			}
 		},
@@ -279,7 +299,7 @@
 			"file": "app/components/Geschaeft.css",
 			"settings":
 			{
-				"buffer_size": 7964,
+				"buffer_size": 7576,
 				"line_ending": "Windows"
 			}
 		}
@@ -339,23 +359,31 @@
 		"/C/Users/alex/kapla/app/components",
 		"/C/Users/alex/kapla/app/reducers",
 		"/C/Users/alex/kapla/app/src",
+		"/C/Users/alex/kapla/app/src/sql",
 		"/C/Users/alex/kapla/app/store"
 	],
 	"file_history":
 	[
+		"/C/Users/alex/kapla/app/src/sql/createViews.sql",
+		"/C/Users/alex/kapla/app/components/Geschaefte.css",
+		"/C/Users/alex/kapla/app/components/Geschaefte.js",
+		"/C/Users/alex/kapla/app/components/Geschaeft.js",
+		"/C/Users/alex/kapla/app/components/Geschaeft.css",
+		"/C/Users/alex/kapla/app/src/sql/createTables.sql",
+		"/C/Users/alex/kapla/app/app.global.css",
+		"/C/Users/alex/kapla/release/win32-x64/Kapla-win32-x64/resources/app/app/components/Geschaeft.js",
+		"/C/Users/alex/kapla/release/win32-x64/Kapla-win32-x64/resources/app/app/components/Geschaeft.css",
+		"/C/Users/alex/kapla/app/src/sql/updateTables.sql",
+		"/D/Google Drive/awel-kapla/howto.txt",
+		"/D/Google Drive/awel-kapla/DatenProbleme.txt",
 		"/C/Users/alex/kapla/app/components/Navbar.js",
 		"/C/Users/alex/kapla/app/src/convertDateToYyyyMmDd.js",
-		"/C/Users/alex/kapla/app/components/Geschaeft.js",
-		"/C/Users/alex/kapla/app/components/Geschaefte.css",
 		"/C/Users/alex/kapla/app/src/convertDateToDdMmYyyy.js",
-		"/C/Users/alex/kapla/app/app.global.css",
 		"/C/Users/alex/kapla/app/containers/Geschaeft.js",
 		"/C/Users/alex/kapla/app/src/getGeschaefteFromDb.js",
 		"/C/Users/alex/kapla/app/actions/geschaefte.js",
 		"/C/Users/alex/kapla/app/src/updateGeschaeft.js",
 		"/C/Users/alex/kapla/app/src/sql/convertDateToYyyyMmDd.js",
-		"/C/Users/alex/kapla/app/components/Geschaeft.css",
-		"/C/Users/alex/kapla/app/components/Geschaefte.js",
 		"/C/Users/alex/kapla/app/routes.js",
 		"/C/Users/alex/kapla/app/components/GeschaefteLayout.js",
 		"/C/Users/alex/kapla/app/containers/GeschaefteLayout.js",
@@ -389,7 +417,6 @@
 		"/C/Users/alex/kapla/app/src/getConfig.js",
 		"/C/Users/alex/AppData/Roaming/Kapla/kaplaConfig.json",
 		"/C/Users/alex/kapla/app/src/getTableFromDb.js",
-		"/C/Users/alex/kapla/app/src/sql/createTables.sql",
 		"/C/Users/alex/kapla/app/actions/tabelle.js",
 		"/C/Users/alex/kapla/app/reducers/tabelle.js",
 		"/C/Users/alex/kapla/app/src/newTabelleRowInDb.js",
@@ -412,7 +439,6 @@
 		"/C/Users/alex/kapla/test/containers/CounterPage.spec.js",
 		"/C/Users/alex/kapla/kapla_pc.sublime-project",
 		"/C/Users/alex/kapla/app/components/GeschaefteLayout.css",
-		"/C/Users/alex/kapla/app/src/sql/createViews.sql",
 		"/C/Users/alex/Downloads/[Content_Types].xml",
 		"/C/Users/alex/Downloads/test.xlsx",
 		"/C/Users/alex/Downloads/Stundenrapport.xlsx",
@@ -465,12 +491,7 @@
 		"/C/Users/alex/kapla/app/reducers/geschaeft.js",
 		"/C/Users/alex/kapla/app/actions/geschaeft.js",
 		"/C/Users/alex/kapla/.gitignore",
-		"/C/Users/alex/kapla/app/app.html",
-		"/C/Users/alex/kapla/app/components/Geschaeft1.js",
-		"/C/Users/alex/kapla/app/containers/HomePage.js",
-		"/C/Users/alex/kapla/app/components/Home.js",
-		"/C/Users/alex/kapla/app/components/Home.css",
-		"/C/Users/alex/kapla/app/containers/GeschaefteList.js"
+		"/C/Users/alex/kapla/app/app.html"
 	],
 	"find":
 	{
@@ -493,9 +514,18 @@
 	},
 	"find_state":
 	{
-		"case_sensitive": false,
+		"case_sensitive": true,
 		"find_history":
 		[
+			"fieldIdGeschaeft",
+			"datePopupTopLeft",
+			"statusBisFristInText",
+			"fristDauerBisMitarbeiter",
+			"nrOfNummernFields",
+			"nrOfGFields : 0",
+			"feildEntscheidKrJahr",
+			"areaFristen",
+			",\n  ",
 			"fristMitarbeiter",
 			"fristDauerBisMitarbeiter",
 			"ref",
@@ -614,16 +644,7 @@
 			"geschaeftActivate",
 			"activeId",
 			"GeschaefteActions",
-			"Geschaeft",
-			"activeId",
-			"geschaefte",
-			"GeschaefteActions",
-			"Geschaefte",
-			"GeschaefteLayout",
-			"geschaeftActivate",
-			"geschaeftNew",
-			"newGeschaeftInDb",
-			"getGeschaeftFromDb"
+			"Geschaeft"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -631,6 +652,11 @@
 		"regex": false,
 		"replace_history":
 		[
+			"statusFristInText",
+			"nrOfNrFields",
+			"0 : nrOfGFields",
+			"fieldEntscheidKrJahr",
+			", ",
 			"convertDateToDdMmYyyy",
 			"removeFilter",
 			"onClickRemoveFilter",
@@ -753,23 +779,18 @@
 			"GESCHAEFT_REMOVE_DELETE_INTENDED",
 			"GESCHAEFTE_FILTER_BY_FULLTEXT_SET_FILTER",
 			"GESCHAEFTE_FILTER_BY_FULLTEXT",
-			"GESCHAEFTE_FILTER_BY_FIELDS",
-			"GESCHAEFTSART_OPTIONS_GET_ERROR",
-			"GESCHAEFTSART_OPTIONS_GET",
-			"STATUS_OPTIONS_GET_ERROR",
-			"STATUS_OPTIONS_GET",
-			"PARLVORSTOSSTYP_OPTIONS_GET_ERROR"
+			"GESCHAEFTE_FILTER_BY_FIELDS"
 		],
 		"reverse": false,
 		"show_context": true,
 		"use_buffer2": true,
-		"whole_word": false,
+		"whole_word": true,
 		"wrap": true
 	},
 	"groups":
 	[
 		{
-			"selected": 4,
+			"selected": 3,
 			"sheets":
 			[
 				{
@@ -778,15 +799,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 4468,
+						"buffer_size": 4507,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								4204
+								3739,
+								3739
 							]
 						],
 						"settings":
@@ -796,7 +817,7 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 2555.0,
+						"translation.y": 1829.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 4,
@@ -804,112 +825,49 @@
 				},
 				{
 					"buffer": 1,
-					"file": "app/components/Geschaeft.js",
+					"file": "app/components/Geschaefte.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 23724,
+						"buffer_size": 4483,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								21192,
-								21192
+								3155,
+								3155
 							]
 						],
 						"settings":
 						{
-							"history_list_is_closing": true,
 							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax",
 							"tab_size": 2,
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 18594.0,
+						"translation.y": 2475.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 3,
 					"type": "text"
 				},
 				{
-					"buffer": 1,
-					"file": "app/components/Geschaeft.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 23724,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								23465,
-								23465
-							]
-						],
-						"settings":
-						{
-							"history_list_is_closing": true,
-							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 20771.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 2,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "app/components/Geschaeft.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 23724,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								2898,
-								2898
-							]
-						],
-						"settings":
-						{
-							"history_list_is_closing": true,
-							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 2376.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
-					"type": "text"
-				},
-				{
 					"buffer": 2,
-					"file": "app/components/Geschaeft.css",
+					"file": "app/components/Geschaefte.css",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 7964,
+						"buffer_size": 1365,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								7721,
-								7721
+								1184,
+								1184
 							]
 						],
 						"settings":
@@ -919,10 +877,70 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 6930.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "app/components/Geschaeft.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 29133,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								15737,
+								15737
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 13394.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "app/components/Geschaeft.css",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 7576,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								4746,
+								4746
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/CSS/CSS.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 4766.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
 					"type": "text"
 				}
 			]
