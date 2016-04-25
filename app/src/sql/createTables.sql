@@ -112,14 +112,13 @@ CREATE TABLE geschaefteKontakteExtern (
 );
 
 INSERT INTO geschaefteKontakteExtern (idGeschaeft, idKontakt)
-SELECT geschaefte.idGeschaeft, interne.id
+SELECT geschaefte.idGeschaeft, externe.id
 FROM
   geschaefte
-WHERE (
-  SELECT * FROM externe
-  WHERE instr(externe.name || ' ' || externe.vorname, geschaefte.idKontaktExtern) > 0
-)
-
+  INNER JOIN externe
+  ON instr(externe.name || ' ' || externe.vorname, geschaefte.idKontaktExtern) > 0
+WHERE
+  geschaefte.idKontaktExtern <> '';
 
 CREATE TABLE geschaeftsart (
   id INTEGER PRIMARY KEY,
