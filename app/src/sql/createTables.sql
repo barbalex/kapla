@@ -83,11 +83,43 @@ CREATE TABLE geschaefteKontakteIntern (
   PRIMARY KEY (idGeschaeft, idKontakt)
 );
 
+INSERT INTO geschaefteKontakteIntern (idGeschaeft, idKontakt)
+SELECT geschaefte.idGeschaeft, interne.id
+FROM
+  geschaefte
+  INNER JOIN interne
+  ON interne.kurzzeichen = geschaefte.kontaktIntern1
+UNION SELECT geschaefte.idGeschaeft, interne.id
+FROM
+  geschaefte
+  INNER JOIN interne
+  ON interne.kurzzeichen = geschaefte.kontaktIntern2
+UNION SELECT geschaefte.idGeschaeft, interne.id
+FROM
+  geschaefte
+  INNER JOIN interne
+  ON interne.kurzzeichen = geschaefte.kontaktIntern3
+UNION SELECT geschaefte.idGeschaeft, interne.id
+FROM
+  geschaefte
+  INNER JOIN interne
+  ON interne.kurzzeichen = geschaefte.kontaktIntern4;
+
 CREATE TABLE geschaefteKontakteExtern (
   idGeschaeft INTEGER,
   idKontakt INTEGER,
   PRIMARY KEY (idGeschaeft, idKontakt)
 );
+
+INSERT INTO geschaefteKontakteExtern (idGeschaeft, idKontakt)
+SELECT geschaefte.idGeschaeft, interne.id
+FROM
+  geschaefte
+WHERE (
+  SELECT * FROM externe
+  WHERE instr(externe.name || ' ' || externe.vorname, geschaefte.idKontaktExtern) > 0
+)
+
 
 CREATE TABLE geschaeftsart (
   id INTEGER PRIMARY KEY,
