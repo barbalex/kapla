@@ -790,8 +790,8 @@ class Geschaeft extends Component {
         </div>
         <div className={styles.areaPersonen}>
           <div className={styles.areaPersonenTitle}>Personen</div>
+          <div className={styles.areaVerantwortlichSubTitle}>Verantwortlich</div>
           <div className={styles.fieldVerantwortlich}>
-            <ControlLabel className={styles.label}>Verantwortlich</ControlLabel>
             <FormControl
               componentClass="select"
               value={geschaeft.verantwortlich || ''}
@@ -806,11 +806,11 @@ class Geschaeft extends Component {
             </FormControl>
           </div>
           <div className={styles.fieldVerantwortlichName}>
-            <ControlLabel className={styles.label}>Info</ControlLabel>
             <FormControl.Static>
               {this.verantwortlichData()}
             </FormControl.Static>
           </div>
+          <div className={styles.areaInterneKontakteSubTitle}>Interne Kontakte</div>
         </div>
       </div>
     )
