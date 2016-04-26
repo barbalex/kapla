@@ -6,7 +6,6 @@ import { FormGroup, InputGroup, FormControl, ControlLabel, Radio, Glyphicon } fr
 import moment from 'moment'
 moment.locale('de')
 import DateRangePicker from 'react-bootstrap-daterangepicker'
-import Typeahead from 'react-bootstrap-typeahead'
 import styles from './Geschaeft.css'
 import isDateField from '../src/isDateField'
 
@@ -36,7 +35,7 @@ class Geschaeft extends Component {
     this.blur(rVal)
   }
 
-  getDateValidationState = (date) => {
+  getDateValidationStateDate = (date) => {
     switch (this.validateDate(date)) {
       case true:
         return null
@@ -128,7 +127,8 @@ class Geschaeft extends Component {
       parlVorstossTypOptions,
       statusOptions,
       geschaeftsartOptions,
-      geschaefteLayout
+      geschaefteLayout,
+      interneOptions
     } = this.props
 
     // need width to set layout for differing widths
@@ -574,7 +574,7 @@ class Geschaeft extends Component {
           <div className={styles.areaFristenTitle}>Fristen</div>
           <FormGroup
             className={styles.fieldDatumEingangAwel}
-            validationState={this.getDateValidationState(geschaeft.datumEingangAwel)}
+            validationState={this.getDateValidationStateDate(geschaeft.datumEingangAwel)}
           >
             <ControlLabel className={styles.label}>Datum des Eingangs im AWEL</ControlLabel>
             <InputGroup>
@@ -601,7 +601,10 @@ class Geschaeft extends Component {
               </InputGroup.Addon>
             </InputGroup>
           </FormGroup>
-          <div className={styles.fieldFristAwel}>
+          <FormGroup
+            className={styles.fieldFristAwel}
+            validationState={this.getDateValidationStateDate(geschaeft.fristAwel)}
+          >
             <ControlLabel className={styles.label}>Frist für Erledigung durch AWEL</ControlLabel>
             <InputGroup>
               <FormControl
@@ -626,8 +629,11 @@ class Geschaeft extends Component {
                 </DateRangePicker>
               </InputGroup.Addon>
             </InputGroup>
-          </div>
-          <div className={styles.fieldFristAmtschef}>
+          </FormGroup>
+          <FormGroup
+            className={styles.fieldFristAmtschef}
+            validationState={this.getDateValidationStateDate(geschaeft.fristAmtschef)}
+          >
             <ControlLabel className={styles.label}>Frist Vorlage an Amtschef</ControlLabel>
             <InputGroup>
               <FormControl
@@ -652,8 +658,11 @@ class Geschaeft extends Component {
                 </DateRangePicker>
               </InputGroup.Addon>
             </InputGroup>
-          </div>
-          <div className={styles.fieldFristAbteilung}>
+          </FormGroup>
+          <FormGroup
+            className={styles.fieldFristAbteilung}
+            validationState={this.getDateValidationStateDate(geschaeft.fristAbteilung)}
+          >
             <ControlLabel className={styles.label}>Frist für Erledigung durch Abteilung</ControlLabel>
             <InputGroup>
               <FormControl
@@ -678,8 +687,11 @@ class Geschaeft extends Component {
                 </DateRangePicker>
               </InputGroup.Addon>
             </InputGroup>
-          </div>
-          <div className={styles.fieldFristMitarbeiter}>
+          </FormGroup>
+          <FormGroup
+            className={styles.fieldFristMitarbeiter}
+            validationState={this.getDateValidationStateDate(geschaeft.fristMitarbeiter)}
+          >
             <ControlLabel className={styles.label}>Frist Erledigung nächster Schritt RD</ControlLabel>
             <InputGroup>
               <FormControl
@@ -704,14 +716,17 @@ class Geschaeft extends Component {
                 </DateRangePicker>
               </InputGroup.Addon>
             </InputGroup>
-          </div>
+          </FormGroup>
           <div className={styles.fieldFristDauerBisMitarbeiter}>
             <ControlLabel className={styles.label}>Tage bis Frist Mitarbeiter</ControlLabel>
             <FormControl.Static className={styles.formControlStatic}>
               {this.fristDauerBisMitarbeiter()}
             </FormControl.Static>
           </div>
-          <div className={styles.fieldDatumAusgangAwel}>
+          <FormGroup
+            className={styles.fieldDatumAusgangAwel}
+            validationState={this.getDateValidationStateDate(geschaeft.datumAusgangAwel)}
+          >
             <ControlLabel className={styles.label}>Datum Ausgang AWEL (erledigt)</ControlLabel>
             <InputGroup>
               <FormControl
@@ -736,8 +751,11 @@ class Geschaeft extends Component {
                 </DateRangePicker>
               </InputGroup.Addon>
             </InputGroup>
-          </div>
-          <div className={styles.fieldFristDirektion}>
+          </FormGroup>
+          <FormGroup
+            className={styles.fieldFristDirektion}
+            validationState={this.getDateValidationStateDate(geschaeft.fristDirektion)}
+          >
             <ControlLabel className={styles.label}>Frist für Erledigung durch Direktion</ControlLabel>
             <InputGroup>
               <FormControl
@@ -762,7 +780,7 @@ class Geschaeft extends Component {
                 </DateRangePicker>
               </InputGroup.Addon>
             </InputGroup>
-          </div>
+          </FormGroup>
           <div className={styles.fieldMutationsdatum}>
             <ControlLabel className={styles.label}>Letze Mutation</ControlLabel>
             <FormControl.Static className={styles.formControlStatic}>
@@ -775,15 +793,17 @@ class Geschaeft extends Component {
           <div className={styles.fieldVerantwortlich}>
             <ControlLabel className={styles.label}>Verantwortlich</ControlLabel>
             <FormControl
-              type="text"
+              componentClass="select"
               value={geschaeft.verantwortlich || ''}
               name="verantwortlich"
               onChange={this.change}
               onBlur={this.blur}
               bsSize="small"
               className={styles.input}
-              tabIndex={3 + (wrapperClass === styles.wrapperNarrow ? 0 : nrOfGFields)}
-            />
+              tabIndex={3 + (wrapperClass === styles.wrapperNarrow ? nrOfNrFields : 0)}
+            >
+              {this.options(interneOptions.map((o) => o.kurzzeichen).sort())}
+            </FormControl>
           </div>
           <div className={styles.fieldVerantwortlichName}>
             <ControlLabel className={styles.label}>Info</ControlLabel>

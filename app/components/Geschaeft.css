@@ -314,13 +314,13 @@
   grid-area: areaPersonen;
   background-color: rgba(208, 255, 202, 0.2);
   display: grid;
-  grid-template-columns: repeat(3, 0.333fr);
+  grid-template-columns: repeat(4, 0.25fr);
   grid-template-rows: auto;
   grid-template-areas:
-   "1 1 1"
-   "2 fieldVerantwortlichName fieldVerantwortlichName"
-   "3 3 3"
-   "4 4 4";
+   "1 1 1 1"
+   "2 fieldVerantwortlichName fieldVerantwortlichName fieldVerantwortlichName"
+   "3 3 3 3"
+   "4 4 4 4";
   grid-gap: 5px 0;
   padding: 8px;
 }
@@ -336,6 +336,14 @@
 
 .fieldVerantwortlichName {
   grid-area: fieldVerantwortlichName;
+}
+
+.field3 {
+  grid-area: 3;
+}
+
+.field4 {
+  grid-area: 4;
 }
 
 
