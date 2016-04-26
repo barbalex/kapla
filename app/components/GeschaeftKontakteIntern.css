@@ -1,15 +1,14 @@
 .body {
-  grid-area: 5;
+  grid-column: 1 / 5;
   display: grid;
-  grid-template-rows: auto;
-  grid-gap: 5px;
+  grid-gap: 10px 5px;
 }
 
 .row {
   grid-column: 1 / 5;
   display: grid;
   grid-template-columns: repeat(5, 1fr);
-  grid-gap: 10px 0;
+  grid-gap: 10px;
 }
 
 .fV {

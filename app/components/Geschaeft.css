@@ -40,6 +40,7 @@
     "areaGeschaeft areaGeschaeft areaGeschaeft areaGeschaeft areaGeschaeft areaGeschaeft areaGeschaeft areaNummern areaNummern areaNummern areaNummern areaNummern"
     "areaGeschaeft areaGeschaeft areaGeschaeft areaGeschaeft areaGeschaeft areaGeschaeft areaGeschaeft areaParlVorst areaParlVorst areaParlVorst areaParlVorst areaParlVorst"
     "areaFristen areaFristen areaFristen areaFristen areaPersonen areaPersonen areaPersonen areaPersonen areaPersonen areaPersonen areaPersonen areaPersonen";
+  grid-gap: 2px;
 }
 
 .areaGeschaeft {
@@ -57,7 +58,7 @@
     "fieldNaechsterSchritt fieldNaechsterSchritt fieldNaechsterSchritt fieldNaechsterSchritt fieldNaechsterSchritt fieldNaechsterSchritt fieldNaechsterSchritt fieldNaechsterSchritt fieldNaechsterSchritt fieldNaechsterSchritt fieldNaechsterSchritt fieldNaechsterSchritt"
     "fieldVermerk fieldVermerk fieldVermerk fieldVermerk fieldVermerk fieldVermerk fieldVermerk fieldVermerk fieldVermerk fieldVermerk fieldVermerk fieldVermerk"
     "fieldErledigung fieldErledigung fieldErledigung fieldErledigung fieldErledigung fieldErledigung fieldErledigung fieldErledigung fieldErledigung fieldErledigung fieldErledigung fieldErledigung";
-  grid-gap: 5px 0;
+  grid-gap: 5px 2px;
   padding: 8px;
 }
 
@@ -119,7 +120,7 @@
    "fieldEntscheidAwelNr slashAwel fieldEntscheidAwelJahr . fieldEntscheidBdvNr slashBdv fieldEntscheidBdvJahr"
    "fieldEntscheidKrNr slashKr fieldEntscheidKrJahr . fieldEntscheidRrbNr slashRrb fieldEntscheidRrbJahr"
    "fieldAktenstandort fieldAktenstandort fieldAktenstandort fieldAktenstandort fieldAktenstandort . fieldAktennummer";
-  grid-gap: 5px 0;
+  grid-gap: 5px 2px;
   padding: 8px;
 }
 
@@ -255,63 +256,51 @@
   background-color: rgba(242, 255, 1, 0.2);
   display: grid;
   grid-template-columns: 100%;
-  grid-template-rows: auto;
-  grid-template-areas:
-   "1"
-   "2"
-   "3"
-   "4"
-   "5"
-   "6"
-   "7"
-   "8"
-   "9"
-   "10";
-  grid-gap: 5px 0;
+  grid-gap: 2px;
   padding: 8px;
 }
 
 .areaFristenTitle {
   composes: areaTitle;
-  grid-area: 1;
+  grid-column: 1;
 }
 
 .fieldDatumEingangAwel {
-  grid-area: 2;
+  grid-column: 1;
 }
 
 .fieldFristAwel {
-  grid-area: 3;
+  grid-column: 1;
 }
 
 .fieldFristAmtschef {
-  grid-area: 4;
+  grid-column: 1;
 }
 
 .fieldFristAbteilung {
-  grid-area: 5;
+  grid-column: 1;
 }
 
 .fieldFristMitarbeiter {
-  grid-area: 6;
+  grid-column: 1;
 }
 
 .fieldFristDauerBisMitarbeiter {
-  grid-area: 7;
+  grid-column: 1;
   font-weight: 700;
   font-size: 14px;
 }
 
 .fieldDatumAusgangAwel {
-  grid-area: 8;
+  grid-column: 1;
 }
 
 .fieldFristDirektion {
-  grid-area: 9;
+  grid-column: 1;
 }
 
 .fieldMutationsdatum {
-  grid-area: 10;
+  grid-column: 1;
 }
 
 
@@ -320,38 +309,31 @@
   background-color: rgba(208, 255, 202, 0.2);
   display: grid;
   grid-template-columns: repeat(5, 0.2fr);
-  grid-template-rows: auto;
-  grid-template-areas:
-   "1 1 1 1 1"
-   "2 2 2 2 2"
-   "3 fieldVerantwortlichName fieldVerantwortlichName fieldVerantwortlichName fieldVerantwortlichName"
-   "4 4 4 4 4"
-   "5 5 5 5 5";
-  grid-gap: 10px 0;
+  grid-gap: 10px 2px;
   padding: 8px;
 }
 
 .areaPersonenTitle {
   composes: areaTitle;
-  grid-area: 1;
+  grid-column: 1 / 5;
 }
 
 .areaVerantwortlichSubTitle {
   composes: areaSubTitle;
-  grid-area: 2;
+  grid-column: 1 / 5;
 }
 
 .fieldVerantwortlich {
-  grid-area: 3;
+  grid-column: 1;
 }
 
 .fieldVerantwortlichName {
-  grid-area: fieldVerantwortlichName;
+  grid-column: 2 / 5;
 }
 
 .areaInterneKontakteSubTitle {
   composes: areaSubTitle;
-  grid-area: 4;
+  grid-column: 1 / 5;
 }
 
 
