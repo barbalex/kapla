@@ -110,6 +110,17 @@ class Geschaeft extends Component {
     return days ? Math.ceil(days) : ''
   }
 
+  verantwortlichData = () => {
+    const { geschaeft, interneOptions } = this.props
+    const data = interneOptions.find((o) => o.kurzzeichen === geschaeft.verantwortlich)
+    if (!data) return ''
+    const name = `${data.vorname} ${data.name}`
+    const abt = data.abteilung ? `, ${data.abteilung}` : null
+    const eMail = data.eMail ? `, ${data.eMail}` : null
+    const telefon = data.telefon ? `, ${data.telefon}` : null
+    return `${name}${abt}${eMail}${telefon}`
+  }
+
   render() {
     const {
       geschaeft,
@@ -117,7 +128,6 @@ class Geschaeft extends Component {
       parlVorstossTypOptions,
       statusOptions,
       geschaeftsartOptions,
-      interneOptions,
       geschaefteLayout
     } = this.props
 
@@ -134,9 +144,6 @@ class Geschaeft extends Component {
     const nrOfFieldsBeforeFristen = nrOfFieldsBeforePv + nrOfPvFields
 
     if (!showGeschaeft) return null
-
-    const verantwortlichData = interneOptions.find((o) => o.kurzzeichen === geschaeft.verantwortlich)
-    const verantwortlichName = verantwortlichData ? `${verantwortlichData.vorname} ${verantwortlichData.name}` : null
 
     return (
       <div className={wrapperClass}>
@@ -779,14 +786,10 @@ class Geschaeft extends Component {
             />
           </div>
           <div className={styles.fieldVerantwortlichName}>
-            <ControlLabel className={styles.label}>Name</ControlLabel>
-            <FormControl
-              type="text"
-              value={verantwortlichName || ''}
-              bsSize="small"
-              className={styles.input}
-              disabled
-            />
+            <ControlLabel className={styles.label}>Info</ControlLabel>
+            <FormControl.Static>
+              {this.verantwortlichData()}
+            </FormControl.Static>
           </div>
         </div>
       </div>
