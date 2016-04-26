@@ -18,6 +18,8 @@ class Geschaeft extends Component {
     changeGeschaeftInDb: PropTypes.func.isRequired,
     rechtsmittelerledigungOptions: PropTypes.array.isRequired,
     parlVorstossTypOptions: PropTypes.array.isRequired,
+    interneOptions: PropTypes.array,
+    externeOptions: PropTypes.array,
     statusOptions: PropTypes.array.isRequired,
     geschaeftsartOptions: PropTypes.array.isRequired,
     geschaefteLayout: PropTypes.object.isRequired
@@ -115,6 +117,7 @@ class Geschaeft extends Component {
       parlVorstossTypOptions,
       statusOptions,
       geschaeftsartOptions,
+      interneOptions,
       geschaefteLayout
     } = this.props
 
@@ -131,6 +134,10 @@ class Geschaeft extends Component {
     const nrOfFieldsBeforeFristen = nrOfFieldsBeforePv + nrOfPvFields
 
     if (!showGeschaeft) return null
+
+    const verantwortlichData = interneOptions.find((o) => o.kurzzeichen === geschaeft.verantwortlich)
+    const verantwortlichName = verantwortlichData ? `${verantwortlichData.vorname} ${verantwortlichData.name}` : null
+
     return (
       <div className={wrapperClass}>
         <div className={styles.areaGeschaeft}>
@@ -769,6 +776,16 @@ class Geschaeft extends Component {
               bsSize="small"
               className={styles.input}
               tabIndex={3 + (wrapperClass === styles.wrapperNarrow ? 0 : nrOfGFields)}
+            />
+          </div>
+          <div className={styles.fieldVerantwortlichName}>
+            <ControlLabel className={styles.label}>Name</ControlLabel>
+            <FormControl
+              type="text"
+              value={verantwortlichName || ''}
+              bsSize="small"
+              className={styles.input}
+              disabled
             />
           </div>
         </div>

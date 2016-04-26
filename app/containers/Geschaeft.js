@@ -14,6 +14,8 @@ function mapStateToProps(state, props) {
     activeId,
     rechtsmittelerledigungOptions,
     parlVorstossTypOptions,
+    interneOptions,
+    externeOptions,
     statusOptions,
     geschaeftsartOptions
   } = state.geschaefte
@@ -25,6 +27,8 @@ function mapStateToProps(state, props) {
     activeId,
     rechtsmittelerledigungOptions,
     parlVorstossTypOptions,
+    interneOptions,
+    externeOptions,
     statusOptions,
     geschaeftsartOptions,
     geschaefteLayout: layout

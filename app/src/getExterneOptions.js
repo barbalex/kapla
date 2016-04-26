@@ -4,7 +4,7 @@ export default function (db) {
   return new Promise((resolve, reject) => {
     const sql = `
       SELECT
-        id, name || ' ' || vorname AS nameVorname
+        *, name || ' ' || vorname AS nameVorname
       FROM
         externe
       ORDER BY
