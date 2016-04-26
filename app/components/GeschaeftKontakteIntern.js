@@ -11,7 +11,7 @@ class GeschaefteKontakteIntern extends Component {
     geschaefteKontakteIntern: PropTypes.array.isRequired,
     activeIdGeschaeft: PropTypes.number,
     activeIdKontakt: PropTypes.number,
-    geschaeftKontaktInternToggleActivated: PropTypes.func.isRequired,
+    geschaeftKontaktInternNewCreate: PropTypes.func.isRequired,
     activeId: PropTypes.number.isRequired
   }
 
@@ -37,12 +37,18 @@ class GeschaefteKontakteIntern extends Component {
     return `${name}${abt}${eMail}${telefon}`
   }
 
+  onChangeNewKontaktIntern = (e) => {
+    const { geschaeftKontaktInternNewCreate, activeId } = this.props
+    const idKontakt = e.target.value
+    geschaeftKontaktInternNewCreate(activeId, idKontakt)
+  }
+
   renderItems() {
     const { geschaefteKontakteIntern, activeId } = this.props
     // filter for this geschaeft
     const gkIFiltered = geschaefteKontakteIntern.filter((g) => g.idGeschaeft === activeId)
     return gkIFiltered.map((gkI, index) => (
-      <div key={index} className={styles.row}>
+      <div key={index + 1} className={styles.row}>
         <div className={styles.fV}>
           <FormControl
             componentClass="select"
@@ -62,11 +68,31 @@ class GeschaefteKontakteIntern extends Component {
     ))
   }
 
-  render = () => (
-    <div className={styles.body}>
-      {this.renderItems()}
-    </div>
-  )
+  render = () => {
+    const { geschaefteKontakteIntern } = this.props
+    return (
+      <div className={styles.body}>
+        {this.renderItems()}
+        <div key={0} className={styles.row}>
+          <div className={styles.fV}>
+            <FormControl
+              componentClass="select"
+              bsSize="small"
+              className={styles.input}
+              onChange={this.onChangeNewKontaktIntern}
+            >
+              {this.options(geschaefteKontakteIntern[0])}
+            </FormControl>
+          </div>
+          <div className={styles.fVN}>
+            <FormControl.Static>
+              {null}
+            </FormControl.Static>
+          </div>
+        </div>
+      </div>
+    )
+  }
 }
 
 export default GeschaefteKontakteIntern

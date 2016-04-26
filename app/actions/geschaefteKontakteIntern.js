@@ -44,13 +44,16 @@ function geschaefteKontakteInternGetError(error) {
 import newGeschaeftKontaktInternInDb from '../src/newGeschaeftKontaktInternInDb.js'
 import deleteGeschaeftKontaktIntern from '../src/deleteGeschaeftKontaktIntern.js'
 
-export function geschaeftNewCreate(idGeschaeft) {
+export function geschaeftKontaktInternNewCreate(idGeschaeft, idKontakt) {
   return (dispatch, getState) => {
     const { app } = getState()
-    newGeschaeftKontaktInternInDb(app.db, idGeschaeft)
+    console.log('geschaeftKontaktInternNewCreate')
+    newGeschaeftKontaktInternInDb(app.db, idGeschaeft, idKontakt)
       .then((geschaeftKontaktIntern) => {
+        console.log('geschaeftKontaktInternNewCreate, idGeschaeft', idGeschaeft)
+        console.log('geschaeftKontaktInternNewCreate, idKontakt', idKontakt)
+        console.log('geschaeftKontaktInternNewCreate, geschaeftKontaktIntern', geschaeftKontaktIntern)
         dispatch(geschaeftKontaktInternNew(geschaeftKontaktIntern))
-        dispatch(geschaeftKontaktInternToggleActivated(geschaeftKontaktIntern.idGeschaeft, geschaeftKontaktIntern.idKontakt))
       })
       .catch((error) => dispatch(geschaeftKontaktInternNewError(error)))
   }
@@ -123,14 +126,5 @@ export function geschaefteKontakteInternChangeDbError(error) {
   return {
     type: GESCHAEFTE_KONTAKTE_INTERN_CHANGE_DB_ERROR,
     error
-  }
-}
-
-export const GESCHAEFT_KONTAKT_INTERN_TOGGLE_ACTIVATED = 'GESCHAEFT_KONTAKT_INTERN_TOGGLE_ACTIVATED'
-export function geschaeftKontaktInternToggleActivated(activeIdGeschaeft, activeIdKontakt) {
-  return {
-    type: GESCHAEFT_KONTAKT_INTERN_TOGGLE_ACTIVATED,
-    activeIdGeschaeft,
-    activeIdKontakt
   }
 }
