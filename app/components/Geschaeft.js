@@ -6,6 +6,7 @@ import { FormGroup, InputGroup, FormControl, ControlLabel, Radio, Glyphicon } fr
 import moment from 'moment'
 moment.locale('de')
 import DateRangePicker from 'react-bootstrap-daterangepicker'
+import Typeahead from 'react-bootstrap-typeahead'
 import styles from './Geschaeft.css'
 import isDateField from '../src/isDateField'
 
@@ -757,6 +758,19 @@ class Geschaeft extends Component {
         </div>
         <div className={styles.areaPersonen}>
           <div className={styles.areaPersonenTitle}>Personen</div>
+          <div className={styles.fieldVerantwortlich}>
+            <ControlLabel className={styles.label}>Verantwortlich</ControlLabel>
+            <FormControl
+              type="text"
+              value={geschaeft.verantwortlich || ''}
+              name="verantwortlich"
+              onChange={this.change}
+              onBlur={this.blur}
+              bsSize="small"
+              className={styles.input}
+              tabIndex={3 + (wrapperClass === styles.wrapperNarrow ? 0 : nrOfGFields)}
+            />
+          </div>
         </div>
       </div>
     )
