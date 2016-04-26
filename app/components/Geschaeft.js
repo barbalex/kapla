@@ -756,6 +756,7 @@ class Geschaeft extends Component {
           </div>
         </div>
         <div className={styles.areaPersonen}>
+          <div className={styles.areaPersonenTitle}>Personen</div>
         </div>
       </div>
     )

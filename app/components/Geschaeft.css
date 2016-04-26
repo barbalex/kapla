@@ -331,6 +331,14 @@
   padding: 8px;
 }
 
+.areaPersonenTitle {
+  composes: bereichTitel;
+  grid-area: 1;
+}
+
+
+
+
 .datePicker {
   cursor: pointer;
 }
