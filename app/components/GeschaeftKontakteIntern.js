@@ -3,7 +3,7 @@
 import React, { Component, PropTypes } from 'react'
 import { FormControl } from 'react-bootstrap'
 import _ from 'lodash'
-import styles from './GeschaefteKontakteIntern.css'
+import styles from './GeschaeftKontakteIntern.css'
 
 class GeschaefteKontakteIntern extends Component {
   static propTypes = {
@@ -11,7 +11,8 @@ class GeschaefteKontakteIntern extends Component {
     geschaefteKontakteIntern: PropTypes.array.isRequired,
     activeIdGeschaeft: PropTypes.number,
     activeIdKontakt: PropTypes.number,
-    geschaeftKontaktInternToggleActivated: PropTypes.func.isRequired
+    geschaeftKontaktInternToggleActivated: PropTypes.func.isRequired,
+    activeId: PropTypes.number.isRequired
   }
 
   options = () => {
@@ -19,7 +20,7 @@ class GeschaefteKontakteIntern extends Component {
     // sort interneOptions by kurzzeichen
     const interneOptionsSorted = _.sortBy(interneOptions, (o) => o.kurzzeichen)
     const options = interneOptionsSorted.map((o, index) =>
-      <option key={index + 1} value={o.idKontakt}>{o.kurzzeichen}</option>
+      <option key={index + 1} value={o.id}>{o.kurzzeichen}</option>
     )
     options.unshift(<option key={0} value=""></option>)
     return options
@@ -27,7 +28,7 @@ class GeschaefteKontakteIntern extends Component {
 
   verantwortlichData = (gkI) => {
     const { interneOptions } = this.props
-    const data = interneOptions.find((o) => o.idKontakt === gkI.idKontakt)
+    const data = interneOptions.find((o) => o.id === gkI.idKontakt)
     if (!data) return ''
     const name = `${data.vorname} ${data.name}`
     const abt = data.abteilung ? `, ${data.abteilung}` : null
@@ -37,22 +38,22 @@ class GeschaefteKontakteIntern extends Component {
   }
 
   renderItems() {
-    const { geschaefteKontakteIntern } = this.props
-    return geschaefteKontakteIntern.map((gkI, index) => (
-      <div key={index}>
-        <div className={styles.fieldVerantwortlich}>
+    const { geschaefteKontakteIntern, activeId } = this.props
+    // filter for this geschaeft
+    const gkIFiltered = geschaefteKontakteIntern.filter((g) => g.idGeschaeft === activeId)
+    return gkIFiltered.map((gkI, index) => (
+      <div key={index} className={styles.row}>
+        <div className={styles.fV}>
           <FormControl
             componentClass="select"
-            value={gkI.idKontakt || ''}
-            onChange={this.change}
-            onBlur={this.blur}
+            defaultValue={gkI.idKontakt}
             bsSize="small"
             className={styles.input}
           >
-            {this.options()}
+            {this.options(gkI)}
           </FormControl>
         </div>
-        <div className={styles.fieldVerantwortlichName}>
+        <div className={styles.fVN}>
           <FormControl.Static>
             {this.verantwortlichData(gkI)}
           </FormControl.Static>
@@ -62,7 +63,7 @@ class GeschaefteKontakteIntern extends Component {
   }
 
   render = () => (
-    <div>
+    <div className={styles.body}>
       {this.renderItems()}
     </div>
   )

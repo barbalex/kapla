@@ -14,13 +14,14 @@ function mapStateToProps(state) {
     activeIdGeschaeft,
     activeIdKontakt
   } = state.geschaefteKontakteIntern
-  const { interneOptions } = state.geschaefte
+  const { interneOptions, activeId } = state.geschaefte
 
   return {
     geschaefteKontakteIntern,
     activeIdGeschaeft,
     activeIdKontakt,
-    interneOptions
+    interneOptions,
+    activeId
   }
 }
 

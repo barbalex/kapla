@@ -5,6 +5,7 @@ import chooseDb from '../src/chooseDb.js'
 import getConfig from '../src/getConfig.js'
 import saveConfigValue from '../src/saveConfigValue.js'
 import * as GeschaefteActions from './geschaefte'
+import * as GeschaefteKontakteInternActions from './geschaefteKontakteIntern'
 import * as UserActions from './user'
 
 export const MESSAGE_SHOW = 'MESSAGE_SHOW'
@@ -54,6 +55,7 @@ function dbChooseSuccess(dbPath, db) {
     dispatch(GeschaefteActions.geschaeftsartOptionsGet())
     dispatch(GeschaefteActions.interneOptionsGet())
     dispatch(GeschaefteActions.externeOptionsGet())
+    dispatch(GeschaefteKontakteInternActions.getGeschaefteKontakteIntern())
   }
 }
 
