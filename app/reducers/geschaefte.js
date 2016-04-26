@@ -21,7 +21,11 @@ import {
   STATUS_OPTIONS_GET_SUCCESS,
   STATUS_OPTIONS_GET_ERROR,
   GESCHAEFTSART_OPTIONS_GET_SUCCESS,
-  GESCHAEFTSART_OPTIONS_GET_ERROR
+  GESCHAEFTSART_OPTIONS_GET_ERROR,
+  INTERNE_OPTIONS_GET_SUCCESS,
+  INTERNE_OPTIONS_GET_ERROR,
+  EXTERNE_OPTIONS_GET_SUCCESS,
+  EXTERNE_OPTIONS_GET_ERROR
 } from '../actions/geschaefte'
 
 const standardState = {
@@ -154,10 +158,22 @@ export default function geschaefte(state = standardState, action) {
         ...state,
         geschaeftsartOptions: action.geschaeftsartOptions
       }
+    case INTERNE_OPTIONS_GET_SUCCESS:
+      return {
+        ...state,
+        interneOptions: action.interneOptions
+      }
+    case EXTERNE_OPTIONS_GET_SUCCESS:
+      return {
+        ...state,
+        externeOptions: action.externeOptions
+      }
     case RECHTSMITTELERLEDIGUNG_OPTIONS_GET_ERROR:
     case PARLVORSTOSSTYP_OPTIONS_GET_ERROR:
     case STATUS_OPTIONS_GET_ERROR:
     case GESCHAEFTSART_OPTIONS_GET_ERROR:
+    case INTERNE_OPTIONS_GET_ERROR:
+    case EXTERNE_OPTIONS_GET_ERROR:
     case GESCHAEFTE_CHANGE_DB_ERROR:
       return {
         ...state,

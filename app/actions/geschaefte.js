@@ -4,10 +4,12 @@
 // see: https://github.com/mapbox/node-sqlite3/issues/621
 // see: https://github.com/mapbox/node-pre-gyp/pull/187
 // solve with: http://verysimple.com/2015/05/30/using-node_sqlite3-with-electron/
-import getGeschaefteFromDb from '../src/getGeschaefteFromDb.js'
-import getDropdownOptions from '../src/getDropdownOptions.js'
-import updateGeschaeft from '../src/updateGeschaeft.js'
-import filterGeschaefte from '../src/filterGeschaefte.js'
+import getGeschaefteFromDb from '../src/getGeschaefteFromDb'
+import getDropdownOptions from '../src/getDropdownOptions'
+import getInterneOptions from '../src/getInterneOptions'
+import getExterneOptions from '../src/getExterneOptions'
+import updateGeschaeft from '../src/updateGeschaeft'
+import filterGeschaefte from '../src/filterGeschaefte'
 
 export function getGeschaefte() {
   return (dispatch, getState) => {
@@ -318,6 +320,56 @@ export const GESCHAEFTSART_OPTIONS_GET_ERROR = 'GESCHAEFTSART_OPTIONS_GET_ERROR'
 function geschaeftsartOptionsGetError(error) {
   return {
     type: GESCHAEFTSART_OPTIONS_GET_ERROR,
+    error
+  }
+}
+
+export function interneOptionsGet() {
+  return (dispatch, getState) => {
+    const { app } = getState()
+    getInterneOptions(app.db)
+      .then((interneOptions) => dispatch(interneOptionsGetSuccess(interneOptions)))
+      .catch((error) => dispatch(interneOptionsGetError(error)))
+  }
+}
+
+export const INTERNE_OPTIONS_GET_SUCCESS = 'INTERNE_OPTIONS_GET_SUCCESS'
+function interneOptionsGetSuccess(interneOptions) {
+  return {
+    type: INTERNE_OPTIONS_GET_SUCCESS,
+    interneOptions
+  }
+}
+
+export const INTERNE_OPTIONS_GET_ERROR = 'INTERNE_OPTIONS_GET_ERROR'
+function interneOptionsGetError(error) {
+  return {
+    type: INTERNE_OPTIONS_GET_ERROR,
+    error
+  }
+}
+
+export function externeOptionsGet() {
+  return (dispatch, getState) => {
+    const { app } = getState()
+    getExterneOptions(app.db)
+      .then((externeOptions) => dispatch(externeOptionsGetSuccess(externeOptions)))
+      .catch((error) => dispatch(externeOptionsGetError(error)))
+  }
+}
+
+export const EXTERNE_OPTIONS_GET_SUCCESS = 'EXTERNE_OPTIONS_GET_SUCCESS'
+function externeOptionsGetSuccess(externeOptions) {
+  return {
+    type: EXTERNE_OPTIONS_GET_SUCCESS,
+    externeOptions
+  }
+}
+
+export const EXTERNE_OPTIONS_GET_ERROR = 'EXTERNE_OPTIONS_GET_ERROR'
+function externeOptionsGetError(error) {
+  return {
+    type: EXTERNE_OPTIONS_GET_ERROR,
     error
   }
 }

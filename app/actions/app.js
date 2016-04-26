@@ -52,6 +52,8 @@ function dbChooseSuccess(dbPath, db) {
     dispatch(GeschaefteActions.parlVorstossTypOptionsGet())
     dispatch(GeschaefteActions.statusOptionsGet())
     dispatch(GeschaefteActions.geschaeftsartOptionsGet())
+    dispatch(GeschaefteActions.interneOptionsGet())
+    dispatch(GeschaefteActions.externeOptionsGet())
   }
 }
 
