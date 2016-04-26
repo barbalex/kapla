@@ -8,6 +8,7 @@ moment.locale('de')
 import DateRangePicker from 'react-bootstrap-daterangepicker'
 import styles from './Geschaeft.css'
 import isDateField from '../src/isDateField'
+import GeschaeftKontakteIntern from './GeschaeftKontakteIntern'
 
 class Geschaeft extends Component {
   static propTypes = {
@@ -811,6 +812,7 @@ class Geschaeft extends Component {
             </FormControl.Static>
           </div>
           <div className={styles.areaInterneKontakteSubTitle}>Interne Kontakte</div>
+          <GeschaeftKontakteIntern />
         </div>
       </div>
     )

@@ -40,6 +40,8 @@ const standardState = {
   parlVorstossTypOptions: [],
   statusOptions: [],
   geschaeftsartOptions: [],
+  interneOptions: [],
+  externeOptions: [],
   // following: state for active geschaeft
   activeId: null,
   willDelete: false

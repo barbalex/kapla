@@ -1,129 +1,71 @@
 'use strict'
 
 import React, { Component, PropTypes } from 'react'
-import moment from 'moment'
+import { FormControl } from 'react-bootstrap'
+import _ from 'lodash'
 import styles from './GeschaefteKontakteIntern.css'
 
 class GeschaefteKontakteIntern extends Component {
   static propTypes = {
+    interneOptions: PropTypes.array.isRequired,
     geschaefteKontakteIntern: PropTypes.array.isRequired,
     activeIdGeschaeft: PropTypes.number,
     activeIdKontakt: PropTypes.number,
     geschaeftKontaktInternToggleActivated: PropTypes.func.isRequired
   }
 
-  onClickGeschaeft(idGeschaeft) {
-    const { geschaeftKontaktInternToggleActivated } = this.props
-    geschaeftKontaktInternToggleActivated(idGeschaeft)
+  options = () => {
+    const { interneOptions } = this.props
+    // sort interneOptions by kurzzeichen
+    const interneOptionsSorted = _.sortBy(interneOptions, (o) => o.kurzzeichen)
+    const options = interneOptionsSorted.map((o, index) =>
+      <option key={index + 1} value={o.idKontakt}>{o.kurzzeichen}</option>
+    )
+    options.unshift(<option key={0} value=""></option>)
+    return options
   }
 
-  dauerBisFristMitarbeiter = (geschaeft) => {
-    if (!geschaeft.fristMitarbeiter) return null
-    const now = moment()
-    const end = moment(geschaeft.fristMitarbeiter, 'DD.MM.YYYY')
-    const duration = moment.duration(end.diff(now))
-    const days = duration.asDays()
-    return days ? Math.ceil(days) : ''
+  verantwortlichData = (gkI) => {
+    const { interneOptions } = this.props
+    const data = interneOptions.find((o) => o.idKontakt === gkI.idKontakt)
+    if (!data) return ''
+    const name = `${data.vorname} ${data.name}`
+    const abt = data.abteilung ? `, ${data.abteilung}` : null
+    const eMail = data.eMail ? `, ${data.eMail}` : null
+    const telefon = data.telefon ? `, ${data.telefon}` : null
+    return `${name}${abt}${eMail}${telefon}`
   }
 
-  statusFristInText = (dauerBisFristMitarbeiter) => {
-    if (dauerBisFristMitarbeiter < 0) return 'Überfällig'
-    if (dauerBisFristMitarbeiter === 0) return 'Heute'
-    if (dauerBisFristMitarbeiter === 1) return `In ${dauerBisFristMitarbeiter} Tag`
-    return `In ${dauerBisFristMitarbeiter} Tagen`
-  }
-
-  statusFristInStyle = (statusFristInText) => {
-    if (statusFristInText === 'Überfällig') return styles.fieldFristInUeberfaellig
-    if (statusFristInText === 'Heute') return styles.fieldFristInHeute
-    return null
-  }
-
-  renderItem(index, key) {
-    const { geschaefteKontakteIntern, geschaefteGefilterteIds, activeId } = this.props
-    const isActive = activeId && activeId === geschaefteGefilterteIds[index]
-    const trClassName = isActive ? [styles.tableBodyRow, styles.active].join(' ') : styles.tableBodyRow
-    const geschaeft = geschaefteKontakteIntern.find((g) => g.idGeschaeft === geschaefteGefilterteIds[index])
-    const fristMitarbeiter = geschaeft.fristMitarbeiter ? `Frist: ${geschaeft.fristMitarbeiter}` : ''
-    const dauerBisFristMitarbeiter = this.dauerBisFristMitarbeiter(geschaeft)
-    const statusFristInText = this.statusFristInText(dauerBisFristMitarbeiter)
-    const statusFristIn = geschaeft.fristMitarbeiter ? statusFristInText : null
-
-    return (
-      <div
-        key={key}
-        className={trClassName}
-        onClick={this.onClickGeschaeft.bind(this, geschaeft.idGeschaeft)}
-      >
-        <div className={styles.columnIdGeschaeft}>
-          <div>
-            {geschaeft.idGeschaeft}
-          </div>
+  renderItems() {
+    const { geschaefteKontakteIntern } = this.props
+    return geschaefteKontakteIntern.map((gkI, index) => (
+      <div key={index}>
+        <div className={styles.fieldVerantwortlich}>
+          <FormControl
+            componentClass="select"
+            value={gkI.idKontakt || ''}
+            onChange={this.change}
+            onBlur={this.blur}
+            bsSize="small"
+            className={styles.input}
+          >
+            {this.options()}
+          </FormControl>
         </div>
-        <div className={styles.columnGegenstand}>
-          <div className={styles.fieldGegenstand}>
-            {geschaeft.gegenstand}
-          </div>
-          <div>
-            {geschaeft.details}
-          </div>
-        </div>
-        <div className={styles.columnStatus}>
-          <div>
-            {geschaeft.status}
-          </div>
-          <div>
-            {fristMitarbeiter}
-          </div>
-          <div className={this.statusFristInStyle(statusFristInText)}>
-            {statusFristIn}
-          </div>
-        </div>
-        <div className={styles.columnKontaktIntern}>
-          <div>
-            {geschaeft.verantwortlich}
-          </div>
-          <div>
-            {geschaeft.verantwortlichVornameName}
-          </div>
+        <div className={styles.fieldVerantwortlichName}>
+          <FormControl.Static>
+            {this.verantwortlichData(gkI)}
+          </FormControl.Static>
         </div>
       </div>
-    )
+    ))
   }
 
-  renderItems(items, ref) {
-    return (
-      <div ref={ref} className={styles.table}>
-        {items}
-      </div>
-    )
-  }
-
-  render() {
-    const { geschaefteGefilterteIds } = this.props
-
-    return (
-      <div className={styles.body}>
-        <div className={styles.table}>
-          <div className={styles.tableHeader}>
-            <div className={styles.tableHeaderRow}>
-              <div className={[styles.columnIdGeschaeft, styles.tableHeaderCell].join(' ')}>ID</div>
-              <div className={[styles.columnGegenstand, styles.tableHeaderCell].join(' ')}>Gegenstand</div>
-              <div className={[styles.columnStatus, styles.tableHeaderCell].join(' ')}>Status</div>
-              <div className={[styles.columnKontaktIntern, styles.tableHeaderCell].join(' ')}>Kontakt</div>
-            </div>
-          </div>
-          <div className={[styles.tableBody, 'reactList'].join(' ')}>
-            <ReactList
-              itemRenderer={::this.renderItem}
-              length={geschaefteGefilterteIds.length}
-              type="variable"
-            />
-          </div>
-        </div>
-      </div>
-    )
-  }
+  render = () => (
+    <div>
+      {this.renderItems()}
+    </div>
+  )
 }
 
 export default GeschaefteKontakteIntern
