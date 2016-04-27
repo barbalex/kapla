@@ -24,11 +24,9 @@
   /**
    * no idea why but column 2 pushes column 3
    * to the right and out of the viewport!!!!????
-   * so need to position absolute :-(
+   * so need to position absolute :-( ?
    */
-  /*grid-column: 3 / span 1;*/
-  position: absolute;
-  right: 20px;
+  grid-column: 3 / span 1;
 }
 
 .removeGlyphicon {
