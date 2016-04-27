@@ -9,6 +9,7 @@ import DateRangePicker from 'react-bootstrap-daterangepicker'
 import styles from './Geschaeft.css'
 import isDateField from '../src/isDateField'
 import GeschaeftKontakteIntern from '../containers/GeschaeftKontakteIntern'
+import GeschaeftKontakteExtern from '../containers/GeschaeftKontakteExtern'
 
 class Geschaeft extends Component {
   static propTypes = {
@@ -813,6 +814,8 @@ class Geschaeft extends Component {
           </div>
           <div className={styles.areaInterneKontakteSubTitle}>Interne Kontakte</div>
           <GeschaeftKontakteIntern className={styles.areaInterneKontakteRows} />
+          <div className={styles.areaExterneKontakteSubTitle}>Externe Kontakte</div>
+          <GeschaeftKontakteExtern className={styles.areaExterneKontakteRows} />
         </div>
       </div>
     )

@@ -324,6 +324,11 @@
   grid-column: 1 / span 2;
 }
 
+.areaExterneKontakteSubTitle {
+  composes: areaSubTitle;
+  grid-column: 1 / span 2;
+}
+
 
 
 
