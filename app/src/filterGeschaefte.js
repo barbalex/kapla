@@ -23,6 +23,7 @@ export default function (geschaefte, filterFulltext, filterFields) {
           } else {
             // console.log('geschaeftValue', geschaeftValue)
             // console.log('filterValue', filterValue)
+            // TODO: need to find geschaeftId's
             if (geschaeft[key] === filterFulltext) satisfiesFilter = true
           }
         }
