@@ -7,24 +7,23 @@ export default function (geschaefte, filterFulltext, filterFields) {
   const existsFilterFields = Object.keys(filterFields).length > 0
   let geschaefteGefiltert = geschaefte
 
-  console.log('filterFulltext', filterFulltext)
-  console.log('isNaN(filterFulltext)', isNaN(filterFulltext))
-
   if (existsFilterFulltext) {
     geschaefteGefiltert = geschaefte.filter((geschaeft) => {
       // if any value satisfies the filter, include the geschaeft
       let satisfiesFilter = false
       Object.keys(geschaeft).forEach((key) => {
+        // there are lots of empty fields
+        // don't work on them
         if (geschaeft[key]) {
-          const geschaeftValue = isString(geschaeft[key]) ? geschaeft[key].toLowerCase() : geschaeft[key]
-          const filterValue = isString(filterFulltext) ? filterFulltext.toLowerCase() : filterFulltext
           if (isNaN(filterFulltext)) {
+            // a string is queried
+            const geschaeftValue = isString(geschaeft[key]) ? geschaeft[key].toLowerCase() : geschaeft[key]
+            const filterValue = isString(filterFulltext) ? filterFulltext.toLowerCase() : filterFulltext
             if (includes(geschaeftValue, filterValue)) satisfiesFilter = true
           } else {
-            // console.log('geschaeftValue', geschaeftValue)
-            // console.log('filterValue', filterValue)
-            // TODO: need to find geschaeftId's
-            if (geschaeft[key] === filterFulltext) satisfiesFilter = true
+            // a number is queried
+            // convert to string to also find 7681 when filtering for 681
+            if (includes(geschaeft[key].toString(), filterFulltext.toString())) satisfiesFilter = true
           }
         }
       })
