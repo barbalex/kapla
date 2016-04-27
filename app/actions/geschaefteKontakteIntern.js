@@ -75,7 +75,7 @@ export function geschaeftKontaktInternNewError(error) {
   }
 }
 
-export function geschaeftRemove(idGeschaeft, idKontakt) {
+export function geschaeftKontaktInternRemove(idGeschaeft, idKontakt) {
   return (dispatch, getState) => {
     const { app } = getState()
     deleteGeschaeftKontaktIntern(app.db, idGeschaeft, idKontakt)

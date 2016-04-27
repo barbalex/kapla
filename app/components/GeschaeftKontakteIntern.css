@@ -18,3 +18,9 @@
 .fVN {
   grid-column: 2 / 5;
 }
+
+.removeGlyphicon {
+  color: red;
+  font-size: 18px;
+  cursor: pointer;
+}

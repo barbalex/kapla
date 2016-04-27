@@ -1,7 +1,7 @@
 'use strict'
 
 import React, { Component, PropTypes } from 'react'
-import { FormControl } from 'react-bootstrap'
+import { FormControl, Glyphicon } from 'react-bootstrap'
 import _ from 'lodash'
 import styles from './GeschaeftKontakteIntern.css'
 
@@ -12,6 +12,7 @@ class GeschaefteKontakteIntern extends Component {
     activeIdGeschaeft: PropTypes.number,
     activeIdKontakt: PropTypes.number,
     geschaeftKontaktInternNewCreate: PropTypes.func.isRequired,
+    geschaeftKontaktInternRemove: PropTypes.func.isRequired,
     activeId: PropTypes.number.isRequired
   }
 
@@ -43,6 +44,13 @@ class GeschaefteKontakteIntern extends Component {
     geschaeftKontaktInternNewCreate(activeId, idKontakt)
   }
 
+  onClickRemove = (idKontakt) => {
+    const { activeId, geschaeftKontaktInternRemove } = this.props
+    console.log('idKontakt', idKontakt)
+    console.log('activeId', activeId)
+    geschaeftKontaktInternRemove(activeId, idKontakt)
+  }
+
   renderItems() {
     const { geschaefteKontakteIntern, activeId } = this.props
     // filter for this geschaeft
@@ -64,6 +72,11 @@ class GeschaefteKontakteIntern extends Component {
             {this.verantwortlichData(gkI)}
           </FormControl.Static>
         </div>
+        <Glyphicon
+          glyph="remove-circle"
+          onClick={this.onClickRemove.bind(this, gkI.idKontakt)}
+          className={styles.removeGlyphicon}
+        /> 
       </div>
     ))
   }
