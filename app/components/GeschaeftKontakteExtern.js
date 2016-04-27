@@ -13,7 +13,8 @@ class GeschaefteKontakteExtern extends Component {
     activeIdKontakt: PropTypes.number,
     geschaeftKontaktExternNewCreate: PropTypes.func.isRequired,
     geschaeftKontaktExternRemove: PropTypes.func.isRequired,
-    activeId: PropTypes.number.isRequired
+    activeId: PropTypes.number.isRequired,
+    tabIndex: PropTypes.number.isRequired
   }
 
   onChangeNewKontaktExtern = (e) => {
@@ -99,7 +100,7 @@ class GeschaefteKontakteExtern extends Component {
   }
 
   render = () => {
-    const { geschaefteKontakteExtern } = this.props
+    const { geschaefteKontakteExtern, tabIndex } = this.props
     return (
       <div className={styles.body}>
         {this.renderItems()}
@@ -110,6 +111,7 @@ class GeschaefteKontakteExtern extends Component {
               bsSize="small"
               onChange={this.onChangeNewKontaktExtern}
               title="Neuen Kontakt hinzufügen"
+              tabIndex={tabIndex}
             >
               {this.options(geschaefteKontakteExtern[0])}
             </FormControl>

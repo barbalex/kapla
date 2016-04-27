@@ -8,20 +8,22 @@ import * as AppActions from '../actions/app'
 
 const actions = Object.assign(GeschaefteKontakteExternActions, AppActions)
 
-function mapStateToProps(state) {
+function mapStateToProps(state, props) {
   const {
     geschaefteKontakteExtern,
     activeIdGeschaeft,
     activeIdKontakt
   } = state.geschaefteKontakteExtern
   const { externeOptions, activeId } = state.geschaefte
+  const { tabIndex } = props
 
   return {
     geschaefteKontakteExtern,
     activeIdGeschaeft,
     activeIdKontakt,
     externeOptions,
-    activeId
+    activeId,
+    tabIndex
   }
 }
 

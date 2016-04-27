@@ -144,6 +144,7 @@ class Geschaeft extends Component {
     const nrOfFieldsBeforePv = nrOfGFields + nrOfNrFields
     const nrOfPvFields = 9
     const nrOfFieldsBeforeFristen = nrOfFieldsBeforePv + nrOfPvFields
+    const nrOfFieldsBeforePersonen = nrOfFieldsBeforeFristen + 7
 
     if (!showGeschaeft) return null
 
@@ -802,7 +803,7 @@ class Geschaeft extends Component {
               onBlur={this.blur}
               bsSize="small"
               className={styles.input}
-              tabIndex={3 + (wrapperClass === styles.wrapperNarrow ? nrOfNrFields : 0)}
+              tabIndex={1 + nrOfFieldsBeforePersonen}
             >
               {this.options(interneOptions.map((o) => o.kurzzeichen).sort())}
             </FormControl>
@@ -813,9 +814,9 @@ class Geschaeft extends Component {
             </FormControl.Static>
           </div>
           <div className={styles.areaInterneKontakteSubTitle}>Interne Kontakte</div>
-          <GeschaeftKontakteIntern />
+          <GeschaeftKontakteIntern tabIndex={nrOfFieldsBeforePersonen + 1} />
           <div className={styles.areaExterneKontakteSubTitle}>Externe Kontakte</div>
-          <GeschaeftKontakteExtern />
+          <GeschaeftKontakteExtern tabIndex={nrOfFieldsBeforePersonen + 2} />
         </div>
       </div>
     )

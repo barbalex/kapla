@@ -13,7 +13,8 @@ class GeschaefteKontakteIntern extends Component {
     activeIdKontakt: PropTypes.number,
     geschaeftKontaktInternNewCreate: PropTypes.func.isRequired,
     geschaeftKontaktInternRemove: PropTypes.func.isRequired,
-    activeId: PropTypes.number.isRequired
+    activeId: PropTypes.number.isRequired,
+    tabIndex: PropTypes.number.isRequired
   }
 
   onChangeNewKontaktIntern = (e) => {
@@ -97,7 +98,7 @@ class GeschaefteKontakteIntern extends Component {
   }
 
   render = () => {
-    const { geschaefteKontakteIntern } = this.props
+    const { geschaefteKontakteIntern, tabIndex } = this.props
     return (
       <div className={styles.body}>
         {this.renderItems()}
@@ -109,6 +110,7 @@ class GeschaefteKontakteIntern extends Component {
               className={styles.dropdown}
               onChange={this.onChangeNewKontaktIntern}
               title="Neuen Kontakt hinzufügen"
+              tabIndex={tabIndex}
             >
               {this.options(geschaefteKontakteIntern[0])}
             </FormControl>
