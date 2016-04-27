@@ -58,7 +58,11 @@ class GeschaefteKontakteIntern extends Component {
     const { geschaefteKontakteIntern, activeId, interneOptions } = this.props
     // filter for this geschaeft
     const gkIFiltered = geschaefteKontakteIntern.filter((g) => g.idGeschaeft === activeId)
-    return gkIFiltered.map((gkI, index) => {
+    const gkISorted = _.sortBy(gkIFiltered, (g) => {
+      const intOption = interneOptions.find((o) => o.id === g.idKontakt)
+      return intOption.kurzzeichen.toLowerCase()
+    })
+    return gkISorted.map((gkI, index) => {
       const intOption = interneOptions.find((o) => o.id === gkI.idKontakt)
       const kurzzeichen = intOption.kurzzeichen
       return (

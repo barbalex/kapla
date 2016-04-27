@@ -60,7 +60,11 @@ class GeschaefteKontakteExtern extends Component {
     const { geschaefteKontakteExtern, activeId, externeOptions } = this.props
     // filter for this geschaeft
     const gkIFiltered = geschaefteKontakteExtern.filter((g) => g.idGeschaeft === activeId)
-    return gkIFiltered.map((gkI, index) => {
+    const gKISorted = _.sortBy(gkIFiltered, (g) => {
+      const intOption = externeOptions.find((o) => o.id === g.idKontakt)
+      return `${intOption.name} ${intOption.vorname}`.toLowerCase()
+    })
+    return gKISorted.map((gkI, index) => {
       const intOption = externeOptions.find((o) => o.id === gkI.idKontakt)
       const nameVorname = intOption.nameVorname
       return (

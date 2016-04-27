@@ -5,11 +5,15 @@
 		[
 			[
 				"ge",
-				"geschaeftKontaktIntern"
+				"GeschaefteLayout"
 			],
 			[
 				"ges",
-				"geschaeftKontaktIntern"
+				"geschaefteLayout"
+			],
+			[
+				"de",
+				"deleteGlyphiconDiv"
 			],
 			[
 				"int",
@@ -291,31 +295,23 @@
 			"file": "package.json",
 			"settings":
 			{
-				"buffer_size": 0,
+				"buffer_size": 4507,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "app/components/Geschaeft.js",
+			"file": "app/containers/GeschaeftKontakteExtern.js",
 			"settings":
 			{
-				"buffer_size": 31594,
+				"buffer_size": 891,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "app/components/Geschaeft.css",
+			"file": "app/components/GeschaeftKontakteExtern.js",
 			"settings":
 			{
-				"buffer_size": 7507,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "app/components/GeschaeftKontakteIntern.js",
-			"settings":
-			{
-				"buffer_size": 3134,
+				"buffer_size": 3982,
 				"line_ending": "Windows"
 			}
 		},
@@ -323,39 +319,15 @@
 			"file": "app/actions/geschaefteKontakteIntern.js",
 			"settings":
 			{
-				"buffer_size": 4302,
+				"buffer_size": 3985,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "app/src/newGeschaeftKontaktInternInDb.js",
+			"file": "app/components/GeschaeftKontakteExtern.css",
 			"settings":
 			{
-				"buffer_size": 594,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "app/src/newGeschaeftKontaktExternInDb.js",
-			"settings":
-			{
-				"buffer_size": 594,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "app/src/getGeschaeftKontaktInternFromDb.js",
-			"settings":
-			{
-				"buffer_size": 390,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "app/reducers/geschaefteKontakteIntern.js",
-			"settings":
-			{
-				"buffer_size": 2441,
+				"buffer_size": 645,
 				"line_ending": "Windows"
 			}
 		},
@@ -363,7 +335,7 @@
 			"file": "app/components/GeschaeftKontakteIntern.css",
 			"settings":
 			{
-				"buffer_size": 237,
+				"buffer_size": 827,
 				"line_ending": "Windows"
 			}
 		}
@@ -421,29 +393,41 @@
 		"/C/Users/alex/kapla/app",
 		"/C/Users/alex/kapla/app/actions",
 		"/C/Users/alex/kapla/app/components",
-		"/C/Users/alex/kapla/app/containers",
-		"/C/Users/alex/kapla/app/reducers",
-		"/C/Users/alex/kapla/app/src",
-		"/C/Users/alex/kapla/app/store"
+		"/C/Users/alex/kapla/app/containers"
 	],
 	"file_history":
 	[
-		"/C/Users/alex/kapla/app/src/getGeschaeftKontaktExternFromDb.js",
-		"/C/Users/alex/kapla/app/actions/geschaefte.js",
+		"/C/Users/alex/kapla/app/routes.js",
+		"/C/Users/alex/kapla/app/actions/geschaefteKontakteExtern.js",
+		"/C/Users/alex/kapla/app/components/Geschaeft.js",
+		"/C/Users/alex/kapla/app/components/Geschaeft.css",
+		"/C/Users/alex/kapla/app/app.global.css",
+		"/C/Users/alex/kapla/app/components/GescchaefteLayoutContainer.css",
+		"/C/Users/alex/kapla/app/components/GescchaefteLayoutContainer.js",
+		"/C/Users/alex/kapla/app/components/GeschaefteLayout.js",
+		"/C/Users/alex/kapla/app/components/GeschaefteLayout.css",
 		"/C/Users/alex/kapla/app/actions/app.js",
-		"/C/Users/alex/kapla/app/components/GeschaeftKontakteIntern.css",
-		"/C/Users/alex/kapla/app/containers/GeschaeftKontakteIntern.js",
+		"/C/Users/alex/kapla/app/src/filterGeschaefte.js",
+		"/C/Users/alex/kapla/app/components/Navbar.js",
+		"/C/Users/alex/kapla/app/components/GeschaeftKontakteExtern.css",
+		"/C/Users/alex/kapla/app/containers/GeschaeftKontakteExtern.js",
+		"/C/Users/alex/kapla/app/reducers/geschaefteKontakteExtern.js",
 		"/C/Users/alex/kapla/app/reducers/index.js",
 		"/C/Users/alex/kapla/app/reducers/geschaefteKontakteIntern.js",
+		"/C/Users/alex/kapla/app/components/GeschaeftKontakteIntern.css",
+		"/C/Users/alex/kapla/app/components/GeschaeftKontakteIntern.js",
 		"/C/Users/alex/kapla/app/actions/geschaefteKontakteIntern.js",
+		"/C/Users/alex/kapla/app/src/getGeschaeftKontaktInternFromDb.js",
+		"/C/Users/alex/kapla/app/src/newGeschaeftKontaktExternInDb.js",
+		"/C/Users/alex/kapla/app/src/newGeschaeftKontaktInternInDb.js",
+		"/C/Users/alex/kapla/app/src/getGeschaeftKontaktExternFromDb.js",
+		"/C/Users/alex/kapla/app/actions/geschaefte.js",
+		"/C/Users/alex/kapla/app/containers/GeschaeftKontakteIntern.js",
 		"/C/Users/alex/kapla/app/reducers/geschaefte.js",
 		"/C/Users/alex/kapla/app/containers/Geschaefte.js",
-		"/C/Users/alex/kapla/app/src/newGeschaeftKontaktInternInDb.js",
-		"/C/Users/alex/kapla/app/components/Geschaeft.js",
 		"/C/Users/alex/kapla/app/src/deleteGeschaeftKontaktIntern.js",
 		"/C/Users/alex/kapla/app/src/deleteGeschaeftKontaktExtern.js",
 		"/C/Users/alex/kapla/app/src/deleteGeschaeft.js",
-		"/C/Users/alex/kapla/app/src/newGeschaeftKontaktExternInDb.js",
 		"/C/Users/alex/kapla/app/src/sql/newGeschaeftKontaktInternInDb.js",
 		"/C/Users/alex/kapla/app/src/updateGeschaeftKontaktExtern.js",
 		"/C/Users/alex/kapla/app/src/updateGeschaeftKontaktIntern.js",
@@ -451,7 +435,6 @@
 		"/C/Users/alex/kapla/app/src/getGeschaefteKontakteInternFromDb.js",
 		"/C/Users/alex/kapla/app/src/getGeschaefteKontakteExternFromDb.js",
 		"/C/Users/alex/kapla/app/src/sql/createViews.sql",
-		"/C/Users/alex/kapla/app/app.global.css",
 		"/C/Users/alex/kapla/webpack.config.base.js",
 		"/C/Users/alex/kapla/app/containers/Geschaeft.js",
 		"/C/Users/alex/kapla/app/actions/table.js",
@@ -461,21 +444,16 @@
 		"/C/Users/alex/kapla/app/src/sql/createTables.sql",
 		"/C/Users/alex/kapla/app/src/sql/updateTables.sql",
 		"/C/Users/alex/Downloads/nub.csv",
-		"/C/Users/alex/kapla/app/src/filterGeschaefte.js",
 		"/C/Users/alex/kapla/app/components/Geschaefte.js",
-		"/C/Users/alex/kapla/app/components/Geschaeft.css",
 		"/C/Users/alex/kapla/app/components/Geschaefte.css",
 		"/C/Users/alex/kapla/release/win32-x64/Kapla-win32-x64/resources/app/app/components/Geschaeft.js",
 		"/C/Users/alex/kapla/release/win32-x64/Kapla-win32-x64/resources/app/app/components/Geschaeft.css",
 		"/D/Google Drive/awel-kapla/howto.txt",
 		"/D/Google Drive/awel-kapla/DatenProbleme.txt",
-		"/C/Users/alex/kapla/app/components/Navbar.js",
 		"/C/Users/alex/kapla/app/src/convertDateToYyyyMmDd.js",
 		"/C/Users/alex/kapla/app/src/convertDateToDdMmYyyy.js",
 		"/C/Users/alex/kapla/app/src/getGeschaefteFromDb.js",
 		"/C/Users/alex/kapla/app/src/sql/convertDateToYyyyMmDd.js",
-		"/C/Users/alex/kapla/app/routes.js",
-		"/C/Users/alex/kapla/app/components/GeschaefteLayout.js",
 		"/C/Users/alex/kapla/app/containers/GeschaefteLayout.js",
 		"/C/Users/alex/kapla/app/components/Pages.css",
 		"/C/Users/alex/kapla/app/components/Page.css",
@@ -519,7 +497,6 @@
 		"/C/Users/alex/kapla/app/containers/App.js",
 		"/C/Users/alex/kapla/test/containers/CounterPage.spec.js",
 		"/C/Users/alex/kapla/kapla_pc.sublime-project",
-		"/C/Users/alex/kapla/app/components/GeschaefteLayout.css",
 		"/C/Users/alex/Downloads/[Content_Types].xml",
 		"/C/Users/alex/Downloads/test.xlsx",
 		"/C/Users/alex/Downloads/Stundenrapport.xlsx",
@@ -547,15 +524,7 @@
 		"/C/Users/alex/kapla/app/actions/page.js",
 		"/C/Users/alex/kapla/release/win32-x64/ElectronReact-win32-x64/resources/app.asar",
 		"/C/Users/alex/kapla/package.json",
-		"/C/Users/alex/kapla/package.js",
-		"/C/Users/alex/kapla/license.md",
-		"/C/Users/alex/kapla/test/setup.js",
-		"/C/Users/alex/kapla/test/example.js",
-		"/C/Users/alex/kapla/test/e2e.js",
-		"/C/Users/alex/kapla/test/components/Counter.spec.js",
-		"/C/Users/alex/kapla/test/actions/counter.spec.js",
-		"/C/Users/alex/kapla/app/store/configureStore.js",
-		"/C/Users/alex/kapla/app/store/configureStore.development.js"
+		"/C/Users/alex/kapla/package.js"
 	],
 	"find":
 	{
@@ -581,6 +550,30 @@
 		"case_sensitive": true,
 		"find_history":
 		[
+			"GeschaefteLayout",
+			"innerHeight",
+			"window",
+			"GeschaefteLayout",
+			"GeschaefteKontakteExternActions",
+			"GeschaefteKontakteInternActions",
+			"geschaeftKontaktExternNewCreate",
+			"areaInterneKontakteRows",
+			"ReactDOM",
+			"removeFilter",
+			"onChangeFilterFulltext",
+			"kurzzeichen",
+			"interne",
+			"Intern",
+			"intern",
+			"Intern",
+			"INTERN",
+			"intern",
+			"INTERN",
+			"Intern",
+			"grid-template-columns",
+			"wrapperNarrow",
+			"idGeschaeft",
+			"Glyphicon",
 			"GESCHAEFT_KONTAKT_INTERN_NEW",
 			"onChangeNewKontaktIntern",
 			"geschaeftKontaktInternToggleActivated",
@@ -684,31 +677,7 @@
 			"activeId",
 			"geschaefte",
 			"changeGeschaeftInDb",
-			"Pages",
-			"Page.js",
-			"Pages.js",
-			"navbarVisible",
-			"navbarHide",
-			"classNameFilterInput",
-			"onClickPrint",
-			"focusFulltextFilter",
-			"onClickRemoveFilter",
-			"onClickRemoveFilterGlyph",
-			"null",
-			"messageShow",
-			"null",
-			"tableRowToggleActivated",
-			"null",
-			"onSelectFilterFaelligeGeschaefte",
-			"pagesInitiate",
-			"inline",
-			"bereichTitel",
-			"areaGeschaeft",
-			"areaNummern",
-			"areaGeschaeft",
-			".",
-			"fieldAktenstandort",
-			"FormGroup"
+			"Pages"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -716,6 +685,11 @@
 		"regex": false,
 		"replace_history":
 		[
+			"GeschaefteLayoutContainer",
+			"externe",
+			"Extern",
+			"EXTERN",
+			"Extern",
 			"geschaeftKontaktInternNewCreate",
 			"geschaefteKontakteIntern",
 			"geschaeftKontaktInternToggleActivated",
@@ -838,12 +812,7 @@
 			"parlVorstossTypOptionsGet",
 			"rechtsmittelerledigungOptionsGetError",
 			"RECHTSMITTELERLEDIGUNG_OPTIONS_GET_SUCCESS",
-			"rechtsmittelerledigungOptionsGet",
-			"geschaeftActivate",
-			"geschaefteChangeDbError",
-			"geschaefteChangeState",
-			"geschaeftRemove",
-			"geschaeftDeleteError"
+			"rechtsmittelerledigungOptionsGet"
 		],
 		"reverse": false,
 		"show_context": true,
@@ -854,7 +823,7 @@
 	"groups":
 	[
 		{
-			"selected": 5,
+			"selected": 2,
 			"sheets":
 			[
 				{
@@ -863,7 +832,7 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 0,
+						"buffer_size": 4507,
 						"regions":
 						{
 						},
@@ -884,271 +853,24 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 11,
+					"stack_index": 5,
 					"type": "text"
 				},
 				{
 					"buffer": 1,
-					"file": "app/components/Geschaeft.js",
+					"file": "app/containers/GeschaeftKontakteExtern.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 31594,
+						"buffer_size": 891,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								31500,
-								31523
-							]
-						],
-						"settings":
-						{
-							"history_list_is_closing": true,
-							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 26066.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 8,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "app/components/Geschaeft.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 31594,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								199,
-								98
-							]
-						],
-						"settings":
-						{
-							"history_list_is_closing": true,
-							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 10,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "app/components/Geschaeft.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 31594,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								2878,
-								2878
-							]
-						],
-						"settings":
-						{
-							"history_list_is_closing": true,
-							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 2079.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 9,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "app/components/Geschaeft.css",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 7507,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								7077,
-								7077
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/CSS/CSS.sublime-syntax",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 10556.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 7,
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "app/components/GeschaeftKontakteIntern.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 3134,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								2362,
-								2362
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 1367.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
-					"type": "text"
-				},
-				{
-					"buffer": 4,
-					"file": "app/actions/geschaefteKontakteIntern.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 4302,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								2022,
-								2022
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 1103.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
-					"type": "text"
-				},
-				{
-					"buffer": 5,
-					"file": "app/src/newGeschaeftKontaktInternInDb.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 594,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								579,
-								401
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 3,
-					"type": "text"
-				},
-				{
-					"buffer": 6,
-					"file": "app/src/newGeschaeftKontaktExternInDb.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 594,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								501,
-								501
-							],
-							[
-								536,
-								536
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 2,
-					"type": "text"
-				},
-				{
-					"buffer": 7,
-					"file": "app/src/getGeschaeftKontaktInternFromDb.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 390,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								390
+								715,
+								715
 							]
 						],
 						"settings":
@@ -1165,20 +887,20 @@
 					"type": "text"
 				},
 				{
-					"buffer": 8,
-					"file": "app/reducers/geschaefteKontakteIntern.js",
+					"buffer": 2,
+					"file": "app/components/GeschaeftKontakteExtern.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 2441,
+						"buffer_size": 3982,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2302,
-								2326
+								3872,
+								3872
 							]
 						],
 						"settings":
@@ -1188,38 +910,100 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 1730.0,
+						"translation.y": 2574.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 5,
+					"stack_index": 0,
 					"type": "text"
 				},
 				{
-					"buffer": 9,
-					"file": "app/components/GeschaeftKontakteIntern.css",
+					"buffer": 3,
+					"file": "app/actions/geschaefteKontakteIntern.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 237,
+						"buffer_size": 3985,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								176,
-								176
+								1430,
+								1430
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/CSS/CSS.sublime-syntax"
+							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 198.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 6,
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "app/components/GeschaeftKontakteExtern.css",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 645,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								217,
+								217
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/CSS/CSS.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 99.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "app/components/GeschaeftKontakteIntern.css",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 827,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								185,
+								185
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/CSS/CSS.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 198.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
 					"type": "text"
 				}
 			]
