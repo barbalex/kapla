@@ -165,6 +165,7 @@ class NavbarComponent extends Component {
     const filterFulltext = ''
     geschaefteFilterByFulltextSet(filterFulltext)
     geschaefteFilterByFulltext(filterFulltext)
+    this.focusFulltextFilter()
   }
 
   geschaefteFilterNav = () => (
@@ -307,12 +308,12 @@ class NavbarComponent extends Component {
             ref="filterFulltext"
           />
         </FormGroup>
-      <Glyphicon
-        glyph="remove"
-        onClick={this.removeFilter}
-        className={styles.filterInputRemoveIcon}
-        title="Filter entfernen"
-      />
+        <Glyphicon
+          glyph="remove"
+          onClick={this.removeFilter}
+          className={styles.filterInputRemoveIcon}
+          title="Filter entfernen"
+        />
       </Navbar.Form>
     )
   }
