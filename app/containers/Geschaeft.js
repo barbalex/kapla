@@ -23,6 +23,7 @@ function mapStateToProps(state, props) {
   const geschaeft = geschaefte.find((g) => g.idGeschaeft === activeId)
 
   return {
+    geschaefte,
     geschaeft,
     activeId,
     rechtsmittelerledigungOptions,
