@@ -16,13 +16,29 @@ class GeschaefteKontakteIntern extends Component {
     activeId: PropTypes.number.isRequired
   }
 
+  onChangeNewKontaktIntern = (e) => {
+    const { geschaeftKontaktInternNewCreate, activeId } = this.props
+    const idKontakt = e.target.value
+    geschaeftKontaktInternNewCreate(activeId, idKontakt)
+    // need to empty dropdown
+    e.target.value = ''
+  }
+
+  onClickRemove = (idKontakt) => {
+    const { activeId, geschaeftKontaktInternRemove } = this.props
+    geschaeftKontaktInternRemove(activeId, idKontakt)
+  }
+
   options = () => {
     const { interneOptions } = this.props
     // sort interneOptions by kurzzeichen
-    const interneOptionsSorted = _.sortBy(interneOptions, (o) => o.kurzzeichen)
-    const options = interneOptionsSorted.map((o, index) =>
-      <option key={index + 1} value={o.id}>{o.kurzzeichen}</option>
-    )
+    const interneOptionsSorted = _.sortBy(interneOptions, (o) => o.kurzzeichen.toLowerCase())
+    const options = interneOptionsSorted.map((o, index) => {
+      const space = '\xa0'.repeat(5 - o.kurzzeichen.length)
+      return (
+        <option key={index + 1} value={o.id}>{`${o.kurzzeichen}${space}${'\xa0\xa0\xa0'}${o.vorname} ${o.name}`}</option>
+      )
+    })
     options.unshift(<option key={0} value=""></option>)
     return options
   }
@@ -32,53 +48,48 @@ class GeschaefteKontakteIntern extends Component {
     const data = interneOptions.find((o) => o.id === gkI.idKontakt)
     if (!data) return ''
     const name = `${data.vorname} ${data.name}`
-    const abt = data.abteilung ? `, ${data.abteilung}` : null
-    const eMail = data.eMail ? `, ${data.eMail}` : null
-    const telefon = data.telefon ? `, ${data.telefon}` : null
+    const abt = data.abteilung ? `, ${data.abteilung}` : ''
+    const eMail = data.eMail ? `, ${data.eMail}` : ''
+    const telefon = data.telefon ? `, ${data.telefon}` : ''
     return `${name}${abt}${eMail}${telefon}`
   }
 
-  onChangeNewKontaktIntern = (e) => {
-    const { geschaeftKontaktInternNewCreate, activeId } = this.props
-    const idKontakt = e.target.value
-    geschaeftKontaktInternNewCreate(activeId, idKontakt)
-  }
-
-  onClickRemove = (idKontakt) => {
-    const { activeId, geschaeftKontaktInternRemove } = this.props
-    console.log('idKontakt', idKontakt)
-    console.log('activeId', activeId)
-    geschaeftKontaktInternRemove(activeId, idKontakt)
-  }
-
   renderItems() {
-    const { geschaefteKontakteIntern, activeId } = this.props
+    const { geschaefteKontakteIntern, activeId, interneOptions } = this.props
     // filter for this geschaeft
     const gkIFiltered = geschaefteKontakteIntern.filter((g) => g.idGeschaeft === activeId)
-    return gkIFiltered.map((gkI, index) => (
-      <div key={index + 1} className={styles.row}>
-        <div className={styles.fV}>
-          <FormControl
-            componentClass="select"
-            defaultValue={gkI.idKontakt}
-            bsSize="small"
-            className={styles.input}
-          >
-            {this.options(gkI)}
-          </FormControl>
+    return gkIFiltered.map((gkI, index) => {
+      const intOption = interneOptions.find((o) => o.id === gkI.idKontakt)
+      const kurzzeichen = intOption.kurzzeichen
+      return (
+        <div key={index + 1} className={styles.row}>
+          <div className={styles.fV}>
+            <FormControl
+              type="text"
+              value={kurzzeichen}
+              bsSize="small"
+              className={styles.kontaktSelect}
+              // react enforces onChange handler when value is used
+              onChange={() => ''}
+              disabled
+            />
+          </div>
+          <div className={styles.fVN}>
+            <FormControl.Static>
+              {this.verantwortlichData(gkI)}
+            </FormControl.Static>
+          </div>
+          <div className={styles.deleteGlyphiconDiv}>
+            <Glyphicon
+              glyph="remove-circle"
+              onClick={this.onClickRemove.bind(this, gkI.idKontakt)}
+              className={styles.removeGlyphicon}
+              title="Kontakt entfernen"
+            />
+          </div>
         </div>
-        <div className={styles.fVN}>
-          <FormControl.Static>
-            {this.verantwortlichData(gkI)}
-          </FormControl.Static>
-        </div>
-        <Glyphicon
-          glyph="remove-circle"
-          onClick={this.onClickRemove.bind(this, gkI.idKontakt)}
-          className={styles.removeGlyphicon}
-        /> 
-      </div>
-    ))
+      )
+    })
   }
 
   render = () => {
@@ -91,16 +102,12 @@ class GeschaefteKontakteIntern extends Component {
             <FormControl
               componentClass="select"
               bsSize="small"
-              className={styles.input}
+              className={styles.dropdown}
               onChange={this.onChangeNewKontaktIntern}
+              title="Neuen Kontakt hinzufügen"
             >
               {this.options(geschaefteKontakteIntern[0])}
             </FormControl>
-          </div>
-          <div className={styles.fVN}>
-            <FormControl.Static>
-              {null}
-            </FormControl.Static>
           </div>
         </div>
       </div>

@@ -84,6 +84,15 @@ textarea {
   background: rgba(0,0,0,0);
 }
 
+.lm_content {
+  background-color: white;
+  overflow-y: auto;
+}
+
+.lm_content::-webkit-scrollbar { 
+  display: none;
+}
+
 @media print {
   /**
    * make sure, html and body
