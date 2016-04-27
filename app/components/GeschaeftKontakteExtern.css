@@ -8,7 +8,7 @@
 .row {
   grid-column: 1 / span 1;
   display: grid;
-  grid-template-columns: 80px 1fr 20px;
+  grid-template-columns: 160px 1fr 20px;
   grid-gap: 10px;
 }
 
@@ -40,9 +40,4 @@
 
 .kontaktSelect {
   background-color: #F9F9F9 !important;
-}
-
-/* need monospace to line up text vertically */
-.dropdown {
-  font-family: "Lucida Console", Monaco, monospace;
 }

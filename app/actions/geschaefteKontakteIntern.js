@@ -47,14 +47,8 @@ import deleteGeschaeftKontaktIntern from '../src/deleteGeschaeftKontaktIntern.js
 export function geschaeftKontaktInternNewCreate(idGeschaeft, idKontakt) {
   return (dispatch, getState) => {
     const { app } = getState()
-    console.log('geschaeftKontaktInternNewCreate')
     newGeschaeftKontaktInternInDb(app.db, idGeschaeft, idKontakt)
-      .then((geschaeftKontaktIntern) => {
-        console.log('geschaeftKontaktInternNewCreate, idGeschaeft', idGeschaeft)
-        console.log('geschaeftKontaktInternNewCreate, idKontakt', idKontakt)
-        console.log('geschaeftKontaktInternNewCreate, geschaeftKontaktIntern', geschaeftKontaktIntern)
-        dispatch(geschaeftKontaktInternNew(geschaeftKontaktIntern))
-      })
+      .then((geschaeftKontaktIntern) => dispatch(geschaeftKontaktInternNew(geschaeftKontaktIntern)))
       .catch((error) => dispatch(geschaeftKontaktInternNewError(error)))
   }
 }

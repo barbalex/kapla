@@ -47,14 +47,8 @@ import deleteGeschaeftKontaktExtern from '../src/deleteGeschaeftKontaktExtern.js
 export function geschaeftKontaktExternNewCreate(idGeschaeft, idKontakt) {
   return (dispatch, getState) => {
     const { app } = getState()
-    console.log('geschaeftKontaktExternNewCreate')
     newGeschaeftKontaktExternInDb(app.db, idGeschaeft, idKontakt)
-      .then((geschaeftKontaktExtern) => {
-        console.log('geschaeftKontaktExternNewCreate, idGeschaeft', idGeschaeft)
-        console.log('geschaeftKontaktExternNewCreate, idKontakt', idKontakt)
-        console.log('geschaeftKontaktExternNewCreate, geschaeftKontaktExtern', geschaeftKontaktExtern)
-        dispatch(geschaeftKontaktExternNew(geschaeftKontaktExtern))
-      })
+      .then((geschaeftKontaktExtern) => dispatch(geschaeftKontaktExternNew(geschaeftKontaktExtern)))
       .catch((error) => dispatch(geschaeftKontaktExternNewError(error)))
   }
 }

@@ -813,9 +813,9 @@ class Geschaeft extends Component {
             </FormControl.Static>
           </div>
           <div className={styles.areaInterneKontakteSubTitle}>Interne Kontakte</div>
-          <GeschaeftKontakteIntern className={styles.areaInterneKontakteRows} />
+          <GeschaeftKontakteIntern />
           <div className={styles.areaExterneKontakteSubTitle}>Externe Kontakte</div>
-          <GeschaeftKontakteExtern className={styles.areaExterneKontakteRows} />
+          <GeschaeftKontakteExtern />
         </div>
       </div>
     )

@@ -41,13 +41,19 @@ class GeschaefteKontakteExtern extends Component {
   }
 
   verantwortlichData = (gkI) => {
+    function addValueToInfo(info, value) {
+      if (!value) return info
+      if (info) return `${info}, ${value}`
+      return value
+    }
     const { externeOptions } = this.props
     const data = externeOptions.find((o) => o.id === gkI.idKontakt)
     if (!data) return ''
-    const firma = data.firma ? `, ${data.firma}` : ''
-    const eMail = data.eMail ? `, ${data.eMail}` : ''
-    const telefon = data.telefon ? `, ${data.telefon}` : ''
-    return `${data.nameVorname}${firma}${eMail}${telefon}`
+    let info = ''
+    info = addValueToInfo(info, data.firma)
+    info = addValueToInfo(info, data.email)
+    info = addValueToInfo(info, data.telefon)
+    return info
   }
 
   renderItems() {
@@ -98,7 +104,6 @@ class GeschaefteKontakteExtern extends Component {
             <FormControl
               componentClass="select"
               bsSize="small"
-              className={styles.dropdown}
               onChange={this.onChangeNewKontaktExtern}
               title="Neuen Kontakt hinzufügen"
             >
