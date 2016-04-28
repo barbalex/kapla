@@ -40,11 +40,9 @@ class Geschaeft extends Component {
     this.blur(rVal)
   }
 
-  onClickHistoryGeschaeft = (a, b) => {
-    console.log('a', a)
-    console.log('b', b)
-    const { geschaeftToggleActivated, activeId } = this.props
-    //geschaeftToggleActivated(idGeschaeft)
+  onClickHistoryGeschaeft = (idGeschaeft) => {
+    const { geschaeftToggleActivated } = this.props
+    geschaeftToggleActivated(idGeschaeft)
   }
 
   getDateValidationStateDate = (date) => {
@@ -144,7 +142,7 @@ class Geschaeft extends Component {
         <div
           key={index}
           className={styles.areaHistoryFields}
-          onClick={this.onClickHistoryGeschaeft.bind(id)}
+          onClick={this.onClickHistoryGeschaeft.bind(this, id)}
         >
           <div className={styles.historyIdGeschaeft}>{id}</div>
           <div className={styles.historyGegenstand}>{geschaeft.gegenstand}</div>

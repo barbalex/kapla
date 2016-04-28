@@ -413,12 +413,19 @@
   display: grid;
   grid-template-columns: 60px calc(100% - 60px);
   grid-gap: 0;
-  border-bottom: thin solid grey;
-  border-top: thin solid grey;
+  border-bottom: thin solid #CECBCB;
   padding-left: 13px;
   padding-top: 10px;
   padding-bottom: 10px;
   cursor: pointer;
+}
+
+.areaHistoryFields:first-of-type {
+  border-top: thin solid #CECBCB;
+}
+
+.areaHistoryFields:hover {
+  background-color: rgba(0, 46, 255, 0.12);
 }
 
 .historyIdGeschaeft {
