@@ -52,8 +52,8 @@
 
 .columnIdGeschaeft {
   composes: tableBodyCell;
-  min-width: 50px;
-  max-width: 50px;
+  min-width: 45px;
+  max-width: 45px;
 }
 
 .columnGegenstand {
@@ -63,8 +63,8 @@
 
 .columnStatus {
   composes: tableBodyCell;
-  min-width: 140px;
-  max-width: 140px;
+  min-width: 120px;
+  max-width: 120px;
 }
 
 .columnKontaktIntern {
