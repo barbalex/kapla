@@ -25,7 +25,8 @@ class Geschaeft extends Component {
     externeOptions: PropTypes.array,
     statusOptions: PropTypes.array.isRequired,
     geschaeftsartOptions: PropTypes.array.isRequired,
-    geschaefteLayout: PropTypes.object.isRequired
+    geschaefteLayout: PropTypes.object.isRequired,
+    geschaeftToggleActivated: PropTypes.func.isRequired
   }
 
   onChangeDatePicker = (name, e, picker) => {
@@ -37,6 +38,13 @@ class Geschaeft extends Component {
       }
     }
     this.blur(rVal)
+  }
+
+  onClickHistoryGeschaeft = (a, b) => {
+    console.log('a', a)
+    console.log('b', b)
+    const { geschaeftToggleActivated, activeId } = this.props
+    //geschaeftToggleActivated(idGeschaeft)
   }
 
   getDateValidationStateDate = (date) => {
@@ -127,11 +135,17 @@ class Geschaeft extends Component {
   history = () => {
     const { geschaefte, activeId } = this.props
     const history = getHistoryOfGeschaeft(geschaefte, activeId)
-    console.log('history', history)
+    // sort descending
+    history.reverse()
     return history.map((id, index) => {
       const geschaeft = geschaefte.find((g) => g.idGeschaeft === id)
+      if (!geschaeft || !geschaeft.gegenstand) return null
       return (
-        <div key={index} className={styles.areaHistoryFields}>
+        <div
+          key={index}
+          className={styles.areaHistoryFields}
+          onClick={this.onClickHistoryGeschaeft.bind(id)}
+        >
           <div className={styles.historyIdGeschaeft}>{id}</div>
           <div className={styles.historyGegenstand}>{geschaeft.gegenstand}</div>
         </div>
@@ -143,8 +157,9 @@ class Geschaeft extends Component {
     const { geschaeft } = this.props
     return (
       <div className={styles.areaHistory}>
+        <div className={styles.areaHistoryTitle}>Historie</div>
+        <ControlLabel className={styles.labelVorgeschaeft}>Vorgeschäft</ControlLabel>
         <div className={styles.fieldVorgeschaeft}>
-          <ControlLabel className={styles.label}>Vorgeschäft</ControlLabel>
           <FormControl
             type="number"
             value={geschaeft.idVorgeschaeft || ''}
@@ -152,12 +167,11 @@ class Geschaeft extends Component {
             onChange={this.change}
             onBlur={this.blur}
             bsSize="small"
-            className={styles.typeNr}
             placeholder="ID"
             tabIndex={99}
           />
         </div>
-        <div className={styles.historyFields}>
+        <div className={styles.areaHistoryFieldsContainer}>
           {this.history()}
         </div>
       </div>
@@ -221,7 +235,7 @@ class Geschaeft extends Component {
             />
           </div>
           <div className={styles.fieldGeschaeftsart}>
-            <ControlLabel className={styles.label}>Geschäftsart</ControlLabel>
+            <ControlLabel>Geschäftsart</ControlLabel>
             <FormControl
               componentClass="select"
               value={geschaeft.geschaeftsart || ''}
@@ -235,7 +249,7 @@ class Geschaeft extends Component {
             </FormControl>
           </div>
           <div className={styles.fieldStatus}>
-            <ControlLabel className={styles.label}>Status</ControlLabel>
+            <ControlLabel>Status</ControlLabel>
             <FormControl
               componentClass="select"
               value={geschaeft.status || ''}
@@ -249,7 +263,7 @@ class Geschaeft extends Component {
             </FormControl>
           </div>
           <div className={styles.fieldDirektion}>
-            <ControlLabel className={styles.label}>Direktion</ControlLabel>
+            <ControlLabel>Direktion</ControlLabel>
             <FormControl
               type="text"
               value={geschaeft.zustaendigeDirektion || ''}
@@ -262,7 +276,7 @@ class Geschaeft extends Component {
             />
           </div>
           <div className={styles.fieldDetails}>
-            <ControlLabel className={styles.label}>Details</ControlLabel>
+            <ControlLabel>Details</ControlLabel>
             <FormControl
               componentClass="textarea"
               value={geschaeft.details || ''}
@@ -275,7 +289,7 @@ class Geschaeft extends Component {
             />
           </div>
           <div className={styles.fieldNaechsterSchritt}>
-            <ControlLabel className={styles.label}>Nächster Schritt</ControlLabel>
+            <ControlLabel>Nächster Schritt</ControlLabel>
             <FormControl
               componentClass="textarea"
               value={geschaeft.naechsterSchritt || ''}
@@ -288,7 +302,7 @@ class Geschaeft extends Component {
             />
           </div>
           <div className={styles.fieldVermerk}>
-            <ControlLabel className={styles.label}>Vermerk</ControlLabel>
+            <ControlLabel>Vermerk</ControlLabel>
             <FormControl
               componentClass="textarea"
               value={geschaeft.vermerk || ''}
@@ -301,7 +315,7 @@ class Geschaeft extends Component {
             />
           </div>
           <div className={styles.fieldErledigung}>
-            <ControlLabel className={styles.label}>Erledigung</ControlLabel>
+            <ControlLabel>Erledigung</ControlLabel>
             <FormControl
               componentClass="select"
               value={geschaeft.rechtsmittelerledigung || ''}
@@ -457,7 +471,7 @@ class Geschaeft extends Component {
             />
           </div>
           <div className={styles.fieldAktenstandort}>
-            <ControlLabel className={styles.label}>Aktenstandort</ControlLabel>
+            <ControlLabel>Aktenstandort</ControlLabel>
             <FormControl
               type="text"
               value={geschaeft.aktenstandort || ''}
@@ -469,7 +483,7 @@ class Geschaeft extends Component {
             />
           </div>
           <div className={styles.fieldAktennummer}>
-            <ControlLabel className={styles.label}>Nr.</ControlLabel>
+            <ControlLabel>Nr.</ControlLabel>
             <FormControl
               type="text"
               value={geschaeft.aktennummer || ''}
@@ -485,7 +499,7 @@ class Geschaeft extends Component {
         <div className={styles.areaParlVorst}>
           <div className={styles.areaParlVorstTitle}>Parlamentarischer Vorstoss</div>
           <div className={styles.fieldParlVorstossTyp}>
-            <ControlLabel className={styles.label}>Typ</ControlLabel>
+            <ControlLabel>Typ</ControlLabel>
             <FormControl
               componentClass="select"
               value={geschaeft.parlVorstossTyp || ''}
@@ -499,7 +513,7 @@ class Geschaeft extends Component {
             </FormControl>
           </div>
           <div className={styles.fieldStufe}>
-            <ControlLabel className={styles.label}>Stufe</ControlLabel>
+            <ControlLabel>Stufe</ControlLabel>
             <Radio
               data-value={1}
               checked={geschaeft.parlVorstossStufe == 1}
@@ -522,7 +536,7 @@ class Geschaeft extends Component {
             </Radio>
           </div>
           <div className={styles.fieldEbene}>
-            <ControlLabel className={styles.label}>Ebene</ControlLabel>
+            <ControlLabel>Ebene</ControlLabel>
             <Radio
               data-value="Kanton"
               checked={geschaeft.parlVorstossEbene === 'Kanton'}
@@ -545,7 +559,7 @@ class Geschaeft extends Component {
             </Radio>
           </div>
           <div className={styles.fieldZustaendigkeit}>
-            <ControlLabel className={styles.label}>Zuständigkeit</ControlLabel>
+            <ControlLabel>Zuständigkeit</ControlLabel>
             <Radio
               data-value="hauptzuständig"
               checked={geschaeft.parlVorstossZustaendigkeitAwel === 'hauptzuständig'}
@@ -568,7 +582,7 @@ class Geschaeft extends Component {
             </Radio>
           </div>
           <div className={styles.fieldErlassform}>
-            <ControlLabel className={styles.label}>Erlassform</ControlLabel>
+            <ControlLabel>Erlassform</ControlLabel>
             <Radio
               data-value="Gesetz"
               checked={geschaeft.erlassform === 'Gesetz'}
@@ -597,7 +611,7 @@ class Geschaeft extends Component {
             className={styles.fieldDatumEingangAwel}
             validationState={this.getDateValidationStateDate(geschaeft.datumEingangAwel)}
           >
-            <ControlLabel className={styles.label}>Datum des Eingangs im AWEL</ControlLabel>
+            <ControlLabel>Datum des Eingangs im AWEL</ControlLabel>
             <InputGroup>
               <FormControl
                 type="text"
@@ -625,7 +639,7 @@ class Geschaeft extends Component {
             className={styles.fieldFristAwel}
             validationState={this.getDateValidationStateDate(geschaeft.fristAwel)}
           >
-            <ControlLabel className={styles.label}>Frist für Erledigung durch AWEL</ControlLabel>
+            <ControlLabel>Frist für Erledigung durch AWEL</ControlLabel>
             <InputGroup>
               <FormControl
                 type="text"
@@ -653,7 +667,7 @@ class Geschaeft extends Component {
             className={styles.fieldFristAmtschef}
             validationState={this.getDateValidationStateDate(geschaeft.fristAmtschef)}
           >
-            <ControlLabel className={styles.label}>Frist Vorlage an Amtschef</ControlLabel>
+            <ControlLabel>Frist Vorlage an Amtschef</ControlLabel>
             <InputGroup>
               <FormControl
                 type="text"
@@ -681,7 +695,7 @@ class Geschaeft extends Component {
             className={styles.fieldFristAbteilung}
             validationState={this.getDateValidationStateDate(geschaeft.fristAbteilung)}
           >
-            <ControlLabel className={styles.label}>Frist für Erledigung durch Abteilung</ControlLabel>
+            <ControlLabel>Frist für Erledigung durch Abteilung</ControlLabel>
             <InputGroup>
               <FormControl
                 type="text"
@@ -709,7 +723,7 @@ class Geschaeft extends Component {
             className={styles.fieldFristMitarbeiter}
             validationState={this.getDateValidationStateDate(geschaeft.fristMitarbeiter)}
           >
-            <ControlLabel className={styles.label}>Frist Erledigung nächster Schritt RD</ControlLabel>
+            <ControlLabel>Frist Erledigung nächster Schritt RD</ControlLabel>
             <InputGroup>
               <FormControl
                 type="text"
@@ -734,7 +748,7 @@ class Geschaeft extends Component {
             </InputGroup>
           </FormGroup>
           <div className={styles.fieldFristDauerBisMitarbeiter}>
-            <ControlLabel className={styles.label}>Tage bis Frist Mitarbeiter</ControlLabel>
+            <ControlLabel>Tage bis Frist Mitarbeiter</ControlLabel>
             <FormControl.Static className={styles.formControlStatic}>
               {this.fristDauerBisMitarbeiter()}
             </FormControl.Static>
@@ -743,7 +757,7 @@ class Geschaeft extends Component {
             className={styles.fieldDatumAusgangAwel}
             validationState={this.getDateValidationStateDate(geschaeft.datumAusgangAwel)}
           >
-            <ControlLabel className={styles.label}>Datum Ausgang AWEL (erledigt)</ControlLabel>
+            <ControlLabel>Datum Ausgang AWEL (erledigt)</ControlLabel>
             <InputGroup>
               <FormControl
                 type="text"
@@ -771,7 +785,7 @@ class Geschaeft extends Component {
             className={styles.fieldFristDirektion}
             validationState={this.getDateValidationStateDate(geschaeft.fristDirektion)}
           >
-            <ControlLabel className={styles.label}>Frist für Erledigung durch Direktion</ControlLabel>
+            <ControlLabel>Frist für Erledigung durch Direktion</ControlLabel>
             <InputGroup>
               <FormControl
                 type="text"
@@ -796,7 +810,7 @@ class Geschaeft extends Component {
             </InputGroup>
           </FormGroup>
           <div className={styles.fieldMutationsdatum}>
-            <ControlLabel className={styles.label}>Letze Mutation</ControlLabel>
+            <ControlLabel>Letze Mutation</ControlLabel>
             <FormControl.Static className={styles.formControlStatic}>
               {geschaeft.mutationsdatum || ''}
             </FormControl.Static>
@@ -828,6 +842,7 @@ class Geschaeft extends Component {
           <div className={styles.areaExterneKontakteSubTitle}>Externe Kontakte</div>
           <GeschaeftKontakteExtern tabIndex={nrOfFieldsBeforePersonen + 2} />
         </div>
+        {this.historyArea()}
         {/* need this so lowest fields are visible */}
         <div style={{ height: 52 }} />
       </div>

@@ -32,7 +32,8 @@
   grid-template-areas:
     "areaGeschaeft areaGeschaeft areaGeschaeft areaGeschaeft areaGeschaeft areaGeschaeft areaGeschaeft areaGeschaeft areaNummern areaNummern areaNummern areaNummern"
     "areaGeschaeft areaGeschaeft areaGeschaeft areaGeschaeft areaGeschaeft areaGeschaeft areaGeschaeft areaGeschaeft areaParlVorst areaParlVorst areaParlVorst areaParlVorst"
-    "areaFristen areaFristen areaFristen areaPersonen areaPersonen areaPersonen areaPersonen areaPersonen areaPersonen areaPersonen areaPersonen areaPersonen";
+    "areaFristen areaFristen areaFristen areaPersonen areaPersonen areaPersonen areaPersonen areaPersonen areaPersonen areaPersonen areaPersonen areaPersonen"
+    "areaHistory areaHistory areaHistory areaHistory areaHistory areaHistory areaHistory areaHistory areaHistory areaHistory areaHistory areaHistory";
   grid-gap: 2px;
 }
 
@@ -371,6 +372,62 @@
 .areaExterneKontakteSubTitle {
   composes: areaSubTitle;
   grid-column: 1 / span 2;
+}
+
+
+.areaHistory {
+  grid-area: areaHistory;
+  background-color: rgba(0, 46, 255, 0.12);
+  display: grid;
+  grid-template-columns: calc(100% - 140px) 70px 70px;
+  grid-template-areas:
+    "areaHistoryTitle labelVorgeschaeft fieldVorgeschaeft"
+    "areaHistoryFieldsContainer areaHistoryFieldsContainer areaHistoryFieldsContainer";
+  grid-gap: 8px;
+  padding: 8px;
+}
+
+.areaHistoryTitle {
+  composes: areaTitle;
+  grid-area: areaHistoryTitle;
+}
+
+.fieldVorgeschaeft {
+  grid-area: fieldVorgeschaeft;
+}
+
+.labelVorgeschaeft {
+  grid-area: labelVorgeschaeft;
+  margin-top: 10px;
+}
+
+.areaHistoryFieldsContainer {
+  grid-area: areaHistoryFieldsContainer;
+  display: grid;
+  grid-template-columns: 100%;
+  grid-gap: 8px 0;
+}
+
+.areaHistoryFields {
+  grid-column: 1;
+  display: grid;
+  grid-template-columns: 60px calc(100% - 60px);
+  grid-gap: 0;
+  border-bottom: thin solid grey;
+  border-top: thin solid grey;
+  padding-left: 13px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  cursor: pointer;
+}
+
+.historyIdGeschaeft {
+  grid-column: 1;
+}
+
+.historyGegenstand {
+  grid-column: 2;
+  font-weight: 700;
 }
 
 
