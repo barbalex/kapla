@@ -76,20 +76,10 @@ class GeschaefteKontakteIntern extends Component {
       return (
         <div key={index + 1} className={styles.row}>
           <div className={styles.fV}>
-            <FormControl
-              type="text"
-              value={kurzzeichen}
-              bsSize="small"
-              className={styles.kontaktSelect}
-              // react enforces onChange handler when value is used
-              onChange={() => ''}
-              disabled
-            />
+            {kurzzeichen}
           </div>
           <div className={styles.fVN}>
-            <FormControl.Static>
               {this.verantwortlichData(gkI)}
-            </FormControl.Static>
           </div>
           <div className={styles.deleteGlyphiconDiv}>
             <Glyphicon
@@ -109,8 +99,8 @@ class GeschaefteKontakteIntern extends Component {
     return (
       <div className={styles.body}>
         {this.renderItems()}
-        <div key={0} className={styles.row}>
-          <div className={styles.fV}>
+        <div key={0} className={styles.rowfVDropdown}>
+          <div className={styles.fVDropdown}>
             <FormControl
               componentClass="select"
               bsSize="small"
