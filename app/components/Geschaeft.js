@@ -124,11 +124,49 @@ class Geschaeft extends Component {
     return `${name}${abt}${eMail}${telefon}`
   }
 
+  history = () => {
+    const { geschaefte, activeId } = this.props
+    const history = getHistoryOfGeschaeft(geschaefte, activeId)
+    console.log('history', history)
+    return history.map((id, index) => {
+      const geschaeft = geschaefte.find((g) => g.idGeschaeft === id)
+      return (
+        <div key={index} className={styles.areaHistoryFields}>
+          <div className={styles.historyIdGeschaeft}>{id}</div>
+          <div className={styles.historyGegenstand}>{geschaeft.gegenstand}</div>
+        </div>
+      )
+    })
+  }
+
+  historyArea = () => {
+    const { geschaeft } = this.props
+    return (
+      <div className={styles.areaHistory}>
+        <div className={styles.fieldVorgeschaeft}>
+          <ControlLabel className={styles.label}>Vorgeschäft</ControlLabel>
+          <FormControl
+            type="number"
+            value={geschaeft.idVorgeschaeft || ''}
+            name="idVorgeschaeft"
+            onChange={this.change}
+            onBlur={this.blur}
+            bsSize="small"
+            className={styles.typeNr}
+            placeholder="ID"
+            tabIndex={99}
+          />
+        </div>
+        <div className={styles.historyFields}>
+          {this.history()}
+        </div>
+      </div>
+    )
+  }
+
   render() {
     const {
-      geschaefte,
       geschaeft,
-      activeId,
       rechtsmittelerledigungOptions,
       parlVorstossTypOptions,
       statusOptions,
@@ -149,8 +187,6 @@ class Geschaeft extends Component {
     const nrOfPvFields = 9
     const nrOfFieldsBeforeFristen = nrOfFieldsBeforePv + nrOfPvFields
     const nrOfFieldsBeforePersonen = nrOfFieldsBeforeFristen + 7
-    const history = getHistoryOfGeschaeft(geschaefte, activeId)
-    console.log('history', history)
 
     if (!showGeschaeft) return null
 
@@ -211,20 +247,6 @@ class Geschaeft extends Component {
             >
               {this.options(statusOptions)}
             </FormControl>
-          </div>
-          <div className={styles.fieldVorgeschaeft}>
-            <ControlLabel className={styles.label}>Vorgeschäft</ControlLabel>
-            <FormControl
-              type="number"
-              value={geschaeft.idVorgeschaeft || ''}
-              name="idVorgeschaeft"
-              onChange={this.change}
-              onBlur={this.blur}
-              bsSize="small"
-              className={styles.typeNr}
-              placeholder="ID"
-              tabIndex={5 + (wrapperClass === styles.wrapperNarrow ? nrOfNrFields : 0)}
-            />
           </div>
           <div className={styles.fieldDirektion}>
             <ControlLabel className={styles.label}>Direktion</ControlLabel>
