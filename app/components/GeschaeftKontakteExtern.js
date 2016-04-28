@@ -57,6 +57,13 @@ class GeschaefteKontakteExtern extends Component {
     return info
   }
 
+  titleText = (idKontakt) => {
+    const { externeOptions } = this.props
+    const data = externeOptions.find((o) => o.id === idKontakt)
+    if (!data) return 'Kontakt entfernen'
+    return `${data.name} ${data.vorname} entfernen`
+  }
+
   renderItems() {
     const { geschaefteKontakteExtern, activeId, externeOptions } = this.props
     // filter for this geschaeft
@@ -91,7 +98,7 @@ class GeschaefteKontakteExtern extends Component {
               glyph="remove-circle"
               onClick={this.onClickRemove.bind(this, gkI.idKontakt)}
               className={styles.removeGlyphicon}
-              title="Kontakt entfernen"
+              title={this.titleText(gkI.idKontakt)}
             />
           </div>
         </div>
