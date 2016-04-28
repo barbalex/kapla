@@ -12,6 +12,10 @@
   grid-gap: 10px;
 }
 
+.row:hover {
+  background-color: rgba(208, 255, 202, 0.5);
+}
+
 .fV {
   grid-column: 1 / span 1;
 }
