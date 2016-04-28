@@ -250,7 +250,7 @@
   grid-area: areaParlVorst;
   background-color: rgba(255, 174, 0, 0.2);
   display: grid;
-  grid-template-columns: repeat(2, 50%);
+  grid-template-columns: 60% 40%;
   grid-template-rows: auto;
   grid-template-areas:
     "areaParlVorstTitle areaParlVorstTitle"
