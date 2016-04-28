@@ -28,18 +28,6 @@ class Geschaeft extends Component {
     geschaefteLayout: PropTypes.object.isRequired
   }
 
-  state = {
-    history: []
-  }
-
-  componentDidMount = () => {
-    this.setHistory()
-  }
-
-  componentDidUpdate = () => {
-    // this.setHistory()
-  }
-
   onChangeDatePicker = (name, e, picker) => {
     const rVal = {
       target: {
@@ -136,45 +124,11 @@ class Geschaeft extends Component {
     return `${name}${abt}${eMail}${telefon}`
   }
 
-  addVorgeschaefteToHistory = () => {
-    const { geschaefte, activeId } = this.props
-    const { history } = this.state
-    const geschaeft = geschaefte.find((g) => g.idGeschaeft === activeId)
-    if (!geschaeft) return null
-    if (!geschaeft.idGeschaeft) return null
-    if (!geschaeft.idVorgeschaeft) return null
-    const vorgeschaeft = geschaefte.find((g) => g.idGeschaeft === geschaeft.idVorgeschaeft)
-    if (vorgeschaeft && vorgeschaeft.idGeschaeft) {
-      history.unshift(vorgeschaeft.idGeschaeft)
-      this.setState({ history })
-      if (vorgeschaeft.idVorgeschaeft) this.addVorgeschaefteToHistory()
-    }
-  }
-
-  addNachgeschaefteToHistory = () => {
-    const { geschaefte, activeId } = this.props
-    const { history } = this.state
-    const nachgeschaeft = geschaefte.find((g) => g.idVorgeschaeft === activeId)
-    if (nachgeschaeft && nachgeschaeft.idGeschaeft) {
-      history.push(nachgeschaeft.idGeschaeft)
-      this.setState({ history })
-      this.addNachgeschaefteToHistory()
-    }
-  }
-
-  setHistory = () => {
-    const { activeId } = this.props
-    if (activeId) {
-      const history = [activeId]
-      this.setState({ history })
-      this.addVorgeschaefteToHistory()
-      this.addNachgeschaefteToHistory()
-    }
-  }
-
   render() {
     const {
+      geschaefte,
       geschaeft,
+      activeId,
       rechtsmittelerledigungOptions,
       parlVorstossTypOptions,
       statusOptions,
@@ -182,7 +136,6 @@ class Geschaeft extends Component {
       geschaefteLayout,
       interneOptions
     } = this.props
-    const { history } = this.state
 
     // need width to set layout for differing widths
     const geschaefteLayoutWidth = geschaefteLayout.width
@@ -196,7 +149,7 @@ class Geschaeft extends Component {
     const nrOfPvFields = 9
     const nrOfFieldsBeforeFristen = nrOfFieldsBeforePv + nrOfPvFields
     const nrOfFieldsBeforePersonen = nrOfFieldsBeforeFristen + 7
-
+    const history = getHistoryOfGeschaeft(geschaefte, activeId)
     console.log('history', history)
 
     if (!showGeschaeft) return null

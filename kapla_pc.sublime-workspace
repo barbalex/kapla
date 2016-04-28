@@ -4,6 +4,18 @@
 		"selected_items":
 		[
 			[
+				"ge",
+				"geschaeft"
+			],
+			[
+				"ges",
+				"geschaefte"
+			],
+			[
+				"gesch",
+				"geschaefte"
+			],
+			[
 				"nrOf",
 				"nrOfFieldsBeforeFristen"
 			],
@@ -14,14 +26,6 @@
 			[
 				"gk",
 				"gkIFiltered"
-			],
-			[
-				"ge",
-				"GeschaefteLayout"
-			],
-			[
-				"ges",
-				"geschaefteLayout"
 			],
 			[
 				"de",
@@ -62,10 +66,6 @@
 			[
 				"vl",
 				"value2"
-			],
-			[
-				"gesch",
-				"geschaeft"
 			],
 			[
 				"dat",
@@ -315,39 +315,31 @@
 			"file": "app/components/Geschaeft.js",
 			"settings":
 			{
-				"buffer_size": 31861,
+				"buffer_size": 33428,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "app/containers/GeschaeftKontakteIntern.js",
+			"file": "app/containers/Geschaefte.js",
 			"settings":
 			{
-				"buffer_size": 941,
+				"buffer_size": 825,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "app/components/GeschaeftKontakteIntern.js",
+			"file": "app/containers/Geschaeft.js",
 			"settings":
 			{
-				"buffer_size": 4292,
+				"buffer_size": 1061,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "app/containers/GeschaeftKontakteExtern.js",
+			"file": "app/src/getHistoryOfGeschaeft.js",
 			"settings":
 			{
-				"buffer_size": 941,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "app/components/GeschaeftKontakteExtern.js",
-			"settings":
-			{
-				"buffer_size": 4268,
+				"buffer_size": 1079,
 				"line_ending": "Windows"
 			}
 		}
@@ -405,13 +397,15 @@
 		"/C/Users/alex/kapla/app",
 		"/C/Users/alex/kapla/app/actions",
 		"/C/Users/alex/kapla/app/components",
-		"/C/Users/alex/kapla/app/containers"
+		"/C/Users/alex/kapla/app/containers",
+		"/C/Users/alex/kapla/app/src"
 	],
 	"file_history":
 	[
+		"/C/Users/alex/kapla/app/containers/GeschaeftKontakteIntern.js",
+		"/C/Users/alex/kapla/app/components/GeschaeftKontakteIntern.js",
 		"/C/Users/alex/kapla/app/containers/GeschaeftKontakteExtern.js",
 		"/C/Users/alex/kapla/app/components/GeschaeftKontakteExtern.js",
-		"/C/Users/alex/kapla/app/components/GeschaeftKontakteIntern.js",
 		"/C/Users/alex/kapla/app/components/GeschaeftKontakteIntern.css",
 		"/C/Users/alex/kapla/app/components/GeschaeftKontakteExtern.css",
 		"/C/Users/alex/kapla/app/actions/geschaefteKontakteIntern.js",
@@ -435,7 +429,6 @@
 		"/C/Users/alex/kapla/app/src/newGeschaeftKontaktInternInDb.js",
 		"/C/Users/alex/kapla/app/src/getGeschaeftKontaktExternFromDb.js",
 		"/C/Users/alex/kapla/app/actions/geschaefte.js",
-		"/C/Users/alex/kapla/app/containers/GeschaeftKontakteIntern.js",
 		"/C/Users/alex/kapla/app/reducers/geschaefte.js",
 		"/C/Users/alex/kapla/app/containers/Geschaefte.js",
 		"/C/Users/alex/kapla/app/src/deleteGeschaeftKontaktIntern.js",
@@ -562,6 +555,8 @@
 		"case_sensitive": true,
 		"find_history":
 		[
+			"addNachgeschaefte",
+			"addVorgeschaefte",
 			"nrOfFieldsBeforeFristen",
 			"^",
 			"GeschaefteLayout",
@@ -687,9 +682,7 @@
 			"datumEingangAwel",
 			"GeschaefteLayout",
 			"GeschaefteLayout.js",
-			"datumEingangAwel",
-			"activeId",
-			"geschaefte"
+			"datumEingangAwel"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -697,6 +690,8 @@
 		"regex": false,
 		"replace_history":
 		[
+			"addNachgeschaefteToHistory",
+			"addVorgeschaefteToHistory",
 			"",
 			"GeschaefteLayoutContainer",
 			"externe",
@@ -822,20 +817,18 @@
 			"statusOptionsGet",
 			"PARLVORSTOSSTYP_OPTIONS_GET_SUCCESS",
 			"parlVorstossTypOptionsGetError",
-			"parlVorstossTypOptionsGet",
-			"rechtsmittelerledigungOptionsGetError",
-			"RECHTSMITTELERLEDIGUNG_OPTIONS_GET_SUCCESS"
+			"parlVorstossTypOptionsGet"
 		],
 		"reverse": false,
 		"show_context": true,
 		"use_buffer2": true,
-		"whole_word": false,
+		"whole_word": true,
 		"wrap": true
 	},
 	"groups":
 	[
 		{
-			"selected": 5,
+			"selected": 1,
 			"sheets":
 			[
 				{
@@ -865,7 +858,7 @@
 						"translation.y": 2475.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 5,
+					"stack_index": 4,
 					"type": "text"
 				},
 				{
@@ -874,19 +867,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 31861,
+						"buffer_size": 33428,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								31597,
-								31597
-							],
-							[
-								31760,
-								31760
+								1350,
+								1350
 							]
 						],
 						"settings":
@@ -896,31 +885,27 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 26132.0,
+						"translation.y": 906.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 4,
+					"stack_index": 0,
 					"type": "text"
 				},
 				{
 					"buffer": 2,
-					"file": "app/containers/GeschaeftKontakteIntern.js",
+					"file": "app/containers/Geschaefte.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 941,
+						"buffer_size": 825,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								615,
-								615
-							],
-							[
-								758,
-								758
+								0,
+								0
 							]
 						],
 						"settings":
@@ -931,56 +916,26 @@
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 3,
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "app/components/GeschaeftKontakteIntern.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 4292,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								4248,
-								4248
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 3069.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 2,
 					"type": "text"
 				},
 				{
-					"buffer": 4,
-					"file": "app/containers/GeschaeftKontakteExtern.js",
+					"buffer": 3,
+					"file": "app/containers/Geschaeft.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 941,
+						"buffer_size": 1061,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								758,
-								758
+								686,
+								686
 							]
 						],
 						"settings":
@@ -988,42 +943,40 @@
 							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax",
 							"tab_size": 2,
 							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 198.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "app/src/getHistoryOfGeschaeft.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1079,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1076,
+								944
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 1,
-					"type": "text"
-				},
-				{
-					"buffer": 5,
-					"file": "app/components/GeschaeftKontakteExtern.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 4268,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								3919,
-								3919
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 2933.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
 					"type": "text"
 				}
 			]

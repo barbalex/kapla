@@ -1,27 +1,19 @@
 'use strict'
 
-function addVorgeschaefte(history, geschaefte, idGeschaeft) {
-  const geschaeft = geschaefte.find((g) => g.idGeschaeft === idGeschaeft)
-  if (!geschaeft) return null
-  if (!geschaeft.idGeschaeft) return null
-  if (!geschaeft.idVorgeschaeft) return null
-  const vorgeschaeft = geschaefte.find((g) => g.idGeschaeft === geschaeft.idVorgeschaeft)
-  if (vorgeschaeft && vorgeschaeft.idGeschaeft) {
-    history.unshift(vorgeschaeft.idGeschaeft)
-    if (vorgeschaeft.idVorgeschaeft) addVorgeschaefte(history, geschaefte, vorgeschaeft.idVorgeschaeft)
-  }
-}
+import getIdVorgeschaeft from './getIdVorgeschaeft'
+import getIdNachgeschaeft from './getIdNachgeschaeft'
 
-function addNachgeschaefte(history, geschaefte, idGeschaeft) {
-  const nachgeschaeft = geschaefte.find((g) => g.idVorgeschaeft === idGeschaeft)
-  if (nachgeschaeft && nachgeschaeft.idGeschaeft) {
-    history.push(nachgeschaeft.idGeschaeft)
-    addNachgeschaefte(history, geschaefte, nachgeschaeft.idGeschaeft)
+export default function (geschaefte, activeId) {
+  const history = [activeId]
+  let idVorgeschaeft = getIdVorgeschaeft(geschaefte, activeId)
+  while (!!idVorgeschaeft) {
+    history.unshift(idVorgeschaeft)
+    idVorgeschaeft = getIdVorgeschaeft(geschaefte, idVorgeschaeft)
   }
-}
-
-export default function (history, geschaefte, idGeschaeft) {
-  history.push(idGeschaeft)
-  addVorgeschaefte(history, geschaefte, idGeschaeft)
-  addNachgeschaefte(history, geschaefte, idGeschaeft)
+  let idNachgeschaeft = getIdNachgeschaeft(geschaefte, activeId)
+  while (!!idNachgeschaeft) {
+    history.push(idNachgeschaeft)
+    idNachgeschaeft = getIdNachgeschaeft(geschaefte, idNachgeschaeft)
+  }
+  return history
 }
