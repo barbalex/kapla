@@ -71,6 +71,7 @@ export function geschaefteFilterByFields(filterFields) {
       filterFields,
       geschaefteGefilterteIds
     })
+    if (geschaefteGefilterteIds.length === 1) dispatch(geschaeftToggleActivated(geschaefteGefilterteIds[0]))
   }
 }
 
@@ -99,6 +100,7 @@ export function geschaefteFilterByFulltext() {
       type: GESCHAEFTE_FILTER_BY_FULLTEXT,
       geschaefteGefilterteIds
     })
+    if (geschaefteGefilterteIds.length === 1) dispatch(geschaeftToggleActivated(geschaefteGefilterteIds[0]))
     if (routing.locationBeforeTransitions.pathname !== '/geschaefte') dispatch(push('/geschaefte'))
   }
 }
