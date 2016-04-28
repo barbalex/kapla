@@ -8,9 +8,8 @@
 .row {
   grid-column: 1 / span 1;
   display: grid;
-  grid-template-columns: 60px 1fr 20px;
+  grid-template-columns: 80px calc(100% - 100px) 20px;
   grid-gap: 10px;
-  /*position: relative;*/
 }
 
 .fV {
@@ -19,17 +18,21 @@
 
 .fVN {
   grid-column: 2 / span 1;
+  overflow: hidden;
+}
+
+/**
+ * prevent pushing of following kontakt
+ * when text breaks to next line
+ */
+.fVN p {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
 }
 
 .deleteGlyphiconDiv {
-  /**
-   * no idea why but column 2 pushes column 3
-   * to the right and out of the viewport!!!!????
-   * so need to position absolute :-(  ??
-   */
   grid-column: 3 / span 1;
-  /*position: absolute;
-  right: 5px;*/
 }
 
 .removeGlyphicon {
