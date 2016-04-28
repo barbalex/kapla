@@ -117,8 +117,6 @@ class GeschaefteKontakteExtern extends Component {
             </FormControl>
           </div>
         </div>
-        {/* need this so lowest fields are visible */}
-        <div style={{ height: 52 }} />
       </div>
     )
   }

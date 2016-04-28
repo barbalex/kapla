@@ -806,6 +806,8 @@ class Geschaeft extends Component {
           <div className={styles.areaExterneKontakteSubTitle}>Externe Kontakte</div>
           <GeschaeftKontakteExtern tabIndex={nrOfFieldsBeforePersonen + 2} />
         </div>
+        {/* need this so lowest fields are visible */}
+        <div style={{ height: 52 }} />
       </div>
     )
   }
