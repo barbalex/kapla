@@ -192,7 +192,7 @@ class Geschaeft extends Component {
     })
   }
 
-  historyArea = () => {
+  areaHistory = () => {
     const { geschaeft } = this.props
     return (
       <div className={styles.areaHistory}>
@@ -226,11 +226,125 @@ class Geschaeft extends Component {
     </div>
   )
 
+  areaParlVorst = (nrOfFieldsBeforePv) => {
+    const { geschaeft, parlVorstossTypOptions } = this.props
+    return (
+      <div className={styles.areaParlVorst}>
+        <div className={styles.areaParlVorstTitle}>Parlamentarischer Vorstoss</div>
+        <div className={styles.fieldParlVorstossTyp}>
+          <ControlLabel>Typ</ControlLabel>
+          <FormControl
+            componentClass="select"
+            value={geschaeft.parlVorstossTyp || ''}
+            name="parlVorstossTyp"
+            onChange={this.change}
+            onBlur={this.blur}
+            bsSize="small"
+            tabIndex={1 + nrOfFieldsBeforePv}
+          >
+            {this.options(parlVorstossTypOptions)}
+          </FormControl>
+        </div>
+        <div className={styles.fieldStufe}>
+          <ControlLabel>Stufe</ControlLabel>
+          <Radio
+            data-value={1}
+            checked={geschaeft.parlVorstossStufe == 1}
+            onChange={this.change}
+            bsSize="small"
+            name="parlVorstossStufe"
+            tabIndex={2 + nrOfFieldsBeforePv}
+          >
+            1: nicht überwiesen
+          </Radio>
+          <Radio
+            data-value={2}
+            checked={geschaeft.parlVorstossStufe == 2}
+            name="parlVorstossStufe"
+            onChange={this.change}
+            bsSize="small"
+            tabIndex={3 + nrOfFieldsBeforePv}
+          >
+            2: überwiesen
+          </Radio>
+        </div>
+        <div className={styles.fieldEbene}>
+          <ControlLabel>Ebene</ControlLabel>
+          <Radio
+            data-value="Kanton"
+            checked={geschaeft.parlVorstossEbene === 'Kanton'}
+            name="parlVorstossEbene"
+            onChange={this.change}
+            bsSize="small"
+            tabIndex={4 + nrOfFieldsBeforePv}
+          >
+            Kanton
+          </Radio>
+          <Radio
+            data-value="Bund"
+            checked={geschaeft.parlVorstossEbene === 'Bund'}
+            onChange={this.change}
+            name="parlVorstossEbene"
+            bsSize="small"
+            tabIndex={5 + nrOfFieldsBeforePv}
+          >
+            Bund
+          </Radio>
+        </div>
+        <div className={styles.fieldZustaendigkeit}>
+          <ControlLabel>Zuständigkeit</ControlLabel>
+          <Radio
+            data-value="hauptzuständig"
+            checked={geschaeft.parlVorstossZustaendigkeitAwel === 'hauptzuständig'}
+            name="parlVorstossZustaendigkeitAwel"
+            onChange={this.change}
+            bsSize="small"
+            tabIndex={6 + nrOfFieldsBeforePv}
+          >
+            haupt
+          </Radio>
+          <Radio
+            data-value="mitberichtzuständig"
+            checked={geschaeft.parlVorstossZustaendigkeitAwel === 'mitberichtzuständig'}
+            name="parlVorstossZustaendigkeitAwel"
+            onChange={this.change}
+            bsSize="small"
+            tabIndex={7 + nrOfFieldsBeforePv}
+          >
+            mitbericht
+          </Radio>
+        </div>
+        <div className={styles.fieldErlassform}>
+          <ControlLabel>Erlassform</ControlLabel>
+          <Radio
+            data-value="Gesetz"
+            checked={geschaeft.erlassform === 'Gesetz'}
+            name="erlassform"
+            onChange={this.change}
+            bsSize="small"
+            tabIndex={8 + nrOfFieldsBeforePv}
+          >
+            Gesetz
+          </Radio>
+          <Radio
+            data-value="Verordnung"
+            checked={geschaeft.erlassform === 'Verordnung'}
+            name="erlassform"
+            onChange={this.change}
+            bsSize="small"
+            tabIndex={9 + nrOfFieldsBeforePv}
+          >
+            Verordnung
+          </Radio>
+        </div>
+      </div>
+    )
+  }
+
   render() {
     const {
       geschaeft,
       rechtsmittelerledigungOptions,
-      parlVorstossTypOptions,
       statusOptions,
       geschaeftsartOptions,
       geschaefteLayout
@@ -547,115 +661,7 @@ class Geschaeft extends Component {
             />
           </div>
         </div>
-        <div className={styles.areaParlVorst}>
-          <div className={styles.areaParlVorstTitle}>Parlamentarischer Vorstoss</div>
-          <div className={styles.fieldParlVorstossTyp}>
-            <ControlLabel>Typ</ControlLabel>
-            <FormControl
-              componentClass="select"
-              value={geschaeft.parlVorstossTyp || ''}
-              name="parlVorstossTyp"
-              onChange={this.change}
-              onBlur={this.blur}
-              bsSize="small"
-              tabIndex={1 + nrOfFieldsBeforePv}
-            >
-              {this.options(parlVorstossTypOptions)}
-            </FormControl>
-          </div>
-          <div className={styles.fieldStufe}>
-            <ControlLabel>Stufe</ControlLabel>
-            <Radio
-              data-value={1}
-              checked={geschaeft.parlVorstossStufe == 1}
-              onChange={this.change}
-              bsSize="small"
-              name="parlVorstossStufe"
-              tabIndex={2 + nrOfFieldsBeforePv}
-            >
-              1: nicht überwiesen
-            </Radio>
-            <Radio
-              data-value={2}
-              checked={geschaeft.parlVorstossStufe == 2}
-              name="parlVorstossStufe"
-              onChange={this.change}
-              bsSize="small"
-              tabIndex={3 + nrOfFieldsBeforePv}
-            >
-              2: überwiesen
-            </Radio>
-          </div>
-          <div className={styles.fieldEbene}>
-            <ControlLabel>Ebene</ControlLabel>
-            <Radio
-              data-value="Kanton"
-              checked={geschaeft.parlVorstossEbene === 'Kanton'}
-              name="parlVorstossEbene"
-              onChange={this.change}
-              bsSize="small"
-              tabIndex={4 + nrOfFieldsBeforePv}
-            >
-              Kanton
-            </Radio>
-            <Radio
-              data-value="Bund"
-              checked={geschaeft.parlVorstossEbene === 'Bund'}
-              onChange={this.change}
-              name="parlVorstossEbene"
-              bsSize="small"
-              tabIndex={5 + nrOfFieldsBeforePv}
-            >
-              Bund
-            </Radio>
-          </div>
-          <div className={styles.fieldZustaendigkeit}>
-            <ControlLabel>Zuständigkeit</ControlLabel>
-            <Radio
-              data-value="hauptzuständig"
-              checked={geschaeft.parlVorstossZustaendigkeitAwel === 'hauptzuständig'}
-              name="parlVorstossZustaendigkeitAwel"
-              onChange={this.change}
-              bsSize="small"
-              tabIndex={6 + nrOfFieldsBeforePv}
-            >
-              haupt
-            </Radio>
-            <Radio
-              data-value="mitberichtzuständig"
-              checked={geschaeft.parlVorstossZustaendigkeitAwel === 'mitberichtzuständig'}
-              name="parlVorstossZustaendigkeitAwel"
-              onChange={this.change}
-              bsSize="small"
-              tabIndex={7 + nrOfFieldsBeforePv}
-            >
-              mitbericht
-            </Radio>
-          </div>
-          <div className={styles.fieldErlassform}>
-            <ControlLabel>Erlassform</ControlLabel>
-            <Radio
-              data-value="Gesetz"
-              checked={geschaeft.erlassform === 'Gesetz'}
-              name="erlassform"
-              onChange={this.change}
-              bsSize="small"
-              tabIndex={8 + nrOfFieldsBeforePv}
-            >
-              Gesetz
-            </Radio>
-            <Radio
-              data-value="Verordnung"
-              checked={geschaeft.erlassform === 'Verordnung'}
-              name="erlassform"
-              onChange={this.change}
-              bsSize="small"
-              tabIndex={9 + nrOfFieldsBeforePv}
-            >
-              Verordnung
-            </Radio>
-          </div>
-        </div>
+        {this.areaParlVorst(nrOfFieldsBeforePv)}
         <div className={styles.areaFristen}>
           <div className={styles.areaFristenTitle}>Fristen</div>
           <FormGroup
@@ -883,7 +889,7 @@ class Geschaeft extends Component {
           <div className={styles.areaExterneKontakteSubTitle}>Externe Kontakte</div>
           <GeschaeftKontakteExtern tabIndex={nrOfFieldsBeforePersonen + 2} />
         </div>
-        {this.historyArea()}
+        {this.areaHistory()}
         {this.zuletztMutiert()}
         {/* need this so lowest fields are visible */}
         <div style={{ height: 52 }} />
