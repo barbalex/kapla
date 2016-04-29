@@ -17,12 +17,6 @@ class AreaFristen extends Component {
     nrOfFieldsBeforeFristen: PropTypes.number
   }
 
-  options = (values) => {
-    const options = values.map((val, index) => <option key={index + 1} value={val}>{val}</option>)
-    options.unshift(<option key={0} value=""></option>)
-    return options
-  }
-
   fristDauerBisMitarbeiter = () => {
     const { geschaeft } = this.props
     const now = moment()

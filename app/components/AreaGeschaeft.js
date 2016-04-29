@@ -3,6 +3,7 @@
 import React, { Component, PropTypes } from 'react'
 import { FormControl, ControlLabel } from 'react-bootstrap'
 import styles from './AreaGeschaeft.css'
+import createOptions from '../src/createOptions'
 
 class AreaGeschaeft extends Component {
   static propTypes = {
@@ -14,12 +15,6 @@ class AreaGeschaeft extends Component {
     blur: PropTypes.func.isRequired,
     wrapperClass: PropTypes.string,
     nrOfNrFields: PropTypes.number
-  }
-
-  options = (values) => {
-    const options = values.map((val, index) => <option key={index + 1} value={val}>{val}</option>)
-    options.unshift(<option key={0} value=""></option>)
-    return options
   }
 
   render = () => {
@@ -74,7 +69,7 @@ class AreaGeschaeft extends Component {
             bsSize="small"
             tabIndex={3 + (wrapperClass === styles.wrapperNarrow ? nrOfNrFields : 0)}
           >
-            {this.options(geschaeftsartOptions)}
+            {createOptions(geschaeftsartOptions)}
           </FormControl>
         </div>
         <div className={styles.fieldStatus}>
@@ -88,7 +83,7 @@ class AreaGeschaeft extends Component {
             bsSize="small"
             tabIndex={4 + (wrapperClass === styles.wrapperNarrow ? nrOfNrFields : 0)}
           >
-            {this.options(statusOptions)}
+            {createOptions(statusOptions)}
           </FormControl>
         </div>
         <div className={styles.fieldDirektion}>
@@ -154,7 +149,7 @@ class AreaGeschaeft extends Component {
             bsSize="small"
             tabIndex={10 + (wrapperClass === styles.wrapperNarrow ? nrOfNrFields : 0)}
           >
-            {this.options(rechtsmittelerledigungOptions)}
+            {createOptions(rechtsmittelerledigungOptions)}
           </FormControl>
         </div>
       </div>

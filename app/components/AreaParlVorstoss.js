@@ -3,6 +3,7 @@
 import React, { Component, PropTypes } from 'react'
 import { FormControl, ControlLabel, Radio } from 'react-bootstrap'
 import styles from './AreaParlVorstoss.css'
+import createOptions from '../src/createOptions'
 
 class AreaParlVorstoss extends Component {
   static propTypes = {
@@ -11,12 +12,6 @@ class AreaParlVorstoss extends Component {
     nrOfFieldsBeforePv: PropTypes.number,
     change: PropTypes.func.isRequired,
     blur: PropTypes.func.isRequired
-  }
-
-  options = (values) => {
-    const options = values.map((val, index) => <option key={index + 1} value={val}>{val}</option>)
-    options.unshift(<option key={0} value=""></option>)
-    return options
   }
 
   render = () => {
@@ -35,7 +30,7 @@ class AreaParlVorstoss extends Component {
             bsSize="small"
             tabIndex={1 + nrOfFieldsBeforePv}
           >
-            {this.options(parlVorstossTypOptions)}
+            {createOptions(parlVorstossTypOptions)}
           </FormControl>
         </div>
         <div className={styles.fieldStufe}>
