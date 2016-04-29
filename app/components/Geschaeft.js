@@ -11,6 +11,7 @@ import styles from './Geschaeft.css'
 import isDateField from '../src/isDateField'
 import GeschaeftKontakteIntern from '../containers/GeschaeftKontakteIntern'
 import GeschaeftKontakteExtern from '../containers/GeschaeftKontakteExtern'
+import AreaZuletztMutiert from '../containers/AreaZuletztMutiert'
 import getHistoryOfGeschaeft from '../src/getHistoryOfGeschaeft'
 
 class Geschaeft extends Component {
@@ -129,32 +130,6 @@ class Geschaeft extends Component {
     const eMail = data.eMail ? `, ${data.eMail}` : null
     const telefon = data.telefon ? `, ${data.telefon}` : null
     return `${name}${abt}${eMail}${telefon}`
-  }
-
-  zuletztMutiert = () => {
-    const { geschaeft, interneOptions } = this.props
-    let zuletztMutiertText
-
-    if (!geschaeft.mutationsperson) {
-      zuletztMutiertText = 'Bei diesem Geschäft wurde (noch) keine Mutationsperson gespeichert'
-    } else {
-      const mutPersonOptions = interneOptions.find((o) => {
-        if (o.itKonto) {
-          // seems that data contains lower case differences
-          // and whitespace
-          return o.itKonto.toLowerCase().replace(/ /g, '') === geschaeft.mutationsperson.toLowerCase().replace(/ /g, '')
-        }
-        return false
-      })
-      const name = mutPersonOptions ? ` (${mutPersonOptions.vorname} ${mutPersonOptions.name})` : ''
-      zuletztMutiertText = `Zuletzt mutiert durch ${geschaeft.mutationsperson}${name} am ${geschaeft.mutationsdatum}`
-    }
-
-    return (
-      <div className={styles.areaZuletztMutiert}>
-        <div className={styles.fieldZuletztMutiert}>{zuletztMutiertText}</div>
-      </div>
-    )
   }
 
   verwantwortlichOptions = () => {
@@ -890,7 +865,7 @@ class Geschaeft extends Component {
           <GeschaeftKontakteExtern tabIndex={nrOfFieldsBeforePersonen + 2} />
         </div>
         {this.areaHistory()}
-        {this.zuletztMutiert()}
+        <AreaZuletztMutiert />
         {/* need this so lowest fields are visible */}
         <div style={{ height: 52 }} />
       </div>

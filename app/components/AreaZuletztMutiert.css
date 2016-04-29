@@ -1,0 +1,11 @@
+.areaZuletztMutiert {
+  grid-area: areaZuletztMutiert;
+  background-color: rgba(210, 210, 210, 0.2);
+  display: grid;
+  grid-template-columns: 100%;
+  padding: 8px;
+}
+
+.fieldZuletztMutiert {
+  grid-column: 1;
+}
