@@ -8,7 +8,6 @@ import createOptions from '../src/createOptions'
 class AreaGeschaeft extends Component {
   static propTypes = {
     geschaeft: PropTypes.object,
-    rechtsmittelerledigungOptions: PropTypes.array.isRequired,
     statusOptions: PropTypes.array.isRequired,
     geschaeftsartOptions: PropTypes.array.isRequired,
     change: PropTypes.func.isRequired,
@@ -20,7 +19,6 @@ class AreaGeschaeft extends Component {
   render = () => {
     const {
       geschaeft,
-      rechtsmittelerledigungOptions,
       statusOptions,
       geschaeftsartOptions,
       wrapperClass,
@@ -137,20 +135,6 @@ class AreaGeschaeft extends Component {
             rows={4}
             tabIndex={9 + (wrapperClass === styles.wrapperNarrow ? nrOfNrFields : 0)}
           />
-        </div>
-        <div className={styles.fieldErledigung}>
-          <ControlLabel>Erledigung</ControlLabel>
-          <FormControl
-            componentClass="select"
-            value={geschaeft.rechtsmittelerledigung || ''}
-            name="rechtsmittelerledigung"
-            onChange={change}
-            onBlur={blur}
-            bsSize="small"
-            tabIndex={10 + (wrapperClass === styles.wrapperNarrow ? nrOfNrFields : 0)}
-          >
-            {createOptions(rechtsmittelerledigungOptions)}
-          </FormControl>
         </div>
       </div>
     )

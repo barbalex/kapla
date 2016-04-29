@@ -9,7 +9,7 @@ function mapStateToProps(state, props) {
   const {
     geschaefte,
     activeId,
-    parlVorstossTypOptions
+    rechtsmittelerledigungOptions
   } = state.geschaefte
   const {
     blur,
@@ -20,7 +20,7 @@ function mapStateToProps(state, props) {
 
   return {
     geschaeft,
-    parlVorstossTypOptions,
+    rechtsmittelerledigungOptions,
     change,
     blur,
     nrOfFieldsBeforePv

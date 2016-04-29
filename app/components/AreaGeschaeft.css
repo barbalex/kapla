@@ -16,8 +16,7 @@
     "fieldGeschaeftsart fieldGeschaeftsart fieldGeschaeftsart fieldGeschaeftsart fieldGeschaeftsart fieldStatus fieldStatus fieldStatus fieldStatus fieldStatus fieldDirektion fieldDirektion"
     "fieldDetails fieldDetails fieldDetails fieldDetails fieldDetails fieldDetails fieldDetails fieldDetails fieldDetails fieldDetails fieldDetails fieldDetails"
     "fieldNaechsterSchritt fieldNaechsterSchritt fieldNaechsterSchritt fieldNaechsterSchritt fieldNaechsterSchritt fieldNaechsterSchritt fieldNaechsterSchritt fieldNaechsterSchritt fieldNaechsterSchritt fieldNaechsterSchritt fieldNaechsterSchritt fieldNaechsterSchritt"
-    "fieldVermerk fieldVermerk fieldVermerk fieldVermerk fieldVermerk fieldVermerk fieldVermerk fieldVermerk fieldVermerk fieldVermerk fieldVermerk fieldVermerk"
-    "fieldErledigung fieldErledigung fieldErledigung fieldErledigung fieldErledigung fieldErledigung fieldErledigung fieldErledigung fieldErledigung fieldErledigung fieldErledigung fieldErledigung";
+    "fieldVermerk fieldVermerk fieldVermerk fieldVermerk fieldVermerk fieldVermerk fieldVermerk fieldVermerk fieldVermerk fieldVermerk fieldVermerk fieldVermerk";
   grid-gap: 5px 2px;
   padding: 8px;
 }
@@ -57,8 +56,4 @@
 
 .fieldVermerk {
   grid-area: fieldVermerk;
-}
-
-.fieldErledigung {
-  grid-area: fieldErledigung;
 }

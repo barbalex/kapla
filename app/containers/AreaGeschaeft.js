@@ -9,7 +9,6 @@ function mapStateToProps(state, props) {
   const {
     geschaefte,
     activeId,
-    rechtsmittelerledigungOptions,
     statusOptions,
     geschaeftsartOptions
   } = state.geschaefte
@@ -25,7 +24,6 @@ function mapStateToProps(state, props) {
 
   return {
     geschaeft,
-    rechtsmittelerledigungOptions,
     statusOptions,
     geschaeftsartOptions,
     change,
