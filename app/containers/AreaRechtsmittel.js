@@ -15,7 +15,8 @@ function mapStateToProps(state, props) {
   const {
     blur,
     change,
-    nrOfFieldsBeforePv
+    nrOfFieldsBeforePv,
+    onChangeDatePicker
   } = props
   const geschaeft = geschaefte.find((g) => g.idGeschaeft === activeId)
 
@@ -25,7 +26,8 @@ function mapStateToProps(state, props) {
     rechtsmittelInstanzOptions,
     change,
     blur,
-    nrOfFieldsBeforePv
+    nrOfFieldsBeforePv,
+    onChangeDatePicker
   }
 }
 

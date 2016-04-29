@@ -136,6 +136,7 @@ class Geschaeft extends Component {
               nrOfFieldsBeforePv={nrOfFieldsBeforePv}
               change={this.change}
               blur={this.blur}
+              onChangeDatePicker={this.onChangeDatePicker}
             />
           )
         }

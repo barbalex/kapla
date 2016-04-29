@@ -39,3 +39,8 @@
 .fieldErledigung {
   grid-area: fieldErledigung;
 }
+
+
+.datePicker {
+  cursor: pointer;
+}

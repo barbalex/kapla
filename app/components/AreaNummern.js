@@ -47,7 +47,6 @@ class AreaNummern extends Component {
             onChange={change}
             onBlur={blur}
             bsSize="small"
-            className={styles.typeNr}
             tabIndex={1 + (wrapperClass === styles.wrapperNarrow ? 0 : nrOfGFields)}
             autoFocus={wrapperClass === styles.wrapperNarrow}
           />
@@ -64,7 +63,6 @@ class AreaNummern extends Component {
             onChange={change}
             onBlur={blur}
             bsSize="small"
-            className={styles.typeNr}
             tabIndex={2 + (wrapperClass === styles.wrapperNarrow ? 0 : nrOfGFields)}
           />
         </div>
@@ -79,7 +77,6 @@ class AreaNummern extends Component {
             onChange={change}
             onBlur={blur}
             bsSize="small"
-            className={styles.typeNr}
             tabIndex={3 + (wrapperClass === styles.wrapperNarrow ? 0 : nrOfGFields)}
           />
         </div>
@@ -92,7 +89,6 @@ class AreaNummern extends Component {
             onChange={change}
             onBlur={blur}
             bsSize="small"
-            className={styles.typeNr}
             tabIndex={4 + (wrapperClass === styles.wrapperNarrow ? 0 : nrOfGFields)}
           />
         </div>
@@ -107,7 +103,6 @@ class AreaNummern extends Component {
             onChange={change}
             onBlur={blur}
             bsSize="small"
-            className={styles.typeNr}
             tabIndex={5 + (wrapperClass === styles.wrapperNarrow ? 0 : nrOfGFields)}
           />
         </div>
@@ -120,7 +115,6 @@ class AreaNummern extends Component {
             onChange={change}
             onBlur={blur}
             bsSize="small"
-            className={styles.typeNr}
             tabIndex={6 + (wrapperClass === styles.wrapperNarrow ? 0 : nrOfGFields)}
           />
         </div>
@@ -135,7 +129,6 @@ class AreaNummern extends Component {
             onChange={change}
             onBlur={blur}
             bsSize="small"
-            className={styles.typeNr}
             tabIndex={7 + (wrapperClass === styles.wrapperNarrow ? 0 : nrOfGFields)}
           />
         </div>
@@ -148,7 +141,6 @@ class AreaNummern extends Component {
             onChange={change}
             onBlur={blur}
             bsSize="small"
-            className={styles.typeNr}
             tabIndex={8 + (wrapperClass === styles.wrapperNarrow ? 0 : nrOfGFields)}
           />
         </div>
@@ -163,7 +155,6 @@ class AreaNummern extends Component {
             onChange={change}
             onBlur={blur}
             bsSize="small"
-            className={styles.typeNr}
             tabIndex={9 + (wrapperClass === styles.wrapperNarrow ? 0 : nrOfGFields)}
           />
         </div>
@@ -188,7 +179,6 @@ class AreaNummern extends Component {
             onChange={change}
             onBlur={blur}
             bsSize="small"
-            className={styles.typeNr}
             tabIndex={11 + (wrapperClass === styles.wrapperNarrow ? 0 : nrOfGFields)}
           />
         </div>
