@@ -11,20 +11,16 @@ const actions = Object.assign(GeschaefteActions, AppActions)
 function mapStateToProps(state, props) {
   const {
     geschaefte,
-    activeId,
-    rechtsmittelerledigungOptions,
-    statusOptions,
-    geschaeftsartOptions
+    activeId
   } = state.geschaefte
   const { layout } = props
-  const geschaeft = geschaefte.find((g) => g.idGeschaeft === activeId)
+  const geschaeft = geschaefte.find((g) =>
+    g.idGeschaeft === activeId
+  )
 
   return {
     geschaeft,
     activeId,
-    rechtsmittelerledigungOptions,
-    statusOptions,
-    geschaeftsartOptions,
     geschaefteLayout: layout
   }
 }

@@ -55,3 +55,8 @@
 .datePicker {
   cursor: pointer;
 }
+
+.formControlStatic {
+  padding-top: 4px;
+  padding-left: 13px;
+}
