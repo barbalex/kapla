@@ -4,15 +4,35 @@
 		"selected_items":
 		[
 			[
+				"hist",
+				"historyArea"
+			],
+			[
+				"gesch",
+				"geschaefte"
+			],
+			[
+				"labelE",
+				"labelEntscheidRrb"
+			],
+			[
+				"la",
+				"labelAwel"
+			],
+			[
+				"label",
+				"labelGekoNr"
+			],
+			[
+				"lab",
+				"labelEntscheidRrb"
+			],
+			[
 				"ge",
 				"geschaeft"
 			],
 			[
 				"ges",
-				"geschaefte"
-			],
-			[
-				"gesch",
 				"geschaefte"
 			],
 			[
@@ -312,34 +332,50 @@
 			}
 		},
 		{
-			"file": "app/components/Geschaeft.js",
-			"settings":
-			{
-				"buffer_size": 33428,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "app/containers/Geschaefte.js",
-			"settings":
-			{
-				"buffer_size": 825,
-				"line_ending": "Windows"
-			}
-		},
-		{
 			"file": "app/containers/Geschaeft.js",
 			"settings":
 			{
-				"buffer_size": 1061,
+				"buffer_size": 909,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "app/src/getHistoryOfGeschaeft.js",
+			"file": "app/components/Geschaeft.js",
 			"settings":
 			{
-				"buffer_size": 1079,
+				"buffer_size": 24308,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "app/containers/AreaFristen.js",
+			"settings":
+			{
+				"buffer_size": 753,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "app/components/AreaFristen.js",
+			"settings":
+			{
+				"buffer_size": 24308,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "app/components/Geschaeft.css",
+			"settings":
+			{
+				"buffer_size": 7315,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "app/components/AreaFristen.css",
+			"settings":
+			{
+				"buffer_size": 0,
 				"line_ending": "Windows"
 			}
 		}
@@ -395,25 +431,47 @@
 	[
 		"/C/Users/alex/kapla",
 		"/C/Users/alex/kapla/app",
-		"/C/Users/alex/kapla/app/actions",
 		"/C/Users/alex/kapla/app/components",
 		"/C/Users/alex/kapla/app/containers",
 		"/C/Users/alex/kapla/app/src"
 	],
 	"file_history":
 	[
-		"/C/Users/alex/kapla/app/containers/GeschaeftKontakteIntern.js",
-		"/C/Users/alex/kapla/app/components/GeschaeftKontakteIntern.js",
-		"/C/Users/alex/kapla/app/containers/GeschaeftKontakteExtern.js",
-		"/C/Users/alex/kapla/app/components/GeschaeftKontakteExtern.js",
+		"/C/Users/alex/kapla/app/components/AreaParlVorstoss.js",
+		"/C/Users/alex/kapla/app/components/AreaParlVorstoss.css",
+		"/C/Users/alex/kapla/app/containers/AreaParlVorstoss.js",
+		"/C/Users/alex/kapla/app/containers/AreaPersonen.js",
+		"/C/Users/alex/kapla/app/components/AreaPersonen.js",
+		"/C/Users/alex/kapla/app/components/AreaPersonen.css",
+		"/C/Users/alex/kapla/app/src/areaTitleSubtitle.css",
+		"/C/Users/alex/kapla/app/containers/AreaHistory.js",
+		"/C/Users/alex/kapla/app/components/AreaHistory.css",
+		"/C/Users/alex/kapla/app/components/AreaHistory.js",
+		"/C/Users/alex/kapla/app/components/AreaZuletztMutiert.css",
+		"/C/Users/alex/kapla/app/containers/AreaZuletztMutiert.js",
+		"/C/Users/alex/kapla/app/components/AreaZuletztMutiert.js",
+		"/C/Users/alex/kapla/app/src/sql/createTables.sql",
+		"/C/Users/alex/kapla/app/components/Geschaeft.js",
+		"/C/Users/alex/kapla/app/components/Geschaeft.css",
+		"/C/Users/alex/kapla/app/components/Geschaefte.css",
+		"/C/Users/alex/kapla/app/components/Geschaefte.js",
+		"/C/Users/alex/kapla/app/app.global.css",
+		"/C/Users/alex/kapla/app/actions/geschaefte.js",
+		"/C/Users/alex/kapla/app/src/updateGeschaeft.js",
 		"/C/Users/alex/kapla/app/components/GeschaeftKontakteIntern.css",
+		"/C/Users/alex/kapla/app/components/GeschaeftKontakteIntern.js",
+		"/C/Users/alex/kapla/app/components/GeschaeftKontakteExtern.js",
 		"/C/Users/alex/kapla/app/components/GeschaeftKontakteExtern.css",
+		"/C/Users/alex/kapla/app/containers/Geschaeft.js",
+		"/C/Users/alex/kapla/app/src/getHistoryOfGeschaeft.js",
+		"/C/Users/alex/kapla/app/src/getIdVorgeschaeft.js",
+		"/C/Users/alex/kapla/app/src/getIdNachgeschaeft.js",
+		"/C/Users/alex/kapla/app/containers/Geschaefte.js",
+		"/C/Users/alex/kapla/app/containers/GeschaeftKontakteIntern.js",
+		"/C/Users/alex/kapla/app/containers/GeschaeftKontakteExtern.js",
 		"/C/Users/alex/kapla/app/actions/geschaefteKontakteIntern.js",
 		"/C/Users/alex/kapla/app/routes.js",
 		"/C/Users/alex/kapla/app/actions/geschaefteKontakteExtern.js",
-		"/C/Users/alex/kapla/app/components/Geschaeft.js",
-		"/C/Users/alex/kapla/app/components/Geschaeft.css",
-		"/C/Users/alex/kapla/app/app.global.css",
 		"/C/Users/alex/kapla/app/components/GescchaefteLayoutContainer.css",
 		"/C/Users/alex/kapla/app/components/GescchaefteLayoutContainer.js",
 		"/C/Users/alex/kapla/app/components/GeschaefteLayout.js",
@@ -428,30 +486,23 @@
 		"/C/Users/alex/kapla/app/src/newGeschaeftKontaktExternInDb.js",
 		"/C/Users/alex/kapla/app/src/newGeschaeftKontaktInternInDb.js",
 		"/C/Users/alex/kapla/app/src/getGeschaeftKontaktExternFromDb.js",
-		"/C/Users/alex/kapla/app/actions/geschaefte.js",
 		"/C/Users/alex/kapla/app/reducers/geschaefte.js",
-		"/C/Users/alex/kapla/app/containers/Geschaefte.js",
 		"/C/Users/alex/kapla/app/src/deleteGeschaeftKontaktIntern.js",
 		"/C/Users/alex/kapla/app/src/deleteGeschaeftKontaktExtern.js",
 		"/C/Users/alex/kapla/app/src/deleteGeschaeft.js",
 		"/C/Users/alex/kapla/app/src/sql/newGeschaeftKontaktInternInDb.js",
 		"/C/Users/alex/kapla/app/src/updateGeschaeftKontaktExtern.js",
 		"/C/Users/alex/kapla/app/src/updateGeschaeftKontaktIntern.js",
-		"/C/Users/alex/kapla/app/src/updateGeschaeft.js",
 		"/C/Users/alex/kapla/app/src/getGeschaefteKontakteInternFromDb.js",
 		"/C/Users/alex/kapla/app/src/getGeschaefteKontakteExternFromDb.js",
 		"/C/Users/alex/kapla/app/src/sql/createViews.sql",
 		"/C/Users/alex/kapla/webpack.config.base.js",
-		"/C/Users/alex/kapla/app/containers/Geschaeft.js",
 		"/C/Users/alex/kapla/app/actions/table.js",
 		"/C/Users/alex/kapla/app/src/getInterneOptions.js",
 		"/C/Users/alex/kapla/app/src/getExterneOptions.js",
 		"/C/Users/alex/kapla/app/src/getDropdownOptions.js",
-		"/C/Users/alex/kapla/app/src/sql/createTables.sql",
 		"/C/Users/alex/kapla/app/src/sql/updateTables.sql",
 		"/C/Users/alex/Downloads/nub.csv",
-		"/C/Users/alex/kapla/app/components/Geschaefte.js",
-		"/C/Users/alex/kapla/app/components/Geschaefte.css",
 		"/C/Users/alex/kapla/release/win32-x64/Kapla-win32-x64/resources/app/app/components/Geschaeft.js",
 		"/C/Users/alex/kapla/release/win32-x64/Kapla-win32-x64/resources/app/app/components/Geschaeft.css",
 		"/D/Google Drive/awel-kapla/howto.txt",
@@ -513,27 +564,11 @@
 		"/C/Users/alex/kapla/app/containers/Pages.js",
 		"/C/Users/alex/kapla/app/containers/Page.js",
 		"/C/Users/alex/kapla/app/components/ModalMessage.js",
-		"/C/Users/alex/kapla/app/components/ModalMessage.css",
-		"/C/Users/alex/kapla/app/src/chooseDb.js",
-		"/C/Users/alex/kapla/app/containers/ModalMessage.js",
-		"/C/Users/alex/kapla/app/containers/DevTools.js",
-		"/C/Users/alex/kapla/app/src/sheets-of-paper.css",
-		"/C/Users/alex/kapla/app/components/ModalPagesTitle.js",
-		"/C/Users/alex/kapla/app/containers/ModalPagesTitle.js",
-		"/C/Users/alex/kapla/app/components/ModalPagesTitle.css",
-		"/C/Users/alex/kapla/app/containers/ModalGeschaeftDelete.js",
-		"/C/Users/alex/kapla/app/components/Geschaefte_grid_sik.js",
-		"/C/Users/alex/kapla/app/components/Navbar.css",
-		"/C/Users/alex/kapla/app/components/GeschaefteReport.css",
-		"/C/Users/alex/kapla/app/components/GeschaefteReport.js",
-		"/C/Users/alex/kapla/app/containers/GeschaefteReport.js",
-		"/C/Users/alex/kapla/app/actions/page.js",
-		"/C/Users/alex/kapla/release/win32-x64/ElectronReact-win32-x64/resources/app.asar",
-		"/C/Users/alex/kapla/package.json"
+		"/C/Users/alex/kapla/app/components/ModalMessage.css"
 	],
 	"find":
 	{
-		"height": 47.0
+		"height": 48.0
 	},
 	"find_in_files":
 	{
@@ -555,134 +590,134 @@
 		"case_sensitive": true,
 		"find_history":
 		[
-			"addNachgeschaefte",
-			"addVorgeschaefte",
-			"nrOfFieldsBeforeFristen",
-			"^",
-			"GeschaefteLayout",
-			"innerHeight",
-			"window",
-			"GeschaefteLayout",
-			"GeschaefteKontakteExternActions",
-			"GeschaefteKontakteInternActions",
-			"geschaeftKontaktExternNewCreate",
-			"areaInterneKontakteRows",
-			"ReactDOM",
-			"removeFilter",
-			"onChangeFilterFulltext",
-			"kurzzeichen",
-			"interne",
-			"Intern",
-			"intern",
-			"Intern",
-			"INTERN",
-			"intern",
-			"INTERN",
-			"Intern",
-			"grid-template-columns",
-			"wrapperNarrow",
-			"idGeschaeft",
-			"Glyphicon",
-			"GESCHAEFT_KONTAKT_INTERN_NEW",
-			"onChangeNewKontaktIntern",
-			"geschaeftKontaktInternToggleActivated",
-			"geschaeftNewCreate",
-			"GeschaefteKontakteInternActions",
-			"console.log",
-			"geschaefteKonakteIntern",
-			"verantwortlichData",
-			"interneOptions",
-			"options",
-			"geschaeftToggleActivated",
-			"geschaeftKontaktInternToggleActivated",
-			"geschaefte",
-			"geschaeftKontaktIntern",
-			"GESCHAEFTE_CHANGE_STATE",
-			"GESCHAEFTE_KONTAKTE_INTERN_CHANGE_STATE",
-			"geschaefteGefilterteIds",
-			"GESCHAEFT_KONTAKTE_INTERN",
-			"GESCHAEFT_KONTAKT_INTERNE_KONTAKTE_INTERN",
-			"geschaeft",
-			"activeId",
-			"GESCHAEFT",
-			"GESCHAEFTE",
-			"geschaefte",
-			"geschaeftKontaktInternToggleActivated",
-			"GESCHAEFT_REMOVE_DELETE_INTENDED",
-			"GESCHAEFT_SET_DELETE_INTENDED",
-			"GESCHAEFT_NEW_ERROR",
-			"GESCHAEFT_NEW",
-			"GESCHAEFTE_GET_ERROR",
-			"GESCHAEFTE_GET_SUCCESS",
-			"GESCHAEFTE_GET",
-			"geschaeftNew",
-			"geschaeftNewError",
-			"geschaeftSetDeleteIntended",
-			"geschaeftRemoveDeleteIntended",
-			"geschaeftDelete",
-			"geschaeftDeleteError",
-			"GESCHAEFT_DELETE",
-			"GESCHAEFT_DELETE_ERROR",
-			"GESCHAEFTE_CHANGE_STATE",
-			"GESCHAEFTE_CHANGE_DB_ERROR",
-			"GESCHAEFT_TOGGLE_ACTIVATED",
-			"geschaeftToggleActivated",
 			"Geschaeft",
 			"geschaefte",
-			"Geschaefte",
-			"geschaefteKontakteInternFromDb",
-			"filterGeschaefte",
-			"getGeschaefteFromDb",
-			"geschaefteKontakteIntern",
-			"v_geschaefte_kontakteIntern",
-			"getGeschaefte",
-			"bereichTitel",
-			"areaPersonenSubtitle",
-			"blurTypeahead",
-			"getDateValidationStateVerantwortlich",
-			"options",
-			"kurzzeichenOptions",
-			"changeTypeahead",
-			"getDateValidationStateDate",
-			"getDateValidationState",
-			"kurzzeichenOptions",
-			"options",
-			"geschaeftsartOptionsGet",
-			"interneOptionsGet",
-			"rechtsmittelerledigungOptionsGet",
-			"getDropdownOptions",
-			"INTERNE_OPTIONS_GET_ERROR",
-			"INTERNE_OPTIONS_GET_SUCCESS",
-			"Interne",
-			"interne",
-			"GESCHAEFTSART_OPTIONS_GET_SUCCESS",
-			"geschaeftsartOptionsGet",
-			"GESCHAEFTSART",
-			"updateTableRow",
-			"grid-template-columns",
-			",\n ",
-			" INTEGER,\n  ",
-			" TEXT,\n  ",
-			"fieldIdGeschaeft",
-			"datePopupTopLeft",
-			"statusBisFristInText",
-			"fristDauerBisMitarbeiter",
-			"nrOfNummernFields",
-			"nrOfGFields : 0",
-			"feildEntscheidKrJahr",
-			"areaFristen",
-			",\n  ",
-			"fristMitarbeiter",
-			"fristDauerBisMitarbeiter",
-			"ref",
-			"FindDOMNode",
-			"convertDateToYyyyMmDd",
-			"updateGeschaeft",
+			"statusOptions",
+			"rechtsmittelerledigungOptions",
+			"parlVorstossTypOptions",
+			"interneOptions",
+			"externeOptions",
+			"moment",
+			"geschaefte",
+			"geschaeft",
+			"activeId",
+			"geschaefteChangeState",
 			"changeGeschaeftInDb",
-			"datumEingangAwel",
-			"GeschaefteLayout",
-			"GeschaefteLayout.js",
-			"datumEingangAwel"
+			"rechtsmittelerledigungOptions",
+			"geschaeftsartOptions",
+			"geschaefteLayout",
+			"geschaeftToggleActivated",
+			"composes",
+			"areaParlVorst",
+			"fieldFristDauerBisMitarbeiter",
+			"fristDauerBisMitarbeiter",
+			"options",
+			"getDateValidationStateDate",
+			"onChangeDatePicker",
+			"areaParlVorst",
+			"areaParlVorstoss",
+			"onChangeDatePicker",
+			"getDateValidationStateDate",
+			"validateDate",
+			"options",
+			"fristDauerBisMitarbeiter",
+			"verantwortlichData",
+			"verwantwortlichOptions",
+			"verantwortlichData",
+			"fieldFristDauerBisMitarbeiter",
+			"verwantwortlichOptions",
+			"fieldFristDauerBisMitarbeiter",
+			"this.blur",
+			"this.change",
+			"Geschaeft",
+			"composes",
+			"areaPersonen",
+			"nrOfFieldsBeforePersonen",
+			"geschaeftToggleActivated",
+			"geschaefteLayout",
+			"geschaeftsartOptions",
+			"statusOptions",
+			"externeOptions",
+			"parlVorstossTypOptions",
+			"rechtsmittelerledigungOptions",
+			"changeGeschaeftInDb",
+			"geschaefteChangeState",
+			"activeId",
+			"geschaefte",
+			"moment",
+			"onChangeDatePicker",
+			"validateDate",
+			"options",
+			"fristDauerBisMitarbeiter",
+			"verantwortlichData",
+			"verwantwortlichOptions",
+			"fieldFristDauerBisMitarbeiter",
+			"showGeschaeft",
+			"Geschaeft",
+			"areaHistory",
+			"onClickHistoryGeschaeft",
+			"areaHistory",
+			"AreaHistory",
+			"changeGeschaeftInDb",
+			"geschaefteChangeState",
+			"geschaeft",
+			"Geschaeft",
+			"areaHistory",
+			"Geschaeft",
+			"areaHistory",
+			"areaZuletztMutiert",
+			"Geschaeft",
+			"moment",
+			"Geschaeft",
+			"geschaeftToggleActivated",
+			"areaZuletztMutiert",
+			"zuletztMutiert",
+			"areaZuletztMutiert",
+			"zuletztMutiert",
+			"Geschaeft",
+			"parlVorstossTypOptions",
+			"areaParlVorst",
+			"areaHistory",
+			"historyArea",
+			"Erledigung",
+			"labelHorizontal",
+			"labelEntscheidAwel",
+			"fieldGekoNr",
+			"areaNummern",
+			"columnIdGeschaeft",
+			"updateGeschaeft",
+			"Letzte Mutation",
+			"areaHistory",
+			"options",
+			"dropdown",
+			"onClickHistoryGeschaeft",
+			"GESCHAEFT_TOGGLE_ACTIVATED",
+			"onClickHistoryGeschaeft",
+			" className={styles.label}",
+			" className={styles.field}",
+			"field",
+			"\n            className={styles.field}",
+			" className={styles.field}",
+			" className={styles.label}",
+			"label",
+			"typeNr",
+			"fieldVorgeschaeft",
+			"idKontakt",
+			"rows",
+			"join",
+			"styles.input",
+			"\n                className={styles.input}",
+			"styles.input",
+			"\n              className={styles.input}",
+			"styles.input",
+			"gegenstand",
+			"input",
+			"fieldGegenstand",
+			"labelHorizontal",
+			"label",
+			"labelAwel",
+			"state",
+			"addNachgeschaefte"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -690,6 +725,20 @@
 		"regex": false,
 		"replace_history":
 		[
+			"AreaFristen",
+			"blur",
+			"change",
+			"AreaParlVorstoss",
+			"AreaPersonen",
+			"AreaHistory",
+			"AreaZuletztMutiert",
+			"areaZuletztMutiert",
+			"AreaParlVorstoss",
+			"areaParlVorstoss",
+			"areaHistory",
+			"areaZuletztMutiert",
+			"",
+			"labelEntscheidAwel",
 			"addNachgeschaefteToHistory",
 			"addVorgeschaefteToHistory",
 			"",
@@ -803,21 +852,7 @@
 			"ROW_REMOVE_DELETE_INTENDED",
 			"ROW_SET_DELETE_INTENDED",
 			"ROW_DELETE",
-			"ROW_DEACTIVATE",
-			"ROW_ACTIVATE",
-			"TABELLE_GET_ERROR",
-			"TABELLE_GET",
-			"TABELLE_GET_SUCCESS",
-			"TABELLE_GET",
-			"geschaeftsartOptionsGet",
-			"geschaeftsartOptionsGetError",
-			"GESCHAEFTSART_OPTIONS_GET_SUCCESS",
-			"STATUS_OPTIONS_GET_SUCCESS",
-			"statusOptionsGetError",
-			"statusOptionsGet",
-			"PARLVORSTOSSTYP_OPTIONS_GET_SUCCESS",
-			"parlVorstossTypOptionsGetError",
-			"parlVorstossTypOptionsGet"
+			"ROW_DEACTIVATE"
 		],
 		"reverse": false,
 		"show_context": true,
@@ -828,7 +863,7 @@
 	"groups":
 	[
 		{
-			"selected": 1,
+			"selected": 5,
 			"sheets":
 			[
 				{
@@ -844,8 +879,8 @@
 						"selection":
 						[
 							[
-								4296,
-								4296
+								1913,
+								1913
 							]
 						],
 						"settings":
@@ -855,27 +890,27 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 2475.0,
+						"translation.y": 664.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 4,
+					"stack_index": 7,
 					"type": "text"
 				},
 				{
 					"buffer": 1,
-					"file": "app/components/Geschaeft.js",
+					"file": "app/containers/Geschaeft.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 33428,
+						"buffer_size": 909,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1350,
-								1350
+								0,
+								909
 							]
 						],
 						"settings":
@@ -885,19 +920,171 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 906.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "app/components/Geschaeft.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 24308,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								24308
+							]
+						],
+						"settings":
+						{
+							"history_list_is_closing": true,
+							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 170.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "app/components/Geschaeft.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 24308,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								24308
+							]
+						],
+						"settings":
+						{
+							"history_list_is_closing": true,
+							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 2482.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "app/containers/AreaFristen.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 753,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								561,
+								561
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "app/components/AreaFristen.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 24308,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								23994,
+								23994
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 21057.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
 					"type": "text"
 				},
 				{
-					"buffer": 2,
-					"file": "app/containers/Geschaefte.js",
+					"buffer": 5,
+					"file": "app/components/Geschaeft.css",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 825,
+						"buffer_size": 7315,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								109,
+								109
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/CSS/CSS.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "app/components/AreaFristen.css",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 0,
 						"regions":
 						{
 						},
@@ -910,73 +1097,13 @@
 						],
 						"settings":
 						{
-							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
+							"syntax": "Packages/CSS/CSS.sublime-syntax"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 2,
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "app/containers/Geschaeft.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1061,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								686,
-								686
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 198.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 3,
-					"type": "text"
-				},
-				{
-					"buffer": 4,
-					"file": "app/src/getHistoryOfGeschaeft.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1079,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1076,
-								944
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
+					"stack_index": 6,
 					"type": "text"
 				}
 			]
@@ -984,7 +1111,7 @@
 	],
 	"incremental_find":
 	{
-		"height": 49.0
+		"height": 42.0
 	},
 	"input":
 	{
@@ -1021,7 +1148,7 @@
 	"project": "kapla_pc.sublime-project",
 	"replace":
 	{
-		"height": 90.0
+		"height": 92.0
 	},
 	"save_all_on_build": true,
 	"select_file":

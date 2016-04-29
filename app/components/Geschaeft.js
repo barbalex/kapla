@@ -2,12 +2,13 @@
 
 import React, { Component, PropTypes } from 'react'
 import ReactDOM from 'react-dom'
-import { FormGroup, InputGroup, FormControl, ControlLabel, Glyphicon } from 'react-bootstrap'
+import { FormControl, ControlLabel } from 'react-bootstrap'
 import moment from 'moment'
 moment.locale('de')
-import DateRangePicker from 'react-bootstrap-daterangepicker'
 import styles from './Geschaeft.css'
 import isDateField from '../src/isDateField'
+import validateDate from '../src/validateDate'
+import AreaFristen from '../containers/AreaFristen'
 import AreaParlVorstoss from '../containers/AreaParlVorstoss'
 import AreaPersonen from '../containers/AreaPersonen'
 import AreaHistory from '../containers/AreaHistory'
@@ -37,22 +38,6 @@ class Geschaeft extends Component {
     this.blur(rVal)
   }
 
-  getDateValidationStateDate = (date) => {
-    switch (this.validateDate(date)) {
-      case true:
-        return null
-      case false:
-        return 'error'
-      default:
-        return null
-    }
-  }
-
-  validateDate = (date) => {
-    if (!date) return true
-    return moment(date, 'DD.MM.YYYY').isValid()
-  }
-
   change = (e) => {
     const { activeId, geschaefteChangeState } = this.props
     const { type, name, dataset } = e.target
@@ -72,7 +57,7 @@ class Geschaeft extends Component {
     let select = false
     if (type === 'radio') value = dataset.value
     if (isDateField(name)) {
-      if (this.validateDate(value)) {
+      if (validateDate(value)) {
         // if correct date, save to db
         changeGeschaeftInDb(activeId, name, value)
       }
@@ -101,24 +86,6 @@ class Geschaeft extends Component {
     options.unshift(<option key={0} value=""></option>)
     return options
   }
-
-  fristDauerBisMitarbeiter = () => {
-    const { geschaeft } = this.props
-    const now = moment()
-    const end = moment(geschaeft.fristMitarbeiter, 'DD.MM.YYYY')
-    const duration = moment.duration(end.diff(now))
-    const days = duration.asDays()
-    return days ? Math.ceil(days) : ''
-  }
-
-  fieldFristDauerBisMitarbeiter = () => (
-    <div className={styles.fieldFristDauerBisMitarbeiter}>
-      <ControlLabel>Tage bis Frist Mitarbeiter</ControlLabel>
-      <FormControl.Static className={styles.formControlStatic}>
-        {this.fristDauerBisMitarbeiter()}
-      </FormControl.Static>
-    </div>
-  )
 
   render = () => {
     const {
@@ -441,206 +408,12 @@ class Geschaeft extends Component {
           </div>
         </div>
         <AreaParlVorstoss nrOfFieldsBeforePv={nrOfFieldsBeforePv} change={this.change} blur={this.blur} />
-        <div className={styles.areaFristen}>
-          <div className={styles.areaFristenTitle}>Fristen</div>
-          <FormGroup
-            className={styles.fieldDatumEingangAwel}
-            validationState={this.getDateValidationStateDate(geschaeft.datumEingangAwel)}
-          >
-            <ControlLabel>Datum des Eingangs im AWEL</ControlLabel>
-            <InputGroup>
-              <FormControl
-                type="text"
-                value={geschaeft.datumEingangAwel}
-                name="datumEingangAwel"
-                ref="datumEingangAwel"
-                onChange={this.change}
-                onBlur={this.blur}
-                bsSize="small"
-                tabIndex={1 + nrOfFieldsBeforeFristen}
-              />
-              <InputGroup.Addon>
-                <DateRangePicker
-                  singleDatePicker
-                  drops="up"
-                  onApply={this.onChangeDatePicker.bind(this, 'datumEingangAwel')}
-                  className={styles.datePicker}
-                >
-                  <Glyphicon glyph="calendar" />
-                </DateRangePicker>
-              </InputGroup.Addon>
-            </InputGroup>
-          </FormGroup>
-          <FormGroup
-            className={styles.fieldFristAwel}
-            validationState={this.getDateValidationStateDate(geschaeft.fristAwel)}
-          >
-            <ControlLabel>Frist für Erledigung durch AWEL</ControlLabel>
-            <InputGroup>
-              <FormControl
-                type="text"
-                value={geschaeft.fristAwel || ''}
-                name="fristAwel"
-                ref="fristAwel"
-                onChange={this.change}
-                onBlur={this.blur}
-                bsSize="small"
-                tabIndex={2 + nrOfFieldsBeforeFristen}
-              />
-              <InputGroup.Addon>
-                <DateRangePicker
-                  singleDatePicker
-                  drops="up"
-                  onApply={this.onChangeDatePicker.bind(this, 'fristAwel')}
-                  className={styles.datePicker}
-                >
-                  <Glyphicon glyph="calendar" />
-                </DateRangePicker>
-              </InputGroup.Addon>
-            </InputGroup>
-          </FormGroup>
-          <FormGroup
-            className={styles.fieldFristAmtschef}
-            validationState={this.getDateValidationStateDate(geschaeft.fristAmtschef)}
-          >
-            <ControlLabel>Frist Vorlage an Amtschef</ControlLabel>
-            <InputGroup>
-              <FormControl
-                type="text"
-                value={geschaeft.fristAmtschef || ''}
-                name="fristAmtschef"
-                ref="fristAmtschef"
-                onChange={this.change}
-                onBlur={this.blur}
-                bsSize="small"
-                tabIndex={3 + nrOfFieldsBeforeFristen}
-              />
-              <InputGroup.Addon>
-                <DateRangePicker
-                  singleDatePicker
-                  drops="up"
-                  onApply={this.onChangeDatePicker.bind(this, 'fristAmtschef')}
-                  className={styles.datePicker}
-                >
-                  <Glyphicon glyph="calendar" />
-                </DateRangePicker>
-              </InputGroup.Addon>
-            </InputGroup>
-          </FormGroup>
-          <FormGroup
-            className={styles.fieldFristAbteilung}
-            validationState={this.getDateValidationStateDate(geschaeft.fristAbteilung)}
-          >
-            <ControlLabel>Frist für Erledigung durch Abteilung</ControlLabel>
-            <InputGroup>
-              <FormControl
-                type="text"
-                value={geschaeft.fristAbteilung || ''}
-                name="fristAbteilung"
-                ref="fristAbteilung"
-                onChange={this.change}
-                onBlur={this.blur}
-                bsSize="small"
-                tabIndex={4 + nrOfFieldsBeforeFristen}
-              />
-              <InputGroup.Addon>
-                <DateRangePicker
-                  singleDatePicker
-                  drops="up"
-                  onApply={this.onChangeDatePicker.bind(this, 'fristAbteilung')}
-                  className={styles.datePicker}
-                >
-                  <Glyphicon glyph="calendar" />
-                </DateRangePicker>
-              </InputGroup.Addon>
-            </InputGroup>
-          </FormGroup>
-          <FormGroup
-            className={styles.fieldFristMitarbeiter}
-            validationState={this.getDateValidationStateDate(geschaeft.fristMitarbeiter)}
-          >
-            <ControlLabel>Frist Erledigung nächster Schritt RD</ControlLabel>
-            <InputGroup>
-              <FormControl
-                type="text"
-                value={geschaeft.fristMitarbeiter || ''}
-                name="fristMitarbeiter"
-                ref="fristMitarbeiter"
-                onChange={this.change}
-                onBlur={this.blur}
-                bsSize="small"
-                tabIndex={5 + nrOfFieldsBeforeFristen}
-              />
-              <InputGroup.Addon>
-                <DateRangePicker
-                  singleDatePicker
-                  drops="up"
-                  onApply={this.onChangeDatePicker.bind(this, 'fristMitarbeiter')}
-                  className={styles.datePicker}
-                >
-                  <Glyphicon glyph="calendar" />
-                </DateRangePicker>
-              </InputGroup.Addon>
-            </InputGroup>
-          </FormGroup>
-          {!!geschaeft.fristMitarbeiter && this.fieldFristDauerBisMitarbeiter()}
-          <FormGroup
-            className={styles.fieldDatumAusgangAwel}
-            validationState={this.getDateValidationStateDate(geschaeft.datumAusgangAwel)}
-          >
-            <ControlLabel>Datum Ausgang AWEL (erledigt)</ControlLabel>
-            <InputGroup>
-              <FormControl
-                type="text"
-                value={geschaeft.datumAusgangAwel || ''}
-                name="datumAusgangAwel"
-                ref="datumAusgangAwel"
-                onChange={this.change}
-                onBlur={this.blur}
-                bsSize="small"
-                tabIndex={6 + nrOfFieldsBeforeFristen}
-              />
-              <InputGroup.Addon>
-                <DateRangePicker
-                  singleDatePicker
-                  drops="up"
-                  onApply={this.onChangeDatePicker.bind(this, 'datumAusgangAwel')}
-                  className={styles.datePicker}
-                >
-                  <Glyphicon glyph="calendar" />
-                </DateRangePicker>
-              </InputGroup.Addon>
-            </InputGroup>
-          </FormGroup>
-          <FormGroup
-            className={styles.fieldFristDirektion}
-            validationState={this.getDateValidationStateDate(geschaeft.fristDirektion)}
-          >
-            <ControlLabel>Frist für Erledigung durch Direktion</ControlLabel>
-            <InputGroup>
-              <FormControl
-                type="text"
-                value={geschaeft.fristDirektion || ''}
-                name="fristDirektion"
-                ref="fristDirektion"
-                onChange={this.change}
-                onBlur={this.blur}
-                bsSize="small"
-                tabIndex={7 + nrOfFieldsBeforeFristen}
-              />
-              <InputGroup.Addon>
-                <DateRangePicker
-                  singleDatePicker
-                  drops="up"
-                  onApply={this.onChangeDatePicker.bind(this, 'fristDirektion')}
-                  className={styles.datePicker}
-                >
-                  <Glyphicon glyph="calendar" />
-                </DateRangePicker>
-              </InputGroup.Addon>
-            </InputGroup>
-          </FormGroup>
-        </div>
+        <AreaFristen
+          nrOfFieldsBeforeFristen={nrOfFieldsBeforeFristen}
+          change={this.change}
+          blur={this.blur}
+          onChangeDatePicker={this.onChangeDatePicker}
+        />
         <AreaPersonen nrOfFieldsBeforePersonen={nrOfFieldsBeforePersonen} change={this.change} blur={this.blur} />
         <AreaHistory blur={this.blur} change={this.change} />
         <AreaZuletztMutiert />

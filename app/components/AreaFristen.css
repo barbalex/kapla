@@ -1,0 +1,57 @@
+.areaTitle {
+  font-weight: 900;
+  font-size: 16px;
+}
+
+.areaFristen {
+  grid-area: areaFristen;
+  background-color: rgba(242, 255, 1, 0.2);
+  display: grid;
+  grid-template-columns: 100%;
+  grid-gap: 2px;
+  padding: 8px;
+}
+
+.areaFristenTitle {
+  composes: areaTitle;
+  grid-column: 1;
+}
+
+.fieldDatumEingangAwel {
+  grid-column: 1;
+}
+
+.fieldFristAwel {
+  grid-column: 1;
+}
+
+.fieldFristAmtschef {
+  grid-column: 1;
+}
+
+.fieldFristAbteilung {
+  grid-column: 1;
+}
+
+.fieldFristMitarbeiter {
+  grid-column: 1;
+}
+
+.fieldFristDauerBisMitarbeiter {
+  grid-column: 1;
+  font-weight: 700;
+  font-size: 14px;
+}
+
+.fieldDatumAusgangAwel {
+  grid-column: 1;
+}
+
+.fieldFristDirektion {
+  grid-column: 1;
+}
+
+
+.datePicker {
+  cursor: pointer;
+}
