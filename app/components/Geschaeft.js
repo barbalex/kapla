@@ -136,10 +136,12 @@ class Geschaeft extends Component {
     let zuletztMutiertText
 
     if (!geschaeft.mutationsperson) {
-      zuletztMutiertText = 'Für dieses Geschäft wurde (noch) keine Mutationsperson gespeichert'
+      zuletztMutiertText = 'Bei diesem Geschäft wurde (noch) keine Mutationsperson gespeichert'
     } else {
       const mutPersonOptions = interneOptions.find((o) => {
         if (o.itKonto) {
+          // seems that data contains lower case differences
+          // and whitespace
           return o.itKonto.toLowerCase().replace(/ /g, '') === geschaeft.mutationsperson.toLowerCase().replace(/ /g, '')
         }
         return false
@@ -147,7 +149,7 @@ class Geschaeft extends Component {
       const name = mutPersonOptions ? ` (${mutPersonOptions.vorname} ${mutPersonOptions.name})` : ''
       zuletztMutiertText = `Zuletzt mutiert durch ${geschaeft.mutationsperson}${name} am ${geschaeft.mutationsdatum}`
     }
-      
+
     return (
       <div className={styles.areaZuletztMutiert}>
         <div className={styles.fieldZuletztMutiert}>{zuletztMutiertText}</div>
@@ -214,6 +216,15 @@ class Geschaeft extends Component {
       </div>
     )
   }
+
+  fieldFristDauerBisMitarbeiter = () => (
+    <div className={styles.fieldFristDauerBisMitarbeiter}>
+      <ControlLabel>Tage bis Frist Mitarbeiter</ControlLabel>
+      <FormControl.Static className={styles.formControlStatic}>
+        {this.fristDauerBisMitarbeiter()}
+      </FormControl.Static>
+    </div>
+  )
 
   render() {
     const {
@@ -784,12 +795,7 @@ class Geschaeft extends Component {
               </InputGroup.Addon>
             </InputGroup>
           </FormGroup>
-          <div className={styles.fieldFristDauerBisMitarbeiter}>
-            <ControlLabel>Tage bis Frist Mitarbeiter</ControlLabel>
-            <FormControl.Static className={styles.formControlStatic}>
-              {this.fristDauerBisMitarbeiter()}
-            </FormControl.Static>
-          </div>
+          {!!geschaeft.fristMitarbeiter && this.fieldFristDauerBisMitarbeiter()}
           <FormGroup
             className={styles.fieldDatumAusgangAwel}
             validationState={this.getDateValidationStateDate(geschaeft.datumAusgangAwel)}
