@@ -332,7 +332,7 @@ class Geschaeft extends Component {
               onChange={this.change}
               onBlur={this.blur}
               bsSize="small"
-              rows={5}
+              rows={4}
               tabIndex={7 + (wrapperClass === styles.wrapperNarrow ? nrOfNrFields : 0)}
             />
           </div>
@@ -358,7 +358,7 @@ class Geschaeft extends Component {
               onChange={this.change}
               onBlur={this.blur}
               bsSize="small"
-              rows={5}
+              rows={4}
               tabIndex={9 + (wrapperClass === styles.wrapperNarrow ? nrOfNrFields : 0)}
             />
           </div>

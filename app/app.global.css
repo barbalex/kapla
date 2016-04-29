@@ -63,7 +63,8 @@ textarea {
  * it shows wrong position
  */
 .reactList::-webkit-scrollbar,
-.data-reactroot::-webkit-scrollbar { 
+.data-reactroot::-webkit-scrollbar,
+textarea::-webkit-scrollbar { 
   display: none;
 }
 
