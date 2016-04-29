@@ -9,8 +9,7 @@ import DateRangePicker from 'react-bootstrap-daterangepicker'
 import _ from 'lodash'
 import styles from './Geschaeft.css'
 import isDateField from '../src/isDateField'
-import GeschaeftKontakteIntern from '../containers/GeschaeftKontakteIntern'
-import GeschaeftKontakteExtern from '../containers/GeschaeftKontakteExtern'
+import AreaPersonen from '../containers/AreaPersonen'
 import AreaHistory from '../containers/AreaHistory'
 import AreaZuletztMutiert from '../containers/AreaZuletztMutiert'
 
@@ -786,33 +785,7 @@ class Geschaeft extends Component {
             </InputGroup>
           </FormGroup>
         </div>
-        <div className={styles.areaPersonen}>
-          <div className={styles.areaPersonenTitle}>Personen</div>
-          <div className={styles.areaVerantwortlichSubTitle}>Verantwortlich</div>
-          <div className={styles.fieldVerantwortlich}>
-            <FormControl
-              componentClass="select"
-              value={geschaeft.verantwortlich || ''}
-              name="verantwortlich"
-              onChange={this.change}
-              onBlur={this.blur}
-              bsSize="small"
-              tabIndex={1 + nrOfFieldsBeforePersonen}
-              className={styles.verantwDropdown}
-            >
-              {this.verwantwortlichOptions()}
-            </FormControl>
-          </div>
-          <div className={styles.fieldVerantwortlichName}>
-            <FormControl.Static>
-              {this.verantwortlichData()}
-            </FormControl.Static>
-          </div>
-          <div className={styles.areaInterneKontakteSubTitle}>Interne Kontakte</div>
-          <GeschaeftKontakteIntern tabIndex={nrOfFieldsBeforePersonen + 1} />
-          <div className={styles.areaExterneKontakteSubTitle}>Externe Kontakte</div>
-          <GeschaeftKontakteExtern tabIndex={nrOfFieldsBeforePersonen + 2} />
-        </div>
+        <AreaPersonen nrOfFieldsBeforePersonen={nrOfFieldsBeforePersonen} change={this.change} blur={this.blur} />
         <AreaHistory blur={this.blur} change={this.change} />
         <AreaZuletztMutiert />
         {/* need this so lowest fields are visible */}
