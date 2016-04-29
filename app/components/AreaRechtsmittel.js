@@ -8,14 +8,14 @@ import createOptions from '../src/createOptions'
 class AreaRechtsmittel extends Component {
   static propTypes = {
     geschaeft: PropTypes.object,
-    rechtsmittelerledigungOptions: PropTypes.array.isRequired,
+    rechtsmittelErledigungOptions: PropTypes.array.isRequired,
     nrOfFieldsBeforePv: PropTypes.number,
     change: PropTypes.func.isRequired,
     blur: PropTypes.func.isRequired
   }
 
   render = () => {
-    const { geschaeft, rechtsmittelerledigungOptions, nrOfFieldsBeforePv, change, blur } = this.props
+    const { geschaeft, rechtsmittelErledigungOptions, nrOfFieldsBeforePv, change, blur } = this.props
     return (
       <div className={styles.areaForGeschaeftsart}>
         <div className={styles.areaRechtsmittelTitle}>Rekurs / Beschwerde</div>
@@ -23,14 +23,14 @@ class AreaRechtsmittel extends Component {
           <ControlLabel>Erledigung</ControlLabel>
           <FormControl
             componentClass="select"
-            value={geschaeft.rechtsmittelerledigung || ''}
-            name="rechtsmittelerledigung"
+            value={geschaeft.rechtsmittelErledigung || ''}
+            name="rechtsmittelErledigung"
             onChange={change}
             onBlur={blur}
             bsSize="small"
             tabIndex={1 + nrOfFieldsBeforePv}
           >
-            {createOptions(rechtsmittelerledigungOptions)}
+            {createOptions(rechtsmittelErledigungOptions)}
           </FormControl>
         </div>
       </div>

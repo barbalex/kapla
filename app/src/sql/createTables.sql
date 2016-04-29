@@ -62,8 +62,12 @@ CREATE TABLE geschaefte (
   ort TEXT,
   parlVorstossStufe TEXT,
   parlVorstossTyp TEXT,
-  rechtsmittelerledigung TEXT,
+  rechtsmittelInstanz TEXT,
+  rechtsmittelErledigung TEXT,
+  rechtsmittelEntscheidNr INTEGER,
+  rechtsmittelEntscheidDatum TEXT,
   status TEXT,
+  statusVernehmlassung TEXT,
   verantwortlich TEXT,
   vermerk TEXT,
   zustaendigeDirektion TEXT
@@ -155,7 +159,7 @@ CREATE TABLE parlVorstossTyp (
   sort INTEGER
 );
 
-CREATE INDEX parlVorstossTypSort ON status (sort);
+CREATE INDEX parlVorstossTypSort ON parlVorstossTyp (sort);
 
 INSERT INTO
   parlVorstossTyp (parlVorstossTyp, sort)
@@ -170,16 +174,16 @@ VALUES
   ('Parlamentatische Initiative', 8),
   ('Vorlage', 9);
 
-CREATE TABLE rechtsmittelerledigung (
+CREATE TABLE rechtsmittelErledigung (
   id INTEGER PRIMARY KEY,
-  rechtsmittelerledigung TEXT unique,
+  rechtsmittelErledigung TEXT unique,
   sort INTEGER
 );
 
-CREATE INDEX rechtsmittelerledigungSort ON status (sort);
+CREATE INDEX rechtsmittelErledigungSort ON rechtsmittelErledigung (sort);
 
 INSERT INTO
-  rechtsmittelerledigung (rechtsmittelerledigung, sort)
+  rechtsmittelErledigung (rechtsmittelErledigung, sort)
 VALUES
   ('vollständig zugunsten AWEL', 1),
   ('überwiegend zugunsten AWEL', 2),
@@ -191,3 +195,33 @@ VALUES
   ('Rechtsmittelrückzug Rekurrent', 8),
   ('Rücknahme durch AWEL', 9),
   ('andere Gründe', 10);
+
+CREATE TABLE rechtsmittelInstanz (
+  id INTEGER PRIMARY KEY,
+  rechtsmittelInstanz TEXT unique,
+  sort INTEGER
+);
+
+CREATE INDEX rechtsmittelInstanzSort ON rechtsmittelInstanz (sort);
+
+INSERT INTO
+  rechtsmittelInstanz (rechtsmittelInstanz, sort)
+VALUES
+  ('Instanz 1', 1),
+  ('Instanz 2', 2),
+  ('Instanz 3', 3);
+
+CREATE TABLE statusVernehmlassung (
+  id INTEGER PRIMARY KEY,
+  statusVernehmlassung TEXT unique,
+  sort INTEGER
+);
+
+CREATE INDEX statusVernehmlassungSort ON statusVernehmlassung (sort);
+
+INSERT INTO
+  statusVernehmlassung (statusVernehmlassung, sort)
+VALUES
+  ('erwartet', 1),
+  ('läuft', 2),
+  ('abgeschlossen', 3);

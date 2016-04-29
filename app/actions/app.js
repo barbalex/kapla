@@ -50,10 +50,12 @@ function dbChooseSuccess(dbPath, db) {
     // get data
     dispatch(UserActions.fetchUsername())
     dispatch(GeschaefteActions.getGeschaefte())
-    dispatch(GeschaefteActions.rechtsmittelerledigungOptionsGet())
+    dispatch(GeschaefteActions.rechtsmittelErledigungOptionsGet())
     dispatch(GeschaefteActions.parlVorstossTypOptionsGet())
     dispatch(GeschaefteActions.statusOptionsGet())
     dispatch(GeschaefteActions.geschaeftsartOptionsGet())
+    dispatch(GeschaefteActions.rechtsmittelInstanzOptionsGet())
+    dispatch(GeschaefteActions.statusVernehmlassungOptionsGet())
     dispatch(GeschaefteActions.interneOptionsGet())
     dispatch(GeschaefteActions.externeOptionsGet())
     dispatch(GeschaefteKontakteInternActions.getGeschaefteKontakteIntern())

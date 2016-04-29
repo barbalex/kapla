@@ -225,25 +225,25 @@ export function geschaeftToggleActivated(idGeschaeft) {
   }
 }
 
-export function rechtsmittelerledigungOptionsGet() {
+export function rechtsmittelErledigungOptionsGet() {
   return (dispatch, getState) => {
     const { app } = getState()
-    getDropdownOptions(app.db, 'rechtsmittelerledigung')
-      .then((rechtsmittelerledigungOptions) => dispatch(rechtsmittelerledigungOptionsGetSuccess(rechtsmittelerledigungOptions)))
-      .catch((error) => dispatch(rechtsmittelerledigungOptionsGetError(error)))
+    getDropdownOptions(app.db, 'rechtsmittelErledigung')
+      .then((rechtsmittelErledigungOptions) => dispatch(rechtsmittelErledigungOptionsGetSuccess(rechtsmittelErledigungOptions)))
+      .catch((error) => dispatch(rechtsmittelErledigungOptionsGetError(error)))
   }
 }
 
 export const RECHTSMITTELERLEDIGUNG_OPTIONS_GET_SUCCESS = 'RECHTSMITTELERLEDIGUNG_OPTIONS_GET_SUCCESS'
-function rechtsmittelerledigungOptionsGetSuccess(rechtsmittelerledigungOptions) {
+function rechtsmittelErledigungOptionsGetSuccess(rechtsmittelErledigungOptions) {
   return {
     type: RECHTSMITTELERLEDIGUNG_OPTIONS_GET_SUCCESS,
-    rechtsmittelerledigungOptions
+    rechtsmittelErledigungOptions
   }
 }
 
 export const RECHTSMITTELERLEDIGUNG_OPTIONS_GET_ERROR = 'RECHTSMITTELERLEDIGUNG_OPTIONS_GET_ERROR'
-function rechtsmittelerledigungOptionsGetError(error) {
+function rechtsmittelErledigungOptionsGetError(error) {
   return {
     type: RECHTSMITTELERLEDIGUNG_OPTIONS_GET_ERROR,
     error
@@ -372,6 +372,56 @@ export const EXTERNE_OPTIONS_GET_ERROR = 'EXTERNE_OPTIONS_GET_ERROR'
 function externeOptionsGetError(error) {
   return {
     type: EXTERNE_OPTIONS_GET_ERROR,
+    error
+  }
+}
+
+export function rechtsmittelInstanzOptionsGet() {
+  return (dispatch, getState) => {
+    const { app } = getState()
+    getDropdownOptions(app.db, 'rechtsmittelInstanz')
+      .then((rechtsmittelInstanzOptions) => dispatch(rechtsmittelInstanzOptionsGetSuccess(rechtsmittelInstanzOptions)))
+      .catch((error) => dispatch(rechtsmittelInstanzOptionsGetError(error)))
+  }
+}
+
+export const RECHTSMITTEL_INSTANZ_OPTIONS_GET_SUCCESS = 'RECHTSMITTEL_INSTANZ_OPTIONS_GET_SUCCESS'
+function rechtsmittelInstanzOptionsGetSuccess(rechtsmittelInstanzOptions) {
+  return {
+    type: RECHTSMITTEL_INSTANZ_OPTIONS_GET_SUCCESS,
+    rechtsmittelInstanzOptions
+  }
+}
+
+export const RECHTSMITTEL_INSTANZ_OPTIONS_GET_ERROR = 'RECHTSMITTEL_INSTANZ_OPTIONS_GET_ERROR'
+function rechtsmittelInstanzOptionsGetError(error) {
+  return {
+    type: RECHTSMITTEL_INSTANZ_OPTIONS_GET_ERROR,
+    error
+  }
+}
+
+export function statusVernehmlassungOptionsGet() {
+  return (dispatch, getState) => {
+    const { app } = getState()
+    getDropdownOptions(app.db, 'statusVernehmlassung')
+      .then((statusVernehmlassungOptions) => dispatch(statusVernehmlassungOptionsGetSuccess(statusVernehmlassungOptions)))
+      .catch((error) => dispatch(statusVernehmlassungOptionsGetError(error)))
+  }
+}
+
+export const STATUS_VERNEHMLASSUNG_OPTIONS_GET_SUCCESS = 'STATUS_VERNEHMLASSUNG_OPTIONS_GET_SUCCESS'
+function statusVernehmlassungOptionsGetSuccess(statusVernehmlassungOptions) {
+  return {
+    type: STATUS_VERNEHMLASSUNG_OPTIONS_GET_SUCCESS,
+    statusVernehmlassungOptions
+  }
+}
+
+export const STATUS_VERNEHMLASSUNG_OPTIONS_GET_ERROR = 'STATUS_VERNEHMLASSUNG_OPTIONS_GET_ERROR'
+function statusVernehmlassungOptionsGetError(error) {
+  return {
+    type: STATUS_VERNEHMLASSUNG_OPTIONS_GET_ERROR,
     error
   }
 }

@@ -22,6 +22,10 @@ import {
   STATUS_OPTIONS_GET_ERROR,
   GESCHAEFTSART_OPTIONS_GET_SUCCESS,
   GESCHAEFTSART_OPTIONS_GET_ERROR,
+  RECHTSMITTEL_INSTANZ_OPTIONS_GET_SUCCESS,
+  RECHTSMITTEL_INSTANZ_OPTIONS_GET_ERROR,
+  STATUS_VERNEHMLASSUNG_OPTIONS_GET_SUCCESS,
+  STATUS_VERNEHMLASSUNG_OPTIONS_GET_ERROR,
   INTERNE_OPTIONS_GET_SUCCESS,
   INTERNE_OPTIONS_GET_ERROR,
   EXTERNE_OPTIONS_GET_SUCCESS,
@@ -36,7 +40,7 @@ const standardState = {
   filterFields: {},
   filterFulltext: '',
   // dropdown lists
-  rechtsmittelerledigungOptions: [],
+  rechtsmittelErledigungOptions: [],
   parlVorstossTypOptions: [],
   statusOptions: [],
   geschaeftsartOptions: [],
@@ -143,7 +147,7 @@ export default function geschaefte(state = standardState, action) {
     case RECHTSMITTELERLEDIGUNG_OPTIONS_GET_SUCCESS:
       return {
         ...state,
-        rechtsmittelerledigungOptions: action.rechtsmittelerledigungOptions
+        rechtsmittelErledigungOptions: action.rechtsmittelErledigungOptions
       }
     case PARLVORSTOSSTYP_OPTIONS_GET_SUCCESS:
       return {
@@ -160,6 +164,16 @@ export default function geschaefte(state = standardState, action) {
         ...state,
         geschaeftsartOptions: action.geschaeftsartOptions
       }
+    case RECHTSMITTEL_INSTANZ_OPTIONS_GET_SUCCESS:
+      return {
+        ...state,
+        rechtsmittelInstanzOptions: action.rechtsmittelInstanzOptions
+      }
+    case STATUS_VERNEHMLASSUNG_OPTIONS_GET_SUCCESS:
+      return {
+        ...state,
+        statusVernehmlassungOptions: action.statusVernehmlassungOptions
+      }
     case INTERNE_OPTIONS_GET_SUCCESS:
       return {
         ...state,
@@ -174,6 +188,8 @@ export default function geschaefte(state = standardState, action) {
     case PARLVORSTOSSTYP_OPTIONS_GET_ERROR:
     case STATUS_OPTIONS_GET_ERROR:
     case GESCHAEFTSART_OPTIONS_GET_ERROR:
+    case RECHTSMITTEL_INSTANZ_OPTIONS_GET_ERROR:
+    case STATUS_VERNEHMLASSUNG_OPTIONS_GET_ERROR:
     case INTERNE_OPTIONS_GET_ERROR:
     case EXTERNE_OPTIONS_GET_ERROR:
     case GESCHAEFTE_CHANGE_DB_ERROR:

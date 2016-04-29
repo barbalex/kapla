@@ -380,8 +380,10 @@ class NavbarComponent extends Component {
               <MenuItem eventKey={8.3} onClick={() => getTable('gdeplz')}>Gemeinden</MenuItem>
               <MenuItem eventKey={8.4} onClick={() => getTable('geschaeftsart')}>Geschäftsart</MenuItem>
               <MenuItem eventKey={8.6} onClick={() => getTable('parlVorstossTyp')}>Parlament. Vorstoss Typ</MenuItem>
-              <MenuItem eventKey={8.7} onClick={() => getTable('rechtsmittelerledigung')}>Rechtsmittelerledigung</MenuItem>
-              <MenuItem eventKey={8.8} onClick={() => getTable('status')}>Status</MenuItem>
+              <MenuItem eventKey={8.7} onClick={() => getTable('rechtsmittelInstanz')}>Rechtsmittel-Instanz</MenuItem>
+              <MenuItem eventKey={8.8} onClick={() => getTable('rechtsmittelErledigung')}>Rechtsmittelerledigung</MenuItem>
+              <MenuItem eventKey={8.9} onClick={() => getTable('status')}>Status</MenuItem>
+              <MenuItem eventKey={8.10} onClick={() => getTable('statusVernehmlassung')}>Status Vernehmlassung</MenuItem>
             </NavDropdown>
             {showTableStuff && this.tableRowNeuNav()}
             {showTableStuff && this.tableRowLoeschenNav()}
