@@ -11,8 +11,8 @@ import styles from './Geschaeft.css'
 import isDateField from '../src/isDateField'
 import GeschaeftKontakteIntern from '../containers/GeschaeftKontakteIntern'
 import GeschaeftKontakteExtern from '../containers/GeschaeftKontakteExtern'
+import AreaHistory from '../containers/AreaHistory'
 import AreaZuletztMutiert from '../containers/AreaZuletztMutiert'
-import getHistoryOfGeschaeft from '../src/getHistoryOfGeschaeft'
 
 class Geschaeft extends Component {
   static propTypes = {
@@ -40,11 +40,6 @@ class Geschaeft extends Component {
       }
     }
     this.blur(rVal)
-  }
-
-  onClickHistoryGeschaeft = (idGeschaeft) => {
-    const { geschaeftToggleActivated } = this.props
-    geschaeftToggleActivated(idGeschaeft)
   }
 
   getDateValidationStateDate = (date) => {
@@ -144,52 +139,6 @@ class Geschaeft extends Component {
     })
     options.unshift(<option key={0} value=""></option>)
     return options
-  }
-
-  history = () => {
-    const { geschaefte, activeId } = this.props
-    const history = getHistoryOfGeschaeft(geschaefte, activeId)
-    // sort descending
-    history.reverse()
-    return history.map((id, index) => {
-      const geschaeft = geschaefte.find((g) => g.idGeschaeft === id)
-      if (!geschaeft || !geschaeft.gegenstand) return null
-      return (
-        <div
-          key={index}
-          className={styles.areaHistoryFields}
-          onClick={this.onClickHistoryGeschaeft.bind(this, id)}
-        >
-          <div className={styles.historyIdGeschaeft}>{id}</div>
-          <div className={styles.historyGegenstand}>{geschaeft.gegenstand}</div>
-        </div>
-      )
-    })
-  }
-
-  areaHistory = () => {
-    const { geschaeft } = this.props
-    return (
-      <div className={styles.areaHistory}>
-        <div className={styles.areaHistoryTitle}>Historie</div>
-        <ControlLabel className={styles.labelVorgeschaeft}>Vorgeschäft</ControlLabel>
-        <div className={styles.fieldVorgeschaeft}>
-          <FormControl
-            type="number"
-            value={geschaeft.idVorgeschaeft || ''}
-            name="idVorgeschaeft"
-            onChange={this.change}
-            onBlur={this.blur}
-            bsSize="small"
-            placeholder="ID"
-            tabIndex={99}
-          />
-        </div>
-        <div className={styles.areaHistoryFieldsContainer}>
-          {this.history()}
-        </div>
-      </div>
-    )
   }
 
   fieldFristDauerBisMitarbeiter = () => (
@@ -864,7 +813,7 @@ class Geschaeft extends Component {
           <div className={styles.areaExterneKontakteSubTitle}>Externe Kontakte</div>
           <GeschaeftKontakteExtern tabIndex={nrOfFieldsBeforePersonen + 2} />
         </div>
-        {this.areaHistory()}
+        <AreaHistory blur={this.blur} change={this.change} />
         <AreaZuletztMutiert />
         {/* need this so lowest fields are visible */}
         <div style={{ height: 52 }} />
