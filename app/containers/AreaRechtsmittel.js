@@ -2,7 +2,7 @@
 
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
-import AreaParlVorstoss from '../components/AreaParlVorstoss'
+import AreaRechtsmittel from '../components/AreaRechtsmittel'
 import * as GeschaefteActions from '../actions/geschaefte'
 
 function mapStateToProps(state, props) {
@@ -11,7 +11,11 @@ function mapStateToProps(state, props) {
     activeId,
     parlVorstossTypOptions
   } = state.geschaefte
-  const { blur, change, nrOfFieldsBeforePv } = props
+  const {
+    blur,
+    change,
+    nrOfFieldsBeforePv
+  } = props
   const geschaeft = geschaefte.find((g) => g.idGeschaeft === activeId)
 
   return {
@@ -27,4 +31,4 @@ function mapDispatchToProps(dispatch) {
   return bindActionCreators(GeschaefteActions, dispatch)
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(AreaParlVorstoss)
+export default connect(mapStateToProps, mapDispatchToProps)(AreaRechtsmittel)

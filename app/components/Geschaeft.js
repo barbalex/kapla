@@ -11,6 +11,7 @@ import AreaGeschaeft from '../containers/AreaGeschaeft'
 import AreaNummern from '../containers/AreaNummern'
 import AreaFristen from '../containers/AreaFristen'
 import AreaParlVorstoss from '../containers/AreaParlVorstoss'
+import AreaRechtsmittel from '../containers/AreaRechtsmittel'
 import AreaPersonen from '../containers/AreaPersonen'
 import AreaHistory from '../containers/AreaHistory'
 import AreaZuletztMutiert from '../containers/AreaZuletztMutiert'
@@ -101,6 +102,9 @@ class Geschaeft extends Component {
     const nrOfFieldsBeforeFristen = nrOfFieldsBeforePv + nrOfPvFields
     const nrOfFieldsBeforePersonen = nrOfFieldsBeforeFristen + 7
 
+    const showAreaParlVorstoss = geschaeft.geschaeftsart === 'Parlament. Vorstoss'
+    const showAreaRechtsmittel = geschaeft.geschaeftsart === 'Rekurs/Beschwerde'
+
     return (
       <div className={wrapperClass}>
         <AreaGeschaeft
@@ -115,11 +119,26 @@ class Geschaeft extends Component {
           change={this.change}
           blur={this.blur}
         />
-        <AreaParlVorstoss
-          nrOfFieldsBeforePv={nrOfFieldsBeforePv}
-          change={this.change}
-          blur={this.blur}
-        />
+        {
+          showAreaParlVorstoss &&
+          (
+            <AreaParlVorstoss
+              nrOfFieldsBeforePv={nrOfFieldsBeforePv}
+              change={this.change}
+              blur={this.blur}
+            />
+          )
+        }
+        {
+          showAreaRechtsmittel &&
+          (
+            <AreaRechtsmittel
+              nrOfFieldsBeforePv={nrOfFieldsBeforePv}
+              change={this.change}
+              blur={this.blur}
+            />
+          )
+        }
         <AreaFristen
           nrOfFieldsBeforeFristen={nrOfFieldsBeforeFristen}
           change={this.change}

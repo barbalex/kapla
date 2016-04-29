@@ -2,10 +2,10 @@
 
 import React, { Component, PropTypes } from 'react'
 import { FormControl, ControlLabel, Radio } from 'react-bootstrap'
-import styles from './AreaParlVorstoss.css'
+import styles from './AreaRechtsmittel.css'
 import createOptions from '../src/createOptions'
 
-class AreaParlVorstoss extends Component {
+class AreaRechtsmittel extends Component {
   static propTypes = {
     geschaeft: PropTypes.object,
     parlVorstossTypOptions: PropTypes.array.isRequired,
@@ -18,7 +18,7 @@ class AreaParlVorstoss extends Component {
     const { geschaeft, parlVorstossTypOptions, nrOfFieldsBeforePv, change, blur } = this.props
     return (
       <div className={styles.areaForGeschaeftsart}>
-        <div className={styles.areaParlVorstTitle}>Parlamentarischer Vorstoss</div>
+        <div className={styles.areaParlVorstTitle}>Rechtsmittel</div>
         <div className={styles.fieldParlVorstossTyp}>
           <ControlLabel>Typ</ControlLabel>
           <FormControl
@@ -130,4 +130,4 @@ class AreaParlVorstoss extends Component {
   }
 }
 
-export default AreaParlVorstoss
+export default AreaRechtsmittel
