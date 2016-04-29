@@ -13,9 +13,6 @@ function mapStateToProps(state, props) {
     geschaefte,
     activeId,
     rechtsmittelerledigungOptions,
-    parlVorstossTypOptions,
-    interneOptions,
-    externeOptions,
     statusOptions,
     geschaeftsartOptions
   } = state.geschaefte
@@ -23,13 +20,9 @@ function mapStateToProps(state, props) {
   const geschaeft = geschaefte.find((g) => g.idGeschaeft === activeId)
 
   return {
-    geschaefte,
     geschaeft,
     activeId,
     rechtsmittelerledigungOptions,
-    parlVorstossTypOptions,
-    interneOptions,
-    externeOptions,
     statusOptions,
     geschaeftsartOptions,
     geschaefteLayout: layout

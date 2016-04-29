@@ -2,28 +2,24 @@
 
 import React, { Component, PropTypes } from 'react'
 import ReactDOM from 'react-dom'
-import { FormGroup, InputGroup, FormControl, ControlLabel, Radio, Glyphicon } from 'react-bootstrap'
+import { FormGroup, InputGroup, FormControl, ControlLabel, Glyphicon } from 'react-bootstrap'
 import moment from 'moment'
 moment.locale('de')
 import DateRangePicker from 'react-bootstrap-daterangepicker'
-import _ from 'lodash'
 import styles from './Geschaeft.css'
 import isDateField from '../src/isDateField'
+import AreaParlVorstoss from '../containers/AreaParlVorstoss'
 import AreaPersonen from '../containers/AreaPersonen'
 import AreaHistory from '../containers/AreaHistory'
 import AreaZuletztMutiert from '../containers/AreaZuletztMutiert'
 
 class Geschaeft extends Component {
   static propTypes = {
-    geschaefte: PropTypes.array,
     geschaeft: PropTypes.object,
     activeId: PropTypes.number,
     geschaefteChangeState: PropTypes.func.isRequired,
     changeGeschaeftInDb: PropTypes.func.isRequired,
     rechtsmittelerledigungOptions: PropTypes.array.isRequired,
-    parlVorstossTypOptions: PropTypes.array.isRequired,
-    interneOptions: PropTypes.array,
-    externeOptions: PropTypes.array,
     statusOptions: PropTypes.array.isRequired,
     geschaeftsartOptions: PropTypes.array.isRequired,
     geschaefteLayout: PropTypes.object.isRequired,
@@ -115,31 +111,6 @@ class Geschaeft extends Component {
     return days ? Math.ceil(days) : ''
   }
 
-  verantwortlichData = () => {
-    const { geschaeft, interneOptions } = this.props
-    const data = interneOptions.find((o) => o.kurzzeichen === geschaeft.verantwortlich)
-    if (!data) return ''
-    const name = `${data.vorname} ${data.name}`
-    const abt = data.abteilung ? `, ${data.abteilung}` : null
-    const eMail = data.eMail ? `, ${data.eMail}` : null
-    const telefon = data.telefon ? `, ${data.telefon}` : null
-    return `${name}${abt}${eMail}${telefon}`
-  }
-
-  verwantwortlichOptions = () => {
-    const { interneOptions } = this.props
-    // sort interneOptions by kurzzeichen
-    const interneOptionsSorted = _.sortBy(interneOptions, (o) => o.kurzzeichen.toLowerCase())
-    const options = interneOptionsSorted.map((o, index) => {
-      const space = '\xa0'.repeat(5 - o.kurzzeichen.length)
-      return (
-        <option key={index + 1} value={o.kurzzeichen}>{`${o.kurzzeichen}${space}${'\xa0\xa0\xa0'}${o.vorname} ${o.name}`}</option>
-      )
-    })
-    options.unshift(<option key={0} value=""></option>)
-    return options
-  }
-
   fieldFristDauerBisMitarbeiter = () => (
     <div className={styles.fieldFristDauerBisMitarbeiter}>
       <ControlLabel>Tage bis Frist Mitarbeiter</ControlLabel>
@@ -149,122 +120,7 @@ class Geschaeft extends Component {
     </div>
   )
 
-  areaParlVorst = (nrOfFieldsBeforePv) => {
-    const { geschaeft, parlVorstossTypOptions } = this.props
-    return (
-      <div className={styles.areaParlVorst}>
-        <div className={styles.areaParlVorstTitle}>Parlamentarischer Vorstoss</div>
-        <div className={styles.fieldParlVorstossTyp}>
-          <ControlLabel>Typ</ControlLabel>
-          <FormControl
-            componentClass="select"
-            value={geschaeft.parlVorstossTyp || ''}
-            name="parlVorstossTyp"
-            onChange={this.change}
-            onBlur={this.blur}
-            bsSize="small"
-            tabIndex={1 + nrOfFieldsBeforePv}
-          >
-            {this.options(parlVorstossTypOptions)}
-          </FormControl>
-        </div>
-        <div className={styles.fieldStufe}>
-          <ControlLabel>Stufe</ControlLabel>
-          <Radio
-            data-value={1}
-            checked={geschaeft.parlVorstossStufe == 1}
-            onChange={this.change}
-            bsSize="small"
-            name="parlVorstossStufe"
-            tabIndex={2 + nrOfFieldsBeforePv}
-          >
-            1: nicht überwiesen
-          </Radio>
-          <Radio
-            data-value={2}
-            checked={geschaeft.parlVorstossStufe == 2}
-            name="parlVorstossStufe"
-            onChange={this.change}
-            bsSize="small"
-            tabIndex={3 + nrOfFieldsBeforePv}
-          >
-            2: überwiesen
-          </Radio>
-        </div>
-        <div className={styles.fieldEbene}>
-          <ControlLabel>Ebene</ControlLabel>
-          <Radio
-            data-value="Kanton"
-            checked={geschaeft.parlVorstossEbene === 'Kanton'}
-            name="parlVorstossEbene"
-            onChange={this.change}
-            bsSize="small"
-            tabIndex={4 + nrOfFieldsBeforePv}
-          >
-            Kanton
-          </Radio>
-          <Radio
-            data-value="Bund"
-            checked={geschaeft.parlVorstossEbene === 'Bund'}
-            onChange={this.change}
-            name="parlVorstossEbene"
-            bsSize="small"
-            tabIndex={5 + nrOfFieldsBeforePv}
-          >
-            Bund
-          </Radio>
-        </div>
-        <div className={styles.fieldZustaendigkeit}>
-          <ControlLabel>Zuständigkeit</ControlLabel>
-          <Radio
-            data-value="hauptzuständig"
-            checked={geschaeft.parlVorstossZustaendigkeitAwel === 'hauptzuständig'}
-            name="parlVorstossZustaendigkeitAwel"
-            onChange={this.change}
-            bsSize="small"
-            tabIndex={6 + nrOfFieldsBeforePv}
-          >
-            haupt
-          </Radio>
-          <Radio
-            data-value="mitberichtzuständig"
-            checked={geschaeft.parlVorstossZustaendigkeitAwel === 'mitberichtzuständig'}
-            name="parlVorstossZustaendigkeitAwel"
-            onChange={this.change}
-            bsSize="small"
-            tabIndex={7 + nrOfFieldsBeforePv}
-          >
-            mitbericht
-          </Radio>
-        </div>
-        <div className={styles.fieldErlassform}>
-          <ControlLabel>Erlassform</ControlLabel>
-          <Radio
-            data-value="Gesetz"
-            checked={geschaeft.erlassform === 'Gesetz'}
-            name="erlassform"
-            onChange={this.change}
-            bsSize="small"
-            tabIndex={8 + nrOfFieldsBeforePv}
-          >
-            Gesetz
-          </Radio>
-          <Radio
-            data-value="Verordnung"
-            checked={geschaeft.erlassform === 'Verordnung'}
-            name="erlassform"
-            onChange={this.change}
-            bsSize="small"
-            tabIndex={9 + nrOfFieldsBeforePv}
-          >
-            Verordnung
-          </Radio>
-        </div>
-      </div>
-    )
-  }
-
-  render() {
+  render = () => {
     const {
       geschaeft,
       rechtsmittelerledigungOptions,
@@ -584,7 +440,7 @@ class Geschaeft extends Component {
             />
           </div>
         </div>
-        {this.areaParlVorst(nrOfFieldsBeforePv)}
+        <AreaParlVorstoss nrOfFieldsBeforePv={nrOfFieldsBeforePv} change={this.change} blur={this.blur} />
         <div className={styles.areaFristen}>
           <div className={styles.areaFristenTitle}>Fristen</div>
           <FormGroup
