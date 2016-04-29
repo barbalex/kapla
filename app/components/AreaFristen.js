@@ -11,14 +11,6 @@ import getDateValidationStateDate from '../src/getDateValidationStateDate'
 class AreaFristen extends Component {
   static propTypes = {
     geschaeft: PropTypes.object,
-    activeId: PropTypes.number,
-    geschaefteChangeState: PropTypes.func.isRequired,
-    changeGeschaeftInDb: PropTypes.func.isRequired,
-    rechtsmittelerledigungOptions: PropTypes.array.isRequired,
-    statusOptions: PropTypes.array.isRequired,
-    geschaeftsartOptions: PropTypes.array.isRequired,
-    geschaefteLayout: PropTypes.object.isRequired,
-    geschaeftToggleActivated: PropTypes.func.isRequired,
     change: PropTypes.func.isRequired,
     blur: PropTypes.func.isRequired,
     onChangeDatePicker: PropTypes.func.isRequired,

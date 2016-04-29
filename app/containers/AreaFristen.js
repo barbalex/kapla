@@ -4,9 +4,6 @@ import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import AreaFristen from '../components/AreaFristen'
 import * as GeschaefteActions from '../actions/geschaefte'
-import * as AppActions from '../actions/app'
-
-const actions = Object.assign(GeschaefteActions, AppActions)
 
 function mapStateToProps(state, props) {
   const {
@@ -18,7 +15,6 @@ function mapStateToProps(state, props) {
 
   return {
     geschaeft,
-    activeId,
     change,
     blur,
     nrOfFieldsBeforeFristen,
@@ -27,7 +23,7 @@ function mapStateToProps(state, props) {
 }
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators(actions, dispatch)
+  return bindActionCreators(GeschaefteActions, dispatch)
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(AreaFristen)

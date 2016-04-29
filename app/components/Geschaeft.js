@@ -8,6 +8,7 @@ moment.locale('de')
 import styles from './Geschaeft.css'
 import isDateField from '../src/isDateField'
 import validateDate from '../src/validateDate'
+import AreaNummern from '../containers/AreaNummern'
 import AreaFristen from '../containers/AreaFristen'
 import AreaParlVorstoss from '../containers/AreaParlVorstoss'
 import AreaPersonen from '../containers/AreaPersonen'
@@ -237,185 +238,32 @@ class Geschaeft extends Component {
             </FormControl>
           </div>
         </div>
-        <div className={styles.areaNummern}>
-          <div className={styles.areaNummernTitle}>Nummern</div>
-          <ControlLabel className={styles.labelNr}>
-            <div className={styles.labelNrDiv}>Nr.</div>
-          </ControlLabel>
-          <ControlLabel className={styles.labelIdGeschaeft}>ID</ControlLabel>
-          <div className={styles.fieldIdGeschaeft}>
-            <FormControl
-              type="number"
-              value={geschaeft.idGeschaeft}
-              bsSize="small"
-              disabled
-              className={[styles.typeNr, styles.inputIdGeschaeft].join(' ')}
-            />
-          </div>
-          <ControlLabel className={styles.labelGekoNr}>Geko</ControlLabel>
-          <div className={styles.fieldGekoNr}>
-            <FormControl
-              type="number"
-              value={geschaeft.GekoNr}
-              name="gekoNr"
-              onChange={this.change}
-              onBlur={this.blur}
-              bsSize="small"
-              className={styles.typeNr}
-              tabIndex={1 + (wrapperClass === styles.wrapperNarrow ? 0 : nrOfGFields)}
-              autoFocus={wrapperClass === styles.wrapperNarrow}
-            />
-          </div>
-          <div className={styles.labelJahre}>
-            Jahr
-          </div>
-          <ControlLabel className={styles.labelEntscheidAwel}>AWEL</ControlLabel>
-          <div className={styles.fieldEntscheidAwelNr}>
-            <FormControl
-              type="number"
-              value={geschaeft.entscheidAwelNr || ''}
-              name="entscheidAwelNr"
-              onChange={this.change}
-              onBlur={this.blur}
-              bsSize="small"
-              className={styles.typeNr}
-              tabIndex={2 + (wrapperClass === styles.wrapperNarrow ? 0 : nrOfGFields)}
-            />
-          </div>
-          <div className={styles.slashAwel}>
-            <div>/</div>
-          </div>
-          <div className={styles.fieldEntscheidAwelJahr}>
-            <FormControl
-              type="number"
-              value={geschaeft.entscheidAwelJahr || ''}
-              name="entscheidAwelJahr"
-              onChange={this.change}
-              onBlur={this.blur}
-              bsSize="small"
-              className={styles.typeNr}
-              tabIndex={3 + (wrapperClass === styles.wrapperNarrow ? 0 : nrOfGFields)}
-            />
-          </div>
-          <ControlLabel className={styles.labelEntscheidBdv}>BDV</ControlLabel>
-          <div className={styles.fieldEntscheidBdvNr}>
-            <FormControl
-              type="number"
-              value={geschaeft.entscheidBdvNr || ''}
-              name="entscheidBdvNr"
-              onChange={this.change}
-              onBlur={this.blur}
-              bsSize="small"
-              className={styles.typeNr}
-              tabIndex={4 + (wrapperClass === styles.wrapperNarrow ? 0 : nrOfGFields)}
-            />
-          </div>
-          <div className={styles.slashBdv}>
-            <div>/</div>
-          </div>
-          <div className={styles.fieldEntscheidBdvJahr}>
-            <FormControl
-              type="number"
-              value={geschaeft.entscheidBdvJahr || ''}
-              name="entscheidBdvJahr"
-              onChange={this.change}
-              onBlur={this.blur}
-              bsSize="small"
-              className={styles.typeNr}
-              tabIndex={5 + (wrapperClass === styles.wrapperNarrow ? 0 : nrOfGFields)}
-            />
-          </div>
-          <ControlLabel className={styles.labelEntscheidKr}>KR</ControlLabel>
-          <div className={styles.fieldEntscheidKrNr}>
-            <FormControl
-              type="number"
-              value={geschaeft.entscheidKrNr || ''}
-              name="entscheidKrNr"
-              onChange={this.change}
-              onBlur={this.blur}
-              bsSize="small"
-              className={styles.typeNr}
-              tabIndex={6 + (wrapperClass === styles.wrapperNarrow ? 0 : nrOfGFields)}
-            />
-          </div>
-          <div className={styles.slashKr}>
-            <div>/</div>
-          </div>
-          <div className={styles.fieldEntscheidKrJahr}>
-            <FormControl
-              type="number"
-              value={geschaeft.entscheidKrJahr || ''}
-              name="entscheidKrJahr"
-              onChange={this.change}
-              onBlur={this.blur}
-              bsSize="small"
-              className={styles.typeNr}
-              tabIndex={7 + (wrapperClass === styles.wrapperNarrow ? 0 : nrOfGFields)}
-            />
-          </div>
-          <ControlLabel className={styles.labelEntscheidRrb}>RRB</ControlLabel>
-          <div className={styles.fieldEntscheidRrbNr}>
-            <FormControl
-              type="number"
-              value={geschaeft.entscheidRrbNr || ''}
-              name="entscheidRrbNr"
-              onChange={this.change}
-              onBlur={this.blur}
-              bsSize="small"
-              className={styles.typeNr}
-              tabIndex={8 + (wrapperClass === styles.wrapperNarrow ? 0 : nrOfGFields)}
-            />
-          </div>
-          <div className={styles.slashRrb}>
-            <div>/</div>
-          </div>
-          <div className={styles.fieldEntscheidRrbJahr}>
-            <FormControl
-              type="number"
-              value={geschaeft.entscheidRrbJahr || ''}
-              name="entscheidRrbJahr"
-              onChange={this.change}
-              onBlur={this.blur}
-              bsSize="small"
-              className={styles.typeNr}
-              tabIndex={9 + (wrapperClass === styles.wrapperNarrow ? 0 : nrOfGFields)}
-            />
-          </div>
-          <div className={styles.fieldAktenstandort}>
-            <ControlLabel>Aktenstandort</ControlLabel>
-            <FormControl
-              type="text"
-              value={geschaeft.aktenstandort || ''}
-              name="aktenstandort"
-              onChange={this.change}
-              onBlur={this.blur}
-              bsSize="small"
-              tabIndex={10 + (wrapperClass === styles.wrapperNarrow ? 0 : nrOfGFields)}
-            />
-          </div>
-          <div className={styles.fieldAktennummer}>
-            <ControlLabel>Nr.</ControlLabel>
-            <FormControl
-              type="text"
-              value={geschaeft.aktennummer || ''}
-              name="aktennummer"
-              onChange={this.change}
-              onBlur={this.blur}
-              bsSize="small"
-              className={styles.typeNr}
-              tabIndex={11 + (wrapperClass === styles.wrapperNarrow ? 0 : nrOfGFields)}
-            />
-          </div>
-        </div>
-        <AreaParlVorstoss nrOfFieldsBeforePv={nrOfFieldsBeforePv} change={this.change} blur={this.blur} />
+        <AreaNummern
+          wrapperClass={wrapperClass}
+          nrOfGFields={nrOfGFields}
+          change={this.change}
+          blur={this.blur}
+        />
+        <AreaParlVorstoss
+          nrOfFieldsBeforePv={nrOfFieldsBeforePv}
+          change={this.change}
+          blur={this.blur}
+        />
         <AreaFristen
           nrOfFieldsBeforeFristen={nrOfFieldsBeforeFristen}
           change={this.change}
           blur={this.blur}
           onChangeDatePicker={this.onChangeDatePicker}
         />
-        <AreaPersonen nrOfFieldsBeforePersonen={nrOfFieldsBeforePersonen} change={this.change} blur={this.blur} />
-        <AreaHistory blur={this.blur} change={this.change} />
+        <AreaPersonen
+          nrOfFieldsBeforePersonen={nrOfFieldsBeforePersonen}
+          change={this.change}
+          blur={this.blur}
+        />
+        <AreaHistory
+          blur={this.blur}
+          change={this.change}
+        />
         <AreaZuletztMutiert />
         {/* need this so lowest fields are visible */}
         <div style={{ height: 52 }} />
