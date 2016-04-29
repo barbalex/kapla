@@ -131,6 +131,30 @@ class Geschaeft extends Component {
     return `${name}${abt}${eMail}${telefon}`
   }
 
+  zuletztMutiert = () => {
+    const { geschaeft, interneOptions } = this.props
+    let zuletztMutiertText
+
+    if (!geschaeft.mutationsperson) {
+      zuletztMutiertText = 'Für dieses Geschäft wurde (noch) keine Mutationsperson gespeichert'
+    } else {
+      const mutPersonOptions = interneOptions.find((o) => {
+        if (o.itKonto) {
+          return o.itKonto.toLowerCase().replace(/ /g, '') === geschaeft.mutationsperson.toLowerCase().replace(/ /g, '')
+        }
+        return false
+      })
+      const name = mutPersonOptions ? ` (${mutPersonOptions.vorname} ${mutPersonOptions.name})` : ''
+      zuletztMutiertText = `Zuletzt mutiert durch ${geschaeft.mutationsperson}${name} am ${geschaeft.mutationsdatum}`
+    }
+      
+    return (
+      <div className={styles.areaZuletztMutiert}>
+        <div className={styles.fieldZuletztMutiert}>{zuletztMutiertText}</div>
+      </div>
+    )
+  }
+
   verwantwortlichOptions = () => {
     const { interneOptions } = this.props
     // sort interneOptions by kurzzeichen
@@ -198,24 +222,24 @@ class Geschaeft extends Component {
       parlVorstossTypOptions,
       statusOptions,
       geschaeftsartOptions,
-      geschaefteLayout,
-      interneOptions
+      geschaefteLayout
     } = this.props
+
+    // return immediately if no geschaeft
+    const showGeschaeft = geschaeft && geschaeft.idGeschaeft
+    if (!showGeschaeft) return null
 
     // need width to set layout for differing widths
     const geschaefteLayoutWidth = geschaefteLayout.width
     const geschaeftWidthPercent = geschaefteLayout.config.content[0].content[1].width
     const totalWidth = geschaefteLayoutWidth * geschaeftWidthPercent / 100
     const wrapperClass = totalWidth < 750 ? styles.wrapperNarrow : styles.wrapperWide
-    const showGeschaeft = geschaeft && geschaeft.idGeschaeft
     const nrOfGFields = 10
     const nrOfNrFields = 10
     const nrOfFieldsBeforePv = nrOfGFields + nrOfNrFields
     const nrOfPvFields = 9
     const nrOfFieldsBeforeFristen = nrOfFieldsBeforePv + nrOfPvFields
     const nrOfFieldsBeforePersonen = nrOfFieldsBeforeFristen + 7
-
-    if (!showGeschaeft) return null
 
     return (
       <div className={wrapperClass}>
@@ -822,12 +846,6 @@ class Geschaeft extends Component {
               </InputGroup.Addon>
             </InputGroup>
           </FormGroup>
-          <div className={styles.fieldMutationsdatum}>
-            <ControlLabel>Letze Mutation</ControlLabel>
-            <FormControl.Static className={styles.formControlStatic}>
-              {geschaeft.mutationsdatum || ''}
-            </FormControl.Static>
-          </div>
         </div>
         <div className={styles.areaPersonen}>
           <div className={styles.areaPersonenTitle}>Personen</div>
@@ -857,6 +875,7 @@ class Geschaeft extends Component {
           <GeschaeftKontakteExtern tabIndex={nrOfFieldsBeforePersonen + 2} />
         </div>
         {this.historyArea()}
+        {this.zuletztMutiert()}
         {/* need this so lowest fields are visible */}
         <div style={{ height: 52 }} />
       </div>

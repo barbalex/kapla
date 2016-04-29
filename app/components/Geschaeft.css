@@ -23,7 +23,9 @@
     "areaGeschaeft"
     "areaParlVorst"
     "areaFristen"
-    "areaPersonen";
+    "areaPersonen"
+    "areaHistory"
+    "areaZuletztMutiert";
 }
 
 .wrapperWide {
@@ -34,8 +36,9 @@
     "areaGeschaeft areaGeschaeft areaGeschaeft areaGeschaeft areaGeschaeft areaGeschaeft areaGeschaeft areaGeschaeft areaNummern areaNummern areaNummern areaNummern"
     "areaGeschaeft areaGeschaeft areaGeschaeft areaGeschaeft areaGeschaeft areaGeschaeft areaGeschaeft areaGeschaeft areaParlVorst areaParlVorst areaParlVorst areaParlVorst"
     "areaFristen areaFristen areaFristen areaPersonen areaPersonen areaPersonen areaPersonen areaPersonen areaPersonen areaPersonen areaPersonen areaPersonen"
-    "areaHistory areaHistory areaHistory areaHistory areaHistory areaHistory areaHistory areaHistory areaHistory areaHistory areaHistory areaHistory";
-  grid-gap: 2px;
+    "areaHistory areaHistory areaHistory areaHistory areaHistory areaHistory areaHistory areaHistory areaHistory areaHistory areaHistory areaHistory"
+    "areaZuletztMutiert areaZuletztMutiert areaZuletztMutiert areaZuletztMutiert areaZuletztMutiert areaZuletztMutiert areaZuletztMutiert areaZuletztMutiert areaZuletztMutiert areaZuletztMutiert areaZuletztMutiert areaZuletztMutiert";
+  grid-gap: 0;
 }
 
 .areaGeschaeft {
@@ -333,10 +336,6 @@
   grid-column: 1;
 }
 
-.fieldMutationsdatum {
-  grid-column: 1;
-}
-
 
 .areaPersonen {
   grid-area: areaPersonen;
@@ -441,6 +440,19 @@
 .historyGegenstand {
   grid-column: 2;
   font-weight: 700;
+}
+
+
+.areaZuletztMutiert {
+  grid-area: areaZuletztMutiert;
+  background-color: rgba(210, 210, 210, 0.2);
+  display: grid;
+  grid-template-columns: 100%;
+  padding: 8px;
+}
+
+.fieldZuletztMutiert {
+  grid-column: 1;
 }
 
 
