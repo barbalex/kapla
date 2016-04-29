@@ -75,18 +75,18 @@
 
 .fieldFristIn {
   font-weight: 900;
-  letter-spacing: 0.15em;
-  font-size: 14px;
-  -webkit-text-fill-color: black;
+  letter-spacing: 0.13em;
+  font-size: 16px;
+  -webkit-text-stroke-color: black;
   -webkit-text-stroke-width: 1px;
 }
 
 .fieldFristInUeberfaellig {
   composes: fieldFristIn;
-  -webkit-text-stroke-color: red;
+  -webkit-text-fill-color: red;
 }
 
 .fieldFristInHeute {
   composes: fieldFristIn;
-  -webkit-text-stroke-color: yellow;
+  -webkit-text-fill-color: yellow;
 }
