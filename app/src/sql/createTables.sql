@@ -116,7 +116,9 @@ WHERE
 CREATE TABLE geschaeftsart (
   id INTEGER PRIMARY KEY,
   geschaeftsart TEXT unique,
-  sort INTEGER
+  sort INTEGER,
+  zeigeBereichRechtsmittel INTEGER,
+  zeigeBereichParlVorstoss INTEGER
 );
 
 CREATE INDEX geschaeftsartSort ON geschaeftsart (sort);
