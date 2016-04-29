@@ -31,9 +31,13 @@ class GeschaefteKontakteExtern extends Component {
   }
 
   options = () => {
-    const { externeOptions } = this.props
+    const { externeOptions, geschaefteKontakteExtern, activeId } = this.props
+    // filter out options already choosen
+    const kontakteInternOfActiveGeschaeft = geschaefteKontakteExtern.filter((g) => g.idGeschaeft === activeId)
+    const idKontakteOfGkiOfActiveGeschaeft = kontakteInternOfActiveGeschaeft.map((kI) => kI.idKontakt)
+    const externeOptionsFiltered = externeOptions.filter((o) => !idKontakteOfGkiOfActiveGeschaeft.includes(o.id))
     // sort externeOptions by nameVorname
-    const externeOptionsSorted = _.sortBy(externeOptions, (o) => o.nameVorname.toLowerCase())
+    const externeOptionsSorted = _.sortBy(externeOptionsFiltered, (o) => o.nameVorname.toLowerCase())
     const options = externeOptionsSorted.map((o, index) => (
       <option key={index + 1} value={o.id}>{o.nameVorname}</option>
     ))

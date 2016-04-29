@@ -31,9 +31,13 @@ class GeschaefteKontakteIntern extends Component {
   }
 
   options = () => {
-    const { interneOptions } = this.props
+    const { interneOptions, geschaefteKontakteIntern, activeId } = this.props
+    // filter out options already choosen
+    const kontakteInternOfActiveGeschaeft = geschaefteKontakteIntern.filter((g) => g.idGeschaeft === activeId)
+    const idKontakteOfGkiOfActiveGeschaeft = kontakteInternOfActiveGeschaeft.map((kI) => kI.idKontakt)
+    const interneOptionsFiltered = interneOptions.filter((o) => !idKontakteOfGkiOfActiveGeschaeft.includes(o.id))
     // sort interneOptions by kurzzeichen
-    const interneOptionsSorted = _.sortBy(interneOptions, (o) => o.kurzzeichen.toLowerCase())
+    const interneOptionsSorted = _.sortBy(interneOptionsFiltered, (o) => o.kurzzeichen.toLowerCase())
     const options = interneOptionsSorted.map((o, index) => {
       const space = '\xa0'.repeat(5 - o.kurzzeichen.length)
       return (
@@ -95,7 +99,7 @@ class GeschaefteKontakteIntern extends Component {
   }
 
   render = () => {
-    const { geschaefteKontakteIntern, tabIndex } = this.props
+    const { tabIndex } = this.props
     return (
       <div className={styles.body}>
         {this.renderItems()}
@@ -109,7 +113,7 @@ class GeschaefteKontakteIntern extends Component {
               title="Neuen Kontakt hinzufügen"
               tabIndex={tabIndex}
             >
-              {this.options(geschaefteKontakteIntern[0])}
+              {this.options()}
             </FormControl>
           </div>
         </div>
