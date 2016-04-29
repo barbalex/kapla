@@ -265,7 +265,7 @@ class Geschaeft extends Component {
               onChange={this.change}
               onBlur={this.blur}
               bsSize="small"
-              rows={3}
+              rows={2}
               tabIndex={1 + (wrapperClass === styles.wrapperNarrow ? nrOfNrFields : 0)}
               autoFocus={wrapperClass !== styles.wrapperNarrow}
             />
@@ -405,6 +405,9 @@ class Geschaeft extends Component {
               tabIndex={1 + (wrapperClass === styles.wrapperNarrow ? 0 : nrOfGFields)}
               autoFocus={wrapperClass === styles.wrapperNarrow}
             />
+          </div>
+          <div className={styles.labelJahre}>
+            Jahr
           </div>
           <ControlLabel className={styles.labelEntscheidAwel}>AWEL</ControlLabel>
           <div className={styles.fieldEntscheidAwelNr}>

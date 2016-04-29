@@ -113,6 +113,7 @@
    "areaNummernTitle areaNummernTitle areaNummernTitle areaNummernTitle labelNr"
    ". . labelIdGeschaeft . fieldIdGeschaeft"
    ". . labelGekoNr . fieldGekoNr"
+   ". . . . labelJahre"
    "labelEntscheidAwel . fieldEntscheidAwelNr slashAwel fieldEntscheidAwelJahr"
    "labelEntscheidBdv . fieldEntscheidBdvNr slashBdv fieldEntscheidBdvJahr"
    "labelEntscheidKr . fieldEntscheidKrNr slashKr fieldEntscheidKrJahr"
@@ -120,6 +121,17 @@
    "fieldAktenstandort fieldAktenstandort fieldAktenstandort . fieldAktennummer";
   grid-gap: 5px 2px;
   padding: 8px;
+}
+
+.label {
+  color: #828282;
+  font-size: 11px;
+  font-weight: 500;
+}
+
+.labelJahre {
+  composes: label;
+  grid-area: labelJahre;
 }
 
 .labelNr {

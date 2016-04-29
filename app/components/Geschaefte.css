@@ -52,8 +52,8 @@
 
 .columnIdGeschaeft {
   composes: tableBodyCell;
-  min-width: 45px;
-  max-width: 45px;
+  min-width: 44px;
+  max-width: 44px;
 }
 
 .columnGegenstand {
