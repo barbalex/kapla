@@ -47,24 +47,6 @@
     page-break-inside: avoid !important;
     page-break-before: avoid !important;*/
   }
-
-  .rowsContainer {
-    /* probably not necessary */
-    page-break-after: avoid !important;
-    page-break-before: avoid !important;
-  }
-
-  .footer {
-    /* probably not necessary */
-    page-break-after: avoid !important;
-    page-break-before: avoid !important;
-  }
-
-  .footer p:last-of-type {
-    /* probably not necessary */
-    page-break-after: avoid !important;
-    page-break-before: avoid !important;
-  }
 }
 
 .titleInput {

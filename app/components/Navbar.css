@@ -1,3 +1,7 @@
+.body {
+  display: block;
+}
+
 @media print {
   .body {
     display: none;

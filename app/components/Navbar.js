@@ -327,14 +327,11 @@ class NavbarComponent extends Component {
       geschaefteGefilterteIds,
       showMessageModal,
       willDeleteGeschaeft,
-      navbarVisible,
       path,
       getTable,
       table,
       rows
     } = this.props
-
-    if (!navbarVisible) return null
 
     const dataIsFiltered = geschaefte.length !== geschaefteGefilterteIds.length
     const classNameBadge = dataIsFiltered ? styles.badgeWithActiveFilter : styles.badge
