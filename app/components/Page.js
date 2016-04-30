@@ -10,6 +10,8 @@ import moment from 'moment'
 import styles from './Page.css'
 import PageFristenHeader from './PageFristenHeader'
 import PageFristenRows from './PageFristenRows'
+import PageList1Header from './PageList1Header'
+import PageList1Rows from './PageList1Rows'
 
 class Page extends Component {
   static propTypes = {
@@ -26,7 +28,8 @@ class Page extends Component {
     title: PropTypes.string,
     queryTitle: PropTypes.bool,
     messageShow: PropTypes.func.isRequired,
-    building: PropTypes.bool.isRequired
+    building: PropTypes.bool.isRequired,
+    reportType: PropTypes.string
   }
 
   componentDidMount = () => {
@@ -158,12 +161,16 @@ class Page extends Component {
   }
 
   tableRows = () => {
-    const { geschaefte } = this.props
-    return geschaefte.map((geschaeft) => <PageFristenRows geschaeft={geschaeft} />)
+    const { geschaefte, reportType } = this.props
+    return geschaefte.map((geschaeft) => {
+      if (reportType === 'Fristen') return <PageFristenRows geschaeft={geschaeft} />
+      if (reportType === 'List1') return <PageList1Rows geschaeft={geschaeft} />
+      return null
+    })
   }
 
   render = () => {
-    const { pageIndex, queryTitle, building } = this.props
+    const { pageIndex, queryTitle, building, reportType } = this.props
     const showPagesTitle = pageIndex === 0
     const pageContainerStyle = building ? [styles.pageContainer, styles.pageContainerOverflow].join(' ') : styles.pageContainer
 
@@ -172,7 +179,8 @@ class Page extends Component {
         <div className={styles.rowsContainer} ref={`rowsContainer${pageIndex}`}>
           {showPagesTitle && queryTitle && this.inputPagesTitle()}
           {showPagesTitle && !queryTitle && this.textPagesTitle()}
-          <PageFristenHeader />
+          {reportType === 'Fristen' && <PageFristenHeader />}
+          {reportType === 'List1' && <PageList1Header />}
           {this.tableRows()}
         </div>
         {this.footer()}

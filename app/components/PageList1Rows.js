@@ -5,17 +5,14 @@
  */
 
 import React, { Component, PropTypes } from 'react'
-import styles from './PageFristen.css'
+import styles from './PageList1.css'
 
-class PageFristenRows extends Component {
+class PageList1Rows extends Component {
   static propTypes = {
     geschaeft: PropTypes.object
   }
   render = () => {
     const { geschaeft } = this.props
-
-    console.log('PageFristenRows, geschaeft', geschaeft)
-
     const fristMitarbeiter = geschaeft.fristMitarbeiter ? `Frist: ${geschaeft.fristMitarbeiter}` : ''
     /**
      * need to enforce max string length
@@ -81,4 +78,4 @@ class PageFristenRows extends Component {
   }
 }
 
-export default PageFristenRows
+export default PageList1Rows

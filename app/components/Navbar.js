@@ -259,12 +259,18 @@ class NavbarComponent extends Component {
            */
           if (eventKey === 7.1) {
             setTimeout(() => {
-              pagesInitiate()
+              pagesInitiate('Fristen')
+            }, 0)
+          }
+          if (eventKey === 7.2) {
+            setTimeout(() => {
+              pagesInitiate('List1')
             }, 0)
           }
         }}
       >
         <MenuItem eventKey={7.1}>Fristen</MenuItem>
+        <MenuItem eventKey={7.2}>Einfache Liste</MenuItem>
       </NavDropdown>
     )
   }
