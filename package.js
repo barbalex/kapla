@@ -27,7 +27,8 @@ const DEFAULT_OPTS = {
   ].concat(devDeps.map(name => `/node_modules/${name}($|/)`))
 }
 
-const icon = argv.icon || argv.i || 'app/app'
+// const icon = argv.icon || argv.i || 'app/app''
+const icon = 'app/etc/zh3'
 
 if (icon) {
   DEFAULT_OPTS.icon = icon
@@ -89,7 +90,8 @@ function pack(plat, arch, cb) {
       if (plat === 'darwin') {
         extension = '.icns'
       } else if (plat === 'win32') {
-        extension = '.ico'
+        // extension = '.ico'
+        extension = '.png'
       }
       return extension
     })()
