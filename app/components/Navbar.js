@@ -40,7 +40,6 @@ class NavbarComponent extends Component {
     dbGetFromConfig: PropTypes.func.isRequired,
     willDeleteGeschaeft: PropTypes.bool.isRequired,
     pagesInitiate: PropTypes.func.isRequired,
-    navbarShow: PropTypes.func.isRequired,
     path: PropTypes.string.isRequired,
     messageShow: PropTypes.func.isRequired,
     getTable: PropTypes.func.isRequired,
