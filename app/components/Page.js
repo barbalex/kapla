@@ -13,7 +13,6 @@ class Page extends Component {
   static propTypes = {
     pages: PropTypes.array,
     geschaefte: PropTypes.array,
-    full: PropTypes.bool,
     remainingGeschaefte: PropTypes.array,
     activePageIndex: PropTypes.number,
     pageIndex: PropTypes.number.isRequired,
@@ -29,8 +28,7 @@ class Page extends Component {
   }
 
   componentDidMount = () => {
-    const { messageShow, pages, remainingGeschaefte } = this.props
-    messageShow(true, 'Der Bericht wird aufgebaut...', `Bisher ${pages.length} Seiten, ${remainingGeschaefte.length} Geschäfte noch zu verarbeiten`)
+    this.showMessage()
     // wait with next stepp until message is shown
     setTimeout(() => {
       this.nextStepp()
@@ -58,6 +56,13 @@ class Page extends Component {
     if (title) pagesQueryTitle(false)
   }
 
+  showMessage = () => {
+    const { messageShow, pages, remainingGeschaefte } = this.props
+    const msgLine2Txt = `Bisher ${pages.length} Seiten, ${remainingGeschaefte.length} Geschäfte noch zu verarbeiten`
+    const msgLine2 = remainingGeschaefte.length > 50 ? msgLine2Txt : ''
+    messageShow(true, 'Der Bericht wird aufgebaut...', msgLine2)
+  }
+
   nextStepp = () => {
     /**
      * - measure height of pageSize-component
@@ -69,34 +74,46 @@ class Page extends Component {
      *  - render
      */
     const {
+      pages,
       activePageIndex,
       pageIndex,
       geschaefte,
-      pages,
-      full,
       remainingGeschaefte,
       pageAddGeschaeft,
       pagesMoveGeschaeftToNewPage,
       pagesFinishedBuilding,
       messageShow
     } = this.props
-    // const offsetHeight = ReactDOM.findDOMNode(this).offsetHeight
-    const offsetHeight = this.refs[`rowsContainer${pageIndex}`].offsetHeight
-    // const scrollHeight = ReactDOM.findDOMNode(this).scrollHeight
-    const scrollHeight = this.refs[`rowsContainer${pageIndex}`].scrollHeight
 
-    if (!full && remainingGeschaefte.length > 0) {
-      if (offsetHeight < scrollHeight) {
-        const lastGeschaeft = geschaefte[geschaefte.length - 1]
-        pagesMoveGeschaeftToNewPage(lastGeschaeft)
-        messageShow(true, 'Der Bericht wird aufgebaut...', `Bisher ${pages.length} Seiten, ${remainingGeschaefte.length} Geschäfte noch zu verarbeiten`)
-      } else {
-        pageAddGeschaeft()
+    // don't do anything on not active pages
+    if (pageIndex === activePageIndex) {
+      // const offsetHeight = ReactDOM.findDOMNode(this).offsetHeight
+      const offsetHeight = this.refs[`rowsContainer${pageIndex}`].offsetHeight
+      // const scrollHeight = ReactDOM.findDOMNode(this).scrollHeight
+      const scrollHeight = this.refs[`rowsContainer${pageIndex}`].scrollHeight
+
+
+      /* console.log('pages', pages)
+      console.log('pageIndex', pageIndex)
+      console.log('pages[pageIndex]', pages[pageIndex])
+      console.log('pages[pageIndex].full', pages[pageIndex].full)
+      */
+
+      const activePageIsFull = pages[pageIndex].full
+
+      if (!activePageIsFull && remainingGeschaefte.length > 0) {
+        if (offsetHeight < scrollHeight) {
+          const lastGeschaeft = geschaefte[geschaefte.length - 1]
+          pagesMoveGeschaeftToNewPage(lastGeschaeft)
+          this.showMessage()
+        } else {
+          pageAddGeschaeft()
+        }
       }
-    }
-    if (remainingGeschaefte.length === 0 && pageIndex === activePageIndex) {
-      messageShow(false, '', '')
-      pagesFinishedBuilding()
+      if (remainingGeschaefte.length === 0) {
+        messageShow(false, '', '')
+        pagesFinishedBuilding()
+      }
     }
   }
 
@@ -147,6 +164,27 @@ class Page extends Component {
 
   tableRow = (geschaeft) => {
     const fristMitarbeiter = geschaeft.fristMitarbeiter ? `Frist: ${geschaeft.fristMitarbeiter}` : ''
+    /**
+     * need to enforce max string length
+     * if a field contains more text than fits on a page
+     * the page is created infinitely...
+     */
+    const maxStringLength = 2000
+    let gegenstand = geschaeft.gegenstand
+    if (gegenstand && gegenstand.length > maxStringLength) {
+      gegenstand = gegenstand.substring(0, maxStringLength)
+      gegenstand += '... (Text gekürzt)'
+    }
+    let details = geschaeft.details
+    if (details && details.length > maxStringLength) {
+      details = details.substring(0, maxStringLength)
+      details += '... (Text gekürzt)'
+    }
+    let faelligkeitText = geschaeft.faelligkeitText
+    if (faelligkeitText && faelligkeitText.length > maxStringLength) {
+      faelligkeitText = faelligkeitText.substring(0, maxStringLength)
+      faelligkeitText += '... (Text gekürzt)'
+    }
 
     return (
       <div
@@ -160,10 +198,10 @@ class Page extends Component {
         </div>
         <div className={[styles.columnGegenstand, styles.tableBodyCell].join(' ')}>
           <div className={styles.fieldGegenstand}>
-            {geschaeft.gegenstand}
+            {gegenstand}
           </div>
           <div>
-            {geschaeft.details}
+            {details}
           </div>
         </div>
         <div className={[styles.columnStatus, styles.tableBodyCell].join(' ')}>
@@ -174,7 +212,7 @@ class Page extends Component {
             {fristMitarbeiter}
           </div>
           <div>
-            {geschaeft.faelligkeitText}
+            {faelligkeitText}
           </div>
         </div>
         <div className={[styles.columnKontaktIntern, styles.tableBodyCell].join(' ')}>

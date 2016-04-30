@@ -17,15 +17,13 @@ function mapStateToProps(state, props) {
 
   return {
     pages: pages.pages,
-    building: pages.building,
+    building,
     geschaefte: myGeschaefte,
-    full: pages.pages[pageIndex].full,
     remainingGeschaefte,
     activePageIndex,
     pageIndex,
     title,
-    queryTitle,
-    building
+    queryTitle
   }
 }
 

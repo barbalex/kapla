@@ -14,7 +14,7 @@ class ModalMessage extends Component {
     const { messageTextLine1, messageTextLine2 } = this.props
 
     return (
-      <Modal.Dialog bsSize="small" dialogClassName={styles.modal}>
+      <Modal.Dialog bsSize={messageTextLine2 ? 'large' : 'small'} dialogClassName={styles.modal}>
         <Modal.Body>
           <p className={styles.p}>{messageTextLine1}</p>
           {messageTextLine2 && <p className={styles.p}>{messageTextLine2}</p>}
