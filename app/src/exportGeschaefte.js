@@ -92,7 +92,7 @@ export default (geschaefte, messageShow) => {
        * it blocks execution for a while
        * use this to message before, then remove message after blocking is finished
        */
-      messageShow(true, 'Der Export wird aufgebaut...')
+      messageShow(true, 'Der Export wird aufgebaut...', '')
       setTimeout(() => {
         // TODO: this fails in release package
         // either get solution from https://github.com/electron/electron/issues/5174
@@ -100,7 +100,7 @@ export default (geschaefte, messageShow) => {
         // solution using XLSX.write and fs.writeFile does not work
         // because xlsx is a zipped folder
         XLSX.writeFile(wb, path, { bookType: 'xlsx', bookSST: true, type: 'binary' })
-        messageShow(false, '')
+        messageShow(false, '', '')
       }, 200)
     }
   })

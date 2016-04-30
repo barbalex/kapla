@@ -6,8 +6,8 @@ import ModalMessage from '../components/ModalMessage'
 import * as appActions from '../actions/app'
 
 function mapStateToProps(state) {
-  const { showMessageModal, messageText } = state.app
-  return { showMessageModal, messageText }
+  const { showMessageModal, messageTextLine1, messageTextLine2 } = state.app
+  return { showMessageModal, messageTextLine1, messageTextLine2 }
 }
 
 function mapDispatchToProps(dispatch) {

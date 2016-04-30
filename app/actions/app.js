@@ -10,11 +10,12 @@ import * as GeschaefteKontakteExternActions from './geschaefteKontakteExtern'
 import * as UserActions from './user'
 
 export const MESSAGE_SHOW = 'MESSAGE_SHOW'
-export function messageShow(showMessageModal, messageText) {
+export function messageShow(showMessageModal, messageTextLine1, messageTextLine2) {
   return {
     type: MESSAGE_SHOW,
     showMessageModal,
-    messageText
+    messageTextLine1,
+    messageTextLine2
   }
 }
 

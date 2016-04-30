@@ -16,7 +16,8 @@ const standardState = {
   db: null,
   navbarVisible: true,
   showMessageModal: false,
-  messageText: ''
+  messageTextLine1: '',
+  messageTextLine2: ''
 }
 
 export default function app(state = standardState, action) {
@@ -25,7 +26,8 @@ export default function app(state = standardState, action) {
       return {
         ...state,
         showMessageModal: action.showMessageModal,
-        messageText: action.messageText
+        messageTextLine1: action.messageTextLine1,
+        messageTextLine2: action.messageTextLine2
       }
     case NAVBAR_SHOW:
       return {

@@ -29,8 +29,8 @@ class Page extends Component {
   }
 
   componentDidMount = () => {
-    const { messageShow } = this.props
-    messageShow(true, 'Der Bericht wird aufgebaut...')
+    const { messageShow, pages, remainingGeschaefte } = this.props
+    messageShow(true, 'Der Bericht wird aufgebaut...', `Bisher ${pages.length} Seiten, ${remainingGeschaefte.length} Geschäfte noch zu verarbeiten`)
     // wait with next stepp until message is shown
     setTimeout(() => {
       this.nextStepp()
@@ -72,6 +72,7 @@ class Page extends Component {
       activePageIndex,
       pageIndex,
       geschaefte,
+      pages,
       full,
       remainingGeschaefte,
       pageAddGeschaeft,
@@ -88,12 +89,13 @@ class Page extends Component {
       if (offsetHeight < scrollHeight) {
         const lastGeschaeft = geschaefte[geschaefte.length - 1]
         pagesMoveGeschaeftToNewPage(lastGeschaeft)
+        messageShow(true, 'Der Bericht wird aufgebaut...', `Bisher ${pages.length} Seiten, ${remainingGeschaefte.length} Geschäfte noch zu verarbeiten`)
       } else {
         pageAddGeschaeft()
       }
     }
     if (remainingGeschaefte.length === 0 && pageIndex === activePageIndex) {
-      messageShow(false, '')
+      messageShow(false, '', '')
       pagesFinishedBuilding()
     }
   }
