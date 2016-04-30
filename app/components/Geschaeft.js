@@ -91,21 +91,26 @@ class Geschaeft extends Component {
     const showGeschaeft = geschaeft && geschaeft.idGeschaeft
     if (!showGeschaeft) return null
 
+    const showAreaParlVorstoss = geschaeft.geschaeftsart === 'Parlament. Vorstoss'
+    const showAreaRechtsmittel = geschaeft.geschaeftsart === 'Rekurs/Beschwerde'
+    const showAreaVernehmlassung = geschaeft.geschaeftsart === 'Vernehmlassung'
+    const showAreaForGeschaeftsart = showAreaParlVorstoss || showAreaRechtsmittel || showAreaVernehmlassung
+
     // need width to set layout for differing widths
     const geschaefteLayoutWidth = geschaefteLayout.width
     const geschaeftWidthPercent = geschaefteLayout.config.content[0].content[1].width
     const totalWidth = geschaefteLayoutWidth * geschaeftWidthPercent / 100
-    const wrapperClass = totalWidth < 750 ? styles.wrapperNarrow : styles.wrapperWide
+    const wrapperClassBaseString = totalWidth < 750 ? 'wrapperNarrow' : 'wrapperWide'
+    // layout needs to work with or without area for geschaeftsart
+    const wrapperClassString = showAreaForGeschaeftsart ? wrapperClassBaseString : `${wrapperClassBaseString}NoAreaForGeschaeftsart`
+    const wrapperClass = styles[wrapperClassString]
+    // prepare tab indexes
     const nrOfGFields = 10
     const nrOfNrFields = 10
     const nrOfFieldsBeforePv = nrOfGFields + nrOfNrFields
     const nrOfPvFields = 9
     const nrOfFieldsBeforeFristen = nrOfFieldsBeforePv + nrOfPvFields
     const nrOfFieldsBeforePersonen = nrOfFieldsBeforeFristen + 7
-
-    const showAreaParlVorstoss = geschaeft.geschaeftsart === 'Parlament. Vorstoss'
-    const showAreaRechtsmittel = geschaeft.geschaeftsart === 'Rekurs/Beschwerde'
-    const showAreaVernehmlassung = geschaeft.geschaeftsart === 'Vernehmlassung'
 
     return (
       <div className={wrapperClass}>

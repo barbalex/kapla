@@ -12,6 +12,17 @@
     "areaZuletztMutiert";
 }
 
+.wrapperNarrowNoAreaForGeschaeftsart {
+  composes: wrapperNarrow;
+  grid-template-areas:
+    "areaNummern"
+    "areaGeschaeft"
+    "areaFristen"
+    "areaPersonen"
+    "areaHistory"
+    "areaZuletztMutiert";
+}
+
 .wrapperWide {
   display: grid;
   grid-template-columns: repeat(12, 8.33333%);
@@ -23,4 +34,14 @@
     "areaHistory areaHistory areaHistory areaHistory areaHistory areaHistory areaHistory areaHistory areaHistory areaHistory areaHistory areaHistory"
     "areaZuletztMutiert areaZuletztMutiert areaZuletztMutiert areaZuletztMutiert areaZuletztMutiert areaZuletztMutiert areaZuletztMutiert areaZuletztMutiert areaZuletztMutiert areaZuletztMutiert areaZuletztMutiert areaZuletztMutiert";
   grid-gap: 0;
+}
+
+.wrapperWideNoAreaForGeschaeftsart {
+  composes: wrapperWide;
+  grid-template-areas:
+    "areaGeschaeft areaGeschaeft areaGeschaeft areaGeschaeft areaGeschaeft areaGeschaeft areaGeschaeft areaGeschaeft areaNummern areaNummern areaNummern areaNummern"
+    "areaGeschaeft areaGeschaeft areaGeschaeft areaGeschaeft areaGeschaeft areaGeschaeft areaGeschaeft areaGeschaeft areaNummern areaNummern areaNummern areaNummern"
+    "areaFristen areaFristen areaFristen areaPersonen areaPersonen areaPersonen areaPersonen areaPersonen areaPersonen areaPersonen areaPersonen areaPersonen"
+    "areaHistory areaHistory areaHistory areaHistory areaHistory areaHistory areaHistory areaHistory areaHistory areaHistory areaHistory areaHistory"
+    "areaZuletztMutiert areaZuletztMutiert areaZuletztMutiert areaZuletztMutiert areaZuletztMutiert areaZuletztMutiert areaZuletztMutiert areaZuletztMutiert areaZuletztMutiert areaZuletztMutiert areaZuletztMutiert areaZuletztMutiert";
 }
