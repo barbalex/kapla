@@ -13,7 +13,11 @@ class Pages extends Component {
   pages = () => {
     const { pages } = this.props
     return pages.map((page, pageIndex) => (
-      <Page key={pageIndex} pageIndex={pageIndex} />
+      <Page
+        key={pageIndex}
+        pageIndex={pageIndex}
+        className={styles.pageContainer}
+      />
     ))
   }
 

@@ -40,8 +40,6 @@ class NavbarComponent extends Component {
     dbGetFromConfig: PropTypes.func.isRequired,
     willDeleteGeschaeft: PropTypes.bool.isRequired,
     pagesInitiate: PropTypes.func.isRequired,
-    navbarVisible: PropTypes.bool.isRequired,
-    navbarHide: PropTypes.func.isRequired,
     navbarShow: PropTypes.func.isRequired,
     path: PropTypes.string.isRequired,
     messageShow: PropTypes.func.isRequired,
@@ -71,10 +69,6 @@ class NavbarComponent extends Component {
   }
 
   onClickPrint = (e) => {
-    const {
-      navbarShow,
-      navbarHide
-    } = this.props
     e.preventDefault()
     const win = remote.getCurrentWindow()
     const printToPDFOptions = {
@@ -94,14 +88,11 @@ class NavbarComponent extends Component {
     })
     */
     // first remove navbar
-    navbarHide()
     win.webContents.printToPDF(printToPDFOptions, (error, data) => {
       if (error) throw error
       dialog.showSaveDialog(dialogOptions, (path) => {
         if (path) {
           fs.writeFile(path, data, (err) => {
-            // re-add navbar
-            navbarShow()
             if (err) throw err
           })
         }

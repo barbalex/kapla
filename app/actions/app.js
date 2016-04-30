@@ -19,20 +19,6 @@ export function messageShow(showMessageModal, messageTextLine1, messageTextLine2
   }
 }
 
-export const NAVBAR_HIDE = 'NAVBAR_HIDE'
-export function navbarHide() {
-  return {
-    type: NAVBAR_HIDE
-  }
-}
-
-export const NAVBAR_SHOW = 'NAVBAR_SHOW'
-export function navbarShow() {
-  return {
-    type: NAVBAR_SHOW
-  }
-}
-
 export const DB_CHOOSE = 'DB_CHOOSE'
 function dbChoose() {
   return {

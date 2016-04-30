@@ -13,7 +13,7 @@ const actions = Object.assign(AppActions, GeschaefteActions, TableActions, Pages
 function mapStateToProps(state) {
   const { activeId, filterFulltext, geschaefte, geschaefteGefilterteIds, willDelete } = state.geschaefte
   const { username } = state.user
-  const { dbPath, db, navbarVisible, showMessageModal } = state.app
+  const { dbPath, db, showMessageModal } = state.app
   const { table, rows, id } = state.table
   const path = state.routing.locationBeforeTransitions.pathname
   return {
@@ -25,7 +25,6 @@ function mapStateToProps(state) {
     dbPath,
     db,
     willDeleteGeschaeft: willDelete,
-    navbarVisible,
     path,
     showMessageModal,
     table,

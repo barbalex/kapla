@@ -27,20 +27,43 @@
 }
 
 .rowsContainer {
-  max-height: 16.5cm
+  max-height: 16.5cm;
 }
 
 /* When the document is actually printed */
 @media print {
   .pageContainer {
-    /* something seems to change the measurements! */
+    /**
+     * something seems to change the measurements
+     * if they are not repeated here using important
+     */
     width: 29.7cm !important;
     height: 21cm !important;
     margin: 0 !important;
     padding: 2cm !important;
     overflow-y: hidden !important;
     /* no idea why this is not necessary: */
-    /*page-break-after: always !important;*/
+    /*page-break-after: always !important;
+    page-break-inside: avoid !important;
+    page-break-before: avoid !important;*/
+  }
+
+  .rowsContainer {
+    /* probably not necessary */
+    page-break-after: avoid !important;
+    page-break-before: avoid !important;
+  }
+
+  .footer {
+    /* probably not necessary */
+    page-break-after: avoid !important;
+    page-break-before: avoid !important;
+  }
+
+  .footer p:last-of-type {
+    /* probably not necessary */
+    page-break-after: avoid !important;
+    page-break-before: avoid !important;
   }
 }
 

@@ -4,8 +4,6 @@ import {
   DB_CHOOSE,
   DB_CHOOSE_SUCCESS,
   DB_CHOOSE_ERROR,
-  NAVBAR_HIDE,
-  NAVBAR_SHOW,
   MESSAGE_SHOW
 } from '../actions/app'
 
@@ -14,7 +12,6 @@ const standardState = {
   errorFetchingDb: null,
   dbPath: null,
   db: null,
-  navbarVisible: true,
   showMessageModal: false,
   messageTextLine1: '',
   messageTextLine2: ''
@@ -28,16 +25,6 @@ export default function app(state = standardState, action) {
         showMessageModal: action.showMessageModal,
         messageTextLine1: action.messageTextLine1,
         messageTextLine2: action.messageTextLine2
-      }
-    case NAVBAR_SHOW:
-      return {
-        ...state,
-        navbarVisible: true
-      }
-    case NAVBAR_HIDE:
-      return {
-        ...state,
-        navbarVisible: false
       }
     case DB_CHOOSE:
       return {

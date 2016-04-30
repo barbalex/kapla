@@ -1,3 +1,9 @@
+@media print {
+  .body {
+    display: none;
+  }
+}
+
 .badge {
   background-color: #007D08;
 }
