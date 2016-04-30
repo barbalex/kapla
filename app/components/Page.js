@@ -92,13 +92,6 @@ class Page extends Component {
       // const scrollHeight = ReactDOM.findDOMNode(this).scrollHeight
       const scrollHeight = this.refs[`rowsContainer${pageIndex}`].scrollHeight
 
-
-      /* console.log('pages', pages)
-      console.log('pageIndex', pageIndex)
-      console.log('pages[pageIndex]', pages[pageIndex])
-      console.log('pages[pageIndex].full', pages[pageIndex].full)
-      */
-
       const activePageIsFull = pages[pageIndex].full
 
       if (!activePageIsFull && remainingGeschaefte.length > 0) {
@@ -167,23 +160,23 @@ class Page extends Component {
     /**
      * need to enforce max string length
      * if a field contains more text than fits on a page
-     * the page is created infinitely...
+     * the page is (re-)created infinitely...
      */
     const maxStringLength = 2000
     let gegenstand = geschaeft.gegenstand
     if (gegenstand && gegenstand.length > maxStringLength) {
       gegenstand = gegenstand.substring(0, maxStringLength)
-      gegenstand += '... (Text gekürzt)'
+      gegenstand += '... (Text für die Ausgabe gekürzt)'
     }
     let details = geschaeft.details
     if (details && details.length > maxStringLength) {
       details = details.substring(0, maxStringLength)
-      details += '... (Text gekürzt)'
+      details += '... (Text für die Ausgabe gekürzt)'
     }
     let faelligkeitText = geschaeft.faelligkeitText
     if (faelligkeitText && faelligkeitText.length > maxStringLength) {
       faelligkeitText = faelligkeitText.substring(0, maxStringLength)
-      faelligkeitText += '... (Text gekürzt)'
+      faelligkeitText += '... (Text für die Ausgabe gekürzt)'
     }
 
     return (
