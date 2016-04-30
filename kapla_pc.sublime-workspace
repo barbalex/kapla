@@ -340,36 +340,26 @@
 			}
 		},
 		{
-			"file": "package.js",
+			"file": "app/components/AreaParlVorstoss.js",
 			"settings":
 			{
-				"buffer_size": 2797,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"contents": "Searching 404 files for \"zh.png\" (case sensitive, whole word)\n\n0 matches\n\nSearching 404 files for \"zh4.png\" (case sensitive, whole word)\n\n0 matches\n\nSearching 404 files for \"zh3.png\" (case sensitive, whole word)\n\nC:\\Users\\alex\\kapla\\main.js:\n   28    width: 1800,\n   29    height: 1024,\n   30:   icon: './app/etc/zh3.png',\n   31    webPreferences: {\n   32      experimentalFeatures: true\n\nC:\\Users\\alex\\kapla\\release\\win32-x64\\Kapla-win32-x64\\resources\\app\\main.js:\n   28    width: 1800,\n   29    height: 1024,\n   30:   icon: './app/etc/zh3.png',\n   31    webPreferences: {\n   32      experimentalFeatures: true\n\n2 matches across 2 files\n",
-			"settings":
-			{
-				"buffer_size": 638,
-				"line_ending": "Windows",
-				"name": "Find Results",
-				"scratch": true
-			}
-		},
-		{
-			"file": "main.js",
-			"settings":
-			{
-				"buffer_size": 6822,
+				"buffer_size": 4229,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "app/components/Navbar.js",
+			"file": "app/components/AreaParlVorstoss.css",
 			"settings":
 			{
-				"buffer_size": 12419,
+				"buffer_size": 802,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "app/app.global.css",
+			"settings":
+			{
+				"buffer_size": 2199,
 				"line_ending": "Windows"
 			}
 		}
@@ -425,18 +415,19 @@
 	[
 		"/C/Users/alex/kapla",
 		"/C/Users/alex/kapla/app",
-		"/C/Users/alex/kapla/app/actions",
-		"/C/Users/alex/kapla/app/reducers"
+		"/C/Users/alex/kapla/app/components"
 	],
 	"file_history":
 	[
+		"/C/Users/alex/kapla/app/components/Navbar.js",
+		"/C/Users/alex/kapla/main.js",
+		"/C/Users/alex/kapla/package.js",
 		"/C/Users/alex/kapla/app/actions/pages.js",
 		"/C/Users/alex/kapla/app/components/Pages.css",
 		"/C/Users/alex/kapla/app/components/Pages.js",
 		"/C/Users/alex/kapla/app/components/Page.js",
 		"/C/Users/alex/kapla/app/components/Page.css",
 		"/C/Users/alex/kapla/app/components/Navbar.css",
-		"/C/Users/alex/kapla/app/components/Navbar.js",
 		"/C/Users/alex/kapla/app/actions/app.js",
 		"/C/Users/alex/kapla/app/reducers/app.js",
 		"/C/Users/alex/kapla/app/app.global.css",
@@ -547,7 +538,6 @@
 		"/C/Users/alex/kapla/app/components/TableRow.css",
 		"/C/Users/alex/kapla/app/reducers/table.js",
 		"/C/Users/alex/kapla/app/components/GeschaeftBootstrap.css",
-		"/C/Users/alex/kapla/main.js",
 		"/C/Users/alex/kapla/app/components/Table.css",
 		"/C/Users/alex/kapla/app/components/Table.js",
 		"/C/Users/alex/kapla/app/containers/Table.js",
@@ -556,8 +546,7 @@
 		"/C/Users/alex/kapla/app/actions/user.js",
 		"/C/Users/alex/kapla/app/src/saveConfig.js",
 		"/C/Users/alex/kapla/app/src/getConfig.js",
-		"/C/Users/alex/AppData/Roaming/Kapla/kaplaConfig.json",
-		"/C/Users/alex/kapla/app/src/getTableFromDb.js"
+		"/C/Users/alex/AppData/Roaming/Kapla/kaplaConfig.json"
 	],
 	"find":
 	{
@@ -859,7 +848,7 @@
 	"groups":
 	[
 		{
-			"selected": 1,
+			"selected": 2,
 			"sheets":
 			[
 				{
@@ -875,8 +864,8 @@
 						"selection":
 						[
 							[
-								965,
-								965
+								1913,
+								1913
 							]
 						],
 						"settings":
@@ -889,24 +878,24 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 1,
+					"stack_index": 3,
 					"type": "text"
 				},
 				{
 					"buffer": 1,
-					"file": "package.js",
+					"file": "app/components/AreaParlVorstoss.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 2797,
+						"buffer_size": 4229,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1179,
-								1179
+								0,
+								0
 							]
 						],
 						"settings":
@@ -916,121 +905,70 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 578.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 638,
-						"regions":
-						{
-							"match":
-							{
-								"flags": 112,
-								"regions":
-								[
-									[
-										313,
-										320
-									],
-									[
-										537,
-										544
-									]
-								],
-								"scope": ""
-							}
-						},
-						"selection":
-						[
-							[
-								318,
-								318
-							]
-						],
-						"settings":
-						{
-							"detect_indentation": false,
-							"line_numbers": false,
-							"output_tag": 3,
-							"result_base_dir": "",
-							"result_file_regex": "^([^ 	].*):$",
-							"result_line_regex": "^ +([0-9]+):",
-							"scroll_past_end": true,
-							"syntax": "Packages/Default/Find Results.hidden-tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 238.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 2,
 					"type": "text"
 				},
 				{
-					"buffer": 3,
-					"file": "main.js",
+					"buffer": 2,
+					"file": "app/components/AreaParlVorstoss.css",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 6822,
+						"buffer_size": 802,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								722,
-								706
+								802,
+								802
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax",
+							"syntax": "Packages/CSS/CSS.sublime-syntax",
 							"tab_size": 2,
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 350.0,
+						"translation.y": 612.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 3,
+					"stack_index": 0,
 					"type": "text"
 				},
 				{
-					"buffer": 4,
-					"file": "app/components/Navbar.js",
+					"buffer": 3,
+					"file": "app/app.global.css",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 12419,
+						"buffer_size": 2199,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								9891,
-								9891
+								765,
+								765
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax",
+							"syntax": "Packages/CSS/CSS.sublime-syntax",
 							"tab_size": 2,
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 10778.0,
+						"translation.y": 408.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 4,
+					"stack_index": 1,
 					"type": "text"
 				}
 			]

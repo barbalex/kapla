@@ -26,6 +26,7 @@ body {
 }
 .radio + .radio {
   margin-top: -8px;
+  margin-bottom: 0;
 }
 /* make sure radio label is horizontally even with input */
 .radio > label > input[type=radio] {
