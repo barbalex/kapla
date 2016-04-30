@@ -14,8 +14,6 @@ class PageFristenRows extends Component {
   render = () => {
     const { geschaeft } = this.props
 
-    console.log('PageFristenRows, geschaeft', geschaeft)
-
     const fristMitarbeiter = geschaeft.fristMitarbeiter ? `Frist: ${geschaeft.fristMitarbeiter}` : ''
     /**
      * need to enforce max string length
