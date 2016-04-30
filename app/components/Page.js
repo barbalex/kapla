@@ -162,9 +162,9 @@ class Page extends Component {
 
   tableRows = () => {
     const { geschaefte, reportType } = this.props
-    return geschaefte.map((geschaeft) => {
-      if (reportType === 'Fristen') return <PageFristenRows geschaeft={geschaeft} />
-      if (reportType === 'List1') return <PageList1Rows geschaeft={geschaeft} />
+    return geschaefte.map((geschaeft, index) => {
+      if (reportType === 'Fristen') return <PageFristenRows geschaeft={geschaeft} key={index} />
+      if (reportType === 'List1') return <PageList1Rows geschaeft={geschaeft} key={index} />
       return null
     })
   }

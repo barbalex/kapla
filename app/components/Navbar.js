@@ -342,6 +342,7 @@ class NavbarComponent extends Component {
     const classNameBadge = dataIsFiltered ? styles.badgeWithActiveFilter : styles.badge
     const showPrint = path === '/pages'
     const showGeschaefteStuff = path === '/geschaefte'
+    const showGeschaefteAndPrint = showPrint || showGeschaefteStuff
     const showTableStuff = path === '/table'
     const stammdatenTitle = table ? `${table} (${rows.length})` : 'Stammdaten'
     // does not work - should keep menu active when table is loaded
@@ -362,8 +363,8 @@ class NavbarComponent extends Component {
             {showGeschaefteStuff && this.geschaefteFilterNav()}
             {showGeschaefteStuff && this.geschaeftNeuNav()}
             {showGeschaefteStuff && this.geschaeftLoeschenNav()}
-            {showGeschaefteStuff && this.exportGeschaefteNav()}
-            {showGeschaefteStuff && this.berichteNav()}
+            {showGeschaefteAndPrint && this.exportGeschaefteNav()}
+            {showGeschaefteAndPrint && this.berichteNav()}
             {showPrint && this.printNav()}
             <NavDropdown eventKey={8} title={stammdatenTitle} id="basic-nav-dropdown" active={isStammdatenMenuActive}>
               <MenuItem eventKey={8.1} onClick={() => getTable('interne')}>Interne</MenuItem>
@@ -382,7 +383,7 @@ class NavbarComponent extends Component {
             {showTableStuff && this.tableRowLoeschenNav()}
           </Nav>
           <Nav pullRight>
-            {showGeschaefteStuff && this.fulltextFilterNav()}
+            {showGeschaefteAndPrint && this.fulltextFilterNav()}
             <NavDropdown eventKey={9} title="&#8942;" id="basic-nav-dropdown" noCaret>
               <MenuItem eventKey={9.1} onClick={dbGet}>Datenbank wählen</MenuItem>
             </NavDropdown>
