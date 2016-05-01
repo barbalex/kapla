@@ -233,13 +233,29 @@ class NavbarComponent extends Component {
   }
 
   exportGeschaefteNav = () => (
-    <NavItem
+    <NavDropdown
       eventKey={6}
-      onClick={this.exportGeschaefte}
-      title="Geschäfte exportieren"
+      title="Exporte"
+      id="basic-nav-dropdown"
+      onSelect={(eventKey) => {
+        /*
+         * react-bootstrap has an error causing the dropdown to stay open
+         * and the message modal not to show!!!!
+         *
+         * this is an elaborate hack
+         * to get the menu item to close immediately
+         */
+        if (eventKey === 6.1) this.exportGeschaefte()
+        if (eventKey === 6.2) {
+          setTimeout(() => {
+            // pagesInitiate('List1')
+          }, 0)
+        }
+      }}
     >
-      <Glyphicon glyph="share" />
-    </NavItem>
+      <MenuItem eventKey={6.1}>alle Geschäfte mit allen Feldern</MenuItem>
+      <MenuItem eventKey={6.2}>Rekurse und Beschwerden, Vergleich Vorjahre</MenuItem>
+    </NavDropdown>
   )
 
   berichteNav = () => {
@@ -318,9 +334,8 @@ class NavbarComponent extends Component {
     ReactDOM.findDOMNode(this.refs.filterFulltext).focus()
   }
 
-  exportGeschaefte = (e) => {
+  exportGeschaefte = () => {
     const { geschaefteGefilterteIds, geschaefte, messageShow } = this.props
-    e.preventDefault()
     const geschaefteGefiltert = geschaefte.filter((g) => geschaefteGefilterteIds.includes(g.idGeschaeft))
     exportGeschaefte(geschaefteGefiltert, messageShow)
   }
