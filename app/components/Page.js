@@ -18,7 +18,7 @@ class Page extends Component {
     pages: PropTypes.array,
     geschaefte: PropTypes.array,
     remainingGeschaefte: PropTypes.array,
-    geschaefteGefilterteIds: PropTypes.arra,
+    geschaefteGefilterteIds: PropTypes.array,
     activePageIndex: PropTypes.number,
     pageIndex: PropTypes.number.isRequired,
     pageAddGeschaeft: PropTypes.func.isRequired,
