@@ -10,8 +10,17 @@
   padding: 3px;
 }
 
+.tableHeaderRow {
+  display: flex;
+}
+
 .tableBodyRow {
   border-bottom: 1px solid #BBBBBB;
+}
+
+.tableBodyRowShaded {
+  composes: tableBodyRow;
+  background-color: rgba(0, 0, 0, 0.05);
 }
 
 .tableHeaderRow {
@@ -25,25 +34,41 @@
   padding: 2px;
 }
 
-.fieldGegenstand {
-  font-weight: 700;
+.tableHeaderCell {
+  align-self: flex-end;
+}
+
+.columnGegenstand {
+  min-width: calc(100% - 480px);
+  max-width: calc(100% - 480px);
+}
+
+.columnGeschaeftsart {
+  min-width: 140px;
+  max-width: 140px;
+}
+
+.columnStatus {
+  min-width: 110px;
+  max-width: 110px;
+}
+
+.columnVerantwortlich {
+  min-width: 60px;
+  max-width: 60px;
+}
+
+.columnFristMitarbeiter {
+  min-width: 70px;
+  max-width: 70px;
+}
+
+.columnIdVorgeschaeft {
+  min-width: 50px;
+  max-width: 50px;
 }
 
 .columnIdGeschaeft {
   min-width: 50px;
   max-width: 50px;
-}
-
-.columnGegenstand {
-  width: calc(100% - 290px);
-}
-
-.columnStatus {
-  min-width: 140px;
-  max-width: 140px;
-}
-
-.columnKontaktIntern {
-  min-width: 100px;
-  max-width: 100px;
 }

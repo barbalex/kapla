@@ -7,13 +7,17 @@
 import React, { Component, PropTypes } from 'react'
 import styles from './PageList1.css'
 
+function isOdd(num) {
+  return num % 2
+}
+
 class PageList1Rows extends Component {
   static propTypes = {
-    geschaeft: PropTypes.object
+    geschaeft: PropTypes.object,
+    index: PropTypes.number
   }
   render = () => {
-    const { geschaeft } = this.props
-    const fristMitarbeiter = geschaeft.fristMitarbeiter ? `Frist: ${geschaeft.fristMitarbeiter}` : ''
+    const { geschaeft, index } = this.props
     /**
      * need to enforce max string length
      * if a field contains more text than fits on a page
@@ -25,52 +29,46 @@ class PageList1Rows extends Component {
       gegenstand = gegenstand.substring(0, maxStringLength)
       gegenstand += '... (Text für die Ausgabe gekürzt)'
     }
-    let details = geschaeft.details
-    if (details && details.length > maxStringLength) {
-      details = details.substring(0, maxStringLength)
-      details += '... (Text für die Ausgabe gekürzt)'
-    }
-    let faelligkeitText = geschaeft.faelligkeitText
-    if (faelligkeitText && faelligkeitText.length > maxStringLength) {
-      faelligkeitText = faelligkeitText.substring(0, maxStringLength)
-      faelligkeitText += '... (Text für die Ausgabe gekürzt)'
-    }
+    const rowClassName = !isOdd(index) ? styles.tableBodyRowShaded : styles.tableBodyRow
 
     return (
       <div
         key={geschaeft.idGeschaeft}
-        className={styles.tableBodyRow}
+        className={rowClassName}
       >
-        <div className={[styles.columnIdGeschaeft, styles.tableBodyCell].join(' ')}>
+        <div className={[styles.columnGegenstand, styles.tableBodyCell].join(' ')}>
           <div>
-            {geschaeft.idGeschaeft}
+            {geschaeft.gegenstand}
           </div>
         </div>
-        <div className={[styles.columnGegenstand, styles.tableBodyCell].join(' ')}>
-          <div className={styles.fieldGegenstand}>
-            {gegenstand}
-          </div>
+        <div className={[styles.columnGeschaeftsart, styles.tableBodyCell].join(' ')}>
           <div>
-            {details}
+            {geschaeft.geschaeftsart}
           </div>
         </div>
         <div className={[styles.columnStatus, styles.tableBodyCell].join(' ')}>
           <div>
             {geschaeft.status}
           </div>
+        </div>
+        <div className={[styles.columnVerantwortlich, styles.tableBodyCell].join(' ')}>
           <div>
-            {fristMitarbeiter}
-          </div>
-          <div>
-            {faelligkeitText}
+            {geschaeft.verantwortlich}
           </div>
         </div>
-        <div className={[styles.columnKontaktIntern, styles.tableBodyCell].join(' ')}>
+        <div className={[styles.columnFristMitarbeiter, styles.tableBodyCell].join(' ')}>
           <div>
-            {geschaeft.idKontaktIntern}
+            {geschaeft.fristMitarbeiter}
           </div>
+        </div>
+        <div className={[styles.columnIdVorgeschaeft, styles.tableBodyCell].join(' ')}>
           <div>
-            {geschaeft.kontaktInternVornameName}
+            {geschaeft.idVorgeschaeft}
+          </div>
+        </div>
+        <div className={[styles.columnIdGeschaeft, styles.tableBodyCell].join(' ')}>
+          <div>
+            {geschaeft.idGeschaeft}
           </div>
         </div>
       </div>

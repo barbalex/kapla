@@ -11,10 +11,13 @@ class PageList1Header extends Component {
   render = () => (
     <div className={styles.tableHeader}>
       <div className={styles.tableHeaderRow}>
-        <div className={[styles.columnIdGeschaeft, styles.tableHeaderCell].join(' ')}>ID</div>
         <div className={[styles.columnGegenstand, styles.tableHeaderCell].join(' ')}>Gegenstand</div>
+        <div className={[styles.columnGeschaeftsart, styles.tableHeaderCell].join(' ')}>Geschäftsart</div>
         <div className={[styles.columnStatus, styles.tableHeaderCell].join(' ')}>Status</div>
-        <div className={[styles.columnKontaktIntern, styles.tableHeaderCell].join(' ')}>Kontakt</div>
+        <div className={[styles.columnVerantwortlich, styles.tableHeaderCell].join(' ')}>Verant- wortlich</div>
+        <div className={[styles.columnFristMitarbeiter, styles.tableHeaderCell].join(' ')}>Frist</div>
+        <div className={[styles.columnIdVorgeschaeft, styles.tableHeaderCell].join(' ')}>Vorge- schäft</div>
+        <div className={[styles.columnIdGeschaeft, styles.tableHeaderCell].join(' ')}>ID</div>
       </div>
     </div>
   )
