@@ -90,7 +90,7 @@
     "jquery": "2.2.3",
     "lodash": "4.11.1",
     "moment": "2.13.0",
-    "postcss": "5.0.19",
+    "postcss": "5.0.20",
     "react": "15.0.2",
     "react-bootstrap": "0.29.3",
     "react-bootstrap-daterangepicker": "3.0.0",
