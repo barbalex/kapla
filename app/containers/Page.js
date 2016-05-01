@@ -13,6 +13,7 @@ function mapStateToProps(state, props) {
   const { pages } = state
   const { pageIndex } = props
   const { remainingGeschaefte, activePageIndex, title, queryTitle, building, reportType } = pages
+  const { geschaefteGefilterteIds } = state.geschaefte
   const myGeschaefte = pages.pages[pageIndex].geschaefte
 
   return {
@@ -24,7 +25,8 @@ function mapStateToProps(state, props) {
     pageIndex,
     title,
     queryTitle,
-    reportType
+    reportType,
+    geschaefteGefilterteIds
   }
 }
 

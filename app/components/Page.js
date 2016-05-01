@@ -18,6 +18,7 @@ class Page extends Component {
     pages: PropTypes.array,
     geschaefte: PropTypes.array,
     remainingGeschaefte: PropTypes.array,
+    geschaefteGefilterteIds: PropTypes.arra,
     activePageIndex: PropTypes.number,
     pageIndex: PropTypes.number.isRequired,
     pageAddGeschaeft: PropTypes.func.isRequired,
@@ -62,9 +63,9 @@ class Page extends Component {
   }
 
   showMessage = () => {
-    const { messageShow, pages, remainingGeschaefte } = this.props
+    const { messageShow, pages, geschaefteGefilterteIds, remainingGeschaefte } = this.props
     const msgLine2Txt = `Bisher ${pages.length} Seiten, ${remainingGeschaefte.length} Geschäfte noch zu verarbeiten`
-    const msgLine2 = remainingGeschaefte.length > 50 ? msgLine2Txt : ''
+    const msgLine2 = geschaefteGefilterteIds.length > 50 ? msgLine2Txt : ''
     messageShow(true, 'Der Bericht wird aufgebaut...', msgLine2)
   }
 
