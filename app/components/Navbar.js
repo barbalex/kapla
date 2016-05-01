@@ -18,6 +18,7 @@ import {
 } from 'react-bootstrap'
 import { LinkContainer } from 'react-router-bootstrap'
 import moment from 'moment'
+import _ from 'lodash'
 import ModalGeschaeftDelete from '../containers/ModalGeschaeftDelete.js'
 import ModalMessage from '../containers/ModalMessage.js'
 import styles from './Navbar.css'
@@ -242,13 +243,13 @@ class NavbarComponent extends Component {
         eventKey={6.1}
         onClick={this.exportGeschaefteAll}
       >
-        alle Geschäfte mit allen Feldern
+        Gefilterte Geschäfte mit allen Feldern
       </MenuItem>
       <MenuItem
         eventKey={6.2}
-        onClick={this.exportGeschaefteRechtsmittelVergleichVorjahre}
+        onClick={this.exportGeschaefteRechtsmittelVorjahre}
       >
-        Rekurse und Beschwerden, Vergleich Vorjahre
+        Rekurse und Beschwerden, Vergleich der letzten zwei Jahre
       </MenuItem>
     </NavDropdown>
   )
@@ -335,9 +336,36 @@ class NavbarComponent extends Component {
     exportGeschaefte(geschaefteGefiltert, messageShow)
   }
 
-  exportGeschaefteRechtsmittelVergleichVorjahre = () => {
-    const { geschaefteGefilterteIds, geschaefte, messageShow } = this.props
-    const geschaefteGefiltert = geschaefte.filter((g) => geschaefteGefilterteIds.includes(g.idGeschaeft))
+  exportGeschaefteRechtsmittelVorjahre = () => {
+    const { geschaefte, messageShow } = this.props
+    const thisYear = moment().year()
+    const firstDate = moment(`01.01.${thisYear - 2}`, 'DD.MM.YYYY')
+    const lastDate = moment(`31.12.${thisYear - 1}`, 'DD.MM.YYYY')
+    function isInPreviousTwoYears(date) {
+      return moment(date, 'DD.MM.YYYY').isBetween(firstDate, lastDate, 'days', '[]')
+    }
+    const geschaefteGefiltert = geschaefte.filter((g) => (
+      g.geschaeftsart === 'Rekurs/Beschwerde' &&
+      !!g.datumEingangAwel &&
+      isInPreviousTwoYears(g.datumEingangAwel)
+    ))
+    // TODO: need new fields?
+    // - Rekurrent bzw. Beschwerdeführer / Objekt
+    // - Gegenstand des Rechtsstreits? (= gegenstand?)
+    // - Hauptbetroffene Abteilung
+    const fieldsWanted = [
+      'datumEingangAwel',
+      'gegenstand',
+      'rechtsmittelInstanz',
+      'rechtsmittelErledigung',
+      'rechtsmittelEntscheidDatum',
+      'rechtsmittelEntscheidNr',
+      'idGeschaeft'
+    ]
+    // now reduce fields to wanted
+    geschaefteGefiltert.forEach((g, index) => {
+      geschaefteGefiltert[index] = _.pick(geschaefteGefiltert[index], fieldsWanted)
+    })
     exportGeschaefte(geschaefteGefiltert, messageShow)
   }
 
