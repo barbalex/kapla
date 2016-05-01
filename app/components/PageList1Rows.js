@@ -14,10 +14,10 @@ function isOdd(num) {
 class PageList1Rows extends Component {
   static propTypes = {
     geschaeft: PropTypes.object,
-    index: PropTypes.number
+    rowIndex: PropTypes.number
   }
   render = () => {
-    const { geschaeft, index } = this.props
+    const { geschaeft, rowIndex } = this.props
     /**
      * need to enforce max string length
      * if a field contains more text than fits on a page
@@ -29,7 +29,8 @@ class PageList1Rows extends Component {
       gegenstand = gegenstand.substring(0, maxStringLength)
       gegenstand += '... (Text für die Ausgabe gekürzt)'
     }
-    const rowClassName = !isOdd(index) ? styles.tableBodyRowShaded : styles.tableBodyRow
+
+    const rowClassName = !isOdd(rowIndex) ? styles.tableBodyRowShaded : styles.tableBodyRow
 
     return (
       <div

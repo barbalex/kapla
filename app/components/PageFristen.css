@@ -14,6 +14,11 @@
   border-bottom: 1px solid #BBBBBB;
 }
 
+.tableBodyRowShaded {
+  composes: tableBodyRow;
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
 .tableHeaderRow {
   padding-top: 0;
   padding-bottom: 0;

@@ -7,12 +7,17 @@
 import React, { Component, PropTypes } from 'react'
 import styles from './PageFristen.css'
 
+function isOdd(num) {
+  return num % 2
+}
+
 class PageFristenRows extends Component {
   static propTypes = {
-    geschaeft: PropTypes.object
+    geschaeft: PropTypes.object,
+    rowIndex: PropTypes.number
   }
   render = () => {
-    const { geschaeft } = this.props
+    const { geschaeft, rowIndex } = this.props
 
     const fristMitarbeiter = geschaeft.fristMitarbeiter ? `Frist: ${geschaeft.fristMitarbeiter}` : ''
     /**
@@ -37,10 +42,12 @@ class PageFristenRows extends Component {
       faelligkeitText += '... (Text für die Ausgabe gekürzt)'
     }
 
+    const rowClassName = !isOdd(rowIndex) ? styles.tableBodyRowShaded : styles.tableBodyRow
+
     return (
       <div
         key={geschaeft.idGeschaeft}
-        className={styles.tableBodyRow}
+        className={rowClassName}
       >
         <div className={[styles.columnIdGeschaeft, styles.tableBodyCell].join(' ')}>
           <div>
