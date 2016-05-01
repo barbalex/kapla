@@ -236,25 +236,20 @@ class NavbarComponent extends Component {
     <NavDropdown
       eventKey={6}
       title="Exporte"
-      id="basic-nav-dropdown"
-      onSelect={(eventKey) => {
-        /*
-         * react-bootstrap has an error causing the dropdown to stay open
-         * and the message modal not to show!!!!
-         *
-         * this is an elaborate hack
-         * to get the menu item to close immediately
-         */
-        if (eventKey === 6.1) this.exportGeschaefte()
-        if (eventKey === 6.2) {
-          setTimeout(() => {
-            // pagesInitiate('List1')
-          }, 0)
-        }
-      }}
+      id="exportGeschaefteNavDropdown"
     >
-      <MenuItem eventKey={6.1}>alle Geschäfte mit allen Feldern</MenuItem>
-      <MenuItem eventKey={6.2}>Rekurse und Beschwerden, Vergleich Vorjahre</MenuItem>
+      <MenuItem
+        eventKey={6.1}
+        onClick={this.exportGeschaefteAll}
+      >
+        alle Geschäfte mit allen Feldern
+      </MenuItem>
+      <MenuItem
+        eventKey={6.2}
+        onClick={this.exportGeschaefteRechtsmittelVergleichVorjahre}
+      >
+        Rekurse und Beschwerden, Vergleich Vorjahre
+      </MenuItem>
     </NavDropdown>
   )
 
@@ -334,7 +329,13 @@ class NavbarComponent extends Component {
     ReactDOM.findDOMNode(this.refs.filterFulltext).focus()
   }
 
-  exportGeschaefte = () => {
+  exportGeschaefteAll = () => {
+    const { geschaefteGefilterteIds, geschaefte, messageShow } = this.props
+    const geschaefteGefiltert = geschaefte.filter((g) => geschaefteGefilterteIds.includes(g.idGeschaeft))
+    exportGeschaefte(geschaefteGefiltert, messageShow)
+  }
+
+  exportGeschaefteRechtsmittelVergleichVorjahre = () => {
     const { geschaefteGefilterteIds, geschaefte, messageShow } = this.props
     const geschaefteGefiltert = geschaefte.filter((g) => geschaefteGefilterteIds.includes(g.idGeschaeft))
     exportGeschaefte(geschaefteGefiltert, messageShow)
