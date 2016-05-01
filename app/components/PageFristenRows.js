@@ -31,6 +31,16 @@ class PageFristenRows extends Component {
       gegenstand = gegenstand.substring(0, maxStringLength)
       gegenstand += '... (Text für die Ausgabe gekürzt)'
     }
+    let naechsterSchritt = ''
+    if (geschaeft.naechsterSchritt && geschaeft.naechsterSchritt.length > 0 && geschaeft.naechsterSchritt.replace(/ /g, '')) {
+      naechsterSchritt += '=> '
+      if (naechsterSchritt.length > maxStringLength) {
+        naechsterSchritt += naechsterSchritt.substring(0, maxStringLength)
+        naechsterSchritt += '... (Text für die Ausgabe gekürzt)'
+      } else {
+        naechsterSchritt += geschaeft.naechsterSchritt
+      }
+    }
     let details = geschaeft.details
     if (details && details.length > maxStringLength) {
       details = details.substring(0, maxStringLength)
@@ -60,6 +70,9 @@ class PageFristenRows extends Component {
           </div>
           <div>
             {details}
+          </div>
+          <div className={styles.fieldNaechserSchritt}>
+            {naechsterSchritt}
           </div>
         </div>
         <div className={[styles.columnStatus, styles.tableBodyCell].join(' ')}>

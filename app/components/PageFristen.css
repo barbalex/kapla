@@ -52,3 +52,7 @@
   min-width: 100px;
   max-width: 100px;
 }
+
+.fieldNaechserSchritt {
+  font-style: italic;
+}
