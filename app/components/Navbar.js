@@ -330,13 +330,15 @@ class NavbarComponent extends Component {
     ReactDOM.findDOMNode(this.refs.filterFulltext).focus()
   }
 
-  exportGeschaefteAll = () => {
+  exportGeschaefteAll = (e) => {
+    e.preventDefault()
     const { geschaefteGefilterteIds, geschaefte, messageShow } = this.props
     const geschaefteGefiltert = geschaefte.filter((g) => geschaefteGefilterteIds.includes(g.idGeschaeft))
     exportGeschaefte(geschaefteGefiltert, messageShow)
   }
 
-  exportGeschaefteRechtsmittelVorjahre = () => {
+  exportGeschaefteRechtsmittelVorjahre = (e) => {
+    e.preventDefault()
     const { geschaefte, messageShow } = this.props
     const thisYear = moment().year()
     const firstDate = moment(`01.01.${thisYear - 2}`, 'DD.MM.YYYY')
