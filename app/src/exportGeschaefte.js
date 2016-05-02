@@ -10,8 +10,11 @@ function getDataArrayFromExportObjects(exportObjects) {
   // first the field names:
   dataArray.push(Object.keys(exportObjects[0]))
   // then the field values
-  exportObjects.forEach((object) => dataArray.push(Object.keys(object).map((key) => object[key])))
-
+  exportObjects.forEach((object) => dataArray.push(Object.keys(object).map((key) => {
+    if (object[key] === null) return ''
+    return object[key]
+  })))
+  //console.log('dataArray', dataArray)
   return dataArray
 }
 
@@ -28,11 +31,13 @@ export default (geschaefte, messageShow) => {
   dialog.showSaveDialog(dialogOptions, (path) => {
     if (path) {
       messageShow(true, 'Der Export wird aufgebaut...', '')
-      workbook.xlsx.writeFile(path)
-        .then(() => {
-          messageShow(false, '', '')
-        })
-        .catch((error) => console.log('error', error))
+      setTimeout(() => {
+        workbook.xlsx.writeFile(path)
+          .then(() => {
+            messageShow(false, '', '')
+          })
+          .catch((error) => console.log('error', error))
+      }, 0)
     }
   })
 }
