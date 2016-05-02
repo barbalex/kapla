@@ -11,10 +11,11 @@ function getDataArrayFromExportObjects(exportObjects) {
   dataArray.push(Object.keys(exportObjects[0]))
   // then the field values
   exportObjects.forEach((object) => dataArray.push(Object.keys(object).map((key) => {
+    // exceljs errors out if forst member of array is null
+    // see: https://github.com/guyonroche/exceljs/issues/111
     if (object[key] === null) return ''
     return object[key]
   })))
-  //console.log('dataArray', dataArray)
   return dataArray
 }
 
@@ -31,6 +32,8 @@ export default (geschaefte, messageShow) => {
   dialog.showSaveDialog(dialogOptions, (path) => {
     if (path) {
       messageShow(true, 'Der Export wird aufgebaut...', '')
+      // set timeout so message appears before exceljs starts working
+      // and possibly blocks execution of message
       setTimeout(() => {
         workbook.xlsx.writeFile(path)
           .then(() => {
