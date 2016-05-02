@@ -22,7 +22,6 @@ function getDataArrayFromExportObjects(exportObjects) {
 export default (geschaefte, messageShow) => {
   const workbook = new Excel.Workbook()
   const worksheet = workbook.addWorksheet('Geschäfte')
-  // const worksheet = workbook.getWorksheet('Geschäfte')
   const dataArray = getDataArrayFromExportObjects(geschaefte)
   worksheet.addRows(dataArray)
   const dialogOptions = {
