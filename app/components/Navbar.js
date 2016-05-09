@@ -400,20 +400,18 @@ class NavbarComponent extends Component {
       table
     } = this.props
 
-    console.log('path', path)
-
     const dataIsFiltered = geschaefte.length !== geschaefteGefilterteIds.length
     const classNameBadge = dataIsFiltered ? styles.badgeWithActiveFilter : null
     const showPrint = path === '/pages'
     const showGeschaefteStuff = path === '/geschaefte'
     const showGeschaefteAndPrint = showPrint || showGeschaefteStuff
     const showTableStuff = path === '/table'
-    // does not work - should keep menu active when table is loaded
-    // probably a bug in react-bootstrap
+    /**
+     * does not work - should keep menu active when table is loaded
+     * probably a bug in react-bootstrap
+     * see: https://github.com/react-bootstrap/react-bootstrap/issues/1878
+     */
     const isStammdatenMenuActive = !!table
-
-    console.log('path', path)
-    console.log('isStammdatenMenuActive', isStammdatenMenuActive)
 
     return (
       <div>
