@@ -372,7 +372,19 @@ class NavbarComponent extends Component {
 
   stammdatenTitle = () => {
     const { table, rows } = this.props
-    if (table) return <span>{table} <sup>{rows.length}</sup></span>
+    const tableNameObject = {
+      interne: 'Interne',
+      externe: 'Externe',
+      gdeplz: 'Gemeinden',
+      geschaeftsart: 'Geschäftsart',
+      parlVorstossTyp: 'Parl. Vorstoss Typ',
+      rechtsmittelInstanz: 'Rechtsmittel-Instanz',
+      rechtsmittelErledigung: 'Rechtsmittel-Erledigung',
+      status: 'Status',
+      statusVernehmlassung: 'Status Vernehmlassung'
+    }
+    const tableName = tableNameObject[table] || table
+    if (table) return <span>{tableName} <sup>{rows.length}</sup></span>
     return <span>Stammdaten</span>
   }
 
