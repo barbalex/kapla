@@ -420,43 +420,41 @@ class NavbarComponent extends Component {
             {showGeschaefteAndPrint && this.exportGeschaefteNav()}
             {showGeschaefteAndPrint && this.berichteNav()}
             {showPrint && this.printNav()}
-            <LinkContainer to={{ pathname: '/table' }}>
-              <NavDropdown
-                eventKey={8}
-                title={this.stammdatenTitle()}
-                id="basic-nav-dropdown"
-                active={isStammdatenMenuActive}
-                className={isStammdatenMenuActive ? styles.navDropdownActive : null}
-              >
-                <MenuItem eventKey={8.1} onClick={() => getTable('interne')} active={table === 'interne'}>
-                  Interne
-                </MenuItem>
-                <MenuItem eventKey={8.2} onClick={() => getTable('externe')} active={table === 'externe'}>
-                  Externe
-                </MenuItem>
-                <MenuItem divider />
-                <MenuItem header>Auswahllisten:</MenuItem>
-                <MenuItem eventKey={8.3} onClick={() => getTable('gdeplz')} active={table === 'gdeplz'}>
-                  Gemeinden
-                </MenuItem>
-                <MenuItem eventKey={8.4} onClick={() => getTable('geschaeftsart')} active={table === 'geschaeftsart'}>
-                  Geschäftsart
-                </MenuItem>
-                <MenuItem eventKey={8.6} onClick={() => getTable('parlVorstossTyp')} active={table === 'parlVorstossTyp'}>
-                  Parlament. Vorstoss Typ
-                </MenuItem>
-                <MenuItem eventKey={8.7} onClick={() => getTable('rechtsmittelInstanz')} active={table === 'rechtsmittelInstanz'}>
-                  Rechtsmittel-Instanz
-                </MenuItem>
-                <MenuItem eventKey={8.8} onClick={() => getTable('rechtsmittelErledigung')} active={table === 'rechtsmittelErledigung'}>
-                  Rechtsmittel-Erledigung
-                </MenuItem>
-                <MenuItem eventKey={8.9} onClick={() => getTable('status')} active={table === 'status'}>Status</MenuItem>
-                <MenuItem eventKey={8.10} onClick={() => getTable('statusVernehmlassung')} active={table === 'statusVernehmlassung'}>
-                  Status Vernehmlassung
-                </MenuItem>
-              </NavDropdown>
-            </LinkContainer>
+            <NavDropdown
+              eventKey={8}
+              title={this.stammdatenTitle()}
+              id="basic-nav-dropdown"
+              active={isStammdatenMenuActive}
+              className={isStammdatenMenuActive ? styles.navDropdownActive : null}
+            >
+              <MenuItem eventKey={8.1} onClick={() => getTable('interne')} active={table === 'interne'}>
+                Interne
+              </MenuItem>
+              <MenuItem eventKey={8.2} onClick={() => getTable('externe')} active={table === 'externe'}>
+                Externe
+              </MenuItem>
+              <MenuItem divider />
+              <MenuItem header>Auswahllisten:</MenuItem>
+              <MenuItem eventKey={8.3} onClick={() => getTable('gdeplz')} active={table === 'gdeplz'}>
+                Gemeinden
+              </MenuItem>
+              <MenuItem eventKey={8.4} onClick={() => getTable('geschaeftsart')} active={table === 'geschaeftsart'}>
+                Geschäftsart
+              </MenuItem>
+              <MenuItem eventKey={8.6} onClick={() => getTable('parlVorstossTyp')} active={table === 'parlVorstossTyp'}>
+                Parlament. Vorstoss Typ
+              </MenuItem>
+              <MenuItem eventKey={8.7} onClick={() => getTable('rechtsmittelInstanz')} active={table === 'rechtsmittelInstanz'}>
+                Rechtsmittel-Instanz
+              </MenuItem>
+              <MenuItem eventKey={8.8} onClick={() => getTable('rechtsmittelErledigung')} active={table === 'rechtsmittelErledigung'}>
+                Rechtsmittel-Erledigung
+              </MenuItem>
+              <MenuItem eventKey={8.9} onClick={() => getTable('status')} active={table === 'status'}>Status</MenuItem>
+              <MenuItem eventKey={8.10} onClick={() => getTable('statusVernehmlassung')} active={table === 'statusVernehmlassung'}>
+                Status Vernehmlassung
+              </MenuItem>
+            </NavDropdown>
             {showTableStuff && this.tableRowNeuNav()}
             {showTableStuff && this.tableRowLoeschenNav()}
           </Nav>
