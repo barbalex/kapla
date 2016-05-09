@@ -8,10 +8,6 @@
   }
 }
 
-.badge {
-  color: white;
-}
-
 .badgeWithActiveFilter {
   color: #FF9416;
 }
@@ -32,4 +28,17 @@
 
 .navbar {
   margin-bottom: 0;
+}
+
+/**
+ * in react-bootstrap the active
+ * prop of NavDropdown does not work
+ * see: https://github.com/react-bootstrap/react-bootstrap/issues/1878
+ */
+.navDropdownActive {
+  background-color: #080808;
+}
+
+.navDropdownActive > a {
+  color: #fff !important;
 }
