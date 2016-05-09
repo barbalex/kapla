@@ -15,6 +15,7 @@ function mapStateToProps(state) {
   const { username } = state.user
   const { dbPath, db, showMessageModal } = state.app
   const { table, rows, id } = state.table
+  const { pages } = state
   const path = state.routing.locationBeforeTransitions.pathname
   return {
     username,
@@ -29,7 +30,8 @@ function mapStateToProps(state) {
     showMessageModal,
     table,
     rows,
-    activeTableRowId: id
+    activeTableRowId: id,
+    pages
   }
 }
 

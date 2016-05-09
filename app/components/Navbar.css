@@ -35,10 +35,10 @@
  * prop of NavDropdown does not work
  * see: https://github.com/react-bootstrap/react-bootstrap/issues/1878
  */
-.navDropdownActive {
+.navActive {
   background-color: #080808;
 }
 
-.navDropdownActive > a {
+.navActive > a {
   color: #fff !important;
 }

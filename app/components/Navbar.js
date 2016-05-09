@@ -47,7 +47,8 @@ class NavbarComponent extends Component {
     rows: PropTypes.array,
     activeTableRowId: PropTypes.number,
     rowNewCreate: PropTypes.func.isRequired,
-    tableRowRemove: PropTypes.func.isRequired
+    tableRowRemove: PropTypes.func.isRequired,
+    pages: PropTypes.object.isRequired
   }
 
   componentWillMount() {
@@ -254,12 +255,21 @@ class NavbarComponent extends Component {
   )
 
   berichteNav = () => {
-    const { pagesInitiate } = this.props
+    const { pagesInitiate, path, pages } = this.props
+    const isActive = path === '/pages'
+    const nameObject = {
+      Fristen: 'Bericht: Fristen',
+      List1: 'Bericht: Einfache Liste'
+    }
+    const name = nameObject[pages.reportType] || 'Berichte'
+    const title = isActive ? name : 'Berichte'
     return (
       <NavDropdown
         eventKey={7}
-        title="Berichte"
-        id="basic-nav-dropdown"
+        title={title}
+        id="reports-nav-dropdown"
+        active={isActive}
+        className={isActive ? styles.navActive : null}
         onSelect={(eventKey) => {
           /*
            * react-bootstrap has an error causing the dropdown to stay open
@@ -435,7 +445,7 @@ class NavbarComponent extends Component {
               title={this.stammdatenTitle()}
               id="basic-nav-dropdown"
               active={isStammdatenMenuActive}
-              className={isStammdatenMenuActive ? styles.navDropdownActive : null}
+              className={isStammdatenMenuActive ? styles.navActive : null}
             >
               <MenuItem eventKey={8.1} onClick={() => getTable('interne')} active={table === 'interne'}>
                 Interne
