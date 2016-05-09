@@ -9,11 +9,11 @@
 }
 
 .badge {
-  background-color: #007D08;
+  color: white;
 }
 
 .badgeWithActiveFilter {
-  background-color: #FF9416;
+  color: #FF9416;
 }
 
 .filterInput {

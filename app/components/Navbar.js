@@ -371,6 +371,12 @@ class NavbarComponent extends Component {
     exportGeschaefte(geschaefteGefiltert, messageShow)
   }
 
+  stammdatenTitle = () => {
+    const { table, rows } = this.props
+    if (table) return <span>{table} <sup>{rows.length}</sup></span>
+    return <span>Stammdaten</span>
+  }
+
   render() {
     const {
       dbGet,
@@ -390,7 +396,6 @@ class NavbarComponent extends Component {
     const showGeschaefteStuff = path === '/geschaefte'
     const showGeschaefteAndPrint = showPrint || showGeschaefteStuff
     const showTableStuff = path === '/table'
-    const stammdatenTitle = table ? `${table} (${rows.length})` : 'Stammdaten'
     // does not work - should keep menu active when table is loaded
     // probably a bug in react-bootstrap
     const isStammdatenMenuActive = !!table
@@ -403,7 +408,7 @@ class NavbarComponent extends Component {
           <Nav>
             <LinkContainer to={{ pathname: '/geschaefte' }}>
               <NavItem eventKey={1} href="#">
-                Geschäfte <Badge className={classNameBadge}>{geschaefteGefilterteIds.length}</Badge>
+                Geschäfte <sup className={classNameBadge}>{geschaefteGefilterteIds.length}</sup>
               </NavItem>
             </LinkContainer>
             {showGeschaefteStuff && this.geschaefteFilterNav()}
@@ -412,7 +417,7 @@ class NavbarComponent extends Component {
             {showGeschaefteAndPrint && this.exportGeschaefteNav()}
             {showGeschaefteAndPrint && this.berichteNav()}
             {showPrint && this.printNav()}
-            <NavDropdown eventKey={8} title={stammdatenTitle} id="basic-nav-dropdown" active={isStammdatenMenuActive}>
+            <NavDropdown eventKey={8} title={this.stammdatenTitle()} id="basic-nav-dropdown" active={isStammdatenMenuActive}>
               <MenuItem eventKey={8.1} onClick={() => getTable('interne')}>Interne</MenuItem>
               <MenuItem eventKey={8.2} onClick={() => getTable('externe')}>Externe</MenuItem>
               <MenuItem divider />
