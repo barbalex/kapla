@@ -66,9 +66,11 @@ class Geschaefte extends Component {
           <div className={styles.fieldGegenstand}>
             {geschaeft.gegenstand}
           </div>
-          <div>
-            {geschaeft.details}
-          </div>
+          {/*
+            <div>
+              {geschaeft.details}
+            </div>
+          */}
         </div>
         <div className={styles.columnStatus}>
           <div>
@@ -83,10 +85,10 @@ class Geschaefte extends Component {
         </div>
         <div className={styles.columnKontaktIntern}>
           <div>
-            {geschaeft.verantwortlich}
+            {geschaeft.verantwortlichVornameName}
           </div>
           <div>
-            {geschaeft.verantwortlichVornameName}
+            {geschaeft.verantwortlich}
           </div>
         </div>
       </div>
@@ -123,7 +125,7 @@ class Geschaefte extends Component {
             <ReactList
               itemRenderer={::this.renderItem}
               length={geschaefteGefilterteIds.length}
-              type="variable"
+              type="uniform"
             />
           </div>
         </div>

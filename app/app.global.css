@@ -63,6 +63,7 @@ textarea {
  * because of virtual-list with variable height rows
  * it shows wrong position
  */
+
 .reactList::-webkit-scrollbar,
 .data-reactroot::-webkit-scrollbar,
 textarea::-webkit-scrollbar { 
