@@ -1,8 +1,7 @@
 'use strict'
 
 import { remote } from 'electron'
-// const requireTaskPool = require('electron-remote/requireTaskPool')
-import { requireTaskPool } from 'electron-remote'
+// import { requireTaskPool } from 'electron-remote'
 import ReactDOM from 'react-dom'
 const { dialog } = remote
 import fs from 'fs'
@@ -23,8 +22,15 @@ import _ from 'lodash'
 import ModalGeschaeftDelete from '../containers/ModalGeschaeftDelete.js'
 import ModalMessage from '../containers/ModalMessage.js'
 import styles from './Navbar.css'
-const exportGeschaefte = requireTaskPool(require.resolve('../src/exportGeschaefte.js'))
-// import exportGeschaefte from '../src/exportGeschaefte.js'
+// const exportGeschaefte = requireTaskPool(require.resolve('../src/exportGeschaefte.js'))
+import exportGeschaefte from '../src/exportGeschaefte.js'
+
+const path = require('path')
+const childProcess = require('child_process')
+/*const exportGeschaefte = childProcess.fork(
+  path.resolve(__dirname, '../src/exportGeschaefte.js')
+)*/
+// console.log('exportGeschaefte', exportGeschaefte)
 
 class NavbarComponent extends Component {
   static propTypes = {
@@ -347,6 +353,10 @@ class NavbarComponent extends Component {
     const { geschaefteGefilterteIds, geschaefte, messageShow } = this.props
     const geschaefteGefiltert = geschaefte.filter((g) => geschaefteGefilterteIds.includes(g.idGeschaeft))
     exportGeschaefte(geschaefteGefiltert, messageShow)
+    /*childProcess.fork(
+      path.resolve(__dirname, '../src/exportGeschaefte.js'),
+      [geschaefteGefiltert, messageShow]
+    )*/
   }
 
   exportGeschaefteRechtsmittelVorjahre = (e) => {

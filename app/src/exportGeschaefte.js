@@ -1,8 +1,12 @@
 'use strict'
 
-import Excel from 'exceljs'
+/**
+ * 
+ */
+
 import { remote } from 'electron'
 const { dialog } = remote
+import writeExport from './writeExport'
 
 function getDataArrayFromExportObjects(exportObjects) {
   const dataArray = []
@@ -20,10 +24,6 @@ function getDataArrayFromExportObjects(exportObjects) {
 }
 
 export default (geschaefte, messageShow) => {
-  const workbook = new Excel.Workbook()
-  const worksheet = workbook.addWorksheet('Geschäfte')
-  const dataArray = getDataArrayFromExportObjects(geschaefte)
-  worksheet.addRows(dataArray)
   const dialogOptions = {
     title: 'exportierte Geschäfte speichern',
     filters: [{ name: 'Excel-Datei', extensions: ['xlsx'] }]
@@ -34,11 +34,19 @@ export default (geschaefte, messageShow) => {
       // set timeout so message appears before exceljs starts working
       // and possibly blocks execution of message
       setTimeout(() => {
-        workbook.xlsx.writeFile(path)
+        // TODO: pass to child process
+        const dataArray = getDataArrayFromExportObjects(geschaefte)
+        writeExport(dataArray, path)
           .then(() => {
             messageShow(false, '', '')
           })
-          .catch((error) => console.log('error', error))
+          .catch((error) => {
+            // show the error
+            messageShow(true, 'Fehler:', error.message)
+            setTimeout(() => {
+              messageShow(false, '', '')
+            }, 8000)
+          })
       }, 0)
     }
   })
