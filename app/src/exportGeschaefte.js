@@ -1,12 +1,19 @@
 'use strict'
 
 /**
- * 
+ * gets save path
+ * TODO: should call writeExport in child process
+ *
+ * pass dataArray using process.send
+ * kill child process at end?
  */
 
 import { remote } from 'electron'
 const { dialog } = remote
-import writeExport from './writeExport'
+
+const pathModule = require('path')
+const childProcess = require('child_process')
+// import writeExport from './writeExport'
 
 function getDataArrayFromExportObjects(exportObjects) {
   const dataArray = []
@@ -36,6 +43,12 @@ export default (geschaefte, messageShow) => {
       setTimeout(() => {
         // TODO: pass to child process
         const dataArray = getDataArrayFromExportObjects(geschaefte)
+        childProcess.fork(
+          pathModule.resolve(__dirname, './writeExport.js'),
+          [path]
+        )
+        // send dataArray
+        // listen to response
         writeExport(dataArray, path)
           .then(() => {
             messageShow(false, '', '')

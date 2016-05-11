@@ -2,6 +2,8 @@
 
 /**
  * writes a dataArray to an Excel workbook
+ * TODO: this must happen in child process
+ * get dataArray sistening to process.send
  */
 
 import Excel from 'exceljs'
