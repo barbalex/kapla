@@ -43,10 +43,7 @@ export default (geschaefte, messageShow) => {
       setTimeout(() => {
         const dataArray = getDataArrayFromExportObjects(geschaefte)
         // pass to child process
-        console.log('childProcess', childProcess)
-        console.log('__dirname', __dirname)
         const appFolder = pathModule.dirname(require.main.filename)
-        console.log('appFolder', appFolder)
         const cp = childProcess.fork(`${appFolder}/app/src/writeExport.js`, [path])
         console.log('cp', cp)
         // send dataArray
