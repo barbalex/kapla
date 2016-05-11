@@ -41,25 +41,26 @@ export default (geschaefte, messageShow) => {
       // set timeout so message appears before exceljs starts working
       // and possibly blocks execution of message
       setTimeout(() => {
-        // TODO: pass to child process
         const dataArray = getDataArrayFromExportObjects(geschaefte)
-        childProcess.fork(
-          pathModule.resolve(__dirname, './writeExport.js'),
-          [path]
-        )
+        // pass to child process
+        console.log('childProcess', childProcess)
+        console.log('__dirname', __dirname)
+        const appFolder = pathModule.dirname(require.main.filename)
+        console.log('appFolder', appFolder)
+        const cp = childProcess.fork(`${appFolder}/app/src/writeExport.js`, [path])
+        console.log('cp', cp)
         // send dataArray
+        cp.send(dataArray)
         // listen to response
-        writeExport(dataArray, path)
-          .then(() => {
+        cp.on('error', (error) => {
+          console.log('error:', error)
+          // show the error
+          messageShow(true, 'Fehler:', error.message)
+          setTimeout(() => {
             messageShow(false, '', '')
-          })
-          .catch((error) => {
-            // show the error
-            messageShow(true, 'Fehler:', error.message)
-            setTimeout(() => {
-              messageShow(false, '', '')
-            }, 8000)
-          })
+          }, 8000)
+        })
+        cp.on('close', () => messageShow(false, '', ''))
       }, 0)
     }
   })

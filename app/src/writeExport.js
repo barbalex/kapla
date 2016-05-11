@@ -6,16 +6,23 @@
  * get dataArray sistening to process.send
  */
 
-import Excel from 'exceljs'
+const Excel = require('exceljs')
 
-export default function (dataArray, path) {
-  return new Promise((resolve, reject) => {
-    // TODO: pass to child process
+module.exports = function writeExport() {
+  // TODO: pass to child process
+  const path = process.argv[2]
+  console.log('writeExport, path', path)
+  process.on('message', (dataArray) => {
+    console.log('writeExport, on message, dataArray', dataArray)
     const workbook = new Excel.Workbook()
     const worksheet = workbook.addWorksheet('Geschäfte')
     worksheet.addRows(dataArray)
     workbook.xlsx.writeFile(path)
-      .then(() => resolve(true))
-      .catch((error) => reject(error))
+      .then(() => {
+        // TODO: message done
+      })
+      .catch((error) => {
+        // TODO: message error
+      })
   })
 }
