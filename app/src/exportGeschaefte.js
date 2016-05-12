@@ -8,12 +8,11 @@
  * kill child process at end?
  */
 
-import { remote } from 'electron'
+import electron, { remote } from 'electron'
 const { dialog } = remote
-
-const pathModule = require('path')
-const childProcess = require('child_process')
-// import writeExport from './writeExport'
+import pathModule from 'path'
+import childProcess from 'child_process'
+const app = process.type === 'browser' ? electron.app : electron.remote.app
 
 function getDataArrayFromExportObjects(exportObjects) {
   const dataArray = []
@@ -43,21 +42,31 @@ export default (geschaefte, messageShow) => {
       setTimeout(() => {
         const dataArray = getDataArrayFromExportObjects(geschaefte)
         // pass to child process
-        const appFolder = pathModule.dirname(require.main.filename)
-        const cp = childProcess.fork(`${appFolder}/app/src/writeExport.js`, [path])
-        console.log('cp', cp)
+        const appPath = app.getAppPath()
+        const writeExportPath = pathModule.resolve(appPath, 'app/src/writeExport.js')
+        const cp = childProcess.fork(writeExportPath, [path])
         // send dataArray
         cp.send(dataArray)
         // listen to response
-        cp.on('error', (error) => {
-          console.log('error:', error)
-          // show the error
-          messageShow(true, 'Fehler:', error.message)
-          setTimeout(() => {
+        cp.on('message', (message) => {
+          if (message.success) {
+            // show the message
+            const msg = `Die Geschäfte wurden nach ${path} exportiert`
+            messageShow(true, msg, '')
+            setTimeout(() => {
+              messageShow(false, '', '')
+            }, 8000)
+          } else if (message.error) {
+            // show the error
+            messageShow(true, 'Fehler:', message.error)
+            setTimeout(() => {
+              messageShow(false, '', '')
+            }, 8000)
+          } else {
+            // always hide message
             messageShow(false, '', '')
-          }, 8000)
+          }
         })
-        cp.on('close', () => messageShow(false, '', ''))
       }, 0)
     }
   })

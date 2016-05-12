@@ -2,27 +2,23 @@
 
 /**
  * writes a dataArray to an Excel workbook
- * TODO: this must happen in child process
+ * this must happen in child process
+ * otherwise a blank page results
  * get dataArray sistening to process.send
  */
 
 const Excel = require('exceljs')
 
-module.exports = function writeExport() {
-  // TODO: pass to child process
-  const path = process.argv[2]
-  console.log('writeExport, path', path)
-  process.on('message', (dataArray) => {
-    console.log('writeExport, on message, dataArray', dataArray)
-    const workbook = new Excel.Workbook()
-    const worksheet = workbook.addWorksheet('Geschäfte')
-    worksheet.addRows(dataArray)
-    workbook.xlsx.writeFile(path)
-      .then(() => {
-        // TODO: message done
-      })
-      .catch((error) => {
-        // TODO: message error
-      })
-  })
-}
+// path is passed as only argument of the process
+// but first two arguments are used by node internally
+const path = process.argv[2]
+// dataArray is passed as message
+// because process arguments can only be strings
+process.on('message', (dataArray) => {
+  const workbook = new Excel.Workbook()
+  const worksheet = workbook.addWorksheet('Geschäfte')
+  worksheet.addRows(dataArray)
+  workbook.xlsx.writeFile(path)
+    .then(() => process.send({ success: true }))
+    .catch((err) => process.send({ error: err }))
+})

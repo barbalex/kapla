@@ -4,6 +4,10 @@
 		"selected_items":
 		[
 			[
+				"data",
+				"dataArrayStringified"
+			],
+			[
 				"ele",
 				"electron-remote"
 			],
@@ -360,20 +364,26 @@
 			}
 		},
 		{
-			"contents": "Searching 418 files for \"workbook.xlsx.writeFile(path)\" (case sensitive, whole word)\n\n0 matches\n\nSearching 418 files for \"workbook.xlsx.writeFile(path)\" (case sensitive)\n\nC:\\Users\\alex\\kapla\\app\\src\\exportGeschaefte.js:\n   35        // and possibly blocks execution of message\n   36        setTimeout(() => {\n   37:         workbook.xlsx.writeFile(path)\n   38            .then(() => {\n   39              messageShow(false, '', '')\n\nC:\\Users\\alex\\kapla\\release\\win32-x64\\Kapla-win32-x64\\resources\\app\\app\\src\\exportGeschaefte.js:\n   35        // and possibly blocks execution of message\n   36        setTimeout(() => {\n   37:         workbook.xlsx.writeFile(path)\n   38            .then(() => {\n   39              messageShow(false, '', '')\n\n2 matches across 2 files\n\n\nSearching 418 files for \"exportGeschaefte\" (case sensitive, whole word)\n\nC:\\Users\\alex\\kapla\\app\\components\\Navbar.js:\n   22  import ModalMessage from '../containers/ModalMessage.js'\n   23  import styles from './Navbar.css'\n   24: import exportGeschaefte from '../src/exportGeschaefte.js'\n   25  \n   26  class NavbarComponent extends Component {\n   ..\n  344      const { geschaefteGefilterteIds, geschaefte, messageShow } = this.props\n  345      const geschaefteGefiltert = geschaefte.filter((g) => geschaefteGefilterteIds.includes(g.idGeschaeft))\n  346:     exportGeschaefte(geschaefteGefiltert, messageShow)\n  347    }\n  348  \n  ...\n  378        geschaefteGefiltert[index] = _.pick(geschaefteGefiltert[index], fieldsWanted)\n  379      })\n  380:     exportGeschaefte(geschaefteGefiltert, messageShow)\n  381    }\n  382  \n\nC:\\Users\\alex\\kapla\\release\\win32-x64\\Kapla-win32-x64\\resources\\app\\app\\components\\Navbar.js:\n   22  import ModalMessage from '../containers/ModalMessage.js'\n   23  import styles from './Navbar.css'\n   24: import exportGeschaefte from '../src/exportGeschaefte.js'\n   25  \n   26  class NavbarComponent extends Component {\n   ..\n  344      const { geschaefteGefilterteIds, geschaefte, messageShow } = this.props\n  345      const geschaefteGefiltert = geschaefte.filter((g) => geschaefteGefilterteIds.includes(g.idGeschaeft))\n  346:     exportGeschaefte(geschaefteGefiltert, messageShow)\n  347    }\n  348  \n  ...\n  378        geschaefteGefiltert[index] = _.pick(geschaefteGefiltert[index], fieldsWanted)\n  379      })\n  380:     exportGeschaefte(geschaefteGefiltert, messageShow)\n  381    }\n  382  \n\n8 matches across 2 files\n",
-			"settings":
-			{
-				"buffer_size": 2412,
-				"line_ending": "Windows",
-				"name": "Find Results",
-				"scratch": true
-			}
-		},
-		{
 			"file": "app/components/Navbar.js",
 			"settings":
 			{
-				"buffer_size": 16148,
+				"buffer_size": 16081,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "app/src/exportGeschaefte.js",
+			"settings":
+			{
+				"buffer_size": 1986,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "app/src/writeExport.js",
+			"settings":
+			{
+				"buffer_size": 737,
 				"line_ending": "Windows"
 			}
 		},
@@ -386,11 +396,13 @@
 			}
 		},
 		{
-			"file": "app/src/exportGeschaefte.js",
+			"contents": "Searching 419 files for \"__dirname\" (case sensitive, whole word)\n\nC:\\Users\\alex\\kapla\\app\\src\\exportGeschaefte.js:\n   45          // pass to child process\n   46          console.log('childProcess', childProcess)\n   47:         console.log('__dirname', __dirname)\n   48:         const cp = childProcess.fork(`${__dirname}/writeExport.js`, [path])\n   49          console.log('cp', cp)\n   50          // send dataArray\n\nC:\\Users\\alex\\kapla\\main.js:\n   49    if (lastWindowState && lastWindowState.maximized) mainWindow.maximize()\n   50  \n   51:   mainWindow.loadURL(`file://${__dirname}/app/app.html`)\n   52  \n   53    mainWindow.on('closed', () => {\n\nC:\\Users\\alex\\kapla\\release\\win32-x64\\Kapla-win32-x64\\node.dll:\n    <binary>\n\nC:\\Users\\alex\\kapla\\release\\win32-x64\\Kapla-win32-x64\\resources\\app\\main.js:\n   49    if (lastWindowState && lastWindowState.maximized) mainWindow.maximize()\n   50  \n   51:   mainWindow.loadURL(`file://${__dirname}/app/app.html`)\n   52  \n   53    mainWindow.on('closed', () => {\n\nC:\\Users\\alex\\kapla\\release\\win32-x64\\Kapla-win32-x64\\resources\\app\\webpack.config.base.js:\n   22    },\n   23    output: {\n   24:     path: path.join(__dirname, 'dist'),\n   25      filename: 'bundle.js',\n   26      libraryTarget: 'commonjs2'\n\nC:\\Users\\alex\\kapla\\release\\win32-x64\\Kapla-win32-x64\\resources\\electron.asar:\n    <binary>\n\nC:\\Users\\alex\\kapla\\webpack.config.base.js:\n   22    },\n   23    output: {\n   24:     path: path.join(__dirname, 'dist'),\n   25      filename: 'bundle.js',\n   26      libraryTarget: 'commonjs2'\n\n20 matches across 7 files\n",
 			"settings":
 			{
-				"buffer_size": 1423,
-				"line_ending": "Windows"
+				"buffer_size": 1564,
+				"line_ending": "Windows",
+				"name": "Find Results",
+				"scratch": true
 			}
 		}
 	],
@@ -445,10 +457,15 @@
 	[
 		"/C/Users/alex/kapla",
 		"/C/Users/alex/kapla/app",
-		"/C/Users/alex/kapla/app/components"
+		"/C/Users/alex/kapla/app/components",
+		"/C/Users/alex/kapla/app/src"
 	],
 	"file_history":
 	[
+		"/C/Users/alex/kapla/app/src/deleteGeschaeft.js",
+		"/C/Users/alex/kapla/webpack.config.development.js",
+		"/C/Users/alex/kapla/webpack.config.node.js",
+		"/C/Users/alex/kapla/webpack.config.production.js",
 		"/C/Users/alex/kapla/app/components/Page.css",
 		"/C/Users/alex/kapla/app/components/Pages.css",
 		"/C/Users/alex/Downloads/app.asar",
@@ -550,7 +567,6 @@
 		"/C/Users/alex/kapla/app/src/getGeschaeftKontaktExternFromDb.js",
 		"/C/Users/alex/kapla/app/src/deleteGeschaeftKontaktIntern.js",
 		"/C/Users/alex/kapla/app/src/deleteGeschaeftKontaktExtern.js",
-		"/C/Users/alex/kapla/app/src/deleteGeschaeft.js",
 		"/C/Users/alex/kapla/app/src/sql/newGeschaeftKontaktInternInDb.js",
 		"/C/Users/alex/kapla/app/src/updateGeschaeftKontaktExtern.js",
 		"/C/Users/alex/kapla/app/src/updateGeschaeftKontaktIntern.js",
@@ -573,10 +589,7 @@
 		"/C/Users/alex/kapla/app/components/tableRow.js",
 		"/C/Users/alex/kapla/app/components/TableRow.css",
 		"/C/Users/alex/kapla/app/reducers/table.js",
-		"/C/Users/alex/kapla/app/components/GeschaeftBootstrap.css",
-		"/C/Users/alex/kapla/app/components/Table.css",
-		"/C/Users/alex/kapla/app/containers/Table.js",
-		"/C/Users/alex/kapla/app/containers/tableRow.js"
+		"/C/Users/alex/kapla/app/components/GeschaeftBootstrap.css"
 	],
 	"find":
 	{
@@ -605,6 +618,11 @@
 		"case_sensitive": true,
 		"find_history":
 		[
+			"__dirname",
+			"Promise",
+			"exportGeschaefte",
+			"requireTaskPool",
+			"sqlite3",
 			"electron",
 			"exportGeschaefte",
 			"workbook.xlsx.writeFile(path)",
@@ -727,12 +745,7 @@
 			"activeId",
 			"geschaefteChangeState",
 			"changeGeschaeftInDb",
-			"geschaeftsartOptions",
-			"geschaefteLayout",
-			"geschaeftToggleActivated",
-			"fristDauerBisMitarbeiter",
-			"fieldFristDauerBisMitarbeiter",
-			"getDateValidationStateDate"
+			"geschaeftsartOptions"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -740,6 +753,7 @@
 		"regex": false,
 		"replace_history":
 		[
+			"exceljs",
 			"navActive",
 			"exportGeschaefteRechtsmittelVorjahre",
 			"exportGeschaefteAll",
@@ -866,8 +880,7 @@
 			"row",
 			"rows",
 			"TABLE_ROW_TOGGLE_ACTIVATED",
-			"tableRowToggleActivated",
-			"id"
+			"tableRowToggleActivated"
 		],
 		"reverse": false,
 		"show_context": true,
@@ -878,7 +891,7 @@
 	"groups":
 	[
 		{
-			"selected": 3,
+			"selected": 4,
 			"sheets":
 			[
 				{
@@ -894,8 +907,8 @@
 						"selection":
 						[
 							[
-								2166,
-								2166
+								1168,
+								1149
 							]
 						],
 						"settings":
@@ -905,110 +918,57 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 238.0,
+						"translation.y": 56.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 2,
+					"stack_index": 6,
 					"type": "text"
 				},
 				{
 					"buffer": 1,
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 2412,
-						"regions":
-						{
-							"match":
-							{
-								"flags": 112,
-								"regions":
-								[
-									[
-										324,
-										353
-									],
-									[
-										633,
-										662
-									],
-									[
-										1006,
-										1022
-									],
-									[
-										1036,
-										1052
-									],
-									[
-										1327,
-										1343
-									],
-									[
-										1519,
-										1535
-									],
-									[
-										1803,
-										1819
-									],
-									[
-										1833,
-										1849
-									],
-									[
-										2124,
-										2140
-									],
-									[
-										2316,
-										2332
-									]
-								],
-								"scope": ""
-							}
-						},
-						"selection":
-						[
-							[
-								1017,
-								1017
-							]
-						],
-						"settings":
-						{
-							"detect_indentation": false,
-							"line_numbers": false,
-							"output_tag": 3,
-							"result_base_dir": "",
-							"result_file_regex": "^([^ 	].*):$",
-							"result_line_regex": "^ +([0-9]+):",
-							"scroll_past_end": true,
-							"syntax": "Packages/Default/Find Results.hidden-tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 748.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 5,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
 					"file": "app/components/Navbar.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 16148,
+						"buffer_size": 16081,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								10753,
-								10753
+								779,
+								779
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 306.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "app/components/Navbar.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 16081,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								10146,
+								10146
 							]
 						],
 						"settings":
@@ -1021,24 +981,54 @@
 						"translation.y": 11220.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 3,
+					"stack_index": 5,
 					"type": "text"
 				},
 				{
 					"buffer": 2,
-					"file": "app/components/Navbar.js",
+					"file": "app/src/exportGeschaefte.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 16148,
+						"buffer_size": 1986,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								151,
-								166
+								1648,
+								1648
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 1020.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "app/src/writeExport.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 737,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								291,
+								291
 							]
 						],
 						"settings":
@@ -1055,9 +1045,9 @@
 					"type": "text"
 				},
 				{
-					"buffer": 3,
+					"buffer": 4,
 					"file": "webpack.config.base.js",
-					"semi_transient": true,
+					"semi_transient": false,
 					"settings":
 					{
 						"buffer_size": 838,
@@ -1067,8 +1057,8 @@
 						"selection":
 						[
 							[
-								391,
-								391
+								435,
+								444
 							]
 						],
 						"settings":
@@ -1081,37 +1071,78 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 1,
+					"stack_index": 3,
 					"type": "text"
 				},
 				{
-					"buffer": 4,
-					"file": "app/src/exportGeschaefte.js",
+					"buffer": 5,
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1423,
+						"buffer_size": 1564,
 						"regions":
 						{
+							"match":
+							{
+								"flags": 112,
+								"regions":
+								[
+									[
+										240,
+										249
+									],
+									[
+										252,
+										261
+									],
+									[
+										310,
+										319
+									],
+									[
+										573,
+										582
+									],
+									[
+										931,
+										940
+									],
+									[
+										1157,
+										1166
+									],
+									[
+										1445,
+										1454
+									]
+								],
+								"scope": ""
+							}
 						},
 						"selection":
 						[
 							[
-								1227,
-								1227
+								318,
+								318
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
+							"detect_indentation": false,
+							"line_numbers": false,
+							"output_tag": 1,
+							"result_base_dir": "",
+							"result_file_regex": "^([^ 	].*):$",
+							"result_line_regex": "^ +([0-9]+):",
+							"scroll_past_end": true,
+							"syntax": "Packages/Default/Find Results.hidden-tmLanguage",
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 78.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 4,
+					"stack_index": 2,
 					"type": "text"
 				}
 			]

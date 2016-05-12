@@ -1,7 +1,6 @@
 'use strict'
 
 import { remote } from 'electron'
-// import { requireTaskPool } from 'electron-remote'
 import ReactDOM from 'react-dom'
 const { dialog } = remote
 import fs from 'fs'
@@ -22,7 +21,6 @@ import _ from 'lodash'
 import ModalGeschaeftDelete from '../containers/ModalGeschaeftDelete.js'
 import ModalMessage from '../containers/ModalMessage.js'
 import styles from './Navbar.css'
-// const exportGeschaefte = requireTaskPool(require.resolve('../src/exportGeschaefte.js'))
 import exportGeschaefte from '../src/exportGeschaefte.js'
 
 class NavbarComponent extends Component {
