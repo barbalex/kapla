@@ -103,24 +103,28 @@ class NavbarComponent extends Component {
   onSelectFilterFaelligeGeschaefte = () => {
     const { geschaefteFilterByFields } = this.props
     const now = moment().format('YYYY-MM-DD')
-    const filter = {
-      status: {
+    const filter = [
+      {
+        field: 'status',
         value: 'zurückgestellt',
         comparator: '!=='
       },
-      status: {
+      {
+        field: 'status',
         value: 'erledigt',
         comparator: '!=='
       },
-      datumAusgangAwel: {
+      {
+        field: 'datumAusgangAwel',
         value: '',
         comparator: '='
       },
-      fristMitarbeiter: {
+      {
+        field: 'fristMitarbeiter',
         value: now,
         comparator: '<'
       }
-    }
+    ]
     geschaefteFilterByFields(filter)
     // TODO: add ordering to state and call action here to order by frist desc
   }
@@ -128,25 +132,33 @@ class NavbarComponent extends Component {
   onSelectFilterFaelligeGeschaefteMitarbeiter = () => {
     const { geschaefteFilterByFields, username } = this.props
     const now = moment().format('YYYY-MM-DD')
-    const filter = {
-      status: {
+    const filter = [
+      {
+        field: 'status',
         value: 'zurückgestellt',
         comparator: '!=='
       },
-      status: {
+      {
+        field: 'status',
         value: 'erledigt',
         comparator: '!=='
       },
-      datumAusgangAwel: {
+      {
+        field: 'datumAusgangAwel',
         value: '',
         comparator: '='
       },
-      fristMitarbeiter: {
+      {
+        field: 'fristMitarbeiter',
         value: now,
         comparator: '<'
       },
-      itKonto: username
-    }
+      {
+        field: 'mutationsperson',
+        value: username,
+        comparator: '==='
+      }
+    ]
     geschaefteFilterByFields(filter)
     // TODO: add ordering to state and call action here to order by frist desc
   }

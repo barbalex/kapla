@@ -33,14 +33,18 @@ export default function (geschaefte, filterFulltext, filterFields) {
     geschaefteGefiltert = geschaefte.filter((geschaeft) => {
       // if all conditions are met, include the geschaeft
       let satisfiesFilter = true
-      Object.keys(filterFields).forEach((key) => {
-        const geschaeftValue = isString(geschaeft[key]) ? geschaeft[key].toLowerCase() : geschaeft[key]
-        const filterValue = isString(filterFields[key].value) ? filterFields[key].value.toLowerCase() : filterFields[key].value
-        const comparator = filterFields[key].comparator ? filterFields[key].comparator : '='
-        if (filterValue === null) {
-          if (!geschaeftValue) satisfiesFilter = false
+      filterFields.forEach((filterField, index) => {
+        let geschaeftValue = geschaeft[filterField.field]
+        if (isString(geschaeft[filterField.field])) geschaeftValue = geschaeft[filterField.field].toLowerCase()
+        let filterValue = filterFields[index].value
+        if (isString(filterFields[index].value)) filterValue = filterFields[index].value.toLowerCase()
+        const comparator = filterFields[index].comparator || '='
+        if (filterValue === '') {
+          if (!!geschaeftValue) satisfiesFilter = false
         } else if (comparator === '!==') {
           if (!(geschaeftValue !== filterValue)) satisfiesFilter = false
+        } else if (!geschaeftValue) {
+          satisfiesFilter = false
         } else if (comparator === '<') {
           if (!(geschaeftValue < filterValue)) satisfiesFilter = false
         } else if (comparator === '<=') {
@@ -49,8 +53,10 @@ export default function (geschaefte, filterFulltext, filterFields) {
           if (!(geschaeftValue > filterValue)) satisfiesFilter = false
         } else if (comparator === '>=') {
           if (!(geschaeftValue >= filterValue)) satisfiesFilter = false
-        } else {
+        } else if (comparator === '=') {
           if (!includes(geschaeftValue, filterValue)) satisfiesFilter = false
+        } else if (comparator === '===') {
+          if (geschaeftValue !== filterValue) satisfiesFilter = false
         }
       })
       return satisfiesFilter
