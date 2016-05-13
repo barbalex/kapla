@@ -30,6 +30,21 @@ class AreaRechtsmittel extends Component {
       blur,
       onChangeDatePicker
     } = this.props
+    /**
+     * need to give addon no padding
+     * and the originally addon's padding to the glyphicon
+     * to make entire addon clickable
+     * for opening calendar
+     */
+    const datePickerAddonStyle = {
+      padding: 0
+    }
+    const datePickerCalendarStyle = {
+      paddingTop: 6,
+      paddingBottom: 6,
+      paddingLeft: 12,
+      paddingRight: 12
+    }
 
     return (
       <div className={styles.areaForGeschaeftsart}>
@@ -76,14 +91,15 @@ class AreaRechtsmittel extends Component {
               bsSize="small"
               tabIndex={3 + nrOfFieldsBeforePv}
             />
-            <InputGroup.Addon>
+            <InputGroup.Addon style={datePickerAddonStyle}>
               <DateRangePicker
                 singleDatePicker
                 drops="up"
+                opens="left"
                 onApply={onChangeDatePicker.bind(this, 'rechtsmittelEntscheidDatum')}
                 className={styles.datePicker}
               >
-                <Glyphicon glyph="calendar" />
+                <Glyphicon glyph="calendar" style={datePickerCalendarStyle} />
               </DateRangePicker>
             </InputGroup.Addon>
           </InputGroup>

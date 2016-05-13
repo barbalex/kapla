@@ -43,6 +43,21 @@ class AreaFristen extends Component {
 
   render = () => {
     const { geschaeft, nrOfFieldsBeforeFristen, change, blur, onChangeDatePicker } = this.props
+    /**
+     * need to give addon no padding
+     * and the originally addon's padding to the glyphicon
+     * to make entire addon clickable
+     * for opening calendar
+     */
+    const datePickerAddonStyle = {
+      padding: 0
+    }
+    const datePickerCalendarStyle = {
+      paddingTop: 6,
+      paddingBottom: 6,
+      paddingLeft: 12,
+      paddingRight: 12
+    }
 
     return (
       <div className={styles.areaFristen}>
@@ -63,14 +78,15 @@ class AreaFristen extends Component {
               bsSize="small"
               tabIndex={1 + nrOfFieldsBeforeFristen}
             />
-            <InputGroup.Addon>
+            <InputGroup.Addon style={datePickerAddonStyle}>
               <DateRangePicker
                 singleDatePicker
                 drops="up"
+                opens="left"
                 onApply={onChangeDatePicker.bind(this, 'datumEingangAwel')}
                 className={styles.datePicker}
               >
-                <Glyphicon glyph="calendar" />
+                <Glyphicon glyph="calendar" style={datePickerCalendarStyle} />
               </DateRangePicker>
             </InputGroup.Addon>
           </InputGroup>
@@ -91,14 +107,15 @@ class AreaFristen extends Component {
               bsSize="small"
               tabIndex={2 + nrOfFieldsBeforeFristen}
             />
-            <InputGroup.Addon>
+            <InputGroup.Addon style={datePickerAddonStyle}>
               <DateRangePicker
                 singleDatePicker
                 drops="up"
+                opens="left"
                 onApply={onChangeDatePicker.bind(this, 'fristAwel')}
                 className={styles.datePicker}
               >
-                <Glyphicon glyph="calendar" />
+                <Glyphicon glyph="calendar" style={datePickerCalendarStyle} />
               </DateRangePicker>
             </InputGroup.Addon>
           </InputGroup>
@@ -119,14 +136,15 @@ class AreaFristen extends Component {
               bsSize="small"
               tabIndex={3 + nrOfFieldsBeforeFristen}
             />
-            <InputGroup.Addon>
+            <InputGroup.Addon style={datePickerAddonStyle}>
               <DateRangePicker
                 singleDatePicker
                 drops="up"
+                opens="left"
                 onApply={onChangeDatePicker.bind(this, 'fristAmtschef')}
                 className={styles.datePicker}
               >
-                <Glyphicon glyph="calendar" />
+                <Glyphicon glyph="calendar" style={datePickerCalendarStyle} />
               </DateRangePicker>
             </InputGroup.Addon>
           </InputGroup>
@@ -147,14 +165,15 @@ class AreaFristen extends Component {
               bsSize="small"
               tabIndex={4 + nrOfFieldsBeforeFristen}
             />
-            <InputGroup.Addon>
+            <InputGroup.Addon style={datePickerAddonStyle}>
               <DateRangePicker
                 singleDatePicker
                 drops="up"
+                opens="left"
                 onApply={onChangeDatePicker.bind(this, 'fristAbteilung')}
                 className={styles.datePicker}
               >
-                <Glyphicon glyph="calendar" />
+                <Glyphicon glyph="calendar" style={datePickerCalendarStyle} />
               </DateRangePicker>
             </InputGroup.Addon>
           </InputGroup>
@@ -175,14 +194,15 @@ class AreaFristen extends Component {
               bsSize="small"
               tabIndex={5 + nrOfFieldsBeforeFristen}
             />
-            <InputGroup.Addon>
+            <InputGroup.Addon style={datePickerAddonStyle}>
               <DateRangePicker
                 singleDatePicker
                 drops="up"
+                opens="left"
                 onApply={onChangeDatePicker.bind(this, 'fristMitarbeiter')}
                 className={styles.datePicker}
               >
-                <Glyphicon glyph="calendar" />
+                <Glyphicon glyph="calendar" style={datePickerCalendarStyle} />
               </DateRangePicker>
             </InputGroup.Addon>
           </InputGroup>
@@ -204,14 +224,15 @@ class AreaFristen extends Component {
               bsSize="small"
               tabIndex={6 + nrOfFieldsBeforeFristen}
             />
-            <InputGroup.Addon>
+            <InputGroup.Addon style={datePickerAddonStyle}>
               <DateRangePicker
                 singleDatePicker
                 drops="up"
+                opens="left"
                 onApply={onChangeDatePicker.bind(this, 'datumAusgangAwel')}
                 className={styles.datePicker}
               >
-                <Glyphicon glyph="calendar" />
+                <Glyphicon glyph="calendar" style={datePickerCalendarStyle} />
               </DateRangePicker>
             </InputGroup.Addon>
           </InputGroup>
@@ -232,14 +253,15 @@ class AreaFristen extends Component {
               bsSize="small"
               tabIndex={7 + nrOfFieldsBeforeFristen}
             />
-            <InputGroup.Addon>
+            <InputGroup.Addon style={datePickerAddonStyle}>
               <DateRangePicker
                 singleDatePicker
                 drops="up"
+                opens="left"
                 onApply={onChangeDatePicker.bind(this, 'fristDirektion')}
                 className={styles.datePicker}
               >
-                <Glyphicon glyph="calendar" />
+                <Glyphicon glyph="calendar" style={datePickerCalendarStyle} />
               </DateRangePicker>
             </InputGroup.Addon>
           </InputGroup>
