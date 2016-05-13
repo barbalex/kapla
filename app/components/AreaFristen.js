@@ -29,7 +29,7 @@ class AreaFristen extends Component {
   fieldFristDauerBisMitarbeiter = () => (
     <div className={styles.fieldFristDauerBisMitarbeiter}>
       <ControlLabel>Tage bis Frist Mitarbeiter</ControlLabel>
-      <FormControl.Static className={styles.formControlStatic} className={this.statusFristInStyle(this.fristDauerBisMitarbeiter())}>
+      <FormControl.Static style={{ paddingTop: 0, marginTop: 0 }} className={this.statusFristInStyle(this.fristDauerBisMitarbeiter())}>
         {this.fristDauerBisMitarbeiter()}
       </FormControl.Static>
     </div>
