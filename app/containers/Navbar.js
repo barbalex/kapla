@@ -11,7 +11,7 @@ import * as PagesActions from '../actions/pages'
 const actions = Object.assign(AppActions, GeschaefteActions, TableActions, PagesActions)
 
 function mapStateToProps(state) {
-  const { activeId, filterFulltext, geschaefte, geschaefteGefilterteIds, willDelete } = state.geschaefte
+  const { activeId, filterFulltext, filterType, geschaefte, geschaefteGefilterteIds, willDelete } = state.geschaefte
   const { username } = state.user
   const { dbPath, db, showMessageModal } = state.app
   const { table, rows, id } = state.table
@@ -21,6 +21,7 @@ function mapStateToProps(state) {
     username,
     activeId,
     filterFulltext,
+    filterType,
     geschaefte,
     geschaefteGefilterteIds,
     dbPath,

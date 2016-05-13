@@ -34,6 +34,7 @@ class NavbarComponent extends Component {
     geschaeftSetDeleteIntended: PropTypes.func.isRequired,
     activeId: PropTypes.number,
     filterFulltext: PropTypes.string,
+    filterType: PropTypes.string,
     geschaefte: PropTypes.array.isRequired,
     geschaefteGefilterteIds: PropTypes.array.isRequired,
     showMessageModal: PropTypes.bool.isRequired,
@@ -64,7 +65,7 @@ class NavbarComponent extends Component {
   onKeyPressFilterFulltext = (e) => {
     const { geschaefteFilterByFulltext } = this.props
     if (e.key === 'Enter') {
-      geschaefteFilterByFulltext(e.target.value)
+      geschaefteFilterByFulltext()
     }
   }
 
@@ -125,7 +126,7 @@ class NavbarComponent extends Component {
         comparator: '<'
       }
     ]
-    geschaefteFilterByFields(filter)
+    geschaefteFilterByFields(filter, 'fällige')
     // TODO: add ordering to state and call action here to order by frist desc
   }
 
@@ -159,7 +160,7 @@ class NavbarComponent extends Component {
         comparator: '==='
       }
     ]
-    geschaefteFilterByFields(filter)
+    geschaefteFilterByFields(filter, 'eigene fällige')
     // TODO: add ordering to state and call action here to order by frist desc
   }
 
@@ -167,29 +168,32 @@ class NavbarComponent extends Component {
     const { geschaefteFilterByFulltextSet, geschaefteFilterByFulltext } = this.props
     const filterFulltext = ''
     geschaefteFilterByFulltextSet(filterFulltext)
-    geschaefteFilterByFulltext(filterFulltext)
+    geschaefteFilterByFulltext(null)
     this.focusFulltextFilter()
   }
 
-  geschaefteFilterNav = () => (
-    <NavDropdown
-      eventKey={3}
-      title="Filter"
-      id="basic-nav-dropdown"
-    >
-      <MenuItem header>individuell:</MenuItem>
-      <LinkContainer to={{ pathname: '/filter' }}>
-        <MenuItem eventKey={3.1}>nach Feldern</MenuItem>
-      </LinkContainer>
-      <MenuItem eventKey={3.2} onSelect={this.focusFulltextFilter}>nach Volltext</MenuItem>
-      <MenuItem divider />
-      <MenuItem header>pfannenfertig:</MenuItem>
-      <MenuItem eventKey={3.3} onSelect={this.onSelectFilterFaelligeGeschaefte}>fällige</MenuItem>
-      <MenuItem eventKey={3.4} onSelect={this.onSelectFilterFaelligeGeschaefteMitarbeiter}>eigene fällige</MenuItem>
-      <MenuItem divider />
-      <MenuItem eventKey={3.5} onSelect={this.removeFilter}>Filter entfernen</MenuItem>
-    </NavDropdown>
-  )
+  geschaefteFilterNav = () => {
+    const { filterType } = this.props
+    return (
+      <NavDropdown
+        eventKey={3}
+        title={filterType ? `Filter: ${filterType}` : 'Filter'}
+        id="filter-nav-dropdown"
+      >
+        <MenuItem header>individuell:</MenuItem>
+        <LinkContainer to={{ pathname: '/filter' }}>
+          <MenuItem eventKey={3.1}>nach Feldern</MenuItem>
+        </LinkContainer>
+        <MenuItem eventKey={3.2} onSelect={this.focusFulltextFilter}>nach Volltext</MenuItem>
+        <MenuItem divider />
+        <MenuItem header>pfannenfertig:</MenuItem>
+        <MenuItem eventKey={3.3} onSelect={this.onSelectFilterFaelligeGeschaefte}>fällige</MenuItem>
+        <MenuItem eventKey={3.4} onSelect={this.onSelectFilterFaelligeGeschaefteMitarbeiter}>eigene fällige</MenuItem>
+        <MenuItem divider />
+        <MenuItem eventKey={3.5} onSelect={this.removeFilter}>Filter entfernen</MenuItem>
+      </NavDropdown>
+    )
+  }
 
   geschaeftNeuNav = () => {
     const { geschaeftNewCreate } = this.props

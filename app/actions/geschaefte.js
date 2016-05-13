@@ -60,7 +60,7 @@ export const GESCHAEFTE_FILTER_BY_FIELDS = 'GESCHAEFTE_FILTER_BY_FIELDS'
  * keys = field names
  * values = filter values
  */
-export function geschaefteFilterByFields(filterFields) {
+export function geschaefteFilterByFields(filterFields, filterType = 'nach Feldern') {
   return (dispatch, getState) => {
     const { geschaefte } = getState()
     const { filterFulltext } = geschaefte
@@ -69,7 +69,8 @@ export function geschaefteFilterByFields(filterFields) {
     dispatch({
       type: GESCHAEFTE_FILTER_BY_FIELDS,
       filterFields,
-      geschaefteGefilterteIds
+      geschaefteGefilterteIds,
+      filterType
     })
     if (geschaefteGefilterteIds.length === 1) dispatch(geschaeftToggleActivated(geschaefteGefilterteIds[0]))
   }
@@ -90,7 +91,7 @@ export function geschaefteFilterByFulltextSet(filterFulltext) {
 
 export const GESCHAEFTE_FILTER_BY_FULLTEXT = 'GESCHAEFTE_FILTER_BY_FULLTEXT'
 // filter = word
-export function geschaefteFilterByFulltext() {
+export function geschaefteFilterByFulltext(filterType = 'nach Volltext') {
   return (dispatch, getState) => {
     const { geschaefte, routing } = getState()
     const { filterFulltext, filterFields } = geschaefte
@@ -98,7 +99,8 @@ export function geschaefteFilterByFulltext() {
     const geschaefteGefilterteIds = filterGeschaefte(geschaefte.geschaefte, filterFulltext, filterFields)
     dispatch({
       type: GESCHAEFTE_FILTER_BY_FULLTEXT,
-      geschaefteGefilterteIds
+      geschaefteGefilterteIds,
+      filterType
     })
     if (geschaefteGefilterteIds.length === 1) dispatch(geschaeftToggleActivated(geschaefteGefilterteIds[0]))
     if (routing.locationBeforeTransitions.pathname !== '/geschaefte') dispatch(push('/geschaefte'))

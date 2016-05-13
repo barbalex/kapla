@@ -39,6 +39,7 @@ const standardState = {
   geschaefteGefilterteIds: [],
   filterFields: {},
   filterFulltext: '',
+  filterType: null,
   // dropdown lists
   rechtsmittelErledigungOptions: [],
   parlVorstossTypOptions: [],
@@ -93,6 +94,7 @@ export default function geschaefte(state = standardState, action) {
         ...state,
         filterFields: action.filterFields,
         filterFulltext: '',
+        filterType: action.filterType || null,
         activeId: null,
         geschaefteGefilterteIds: action.geschaefteGefilterteIds
       }
@@ -106,7 +108,8 @@ export default function geschaefte(state = standardState, action) {
     case GESCHAEFTE_FILTER_BY_FULLTEXT:
       return {
         ...state,
-        geschaefteGefilterteIds: action.geschaefteGefilterteIds
+        geschaefteGefilterteIds: action.geschaefteGefilterteIds,
+        filterType: action.filterType || null,
       }
     case GESCHAEFT_TOGGLE_ACTIVATED:
       return {
