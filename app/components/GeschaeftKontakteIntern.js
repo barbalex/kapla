@@ -39,9 +39,15 @@ class GeschaefteKontakteIntern extends Component {
     // sort interneOptions by kurzzeichen
     const interneOptionsSorted = _.sortBy(interneOptionsFiltered, (o) => o.kurzzeichen.toLowerCase())
     const options = interneOptionsSorted.map((o, index) => {
-      const space = '\xa0'.repeat(5 - o.kurzzeichen.length)
+      let times = 5 - o.kurzzeichen.length
+      // make sure, times is never < 0
+      if (times < 0) times = 0
+      const space = '\xa0'.repeat(times)
+      const name = `${o.vorname || ''} ${o.name || ''}`
       return (
-        <option key={index + 1} value={o.id}>{`${o.kurzzeichen}${space}${'\xa0\xa0\xa0'}${o.vorname} ${o.name}`}</option>
+        <option key={index + 1} value={o.id}>
+          {`${o.kurzzeichen}${space}${'\xa0\xa0\xa0'}${name}`}
+        </option>
       )
     })
     options.unshift(<option key={0} value=""></option>)

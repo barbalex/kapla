@@ -20,10 +20,10 @@ class AreaPersonen extends Component {
     const { geschaeft, interneOptions } = this.props
     const data = interneOptions.find((o) => o.kurzzeichen === geschaeft.verantwortlich)
     if (!data) return ''
-    const name = `${data.vorname} ${data.name}`
-    const abt = data.abteilung ? `, ${data.abteilung}` : null
-    const eMail = data.eMail ? `, ${data.eMail}` : null
-    const telefon = data.telefon ? `, ${data.telefon}` : null
+    const name = `${data.vorname || ''} ${data.name || ''}`
+    const abt = data.abteilung ? `, ${data.abteilung}` : ''
+    const eMail = data.eMail ? `, ${data.eMail}` : ''
+    const telefon = data.telefon ? `, ${data.telefon}` : ''
     return `${name}${abt}${eMail}${telefon}`
   }
 
@@ -32,9 +32,15 @@ class AreaPersonen extends Component {
     // sort interneOptions by kurzzeichen
     const interneOptionsSorted = _.sortBy(interneOptions, (o) => o.kurzzeichen.toLowerCase())
     const options = interneOptionsSorted.map((o, index) => {
-      const space = '\xa0'.repeat(5 - o.kurzzeichen.length)
+      let times = 5 - o.kurzzeichen.length
+      // make sure, times is never < 0
+      if (times < 0) times = 0
+      const space = '\xa0'.repeat(times)
+      const name = `${o.vorname || ''} ${o.name || ''}`
       return (
-        <option key={index + 1} value={o.kurzzeichen}>{`${o.kurzzeichen}${space}${'\xa0\xa0\xa0'}${o.vorname} ${o.name}`}</option>
+        <option key={index + 1} value={o.kurzzeichen}>
+          {`${o.kurzzeichen}${space}${'\xa0\xa0\xa0'}${name}`}
+        </option>
       )
     })
     options.unshift(<option key={0} value=""></option>)
@@ -42,7 +48,7 @@ class AreaPersonen extends Component {
   }
 
   render() {
-    const { geschaeft, nrOfFieldsBeforePersonen, change, blur } = this.props
+    const { geschaeft, nrOfFieldsBeforePersonen = 0, change, blur } = this.props
 
     return (
       <div className={styles.areaPersonen}>
