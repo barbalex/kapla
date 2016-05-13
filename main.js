@@ -14,7 +14,7 @@ let mainWindow = null
 const saveConfigValue = require('./app/src/saveConfigValue.js')
 const getConfig = require('./app/src/getConfig.js')
 
-crashReporter.start()
+crashReporter.start({ companyName: 'wtf', submitURL: 'wtf@wtf.com' })
 
 if (process.env.NODE_ENV === 'development') {
   require('electron-debug')()
