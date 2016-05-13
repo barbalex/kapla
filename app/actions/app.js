@@ -48,6 +48,7 @@ function dbChooseSuccess(dbPath, db) {
     dispatch(GeschaefteActions.externeOptionsGet())
     dispatch(GeschaefteKontakteInternActions.getGeschaefteKontakteIntern())
     dispatch(GeschaefteKontakteExternActions.getGeschaefteKontakteExtern())
+    // set filter to fällige
     dispatch(GeschaefteActions.geschaefteFilterByFields(filterForFaelligeGeschaefte(), 'fällige'))
   }
 }
