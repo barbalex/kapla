@@ -29,11 +29,17 @@ class AreaFristen extends Component {
   fieldFristDauerBisMitarbeiter = () => (
     <div className={styles.fieldFristDauerBisMitarbeiter}>
       <ControlLabel>Tage bis Frist Mitarbeiter</ControlLabel>
-      <FormControl.Static className={styles.formControlStatic}>
+      <FormControl.Static className={styles.formControlStatic} className={this.statusFristInStyle(this.fristDauerBisMitarbeiter())}>
         {this.fristDauerBisMitarbeiter()}
       </FormControl.Static>
     </div>
   )
+
+  statusFristInStyle = (dauerBisFristMitarbeiter) => {
+    if (dauerBisFristMitarbeiter < 0) return [styles.fieldFristInUeberfaellig, 'formControlStatic'].join(' ')
+    if (dauerBisFristMitarbeiter === 0) return [styles.fieldFristInHeute, 'formControlStatic'].join(' ')
+    return 'formControlStatic'
+  }
 
   render = () => {
     const { geschaeft, nrOfFieldsBeforeFristen, change, blur, onChangeDatePicker } = this.props

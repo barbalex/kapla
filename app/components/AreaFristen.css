@@ -60,3 +60,21 @@
   padding-top: 4px;
   padding-left: 13px;
 }
+
+.fieldFristIn {
+  font-weight: 900;
+  letter-spacing: 0.13em;
+  font-size: 16px;
+  -webkit-text-stroke-color: black;
+  -webkit-text-stroke-width: 1px;
+}
+
+.fieldFristInUeberfaellig {
+  composes: fieldFristIn;
+  -webkit-text-fill-color: red;
+}
+
+.fieldFristInHeute {
+  composes: fieldFristIn;
+  -webkit-text-fill-color: yellow;
+}
