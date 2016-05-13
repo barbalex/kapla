@@ -18,10 +18,11 @@ import {
 import { LinkContainer } from 'react-router-bootstrap'
 import moment from 'moment'
 import _ from 'lodash'
-import ModalGeschaeftDelete from '../containers/ModalGeschaeftDelete.js'
-import ModalMessage from '../containers/ModalMessage.js'
+import ModalGeschaeftDelete from '../containers/ModalGeschaeftDelete'
+import ModalMessage from '../containers/ModalMessage'
 import styles from './Navbar.css'
-import exportGeschaefte from '../src/exportGeschaefte.js'
+import exportGeschaefte from '../src/exportGeschaefte'
+import filterForFaelligeGeschaefte from '../src/filterForFaelligeGeschaefte'
 
 class NavbarComponent extends Component {
   static propTypes = {
@@ -103,29 +104,7 @@ class NavbarComponent extends Component {
 
   onSelectFilterFaelligeGeschaefte = () => {
     const { geschaefteFilterByFields } = this.props
-    const now = moment().format('YYYY-MM-DD')
-    const filter = [
-      {
-        field: 'status',
-        value: 'zurückgestellt',
-        comparator: '!=='
-      },
-      {
-        field: 'status',
-        value: 'erledigt',
-        comparator: '!=='
-      },
-      {
-        field: 'datumAusgangAwel',
-        value: '',
-        comparator: '='
-      },
-      {
-        field: 'fristMitarbeiter',
-        value: now,
-        comparator: '<'
-      }
-    ]
+    const filter = filterForFaelligeGeschaefte()
     geschaefteFilterByFields(filter, 'fällige')
     // TODO: add ordering to state and call action here to order by frist desc
   }

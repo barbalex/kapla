@@ -4,6 +4,7 @@ const sqlite3 = require('sqlite3').verbose()
 import chooseDb from '../src/chooseDb.js'
 import getConfig from '../src/getConfig.js'
 import saveConfigValue from '../src/saveConfigValue.js'
+import filterForFaelligeGeschaefte from '../src/filterForFaelligeGeschaefte'
 import * as GeschaefteActions from './geschaefte'
 import * as GeschaefteKontakteInternActions from './geschaefteKontakteIntern'
 import * as GeschaefteKontakteExternActions from './geschaefteKontakteExtern'
@@ -47,6 +48,7 @@ function dbChooseSuccess(dbPath, db) {
     dispatch(GeschaefteActions.externeOptionsGet())
     dispatch(GeschaefteKontakteInternActions.getGeschaefteKontakteIntern())
     dispatch(GeschaefteKontakteExternActions.getGeschaefteKontakteExtern())
+    dispatch(GeschaefteActions.geschaefteFilterByFields(filterForFaelligeGeschaefte(), 'fällige'))
   }
 }
 
