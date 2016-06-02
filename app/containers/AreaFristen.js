@@ -10,8 +10,15 @@ function mapStateToProps(state, props) {
     geschaefte,
     activeId
   } = state.geschaefte
-  const { blur, change, nrOfFieldsBeforeFristen, onChangeDatePicker } = props
-  const geschaeft = geschaefte.find((g) => g.idGeschaeft === activeId)
+  const {
+    blur,
+    change,
+    nrOfFieldsBeforeFristen,
+    onChangeDatePicker
+  } = props
+  const geschaeft = geschaefte.find((g) =>
+    g.idGeschaeft === activeId
+  )
 
   return {
     geschaeft,

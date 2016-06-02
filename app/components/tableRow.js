@@ -1,7 +1,12 @@
 'use strict'
 
 import React, { Component, PropTypes } from 'react'
-import { Form, FormGroup, FormControl, ControlLabel } from 'react-bootstrap'
+import {
+  Form,
+  FormGroup,
+  FormControl,
+  ControlLabel
+} from 'react-bootstrap'
 import styles from './TableRow.css'
 
 class TableRow extends Component {
@@ -33,22 +38,36 @@ class TableRow extends Component {
     changeTableInDb(table, id, name, value)
   }
 
-  fields = (row) => Object.keys(row).map((fieldName, index) => {
-    let value = row[fieldName]
-    // react complains if value is null
-    if (value === null) value = ''
-    const field = (
-      <FormGroup key={index} className={styles.formGroup}>
-        <ControlLabel>{fieldName}</ControlLabel>
-        <FormControl type="text" name={fieldName} value={value} onChange={this.change} onBlur={this.blur} />
-      </FormGroup>
-    )
-    return field
-  })
+  fields = (row) =>
+    Object.keys(row).map((fieldName, index) => {
+      let value = row[fieldName]
+      // react complains if value is null
+      if (value === null) value = ''
+      const field = (
+        <FormGroup
+          key={index}
+          className={styles.formGroup}
+        >
+          <ControlLabel>
+            {fieldName}
+          </ControlLabel>
+          <FormControl
+            type="text"
+            name={fieldName}
+            value={value}
+            onChange={this.change}
+            onBlur={this.blur}
+          />
+        </FormGroup>
+      )
+      return field
+    })
 
   render() {
     const { rows, id } = this.props
-    const row = rows.find((r) => r.id === id)
+    const row = rows.find((r) =>
+      r.id === id
+    )
 
     if (row === undefined) return null
 
