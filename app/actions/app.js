@@ -11,25 +11,21 @@ import * as GeschaefteKontakteExternActions from './geschaefteKontakteExtern'
 import * as UserActions from './user'
 
 export const MESSAGE_SHOW = 'MESSAGE_SHOW'
-export function messageShow(showMessageModal, messageTextLine1, messageTextLine2) {
-  return {
-    type: MESSAGE_SHOW,
-    showMessageModal,
-    messageTextLine1,
-    messageTextLine2
-  }
-}
+export const messageShow = (showMessageModal, messageTextLine1, messageTextLine2) => ({
+  type: MESSAGE_SHOW,
+  showMessageModal,
+  messageTextLine1,
+  messageTextLine2
+})
 
 export const DB_CHOOSE = 'DB_CHOOSE'
-function dbChoose() {
-  return {
-    type: DB_CHOOSE
-  }
-}
+const dbChoose = () => ({
+  type: DB_CHOOSE
+})
 
 export const DB_CHOOSE_SUCCESS = 'DB_CHOOSE_SUCCESS'
-function dbChooseSuccess(dbPath, db) {
-  return dispatch => {
+const dbChooseSuccess = (dbPath, db) =>
+  dispatch => {
     dispatch({
       type: DB_CHOOSE_SUCCESS,
       db,
@@ -51,18 +47,15 @@ function dbChooseSuccess(dbPath, db) {
     // set filter to fällige
     dispatch(GeschaefteActions.geschaefteFilterByFields(filterForFaelligeGeschaefte(), 'fällige'))
   }
-}
 
 export const DB_CHOOSE_ERROR = 'DB_CHOOSE_ERROR'
-function dbChooseError(error) {
-  return {
-    type: DB_CHOOSE_ERROR,
-    error
-  }
-}
+const dbChooseError = (error) => ({
+  type: DB_CHOOSE_ERROR,
+  error
+})
 
-export function dbGetFromConfig() {
-  return (dispatch, getState) => {
+export const dbGetFromConfig = () =>
+  (dispatch, getState) => {
     // only do this if not yet done
     const { app } = getState()
     if (!app.dbPath) {
@@ -75,7 +68,6 @@ export function dbGetFromConfig() {
       }
     }
   }
-}
 
 export function dbGet() {
   return dispatch => {
