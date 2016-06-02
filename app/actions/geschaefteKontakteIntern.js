@@ -2,40 +2,35 @@
 
 import getGeschaefteKontakteInternFromDb from '../src/getGeschaefteKontakteInternFromDb'
 
-export function getGeschaefteKontakteIntern() {
-  return (dispatch, getState) => {
+export const getGeschaefteKontakteIntern = () =>
+  (dispatch, getState) => {
     const { app } = getState()
     dispatch(geschaefteKontakteInternGet())
     getGeschaefteKontakteInternFromDb(app.db)
       .then((geschaefteKontakteIntern) => {
         dispatch(geschaefteKontakteInternGetSuccess(geschaefteKontakteIntern))
       })
-      .catch((error) => dispatch(geschaefteKontakteInternGetError(error)))
+      .catch((error) =>
+        dispatch(geschaefteKontakteInternGetError(error))
+      )
   }
-}
 
 export const GESCHAEFTE_KONTAKTE_INTERN_GET = 'GESCHAEFTE_KONTAKTE_INTERN_GET'
-function geschaefteKontakteInternGet() {
-  return {
-    type: GESCHAEFTE_KONTAKTE_INTERN_GET
-  }
-}
+const geschaefteKontakteInternGet = () => ({
+  type: GESCHAEFTE_KONTAKTE_INTERN_GET
+})
 
 export const GESCHAEFTE_KONTAKTE_INTERN_GET_SUCCESS = 'GESCHAEFTE_KONTAKTE_INTERN_GET_SUCCESS'
-function geschaefteKontakteInternGetSuccess(geschaefteKontakteIntern) {
-  return {
-    type: GESCHAEFTE_KONTAKTE_INTERN_GET_SUCCESS,
-    geschaefteKontakteIntern
-  }
-}
+const geschaefteKontakteInternGetSuccess = (geschaefteKontakteIntern) => ({
+  type: GESCHAEFTE_KONTAKTE_INTERN_GET_SUCCESS,
+  geschaefteKontakteIntern
+})
 
 export const GESCHAEFTE_KONTAKTE_INTERN_GET_ERROR = 'GESCHAEFTE_KONTAKTE_INTERN_GET_ERROR'
-function geschaefteKontakteInternGetError(error) {
-  return {
-    type: GESCHAEFTE_KONTAKTE_INTERN_GET_ERROR,
-    error
-  }
-}
+const geschaefteKontakteInternGetError = (error) => ({
+  type: GESCHAEFTE_KONTAKTE_INTERN_GET_ERROR,
+  error
+})
 
 /*
  * Geschaeft Kontakt Intern
@@ -44,81 +39,71 @@ function geschaefteKontakteInternGetError(error) {
 import newGeschaeftKontaktInternInDb from '../src/newGeschaeftKontaktInternInDb.js'
 import deleteGeschaeftKontaktIntern from '../src/deleteGeschaeftKontaktIntern.js'
 
-export function geschaeftKontaktInternNewCreate(idGeschaeft, idKontakt) {
-  return (dispatch, getState) => {
+export const geschaeftKontaktInternNewCreate = (idGeschaeft, idKontakt) =>
+  (dispatch, getState) => {
     const { app } = getState()
     newGeschaeftKontaktInternInDb(app.db, idGeschaeft, idKontakt)
-      .then((geschaeftKontaktIntern) => dispatch(geschaeftKontaktInternNew(geschaeftKontaktIntern)))
-      .catch((error) => dispatch(geschaeftKontaktInternNewError(error)))
+      .then((geschaeftKontaktIntern) =>
+        dispatch(geschaeftKontaktInternNew(geschaeftKontaktIntern))
+      )
+      .catch((error) =>
+        dispatch(geschaeftKontaktInternNewError(error))
+      )
   }
-}
 
 export const GESCHAEFT_KONTAKT_INTERN_NEW = 'GESCHAEFT_KONTAKT_INTERN_NEW'
-export function geschaeftKontaktInternNew(geschaeftKontaktIntern) {
-  return {
-    type: GESCHAEFT_KONTAKT_INTERN_NEW,
-    geschaeftKontaktIntern
-  }
-}
+export const geschaeftKontaktInternNew = (geschaeftKontaktIntern) => ({
+  type: GESCHAEFT_KONTAKT_INTERN_NEW,
+  geschaeftKontaktIntern
+})
 
 export const GESCHAEFT_KONTAKT_INTERN_NEW_ERROR = 'GESCHAEFT_KONTAKT_INTERN_NEW_ERROR'
-export function geschaeftKontaktInternNewError(error) {
-  return {
-    type: GESCHAEFT_KONTAKT_INTERN_NEW_ERROR,
-    error
-  }
-}
+export const geschaeftKontaktInternNewError = (error) => ({
+  type: GESCHAEFT_KONTAKT_INTERN_NEW_ERROR,
+  error
+})
 
-export function geschaeftKontaktInternRemove(idGeschaeft, idKontakt) {
-  return (dispatch, getState) => {
+export const geschaeftKontaktInternRemove = (idGeschaeft, idKontakt) =>
+  (dispatch, getState) => {
     const { app } = getState()
     deleteGeschaeftKontaktIntern(app.db, idGeschaeft, idKontakt)
       .then(() => {
         dispatch(geschaeftKontaktInternRemoveDeleteIntended(idGeschaeft, idKontakt))
         dispatch(geschaeftKontaktInternDelete(idGeschaeft, idKontakt))
       })
-      .catch((error) => dispatch(geschaeftKontaktInternDeleteError(error)))
+      .catch((error) =>
+        dispatch(geschaeftKontaktInternDeleteError(error))
+      )
   }
-}
 
 export const GESCHAEFT_KONTAKT_INTERN_SET_DELETE_INTENDED = 'GESCHAEFT_KONTAKT_INTERN_SET_DELETE_INTENDED'
-export function geschaeftKontaktInternSetDeleteIntended(idGeschaeft, idKontakt) {
-  return {
-    type: GESCHAEFT_KONTAKT_INTERN_SET_DELETE_INTENDED,
-    idGeschaeft,
-    idKontakt
-  }
-}
+export const geschaeftKontaktInternSetDeleteIntended = (idGeschaeft, idKontakt) => ({
+  type: GESCHAEFT_KONTAKT_INTERN_SET_DELETE_INTENDED,
+  idGeschaeft,
+  idKontakt
+})
 
 export const GESCHAEFT_KONTAKT_INTERN_REMOVE_DELETE_INTENDED = 'GESCHAEFT_KONTAKT_INTERN_REMOVE_DELETE_INTENDED'
-export function geschaeftKontaktInternRemoveDeleteIntended() {
-  return {
-    type: GESCHAEFT_KONTAKT_INTERN_REMOVE_DELETE_INTENDED
-  }
-}
+export const geschaeftKontaktInternRemoveDeleteIntended = () => ({
+  type: GESCHAEFT_KONTAKT_INTERN_REMOVE_DELETE_INTENDED
+})
 
 export const GESCHAEFT_KONTAKT_INTERN_DELETE = 'GESCHAEFT_KONTAKT_INTERN_DELETE'
-export function geschaeftKontaktInternDelete(idGeschaeft, idKontakt) {
-  return {
-    type: GESCHAEFT_KONTAKT_INTERN_DELETE,
-    idGeschaeft,
-    idKontakt
-  }
-}
+export const geschaeftKontaktInternDelete = (idGeschaeft, idKontakt) => ({
+  type: GESCHAEFT_KONTAKT_INTERN_DELETE,
+  idGeschaeft,
+  idKontakt
+})
 
 export const GESCHAEFT_KONTAKT_INTERN_DELETE_ERROR = 'GESCHAEFT_KONTAKT_INTERN_DELETE_ERROR'
-export function geschaeftKontaktInternDeleteError(error) {
-  return {
-    type: GESCHAEFT_KONTAKT_INTERN_DELETE_ERROR,
-    error
-  }
-}
+export const geschaeftKontaktInternDeleteError = (error) => ({
+  type: GESCHAEFT_KONTAKT_INTERN_DELETE_ERROR,
+  error
+})
 
 export const GESCHAEFTE_KONTAKTE_INTERN_CHANGE_DB_ERROR = 'GESCHAEFTE_KONTAKTE_INTERN_CHANGE_DB_ERROR'
-export function geschaefteKontakteInternChangeDbError(error) {
-  // TODO: reload data from db
-  return {
-    type: GESCHAEFTE_KONTAKTE_INTERN_CHANGE_DB_ERROR,
-    error
-  }
-}
+// TODO: reload data from db
+export const geschaefteKontakteInternChangeDbError = (error) => ({
+  type: GESCHAEFTE_KONTAKTE_INTERN_CHANGE_DB_ERROR,
+  error
+})
