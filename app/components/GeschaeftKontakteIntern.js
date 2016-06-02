@@ -18,7 +18,10 @@ class GeschaefteKontakteIntern extends Component {
   }
 
   onChangeNewKontaktIntern = (e) => {
-    const { geschaeftKontaktInternNewCreate, activeId } = this.props
+    const {
+      geschaeftKontaktInternNewCreate,
+      activeId
+    } = this.props
     const idKontakt = e.target.value
     geschaeftKontaktInternNewCreate(activeId, idKontakt)
     // need to empty dropdown
@@ -31,13 +34,25 @@ class GeschaefteKontakteIntern extends Component {
   }
 
   options = () => {
-    const { interneOptions, geschaefteKontakteIntern, activeId } = this.props
+    const {
+      interneOptions,
+      geschaefteKontakteIntern,
+      activeId
+    } = this.props
     // filter out options already choosen
-    const kontakteInternOfActiveGeschaeft = geschaefteKontakteIntern.filter((g) => g.idGeschaeft === activeId)
-    const idKontakteOfGkiOfActiveGeschaeft = kontakteInternOfActiveGeschaeft.map((kI) => kI.idKontakt)
-    const interneOptionsFiltered = interneOptions.filter((o) => !idKontakteOfGkiOfActiveGeschaeft.includes(o.id))
+    const kontakteInternOfActiveGeschaeft = geschaefteKontakteIntern.filter((g) =>
+      g.idGeschaeft === activeId
+    )
+    const idKontakteOfGkiOfActiveGeschaeft = kontakteInternOfActiveGeschaeft.map((kI) =>
+      kI.idKontakt
+    )
+    const interneOptionsFiltered = interneOptions.filter((o) =>
+      !idKontakteOfGkiOfActiveGeschaeft.includes(o.id)
+    )
     // sort interneOptions by kurzzeichen
-    const interneOptionsSorted = _.sortBy(interneOptionsFiltered, (o) => o.kurzzeichen.toLowerCase())
+    const interneOptionsSorted = _.sortBy(interneOptionsFiltered, (o) =>
+      o.kurzzeichen.toLowerCase()
+    )
     const options = interneOptionsSorted.map((o, index) => {
       let times = 5 - o.kurzzeichen.length
       // make sure, times is never < 0
@@ -45,18 +60,29 @@ class GeschaefteKontakteIntern extends Component {
       const space = '\xa0'.repeat(times)
       const name = `${o.vorname || ''} ${o.name || ''}`
       return (
-        <option key={index + 1} value={o.id}>
+        <option
+          key={index + 1}
+          value={o.id}
+        >
           {`${o.kurzzeichen}${space}${'\xa0\xa0\xa0'}${name}`}
         </option>
       )
     })
-    options.unshift(<option key={0} value=""></option>)
+    options.unshift(
+      <option
+        key={0}
+        value=""
+      >
+      </option>
+    )
     return options
   }
 
   verantwortlichData = (gkI) => {
     const { interneOptions } = this.props
-    const data = interneOptions.find((o) => o.id === gkI.idKontakt)
+    const data = interneOptions.find((o) =>
+      o.id === gkI.idKontakt
+    )
     if (!data) return ''
     const name = `${data.vorname} ${data.name}`
     const abt = data.abteilung ? `, ${data.abteilung}` : ''
@@ -67,24 +93,39 @@ class GeschaefteKontakteIntern extends Component {
 
   titleText = (idKontakt) => {
     const { interneOptions } = this.props
-    const data = interneOptions.find((o) => o.id === idKontakt)
+    const data = interneOptions.find((o) =>
+      o.id === idKontakt
+    )
     if (!data) return 'Kontakt entfernen'
     return `${data.kurzzeichen} entfernen`
   }
 
   renderItems() {
-    const { geschaefteKontakteIntern, activeId, interneOptions } = this.props
+    const {
+      geschaefteKontakteIntern,
+      activeId,
+      interneOptions
+    } = this.props
     // filter for this geschaeft
-    const gkIFiltered = geschaefteKontakteIntern.filter((g) => g.idGeschaeft === activeId)
+    const gkIFiltered = geschaefteKontakteIntern.filter((g) =>
+      g.idGeschaeft === activeId
+    )
     const gkISorted = _.sortBy(gkIFiltered, (g) => {
-      const intOption = interneOptions.find((o) => o.id === g.idKontakt)
+      const intOption = interneOptions.find((o) =>
+        o.id === g.idKontakt
+      )
       return intOption.kurzzeichen.toLowerCase()
     })
     return gkISorted.map((gkI, index) => {
-      const intOption = interneOptions.find((o) => o.id === gkI.idKontakt)
+      const intOption = interneOptions.find((o) =>
+        o.id === gkI.idKontakt
+      )
       const kurzzeichen = intOption.kurzzeichen
       return (
-        <div key={index + 1} className={styles.row}>
+        <div
+          key={index + 1}
+          className={styles.row}
+        >
           <div className={styles.fV}>
             {kurzzeichen}
           </div>
@@ -94,7 +135,7 @@ class GeschaefteKontakteIntern extends Component {
           <div className={styles.deleteGlyphiconDiv}>
             <Glyphicon
               glyph="remove-circle"
-              onClick={this.onClickRemove.bind(this, gkI.idKontakt)}
+              onClick={() => this.onClickRemove(gkI.idKontakt)}
               className={styles.removeGlyphicon}
               title={this.titleText(gkI.idKontakt)}
             />
@@ -109,7 +150,10 @@ class GeschaefteKontakteIntern extends Component {
     return (
       <div className={styles.body}>
         {this.renderItems()}
-        <div key={0} className={styles.rowfVDropdown}>
+        <div
+          key={0}
+          className={styles.rowfVDropdown}
+        >
           <div className={styles.fVDropdown}>
             <FormControl
               componentClass="select"

@@ -20,14 +20,27 @@ class ModalGeschaeftDelete extends Component {
     return (
       <Modal.Dialog>
         <Modal.Header>
-          <Modal.Title>Geschäft löschen</Modal.Title>
+          <Modal.Title>
+            Geschäft löschen
+          </Modal.Title>
         </Modal.Header>
         <Modal.Body>
           Möchten Sie das Geschäft Nr. {activeId} wirklich löschen?
         </Modal.Body>
         <Modal.Footer>
-          <Button onClick={() => geschaeftRemoveDeleteIntended()}>Nein</Button>
-          <Button bsStyle="primary" onClick={() => geschaeftRemove(activeId)}>Ja</Button>
+          <Button
+            onClick={geschaeftRemoveDeleteIntended}
+          >
+            Nein
+          </Button>
+          <Button
+            bsStyle="primary"
+            onClick={() =>
+              geschaeftRemove(activeId)
+            }
+          >
+            Ja
+          </Button>
         </Modal.Footer>
       </Modal.Dialog>
     )
