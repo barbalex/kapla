@@ -12,6 +12,8 @@ export default function isDateField(fieldName) {
     'fristDirektion',
     'rechtsmittelEntscheidDatum'
   ]
-  if (dateFieldNames.includes(fieldName)) return true
+  if (dateFieldNames.includes(fieldName)) {
+    return true
+  }
   return false
 }

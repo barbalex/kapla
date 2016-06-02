@@ -25,7 +25,7 @@ export default function (db, username) {
       // return full dataset
       getGeschaeftFromDb(db, idGeschaeft)
         .then((geschaeft) => resolve(geschaeft))
-        .catch((error) => reject(error))
+        .catch((err) => reject(err))
     })
   })
 }
