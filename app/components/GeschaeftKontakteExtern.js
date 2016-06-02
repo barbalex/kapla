@@ -33,15 +33,34 @@ class GeschaefteKontakteExtern extends Component {
   options = () => {
     const { externeOptions, geschaefteKontakteExtern, activeId } = this.props
     // filter out options already choosen
-    const kontakteInternOfActiveGeschaeft = geschaefteKontakteExtern.filter((g) => g.idGeschaeft === activeId)
-    const idKontakteOfGkiOfActiveGeschaeft = kontakteInternOfActiveGeschaeft.map((kI) => kI.idKontakt)
-    const externeOptionsFiltered = externeOptions.filter((o) => !idKontakteOfGkiOfActiveGeschaeft.includes(o.id))
+    const kontakteInternOfActiveGeschaeft = geschaefteKontakteExtern.filter((g) =>
+      g.idGeschaeft === activeId
+    )
+    const idKontakteOfGkiOfActiveGeschaeft = kontakteInternOfActiveGeschaeft.map((kI) =>
+      kI.idKontakt
+    )
+    const externeOptionsFiltered = externeOptions.filter((o) =>
+      !idKontakteOfGkiOfActiveGeschaeft.includes(o.id)
+    )
     // sort externeOptions by nameVorname
-    const externeOptionsSorted = _.sortBy(externeOptionsFiltered, (o) => o.nameVorname.toLowerCase())
+    const externeOptionsSorted = _.sortBy(externeOptionsFiltered, (o) =>
+      o.nameVorname.toLowerCase()
+    )
     const options = externeOptionsSorted.map((o, index) => (
-      <option key={index + 1} value={o.id}>{o.nameVorname}</option>
+      <option
+        key={index + 1}
+        value={o.id}
+      >
+        {o.nameVorname}
+      </option>
     ))
-    options.unshift(<option key={0} value=""></option>)
+    options.unshift(
+      <option
+        key={0}
+        value=""
+      >
+      </option>
+    )
     return options
   }
 
@@ -52,7 +71,9 @@ class GeschaefteKontakteExtern extends Component {
       return value
     }
     const { externeOptions } = this.props
-    const data = externeOptions.find((o) => o.id === gkI.idKontakt)
+    const data = externeOptions.find((o) =>
+      o.id === gkI.idKontakt
+    )
     if (!data) return ''
     let info = ''
     info = addValueToInfo(info, data.firma)
@@ -63,24 +84,39 @@ class GeschaefteKontakteExtern extends Component {
 
   titleText = (idKontakt) => {
     const { externeOptions } = this.props
-    const data = externeOptions.find((o) => o.id === idKontakt)
+    const data = externeOptions.find((o) =>
+      o.id === idKontakt
+    )
     if (!data) return 'Kontakt entfernen'
     return `${data.name} ${data.vorname} entfernen`
   }
 
   renderItems() {
-    const { geschaefteKontakteExtern, activeId, externeOptions } = this.props
+    const {
+      geschaefteKontakteExtern,
+      activeId,
+      externeOptions
+    } = this.props
     // filter for this geschaeft
-    const gkIFiltered = geschaefteKontakteExtern.filter((g) => g.idGeschaeft === activeId)
+    const gkIFiltered = geschaefteKontakteExtern.filter((g) =>
+      g.idGeschaeft === activeId
+    )
     const gKISorted = _.sortBy(gkIFiltered, (g) => {
-      const intOption = externeOptions.find((o) => o.id === g.idKontakt)
+      const intOption = externeOptions.find((o) =>
+        o.id === g.idKontakt
+      )
       return `${intOption.name} ${intOption.vorname}`.toLowerCase()
     })
     return gKISorted.map((gkI, index) => {
-      const intOption = externeOptions.find((o) => o.id === gkI.idKontakt)
+      const intOption = externeOptions.find((o) =>
+        o.id === gkI.idKontakt
+      )
       const nameVorname = intOption.nameVorname
       return (
-        <div key={index + 1} className={styles.row}>
+        <div
+          key={index + 1}
+          className={styles.row}
+        >
           <div className={styles.fV}>
             {nameVorname}
           </div>
@@ -90,7 +126,7 @@ class GeschaefteKontakteExtern extends Component {
           <div className={styles.deleteGlyphiconDiv}>
             <Glyphicon
               glyph="remove-circle"
-              onClick={this.onClickRemove.bind(this, gkI.idKontakt)}
+              onClick={() => this.onClickRemove(gkI.idKontakt)}
               className={styles.removeGlyphicon}
               title={this.titleText(gkI.idKontakt)}
             />
@@ -105,7 +141,10 @@ class GeschaefteKontakteExtern extends Component {
     return (
       <div className={styles.body}>
         {this.renderItems()}
-        <div key={0} className={styles.rowfVDropdown}>
+        <div
+          key={0}
+          className={styles.rowfVDropdown}
+        >
           <div className={styles.fVDropdown}>
             <FormControl
               componentClass="select"

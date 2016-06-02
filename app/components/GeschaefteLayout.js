@@ -52,7 +52,9 @@ class GeschaefteLayout extends Component {
     geschaefteLayout.registerComponent('geschaeft', wrapComponentInProvider(Geschaeft, geschaefteLayout))
     geschaefteLayout.init()
     this.setState({ geschaefteLayout })
-    geschaefteLayout.on('stateChanged', () => this.saveGeschaefteState())
+    geschaefteLayout.on('stateChanged', () =>
+      this.saveGeschaefteState()
+    )
   }
 
   componentWillUnmount = () => {
