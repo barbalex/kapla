@@ -144,7 +144,10 @@ class NavbarComponent extends Component {
   }
 
   removeFilter = () => {
-    const { geschaefteFilterByFulltextSet, geschaefteFilterByFulltext } = this.props
+    const {
+      geschaefteFilterByFulltextSet,
+      geschaefteFilterByFulltext
+    } = this.props
     const filterFulltext = ''
     geschaefteFilterByFulltextSet(filterFulltext)
     geschaefteFilterByFulltext(null)
@@ -159,17 +162,43 @@ class NavbarComponent extends Component {
         title={filterType ? `Filter: ${filterType}` : 'Filter'}
         id="filter-nav-dropdown"
       >
-        <MenuItem header>individuell:</MenuItem>
+        <MenuItem header>
+          individuell:
+        </MenuItem>
         <LinkContainer to={{ pathname: '/filter' }}>
-          <MenuItem eventKey={3.1}>nach Feldern</MenuItem>
+          <MenuItem eventKey={3.1}>
+            nach Feldern
+          </MenuItem>
         </LinkContainer>
-        <MenuItem eventKey={3.2} onSelect={this.focusFulltextFilter}>nach Volltext</MenuItem>
+        <MenuItem
+          eventKey={3.2}
+          onSelect={this.focusFulltextFilter}
+        >
+          nach Volltext
+        </MenuItem>
         <MenuItem divider />
-        <MenuItem header>pfannenfertig:</MenuItem>
-        <MenuItem eventKey={3.3} onSelect={this.onSelectFilterFaelligeGeschaefte}>fällige</MenuItem>
-        <MenuItem eventKey={3.4} onSelect={this.onSelectFilterFaelligeGeschaefteMitarbeiter}>eigene fällige</MenuItem>
+        <MenuItem header>
+          pfannenfertig:
+        </MenuItem>
+        <MenuItem
+          eventKey={3.3}
+          onSelect={this.onSelectFilterFaelligeGeschaefte}
+        >
+          fällige
+        </MenuItem>
+        <MenuItem
+          eventKey={3.4}
+          onSelect={this.onSelectFilterFaelligeGeschaefteMitarbeiter}
+        >
+          eigene fällige
+        </MenuItem>
         <MenuItem divider />
-        <MenuItem eventKey={3.5} onSelect={this.removeFilter}>Filter entfernen</MenuItem>
+        <MenuItem
+          eventKey={3.5}
+          onSelect={this.removeFilter}
+        >
+          Filter entfernen
+        </MenuItem>
       </NavDropdown>
     )
   }
@@ -179,7 +208,7 @@ class NavbarComponent extends Component {
     return (
       <NavItem
         eventKey={4}
-        onClick={() => geschaeftNewCreate()}
+        onClick={geschaeftNewCreate}
         title="neues Geschäft"
       >
         <Glyphicon glyph="plus" />
@@ -206,7 +235,9 @@ class NavbarComponent extends Component {
     return (
       <NavItem
         eventKey={4}
-        onClick={() => rowNewCreate(table)}
+        onClick={() =>
+          rowNewCreate(table)
+        }
         title="neuer Datensatz"
       >
         <Glyphicon glyph="plus" />
@@ -215,11 +246,17 @@ class NavbarComponent extends Component {
   }
 
   tableRowLoeschenNav = () => {
-    const { tableRowRemove, table, activeTableRowId } = this.props
+    const {
+      tableRowRemove,
+      table,
+      activeTableRowId
+    } = this.props
     return (
       <NavItem
         eventKey={5}
-        onClick={() => tableRowRemove(table, activeTableRowId)}
+        onClick={() =>
+          tableRowRemove(table, activeTableRowId)
+        }
         title="Datensatz löschen"
         disabled={!activeTableRowId}
       >
@@ -285,8 +322,12 @@ class NavbarComponent extends Component {
           }
         }}
       >
-        <MenuItem eventKey={7.1}>Fristen</MenuItem>
-        <MenuItem eventKey={7.2}>Einfache Liste</MenuItem>
+        <MenuItem eventKey={7.1}>
+          Fristen
+        </MenuItem>
+        <MenuItem eventKey={7.2}>
+          Einfache Liste
+        </MenuItem>
       </NavDropdown>
     )
   }
@@ -302,10 +343,21 @@ class NavbarComponent extends Component {
   )
 
   fulltextFilterNav = () => {
-    const { filterFulltext, geschaefte, geschaefteGefilterteIds } = this.props
+    const {
+      filterFulltext,
+      geschaefte,
+      geschaefteGefilterteIds
+    } = this.props
     const dataIsFiltered = geschaefte.length !== geschaefteGefilterteIds.length
-    const dataIsFilteredStyle = [styles.filterInput, styles.filterInputActive].join(' ')
-    const classNameFilterInput = dataIsFiltered ? dataIsFilteredStyle : styles.filterInput
+    const dataIsFilteredStyle = [
+      styles.filterInput,
+      styles.filterInputActive
+    ].join(' ')
+    const classNameFilterInput = (
+      dataIsFiltered ?
+      dataIsFilteredStyle :
+      styles.filterInput
+    )
     return (
       <Navbar.Form pullLeft>
         <FormGroup>
@@ -336,8 +388,14 @@ class NavbarComponent extends Component {
 
   exportGeschaefteAll = (e) => {
     e.preventDefault()
-    const { geschaefteGefilterteIds, geschaefte, messageShow } = this.props
-    const geschaefteGefiltert = geschaefte.filter((g) => geschaefteGefilterteIds.includes(g.idGeschaeft))
+    const {
+      geschaefteGefilterteIds,
+      geschaefte,
+      messageShow
+    } = this.props
+    const geschaefteGefiltert = geschaefte.filter((g) =>
+      geschaefteGefilterteIds.includes(g.idGeschaeft)
+    )
     exportGeschaefte(geschaefteGefiltert, messageShow)
   }
 
@@ -389,7 +447,13 @@ class NavbarComponent extends Component {
       statusVernehmlassung: 'Status Vernehmlassung'
     }
     const tableName = tableNameObject[table] || table
-    if (table) return <span>{tableName} <sup>{rows.length}</sup></span>
+    if (table) {
+      return (
+        <span>
+          {tableName} <sup>{rows.length}</sup>
+        </span>
+      )
+    }
     return <span>Stammdaten</span>
   }
 
@@ -420,21 +484,52 @@ class NavbarComponent extends Component {
 
     return (
       <div>
-        {willDeleteGeschaeft && <ModalGeschaeftDelete />}
-        {showMessageModal && <ModalMessage />}
-        <Navbar inverse fluid className={styles.navbar}>
+        {
+          willDeleteGeschaeft &&
+          <ModalGeschaeftDelete />
+        }
+        {
+          showMessageModal &&
+          <ModalMessage />
+        }
+        <Navbar
+          inverse
+          fluid
+          className={styles.navbar}
+        >
           <Nav>
             <LinkContainer to={{ pathname: '/geschaefte' }}>
-              <NavItem eventKey={1} href="#">
+              <NavItem
+                eventKey={1}
+                href="#"
+              >
                 Geschäfte <sup className={classNameBadge}>{geschaefteGefilterteIds.length}</sup>
               </NavItem>
             </LinkContainer>
-            {showGeschaefteStuff && this.geschaefteFilterNav()}
-            {showGeschaefteStuff && this.geschaeftNeuNav()}
-            {showGeschaefteStuff && this.geschaeftLoeschenNav()}
-            {showGeschaefteAndPrint && this.exportGeschaefteNav()}
-            {showGeschaefteAndPrint && this.berichteNav()}
-            {showPrint && this.printNav()}
+            {
+              showGeschaefteStuff &&
+              this.geschaefteFilterNav()
+            }
+            {
+              showGeschaefteStuff &&
+              this.geschaeftNeuNav()
+            }
+            {
+              showGeschaefteStuff &&
+              this.geschaeftLoeschenNav()
+            }
+            {
+              showGeschaefteAndPrint &&
+              this.exportGeschaefteNav()
+            }
+            {
+              showGeschaefteAndPrint &&
+              this.berichteNav()
+            }
+            {
+              showPrint &&
+              this.printNav()
+            }
             <NavDropdown
               eventKey={8}
               title={this.stammdatenTitle()}
@@ -442,41 +537,100 @@ class NavbarComponent extends Component {
               active={isStammdatenMenuActive}
               className={isStammdatenMenuActive ? styles.navActive : null}
             >
-              <MenuItem eventKey={8.1} onClick={() => getTable('interne')} active={table === 'interne'}>
+              <MenuItem
+                eventKey={8.1}
+                onClick={() => getTable('interne')}
+                active={table === 'interne'}
+              >
                 Interne
               </MenuItem>
-              <MenuItem eventKey={8.2} onClick={() => getTable('externe')} active={table === 'externe'}>
+              <MenuItem
+                eventKey={8.2}
+                onClick={() => getTable('externe')}
+                active={table === 'externe'}
+              >
                 Externe
               </MenuItem>
               <MenuItem divider />
-              <MenuItem header>Auswahllisten:</MenuItem>
-              <MenuItem eventKey={8.3} onClick={() => getTable('gdeplz')} active={table === 'gdeplz'}>
+              <MenuItem header>
+                Auswahllisten:
+              </MenuItem>
+              <MenuItem
+                eventKey={8.3}
+                onClick={() => getTable('gdeplz')}
+                active={table === 'gdeplz'}
+              >
                 Gemeinden
               </MenuItem>
-              <MenuItem eventKey={8.4} onClick={() => getTable('geschaeftsart')} active={table === 'geschaeftsart'}>
+              <MenuItem
+                eventKey={8.4}
+                onClick={() => getTable('geschaeftsart')}
+                active={table === 'geschaeftsart'}
+              >
                 Geschäftsart
               </MenuItem>
-              <MenuItem eventKey={8.6} onClick={() => getTable('parlVorstossTyp')} active={table === 'parlVorstossTyp'}>
+              <MenuItem
+                eventKey={8.6}
+                onClick={() => getTable('parlVorstossTyp')}
+                active={table === 'parlVorstossTyp'}
+              >
                 Parlament. Vorstoss Typ
               </MenuItem>
-              <MenuItem eventKey={8.7} onClick={() => getTable('rechtsmittelInstanz')} active={table === 'rechtsmittelInstanz'}>
+              <MenuItem
+                eventKey={8.7}
+                onClick={() => getTable('rechtsmittelInstanz')}
+                active={table === 'rechtsmittelInstanz'}>
+
                 Rechtsmittel-Instanz
               </MenuItem>
-              <MenuItem eventKey={8.8} onClick={() => getTable('rechtsmittelErledigung')} active={table === 'rechtsmittelErledigung'}>
+              <MenuItem
+                eventKey={8.8}
+                onClick={() => getTable('rechtsmittelErledigung')}
+                active={table === 'rechtsmittelErledigung'}
+              >
                 Rechtsmittel-Erledigung
               </MenuItem>
-              <MenuItem eventKey={8.9} onClick={() => getTable('status')} active={table === 'status'}>Status</MenuItem>
-              <MenuItem eventKey={8.10} onClick={() => getTable('statusVernehmlassung')} active={table === 'statusVernehmlassung'}>
+              <MenuItem
+                eventKey={8.9}
+                onClick={() => getTable('status')}
+                active={table === 'status'}
+              >
+                Status
+              </MenuItem>
+              <MenuItem
+                eventKey={8.10}
+                onClick={() => getTable('statusVernehmlassung')}
+                active={table === 'statusVernehmlassung'}
+              >
                 Status Vernehmlassung
               </MenuItem>
             </NavDropdown>
-            {showTableStuff && this.tableRowNeuNav()}
-            {showTableStuff && this.tableRowLoeschenNav()}
+            {
+              showTableStuff &&
+              this.tableRowNeuNav()
+            }
+            {
+              showTableStuff &&
+              this.tableRowLoeschenNav()
+            }
           </Nav>
           <Nav pullRight>
-            {showGeschaefteAndPrint && this.fulltextFilterNav()}
-            <NavDropdown eventKey={9} title="&#8942;" id="basic-nav-dropdown" noCaret>
-              <MenuItem eventKey={9.1} onClick={dbGet}>Datenbank wählen</MenuItem>
+            {
+              showGeschaefteAndPrint &&
+              this.fulltextFilterNav()
+            }
+            <NavDropdown
+              eventKey={9}
+              title="&#8942;"
+              id="basic-nav-dropdown"
+              noCaret
+            >
+              <MenuItem
+                eventKey={9.1}
+                onClick={dbGet}
+              >
+                Datenbank wählen
+              </MenuItem>
             </NavDropdown>
           </Nav>
         </Navbar>
