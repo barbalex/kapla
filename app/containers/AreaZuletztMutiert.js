@@ -11,7 +11,9 @@ function mapStateToProps(state) {
     activeId,
     interneOptions
   } = state.geschaefte
-  const geschaeft = geschaefte.find((g) => g.idGeschaeft === activeId)
+  const geschaeft = geschaefte.find((g) =>
+    g.idGeschaeft === activeId
+  )
 
   return {
     geschaeft,

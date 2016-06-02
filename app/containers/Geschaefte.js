@@ -7,10 +7,18 @@ import * as UserActions from '../actions/user'
 import * as GeschaefteActions from '../actions/geschaefte'
 import * as AppActions from '../actions/app'
 
-const actions = Object.assign(GeschaefteActions, AppActions, UserActions)
+const actions = Object.assign(
+  GeschaefteActions,
+  AppActions,
+  UserActions
+)
 
 function mapStateToProps(state) {
-  const { geschaefte, geschaefteGefilterteIds, activeId } = state.geschaefte
+  const {
+    geschaefte,
+    geschaefteGefilterteIds,
+    activeId
+  } = state.geschaefte
   const { username } = state.user
   const { dbPath, db } = state.app
 
