@@ -12,7 +12,11 @@ import electron, { remote } from 'electron'
 const { dialog } = remote
 import pathModule from 'path'
 import childProcess from 'child_process'
-const app = process.type === 'browser' ? electron.app : electron.remote.app
+const app = (
+  process.type === 'browser' ?
+  electron.app :
+  electron.remote.app
+)
 
 function getDataArrayFromExportObjects(exportObjects) {
   const dataArray = []
@@ -20,12 +24,13 @@ function getDataArrayFromExportObjects(exportObjects) {
   // first the field names:
   dataArray.push(Object.keys(exportObjects[0]))
   // then the field values
-  exportObjects.forEach((object) => dataArray.push(Object.keys(object).map((key) => {
-    // exceljs errors out if forst member of array is null
-    // see: https://github.com/guyonroche/exceljs/issues/111
-    if (object[key] === null) return ''
-    return object[key]
-  })))
+  exportObjects.forEach((object) =>
+    dataArray.push(Object.keys(object).map((key) => {
+      // exceljs errors out if first member of array is null
+      // see: https://github.com/guyonroche/exceljs/issues/111
+      if (object[key] === null) return ''
+      return object[key]
+    })))
   return dataArray
 }
 
