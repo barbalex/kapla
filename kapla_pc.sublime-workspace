@@ -363,23 +363,23 @@
 			"file": "package.json",
 			"settings":
 			{
-				"buffer_size": 4514,
+				"buffer_size": 4502,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "app/actions/geschaefte.js",
+			"file": "app/components/AreaHistory.js",
 			"settings":
 			{
-				"buffer_size": 13066,
+				"buffer_size": 2193,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "app/components/Navbar.js",
+			"file": "app/components/GeschaeftKontakteIntern.js",
 			"settings":
 			{
-				"buffer_size": 16150,
+				"buffer_size": 4723,
 				"line_ending": "Windows"
 			}
 		}
@@ -435,18 +435,18 @@
 	[
 		"/C/Users/alex/kapla",
 		"/C/Users/alex/kapla/app",
-		"/C/Users/alex/kapla/app/actions",
 		"/C/Users/alex/kapla/app/components",
 		"/C/Users/alex/kapla/app/src"
 	],
 	"file_history":
 	[
+		"/C/Users/alex/kapla/app/actions/geschaefte.js",
+		"/C/Users/alex/kapla/app/components/Navbar.js",
 		"/C/Users/alex/kapla/app/src/filterGeschaefte.js",
 		"/C/Users/alex/kapla/app/src/updateGeschaeft.js",
 		"/C/Users/alex/kapla/main.js",
 		"/C/Users/alex/kapla/app/src/writeExport.js",
 		"/C/Users/alex/kapla/app/src/exportGeschaefte.js",
-		"/C/Users/alex/kapla/app/components/Navbar.js",
 		"/C/Users/alex/kapla/webpack.config.base.js",
 		"/C/Users/alex/kapla/app/src/deleteGeschaeft.js",
 		"/C/Users/alex/kapla/webpack.config.development.js",
@@ -497,7 +497,6 @@
 		"/C/Users/alex/kapla/app/components/AreaNummern.js",
 		"/C/Users/alex/kapla/app/src/fieldnamesImportCorrected/geschaefte.csv",
 		"/C/Users/alex/kapla/app/reducers/geschaefte.js",
-		"/C/Users/alex/kapla/app/actions/geschaefte.js",
 		"/C/Users/alex/kapla/app/src/sql/updateTables.sql",
 		"/C/Users/alex/kapla/app/components/AreaGeschaeft.css",
 		"/C/Users/alex/kapla/kapla.db",
@@ -879,15 +878,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 4514,
+						"buffer_size": 4502,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1257,
-								1257
+								2162,
+								2162
 							]
 						],
 						"settings":
@@ -897,7 +896,7 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 260.0,
+						"translation.y": 340.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 2,
@@ -905,19 +904,19 @@
 				},
 				{
 					"buffer": 1,
-					"file": "app/actions/geschaefte.js",
+					"file": "app/components/AreaHistory.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 13066,
+						"buffer_size": 2193,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								6421,
-								6425
+								723,
+								730
 							]
 						],
 						"settings":
@@ -927,7 +926,7 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 6538.0,
+						"translation.y": 612.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 1,
@@ -935,19 +934,19 @@
 				},
 				{
 					"buffer": 2,
-					"file": "app/components/Navbar.js",
+					"file": "app/components/GeschaeftKontakteIntern.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 16150,
+						"buffer_size": 4723,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								4369,
-								4369
+								0,
+								0
 							]
 						],
 						"settings":
@@ -957,7 +956,7 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 4488.0,
+						"translation.y": 2856.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
