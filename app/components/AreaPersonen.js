@@ -67,7 +67,9 @@ class AreaPersonen extends Component {
           Personen
         </div>
         <div className={styles.areaVerantwortlichSubTitle}>
-          Verantwortlich
+          <div className={styles.areaSubTitleDiv}>
+            Verantwortlich
+          </div>
         </div>
         <div className={styles.fieldVerantwortlich}>
           <FormControl
@@ -89,13 +91,17 @@ class AreaPersonen extends Component {
           </FormControl.Static>
         </div>
         <div className={styles.areaInterneKontakteSubTitle}>
-          Interne Kontakte
+          <div className={styles.areaSubTitleDiv}>
+            Interne Kontakte
+          </div>
         </div>
         <GeschaeftKontakteIntern
           tabIndex={nrOfFieldsBeforePersonen + 1}
         />
         <div className={styles.areaExterneKontakteSubTitle}>
-          Externe Kontakte
+          <div className={styles.areaSubTitleDiv}>
+            Externe Kontakte
+          </div>
         </div>
         <GeschaeftKontakteExtern
           tabIndex={nrOfFieldsBeforePersonen + 2}
