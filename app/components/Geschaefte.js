@@ -44,9 +44,19 @@ class Geschaefte extends Component {
   renderItem(index, key) {
     const { geschaefte, geschaefteGefilterteIds, activeId } = this.props
     const isActive = activeId && activeId === geschaefteGefilterteIds[index]
-    const trClassName = isActive ? [styles.tableBodyRow, styles.active].join(' ') : styles.tableBodyRow
-    const geschaeft = geschaefte.find((g) => g.idGeschaeft === geschaefteGefilterteIds[index])
-    const fristMitarbeiter = geschaeft.fristMitarbeiter ? `Frist: ${geschaeft.fristMitarbeiter}` : ''
+    const trClassName = (
+      isActive ?
+      [styles.tableBodyRow, styles.active].join(' ') :
+      styles.tableBodyRow
+    )
+    const geschaeft = geschaefte.find((g) =>
+      g.idGeschaeft === geschaefteGefilterteIds[index]
+    )
+    const fristMitarbeiter = (
+      geschaeft.fristMitarbeiter ?
+      `Frist: ${geschaeft.fristMitarbeiter}` :
+      ''
+    )
     const dauerBisFristMitarbeiter = this.dauerBisFristMitarbeiter(geschaeft)
     const statusFristInText = this.statusFristInText(dauerBisFristMitarbeiter)
     const statusFristIn = geschaeft.fristMitarbeiter ? statusFristInText : null
@@ -55,7 +65,7 @@ class Geschaefte extends Component {
       <div
         key={key}
         className={trClassName}
-        onClick={this.onClickGeschaeft.bind(this, geschaeft.idGeschaeft)}
+        onClick={() => this.onClickGeschaeft(geschaeft.idGeschaeft)}
       >
         <div className={styles.columnIdGeschaeft}>
           <div>
@@ -97,7 +107,10 @@ class Geschaefte extends Component {
 
   renderItems(items, ref) {
     return (
-      <div ref={ref} className={styles.table}>
+      <div
+        ref={ref}
+        className={styles.table}
+      >
         {items}
       </div>
     )
@@ -115,10 +128,18 @@ class Geschaefte extends Component {
         <div className={styles.table}>
           <div className={styles.tableHeader}>
             <div className={styles.tableHeaderRow}>
-              <div className={[styles.columnIdGeschaeft, styles.tableHeaderCell].join(' ')}>ID</div>
-              <div className={[styles.columnGegenstand, styles.tableHeaderCell].join(' ')}>Gegenstand</div>
-              <div className={[styles.columnStatus, styles.tableHeaderCell].join(' ')}>Status</div>
-              <div className={[styles.columnKontaktIntern, styles.tableHeaderCell].join(' ')}>Kontakt</div>
+              <div className={[styles.columnIdGeschaeft, styles.tableHeaderCell].join(' ')}>
+                ID
+              </div>
+              <div className={[styles.columnGegenstand, styles.tableHeaderCell].join(' ')}>
+                Gegenstand
+              </div>
+              <div className={[styles.columnStatus, styles.tableHeaderCell].join(' ')}>
+                Status
+              </div>
+              <div className={[styles.columnKontaktIntern, styles.tableHeaderCell].join(' ')}>
+                Kontakt
+              </div>
             </div>
           </div>
           <div className={[styles.tableBody, 'reactList'].join(' ')}>

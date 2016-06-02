@@ -24,13 +24,19 @@ class AreaZuletztMutiert extends Component {
         }
         return false
       })
-      const name = mutPersonOptions ? ` (${mutPersonOptions.vorname} ${mutPersonOptions.name})` : ''
+      const name = (
+        mutPersonOptions ?
+        ` (${mutPersonOptions.vorname} ${mutPersonOptions.name})` :
+        ''
+      )
       zuletztMutiertText = `Zuletzt mutiert durch ${geschaeft.mutationsperson}${name} am ${geschaeft.mutationsdatum}`
     }
 
     return (
       <div className={styles.areaZuletztMutiert}>
-        <div className={styles.fieldZuletztMutiert}>{zuletztMutiertText}</div>
+        <div className={styles.fieldZuletztMutiert}>
+          {zuletztMutiertText}
+        </div>
       </div>
     )
   }

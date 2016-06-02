@@ -94,7 +94,11 @@ class Geschaeft extends Component {
     const showAreaParlVorstoss = geschaeft.geschaeftsart === 'Parlament. Vorstoss'
     const showAreaRechtsmittel = geschaeft.geschaeftsart === 'Rekurs/Beschwerde'
     const showAreaVernehmlassung = geschaeft.geschaeftsart === 'Vernehmlassung'
-    const showAreaForGeschaeftsart = showAreaParlVorstoss || showAreaRechtsmittel || showAreaVernehmlassung
+    const showAreaForGeschaeftsart = (
+      showAreaParlVorstoss ||
+      showAreaRechtsmittel ||
+      showAreaVernehmlassung
+    )
 
     // need width to set layout for differing widths
     const geschaefteLayoutWidth = geschaefteLayout.width
@@ -102,7 +106,11 @@ class Geschaeft extends Component {
     const totalWidth = geschaefteLayoutWidth * geschaeftWidthPercent / 100
     const wrapperClassBaseString = totalWidth < 750 ? 'wrapperNarrow' : 'wrapperWide'
     // layout needs to work with or without area for geschaeftsart
-    const wrapperClassString = showAreaForGeschaeftsart ? wrapperClassBaseString : `${wrapperClassBaseString}NoAreaForGeschaeftsart`
+    const wrapperClassString = (
+      showAreaForGeschaeftsart ?
+      wrapperClassBaseString :
+      `${wrapperClassBaseString}NoAreaForGeschaeftsart`
+    )
     const wrapperClass = styles[wrapperClassString]
     // prepare tab indexes
     const nrOfGFields = 10
