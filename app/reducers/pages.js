@@ -25,18 +25,21 @@ const standardPagesState = {
   building: false
 }
 
-function page(state, action, pagesState, pageIndex) {
+const page = (state, action, pagesState, pageIndex) => {
   switch (action.type) {
     case PAGE_ADD_GESCHAEFT:
       if (pageIndex === pagesState.activePageIndex) {
-        const geschaefte = [...state.geschaefte, pagesState.remainingGeschaefte[0]]
+        const geschaefte = [
+          ...state.geschaefte,
+          pagesState.remainingGeschaefte[0]
+        ]
         return { ...state, geschaefte }
       }
       return state
     case PAGE_REMOVE_GESCHAEFT:
       if (pageIndex === action.pageIndex) {
-        const geschaefte = state.geschaefte.filter(
-          (g) => g.idGeschaeft !== action.geschaeft.idGeschaeft
+        const geschaefte = state.geschaefte.filter((g) =>
+          g.idGeschaeft !== action.geschaeft.idGeschaeft
         )
         const full = true
         return { ...state, geschaefte, full }
@@ -47,7 +50,7 @@ function page(state, action, pagesState, pageIndex) {
   }
 }
 
-export default function pages(state = standardPagesState, action) {
+const pages = (state = standardPagesState, action) => {
   switch (action.type) {
     case PAGES_INITIATE:
       return {
@@ -75,7 +78,9 @@ export default function pages(state = standardPagesState, action) {
     case PAGE_ADD_GESCHAEFT:
       return {
         ...state,
-        pages: state.pages.map((p, pageIndex) => page(p, action, state, pageIndex)),
+        pages: state.pages.map((p, pageIndex) =>
+          page(p, action, state, pageIndex)
+        ),
         remainingGeschaefte: state.remainingGeschaefte.filter(
           (g, index) => index !== 0
         )
@@ -83,8 +88,13 @@ export default function pages(state = standardPagesState, action) {
     case PAGE_REMOVE_GESCHAEFT:
       return {
         ...state,
-        pages: state.pages.map((p, pageIndex) => page(p, action, state, pageIndex)),
-        remainingGeschaefte: [action.geschaeft, ...state.remainingGeschaefte]
+        pages: state.pages.map((p, pageIndex) =>
+          page(p, action, state, pageIndex)
+        ),
+        remainingGeschaefte: [
+          action.geschaeft,
+          ...state.remainingGeschaefte
+        ]
       }
     case PAGES_FINISHED_BUILDING:
       return {
@@ -95,3 +105,5 @@ export default function pages(state = standardPagesState, action) {
       return state
   }
 }
+
+export default pages
