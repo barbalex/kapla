@@ -14,7 +14,9 @@ export default function (db, table, id) {
       if (error) reject(error)
       // react does not want to get null values
       Object.keys(row).forEach((key) => {
-        if (row[key] === null) row[key] = ''
+        if (row[key] === null) {
+          row[key] = ''
+        }
       })
       resolve(row)
     })
