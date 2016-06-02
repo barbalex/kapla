@@ -28,16 +28,24 @@ class AreaHistory extends Component {
     // sort descending
     history.reverse()
     return history.map((id, index) => {
-      const geschaeft = geschaefte.find((g) => g.idGeschaeft === id)
-      if (!geschaeft || !geschaeft.gegenstand) return null
+      const geschaeft = geschaefte.find((g) =>
+        g.idGeschaeft === id
+      )
+      if (!geschaeft || !geschaeft.gegenstand) {
+        return null
+      }
       return (
         <div
           key={index}
           className={styles.areaHistoryFields}
-          onClick={this.onClickHistoryGeschaeft.bind(this, id)}
+          onClick={() => this.onClickHistoryGeschaeft(id)}
         >
-          <div className={styles.historyIdGeschaeft}>{id}</div>
-          <div className={styles.historyGegenstand}>{geschaeft.gegenstand}</div>
+          <div className={styles.historyIdGeschaeft}>
+            {id}
+          </div>
+          <div className={styles.historyGegenstand}>
+            {geschaeft.gegenstand}
+          </div>
         </div>
       )
     })
@@ -47,8 +55,12 @@ class AreaHistory extends Component {
     const { geschaeft, blur, change } = this.props
     return (
       <div className={styles.areaHistory}>
-        <div className={styles.areaHistoryTitle}>Historie</div>
-        <ControlLabel className={styles.labelVorgeschaeft}>Vorgeschäft</ControlLabel>
+        <div className={styles.areaHistoryTitle}>
+          Historie
+        </div>
+        <ControlLabel className={styles.labelVorgeschaeft}>
+          Vorgeschäft
+        </ControlLabel>
         <div className={styles.fieldVorgeschaeft}>
           <FormControl
             type="number"

@@ -21,14 +21,21 @@ class AreaNummern extends Component {
       change,
       blur
     } = this.props
+    const tabsToAdd = wrapperClass === styles.wrapperNarrow ? 0 : nrOfGFields
 
     return (
       <div className={styles.areaNummern}>
-        <div className={styles.areaNummernTitle}>Nummern</div>
+        <div className={styles.areaNummernTitle}>
+          Nummern
+        </div>
         <ControlLabel className={styles.labelNr}>
-          <div className={styles.labelNrDiv}>Nr.</div>
+          <div className={styles.labelNrDiv}>
+            Nr.
+          </div>
         </ControlLabel>
-        <ControlLabel className={styles.labelIdGeschaeft}>ID</ControlLabel>
+        <ControlLabel className={styles.labelIdGeschaeft}>
+          ID
+        </ControlLabel>
         <div className={styles.fieldIdGeschaeft}>
           <FormControl
             type="number"
@@ -38,7 +45,9 @@ class AreaNummern extends Component {
             className={[styles.typeNr, styles.inputIdGeschaeft].join(' ')}
           />
         </div>
-        <ControlLabel className={styles.labelGekoNr}>Geko</ControlLabel>
+        <ControlLabel className={styles.labelGekoNr}>
+          Geko
+        </ControlLabel>
         <div className={styles.fieldGekoNr}>
           <FormControl
             type="number"
@@ -47,14 +56,16 @@ class AreaNummern extends Component {
             onChange={change}
             onBlur={blur}
             bsSize="small"
-            tabIndex={1 + (wrapperClass === styles.wrapperNarrow ? 0 : nrOfGFields)}
+            tabIndex={1 + tabsToAdd}
             autoFocus={wrapperClass === styles.wrapperNarrow}
           />
         </div>
         <div className={styles.labelJahre}>
           Jahr
         </div>
-        <ControlLabel className={styles.labelEntscheidAwel}>AWEL</ControlLabel>
+        <ControlLabel className={styles.labelEntscheidAwel}>
+          AWEL
+        </ControlLabel>
         <div className={styles.fieldEntscheidAwelNr}>
           <FormControl
             type="number"
@@ -63,7 +74,7 @@ class AreaNummern extends Component {
             onChange={change}
             onBlur={blur}
             bsSize="small"
-            tabIndex={2 + (wrapperClass === styles.wrapperNarrow ? 0 : nrOfGFields)}
+            tabIndex={2 + tabsToAdd}
           />
         </div>
         <div className={styles.slashAwel}>
@@ -77,10 +88,12 @@ class AreaNummern extends Component {
             onChange={change}
             onBlur={blur}
             bsSize="small"
-            tabIndex={3 + (wrapperClass === styles.wrapperNarrow ? 0 : nrOfGFields)}
+            tabIndex={3 + tabsToAdd}
           />
         </div>
-        <ControlLabel className={styles.labelEntscheidBdv}>BDV</ControlLabel>
+        <ControlLabel className={styles.labelEntscheidBdv}>
+          BDV
+        </ControlLabel>
         <div className={styles.fieldEntscheidBdvNr}>
           <FormControl
             type="number"
@@ -89,7 +102,7 @@ class AreaNummern extends Component {
             onChange={change}
             onBlur={blur}
             bsSize="small"
-            tabIndex={4 + (wrapperClass === styles.wrapperNarrow ? 0 : nrOfGFields)}
+            tabIndex={4 + tabsToAdd}
           />
         </div>
         <div className={styles.slashBdv}>
@@ -103,10 +116,12 @@ class AreaNummern extends Component {
             onChange={change}
             onBlur={blur}
             bsSize="small"
-            tabIndex={5 + (wrapperClass === styles.wrapperNarrow ? 0 : nrOfGFields)}
+            tabIndex={5 + tabsToAdd}
           />
         </div>
-        <ControlLabel className={styles.labelEntscheidKr}>KR</ControlLabel>
+        <ControlLabel className={styles.labelEntscheidKr}>
+          KR
+        </ControlLabel>
         <div className={styles.fieldEntscheidKrNr}>
           <FormControl
             type="number"
@@ -115,7 +130,7 @@ class AreaNummern extends Component {
             onChange={change}
             onBlur={blur}
             bsSize="small"
-            tabIndex={6 + (wrapperClass === styles.wrapperNarrow ? 0 : nrOfGFields)}
+            tabIndex={6 + tabsToAdd}
           />
         </div>
         <div className={styles.slashKr}>
@@ -129,10 +144,12 @@ class AreaNummern extends Component {
             onChange={change}
             onBlur={blur}
             bsSize="small"
-            tabIndex={7 + (wrapperClass === styles.wrapperNarrow ? 0 : nrOfGFields)}
+            tabIndex={7 + tabsToAdd}
           />
         </div>
-        <ControlLabel className={styles.labelEntscheidRrb}>RRB</ControlLabel>
+        <ControlLabel className={styles.labelEntscheidRrb}>
+          RRB
+        </ControlLabel>
         <div className={styles.fieldEntscheidRrbNr}>
           <FormControl
             type="number"
@@ -141,7 +158,7 @@ class AreaNummern extends Component {
             onChange={change}
             onBlur={blur}
             bsSize="small"
-            tabIndex={8 + (wrapperClass === styles.wrapperNarrow ? 0 : nrOfGFields)}
+            tabIndex={8 + tabsToAdd}
           />
         </div>
         <div className={styles.slashRrb}>
@@ -155,11 +172,13 @@ class AreaNummern extends Component {
             onChange={change}
             onBlur={blur}
             bsSize="small"
-            tabIndex={9 + (wrapperClass === styles.wrapperNarrow ? 0 : nrOfGFields)}
+            tabIndex={9 + tabsToAdd}
           />
         </div>
         <div className={styles.fieldAktenstandort}>
-          <ControlLabel>Aktenstandort</ControlLabel>
+          <ControlLabel>
+            Aktenstandort
+          </ControlLabel>
           <FormControl
             type="text"
             value={geschaeft.aktenstandort || ''}
@@ -167,11 +186,13 @@ class AreaNummern extends Component {
             onChange={change}
             onBlur={blur}
             bsSize="small"
-            tabIndex={10 + (wrapperClass === styles.wrapperNarrow ? 0 : nrOfGFields)}
+            tabIndex={10 + tabsToAdd}
           />
         </div>
         <div className={styles.fieldAktennummer}>
-          <ControlLabel>Nr.</ControlLabel>
+          <ControlLabel>
+            Nr.
+          </ControlLabel>
           <FormControl
             type="text"
             value={geschaeft.aktennummer || ''}
@@ -179,7 +200,7 @@ class AreaNummern extends Component {
             onChange={change}
             onBlur={blur}
             bsSize="small"
-            tabIndex={11 + (wrapperClass === styles.wrapperNarrow ? 0 : nrOfGFields)}
+            tabIndex={11 + tabsToAdd}
           />
         </div>
       </div>
