@@ -17,7 +17,7 @@ const standardState = {
   messageTextLine2: ''
 }
 
-export default function app(state = standardState, action) {
+const app = (state = standardState, action) => {
   switch (action.type) {
     case MESSAGE_SHOW:
       return {
@@ -52,3 +52,5 @@ export default function app(state = standardState, action) {
       return state
   }
 }
+
+export default app
