@@ -1,7 +1,13 @@
 'use strict'
 
 import React, { Component, PropTypes } from 'react'
-import { FormGroup, FormControl, InputGroup, ControlLabel, Glyphicon } from 'react-bootstrap'
+import {
+  FormGroup,
+  FormControl,
+  InputGroup,
+  ControlLabel,
+  Glyphicon
+} from 'react-bootstrap'
 import moment from 'moment'
 moment.locale('de')
 import DateRangePicker from 'react-bootstrap-daterangepicker'
@@ -48,9 +54,13 @@ class AreaRechtsmittel extends Component {
 
     return (
       <div className={styles.areaForGeschaeftsart}>
-        <div className={styles.areaRechtsmittelTitle}>Rekurs / Beschwerde</div>
+        <div className={styles.areaRechtsmittelTitle}>
+          Rekurs / Beschwerde
+        </div>
         <div className={styles.fieldInstanz}>
-          <ControlLabel>Instanz</ControlLabel>
+          <ControlLabel>
+            Instanz
+          </ControlLabel>
           <FormControl
             componentClass="select"
             value={geschaeft.rechtsmittelInstanz || ''}
@@ -64,7 +74,9 @@ class AreaRechtsmittel extends Component {
           </FormControl>
         </div>
         <div className={styles.fieldEntscheidNr}>
-          <ControlLabel>Entscheid Nr.</ControlLabel>
+          <ControlLabel>
+            Entscheid Nr.
+          </ControlLabel>
           <FormControl
             type="number"
             value={geschaeft.rechtsmittelEntscheidNr || ''}
@@ -79,7 +91,9 @@ class AreaRechtsmittel extends Component {
           className={styles.fieldEntscheidDatum}
           validationState={getDateValidationStateDate(geschaeft.rechtsmittelEntscheidDatum)}
         >
-          <ControlLabel>Entscheid Datum</ControlLabel>
+          <ControlLabel>
+            Entscheid Datum
+          </ControlLabel>
           <InputGroup>
             <FormControl
               type="text"
@@ -96,16 +110,21 @@ class AreaRechtsmittel extends Component {
                 singleDatePicker
                 drops="up"
                 opens="left"
-                onApply={onChangeDatePicker.bind(this, 'rechtsmittelEntscheidDatum')}
+                onApply={() => onChangeDatePicker('rechtsmittelEntscheidDatum')}
                 className={styles.datePicker}
               >
-                <Glyphicon glyph="calendar" style={datePickerCalendarStyle} />
+                <Glyphicon
+                  glyph="calendar"
+                  style={datePickerCalendarStyle}
+                />
               </DateRangePicker>
             </InputGroup.Addon>
           </InputGroup>
         </FormGroup>
         <div className={styles.fieldErledigung}>
-          <ControlLabel>Erledigung</ControlLabel>
+          <ControlLabel>
+            Erledigung
+          </ControlLabel>
           <FormControl
             componentClass="select"
             value={geschaeft.rechtsmittelErledigung || ''}

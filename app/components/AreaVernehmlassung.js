@@ -25,9 +25,13 @@ class AreaVernehmlassung extends Component {
 
     return (
       <div className={styles.areaForGeschaeftsart}>
-        <div className={styles.areaVernehmlassungTitle}>Vernehmlassung</div>
+        <div className={styles.areaVernehmlassungTitle}>
+          Vernehmlassung
+        </div>
         <div className={styles.fieldStatusVernehmlassung}>
-          <ControlLabel>Status</ControlLabel>
+          <ControlLabel>
+            Status
+          </ControlLabel>
           <FormControl
             componentClass="select"
             value={geschaeft.statusVernehmlassung || ''}
