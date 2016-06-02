@@ -26,14 +26,18 @@ class AreaGeschaeft extends Component {
       blur,
       nrOfNrFields
     } = this.props
-    const tabsToAdd = wrapperClass === styles.wrapperNarrow ? nrOfNrFields : 0
+    const tabsToAdd = (
+      wrapperClass === styles.wrapperNarrow ?
+      nrOfNrFields :
+      0
+    )
 
     return (
       <div className={styles.areaGeschaeft}>
+        <div className={styles.areaGeschaeftTitle}>
+          Geschäft
+        </div>
         <div className={styles.fieldGegenstand}>
-          <div className={styles.areaGeschaeftTitle}>
-            Geschäft
-          </div>
           <ControlLabel>
             Gegenstand
           </ControlLabel>
@@ -106,7 +110,6 @@ class AreaGeschaeft extends Component {
             onChange={change}
             onBlur={blur}
             bsSize="small"
-            className={styles.fieldDirektion}
             tabIndex={6 + tabsToAdd}
           />
         </div>
