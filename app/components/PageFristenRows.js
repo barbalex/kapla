@@ -19,7 +19,11 @@ class PageFristenRows extends Component {
   render = () => {
     const { geschaeft, rowIndex } = this.props
 
-    const fristMitarbeiter = geschaeft.fristMitarbeiter ? `Frist: ${geschaeft.fristMitarbeiter}` : ''
+    const fristMitarbeiter = (
+      geschaeft.fristMitarbeiter ?
+      `Frist: ${geschaeft.fristMitarbeiter}` :
+      ''
+    )
     /**
      * need to enforce max string length
      * if a field contains more text than fits on a page
@@ -32,7 +36,11 @@ class PageFristenRows extends Component {
       gegenstand += '... (Text für die Ausgabe gekürzt)'
     }
     let naechsterSchritt = ''
-    if (geschaeft.naechsterSchritt && geschaeft.naechsterSchritt.length > 0 && geschaeft.naechsterSchritt.replace(/ /g, '')) {
+    if (
+      geschaeft.naechsterSchritt &&
+      geschaeft.naechsterSchritt.length > 0 &&
+      geschaeft.naechsterSchritt.replace(/ /g, '')
+    ) {
       naechsterSchritt += '=> '
       if (naechsterSchritt.length > maxStringLength) {
         naechsterSchritt += naechsterSchritt.substring(0, maxStringLength)
@@ -52,19 +60,27 @@ class PageFristenRows extends Component {
       faelligkeitText += '... (Text für die Ausgabe gekürzt)'
     }
 
-    const rowClassName = !isOdd(rowIndex) ? styles.tableBodyRowShaded : styles.tableBodyRow
+    const rowClassName = (
+      !isOdd(rowIndex) ?
+      styles.tableBodyRowShaded :
+      styles.tableBodyRow
+    )
 
     return (
       <div
         key={geschaeft.idGeschaeft}
         className={rowClassName}
       >
-        <div className={[styles.columnIdGeschaeft, styles.tableBodyCell].join(' ')}>
+        <div
+          className={[styles.columnIdGeschaeft, styles.tableBodyCell].join(' ')}
+        >
           <div>
             {geschaeft.idGeschaeft}
           </div>
         </div>
-        <div className={[styles.columnGegenstand, styles.tableBodyCell].join(' ')}>
+        <div
+          className={[styles.columnGegenstand, styles.tableBodyCell].join(' ')}
+        >
           <div className={styles.fieldGegenstand}>
             {gegenstand}
           </div>
@@ -75,7 +91,9 @@ class PageFristenRows extends Component {
             {naechsterSchritt}
           </div>
         </div>
-        <div className={[styles.columnStatus, styles.tableBodyCell].join(' ')}>
+        <div
+          className={[styles.columnStatus, styles.tableBodyCell].join(' ')}
+        >
           <div>
             {geschaeft.status}
           </div>
@@ -86,7 +104,9 @@ class PageFristenRows extends Component {
             {faelligkeitText}
           </div>
         </div>
-        <div className={[styles.columnKontaktIntern, styles.tableBodyCell].join(' ')}>
+        <div
+          className={[styles.columnKontaktIntern, styles.tableBodyCell].join(' ')}
+        >
           <div>
             {geschaeft.idKontaktIntern}
           </div>
