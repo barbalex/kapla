@@ -24,7 +24,7 @@ const standardState = {
   willDelete: false
 }
 
-function row(state = {}, action) {
+const row = (state = {}, action) => {
   switch (action.type) {
     case TABLE_CHANGE_STATE:
       if (state.id !== action.id) {
@@ -39,7 +39,7 @@ function row(state = {}, action) {
   }
 }
 
-export default function table(state = standardState, action) {
+const table = (state = standardState, action) => {
   switch (action.type) {
     case TABLE_GET:
       return {
@@ -108,3 +108,5 @@ export default function table(state = standardState, action) {
       return state
   }
 }
+
+export default table

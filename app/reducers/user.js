@@ -12,7 +12,7 @@ const standardState = {
   username: ''
 }
 
-export default function geschaefte(state = standardState, action) {
+const geschaefte = (state = standardState, action) => {
   switch (action.type) {
     case USERNAME_GET:
       return {
@@ -38,3 +38,5 @@ export default function geschaefte(state = standardState, action) {
       return state
   }
 }
+
+export default geschaefte
