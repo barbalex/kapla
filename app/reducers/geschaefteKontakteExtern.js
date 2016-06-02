@@ -21,7 +21,7 @@ const standardState = {
   willDelete: false
 }
 
-export default function geschaefteKontakteExtern(state = standardState, action) {
+const geschaefteKontakteExtern = (state = standardState, action) => {
   switch (action.type) {
     case GESCHAEFTE_KONTAKTE_EXTERN_GET:
       return {
@@ -45,8 +45,16 @@ export default function geschaefteKontakteExtern(state = standardState, action) 
     case GESCHAEFT_KONTAKT_EXTERN_TOGGLE_ACTIVATED:
       return {
         ...state,
-        activeIdGeschaeft: state.activeIdGeschaeft && state.activeIdGeschaeft === action.activeIdGeschaeft ? null : action.activeIdGeschaeft,
-        activeIdKontakt: state.activeIdKontakt && state.activeIdKontakt === action.activeIdKontakt ? null : action.activeIdKontakt
+        activeIdGeschaeft: (
+          state.activeIdGeschaeft && state.activeIdGeschaeft === action.activeIdGeschaeft ?
+          null :
+          action.activeIdGeschaeft
+        ),
+        activeIdKontakt: (
+          state.activeIdKontakt && state.activeIdKontakt === action.activeIdKontakt ?
+          null :
+          action.activeIdKontakt
+        )
       }
     case GESCHAEFT_KONTAKT_EXTERN_SET_DELETE_INTENDED:
       return {
@@ -78,3 +86,5 @@ export default function geschaefteKontakteExtern(state = standardState, action) 
       return state
   }
 }
+
+export default geschaefteKontakteExtern

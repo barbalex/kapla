@@ -52,7 +52,7 @@ const standardState = {
   willDelete: false
 }
 
-function geschaeft(state = {}, action) {
+const geschaeft = (state = {}, action) => {
   switch (action.type) {
     case GESCHAEFTE_CHANGE_STATE:
       if (state.idGeschaeft !== action.idGeschaeft) {
@@ -67,7 +67,7 @@ function geschaeft(state = {}, action) {
   }
 }
 
-export default function geschaefte(state = standardState, action) {
+const geschaefte = (state = standardState, action) => {
   switch (action.type) {
     case GESCHAEFTE_GET:
       return {
@@ -114,7 +114,11 @@ export default function geschaefte(state = standardState, action) {
     case GESCHAEFT_TOGGLE_ACTIVATED:
       return {
         ...state,
-        activeId: state.activeId && state.activeId === action.idGeschaeft ? null : action.idGeschaeft
+        activeId: (
+          state.activeId && state.activeId === action.idGeschaeft ?
+          null :
+          action.idGeschaeft
+        )
       }
     case GESCHAEFT_SET_DELETE_INTENDED:
       return {
@@ -204,3 +208,5 @@ export default function geschaefte(state = standardState, action) {
       return state
   }
 }
+
+export default geschaefte
