@@ -16,7 +16,9 @@ function mapStateToProps(state, props) {
     change,
     nrOfFieldsBeforePv
   } = props
-  const geschaeft = geschaefte.find((g) => g.idGeschaeft === activeId)
+  const geschaeft = geschaefte.find((g) =>
+    g.idGeschaeft === activeId
+  )
 
   return {
     geschaeft,
