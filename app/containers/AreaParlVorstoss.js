@@ -11,8 +11,14 @@ function mapStateToProps(state, props) {
     activeId,
     parlVorstossTypOptions
   } = state.geschaefte
-  const { blur, change, nrOfFieldsBeforePv } = props
-  const geschaeft = geschaefte.find((g) => g.idGeschaeft === activeId)
+  const {
+    blur,
+    change,
+    nrOfFieldsBeforePv
+  } = props
+  const geschaeft = geschaefte.find((g) =>
+    g.idGeschaeft === activeId
+  )
 
   return {
     geschaeft,
