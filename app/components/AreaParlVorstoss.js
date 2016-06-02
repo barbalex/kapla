@@ -15,12 +15,22 @@ class AreaParlVorstoss extends Component {
   }
 
   render = () => {
-    const { geschaeft, parlVorstossTypOptions, nrOfFieldsBeforePv, change, blur } = this.props
+    const {
+      geschaeft,
+      parlVorstossTypOptions,
+      nrOfFieldsBeforePv,
+      change,
+      blur
+    } = this.props
     return (
       <div className={styles.areaForGeschaeftsart}>
-        <div className={styles.areaParlVorstTitle}>Parlamentarischer Vorstoss</div>
+        <div className={styles.areaParlVorstTitle}>
+          Parlamentarischer Vorstoss
+        </div>
         <div className={styles.fieldParlVorstossTyp}>
-          <ControlLabel>Typ</ControlLabel>
+          <ControlLabel>
+            Typ
+          </ControlLabel>
           <FormControl
             componentClass="select"
             value={geschaeft.parlVorstossTyp || ''}
@@ -34,7 +44,9 @@ class AreaParlVorstoss extends Component {
           </FormControl>
         </div>
         <div className={styles.fieldStufe}>
-          <ControlLabel>Stufe</ControlLabel>
+          <ControlLabel>
+            Stufe
+          </ControlLabel>
           <Radio
             data-value={1}
             checked={geschaeft.parlVorstossStufe == 1}
@@ -57,7 +69,9 @@ class AreaParlVorstoss extends Component {
           </Radio>
         </div>
         <div className={styles.fieldEbene}>
-          <ControlLabel>Ebene</ControlLabel>
+          <ControlLabel>
+            Ebene
+          </ControlLabel>
           <Radio
             data-value="Kanton"
             checked={geschaeft.parlVorstossEbene === 'Kanton'}
@@ -80,7 +94,9 @@ class AreaParlVorstoss extends Component {
           </Radio>
         </div>
         <div className={styles.fieldZustaendigkeit}>
-          <ControlLabel>Zuständigkeit</ControlLabel>
+          <ControlLabel>
+            Zuständigkeit
+          </ControlLabel>
           <Radio
             data-value="hauptzuständig"
             checked={geschaeft.parlVorstossZustaendigkeitAwel === 'hauptzuständig'}
@@ -103,7 +119,9 @@ class AreaParlVorstoss extends Component {
           </Radio>
         </div>
         <div className={styles.fieldErlassform}>
-          <ControlLabel>Erlassform</ControlLabel>
+          <ControlLabel>
+            Erlassform
+          </ControlLabel>
           <Radio
             data-value="Gesetz"
             checked={geschaeft.erlassform === 'Gesetz'}

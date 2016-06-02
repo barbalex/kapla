@@ -18,7 +18,9 @@ class AreaPersonen extends Component {
 
   verantwortlichData = () => {
     const { geschaeft, interneOptions } = this.props
-    const data = interneOptions.find((o) => o.kurzzeichen === geschaeft.verantwortlich)
+    const data = interneOptions.find((o) =>
+      o.kurzzeichen === geschaeft.verantwortlich
+    )
     if (!data) return ''
     const name = `${data.vorname || ''} ${data.name || ''}`
     const abt = data.abteilung ? `, ${data.abteilung}` : ''
@@ -30,11 +32,15 @@ class AreaPersonen extends Component {
   verwantwortlichOptions = () => {
     const { interneOptions } = this.props
     // sort interneOptions by kurzzeichen
-    const interneOptionsSorted = _.sortBy(interneOptions, (o) => o.kurzzeichen.toLowerCase())
+    const interneOptionsSorted = _.sortBy(interneOptions, (o) =>
+      o.kurzzeichen.toLowerCase()
+    )
     const options = interneOptionsSorted.map((o, index) => {
       let times = 5 - o.kurzzeichen.length
       // make sure, times is never < 0
-      if (times < 0) times = 0
+      if (times < 0) {
+        times = 0
+      }
       const space = '\xa0'.repeat(times)
       const name = `${o.vorname || ''} ${o.name || ''}`
       return (
@@ -48,12 +54,21 @@ class AreaPersonen extends Component {
   }
 
   render() {
-    const { geschaeft, nrOfFieldsBeforePersonen = 0, change, blur } = this.props
+    const {
+      geschaeft,
+      nrOfFieldsBeforePersonen = 0,
+      change,
+      blur
+    } = this.props
 
     return (
       <div className={styles.areaPersonen}>
-        <div className={styles.areaPersonenTitle}>Personen</div>
-        <div className={styles.areaVerantwortlichSubTitle}>Verantwortlich</div>
+        <div className={styles.areaPersonenTitle}>
+          Personen
+        </div>
+        <div className={styles.areaVerantwortlichSubTitle}>
+          Verantwortlich
+        </div>
         <div className={styles.fieldVerantwortlich}>
           <FormControl
             componentClass="select"
@@ -73,10 +88,18 @@ class AreaPersonen extends Component {
             {this.verantwortlichData()}
           </FormControl.Static>
         </div>
-        <div className={styles.areaInterneKontakteSubTitle}>Interne Kontakte</div>
-        <GeschaeftKontakteIntern tabIndex={nrOfFieldsBeforePersonen + 1} />
-        <div className={styles.areaExterneKontakteSubTitle}>Externe Kontakte</div>
-        <GeschaeftKontakteExtern tabIndex={nrOfFieldsBeforePersonen + 2} />
+        <div className={styles.areaInterneKontakteSubTitle}>
+          Interne Kontakte
+        </div>
+        <GeschaeftKontakteIntern
+          tabIndex={nrOfFieldsBeforePersonen + 1}
+        />
+        <div className={styles.areaExterneKontakteSubTitle}>
+          Externe Kontakte
+        </div>
+        <GeschaeftKontakteExtern
+          tabIndex={nrOfFieldsBeforePersonen + 2}
+        />
       </div>
     )
   }
