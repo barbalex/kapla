@@ -7,11 +7,12 @@
   grid-area: areaHistory;
   background-color: rgba(0, 46, 255, 0.12);
   display: grid;
-  grid-template-columns: calc(100% - 140px) 70px 70px;
+  grid-template-columns: calc(100% - 156px) 70px 70px;
   grid-template-areas:
     "areaHistoryTitle labelVorgeschaeft fieldVorgeschaeft"
     "areaHistoryFieldsContainer areaHistoryFieldsContainer areaHistoryFieldsContainer";
-  grid-gap: 8px;
+  grid-column-gap: 8px;
+  grid-row-gap: 8px;
   padding: 8px;
 }
 
@@ -27,6 +28,7 @@
 .labelVorgeschaeft {
   grid-area: labelVorgeschaeft;
   margin-top: 10px;
+  text-align: right;
 }
 
 .areaHistoryFieldsContainer {
