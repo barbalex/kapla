@@ -61,7 +61,9 @@ class AreaNummern extends Component {
           />
         </div>
         <div className={styles.labelJahre}>
-          Jahr
+          <div className={styles.labelNrDiv}>
+            Jahr
+          </div>
         </div>
         <ControlLabel className={styles.labelEntscheidAwel}>
           AWEL

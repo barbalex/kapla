@@ -14,7 +14,7 @@
   background-color: rgba(210, 210, 210, 0.2);
   display: grid;
   /* can't use 1fr for first column - does not work correctly, no idea why */
-  grid-template-columns: calc(100% - 182px) 1px 90px 1px 90px;
+  grid-template-columns: calc(100% - 196px) 8px 90px 8px 90px;
   grid-template-rows: auto;
   grid-template-areas:
    "areaNummernTitle areaNummernTitle areaNummernTitle areaNummernTitle labelNr"
@@ -26,7 +26,7 @@
    "labelEntscheidKr . fieldEntscheidKrNr slashKr fieldEntscheidKrJahr"
    "labelEntscheidRrb . fieldEntscheidRrbNr slashRrb fieldEntscheidRrbJahr"
    "fieldAktenstandort fieldAktenstandort fieldAktenstandort . fieldAktennummer";
-  grid-gap: 5px 2px;
+  grid-row-gap: 2px;
   padding: 8px;
 }
 
@@ -39,23 +39,26 @@
 .labelJahre {
   composes: label;
   grid-area: labelJahre;
+  position: relative;
+  min-height: 16px;
 }
 
 .labelNr {
   grid-area: labelNr;
   position: relative;
+  min-height: 16px;
 }
 
 .labelNrDiv {
   position: absolute;
-  top: 8px;
+  bottom: 1px;
 }
 
 .slash {
   margin-top: 2px;
   font-size: 22px;
   color: #828282;
-  margin-left: -3px;
+  margin-left: 1px;
 }
 
 .slashAwel {
