@@ -63,7 +63,12 @@ class Page extends Component {
   }
 
   showMessage = () => {
-    const { messageShow, pages, geschaefteGefilterteIds, remainingGeschaefte } = this.props
+    const {
+      messageShow,
+      pages,
+      geschaefteGefilterteIds,
+      remainingGeschaefte
+    } = this.props
     const msgLine2Txt = `Bisher ${pages.length} Seiten, ${remainingGeschaefte.length} Geschäfte noch zu verarbeiten`
     const msgLine2 = geschaefteGefilterteIds.length > 50 ? msgLine2Txt : ''
     messageShow(true, 'Der Bericht wird aufgebaut...', msgLine2)
@@ -141,7 +146,10 @@ class Page extends Component {
   textPagesTitle = () => {
     const { title } = this.props
     return (
-      <h1 onClick={this.onClickH1} className={styles.h1}>
+      <h1
+        onClick={this.onClickH1}
+        className={styles.h1}
+      >
         {title}
       </h1>
     )
@@ -152,8 +160,12 @@ class Page extends Component {
     const now = moment().format('DD.MM.YYYY')
     return (
       <div className={styles.footer}>
-        <p>{now}</p>
-        <p>Seite {pageIndex + 1}/{pages.length}</p>
+        <p>
+          {now}
+        </p>
+        <p>
+          Seite {pageIndex + 1}/{pages.length}
+        </p>
       </div>
     )
   }
@@ -161,24 +173,66 @@ class Page extends Component {
   tableRows = () => {
     const { geschaefte, reportType } = this.props
     return geschaefte.map((geschaeft, index) => {
-      if (reportType === 'Fristen') return <PageFristenRows geschaeft={geschaeft} key={index} rowIndex={index} />
-      if (reportType === 'List1') return <PageList1Rows geschaeft={geschaeft} key={index} rowIndex={index} />
+      if (reportType === 'Fristen') {
+        return (
+          <PageFristenRows
+            geschaeft={geschaeft}
+            key={index}
+            rowIndex={index}
+          />
+        )
+      }
+      if (reportType === 'List1') {
+        return (
+          <PageList1Rows
+            geschaeft={geschaeft}
+            key={index}
+            rowIndex={index}
+          />
+        )
+      }
       return null
     })
   }
 
   render = () => {
-    const { pageIndex, queryTitle, building, reportType } = this.props
+    const {
+      pageIndex,
+      queryTitle,
+      building,
+      reportType
+    } = this.props
     const showPagesTitle = pageIndex === 0
-    const pageContainerStyle = building ? [styles.pageContainer, styles.pageContainerOverflow].join(' ') : styles.pageContainer
+    const pageContainerStyle = (
+      building ?
+      [styles.pageContainer, styles.pageContainerOverflow].join(' ') :
+      styles.pageContainer
+    )
 
     return (
       <div className={pageContainerStyle}>
-        <div className={styles.rowsContainer} ref={`rowsContainer${pageIndex}`}>
-          {showPagesTitle && queryTitle && this.inputPagesTitle()}
-          {showPagesTitle && !queryTitle && this.textPagesTitle()}
-          {reportType === 'Fristen' && <PageFristenHeader />}
-          {reportType === 'List1' && <PageList1Header />}
+        <div
+          className={styles.rowsContainer}
+          ref={`rowsContainer${pageIndex}`}
+        >
+          {
+            showPagesTitle &&
+            queryTitle &&
+            this.inputPagesTitle()
+          }
+          {
+            showPagesTitle &&
+            !queryTitle &&
+            this.textPagesTitle()
+          }
+          {
+            reportType === 'Fristen' &&
+            <PageFristenHeader />
+          }
+          {
+            reportType === 'List1' &&
+            <PageList1Header />
+          }
           {this.tableRows()}
         </div>
         {this.footer()}
