@@ -14,7 +14,10 @@ export default function wrapComponent(Component, layout) {
     render() {
       return (
         <Provider store={store}>
-          <Component {...this.props} layout={layout} />
+          <Component
+            {...this.props}
+            layout={layout}
+          />
         </Provider>
       )
     }
