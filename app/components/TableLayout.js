@@ -55,7 +55,9 @@ class TableLayout extends Component {
     tableLayout.registerComponent('tableRow', wrapComponentInProvider(TableRow))
     tableLayout.init()
     this.setState({ tableLayout })
-    tableLayout.on('stateChanged', () => this.saveTableState())
+    tableLayout.on('stateChanged', () =>
+      this.saveTableState()
+    )
   }
 
   componentWillUnmount = () => {

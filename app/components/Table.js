@@ -22,10 +22,15 @@ class Table extends Component {
       // get visible indexes
       const visibleRange = rL.getVisibleRange()
       // get index of active id
-      const index = _.findIndex(rows, (r) => r.id === id)
+      const index = _.findIndex(rows, (r) =>
+        r.id === id
+      )
       // scroll to active id
       // but only if necessary
-      const visibleRangeIncludesId = visibleRange[0] <= index && index <= visibleRange[1]
+      const visibleRangeIncludesId = (
+        visibleRange[0] <= index &&
+        index <= visibleRange[1]
+      )
       if (!visibleRangeIncludesId) {
         rL.scrollAround(id)
       }
@@ -52,9 +57,21 @@ class Table extends Component {
     const normalFieldWidth = (tableWidth - 50) / (keys.length - 1)
 
     return values.map((val, index) => {
-      const widthClass = keys[index] === 'id' ? { maxWidth: 50 } : { maxWidth: normalFieldWidth }
+      const widthClass = (
+        keys[index] === 'id' ?
+        { maxWidth: 50 } :
+        { maxWidth: normalFieldWidth }
+      )
 
-      return <div key={index} style={widthClass} className={styles.tableBodyCell}>{val}</div>
+      return (
+        <div
+          key={index}
+          style={widthClass}
+          className={styles.tableBodyCell}
+        >
+          {val}
+        </div>
+      )
     })
   }
 
@@ -66,8 +83,20 @@ class Table extends Component {
     const tableWidth = tableLayoutWidth * tableWidthPercent / 100
     const normalFieldWidth = (tableWidth - 50) / (headers.length - 1)
     return headers.map((header, index) => {
-      const widthClass = header === 'id' ? { maxWidth: 50 } : { maxWidth: normalFieldWidth }
-      return <div key={index} style={widthClass} className={styles.tableHeaderCell}>{header}</div>
+      const widthClass = (
+        header === 'id' ?
+        { maxWidth: 50 } :
+        { maxWidth: normalFieldWidth }
+      )
+      return (
+        <div
+          key={index}
+          style={widthClass}
+          className={styles.tableHeaderCell}
+        >
+          {header}
+        </div>
+      )
     })
   }
 
@@ -75,13 +104,19 @@ class Table extends Component {
     const { rows, id } = this.props
     const row = rows[index]
     const isActive = !!id && id === row.id
-    const trClassName = isActive ? [styles.tableBodyRow, styles.active].join(' ') : styles.tableBodyRow
+    const trClassName = (
+      isActive ?
+      [styles.tableBodyRow, styles.active].join(' ') :
+      styles.tableBodyRow
+    )
 
     return (
       <div
         key={key}
         className={trClassName}
-        onClick={this.onClickTableRow.bind(this, row.id)}
+        onClick={() =>
+          this.onClickTableRow(row.id)
+        }
       >
         {this.itemColumns(row)}
       </div>
@@ -90,7 +125,10 @@ class Table extends Component {
 
   renderItems(items, ref) {
     return (
-      <div ref={ref} className={styles.table}>
+      <div
+        ref={ref}
+        className={styles.table}
+      >
         {items}
       </div>
     )
