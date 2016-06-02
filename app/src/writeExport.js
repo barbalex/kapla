@@ -36,6 +36,10 @@ process.on('message', (dataArray) => {
     }
   }
   workbook.xlsx.writeFile(path)
-    .then(() => process.send({ success: true }))
-    .catch((err) => process.send({ error: err }))
+    .then(() =>
+      process.send({ success: true })
+    )
+    .catch((err) =>
+      process.send({ error: err })
+    )
 })
