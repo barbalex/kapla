@@ -12,20 +12,19 @@ class Pages extends Component {
 
   pages = () => {
     const { pages } = this.props
-    return pages.map((page, pageIndex) => (
+    return pages.map((page, pageIndex) =>
       <Page
         key={pageIndex}
         pageIndex={pageIndex}
         className={styles.pageContainer}
       />
-    ))
+    )
   }
 
-  render = () => (
+  render = () =>
     <div className={styles.body}>
       {this.pages()}
     </div>
-  )
 }
 
 export default Pages

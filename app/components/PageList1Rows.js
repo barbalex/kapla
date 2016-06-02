@@ -30,7 +30,11 @@ class PageList1Rows extends Component {
       gegenstand += '... (Text für die Ausgabe gekürzt)'
     }
 
-    const rowClassName = !isOdd(rowIndex) ? styles.tableBodyRowShaded : styles.tableBodyRow
+    const rowClassName = (
+      !isOdd(rowIndex) ?
+      styles.tableBodyRowShaded :
+      styles.tableBodyRow
+    )
 
     return (
       <div
