@@ -17,13 +17,25 @@ export default function (geschaefte, filterFulltext, filterFields) {
         if (geschaeft[key]) {
           if (isNaN(filterFulltext)) {
             // a string is queried
-            const geschaeftValue = isString(geschaeft[key]) ? geschaeft[key].toLowerCase() : geschaeft[key]
-            const filterValue = isString(filterFulltext) ? filterFulltext.toLowerCase() : filterFulltext
-            if (includes(geschaeftValue, filterValue)) satisfiesFilter = true
+            const geschaeftValue = (
+              isString(geschaeft[key]) ?
+              geschaeft[key].toLowerCase() :
+              geschaeft[key]
+            )
+            const filterValue = (
+              isString(filterFulltext) ?
+              filterFulltext.toLowerCase() :
+              filterFulltext
+            )
+            if (includes(geschaeftValue, filterValue)) {
+              satisfiesFilter = true
+            }
           } else {
             // a number is queried
             // convert to string to also find 7681 when filtering for 681
-            if (includes(geschaeft[key].toString(), filterFulltext.toString())) satisfiesFilter = true
+            if (includes(geschaeft[key].toString(), filterFulltext.toString())) {
+              satisfiesFilter = true
+            }
           }
         }
       })
@@ -35,9 +47,13 @@ export default function (geschaefte, filterFulltext, filterFields) {
       let satisfiesFilter = true
       filterFields.forEach((filterField, index) => {
         let geschaeftValue = geschaeft[filterField.field]
-        if (isString(geschaeft[filterField.field])) geschaeftValue = geschaeft[filterField.field].toLowerCase()
+        if (isString(geschaeft[filterField.field])) {
+          geschaeftValue = geschaeft[filterField.field].toLowerCase()
+        }
         let filterValue = filterFields[index].value
-        if (isString(filterFields[index].value)) filterValue = filterFields[index].value.toLowerCase()
+        if (isString(filterFields[index].value)) {
+          filterValue = filterFields[index].value.toLowerCase()
+        }
         const comparator = filterFields[index].comparator || '='
         if (filterValue === '') {
           if (!!geschaeftValue) satisfiesFilter = false
@@ -62,5 +78,7 @@ export default function (geschaefte, filterFulltext, filterFields) {
       return satisfiesFilter
     })
   }
-  return geschaefteGefiltert.map((g) => g.idGeschaeft)
+  return geschaefteGefiltert.map((g) =>
+    g.idGeschaeft
+  )
 }
