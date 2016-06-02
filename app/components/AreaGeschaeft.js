@@ -26,12 +26,17 @@ class AreaGeschaeft extends Component {
       blur,
       nrOfNrFields
     } = this.props
+    const tabsToAdd = wrapperClass === styles.wrapperNarrow ? nrOfNrFields : 0
 
     return (
       <div className={styles.areaGeschaeft}>
         <div className={styles.fieldGegenstand}>
-          <div className={styles.areaGeschaeftTitle}>Geschäft</div>
-          <ControlLabel>Gegenstand</ControlLabel>
+          <div className={styles.areaGeschaeftTitle}>
+            Geschäft
+          </div>
+          <ControlLabel>
+            Gegenstand
+          </ControlLabel>
           <FormControl
             componentClass="textarea"
             value={geschaeft.gegenstand || ''}
@@ -40,12 +45,14 @@ class AreaGeschaeft extends Component {
             onBlur={blur}
             bsSize="small"
             rows={2}
-            tabIndex={1 + (wrapperClass === styles.wrapperNarrow ? nrOfNrFields : 0)}
+            tabIndex={1 + tabsToAdd}
             autoFocus={wrapperClass !== styles.wrapperNarrow}
           />
         </div>
         <div className={styles.fieldOrt}>
-          <ControlLabel>Ort</ControlLabel>
+          <ControlLabel>
+            Ort
+          </ControlLabel>
           <FormControl
             type="text"
             value={geschaeft.ort || ''}
@@ -53,11 +60,13 @@ class AreaGeschaeft extends Component {
             onChange={change}
             onBlur={blur}
             bsSize="small"
-            tabIndex={2 + (wrapperClass === styles.wrapperNarrow ? nrOfNrFields : 0)}
+            tabIndex={2 + tabsToAdd}
           />
         </div>
         <div className={styles.fieldGeschaeftsart}>
-          <ControlLabel>Geschäftsart</ControlLabel>
+          <ControlLabel>
+            Geschäftsart
+          </ControlLabel>
           <FormControl
             componentClass="select"
             value={geschaeft.geschaeftsart || ''}
@@ -65,13 +74,15 @@ class AreaGeschaeft extends Component {
             onChange={change}
             onBlur={blur}
             bsSize="small"
-            tabIndex={3 + (wrapperClass === styles.wrapperNarrow ? nrOfNrFields : 0)}
+            tabIndex={3 + tabsToAdd}
           >
             {createOptions(geschaeftsartOptions)}
           </FormControl>
         </div>
         <div className={styles.fieldStatus}>
-          <ControlLabel>Status</ControlLabel>
+          <ControlLabel>
+            Status
+          </ControlLabel>
           <FormControl
             componentClass="select"
             value={geschaeft.status || ''}
@@ -79,13 +90,15 @@ class AreaGeschaeft extends Component {
             onChange={change}
             onBlur={blur}
             bsSize="small"
-            tabIndex={4 + (wrapperClass === styles.wrapperNarrow ? nrOfNrFields : 0)}
+            tabIndex={4 + tabsToAdd}
           >
             {createOptions(statusOptions)}
           </FormControl>
         </div>
         <div className={styles.fieldDirektion}>
-          <ControlLabel>Direktion</ControlLabel>
+          <ControlLabel>
+            Direktion
+          </ControlLabel>
           <FormControl
             type="text"
             value={geschaeft.zustaendigeDirektion || ''}
@@ -94,11 +107,13 @@ class AreaGeschaeft extends Component {
             onBlur={blur}
             bsSize="small"
             className={styles.fieldDirektion}
-            tabIndex={6 + (wrapperClass === styles.wrapperNarrow ? nrOfNrFields : 0)}
+            tabIndex={6 + tabsToAdd}
           />
         </div>
         <div className={styles.fieldDetails}>
-          <ControlLabel>Details</ControlLabel>
+          <ControlLabel>
+            Details
+          </ControlLabel>
           <FormControl
             componentClass="textarea"
             value={geschaeft.details || ''}
@@ -107,11 +122,13 @@ class AreaGeschaeft extends Component {
             onBlur={blur}
             bsSize="small"
             rows={4}
-            tabIndex={7 + (wrapperClass === styles.wrapperNarrow ? nrOfNrFields : 0)}
+            tabIndex={7 + tabsToAdd}
           />
         </div>
         <div className={styles.fieldNaechsterSchritt}>
-          <ControlLabel>Nächster Schritt</ControlLabel>
+          <ControlLabel>
+            Nächster Schritt
+          </ControlLabel>
           <FormControl
             componentClass="textarea"
             value={geschaeft.naechsterSchritt || ''}
@@ -120,11 +137,13 @@ class AreaGeschaeft extends Component {
             onBlur={blur}
             bsSize="small"
             rows={4}
-            tabIndex={8 + (wrapperClass === styles.wrapperNarrow ? nrOfNrFields : 0)}
+            tabIndex={8 + tabsToAdd}
           />
         </div>
         <div className={styles.fieldVermerk}>
-          <ControlLabel>Vermerk</ControlLabel>
+          <ControlLabel>
+            Vermerk
+          </ControlLabel>
           <FormControl
             componentClass="textarea"
             value={geschaeft.vermerk || ''}
@@ -133,7 +152,7 @@ class AreaGeschaeft extends Component {
             onBlur={blur}
             bsSize="small"
             rows={4}
-            tabIndex={9 + (wrapperClass === styles.wrapperNarrow ? nrOfNrFields : 0)}
+            tabIndex={9 + tabsToAdd}
           />
         </div>
       </div>

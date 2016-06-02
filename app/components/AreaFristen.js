@@ -1,7 +1,13 @@
 'use strict'
 
 import React, { Component, PropTypes } from 'react'
-import { FormGroup, InputGroup, FormControl, ControlLabel, Glyphicon } from 'react-bootstrap'
+import {
+  FormGroup,
+  InputGroup,
+  FormControl,
+  ControlLabel,
+  Glyphicon
+} from 'react-bootstrap'
 import moment from 'moment'
 moment.locale('de')
 import DateRangePicker from 'react-bootstrap-daterangepicker'
@@ -28,21 +34,36 @@ class AreaFristen extends Component {
 
   fieldFristDauerBisMitarbeiter = () => (
     <div className={styles.fieldFristDauerBisMitarbeiter}>
-      <ControlLabel>Tage bis Frist Mitarbeiter</ControlLabel>
-      <FormControl.Static style={{ paddingTop: 0, marginTop: 0 }} className={this.statusFristInStyle(this.fristDauerBisMitarbeiter())}>
+      <ControlLabel>
+        Tage bis Frist Mitarbeiter
+      </ControlLabel>
+      <FormControl.Static
+        style={{ paddingTop: 0, marginTop: 0 }}
+        className={this.statusFristInStyle(this.fristDauerBisMitarbeiter())}
+      >
         {this.fristDauerBisMitarbeiter()}
       </FormControl.Static>
     </div>
   )
 
   statusFristInStyle = (dauerBisFristMitarbeiter) => {
-    if (dauerBisFristMitarbeiter < 0) return [styles.fieldFristInUeberfaellig, 'formControlStatic'].join(' ')
-    if (dauerBisFristMitarbeiter === 0) return [styles.fieldFristInHeute, 'formControlStatic'].join(' ')
+    if (dauerBisFristMitarbeiter < 0) {
+      return [styles.fieldFristInUeberfaellig, 'formControlStatic'].join(' ')
+    }
+    if (dauerBisFristMitarbeiter === 0) {
+      return [styles.fieldFristInHeute, 'formControlStatic'].join(' ')
+    }
     return 'formControlStatic'
   }
 
   render = () => {
-    const { geschaeft, nrOfFieldsBeforeFristen, change, blur, onChangeDatePicker } = this.props
+    const {
+      geschaeft,
+      nrOfFieldsBeforeFristen,
+      change,
+      blur,
+      onChangeDatePicker
+    } = this.props
     /**
      * need to give addon no padding
      * and the originally addon's padding to the glyphicon
@@ -61,12 +82,16 @@ class AreaFristen extends Component {
 
     return (
       <div className={styles.areaFristen}>
-        <div className={styles.areaFristenTitle}>Fristen</div>
+        <div className={styles.areaFristenTitle}>
+          Fristen
+        </div>
         <FormGroup
           className={styles.fieldDatumEingangAwel}
           validationState={getDateValidationStateDate(geschaeft.datumEingangAwel)}
         >
-          <ControlLabel>Datum des Eingangs im AWEL</ControlLabel>
+          <ControlLabel>
+            Datum des Eingangs im AWEL
+          </ControlLabel>
           <InputGroup>
             <FormControl
               type="text"
@@ -83,10 +108,13 @@ class AreaFristen extends Component {
                 singleDatePicker
                 drops="up"
                 opens="left"
-                onApply={onChangeDatePicker.bind(this, 'datumEingangAwel')}
+                onApply={() => onChangeDatePicker('datumEingangAwel')}
                 className={styles.datePicker}
               >
-                <Glyphicon glyph="calendar" style={datePickerCalendarStyle} />
+                <Glyphicon
+                  glyph="calendar"
+                  style={datePickerCalendarStyle}
+                />
               </DateRangePicker>
             </InputGroup.Addon>
           </InputGroup>
@@ -95,7 +123,9 @@ class AreaFristen extends Component {
           className={styles.fieldFristAwel}
           validationState={getDateValidationStateDate(geschaeft.fristAwel)}
         >
-          <ControlLabel>Frist für Erledigung durch AWEL</ControlLabel>
+          <ControlLabel>
+            Frist für Erledigung durch AWEL
+          </ControlLabel>
           <InputGroup>
             <FormControl
               type="text"
@@ -112,10 +142,13 @@ class AreaFristen extends Component {
                 singleDatePicker
                 drops="up"
                 opens="left"
-                onApply={onChangeDatePicker.bind(this, 'fristAwel')}
+                onApply={() => onChangeDatePicker('fristAwel')}
                 className={styles.datePicker}
               >
-                <Glyphicon glyph="calendar" style={datePickerCalendarStyle} />
+                <Glyphicon
+                  glyph="calendar"
+                  style={datePickerCalendarStyle}
+                />
               </DateRangePicker>
             </InputGroup.Addon>
           </InputGroup>
@@ -124,7 +157,9 @@ class AreaFristen extends Component {
           className={styles.fieldFristAmtschef}
           validationState={getDateValidationStateDate(geschaeft.fristAmtschef)}
         >
-          <ControlLabel>Frist Vorlage an Amtschef</ControlLabel>
+          <ControlLabel>
+            Frist Vorlage an Amtschef
+          </ControlLabel>
           <InputGroup>
             <FormControl
               type="text"
@@ -141,10 +176,13 @@ class AreaFristen extends Component {
                 singleDatePicker
                 drops="up"
                 opens="left"
-                onApply={onChangeDatePicker.bind(this, 'fristAmtschef')}
+                onApply={() => onChangeDatePicker('fristAmtschef')}
                 className={styles.datePicker}
               >
-                <Glyphicon glyph="calendar" style={datePickerCalendarStyle} />
+                <Glyphicon
+                  glyph="calendar"
+                  style={datePickerCalendarStyle}
+                />
               </DateRangePicker>
             </InputGroup.Addon>
           </InputGroup>
@@ -153,7 +191,9 @@ class AreaFristen extends Component {
           className={styles.fieldFristAbteilung}
           validationState={getDateValidationStateDate(geschaeft.fristAbteilung)}
         >
-          <ControlLabel>Frist für Erledigung durch Abteilung</ControlLabel>
+          <ControlLabel>
+            Frist für Erledigung durch Abteilung
+          </ControlLabel>
           <InputGroup>
             <FormControl
               type="text"
@@ -170,10 +210,13 @@ class AreaFristen extends Component {
                 singleDatePicker
                 drops="up"
                 opens="left"
-                onApply={onChangeDatePicker.bind(this, 'fristAbteilung')}
+                onApply={() => onChangeDatePicker('fristAbteilung')}
                 className={styles.datePicker}
               >
-                <Glyphicon glyph="calendar" style={datePickerCalendarStyle} />
+                <Glyphicon
+                  glyph="calendar"
+                  style={datePickerCalendarStyle}
+                />
               </DateRangePicker>
             </InputGroup.Addon>
           </InputGroup>
@@ -182,7 +225,9 @@ class AreaFristen extends Component {
           className={styles.fieldFristMitarbeiter}
           validationState={getDateValidationStateDate(geschaeft.fristMitarbeiter)}
         >
-          <ControlLabel>Frist Erledigung nächster Schritt RD</ControlLabel>
+          <ControlLabel>
+            Frist Erledigung nächster Schritt RD
+          </ControlLabel>
           <InputGroup>
             <FormControl
               type="text"
@@ -199,7 +244,7 @@ class AreaFristen extends Component {
                 singleDatePicker
                 drops="up"
                 opens="left"
-                onApply={onChangeDatePicker.bind(this, 'fristMitarbeiter')}
+                onApply={() => onChangeDatePicker('fristMitarbeiter')}
                 className={styles.datePicker}
               >
                 <Glyphicon glyph="calendar" style={datePickerCalendarStyle} />
@@ -212,7 +257,9 @@ class AreaFristen extends Component {
           className={styles.fieldDatumAusgangAwel}
           validationState={getDateValidationStateDate(geschaeft.datumAusgangAwel)}
         >
-          <ControlLabel>Datum Ausgang AWEL (erledigt)</ControlLabel>
+          <ControlLabel>
+            Datum Ausgang AWEL (erledigt)
+          </ControlLabel>
           <InputGroup>
             <FormControl
               type="text"
@@ -229,10 +276,13 @@ class AreaFristen extends Component {
                 singleDatePicker
                 drops="up"
                 opens="left"
-                onApply={onChangeDatePicker.bind(this, 'datumAusgangAwel')}
+                onApply={() => onChangeDatePicker('datumAusgangAwel')}
                 className={styles.datePicker}
               >
-                <Glyphicon glyph="calendar" style={datePickerCalendarStyle} />
+                <Glyphicon
+                  glyph="calendar"
+                  style={datePickerCalendarStyle}
+                />
               </DateRangePicker>
             </InputGroup.Addon>
           </InputGroup>
@@ -241,7 +291,9 @@ class AreaFristen extends Component {
           className={styles.fieldFristDirektion}
           validationState={getDateValidationStateDate(geschaeft.fristDirektion)}
         >
-          <ControlLabel>Frist für Erledigung durch Direktion</ControlLabel>
+          <ControlLabel>
+            Frist für Erledigung durch Direktion
+          </ControlLabel>
           <InputGroup>
             <FormControl
               type="text"
@@ -258,10 +310,13 @@ class AreaFristen extends Component {
                 singleDatePicker
                 drops="up"
                 opens="left"
-                onApply={onChangeDatePicker.bind(this, 'fristDirektion')}
+                onApply={() => onChangeDatePicker('fristDirektion')}
                 className={styles.datePicker}
               >
-                <Glyphicon glyph="calendar" style={datePickerCalendarStyle} />
+                <Glyphicon
+                  glyph="calendar"
+                  style={datePickerCalendarStyle}
+                />
               </DateRangePicker>
             </InputGroup.Addon>
           </InputGroup>
