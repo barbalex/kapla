@@ -6,7 +6,7 @@ import { Provider } from 'react-redux'
 import { Router, hashHistory } from 'react-router'
 import { syncHistoryWithStore } from 'react-router-redux'
 import routes from './routes'
-// loading store from separate file does not work for sever rendering
+// loading store from separate file does not work for server rendering
 // see: http://stackoverflow.com/questions/33643290/how-do-i-get-a-hold-of-the-store-dispatch-in-react-router-onenter
 // but I need to fetch it from wrapComponentInProvider.js
 import store from './store'
