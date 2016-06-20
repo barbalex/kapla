@@ -4,7 +4,7 @@ CREATE VIEW
 AS
   SELECT
     geschaefteKontakteExtern.idGeschaeft AS idGeschaeft,
-    GROUP_CONCAT(externe.vorname || ' ' || externe.name) AS kontaktExternVornameName
+    GROUP_CONCAT(externe.vorname || ' ' || externe.name, ", ") AS kontaktExternVornameName
   FROM
     externe
     INNER JOIN
@@ -18,7 +18,7 @@ CREATE VIEW
 AS
   SELECT
     geschaefteKontakteIntern.idGeschaeft AS idGeschaeft,
-    GROUP_CONCAT(interne.vorname || ' ' || interne.name) AS kontaktInternVornameName
+    GROUP_CONCAT(interne.vorname || ' ' || interne.name, ", ") AS kontaktInternVornameName
   FROM
     interne
     INNER JOIN
