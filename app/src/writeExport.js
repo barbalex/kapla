@@ -12,6 +12,7 @@ const Excel = require('exceljs')
 // path is passed as only argument of the process
 // but first two arguments are used by node internally
 const path = process.argv[2]
+
 // dataArray is passed as message
 // because process arguments can only be strings
 process.on('message', (dataArray) => {

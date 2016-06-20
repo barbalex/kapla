@@ -25,10 +25,15 @@ function getDataArrayFromExportObjects(exportObjects) {
   dataArray.push(Object.keys(exportObjects[0]))
   // then the field values
   exportObjects.forEach((object) =>
-    dataArray.push(Object.keys(object).map((key) => {
-      // exceljs errors out if first member of array is null
-      // see: https://github.com/guyonroche/exceljs/issues/111
-      if (object[key] === null) return ''
+    dataArray.push(Object.keys(object).map((key, index) => {
+      /**
+       * exceljs errors out if first member of array is null
+       * see: https://github.com/guyonroche/exceljs/issues/111
+       * unfortunately there is also an issue with passing ''
+       * in versions > 0.2.7
+       * see: https://github.com/guyonroche/exceljs/issues/120
+       */
+      if (object[key] === null && index === 0) return ''
       return object[key]
     })))
   return dataArray
@@ -64,9 +69,9 @@ export default (geschaefte, messageShow) => {
           } else if (message.error) {
             // show the error
             messageShow(true, 'Fehler:', message.error)
-            setTimeout(() => {
-              messageShow(false, '', '')
-            }, 8000)
+            setTimeout(() =>
+              messageShow(false, '', ''), 8000
+            )
           } else {
             // always hide message
             messageShow(false, '', '')

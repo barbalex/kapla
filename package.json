@@ -85,7 +85,7 @@
   "dependencies": {
     "css-modules-require-hook": "4.0.1",
     "electron-debug": "1.0.1",
-    "exceljs": "0.2.8",
+    "exceljs": "0.2.7",
     "font-awesome": "4.6.3",
     "golden-layout": "1.5.1",
     "jquery": "2.2.4",
