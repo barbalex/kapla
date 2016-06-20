@@ -14,6 +14,39 @@ import DateRangePicker from 'react-bootstrap-daterangepicker'
 import styles from './AreaFristen.css'
 import getDateValidationStateDate from '../src/getDateValidationStateDate'
 
+
+const statusFristInStyle = (dauerBisFristMitarbeiter) => {
+  if (dauerBisFristMitarbeiter < 0) {
+    return [styles.fieldFristInUeberfaellig, 'formControlStatic'].join(' ')
+  }
+  if (dauerBisFristMitarbeiter === 0) {
+    return [styles.fieldFristInHeute, 'formControlStatic'].join(' ')
+  }
+  return 'formControlStatic'
+}
+
+const fristDauerBisMitarbeiter = (geschaeft) => {
+  const now = moment()
+  const end = moment(geschaeft.fristMitarbeiter, 'DD.MM.YYYY')
+  const duration = moment.duration(end.diff(now))
+  const days = duration.asDays()
+  return days ? Math.ceil(days) : ''
+}
+
+const fieldFristDauerBisMitarbeiter = (geschaeft) => (
+  <div className={styles.fieldFristDauerBisMitarbeiter}>
+    <ControlLabel>
+      Tage bis Frist Mitarbeiter
+    </ControlLabel>
+    <FormControl.Static
+      style={{ paddingTop: 0, marginTop: 0 }}
+      className={statusFristInStyle(fristDauerBisMitarbeiter(geschaeft))}
+    >
+      {fristDauerBisMitarbeiter(geschaeft)}
+    </FormControl.Static>
+  </div>
+)
+
 class AreaFristen extends Component {
   static propTypes = {
     geschaeft: PropTypes.object,
@@ -21,39 +54,6 @@ class AreaFristen extends Component {
     blur: PropTypes.func.isRequired,
     onChangeDatePicker: PropTypes.func.isRequired,
     nrOfFieldsBeforeFristen: PropTypes.number
-  }
-
-  fristDauerBisMitarbeiter = () => {
-    const { geschaeft } = this.props
-    const now = moment()
-    const end = moment(geschaeft.fristMitarbeiter, 'DD.MM.YYYY')
-    const duration = moment.duration(end.diff(now))
-    const days = duration.asDays()
-    return days ? Math.ceil(days) : ''
-  }
-
-  fieldFristDauerBisMitarbeiter = () => (
-    <div className={styles.fieldFristDauerBisMitarbeiter}>
-      <ControlLabel>
-        Tage bis Frist Mitarbeiter
-      </ControlLabel>
-      <FormControl.Static
-        style={{ paddingTop: 0, marginTop: 0 }}
-        className={this.statusFristInStyle(this.fristDauerBisMitarbeiter())}
-      >
-        {this.fristDauerBisMitarbeiter()}
-      </FormControl.Static>
-    </div>
-  )
-
-  statusFristInStyle = (dauerBisFristMitarbeiter) => {
-    if (dauerBisFristMitarbeiter < 0) {
-      return [styles.fieldFristInUeberfaellig, 'formControlStatic'].join(' ')
-    }
-    if (dauerBisFristMitarbeiter === 0) {
-      return [styles.fieldFristInHeute, 'formControlStatic'].join(' ')
-    }
-    return 'formControlStatic'
   }
 
   render = () => {
@@ -252,7 +252,7 @@ class AreaFristen extends Component {
             </InputGroup.Addon>
           </InputGroup>
         </FormGroup>
-        {!!geschaeft.fristMitarbeiter && this.fieldFristDauerBisMitarbeiter()}
+        {!!geschaeft.fristMitarbeiter && fieldFristDauerBisMitarbeiter(geschaeft)}
         <FormGroup
           className={styles.fieldDatumAusgangAwel}
           validationState={getDateValidationStateDate(geschaeft.datumAusgangAwel)}

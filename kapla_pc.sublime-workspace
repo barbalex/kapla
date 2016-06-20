@@ -4,6 +4,22 @@
 		"selected_items":
 		[
 			[
+				"onSele",
+				"onSelectFilterAngekVernehml"
+			],
+			[
+				"Page",
+				"PageFristenRows"
+			],
+			[
+				"Vernehm",
+				"VernehmlAngekHeader"
+			],
+			[
+				"data",
+				"dataArrayString"
+			],
+			[
 				"ges",
 				"geschaeftValue"
 			],
@@ -14,10 +30,6 @@
 			[
 				"ge",
 				"geschaeftValue"
-			],
-			[
-				"data",
-				"dataArrayStringified"
 			],
 			[
 				"ele",
@@ -363,90 +375,32 @@
 			"file": "package.json",
 			"settings":
 			{
-				"buffer_size": 4502,
+				"buffer_size": 4618,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "app/actions/geschaefte.js",
+			"file": "app/components/AreaNummern.js",
 			"settings":
 			{
-				"buffer_size": 13077,
+				"buffer_size": 6169,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "app/reducers/geschaefte.js",
+			"file": "app/components/AreaFristen.js",
 			"settings":
 			{
-				"buffer_size": 5824,
+				"buffer_size": 10583,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "app/actions/app.js",
+			"file": "package.js",
 			"settings":
 			{
-				"buffer_size": 2683,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"contents": "Searching 179 files for \"messageShow\" (case sensitive, whole word)\n\nC:\\Users\\alex\\kapla\\app\\actions\\app.js:\n   12  \n   13  export const MESSAGE_SHOW = 'MESSAGE_SHOW'\n   14: export const messageShow = (showMessageModal, messageTextLine1, messageTextLine2) => ({\n   15    type: MESSAGE_SHOW,\n   16    showMessageModal,\n\nC:\\Users\\alex\\kapla\\app\\components\\Navbar.js:\n   44      pagesInitiate: PropTypes.func.isRequired,\n   45      path: PropTypes.string.isRequired,\n   46:     messageShow: PropTypes.func.isRequired,\n   47      getTable: PropTypes.func.isRequired,\n   48      table: PropTypes.string,\n   ..\n  392        geschaefteGefilterteIds,\n  393        geschaefte,\n  394:       messageShow\n  395      } = this.props\n  396      const geschaefteGefiltert = geschaefte.filter((g) =>\n  397        geschaefteGefilterteIds.includes(g.idGeschaeft)\n  398      )\n  399:     exportGeschaefte(geschaefteGefiltert, messageShow)\n  400    }\n  401  \n  402    exportGeschaefteRechtsmittelVorjahre = (e) => {\n  403      e.preventDefault()\n  404:     const { geschaefte, messageShow } = this.props\n  405      const thisYear = moment().year()\n  406      const firstDate = moment(`01.01.${thisYear - 2}`, 'DD.MM.YYYY')\n  ...\n  431        geschaefteGefiltert[index] = _.pick(geschaefteGefiltert[index], fieldsWanted)\n  432      })\n  433:     exportGeschaefte(geschaefteGefiltert, messageShow)\n  434    }\n  435  \n\nC:\\Users\\alex\\kapla\\app\\components\\Page.js:\n   29      title: PropTypes.string,\n   30      queryTitle: PropTypes.bool,\n   31:     messageShow: PropTypes.func.isRequired,\n   32      building: PropTypes.bool.isRequired,\n   33      reportType: PropTypes.string\n   ..\n   65    showMessage = () => {\n   66      const {\n   67:       messageShow,\n   68        pages,\n   69        geschaefteGefilterteIds,\n   ..\n   72      const msgLine2Txt = `Bisher ${pages.length} Seiten, ${remainingGeschaefte.length} Geschäfte noch zu verarbeiten`\n   73      const msgLine2 = geschaefteGefilterteIds.length > 50 ? msgLine2Txt : ''\n   74:     messageShow(true, 'Der Bericht wird aufgebaut...', msgLine2)\n   75    }\n   76  \n   ..\n   94        pagesMoveGeschaeftToNewPage,\n   95        pagesFinishedBuilding,\n   96:       messageShow\n   97      } = this.props\n   98  \n   ..\n  113        }\n  114        if (remainingGeschaefte.length === 0) {\n  115:         messageShow(false, '', '')\n  116          pagesFinishedBuilding()\n  117        }\n\nC:\\Users\\alex\\kapla\\app\\src\\exportGeschaefte.js:\n   35  }\n   36  \n   37: export default (geschaefte, messageShow) => {\n   38    const dialogOptions = {\n   39      title: 'exportierte Geschäfte speichern',\n   ..\n   42    dialog.showSaveDialog(dialogOptions, (path) => {\n   43      if (path) {\n   44:       messageShow(true, 'Der Export wird aufgebaut...', '')\n   45        // set timeout so message appears before exceljs starts working\n   46        // and possibly blocks execution of message\n   ..\n   58              // show the message\n   59              const msg = `Die Geschäfte wurden nach ${path} exportiert`\n   60:             messageShow(true, msg, '')\n   61              setTimeout(() => {\n   62:               messageShow(false, '', '')\n   63              }, 8000)\n   64            } else if (message.error) {\n   65              // show the error\n   66:             messageShow(true, 'Fehler:', message.error)\n   67              setTimeout(() => {\n   68:               messageShow(false, '', '')\n   69              }, 8000)\n   70            } else {\n   71              // always hide message\n   72:             messageShow(false, '', '')\n   73            }\n   74          })\n\n18 matches across 4 files\n",
-			"settings":
-			{
-				"buffer_size": 3623,
-				"line_ending": "Windows",
-				"name": "Find Results",
-				"scratch": true
-			}
-		},
-		{
-			"file": "app/reducers/app.js",
-			"settings":
-			{
-				"buffer_size": 1108,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "app/containers/Geschaefte.js",
-			"settings":
-			{
-				"buffer_size": 847,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "app/components/Geschaefte.js",
-			"settings":
-			{
-				"buffer_size": 4725,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "app/actions/pages.js",
-			"settings":
-			{
-				"buffer_size": 1703,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "app/reducers/index.js",
-			"settings":
-			{
-				"buffer_size": 575,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "app/reducers/user.js",
-			"settings":
-			{
-				"buffer_size": 737,
-				"line_ending": "Windows"
+				"buffer_size": 2796,
+				"line_ending": "Unix"
 			}
 		}
 	],
@@ -501,11 +455,46 @@
 	[
 		"/C/Users/alex/kapla",
 		"/C/Users/alex/kapla/app",
-		"/C/Users/alex/kapla/app/actions",
-		"/C/Users/alex/kapla/app/reducers"
+		"/C/Users/alex/kapla/app/components"
 	],
 	"file_history":
 	[
+		"/C/Users/alex/kapla/app/components/GeschaeftKontakteExtern.js",
+		"/C/Users/alex/kapla/app/components/GeschaeftKontakteExternItems.js",
+		"/C/Users/alex/kapla/app/components/Table.js",
+		"/C/Users/alex/kapla/app/components/tableRow.js",
+		"/C/Users/alex/kapla/app/src/sql/createTables.sql",
+		"/C/Users/alex/kapla/app/src/sql/createViews.sql",
+		"/C/Users/alex/Downloads/itKonto.sql",
+		"/C/Users/alex/kapla/app/src/filterGeschaefte.js",
+		"/C/Users/alex/kapla/app/reducers/pages.js",
+		"/C/Users/alex/kapla/app/actions/pages.js",
+		"/C/Users/alex/kapla/app/reducers/geschaefte.js",
+		"/C/Users/alex/kapla/app/actions/geschaefte.js",
+		"/C/Users/alex/kapla/app/components/PageFristenRows.js",
+		"/C/Users/alex/kapla/app/components/Page.js",
+		"/C/Users/alex/kapla/app/src/filterForAngekVernehml.js",
+		"/C/Users/alex/kapla/app/components/Navbar.js",
+		"/C/Users/alex/kapla/app/src/filterForFaelligeGeschaefte.js",
+		"/C/Users/alex/kapla/app/components/PageFristenHeader.js",
+		"/C/Users/alex/kapla/app/components/PageList1Rows.js",
+		"/C/Users/alex/kapla/app/components/PageFristen.css",
+		"/C/Users/alex/kapla/app/containers/Navbar.js",
+		"/C/Users/alex/kapla/app/components/PageList1Header.js",
+		"/C/Users/alex/kapla/app/components/VernehmlAngekRows.js",
+		"/C/Users/alex/kapla/app/components/VernehmlAngekHeader.js",
+		"/C/Users/alex/kapla/app/components/PageVernehmlAngek.css",
+		"/C/Users/alex/kapla/app/src/exportGeschaefte.js",
+		"/C/Users/alex/kapla/app/src/writeExport.js",
+		"/C/Users/alex/kapla/app/actions/app.js",
+		"/C/Users/alex/kapla/app/components/ModalMessage.js",
+		"/C/Users/alex/kapla/app/containers/ModalMessage.js",
+		"/C/Users/alex/kapla/app/reducers/app.js",
+		"/C/Users/alex/kapla/app/src/sql/updateTables.sql",
+		"/C/Users/alex/kapla/app/containers/Geschaefte.js",
+		"/C/Users/alex/kapla/app/components/Geschaefte.js",
+		"/C/Users/alex/kapla/app/reducers/index.js",
+		"/C/Users/alex/Downloads/test.xlsx",
 		"/C/Users/alex/kapla/app/reducers/geschaefteKontakteIntern.js",
 		"/C/Users/alex/kapla/.eslintrc",
 		"/C/Users/alex/kapla/app/index.js",
@@ -515,16 +504,11 @@
 		"/C/Users/alex/kapla/app/routes.js",
 		"/C/Users/alex/kapla/test/containers/CounterPage.spec.js",
 		"/C/Users/alex/kapla/app/containers/App.js",
-		"/C/Users/alex/kapla/app/actions/geschaefte.js",
 		"/C/Users/alex/kapla/app/containers/AreaHistory.js",
 		"/C/Users/alex/kapla/app/components/AreaHistory.js",
 		"/C/Users/alex/kapla/app/components/GeschaeftKontakteIntern.js",
-		"/C/Users/alex/kapla/app/components/Navbar.js",
-		"/C/Users/alex/kapla/app/src/filterGeschaefte.js",
 		"/C/Users/alex/kapla/app/src/updateGeschaeft.js",
 		"/C/Users/alex/kapla/main.js",
-		"/C/Users/alex/kapla/app/src/writeExport.js",
-		"/C/Users/alex/kapla/app/src/exportGeschaefte.js",
 		"/C/Users/alex/kapla/webpack.config.base.js",
 		"/C/Users/alex/kapla/app/src/deleteGeschaeft.js",
 		"/C/Users/alex/kapla/webpack.config.development.js",
@@ -534,35 +518,22 @@
 		"/C/Users/alex/kapla/app/components/Pages.css",
 		"/C/Users/alex/Downloads/app.asar",
 		"/C/Users/alex/kapla/app/components/Navbar.css",
-		"/C/Users/alex/kapla/app/containers/Navbar.js",
 		"/C/Users/alex/kapla/app/containers/Pages.js",
 		"/C/Users/alex/kapla/app/components/Pages.js",
 		"/C/Users/alex/kapla/app/actions/table.js",
 		"/C/Users/alex/kapla/app/components/GeschaefteLayout.js",
-		"/C/Users/alex/kapla/app/components/Table.js",
 		"/C/Users/alex/kapla/app/app.global.css",
-		"/C/Users/alex/kapla/app/components/Page.js",
-		"/C/Users/alex/kapla/app/components/Geschaefte.js",
 		"/C/Users/alex/kapla/app/components/Geschaefte.css",
-		"/C/Users/alex/kapla/app/components/PageList1Header.js",
-		"/C/Users/alex/kapla/app/components/PageList1Rows.js",
 		"/C/Users/alex/kapla/app/components/PageList1.css",
 		"/C/Users/alex/kapla/app/components/AreaParlVorstoss.css",
 		"/C/Users/alex/kapla/app/components/AreaParlVorstoss.js",
 		"/C/Users/alex/kapla/package.js",
-		"/C/Users/alex/kapla/app/actions/pages.js",
-		"/C/Users/alex/kapla/app/actions/app.js",
-		"/C/Users/alex/kapla/app/reducers/app.js",
-		"/C/Users/alex/kapla/app/reducers/pages.js",
 		"/C/Users/alex/kapla/app/containers/Page.js",
-		"/C/Users/alex/kapla/app/components/ModalMessage.js",
-		"/C/Users/alex/kapla/app/containers/ModalMessage.js",
 		"/C/Users/alex/kapla/release/win32-x64/Kapla-win32-x64/resources/app/app/components/Page.js",
 		"/C/Users/alex/kapla/app/components/Geschaeft.js",
 		"/C/Users/alex/kapla/app/components/Geschaeft.css",
 		"/C/Users/alex/kapla/app/containers/AreaVernehmlassung.js",
 		"/C/Users/alex/kapla/app/components/AreaVernehmlassung.js",
-		"/C/Users/alex/kapla/app/src/sql/createTables.sql",
 		"/C/Users/alex/kapla/app/components/AreaRechtsmittel.css",
 		"/C/Users/alex/kapla/app/components/AreaVernehmlassung.css",
 		"/C/Users/alex/kapla/app/components/AreaRechtsmittel.js",
@@ -572,11 +543,8 @@
 		"/C/Users/alex/kapla/app/components/AreaFristen.css",
 		"/C/Users/alex/kapla/app/components/AreaNummern.js",
 		"/C/Users/alex/kapla/app/src/fieldnamesImportCorrected/geschaefte.csv",
-		"/C/Users/alex/kapla/app/reducers/geschaefte.js",
-		"/C/Users/alex/kapla/app/src/sql/updateTables.sql",
 		"/C/Users/alex/kapla/app/components/AreaGeschaeft.css",
 		"/C/Users/alex/kapla/kapla.db",
-		"/C/Users/alex/kapla/app/src/sql/createViews.sql",
 		"/C/Users/alex/kapla/app/components/AreaGeschaeft.js",
 		"/C/Users/alex/kapla/app/containers/AreaGeschaeft.js",
 		"/C/Users/alex/kapla/release/win32-x64/Kapla-win32-x64/resources/app/app/components/Geschaeft.css",
@@ -598,12 +566,10 @@
 		"/C/Users/alex/kapla/app/containers/AreaZuletztMutiert.js",
 		"/C/Users/alex/kapla/app/components/AreaZuletztMutiert.js",
 		"/C/Users/alex/kapla/app/components/GeschaeftKontakteIntern.css",
-		"/C/Users/alex/kapla/app/components/GeschaeftKontakteExtern.js",
 		"/C/Users/alex/kapla/app/components/GeschaeftKontakteExtern.css",
 		"/C/Users/alex/kapla/app/src/getHistoryOfGeschaeft.js",
 		"/C/Users/alex/kapla/app/src/getIdVorgeschaeft.js",
 		"/C/Users/alex/kapla/app/src/getIdNachgeschaeft.js",
-		"/C/Users/alex/kapla/app/containers/Geschaefte.js",
 		"/C/Users/alex/kapla/app/containers/GeschaeftKontakteIntern.js",
 		"/C/Users/alex/kapla/app/containers/GeschaeftKontakteExtern.js",
 		"/C/Users/alex/kapla/app/actions/geschaefteKontakteIntern.js",
@@ -612,7 +578,6 @@
 		"/C/Users/alex/kapla/app/components/GescchaefteLayoutContainer.js",
 		"/C/Users/alex/kapla/app/components/GeschaefteLayout.css",
 		"/C/Users/alex/kapla/app/reducers/geschaefteKontakteExtern.js",
-		"/C/Users/alex/kapla/app/reducers/index.js",
 		"/C/Users/alex/kapla/app/src/getGeschaeftKontaktInternFromDb.js",
 		"/C/Users/alex/kapla/app/src/newGeschaeftKontaktExternInDb.js",
 		"/C/Users/alex/kapla/app/src/newGeschaeftKontaktInternInDb.js",
@@ -621,23 +586,11 @@
 		"/C/Users/alex/kapla/app/src/deleteGeschaeftKontaktExtern.js",
 		"/C/Users/alex/kapla/app/src/sql/newGeschaeftKontaktInternInDb.js",
 		"/C/Users/alex/kapla/app/src/updateGeschaeftKontaktExtern.js",
-		"/C/Users/alex/kapla/app/src/updateGeschaeftKontaktIntern.js",
-		"/C/Users/alex/kapla/app/src/getGeschaefteKontakteInternFromDb.js",
-		"/C/Users/alex/kapla/app/src/getGeschaefteKontakteExternFromDb.js",
-		"/C/Users/alex/kapla/app/src/getInterneOptions.js",
-		"/C/Users/alex/kapla/app/src/getExterneOptions.js",
-		"/C/Users/alex/kapla/app/src/getDropdownOptions.js",
-		"/C/Users/alex/Downloads/nub.csv",
-		"/D/Google Drive/awel-kapla/howto.txt",
-		"/D/Google Drive/awel-kapla/DatenProbleme.txt",
-		"/C/Users/alex/kapla/app/src/convertDateToYyyyMmDd.js",
-		"/C/Users/alex/kapla/app/src/convertDateToDdMmYyyy.js",
-		"/C/Users/alex/kapla/app/src/getGeschaefteFromDb.js",
-		"/C/Users/alex/kapla/app/src/sql/convertDateToYyyyMmDd.js"
+		"/C/Users/alex/kapla/app/src/updateGeschaeftKontaktIntern.js"
 	],
 	"find":
 	{
-		"height": 48.0
+		"height": 47.0
 	},
 	"find_in_files":
 	{
@@ -659,9 +612,75 @@
 	},
 	"find_state":
 	{
-		"case_sensitive": true,
+		"case_sensitive": false,
 		"find_history":
 		[
+			"asar",
+			"e",
+			"PropTypes",
+			"fields",
+			"blur",
+			"change",
+			"options",
+			"styles",
+			"_",
+			"activeId",
+			"geschaeftKontaktExternRemove",
+			"geschaefteKontakteExtern",
+			"activeIdKontakt",
+			"activeIdGeschaeft",
+			"geschaeftKontaktExternRemove",
+			"geschaeftKontaktExternNewCreate",
+			"geschaefteKontakteExtern",
+			"onChangeNewKontaktExtern",
+			"onClickRemove",
+			"options",
+			"verantwortlichData",
+			"titleText",
+			"GeschaeftKontakteExtern",
+			"options",
+			"renderItems",
+			"GROUP_CONCAT",
+			"console",
+			"reportType",
+			"pages",
+			"reportType",
+			"pagesInitiate",
+			"onSelectFilterFaelligeGeschaefteMitarbeiter",
+			"tableRows",
+			"fristMitarbeiter",
+			"filterForFaelligeGeschaefte",
+			"filterFields",
+			"GESCHAEFTE_FILTER_BY_FIELDS",
+			"pagesInitiate",
+			"vernehmlAngek",
+			"statusVernehmlassung",
+			"status",
+			"geschaeftsart",
+			"geschaefteFilterByFields",
+			"vernehmlAngek",
+			"rowsContainer",
+			"PropTypes",
+			"Fristen",
+			"PageList1Header",
+			"List1",
+			"Fristen",
+			"on('message'",
+			"cp.on",
+			"cp.send",
+			"getDataArrayFromExportObjects",
+			"pathModule",
+			"writeExportPath",
+			"messageShow",
+			"exportGeschaefte",
+			"messageShow",
+			"electron",
+			"messageShow",
+			"MESSAGE_SHOW",
+			"messageTextLine2",
+			"1.2.1",
+			"^",
+			"statusVernehmlassung",
 			"messageShow",
 			"GESCHAEFT_TOGGLE_ACTIVATED",
 			"geschaefteGetSuccess",
@@ -723,73 +742,7 @@
 			"page-break",
 			"navbarHide",
 			"navbarVisible",
-			"navbarHide",
-			"page-break",
-			"body",
-			"rowsContainer",
-			"rows-container",
-			"join",
-			"pageContainer",
-			"ModalMessage",
-			"full",
-			"messageShow",
-			"showMessageModal",
-			"ModalMessage",
-			"navbarHide",
-			"showAreaRechtsmittel",
-			"AreaRechtsmittel",
-			"areaRechtsmittelTitle",
-			"rechtsmittelInstanz",
-			"onChangeDatePicker",
-			"moment",
-			"getDateValidationStateDate",
-			"\n            className={styles.typeNr}",
-			"typeNr",
-			"GESCHAEFTSART",
-			"RECHTSMITTEL_INSTANZ",
-			"rechtsmittelInstanz",
-			"GESCHAEFTSART",
-			"geschaeftsart",
-			"status",
-			"idKontaktExtern",
-			"rechtsmittelerledigung",
-			"fieldErledigung",
-			"rechtsmittelerledigungOptions",
-			"parlVorstossTypOptions",
-			"areaParlVorst",
-			"AreaParlVorstoss",
-			"options",
-			"this.options",
-			"options",
-			"fieldFristDauerBisMitarbeiter",
-			"datePicker",
-			"areaSubTitle",
-			"areaTitle",
-			"composes",
-			"options",
-			"statusOptions",
-			"geschaeftsartOptions",
-			"rechtsmittelerledigungOptions",
-			"changeGeschaeftInDb",
-			"geschaefteChangeState",
-			"activeId",
-			"geschaeft",
-			"moment",
-			"geschaeftToggleActivated",
-			"geschaefteLayout",
-			"geschaeftsartOptions",
-			"statusOptions",
-			"rechtsmittelerledigungOptions",
-			"geschaefteChangeState",
-			"activeId",
-			"geschaeft",
-			"this.blur",
-			"this.change",
-			"options",
-			"onChangeDatePicker",
-			"Geschaeft",
-			"rechtsmittelerledigungOptions",
-			"geschaeft"
+			"navbarHide"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -797,6 +750,11 @@
 		"regex": false,
 		"replace_history":
 		[
+			"event",
+			"GeschaeftKontakteExternItems",
+			"VernehmlAngek",
+			"VernehmlAngekHeader",
+			"1.2.3",
 			"",
 			"filterFields[index]",
 			"geschaeft[filterField.field]",
@@ -919,23 +877,18 @@
 			"TableRow",
 			"row",
 			"rows",
-			"changeTableInDb",
-			"tableChangeState",
-			"id",
-			"changeTableInDb",
-			"tableLayout",
-			"row"
+			"changeTableInDb"
 		],
 		"reverse": false,
 		"show_context": true,
 		"use_buffer2": true,
-		"whole_word": true,
+		"whole_word": false,
 		"wrap": true
 	},
 	"groups":
 	[
 		{
-			"selected": 5,
+			"selected": 2,
 			"sheets":
 			[
 				{
@@ -944,15 +897,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 4502,
+						"buffer_size": 4618,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2584,
-								2584
+								2938,
+								2936
 							]
 						],
 						"settings":
@@ -962,390 +915,97 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 578.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 6,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "app/actions/geschaefte.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 13077,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								6631,
-								6657
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 6868.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 9,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "app/reducers/geschaefte.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 5824,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								3505,
-								3505
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 3978.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 5,
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "app/actions/app.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 2683,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								496,
-								507
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 816.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
-					"type": "text"
-				},
-				{
-					"buffer": 4,
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 3623,
-						"regions":
-						{
-							"match":
-							{
-								"flags": 112,
-								"regions":
-								[
-									[
-										186,
-										197
-									],
-									[
-										474,
-										485
-									],
-									[
-										680,
-										691
-									],
-									[
-										905,
-										916
-									],
-									[
-										1055,
-										1066
-									],
-									[
-										1361,
-										1372
-									],
-									[
-										1524,
-										1535
-									],
-									[
-										1721,
-										1732
-									],
-									[
-										2016,
-										2027
-									],
-									[
-										2193,
-										2204
-									],
-									[
-										2328,
-										2339
-									],
-									[
-										2511,
-										2522
-									],
-									[
-										2715,
-										2726
-									],
-									[
-										3045,
-										3056
-									],
-									[
-										3131,
-										3142
-									],
-									[
-										3287,
-										3298
-									],
-									[
-										3390,
-										3401
-									],
-									[
-										3532,
-										3543
-									]
-								],
-								"scope": ""
-							}
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"detect_indentation": false,
-							"line_numbers": false,
-							"output_tag": 1,
-							"result_base_dir": "",
-							"result_file_regex": "^([^ 	].*):$",
-							"result_line_regex": "^ +([0-9]+):",
-							"scroll_past_end": true,
-							"syntax": "Packages/Default/Find Results.hidden-tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 408.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 2,
 					"type": "text"
 				},
 				{
-					"buffer": 5,
-					"file": "app/reducers/app.js",
+					"buffer": 1,
+					"file": "app/components/AreaNummern.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1108,
+						"buffer_size": 6169,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								364,
-								342
+								0,
+								0
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax",
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
 							"tab_size": 2,
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "app/components/AreaFristen.js",
+					"semi_transient": true,
+					"settings":
+					{
+						"buffer_size": 10583,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 594.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
 					"type": "text"
 				},
 				{
-					"buffer": 6,
-					"file": "app/containers/Geschaefte.js",
+					"buffer": 3,
+					"file": "package.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 847,
+						"buffer_size": 2796,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								250,
-								250
+								1215,
+								1215
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax",
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
 							"tab_size": 2,
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 7,
-					"type": "text"
-				},
-				{
-					"buffer": 7,
-					"file": "app/components/Geschaefte.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 4725,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 8,
-					"type": "text"
-				},
-				{
-					"buffer": 8,
-					"file": "app/actions/pages.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1703,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 10,
-					"type": "text"
-				},
-				{
-					"buffer": 9,
-					"file": "app/reducers/index.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 575,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								362,
-								364
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 4,
-					"type": "text"
-				},
-				{
-					"buffer": 10,
-					"file": "app/reducers/user.js",
-					"semi_transient": true,
-					"settings":
-					{
-						"buffer_size": 737,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 204.0,
+						"translation.y": 1683.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 3,
@@ -1393,7 +1053,7 @@
 	"project": "kapla_pc.sublime-project",
 	"replace":
 	{
-		"height": 92.0
+		"height": 90.0
 	},
 	"save_all_on_build": true,
 	"select_file":
