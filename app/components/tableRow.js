@@ -9,25 +9,41 @@ import {
 } from 'react-bootstrap'
 import styles from './TableRow.css'
 
-const change = ({ e, table, id, tableChangeState }) => {
-  const { type, name, dataset } = e.target
-  let { value } = e.target
+const change = ({
+  event,
+  table,
+  id,
+  tableChangeState
+}) => {
+  const { type, name, dataset } = event.target
+  let { value } = event.target
   if (type === 'radio') {
     value = dataset.value
     // blur does not occur in radio
-    blur(e)
+    blur(event)
   }
   tableChangeState(table, id, name, value)
 }
 
-const blur = ({ e, table, id, changeTableInDb }) => {
-  const { type, name, dataset } = e.target
-  let { value } = e.target
+const blur = ({
+  event,
+  table,
+  id,
+  changeTableInDb
+}) => {
+  const { type, name, dataset } = event.target
+  let { value } = event.target
   if (type === 'radio') value = dataset.value
   changeTableInDb(table, id, name, value)
 }
 
-const fields = ({ row, table, id, tableChangeState, changeTableInDb }) =>
+const fields = ({
+  row,
+  table,
+  id,
+  tableChangeState,
+  changeTableInDb
+}) =>
   Object.keys(row).map((fieldName, index) => {
     let value = row[fieldName]
     // react complains if value is null
@@ -44,11 +60,11 @@ const fields = ({ row, table, id, tableChangeState, changeTableInDb }) =>
           type="text"
           name={fieldName}
           value={value}
-          onChange={(e) =>
-            change({ e, table, id, tableChangeState })
+          onChange={(event) =>
+            change({ event, table, id, tableChangeState })
           }
-          onBlur={(e) =>
-            blur({ e, table, id, changeTableInDb })
+          onBlur={(event) =>
+            blur({ event, table, id, changeTableInDb })
           }
         />
       </FormGroup>
@@ -56,7 +72,13 @@ const fields = ({ row, table, id, tableChangeState, changeTableInDb }) =>
     return field
   })
 
-const TableRow = ({ rows, id, table, tableChangeState, changeTableInDb }) => {
+const TableRow = ({
+  rows,
+  id,
+  table,
+  tableChangeState,
+  changeTableInDb
+}) => {
   const row = rows.find((r) =>
     r.id === id
   )
