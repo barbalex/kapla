@@ -99,7 +99,6 @@ class AreaRechtsmittel extends Component {
               type="text"
               value={geschaeft.rechtsmittelEntscheidDatum || ''}
               name="rechtsmittelEntscheidDatum"
-              ref="rechtsmittelEntscheidDatum"
               onChange={change}
               onBlur={blur}
               bsSize="small"
@@ -110,7 +109,7 @@ class AreaRechtsmittel extends Component {
                 singleDatePicker
                 drops="up"
                 opens="left"
-                onApply={() => onChangeDatePicker('rechtsmittelEntscheidDatum')}
+                onApply={onChangeDatePicker.bind(this, 'rechtsmittelEntscheidDatum')}
                 className={styles.datePicker}
               >
                 <Glyphicon
