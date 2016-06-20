@@ -5,7 +5,7 @@ import { FormControl, ControlLabel } from 'react-bootstrap'
 import moment from 'moment'
 moment.locale('de')
 import styles from './AreaHistory.css'
-import getHistoryOfGeschaeft from '../src/getHistoryOfGeschaeft'
+import AreaHistoryRows from './AreaHistoryRows'
 
 class AreaHistory extends Component {
   static propTypes = {
@@ -22,37 +22,8 @@ class AreaHistory extends Component {
     geschaeftToggleActivated(idGeschaeft)
   }
 
-  history = () => {
-    const { geschaefte, activeId } = this.props
-    const history = getHistoryOfGeschaeft(geschaefte, activeId)
-    // sort descending
-    history.reverse()
-    return history.map((id, index) => {
-      const geschaeft = geschaefte.find((g) =>
-        g.idGeschaeft === id
-      )
-      if (!geschaeft || !geschaeft.gegenstand) {
-        return null
-      }
-      return (
-        <div
-          key={index}
-          className={styles.areaHistoryFields}
-          onClick={() => this.onClickHistoryGeschaeft(id)}
-        >
-          <div className={styles.historyIdGeschaeft}>
-            {id}
-          </div>
-          <div className={styles.historyGegenstand}>
-            {geschaeft.gegenstand}
-          </div>
-        </div>
-      )
-    })
-  }
-
   render() {
-    const { geschaeft, blur, change } = this.props
+    const { geschaeft, blur, change, geschaefte, activeId } = this.props
     return (
       <div className={styles.areaHistory}>
         <div className={styles.areaHistoryTitle}>
@@ -73,9 +44,7 @@ class AreaHistory extends Component {
             tabIndex={99}
           />
         </div>
-        <div className={styles.areaHistoryFieldsContainer}>
-          {this.history()}
-        </div>
+        <AreaHistoryRows geschaefte={geschaefte} activeId={activeId} />
       </div>
     )
   }
