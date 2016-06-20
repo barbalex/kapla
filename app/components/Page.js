@@ -172,7 +172,6 @@ class Page extends Component {
 
   tableRows = () => {
     const { geschaefte, reportType } = this.props
-    console.log('Page.js, tableRows: geschaefte', geschaefte)
     return geschaefte.map((geschaeft, index) => {
       if (
         reportType === 'Fristen' ||
