@@ -23,6 +23,7 @@ import ModalMessage from '../containers/ModalMessage'
 import styles from './Navbar.css'
 import exportGeschaefte from '../src/exportGeschaefte'
 import filterForFaelligeGeschaefte from '../src/filterForFaelligeGeschaefte'
+import filterForAngekVernehml from '../src/filterForAngekVernehml'
 
 class NavbarComponent extends Component {
   static propTypes = {
@@ -109,6 +110,12 @@ class NavbarComponent extends Component {
     // TODO: add ordering to state and call action here to order by frist desc
   }
 
+  onSelectFilterAngekVernehml = () => {
+    const { geschaefteFilterByFields } = this.props
+    const filter = filterForAngekVernehml()
+    geschaefteFilterByFields(filter, 'angekündigte Vernehmlassungen')
+  }
+
   onSelectFilterFaelligeGeschaefteMitarbeiter = () => {
     const { geschaefteFilterByFields, username } = this.props
     const now = moment().format('YYYY-MM-DD')
@@ -191,6 +198,12 @@ class NavbarComponent extends Component {
           onSelect={this.onSelectFilterFaelligeGeschaefteMitarbeiter}
         >
           eigene fällige
+        </MenuItem>
+        <MenuItem
+          eventKey={3.5}
+          onSelect={this.onSelectFilterAngekVernehml}
+        >
+          angekündigte Vernehmlassungen
         </MenuItem>
         <MenuItem divider />
         <MenuItem
@@ -287,11 +300,12 @@ class NavbarComponent extends Component {
   )
 
   berichteNav = () => {
-    const { pagesInitiate, path, pages } = this.props
+    const { pagesInitiate, path, pages, geschaefteFilterByFields } = this.props
     const isActive = path === '/pages'
     const nameObject = {
       Fristen: 'Bericht: Fristen',
-      List1: 'Bericht: Einfache Liste'
+      List1: 'Bericht: Einfache Liste',
+      vernehmlAngek: 'Bericht: Vernehmlassungen'
     }
     const name = nameObject[pages.reportType] || 'Berichte'
     const title = isActive ? name : 'Berichte'
@@ -320,13 +334,29 @@ class NavbarComponent extends Component {
               pagesInitiate('List1')
             }, 0)
           }
+          if (eventKey === 7.3) {
+            setTimeout(() => {
+              geschaefteFilterByFields(filterForAngekVernehml(), 'angekündigte Vernehmlassungen')
+              pagesInitiate('vernehmlAngek')
+            }, 0)
+          }
         }}
       >
+        <MenuItem header>
+          Berichte, die den gesetzten Filter übernehmen:
+        </MenuItem>
         <MenuItem eventKey={7.1}>
           Fristen
         </MenuItem>
         <MenuItem eventKey={7.2}>
           Einfache Liste
+        </MenuItem>
+        <MenuItem divider />
+        <MenuItem header>
+          Berichte, welche einen eigenen Filter setzen:
+        </MenuItem>
+        <MenuItem eventKey={7.3}>
+          angekündigte Vernehmlassungen
         </MenuItem>
       </NavDropdown>
     )

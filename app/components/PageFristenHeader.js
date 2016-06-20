@@ -33,4 +33,6 @@ const PageFristenHeader = () =>
     </div>
   </div>
 
+PageFristenHeader.displayName = 'PageFristenHeader'
+
 export default PageFristenHeader
