@@ -13,9 +13,7 @@ const actions = Object.assign(
 
 function mapStateToProps(state, props) {
   const {
-    geschaefteKontakteExtern,
-    activeIdGeschaeft,
-    activeIdKontakt
+    geschaefteKontakteExtern
   } = state.geschaefteKontakteExtern
   const {
     externeOptions,
@@ -25,8 +23,6 @@ function mapStateToProps(state, props) {
 
   return {
     geschaefteKontakteExtern,
-    activeIdGeschaeft,
-    activeIdKontakt,
     externeOptions,
     activeId,
     tabIndex
