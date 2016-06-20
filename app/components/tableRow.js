@@ -1,6 +1,6 @@
 'use strict'
 
-import React, { Component, PropTypes } from 'react'
+import React, { PropTypes } from 'react'
 import {
   Form,
   FormGroup,
@@ -9,7 +9,7 @@ import {
 } from 'react-bootstrap'
 import styles from './TableRow.css'
 
-const change = (e, { table, id, tableChangeState }) => {
+const change = ({ e, table, id, tableChangeState }) => {
   const { type, name, dataset } = e.target
   let { value } = e.target
   if (type === 'radio') {
@@ -20,14 +20,14 @@ const change = (e, { table, id, tableChangeState }) => {
   tableChangeState(table, id, name, value)
 }
 
-const blur = (e, { table, id, changeTableInDb }) => {
+const blur = ({ e, table, id, changeTableInDb }) => {
   const { type, name, dataset } = e.target
   let { value } = e.target
   if (type === 'radio') value = dataset.value
   changeTableInDb(table, id, name, value)
 }
 
-const fields = (row, { table, id, tableChangeState, changeTableInDb }) =>
+const fields = ({ row, table, id, tableChangeState, changeTableInDb }) =>
   Object.keys(row).map((fieldName, index) => {
     let value = row[fieldName]
     // react complains if value is null
@@ -45,10 +45,10 @@ const fields = (row, { table, id, tableChangeState, changeTableInDb }) =>
           name={fieldName}
           value={value}
           onChange={(e) =>
-            change(e, { table, id, tableChangeState })
+            change({ e, table, id, tableChangeState })
           }
           onBlur={(e) =>
-            blur(e, { table, id, changeTableInDb })
+            blur({ e, table, id, changeTableInDb })
           }
         />
       </FormGroup>
@@ -56,31 +56,30 @@ const fields = (row, { table, id, tableChangeState, changeTableInDb }) =>
     return field
   })
 
-class TableRow extends Component {
-  static propTypes = {
-    table: PropTypes.string.isRequired,
-    rows: PropTypes.array.isRequired,
-    id: PropTypes.number,
-    tableChangeState: PropTypes.func.isRequired,
-    changeTableInDb: PropTypes.func.isRequired
-  }
+const TableRow = ({ rows, id, table, tableChangeState, changeTableInDb }) => {
+  const row = rows.find((r) =>
+    r.id === id
+  )
 
-  render() {
-    const { rows, id, table, tableChangeState, changeTableInDb } = this.props
-    const row = rows.find((r) =>
-      r.id === id
-    )
+  if (row === undefined) return null
 
-    if (row === undefined) return null
+  return (
+    <div className={styles.body}>
+      <Form>
+        {fields({ row, table, id, tableChangeState, changeTableInDb })}
+      </Form>
+    </div>
+  )
+}
 
-    return (
-      <div className={styles.body}>
-        <Form>
-          {fields(row, { table, id, tableChangeState, changeTableInDb })}
-        </Form>
-      </div>
-    )
-  }
+TableRow.displayName = 'TableRow'
+
+TableRow.propTypes = {
+  table: PropTypes.string.isRequired,
+  rows: PropTypes.array.isRequired,
+  id: PropTypes.number,
+  tableChangeState: PropTypes.func.isRequired,
+  changeTableInDb: PropTypes.func.isRequired
 }
 
 export default TableRow
