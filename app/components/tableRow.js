@@ -9,6 +9,53 @@ import {
 } from 'react-bootstrap'
 import styles from './TableRow.css'
 
+const change = (e, { table, id, tableChangeState }) => {
+  const { type, name, dataset } = e.target
+  let { value } = e.target
+  if (type === 'radio') {
+    value = dataset.value
+    // blur does not occur in radio
+    blur(e)
+  }
+  tableChangeState(table, id, name, value)
+}
+
+const blur = (e, { table, id, changeTableInDb }) => {
+  const { type, name, dataset } = e.target
+  let { value } = e.target
+  if (type === 'radio') value = dataset.value
+  changeTableInDb(table, id, name, value)
+}
+
+const fields = (row, { table, id, tableChangeState, changeTableInDb }) =>
+  Object.keys(row).map((fieldName, index) => {
+    let value = row[fieldName]
+    // react complains if value is null
+    if (value === null) value = ''
+    const field = (
+      <FormGroup
+        key={index}
+        className={styles.formGroup}
+      >
+        <ControlLabel>
+          {fieldName}
+        </ControlLabel>
+        <FormControl
+          type="text"
+          name={fieldName}
+          value={value}
+          onChange={(e) =>
+            change(e, { table, id, tableChangeState })
+          }
+          onBlur={(e) =>
+            blur(e, { table, id, changeTableInDb })
+          }
+        />
+      </FormGroup>
+    )
+    return field
+  })
+
 class TableRow extends Component {
   static propTypes = {
     table: PropTypes.string.isRequired,
@@ -18,53 +65,8 @@ class TableRow extends Component {
     changeTableInDb: PropTypes.func.isRequired
   }
 
-  change = (e) => {
-    const { table, id, tableChangeState } = this.props
-    const { type, name, dataset } = e.target
-    let { value } = e.target
-    if (type === 'radio') {
-      value = dataset.value
-      // blur does not occur in radio
-      this.blur(e)
-    }
-    tableChangeState(table, id, name, value)
-  }
-
-  blur = (e) => {
-    const { table, id, changeTableInDb } = this.props
-    const { type, name, dataset } = e.target
-    let { value } = e.target
-    if (type === 'radio') value = dataset.value
-    changeTableInDb(table, id, name, value)
-  }
-
-  fields = (row) =>
-    Object.keys(row).map((fieldName, index) => {
-      let value = row[fieldName]
-      // react complains if value is null
-      if (value === null) value = ''
-      const field = (
-        <FormGroup
-          key={index}
-          className={styles.formGroup}
-        >
-          <ControlLabel>
-            {fieldName}
-          </ControlLabel>
-          <FormControl
-            type="text"
-            name={fieldName}
-            value={value}
-            onChange={this.change}
-            onBlur={this.blur}
-          />
-        </FormGroup>
-      )
-      return field
-    })
-
   render() {
-    const { rows, id } = this.props
+    const { rows, id, table, tableChangeState, changeTableInDb } = this.props
     const row = rows.find((r) =>
       r.id === id
     )
@@ -74,7 +76,7 @@ class TableRow extends Component {
     return (
       <div className={styles.body}>
         <Form>
-          {this.fields(row)}
+          {fields(row, { table, id, tableChangeState, changeTableInDb })}
         </Form>
       </div>
     )
