@@ -4,8 +4,6 @@ import ReactDOM from 'react-dom'
 import React, { Component, PropTypes } from 'react'
 import {
   Navbar,
-  NavDropdown,
-  MenuItem,
   Nav,
   NavItem,
   Glyphicon,
