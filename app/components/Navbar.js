@@ -473,8 +473,7 @@ class NavbarComponent extends Component {
       parlVorstossTyp: 'Parl. Vorstoss Typ',
       rechtsmittelInstanz: 'Rechtsmittel-Instanz',
       rechtsmittelErledigung: 'Rechtsmittel-Erledigung',
-      status: 'Status',
-      statusVernehmlassung: 'Status Vernehmlassung'
+      status: 'Status'
     }
     const tableName = tableNameObject[table] || table
     if (table) {
@@ -626,13 +625,6 @@ class NavbarComponent extends Component {
                 active={table === 'status'}
               >
                 Status
-              </MenuItem>
-              <MenuItem
-                eventKey={8.10}
-                onClick={() => getTable('statusVernehmlassung')}
-                active={table === 'statusVernehmlassung'}
-              >
-                Status Vernehmlassung
               </MenuItem>
             </NavDropdown>
             {

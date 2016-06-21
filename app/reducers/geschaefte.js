@@ -24,8 +24,6 @@ import {
   GESCHAEFTSART_OPTIONS_GET_ERROR,
   RECHTSMITTEL_INSTANZ_OPTIONS_GET_SUCCESS,
   RECHTSMITTEL_INSTANZ_OPTIONS_GET_ERROR,
-  STATUS_VERNEHMLASSUNG_OPTIONS_GET_SUCCESS,
-  STATUS_VERNEHMLASSUNG_OPTIONS_GET_ERROR,
   INTERNE_OPTIONS_GET_SUCCESS,
   INTERNE_OPTIONS_GET_ERROR,
   EXTERNE_OPTIONS_GET_SUCCESS,
@@ -176,11 +174,6 @@ const geschaefte = (state = standardState, action) => {
         ...state,
         rechtsmittelInstanzOptions: action.rechtsmittelInstanzOptions
       }
-    case STATUS_VERNEHMLASSUNG_OPTIONS_GET_SUCCESS:
-      return {
-        ...state,
-        statusVernehmlassungOptions: action.statusVernehmlassungOptions
-      }
     case INTERNE_OPTIONS_GET_SUCCESS:
       return {
         ...state,
@@ -196,7 +189,6 @@ const geschaefte = (state = standardState, action) => {
     case STATUS_OPTIONS_GET_ERROR:
     case GESCHAEFTSART_OPTIONS_GET_ERROR:
     case RECHTSMITTEL_INSTANZ_OPTIONS_GET_ERROR:
-    case STATUS_VERNEHMLASSUNG_OPTIONS_GET_ERROR:
     case INTERNE_OPTIONS_GET_ERROR:
     case EXTERNE_OPTIONS_GET_ERROR:
     case GESCHAEFTE_CHANGE_DB_ERROR:

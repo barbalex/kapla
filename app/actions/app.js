@@ -43,7 +43,6 @@ const dbChooseSuccess = (dbPath, db) =>
     dispatch(GeschaefteActions.statusOptionsGet())
     dispatch(GeschaefteActions.geschaeftsartOptionsGet())
     dispatch(GeschaefteActions.rechtsmittelInstanzOptionsGet())
-    dispatch(GeschaefteActions.statusVernehmlassungOptionsGet())
     dispatch(GeschaefteActions.interneOptionsGet())
     dispatch(GeschaefteActions.externeOptionsGet())
     dispatch(GeschaefteKontakteInternActions.getGeschaefteKontakteIntern())

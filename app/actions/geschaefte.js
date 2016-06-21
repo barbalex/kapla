@@ -393,27 +393,3 @@ const rechtsmittelInstanzOptionsGetError = (error) => ({
   type: RECHTSMITTEL_INSTANZ_OPTIONS_GET_ERROR,
   error
 })
-
-export const statusVernehmlassungOptionsGet = () =>
-  (dispatch, getState) => {
-    const { app } = getState()
-    getDropdownOptions(app.db, 'statusVernehmlassung')
-      .then((statusVernehmlassungOptions) =>
-        dispatch(statusVernehmlassungOptionsGetSuccess(statusVernehmlassungOptions))
-      )
-      .catch((error) =>
-        dispatch(statusVernehmlassungOptionsGetError(error))
-      )
-  }
-
-export const STATUS_VERNEHMLASSUNG_OPTIONS_GET_SUCCESS = 'STATUS_VERNEHMLASSUNG_OPTIONS_GET_SUCCESS'
-const statusVernehmlassungOptionsGetSuccess = (statusVernehmlassungOptions) => ({
-  type: STATUS_VERNEHMLASSUNG_OPTIONS_GET_SUCCESS,
-  statusVernehmlassungOptions
-})
-
-export const STATUS_VERNEHMLASSUNG_OPTIONS_GET_ERROR = 'STATUS_VERNEHMLASSUNG_OPTIONS_GET_ERROR'
-const statusVernehmlassungOptionsGetError = (error) => ({
-  type: STATUS_VERNEHMLASSUNG_OPTIONS_GET_ERROR,
-  error
-})

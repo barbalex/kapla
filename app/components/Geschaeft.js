@@ -12,7 +12,6 @@ import AreaNummern from '../containers/AreaNummern'
 import AreaFristen from '../containers/AreaFristen'
 import AreaParlVorstoss from '../containers/AreaParlVorstoss'
 import AreaRechtsmittel from '../containers/AreaRechtsmittel'
-import AreaVernehmlassung from '../containers/AreaVernehmlassung'
 import AreaPersonen from '../containers/AreaPersonen'
 import AreaHistory from '../containers/AreaHistory'
 import AreaZuletztMutiert from '../containers/AreaZuletztMutiert'
@@ -93,11 +92,9 @@ class Geschaeft extends Component {
 
     const showAreaParlVorstoss = geschaeft.geschaeftsart === 'Parlament. Vorstoss'
     const showAreaRechtsmittel = geschaeft.geschaeftsart === 'Rekurs/Beschwerde'
-    const showAreaVernehmlassung = geschaeft.geschaeftsart === 'Vernehmlassung'
     const showAreaForGeschaeftsart = (
       showAreaParlVorstoss ||
-      showAreaRechtsmittel ||
-      showAreaVernehmlassung
+      showAreaRechtsmittel
     )
 
     // need width to set layout for differing widths
@@ -152,16 +149,6 @@ class Geschaeft extends Component {
               change={this.change}
               blur={this.blur}
               onChangeDatePicker={this.onChangeDatePicker}
-            />
-          )
-        }
-        {
-          showAreaVernehmlassung &&
-          (
-            <AreaVernehmlassung
-              nrOfFieldsBeforePv={nrOfFieldsBeforePv}
-              change={this.change}
-              blur={this.blur}
             />
           )
         }

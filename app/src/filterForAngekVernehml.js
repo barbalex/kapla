@@ -8,8 +8,8 @@ export default function () {
       comparator: '='
     },
     {
-      field: 'statusVernehmlassung',
-      value: 'erwartet',
+      field: 'status',
+      value: 'angekündigt',
       comparator: '='
     }
   ]

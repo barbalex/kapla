@@ -67,7 +67,6 @@ CREATE TABLE geschaefte (
   rechtsmittelEntscheidNr INTEGER,
   rechtsmittelEntscheidDatum TEXT,
   status TEXT,
-  statusVernehmlassung TEXT,
   verantwortlich TEXT,
   vermerk TEXT,
   zustaendigeDirektion TEXT
@@ -148,10 +147,11 @@ CREATE INDEX statusSort ON status (sort);
 INSERT INTO
   status (status, sort)
 VALUES
-  ('pendent', 1),
-  ('überwachen int.', 2),
-  ('überwachen ext.', 3),
-  ('erledigt', 4);
+  ('angekündigt', 1),
+  ('pendent', 2),
+  ('überwachen int.', 3),
+  ('überwachen ext.', 4),
+  ('erledigt', 5);
 
 CREATE TABLE parlVorstossTyp (
   id INTEGER PRIMARY KEY,
@@ -210,18 +210,3 @@ VALUES
   ('Instanz 1', 1),
   ('Instanz 2', 2),
   ('Instanz 3', 3);
-
-CREATE TABLE statusVernehmlassung (
-  id INTEGER PRIMARY KEY,
-  statusVernehmlassung TEXT unique,
-  sort INTEGER
-);
-
-CREATE INDEX statusVernehmlassungSort ON statusVernehmlassung (sort);
-
-INSERT INTO
-  statusVernehmlassung (statusVernehmlassung, sort)
-VALUES
-  ('erwartet', 1),
-  ('läuft', 2),
-  ('abgeschlossen', 3);
