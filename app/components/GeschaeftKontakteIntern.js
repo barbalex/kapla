@@ -1,35 +1,16 @@
 'use strict'
 
 import React, { Component, PropTypes } from 'react'
-import { FormControl, Glyphicon } from 'react-bootstrap'
+import { FormControl } from 'react-bootstrap'
 import _ from 'lodash'
 import styles from './GeschaeftKontakteIntern.css'
+import GeschaeftKontakteInternItems from '../containers/GeschaeftKontakteInternItems'
 
 const onChangeNewKontaktIntern = (e, geschaeftKontaktInternNewCreate, activeId) => {
   const idKontakt = e.target.value
   geschaeftKontaktInternNewCreate(activeId, idKontakt)
   // need to empty dropdown
   e.target.value = ''
-}
-
-const titleText = (idKontakt, interneOptions) => {
-  const data = interneOptions.find((o) =>
-    o.id === idKontakt
-  )
-  if (!data) return 'Kontakt entfernen'
-  return `${data.kurzzeichen} entfernen`
-}
-
-const verantwortlichData = (gkI, interneOptions) => {
-  const data = interneOptions.find((o) =>
-    o.id === gkI.idKontakt
-  )
-  if (!data) return ''
-  const name = `${data.vorname} ${data.name}`
-  const abt = data.abteilung ? `, ${data.abteilung}` : ''
-  const eMail = data.eMail ? `, ${data.eMail}` : ''
-  const telefon = data.telefon ? `, ${data.telefon}` : ''
-  return `${name}${abt}${eMail}${telefon}`
 }
 
 const optionsList = (
@@ -76,103 +57,53 @@ const optionsList = (
   return options
 }
 
-class GeschaefteKontakteIntern extends Component {
-  static propTypes = {
-    interneOptions: PropTypes.array.isRequired,
-    geschaefteKontakteIntern: PropTypes.array.isRequired,
-    activeIdGeschaeft: PropTypes.number,
-    activeIdKontakt: PropTypes.number,
-    geschaeftKontaktInternNewCreate: PropTypes.func.isRequired,
-    geschaeftKontaktInternRemove: PropTypes.func.isRequired,
-    activeId: PropTypes.number.isRequired,
-    tabIndex: PropTypes.number.isRequired
-  }
-
-  renderItems() {
-    const {
-      geschaefteKontakteIntern,
-      activeId,
-      interneOptions,
-      geschaeftKontaktInternRemove
-    } = this.props
-    // filter for this geschaeft
-    const gkIFiltered = geschaefteKontakteIntern.filter((g) =>
-      g.idGeschaeft === activeId
-    )
-    const gkISorted = _.sortBy(gkIFiltered, (g) => {
-      const intOption = interneOptions.find((o) =>
-        o.id === g.idKontakt
-      )
-      return intOption.kurzzeichen.toLowerCase()
-    })
-    return gkISorted.map((gkI, index) => {
-      const intOption = interneOptions.find((o) =>
-        o.id === gkI.idKontakt
-      )
-      const kurzzeichen = intOption.kurzzeichen
-      return (
-        <div
-          key={index + 1}
-          className={styles.row}
+const GeschaefteKontakteIntern = ({
+  tabIndex,
+  geschaeftKontaktInternNewCreate,
+  activeId,
+  interneOptions,
+  geschaefteKontakteIntern
+}) =>
+  <div className={styles.body}>
+    <GeschaeftKontakteInternItems />
+    <div
+      key={0}
+      className={styles.rowfVDropdown}
+    >
+      <div className={styles.fVDropdown}>
+        <FormControl
+          componentClass="select"
+          bsSize="small"
+          className={styles.dropdown}
+          onChange={(e) =>
+            onChangeNewKontaktIntern(e, geschaeftKontaktInternNewCreate, activeId)
+          }
+          title="Neuen Kontakt hinzufügen"
+          tabIndex={tabIndex}
         >
-          <div className={styles.fV}>
-            {kurzzeichen}
-          </div>
-          <div className={styles.fVN}>
-              {verantwortlichData(gkI, interneOptions)}
-          </div>
-          <div className={styles.deleteGlyphiconDiv}>
-            <Glyphicon
-              glyph="remove-circle"
-              onClick={() => geschaeftKontaktInternRemove(activeId, gkI.idKontakt)}
-              className={styles.removeGlyphicon}
-              title={titleText(gkI.idKontakt, interneOptions)}
-            />
-          </div>
-        </div>
-      )
-    })
-  }
-
-  render = () => {
-    const {
-      tabIndex,
-      geschaeftKontaktInternNewCreate,
-      activeId,
-      interneOptions,
-      geschaefteKontakteIntern
-    } = this.props
-    return (
-      <div className={styles.body}>
-        {this.renderItems()}
-        <div
-          key={0}
-          className={styles.rowfVDropdown}
-        >
-          <div className={styles.fVDropdown}>
-            <FormControl
-              componentClass="select"
-              bsSize="small"
-              className={styles.dropdown}
-              onChange={(e) =>
-                onChangeNewKontaktIntern(e, geschaeftKontaktInternNewCreate, activeId)
-              }
-              title="Neuen Kontakt hinzufügen"
-              tabIndex={tabIndex}
-            >
-              {
-                optionsList(
-                  interneOptions,
-                  geschaefteKontakteIntern,
-                  activeId
-                )
-              }
-            </FormControl>
-          </div>
-        </div>
+          {
+            optionsList(
+              interneOptions,
+              geschaefteKontakteIntern,
+              activeId
+            )
+          }
+        </FormControl>
       </div>
-    )
-  }
+    </div>
+  </div>
+
+GeschaefteKontakteIntern.displayName = 'GeschaefteKontakteIntern'
+
+GeschaefteKontakteIntern.propTypes = {
+  interneOptions: PropTypes.array.isRequired,
+  geschaefteKontakteIntern: PropTypes.array.isRequired,
+  activeIdGeschaeft: PropTypes.number,
+  activeIdKontakt: PropTypes.number,
+  geschaeftKontaktInternNewCreate: PropTypes.func.isRequired,
+  geschaeftKontaktInternRemove: PropTypes.func.isRequired,
+  activeId: PropTypes.number.isRequired,
+  tabIndex: PropTypes.number.isRequired
 }
 
 export default GeschaefteKontakteIntern
