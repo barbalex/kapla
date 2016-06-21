@@ -15,20 +15,20 @@ import {
 import { LinkContainer } from 'react-router-bootstrap'
 import ModalGeschaeftDelete from '../containers/ModalGeschaeftDelete'
 import ModalMessage from '../containers/ModalMessage'
-import NavbarBerichteNav from '../containers/NavbarBerichteNav'
-import NavbarGeschaefteFilterNav from '../containers/NavbarGeschaefteFilterNav'
-import NavbarGeschaeftNeuNav from '../containers/NavbarGeschaeftNeuNav'
-import NavbarGeschaeftLoeschenNav from '../containers/NavbarGeschaeftLoeschenNav'
-import NavbarTableRowNeuNav from '../containers/NavbarTableRowNeuNav'
-import NavbarTableRowDeleteNav from '../containers/NavbarTableRowDeleteNav'
-import NavbarExportGeschaefteNav from '../containers/NavbarExportGeschaefteNav'
-import NavbarPrintNav from './NavbarPrintNav.js'
-import NavbarStammdatenNav from '../containers/NavbarStammdatenNav'
+import BerichteNav from '../containers/NavbarBerichteNav'
+import GeschaefteFilterNav from '../containers/NavbarGeschaefteFilterNav'
+import GeschaeftNeuNav from '../containers/NavbarGeschaeftNeuNav'
+import GeschaeftLoeschenNav from '../containers/NavbarGeschaeftLoeschenNav'
+import TableRowNeuNav from '../containers/NavbarTableRowNeuNav'
+import TableRowDeleteNav from '../containers/NavbarTableRowDeleteNav'
+import ExportGeschaefteNav from '../containers/NavbarExportGeschaefteNav'
+import PrintNav from './NavbarPrintNav.js'
+import StammdatenNav from '../containers/NavbarStammdatenNav'
+import OptionsNav from '../containers/NavbarOptionsNav'
 import styles from './Navbar.css'
 
 class NavbarComponent extends Component {
   static propTypes = {
-    dbGet: PropTypes.func.isRequired,
     geschaefteFilterByFulltextSet: PropTypes.func.isRequired,
     geschaefteFilterByFulltext: PropTypes.func.isRequired,
     filterFulltext: PropTypes.string,
@@ -117,7 +117,6 @@ class NavbarComponent extends Component {
 
   render() {
     const {
-      dbGet,
       geschaefte,
       geschaefteGefilterteIds,
       showMessageModal,
@@ -158,39 +157,39 @@ class NavbarComponent extends Component {
             </LinkContainer>
             {
               showGeschaefteStuff &&
-              <NavbarGeschaefteFilterNav
+              <GeschaefteFilterNav
                 focusFulltextFilter={this.focusFulltextFilter}
                 removeFilter={this.removeFilter}
               />
             }
             {
               showGeschaefteStuff &&
-              <NavbarGeschaeftNeuNav />
+              <GeschaeftNeuNav />
             }
             {
               showGeschaefteStuff &&
-              <NavbarGeschaeftLoeschenNav />
+              <GeschaeftLoeschenNav />
             }
             {
               showGeschaefteAndPrint &&
-              <NavbarExportGeschaefteNav />
+              <ExportGeschaefteNav />
             }
             {
               showGeschaefteAndPrint &&
-              <NavbarBerichteNav />
+              <BerichteNav />
             }
             {
               showPrint &&
-              <NavbarPrintNav />
+              <PrintNav />
             }
-            <NavbarStammdatenNav />
+            <StammdatenNav />
             {
               showTableStuff &&
-              <NavbarTableRowNeuNav />
+              <TableRowNeuNav />
             }
             {
               showTableStuff &&
-              <NavbarTableRowDeleteNav />
+              <TableRowDeleteNav />
             }
           </Nav>
           <Nav pullRight>
@@ -198,19 +197,7 @@ class NavbarComponent extends Component {
               showGeschaefteAndPrint &&
               this.fulltextFilterNav()
             }
-            <NavDropdown
-              eventKey={9}
-              title="&#8942;"
-              id="basic-nav-dropdown"
-              noCaret
-            >
-              <MenuItem
-                eventKey={9.1}
-                onClick={dbGet}
-              >
-                Datenbank wählen
-              </MenuItem>
-            </NavDropdown>
+            <OptionsNav />
           </Nav>
         </Navbar>
       </div>
