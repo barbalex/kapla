@@ -27,8 +27,7 @@ function mapStateToProps(state) {
   } = state.app
   const {
     table,
-    rows,
-    id
+    rows
   } = state.table
   const path = state.routing.locationBeforeTransitions.pathname
   return {
@@ -41,8 +40,7 @@ function mapStateToProps(state) {
     path,
     showMessageModal,
     table,
-    rows,
-    activeTableRowId: id
+    rows
   }
 }
 

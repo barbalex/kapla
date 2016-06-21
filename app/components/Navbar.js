@@ -25,6 +25,7 @@ import NavbarGeschaefteFilterNav from '../containers/NavbarGeschaefteFilterNav'
 import NavbarGeschaeftNeuNav from '../containers/NavbarGeschaeftNeuNav'
 import NavbarGeschaeftLoeschenNav from '../containers/NavbarGeschaeftLoeschenNav'
 import NavbarTableRowNeuNav from '../containers/NavbarTableRowNeuNav'
+import NavbarTableRowDeleteNav from '../containers/NavbarTableRowDeleteNav'
 import styles from './Navbar.css'
 import exportGeschaefte from '../src/exportGeschaefte'
 
@@ -43,9 +44,7 @@ class NavbarComponent extends Component {
     messageShow: PropTypes.func.isRequired,
     getTable: PropTypes.func.isRequired,
     table: PropTypes.string,
-    rows: PropTypes.array,
-    activeTableRowId: PropTypes.number,
-    tableRowRemove: PropTypes.func.isRequired
+    rows: PropTypes.array
   }
 
   componentWillMount() {
@@ -106,26 +105,6 @@ class NavbarComponent extends Component {
     geschaefteFilterByFulltextSet(filterFulltext)
     geschaefteFilterByFulltext(null)
     this.focusFulltextFilter()
-  }
-
-  tableRowLoeschenNav = () => {
-    const {
-      tableRowRemove,
-      table,
-      activeTableRowId
-    } = this.props
-    return (
-      <NavItem
-        eventKey={5}
-        onClick={() =>
-          tableRowRemove(table, activeTableRowId)
-        }
-        title="Datensatz löschen"
-        disabled={!activeTableRowId}
-      >
-        <Glyphicon glyph="trash" />
-      </NavItem>
-    )
   }
 
   exportGeschaefteNav = () => (
@@ -420,7 +399,7 @@ class NavbarComponent extends Component {
             }
             {
               showTableStuff &&
-              this.tableRowLoeschenNav()
+              <NavbarTableRowDeleteNav />
             }
           </Nav>
           <Nav pullRight>
