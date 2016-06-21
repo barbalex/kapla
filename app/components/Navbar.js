@@ -23,6 +23,7 @@ import NavbarTableRowNeuNav from '../containers/NavbarTableRowNeuNav'
 import NavbarTableRowDeleteNav from '../containers/NavbarTableRowDeleteNav'
 import NavbarExportGeschaefteNav from '../containers/NavbarExportGeschaefteNav'
 import NavbarPrintNav from './NavbarPrintNav.js'
+import NavbarStammdatenNav from '../containers/NavbarStammdatenNav'
 import styles from './Navbar.css'
 
 class NavbarComponent extends Component {
@@ -114,29 +115,6 @@ class NavbarComponent extends Component {
     ReactDOM.findDOMNode(this.refs.filterFulltext).focus()
   }
 
-  stammdatenTitle = () => {
-    const { table, rows } = this.props
-    const tableNameObject = {
-      interne: 'Interne',
-      externe: 'Externe',
-      gdeplz: 'Gemeinden',
-      geschaeftsart: 'Geschäftsart',
-      parlVorstossTyp: 'Parl. Vorstoss Typ',
-      rechtsmittelInstanz: 'Rechtsmittel-Instanz',
-      rechtsmittelErledigung: 'Rechtsmittel-Erledigung',
-      status: 'Status'
-    }
-    const tableName = tableNameObject[table] || table
-    if (table) {
-      return (
-        <span>
-          {tableName} <sup>{rows.length}</sup>
-        </span>
-      )
-    }
-    return <span>Stammdaten</span>
-  }
-
   render() {
     const {
       dbGet,
@@ -144,9 +122,7 @@ class NavbarComponent extends Component {
       geschaefteGefilterteIds,
       showMessageModal,
       willDeleteGeschaeft,
-      path,
-      getTable,
-      table
+      path
     } = this.props
 
     const dataIsFiltered = geschaefte.length !== geschaefteGefilterteIds.length
@@ -155,12 +131,6 @@ class NavbarComponent extends Component {
     const showGeschaefteStuff = path === '/geschaefte'
     const showGeschaefteAndPrint = showPrint || showGeschaefteStuff
     const showTableStuff = path === '/table'
-    /**
-     * does not work - should keep menu active when table is loaded
-     * probably a bug in react-bootstrap
-     * see: https://github.com/react-bootstrap/react-bootstrap/issues/1878
-     */
-    const isStammdatenMenuActive = !!table
 
     return (
       <div>
@@ -188,7 +158,10 @@ class NavbarComponent extends Component {
             </LinkContainer>
             {
               showGeschaefteStuff &&
-              <NavbarGeschaefteFilterNav focusFulltextFilter={this.focusFulltextFilter} removeFilter={this.removeFilter} />
+              <NavbarGeschaefteFilterNav
+                focusFulltextFilter={this.focusFulltextFilter}
+                removeFilter={this.removeFilter}
+              />
             }
             {
               showGeschaefteStuff &&
@@ -210,74 +183,7 @@ class NavbarComponent extends Component {
               showPrint &&
               <NavbarPrintNav />
             }
-            <NavDropdown
-              eventKey={8}
-              title={this.stammdatenTitle()}
-              id="basic-nav-dropdown"
-              active={isStammdatenMenuActive}
-              className={isStammdatenMenuActive ? styles.navActive : null}
-            >
-              <MenuItem
-                eventKey={8.1}
-                onClick={() => getTable('interne')}
-                active={table === 'interne'}
-              >
-                Interne
-              </MenuItem>
-              <MenuItem
-                eventKey={8.2}
-                onClick={() => getTable('externe')}
-                active={table === 'externe'}
-              >
-                Externe
-              </MenuItem>
-              <MenuItem divider />
-              <MenuItem header>
-                Auswahllisten:
-              </MenuItem>
-              <MenuItem
-                eventKey={8.3}
-                onClick={() => getTable('gdeplz')}
-                active={table === 'gdeplz'}
-              >
-                Gemeinden
-              </MenuItem>
-              <MenuItem
-                eventKey={8.4}
-                onClick={() => getTable('geschaeftsart')}
-                active={table === 'geschaeftsart'}
-              >
-                Geschäftsart
-              </MenuItem>
-              <MenuItem
-                eventKey={8.6}
-                onClick={() => getTable('parlVorstossTyp')}
-                active={table === 'parlVorstossTyp'}
-              >
-                Parlament. Vorstoss Typ
-              </MenuItem>
-              <MenuItem
-                eventKey={8.7}
-                onClick={() => getTable('rechtsmittelInstanz')}
-                active={table === 'rechtsmittelInstanz'}>
-
-                Rechtsmittel-Instanz
-              </MenuItem>
-              <MenuItem
-                eventKey={8.8}
-                onClick={() => getTable('rechtsmittelErledigung')}
-                active={table === 'rechtsmittelErledigung'}
-              >
-                Rechtsmittel-Erledigung
-              </MenuItem>
-              <MenuItem
-                eventKey={8.9}
-                onClick={() => getTable('status')}
-                active={table === 'status'}
-              >
-                Status
-              </MenuItem>
-            </NavDropdown>
+            <NavbarStammdatenNav />
             {
               showTableStuff &&
               <NavbarTableRowNeuNav />
