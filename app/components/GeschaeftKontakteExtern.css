@@ -21,7 +21,7 @@
   grid-column: 1 / span 1;
   display: grid;
   grid-template-columns: 130px calc(100% - 150px) 20px;
-  grid-gap: 0px;
+  grid-gap: 0;
   border-bottom: thin solid #CECBCB;
   padding: 3px;
 }

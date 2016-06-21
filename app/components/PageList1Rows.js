@@ -4,7 +4,7 @@
  * This component builds and displays a single page
  */
 
-import React, { Component, PropTypes } from 'react'
+import React, { PropTypes } from 'react'
 import styles from './PageList1.css'
 
 function isOdd(num) {

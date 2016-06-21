@@ -62,7 +62,7 @@ class GeschaefteKontakteExtern extends Component {
       return `${intOption.name} ${intOption.vorname}`.toLowerCase()
     })
     return (
-      <div>
+      <div className={styles.body}>
         {
           gKISorted.map((gkI, index) => {
             const intOption = externeOptions.find((o) =>
