@@ -6,25 +6,21 @@ import Navbar from '../components/Navbar'
 import * as AppActions from '../actions/app'
 import * as GeschaefteActions from '../actions/geschaefte'
 import * as TableActions from '../actions/table'
-import * as PagesActions from '../actions/pages'
 
 const actions = Object.assign(
   AppActions,
   GeschaefteActions,
-  TableActions,
-  PagesActions
+  TableActions
 )
 
 function mapStateToProps(state) {
   const {
     activeId,
     filterFulltext,
-    filterType,
     geschaefte,
     geschaefteGefilterteIds,
     willDelete
   } = state.geschaefte
-  const { username } = state.user
   const {
     dbPath,
     db,
@@ -35,13 +31,10 @@ function mapStateToProps(state) {
     rows,
     id
   } = state.table
-  const { pages } = state
   const path = state.routing.locationBeforeTransitions.pathname
   return {
-    username,
     activeId,
     filterFulltext,
-    filterType,
     geschaefte,
     geschaefteGefilterteIds,
     dbPath,
@@ -51,8 +44,7 @@ function mapStateToProps(state) {
     showMessageModal,
     table,
     rows,
-    activeTableRowId: id,
-    pages
+    activeTableRowId: id
   }
 }
 

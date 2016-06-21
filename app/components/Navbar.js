@@ -21,29 +21,24 @@ import _ from 'lodash'
 import ModalGeschaeftDelete from '../containers/ModalGeschaeftDelete'
 import ModalMessage from '../containers/ModalMessage'
 import NavbarBerichteNav from '../containers/NavbarBerichteNav'
+import NavbarGeschaefteFilterNav from '../containers/NavbarGeschaefteFilterNav'
 import styles from './Navbar.css'
 import exportGeschaefte from '../src/exportGeschaefte'
-import filterForFaelligeGeschaefte from '../src/filterForFaelligeGeschaefte'
-import filterForAngekVernehml from '../src/filterForAngekVernehml'
 
 class NavbarComponent extends Component {
   static propTypes = {
     dbGet: PropTypes.func.isRequired,
     geschaefteFilterByFulltextSet: PropTypes.func.isRequired,
     geschaefteFilterByFulltext: PropTypes.func.isRequired,
-    geschaefteFilterByFields: PropTypes.func.isRequired,
-    username: PropTypes.string,
     geschaeftNewCreate: PropTypes.func.isRequired,
     geschaeftSetDeleteIntended: PropTypes.func.isRequired,
     activeId: PropTypes.number,
     filterFulltext: PropTypes.string,
-    filterType: PropTypes.string,
     geschaefte: PropTypes.array.isRequired,
     geschaefteGefilterteIds: PropTypes.array.isRequired,
     showMessageModal: PropTypes.bool.isRequired,
     dbGetFromConfig: PropTypes.func.isRequired,
     willDeleteGeschaeft: PropTypes.bool.isRequired,
-    pagesInitiate: PropTypes.func.isRequired,
     path: PropTypes.string.isRequired,
     messageShow: PropTypes.func.isRequired,
     getTable: PropTypes.func.isRequired,
@@ -51,8 +46,7 @@ class NavbarComponent extends Component {
     rows: PropTypes.array,
     activeTableRowId: PropTypes.number,
     rowNewCreate: PropTypes.func.isRequired,
-    tableRowRemove: PropTypes.func.isRequired,
-    pages: PropTypes.object.isRequired
+    tableRowRemove: PropTypes.func.isRequired
   }
 
   componentWillMount() {
@@ -104,38 +98,6 @@ class NavbarComponent extends Component {
     })
   }
 
-  onSelectFilterFaelligeGeschaefte = () => {
-    const { geschaefteFilterByFields } = this.props
-    const filter = filterForFaelligeGeschaefte()
-    geschaefteFilterByFields(filter, 'fällige')
-    // TODO: add ordering to state and call action here to order by frist desc
-  }
-
-  onSelectFilterAngekVernehml = () => {
-    const { geschaefteFilterByFields } = this.props
-    const filter = filterForAngekVernehml()
-    geschaefteFilterByFields(filter, 'angekündigte Vernehmlassungen')
-  }
-
-  onSelectFilterFaelligeGeschaefteMitarbeiter = () => {
-    const { geschaefteFilterByFields, username } = this.props
-    const now = moment().format('YYYY-MM-DD')
-    const filter = [
-      {
-        field: 'fristMitarbeiter',
-        value: now,
-        comparator: '<'
-      },
-      {
-        field: 'mutationsperson',
-        value: username,
-        comparator: '==='
-      }
-    ]
-    geschaefteFilterByFields(filter, 'eigene fällige')
-    // TODO: add ordering to state and call action here to order by frist desc
-  }
-
   removeFilter = () => {
     const {
       geschaefteFilterByFulltextSet,
@@ -145,61 +107,6 @@ class NavbarComponent extends Component {
     geschaefteFilterByFulltextSet(filterFulltext)
     geschaefteFilterByFulltext(null)
     this.focusFulltextFilter()
-  }
-
-  geschaefteFilterNav = () => {
-    const { filterType } = this.props
-    return (
-      <NavDropdown
-        eventKey={3}
-        title={filterType ? `Filter: ${filterType}` : 'Filter'}
-        id="filter-nav-dropdown"
-      >
-        <MenuItem header>
-          individuell:
-        </MenuItem>
-        <LinkContainer to={{ pathname: '/filter' }}>
-          <MenuItem eventKey={3.1}>
-            nach Feldern
-          </MenuItem>
-        </LinkContainer>
-        <MenuItem
-          eventKey={3.2}
-          onSelect={this.focusFulltextFilter}
-        >
-          nach Volltext
-        </MenuItem>
-        <MenuItem divider />
-        <MenuItem header>
-          pfannenfertig:
-        </MenuItem>
-        <MenuItem
-          eventKey={3.3}
-          onSelect={this.onSelectFilterFaelligeGeschaefte}
-        >
-          fällige
-        </MenuItem>
-        <MenuItem
-          eventKey={3.4}
-          onSelect={this.onSelectFilterFaelligeGeschaefteMitarbeiter}
-        >
-          eigene fällige
-        </MenuItem>
-        <MenuItem
-          eventKey={3.5}
-          onSelect={this.onSelectFilterAngekVernehml}
-        >
-          angekündigte Vernehmlassungen
-        </MenuItem>
-        <MenuItem divider />
-        <MenuItem
-          eventKey={3.5}
-          onSelect={this.removeFilter}
-        >
-          Filter entfernen
-        </MenuItem>
-      </NavDropdown>
-    )
   }
 
   geschaeftNeuNav = () => {
@@ -460,7 +367,7 @@ class NavbarComponent extends Component {
             </LinkContainer>
             {
               showGeschaefteStuff &&
-              this.geschaefteFilterNav()
+              <NavbarGeschaefteFilterNav focusFulltextFilter={this.focusFulltextFilter} removeFilter={this.removeFilter} />
             }
             {
               showGeschaefteStuff &&

@@ -2,62 +2,23 @@
 
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
-import NavbarBerichteNav from '../components/NavbarBerichteNav'
-import * as AppActions from '../actions/app'
+import NavbarGeschaefteFilterNav from '../components/NavbarGeschaefteFilterNav'
 import * as GeschaefteActions from '../actions/geschaefte'
-import * as TableActions from '../actions/table'
-import * as PagesActions from '../actions/pages'
 
-const actions = Object.assign(
-  AppActions,
-  GeschaefteActions,
-  TableActions,
-  PagesActions
-)
-
-function mapStateToProps(state) {
-  const {
-    activeId,
-    filterFulltext,
-    filterType,
-    geschaefte,
-    geschaefteGefilterteIds,
-    willDelete
-  } = state.geschaefte
+function mapStateToProps(state, props) {
+  const { filterType } = state.geschaefte
   const { username } = state.user
-  const {
-    dbPath,
-    db,
-    showMessageModal
-  } = state.app
-  const {
-    table,
-    rows,
-    id
-  } = state.table
-  const { pages } = state
-  const path = state.routing.locationBeforeTransitions.pathname
+  const { focusFulltextFilter, removeFilter } = props
   return {
     username,
-    activeId,
-    filterFulltext,
     filterType,
-    geschaefte,
-    geschaefteGefilterteIds,
-    dbPath,
-    db,
-    willDeleteGeschaeft: willDelete,
-    path,
-    showMessageModal,
-    table,
-    rows,
-    activeTableRowId: id,
-    pages
+    focusFulltextFilter,
+    removeFilter
   }
 }
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators(actions, dispatch)
+  return bindActionCreators(GeschaefteActions, dispatch)
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(NavbarBerichteNav)
+export default connect(mapStateToProps, mapDispatchToProps)(NavbarGeschaefteFilterNav)
