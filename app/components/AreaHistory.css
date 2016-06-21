@@ -35,7 +35,6 @@
   grid-area: areaHistoryFieldsContainer;
   display: grid;
   grid-template-columns: 100%;
-  grid-gap: 8px 0;
 }
 
 .areaHistoryFields {

@@ -5,25 +5,17 @@ import { FormControl, ControlLabel } from 'react-bootstrap'
 import moment from 'moment'
 moment.locale('de')
 import styles from './AreaHistory.css'
-import AreaHistoryRows from './AreaHistoryRows'
+import AreaHistoryRows from '../containers/AreaHistoryRows'
 
 class AreaHistory extends Component {
   static propTypes = {
-    geschaefte: PropTypes.array,
     geschaeft: PropTypes.object,
-    activeId: PropTypes.number,
-    geschaeftToggleActivated: PropTypes.func.isRequired,
     blur: PropTypes.func.isRequired,
     change: PropTypes.func.isRequired
   }
 
-  onClickHistoryGeschaeft = (idGeschaeft) => {
-    const { geschaeftToggleActivated } = this.props
-    geschaeftToggleActivated(idGeschaeft)
-  }
-
   render() {
-    const { geschaeft, blur, change, geschaefte, activeId } = this.props
+    const { geschaeft, blur, change } = this.props
     return (
       <div className={styles.areaHistory}>
         <div className={styles.areaHistoryTitle}>
@@ -44,7 +36,7 @@ class AreaHistory extends Component {
             tabIndex={99}
           />
         </div>
-        <AreaHistoryRows geschaefte={geschaefte} activeId={activeId} />
+        <AreaHistoryRows />
       </div>
     )
   }

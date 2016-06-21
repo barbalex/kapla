@@ -6,7 +6,11 @@ moment.locale('de')
 import styles from './AreaHistory.css'
 import getHistoryOfGeschaeft from '../src/getHistoryOfGeschaeft'
 
-const AreaHistoryRows = ({ geschaefte, activeId }) => {
+const AreaHistoryRows = ({
+  geschaefte,
+  activeId,
+  geschaeftToggleActivated
+}) => {
   const history = getHistoryOfGeschaeft(geschaefte, activeId)
   // sort descending
   history.reverse()
@@ -17,14 +21,16 @@ const AreaHistoryRows = ({ geschaefte, activeId }) => {
           const geschaeft = geschaefte.find((g) =>
             g.idGeschaeft === id
           )
-          if (!geschaeft || !geschaeft.gegenstand) {
+          if (!geschaeft) {
             return null
           }
           return (
             <div
               key={index}
               className={styles.areaHistoryFields}
-              onClick={() => this.onClickHistoryGeschaeft(id)}
+              onClick={() =>
+                geschaeftToggleActivated(id)
+              }
             >
               <div className={styles.historyIdGeschaeft}>
                 {id}
@@ -44,7 +50,8 @@ AreaHistoryRows.displayName = 'AreaHistoryRows'
 
 AreaHistoryRows.propTypes = {
   geschaefte: PropTypes.array,
-  activeId: PropTypes.number
+  activeId: PropTypes.number,
+  geschaeftToggleActivated: PropTypes.func.isRequired
 }
 
 export default AreaHistoryRows

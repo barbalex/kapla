@@ -19,9 +19,7 @@ function mapStateToProps(state, props) {
   )
 
   return {
-    geschaefte,
     geschaeft,
-    activeId,
     change,
     blur
   }
