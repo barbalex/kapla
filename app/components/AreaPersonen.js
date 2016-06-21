@@ -1,6 +1,6 @@
 'use strict'
 
-import React, { Component, PropTypes } from 'react'
+import React, { PropTypes } from 'react'
 import { FormControl } from 'react-bootstrap'
 import _ from 'lodash'
 import styles from './AreaPersonen.css'
