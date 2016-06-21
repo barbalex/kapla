@@ -22,6 +22,8 @@ import ModalGeschaeftDelete from '../containers/ModalGeschaeftDelete'
 import ModalMessage from '../containers/ModalMessage'
 import NavbarBerichteNav from '../containers/NavbarBerichteNav'
 import NavbarGeschaefteFilterNav from '../containers/NavbarGeschaefteFilterNav'
+import NavbarGeschaeftNeuNav from '../containers/NavbarGeschaeftNeuNav'
+import NavbarGeschaeftLoeschenNav from '../containers/NavbarGeschaeftLoeschenNav'
 import styles from './Navbar.css'
 import exportGeschaefte from '../src/exportGeschaefte'
 
@@ -30,9 +32,6 @@ class NavbarComponent extends Component {
     dbGet: PropTypes.func.isRequired,
     geschaefteFilterByFulltextSet: PropTypes.func.isRequired,
     geschaefteFilterByFulltext: PropTypes.func.isRequired,
-    geschaeftNewCreate: PropTypes.func.isRequired,
-    geschaeftSetDeleteIntended: PropTypes.func.isRequired,
-    activeId: PropTypes.number,
     filterFulltext: PropTypes.string,
     geschaefte: PropTypes.array.isRequired,
     geschaefteGefilterteIds: PropTypes.array.isRequired,
@@ -107,33 +106,6 @@ class NavbarComponent extends Component {
     geschaefteFilterByFulltextSet(filterFulltext)
     geschaefteFilterByFulltext(null)
     this.focusFulltextFilter()
-  }
-
-  geschaeftNeuNav = () => {
-    const { geschaeftNewCreate } = this.props
-    return (
-      <NavItem
-        eventKey={4}
-        onClick={geschaeftNewCreate}
-        title="neues Geschäft"
-      >
-        <Glyphicon glyph="plus" />
-      </NavItem>
-    )
-  }
-
-  geschaeftLoeschenNav = () => {
-    const { geschaeftSetDeleteIntended, activeId } = this.props
-    return (
-      <NavItem
-        eventKey={5}
-        onClick={() => geschaeftSetDeleteIntended(activeId)}
-        title="Geschäft löschen"
-        disabled={!activeId}
-      >
-        <Glyphicon glyph="trash" />
-      </NavItem>
-    )
   }
 
   tableRowNeuNav = () => {
@@ -371,11 +343,11 @@ class NavbarComponent extends Component {
             }
             {
               showGeschaefteStuff &&
-              this.geschaeftNeuNav()
+              <NavbarGeschaeftNeuNav />
             }
             {
               showGeschaefteStuff &&
-              this.geschaeftLoeschenNav()
+              <NavbarGeschaeftLoeschenNav />
             }
             {
               showGeschaefteAndPrint &&

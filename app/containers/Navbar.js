@@ -15,7 +15,6 @@ const actions = Object.assign(
 
 function mapStateToProps(state) {
   const {
-    activeId,
     filterFulltext,
     geschaefte,
     geschaefteGefilterteIds,
@@ -33,7 +32,6 @@ function mapStateToProps(state) {
   } = state.table
   const path = state.routing.locationBeforeTransitions.pathname
   return {
-    activeId,
     filterFulltext,
     geschaefte,
     geschaefteGefilterteIds,
