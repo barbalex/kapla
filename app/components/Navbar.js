@@ -24,6 +24,7 @@ import NavbarBerichteNav from '../containers/NavbarBerichteNav'
 import NavbarGeschaefteFilterNav from '../containers/NavbarGeschaefteFilterNav'
 import NavbarGeschaeftNeuNav from '../containers/NavbarGeschaeftNeuNav'
 import NavbarGeschaeftLoeschenNav from '../containers/NavbarGeschaeftLoeschenNav'
+import NavbarTableRowNeuNav from '../containers/NavbarTableRowNeuNav'
 import styles from './Navbar.css'
 import exportGeschaefte from '../src/exportGeschaefte'
 
@@ -44,7 +45,6 @@ class NavbarComponent extends Component {
     table: PropTypes.string,
     rows: PropTypes.array,
     activeTableRowId: PropTypes.number,
-    rowNewCreate: PropTypes.func.isRequired,
     tableRowRemove: PropTypes.func.isRequired
   }
 
@@ -106,21 +106,6 @@ class NavbarComponent extends Component {
     geschaefteFilterByFulltextSet(filterFulltext)
     geschaefteFilterByFulltext(null)
     this.focusFulltextFilter()
-  }
-
-  tableRowNeuNav = () => {
-    const { rowNewCreate, table } = this.props
-    return (
-      <NavItem
-        eventKey={4}
-        onClick={() =>
-          rowNewCreate(table)
-        }
-        title="neuer Datensatz"
-      >
-        <Glyphicon glyph="plus" />
-      </NavItem>
-    )
   }
 
   tableRowLoeschenNav = () => {
@@ -431,7 +416,7 @@ class NavbarComponent extends Component {
             </NavDropdown>
             {
               showTableStuff &&
-              this.tableRowNeuNav()
+              <NavbarTableRowNeuNav />
             }
             {
               showTableStuff &&
