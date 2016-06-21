@@ -16,8 +16,6 @@ import {
   FormControl
 } from 'react-bootstrap'
 import { LinkContainer } from 'react-router-bootstrap'
-import moment from 'moment'
-import _ from 'lodash'
 import ModalGeschaeftDelete from '../containers/ModalGeschaeftDelete'
 import ModalMessage from '../containers/ModalMessage'
 import NavbarBerichteNav from '../containers/NavbarBerichteNav'
@@ -26,8 +24,8 @@ import NavbarGeschaeftNeuNav from '../containers/NavbarGeschaeftNeuNav'
 import NavbarGeschaeftLoeschenNav from '../containers/NavbarGeschaeftLoeschenNav'
 import NavbarTableRowNeuNav from '../containers/NavbarTableRowNeuNav'
 import NavbarTableRowDeleteNav from '../containers/NavbarTableRowDeleteNav'
+import NavbarExportGeschaefteNav from '../containers/NavbarExportGeschaefteNav'
 import styles from './Navbar.css'
-import exportGeschaefte from '../src/exportGeschaefte'
 
 class NavbarComponent extends Component {
   static propTypes = {
@@ -41,7 +39,6 @@ class NavbarComponent extends Component {
     dbGetFromConfig: PropTypes.func.isRequired,
     willDeleteGeschaeft: PropTypes.bool.isRequired,
     path: PropTypes.string.isRequired,
-    messageShow: PropTypes.func.isRequired,
     getTable: PropTypes.func.isRequired,
     table: PropTypes.string,
     rows: PropTypes.array
@@ -107,27 +104,6 @@ class NavbarComponent extends Component {
     this.focusFulltextFilter()
   }
 
-  exportGeschaefteNav = () => (
-    <NavDropdown
-      eventKey={6}
-      title="Exporte"
-      id="exportGeschaefteNavDropdown"
-    >
-      <MenuItem
-        eventKey={6.1}
-        onClick={this.exportGeschaefteAll}
-      >
-        Gefilterte Geschäfte mit allen Feldern
-      </MenuItem>
-      <MenuItem
-        eventKey={6.2}
-        onClick={this.exportGeschaefteRechtsmittelVorjahre}
-      >
-        Rekurse und Beschwerden, Vergleich der letzten zwei Jahre
-      </MenuItem>
-    </NavDropdown>
-  )
-
   printNav = () => (
     <NavItem
       eventKey={7}
@@ -180,53 +156,6 @@ class NavbarComponent extends Component {
 
   focusFulltextFilter = () => {
     ReactDOM.findDOMNode(this.refs.filterFulltext).focus()
-  }
-
-  exportGeschaefteAll = (e) => {
-    e.preventDefault()
-    const {
-      geschaefteGefilterteIds,
-      geschaefte,
-      messageShow
-    } = this.props
-    const geschaefteGefiltert = geschaefte.filter((g) =>
-      geschaefteGefilterteIds.includes(g.idGeschaeft)
-    )
-    exportGeschaefte(geschaefteGefiltert, messageShow)
-  }
-
-  exportGeschaefteRechtsmittelVorjahre = (e) => {
-    e.preventDefault()
-    const { geschaefte, messageShow } = this.props
-    const thisYear = moment().year()
-    const firstDate = moment(`01.01.${thisYear - 2}`, 'DD.MM.YYYY')
-    const lastDate = moment(`31.12.${thisYear - 1}`, 'DD.MM.YYYY')
-    function isInPreviousTwoYears(date) {
-      return moment(date, 'DD.MM.YYYY').isBetween(firstDate, lastDate, 'days', '[]')
-    }
-    const geschaefteGefiltert = geschaefte.filter((g) => (
-      g.geschaeftsart === 'Rekurs/Beschwerde' &&
-      !!g.datumEingangAwel &&
-      isInPreviousTwoYears(g.datumEingangAwel)
-    ))
-    // TODO: need new fields?
-    // - Rekurrent bzw. Beschwerdeführer / Objekt
-    // - Gegenstand des Rechtsstreits? (= gegenstand?)
-    // - Hauptbetroffene Abteilung
-    const fieldsWanted = [
-      'datumEingangAwel',
-      'gegenstand',
-      'rechtsmittelInstanz',
-      'rechtsmittelErledigung',
-      'rechtsmittelEntscheidDatum',
-      'rechtsmittelEntscheidNr',
-      'idGeschaeft'
-    ]
-    // now reduce fields to wanted
-    geschaefteGefiltert.forEach((g, index) => {
-      geschaefteGefiltert[index] = _.pick(geschaefteGefiltert[index], fieldsWanted)
-    })
-    exportGeschaefte(geschaefteGefiltert, messageShow)
   }
 
   stammdatenTitle = () => {
@@ -315,7 +244,7 @@ class NavbarComponent extends Component {
             }
             {
               showGeschaefteAndPrint &&
-              this.exportGeschaefteNav()
+              <NavbarExportGeschaefteNav />
             }
             {
               showGeschaefteAndPrint &&
