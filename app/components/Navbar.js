@@ -1,9 +1,6 @@
 'use strict'
 
-import { remote } from 'electron'
 import ReactDOM from 'react-dom'
-const { dialog } = remote
-import fs from 'fs'
 import React, { Component, PropTypes } from 'react'
 import {
   Navbar,
@@ -25,6 +22,7 @@ import NavbarGeschaeftLoeschenNav from '../containers/NavbarGeschaeftLoeschenNav
 import NavbarTableRowNeuNav from '../containers/NavbarTableRowNeuNav'
 import NavbarTableRowDeleteNav from '../containers/NavbarTableRowDeleteNav'
 import NavbarExportGeschaefteNav from '../containers/NavbarExportGeschaefteNav'
+import NavbarPrintNav from './NavbarPrintNav.js'
 import styles from './Navbar.css'
 
 class NavbarComponent extends Component {
@@ -61,38 +59,6 @@ class NavbarComponent extends Component {
     }
   }
 
-  onClickPrint = (e) => {
-    e.preventDefault()
-    const win = remote.getCurrentWindow()
-    const printToPDFOptions = {
-      marginsType: 1,
-      pageSize: 'A4',
-      landscape: true,
-      printBackground: true
-    }
-    const dialogOptions = {
-      title: 'pdf speichern',
-      filters: [{ name: 'pdf', extensions: ['pdf'] }]
-    }
-    /* not working ?!
-    win.webContents.print({ silent: false, printBackground: false }, (error, data) => {
-      if (error) throw error
-      console.log('data', data)
-    })
-    */
-    // first remove navbar
-    win.webContents.printToPDF(printToPDFOptions, (error, data) => {
-      if (error) throw error
-      dialog.showSaveDialog(dialogOptions, (path) => {
-        if (path) {
-          fs.writeFile(path, data, (err) => {
-            if (err) throw err
-          })
-        }
-      })
-    })
-  }
-
   removeFilter = () => {
     const {
       geschaefteFilterByFulltextSet,
@@ -103,16 +69,6 @@ class NavbarComponent extends Component {
     geschaefteFilterByFulltext(null)
     this.focusFulltextFilter()
   }
-
-  printNav = () => (
-    <NavItem
-      eventKey={7}
-      onClick={this.onClickPrint}
-      title="Drucken"
-    >
-      <Glyphicon glyph="print" />
-    </NavItem>
-  )
 
   fulltextFilterNav = () => {
     const {
@@ -252,7 +208,7 @@ class NavbarComponent extends Component {
             }
             {
               showPrint &&
-              this.printNav()
+              <NavbarPrintNav />
             }
             <NavDropdown
               eventKey={8}

@@ -9,7 +9,11 @@ import moment from 'moment'
 import _ from 'lodash'
 import exportGeschaefte from '../src/exportGeschaefte'
 
-const exportGeschaefteRechtsmittelVorjahre = (e, geschaefte, messageShow) => {
+const exportGeschaefteRechtsmittelVorjahre = (
+  e,
+  geschaefte,
+  messageShow
+) => {
   e.preventDefault()
   const thisYear = moment().year()
   const firstDate = moment(`01.01.${thisYear - 2}`, 'DD.MM.YYYY')
