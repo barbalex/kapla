@@ -69,6 +69,7 @@ CREATE TABLE geschaefte (
   status TEXT,
   verantwortlich TEXT,
   vermerk TEXT,
+  vermerkIntern TEXT,
   zustaendigeDirektion TEXT
 );
 
