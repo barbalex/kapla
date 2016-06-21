@@ -4,6 +4,10 @@
 		"selected_items":
 		[
 			[
+				"prop",
+				"propTypes"
+			],
+			[
 				"onSele",
 				"onSelectFilterAngekVernehml"
 			],
@@ -380,18 +384,66 @@
 			}
 		},
 		{
-			"file": "app/components/AreaNummern.js",
+			"file": "app/components/AreaFristen.js",
 			"settings":
 			{
-				"buffer_size": 6169,
+				"buffer_size": 9771,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "app/components/AreaFristen.js",
+			"file": "app/components/Geschaeft.js",
 			"settings":
 			{
-				"buffer_size": 10583,
+				"buffer_size": 6007,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "app/components/AreaHistory.js",
+			"settings":
+			{
+				"buffer_size": 1512,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "app/components/AreaHistoryRows.js",
+			"settings":
+			{
+				"buffer_size": 1312,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "app/components/GeschaeftKontakteIntern.js",
+			"settings":
+			{
+				"buffer_size": 5014,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "app/components/GeschaeftKontakteIntern.css",
+			"settings":
+			{
+				"buffer_size": 1067,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "app/components/AreaGeschaeft.js",
+			"settings":
+			{
+				"buffer_size": 4232,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "app/components/AreaNummern.js",
+			"settings":
+			{
+				"buffer_size": 6169,
 				"line_ending": "Windows"
 			}
 		},
@@ -436,7 +488,7 @@
 	},
 	"console":
 	{
-		"height": 576.0,
+		"height": 472.0,
 		"history":
 		[
 			"import urllib.request,os,hashlib; h = '2915d1851351e5ee549c20394736b442' + '8bc59f460fa1548d1514676163dafc88'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
@@ -459,6 +511,8 @@
 	],
 	"file_history":
 	[
+		"/C/Users/alex/kapla/app/components/AreaRechtsmittel.js",
+		"/C/Users/alex/kapla/app/components/AreaFristen.js",
 		"/C/Users/alex/kapla/app/components/GeschaeftKontakteExtern.js",
 		"/C/Users/alex/kapla/app/components/GeschaeftKontakteExternItems.js",
 		"/C/Users/alex/kapla/app/components/Table.js",
@@ -536,9 +590,7 @@
 		"/C/Users/alex/kapla/app/components/AreaVernehmlassung.js",
 		"/C/Users/alex/kapla/app/components/AreaRechtsmittel.css",
 		"/C/Users/alex/kapla/app/components/AreaVernehmlassung.css",
-		"/C/Users/alex/kapla/app/components/AreaRechtsmittel.js",
 		"/C/Users/alex/kapla/app/containers/AreaRechtsmittel.js",
-		"/C/Users/alex/kapla/app/components/AreaFristen.js",
 		"/C/Users/alex/kapla/app/src/isDateField.js",
 		"/C/Users/alex/kapla/app/components/AreaFristen.css",
 		"/C/Users/alex/kapla/app/components/AreaNummern.js",
@@ -612,9 +664,30 @@
 	},
 	"find_state":
 	{
-		"case_sensitive": false,
+		"case_sensitive": true,
 		"find_history":
 		[
+			"history",
+			"onClickHistoryGeschaeft",
+			"onChangeDatePicker",
+			"{ e, activeId, geschaefteChangeState }",
+			"change",
+			"onChangeDatePicker",
+			"ref",
+			"onChangeDatePicker",
+			"ref",
+			"onChangeDatePicker",
+			"change",
+			"ref",
+			"onChangeDatePicker",
+			"fristDirektion",
+			"ref",
+			"propTypes",
+			"fieldFristDauerBisMitarbeiter",
+			"fristDauerBisMitarbeiter",
+			"fieldFristDauerBisMitarbeiter",
+			"fristDauerBisMitarbeiter",
+			"statusFristInStyle",
 			"asar",
 			"e",
 			"PropTypes",
@@ -721,28 +794,7 @@
 			"Geschäfte",
 			"getTable",
 			"stammdatenTitle",
-			"stammdaten",
-			"Geschäfte",
-			"ellipsis",
-			"webkit-scrollbar",
-			"overflow-y",
-			"tableBody",
-			"ReactList",
-			"exportGeschaefteRechtsmittelVorjahre",
-			"exportGeschaefteRechtsmittelVergleichVorjahre",
-			"exportGeschaefteAll",
-			"exportGeschaefteRechtsmittelVergleichVorjahre",
-			"exportGeschaefteAll",
-			"exportGeschaefte",
-			"icon",
-			"zh3.png",
-			"zh4.png",
-			"zh.png",
-			"navbarVisible",
-			"page-break",
-			"navbarHide",
-			"navbarVisible",
-			"navbarHide"
+			"stammdaten"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -750,6 +802,7 @@
 		"regex": false,
 		"replace_history":
 		[
+			"{ e, activeId, changeGeschaeftInDb, geschaefteChangeState }",
 			"event",
 			"GeschaeftKontakteExternItems",
 			"VernehmlAngek",
@@ -876,19 +929,18 @@
 			"tableRow",
 			"TableRow",
 			"row",
-			"rows",
-			"changeTableInDb"
+			"rows"
 		],
 		"reverse": false,
 		"show_context": true,
 		"use_buffer2": true,
-		"whole_word": false,
+		"whole_word": true,
 		"wrap": true
 	},
 	"groups":
 	[
 		{
-			"selected": 2,
+			"selected": 5,
 			"sheets":
 			[
 				{
@@ -918,11 +970,221 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 2,
+					"stack_index": 8,
 					"type": "text"
 				},
 				{
 					"buffer": 1,
+					"file": "app/components/AreaFristen.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 9771,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								9476,
+								9476
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 9815.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "app/components/Geschaeft.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 6007,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								834,
+								834
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 707.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "app/components/AreaHistory.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1512,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1395,
+								1395
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 792.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "app/components/AreaHistoryRows.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1312,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								282,
+								303
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 99.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "app/components/GeschaeftKontakteIntern.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 5014,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								671,
+								671
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 297.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "app/components/GeschaeftKontakteIntern.css",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1067,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								541,
+								541
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/CSS/CSS.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 495.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "app/components/AreaGeschaeft.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 4232,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								831,
+								831
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 4752.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 6,
+					"type": "text"
+				},
+				{
+					"buffer": 8,
 					"file": "app/components/AreaNummern.js",
 					"semi_transient": false,
 					"settings":
@@ -948,41 +1210,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 1,
+					"stack_index": 7,
 					"type": "text"
 				},
 				{
-					"buffer": 2,
-					"file": "app/components/AreaFristen.js",
-					"semi_transient": true,
-					"settings":
-					{
-						"buffer_size": 10583,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 594.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
-					"type": "text"
-				},
-				{
-					"buffer": 3,
+					"buffer": 9,
 					"file": "package.js",
 					"semi_transient": false,
 					"settings":
@@ -1008,7 +1240,7 @@
 						"translation.y": 1683.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 3,
+					"stack_index": 9,
 					"type": "text"
 				}
 			]
