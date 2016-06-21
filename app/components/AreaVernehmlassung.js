@@ -1,52 +1,47 @@
 'use strict'
 
-import React, { Component, PropTypes } from 'react'
+import React, { PropTypes } from 'react'
 import { FormControl, ControlLabel } from 'react-bootstrap'
 import styles from './AreaVernehmlassung.css'
 import createOptions from '../src/createOptions'
 
-class AreaVernehmlassung extends Component {
-  static propTypes = {
-    geschaeft: PropTypes.object,
-    statusVernehmlassungOptions: PropTypes.array.isRequired,
-    nrOfFieldsBeforePv: PropTypes.number,
-    change: PropTypes.func.isRequired,
-    blur: PropTypes.func.isRequired
-  }
+const AreaVernehmlassung = ({
+  geschaeft,
+  statusVernehmlassungOptions,
+  nrOfFieldsBeforePv,
+  change,
+  blur
+}) =>
+  <div className={styles.areaForGeschaeftsart}>
+    <div className={styles.areaVernehmlassungTitle}>
+      Vernehmlassung
+    </div>
+    <div className={styles.fieldStatusVernehmlassung}>
+      <ControlLabel>
+        Status
+      </ControlLabel>
+      <FormControl
+        componentClass="select"
+        value={geschaeft.statusVernehmlassung || ''}
+        name="statusVernehmlassung"
+        onChange={change}
+        onBlur={blur}
+        bsSize="small"
+        tabIndex={1 + nrOfFieldsBeforePv}
+      >
+        {createOptions(statusVernehmlassungOptions)}
+      </FormControl>
+    </div>
+  </div>
 
-  render = () => {
-    const {
-      geschaeft,
-      statusVernehmlassungOptions,
-      nrOfFieldsBeforePv,
-      change,
-      blur
-    } = this.props
+AreaVernehmlassung.displayName = 'AreaVernehmlassung'
 
-    return (
-      <div className={styles.areaForGeschaeftsart}>
-        <div className={styles.areaVernehmlassungTitle}>
-          Vernehmlassung
-        </div>
-        <div className={styles.fieldStatusVernehmlassung}>
-          <ControlLabel>
-            Status
-          </ControlLabel>
-          <FormControl
-            componentClass="select"
-            value={geschaeft.statusVernehmlassung || ''}
-            name="statusVernehmlassung"
-            onChange={change}
-            onBlur={blur}
-            bsSize="small"
-            tabIndex={1 + nrOfFieldsBeforePv}
-          >
-            {createOptions(statusVernehmlassungOptions)}
-          </FormControl>
-        </div>
-      </div>
-    )
-  }
+AreaVernehmlassung.propTypes = {
+  geschaeft: PropTypes.object,
+  statusVernehmlassungOptions: PropTypes.array.isRequired,
+  nrOfFieldsBeforePv: PropTypes.number,
+  change: PropTypes.func.isRequired,
+  blur: PropTypes.func.isRequired
 }
 
 export default AreaVernehmlassung
