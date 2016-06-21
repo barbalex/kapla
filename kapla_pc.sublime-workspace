@@ -4,6 +4,10 @@
 		"selected_items":
 		[
 			[
+				"N",
+				"NavbarGeschaefteFilterNav"
+			],
+			[
 				"Nav",
 				"NavbarBerichteNav"
 			],
@@ -383,7 +387,7 @@
 			"file": "package.json",
 			"settings":
 			{
-				"buffer_size": 4618,
+				"buffer_size": 4619,
 				"line_ending": "Unix"
 			}
 		},
@@ -391,39 +395,7 @@
 			"file": "app/components/Navbar.js",
 			"settings":
 			{
-				"buffer_size": 16415,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "app/containers/NavbarGeschaefteFilterNav.js",
-			"settings":
-			{
-				"buffer_size": 1328,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "app/components/NavbarGeschaefteFilterNav.js",
-			"settings":
-			{
-				"buffer_size": 3419,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "app/app.global.css",
-			"settings":
-			{
-				"buffer_size": 2200,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "app/components/Navbar.css",
-			"settings":
-			{
-				"buffer_size": 565,
+				"buffer_size": 5906,
 				"line_ending": "Windows"
 			}
 		}
@@ -484,6 +456,22 @@
 	],
 	"file_history":
 	[
+		"/C/Users/alex/kapla/app/components/Navbar.js",
+		"/C/Users/alex/kapla/app/components/Navbar.css",
+		"/C/Users/alex/kapla/app/components/NavbarOptionsNav.js",
+		"/C/Users/alex/kapla/app/components/NavbarPrintNav.js",
+		"/C/Users/alex/kapla/app/components/NavbarStammdatenNav.js",
+		"/C/Users/alex/kapla/app/containers/NavbarPrintNav.js",
+		"/C/Users/alex/kapla/app/components/NavbarExportGeschaefteNav.js",
+		"/C/Users/alex/kapla/app/components/NavbarTableRowDeleteNav.js",
+		"/C/Users/alex/kapla/app/components/NavbarTableRowNeuNav.js",
+		"/C/Users/alex/kapla/app/components/NavbarGeschaeftLoeschenNav.js",
+		"/C/Users/alex/kapla/app/containers/NavbarGeschaeftNeuNav.js",
+		"/C/Users/alex/kapla/app/components/NavbarGeschaeftNeuNav.js",
+		"/C/Users/alex/kapla/app/actions/geschaefte.js",
+		"/C/Users/alex/kapla/app/app.global.css",
+		"/C/Users/alex/kapla/app/components/NavbarGeschaefteFilterNav.js",
+		"/C/Users/alex/kapla/app/containers/NavbarGeschaefteFilterNav.js",
 		"/C/Users/alex/kapla/app/components/NavbarBerichteNav.js",
 		"/C/Users/alex/kapla/app/containers/NavbarFulltextFilter.js",
 		"/C/Users/alex/kapla/app/components/NavbarFulltextFilter.js",
@@ -509,11 +497,9 @@
 		"/C/Users/alex/kapla/app/reducers/pages.js",
 		"/C/Users/alex/kapla/app/actions/pages.js",
 		"/C/Users/alex/kapla/app/reducers/geschaefte.js",
-		"/C/Users/alex/kapla/app/actions/geschaefte.js",
 		"/C/Users/alex/kapla/app/components/PageFristenRows.js",
 		"/C/Users/alex/kapla/app/components/Page.js",
 		"/C/Users/alex/kapla/app/src/filterForAngekVernehml.js",
-		"/C/Users/alex/kapla/app/components/Navbar.js",
 		"/C/Users/alex/kapla/app/src/filterForFaelligeGeschaefte.js",
 		"/C/Users/alex/kapla/app/components/PageFristenHeader.js",
 		"/C/Users/alex/kapla/app/components/PageList1Rows.js",
@@ -553,12 +539,10 @@
 		"/C/Users/alex/kapla/app/components/Page.css",
 		"/C/Users/alex/kapla/app/components/Pages.css",
 		"/C/Users/alex/Downloads/app.asar",
-		"/C/Users/alex/kapla/app/components/Navbar.css",
 		"/C/Users/alex/kapla/app/containers/Pages.js",
 		"/C/Users/alex/kapla/app/components/Pages.js",
 		"/C/Users/alex/kapla/app/actions/table.js",
 		"/C/Users/alex/kapla/app/components/GeschaefteLayout.js",
-		"/C/Users/alex/kapla/app/app.global.css",
 		"/C/Users/alex/kapla/app/components/Geschaefte.css",
 		"/C/Users/alex/kapla/app/components/PageList1.css",
 		"/C/Users/alex/kapla/app/components/AreaParlVorstoss.css",
@@ -599,19 +583,7 @@
 		"/C/Users/alex/kapla/app/src/getHistoryOfGeschaeft.js",
 		"/C/Users/alex/kapla/app/src/getIdVorgeschaeft.js",
 		"/C/Users/alex/kapla/app/src/getIdNachgeschaeft.js",
-		"/C/Users/alex/kapla/app/containers/GeschaeftKontakteIntern.js",
-		"/C/Users/alex/kapla/app/containers/GeschaeftKontakteExtern.js",
-		"/C/Users/alex/kapla/app/actions/geschaefteKontakteIntern.js",
-		"/C/Users/alex/kapla/app/actions/geschaefteKontakteExtern.js",
-		"/C/Users/alex/kapla/app/components/GescchaefteLayoutContainer.css",
-		"/C/Users/alex/kapla/app/components/GescchaefteLayoutContainer.js",
-		"/C/Users/alex/kapla/app/components/GeschaefteLayout.css",
-		"/C/Users/alex/kapla/app/reducers/geschaefteKontakteExtern.js",
-		"/C/Users/alex/kapla/app/src/getGeschaeftKontaktInternFromDb.js",
-		"/C/Users/alex/kapla/app/src/newGeschaeftKontaktExternInDb.js",
-		"/C/Users/alex/kapla/app/src/newGeschaeftKontaktInternInDb.js",
-		"/C/Users/alex/kapla/app/src/getGeschaeftKontaktExternFromDb.js",
-		"/C/Users/alex/kapla/app/src/deleteGeschaeftKontaktIntern.js"
+		"/C/Users/alex/kapla/app/containers/GeschaeftKontakteIntern.js"
 	],
 	"find":
 	{
@@ -640,20 +612,92 @@
 		"case_sensitive": true,
 		"find_history":
 		[
-			"exportGeschaefteRechtsmittelVorjahre",
+			"dbGet",
+			"NavbarComponent",
+			"Navbar",
+			"NavbarStammdatenNav",
+			"NavbarPrintNav",
+			"NavbarExportGeschaefteNav",
+			"NavbarTableRowDeleteNav",
+			"NavbarTableRowNeuNav",
+			"NavbarGeschaeftLoeschenNav",
+			"NavbarBerichteNav",
+			"NavbarGeschaefteFilterNav",
+			"NavbarGeschaeftNeuNav",
+			"stammdatenTitle",
+			"getTable",
 			"stammdatenTitle",
 			"NavbarComponent",
 			"Navbar",
-			"styles",
-			"geschaefteFilterNav",
-			"berichteNav",
+			"stammdatenTitle",
+			"filterFulltext",
+			"onClickPrint",
+			"printNav",
+			"onClickPrint",
+			"NavbarComponent",
+			"Navbar",
+			"messageShow",
+			"geschaefteGefilterteIds",
+			"geschaefte",
+			"exportGeschaefte",
+			"isInPreviousTwoYears",
+			"exportGeschaefteRechtsmittelVorjahre",
+			"messageShow",
+			"exportGeschaefteRechtsmittelVorjahre",
+			"exportGeschaefteAll",
+			"NavbarExportGeschaefteNav",
+			"exportGeschaefteRechtsmittelVorjahre",
+			"exportGeschaefteAll",
+			"geschaefteGefilterteIds",
+			"exportGeschaefteAll",
+			"exportGeschaefteNav",
+			"exportGeschaefteAll",
+			"exportGeschaefteRechtsmittelVorjahre",
+			"NavbarComponent",
+			"Navbar",
+			"exportGeschaefteRechtsmittelVorjahre",
+			"NavbarTableRowDeleteNav",
 			"tableRowRemove",
+			"activeTableRowId",
+			"table",
+			"tableRowLoeschenNav",
+			"NavbarComponent",
+			"Navbar",
+			"tableRowRemove",
+			"table",
+			"rowNewCreate",
+			"tableRowNeuNav",
+			"rowNewCreate",
+			"NavbarComponent",
+			"Navbar",
+			"activeId",
+			"geschaeftSetDeleteIntended",
+			"geschaeftLoeschenNav",
+			"geschaeftSetDeleteIntended",
+			"NavbarComponent",
+			"Navbar",
+			"geschaeftNewCreate",
+			"NavbarGeschaeftNeuNav",
+			"geschaeftNewCreate",
+			"geschaeftNeuNav",
+			"NavbarComponent",
+			"Navbar",
+			"onSelectFilterFaelligeGeschaefte",
+			"focusFulltextFilter",
+			"onSelectFilterAngekVernehml",
+			"onSelectFilterFaelligeGeschaefteMitarbeiter",
+			"onSelectFilterFaelligeGeschaefte",
+			"()",
+			"onSelectFilterFaelligeGeschaefte",
+			"pages",
 			"rowNewCreate",
 			"activeTableRowId",
 			"rows",
 			"table",
 			"getTable",
 			"messageShow",
+			"path",
+			"pagesInitiate",
 			"willDeleteGeschaeft",
 			"dbGetFromConfig",
 			"showMessageModal",
@@ -669,105 +713,33 @@
 			"geschaefteFilterByFulltext",
 			"geschaefteFilterByFulltextSet",
 			"dbGet",
-			"pagesInitiate",
-			"geschaefteFilterNav",
-			"focusFulltextFilter",
-			"exportGeschaefteAll",
-			"exportGeschaefteRechtsmittelVorjahre",
-			"stammdatenTitle",
-			"berichteNav",
-			"NavbarComponent",
-			"Navbar",
-			"berichteNav",
-			"onClickPrint",
-			"focusFulltextFilter",
-			"exportGeschaefteRechtsmittelVorjahre",
-			"exportGeschaefteAll",
-			"exportGeschaefteRechtsmittelVorjahre",
-			"stammdatenTitle",
-			"Navbar",
-			"NavbarComponent",
-			"history",
-			"onClickHistoryGeschaeft",
-			"onChangeDatePicker",
-			"{ e, activeId, geschaefteChangeState }",
-			"change",
-			"onChangeDatePicker",
-			"ref",
-			"onChangeDatePicker",
-			"ref",
-			"onChangeDatePicker",
-			"change",
-			"ref",
-			"onChangeDatePicker",
-			"fristDirektion",
-			"ref",
-			"propTypes",
-			"fieldFristDauerBisMitarbeiter",
-			"fristDauerBisMitarbeiter",
-			"fieldFristDauerBisMitarbeiter",
-			"fristDauerBisMitarbeiter",
-			"statusFristInStyle",
-			"asar",
-			"e",
-			"PropTypes",
-			"fields",
-			"blur",
-			"change",
-			"options",
-			"styles",
-			"_",
-			"activeId",
-			"geschaeftKontaktExternRemove",
-			"geschaefteKontakteExtern",
-			"activeIdKontakt",
-			"activeIdGeschaeft",
-			"geschaeftKontaktExternRemove",
-			"geschaeftKontaktExternNewCreate",
-			"geschaefteKontakteExtern",
-			"onChangeNewKontaktExtern",
-			"onClickRemove",
-			"options",
-			"verantwortlichData",
-			"titleText",
-			"GeschaeftKontakteExtern",
-			"options",
-			"renderItems",
-			"GROUP_CONCAT",
-			"console",
-			"reportType",
-			"pages",
-			"reportType",
-			"pagesInitiate",
+			"onSelectFilterAngekVernehml",
+			"removeFilter",
+			"onSelectFilterAngekVernehml",
+			"filterForAngekVernehml",
+			"onSelectFilterAngekVernehml",
 			"onSelectFilterFaelligeGeschaefteMitarbeiter",
-			"tableRows",
-			"fristMitarbeiter",
-			"filterForFaelligeGeschaefte",
-			"filterFields",
-			"GESCHAEFTE_FILTER_BY_FIELDS",
-			"pagesInitiate",
-			"vernehmlAngek",
-			"statusVernehmlassung",
-			"status",
-			"geschaeftsart",
+			"onSelectFilterFaelligeGeschaefte",
+			"focusFulltextFilter",
+			"geschaefteFilterNav",
+			"onSelectFilterFaelligeGeschaefteMitarbeiter",
 			"geschaefteFilterByFields",
-			"vernehmlAngek",
-			"rowsContainer",
-			"PropTypes",
-			"Fristen",
-			"PageList1Header",
-			"List1",
-			"Fristen",
-			"on('message'",
-			"cp.on",
-			"cp.send",
-			"getDataArrayFromExportObjects",
-			"pathModule",
-			"writeExportPath",
+			"onSelectFilterFaelligeGeschaefte",
+			"focusFulltextFilter",
+			"onSelectFilterFaelligeGeschaefteMitarbeiter",
+			"ref",
+			"pages",
+			"tableRowRemove",
+			"rowNewCreate",
+			"activeTableRowId",
+			"rows",
+			"table",
+			"getTable",
 			"messageShow",
-			"exportGeschaefte",
-			"messageShow",
-			"electron"
+			"path",
+			"pagesInitiate",
+			"willDeleteGeschaeft",
+			"dbGetFromConfig"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -775,6 +747,25 @@
 		"regex": false,
 		"replace_history":
 		[
+			"NavbarOptionsNav",
+			"StammdatenNav",
+			"PrintNav",
+			"ExportGeschaefteNav",
+			"TableRowDeleteNav",
+			"TableRowNeuNav",
+			"GeschaeftLoeschenNav",
+			"BerichteNav",
+			"GeschaefteFilterNav",
+			"GeschaeftNeuNav",
+			"NavbarStammdatenNav",
+			"NavbarPrintNav",
+			"NavbarExportGeschaefteNav",
+			"NavbarTableRowDeleteNav",
+			"NavbarTableRowNeuNav",
+			"NavbarGeschaeftLoeschenNav",
+			"NavbarGeschaeftNeuNav",
+			"NavbarGeschaefteFilterNavComponent",
+			"NavbarGeschaefteFilterNav",
 			"NavbarBerichteNav",
 			"NavbarFulltextFilter",
 			"{ e, activeId, changeGeschaeftInDb, geschaefteChangeState }",
@@ -883,26 +874,7 @@
 			", ",
 			",\n ",
 			"statusFristInText",
-			"nrOfNrFields",
-			"0 : nrOfGFields",
-			"fieldEntscheidKrJahr",
-			", ",
-			"convertDateToDdMmYyyy",
-			"removeFilter",
-			"onClickRemoveFilter",
-			"areaParlVorst",
-			"areaGeschaeft",
-			"areaNummern",
-			"fieldParlVorstossTyp",
-			"div",
-			"13",
-			"repeat(12, 1fr)",
-			"0",
-			"totalWidth",
-			"",
-			"click()",
-			"tableRow",
-			"TableRow"
+			"nrOfNrFields"
 		],
 		"reverse": false,
 		"show_context": true,
@@ -913,7 +885,7 @@
 	"groups":
 	[
 		{
-			"selected": 4,
+			"selected": 0,
 			"sheets":
 			[
 				{
@@ -922,15 +894,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 4618,
+						"buffer_size": 4619,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2938,
-								2936
+								3070,
+								3070
 							]
 						],
 						"settings":
@@ -940,190 +912,41 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 6,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "app/components/Navbar.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 16415,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								16415
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 396.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 3,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "app/components/Navbar.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 16415,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								4604,
-								5948
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 5888.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 2,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "app/containers/NavbarGeschaefteFilterNav.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1328,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								311,
-								311
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "app/components/NavbarGeschaefteFilterNav.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 3419,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								2015,
-								2015
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 1565.0,
+						"translation.y": 1485.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
 					"type": "text"
 				},
 				{
-					"buffer": 4,
-					"file": "app/app.global.css",
+					"buffer": 1,
+					"file": "app/components/Navbar.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 2200,
+						"buffer_size": 5906,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								0
+								117,
+								117
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/CSS/CSS.sublime-syntax",
+							"history_list_is_closing": true,
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
 							"tab_size": 2,
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 3168.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 4,
-					"type": "text"
-				},
-				{
-					"buffer": 5,
-					"file": "app/components/Navbar.css",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 565,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/CSS/CSS.sublime-syntax",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 5,
+					"stack_index": 1,
 					"type": "text"
 				}
 			]
