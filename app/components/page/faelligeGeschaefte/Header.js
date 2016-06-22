@@ -1,11 +1,11 @@
 'use strict'
 
 /*
- * This component builds and displays a single page header for page Fristen
+ * This component builds and displays a single page header for page FaelligeGeschaefte
  */
 
 import React from 'react'
-import styles from './PageFristen.css'
+import styles from './FaelligeGeschaefte.css'
 
 const PageFristenHeader = () =>
   <div className={styles.tableHeader}>

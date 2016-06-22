@@ -5,7 +5,7 @@
  */
 
 import React, { PropTypes } from 'react'
-import styles from './PageList1.css'
+import styles from './List1.css'
 
 function isOdd(num) {
   return num % 2

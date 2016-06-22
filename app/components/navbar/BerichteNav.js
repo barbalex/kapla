@@ -16,7 +16,7 @@ const NavbarBerichteNav = ({
 }) => {
   const isActive = path === '/pages'
   const nameObject = {
-    Fristen: 'Bericht: Fristen',
+    FaelligeGeschaefte: 'Bericht: Fällige Geschäfte',
     List1: 'Bericht: Einfache Liste',
     vernehmlAngek: 'Bericht: Vernehmlassungen'
   }
@@ -39,7 +39,7 @@ const NavbarBerichteNav = ({
          */
         if (eventKey === 7.1) {
           setTimeout(() => {
-            pagesInitiate('Fristen')
+            pagesInitiate('FaelligeGeschaefte')
           }, 0)
         }
         if (eventKey === 7.2) {
@@ -59,7 +59,7 @@ const NavbarBerichteNav = ({
         Berichte, die den gesetzten Filter übernehmen:
       </MenuItem>
       <MenuItem eventKey={7.1}>
-        Fristen
+        Fällige Geschäfte
       </MenuItem>
       <MenuItem eventKey={7.2}>
         Einfache Liste

@@ -1,7 +1,7 @@
 'use strict'
 
 import React, { Component, PropTypes } from 'react'
-import Page from '../containers/Page.js'
+import Page from '../containers/page/Page.js'
 import styles from './Pages.css'
 
 

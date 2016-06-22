@@ -5,7 +5,7 @@
  */
 
 import React, { PropTypes } from 'react'
-import styles from './PageFristen.css'
+import styles from './FaelligeGeschaefte.css'
 
 function isOdd(num) {
   return num % 2

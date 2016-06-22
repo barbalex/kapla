@@ -8,10 +8,10 @@ import React, { Component, PropTypes } from 'react'
 import { FormGroup, FormControl } from 'react-bootstrap'
 import moment from 'moment'
 import styles from './Page.css'
-import PageFristenHeader from './PageFristenHeader'
-import PageFristenRows from './PageFristenRows'
-import PageList1Header from './PageList1Header'
-import PageList1Rows from './PageList1Rows'
+import FaelligeGeschaefteHeader from './faelligeGeschaefte/Header'
+import FaelligeGeschaefteRows from './faelligeGeschaefte/Rows'
+import List1Header from './list1/Header'
+import List1Rows from './list1/Rows'
 
 class Page extends Component {
   static propTypes = {
@@ -174,11 +174,11 @@ class Page extends Component {
     const { geschaefte, reportType } = this.props
     return geschaefte.map((geschaeft, index) => {
       if (
-        reportType === 'Fristen' ||
+        reportType === 'FaelligeGeschaefte' ||
         reportType === 'vernehmlAngek'
       ) {
         return (
-          <PageFristenRows
+          <FaelligeGeschaefteRows
             geschaeft={geschaeft}
             key={index}
             rowIndex={index}
@@ -187,7 +187,7 @@ class Page extends Component {
       }
       if (reportType === 'List1') {
         return (
-          <PageList1Rows
+          <List1Rows
             geschaeft={geschaeft}
             key={index}
             rowIndex={index}
@@ -229,16 +229,16 @@ class Page extends Component {
             this.textPagesTitle()
           }
           {
-            reportType === 'Fristen' &&
-            <PageFristenHeader />
+            reportType === 'FaelligeGeschaefte' &&
+            <FaelligeGeschaefteHeader />
           }
           {
             reportType === 'vernehmlAngek' &&
-            <PageFristenHeader />
+            <FaelligeGeschaefteHeader />
           }
           {
             reportType === 'List1' &&
-            <PageList1Header />
+            <List1Header />
           }
           {this.tableRows()}
         </div>

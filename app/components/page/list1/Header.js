@@ -5,7 +5,7 @@
  */
 
 import React from 'react'
-import styles from './PageList1.css'
+import styles from './List1.css'
 
 const PageList1Header = () =>
   <div className={styles.tableHeader}>
