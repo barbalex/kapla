@@ -3,8 +3,8 @@
 import React, { Component } from 'react'
 import GoldenLayout from 'golden-layout'
 import wrapComponentInProvider from '../containers/wrapComponentInProvider'
-import TableRow from '../containers/TableRow'
-import Table from '../containers/Table'
+import TableRow from '../containers/table/TableRow'
+import Table from '../containers/table/Table'
 import saveConfigValue from '../src/saveConfigValue'
 import getConfig from '../src/getConfig.js'
 
