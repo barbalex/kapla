@@ -32,6 +32,9 @@
 
 .navbar {
   margin-bottom: 0;
+}
+
+.navbar a:not(.dropdown-header):not([role="menuitem"]) {
   font-size: 15px;
   font-weight: 700;
 }

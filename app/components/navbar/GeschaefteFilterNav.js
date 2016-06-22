@@ -8,7 +8,8 @@ import {
 import { LinkContainer } from 'react-router-bootstrap'
 import moment from 'moment'
 import filterForFaelligeGeschaefte from '../../src/filterForFaelligeGeschaefte'
-import filterForAngekVernehml from '../../src/filterForAngekVernehml'
+import filterForVernehmlAngek from '../../src/filterForVernehmlAngek'
+import filterForVernehmlLaeuft from '../../src/filterForVernehmlLaeuft'
 import styles from './Navbar.css'
 
 const onSelectFilterFaelligeGeschaefte = (geschaefteFilterByFields) => {
@@ -38,9 +39,14 @@ const onSelectFilterFaelligeGeschaefteMitarbeiter = (
   // TODO: add ordering to state and call action here to order by frist desc
 }
 
-const onSelectFilterAngekVernehml = (geschaefteFilterByFields) => {
-  const filter = filterForAngekVernehml()
+const onSelectFilterVernehmlAngek = (geschaefteFilterByFields) => {
+  const filter = filterForVernehmlAngek()
   geschaefteFilterByFields(filter, 'angekündigte Vernehmlassungen')
+}
+
+const onSelectFilterVernehmlLaeuft = (geschaefteFilterByFields) => {
+  const filter = filterForVernehmlLaeuft()
+  geschaefteFilterByFields(filter, 'laufende Vernehmlassungen')
 }
 
 const NavbarGeschaefteFilterNav = ({
@@ -100,10 +106,18 @@ const NavbarGeschaefteFilterNav = ({
       <MenuItem
         eventKey={3.5}
         onSelect={() =>
-          onSelectFilterAngekVernehml(geschaefteFilterByFields)
+          onSelectFilterVernehmlAngek(geschaefteFilterByFields)
         }
       >
         angekündigte Vernehmlassungen
+      </MenuItem>
+      <MenuItem
+        eventKey={3.6}
+        onSelect={() =>
+          onSelectFilterVernehmlLaeuft(geschaefteFilterByFields)
+        }
+      >
+        laufende Vernehmlassungen
       </MenuItem>
       <MenuItem divider />
       <MenuItem

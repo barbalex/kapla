@@ -154,7 +154,7 @@ class NavbarComponent extends Component {
               </NavItem>
             </LinkContainer>
             {
-              showGeschaefteStuff &&
+              showGeschaefteAndPrint &&
               <GeschaefteFilterNav
                 focusFulltextFilter={this.focusFulltextFilter}
                 removeFilter={this.removeFilter}

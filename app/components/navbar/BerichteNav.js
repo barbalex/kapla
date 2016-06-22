@@ -6,7 +6,8 @@ import {
   MenuItem
 } from 'react-bootstrap'
 import styles from './Navbar.css'
-import filterForAngekVernehml from '../../src/filterForAngekVernehml'
+import filterForVernehmlAngek from '../../src/filterForVernehmlAngek'
+import filterForVernehmlLaeuft from '../../src/filterForVernehmlLaeuft'
 
 const NavbarBerichteNav = ({
   pagesInitiate,
@@ -16,9 +17,9 @@ const NavbarBerichteNav = ({
 }) => {
   const isActive = path === '/pages'
   const nameObject = {
-    FaelligeGeschaefte: 'Bericht: Fällige Geschäfte',
+    FaelligeGeschaefte: 'Bericht: Typ "fällige Geschäfte"',
     List1: 'Bericht: Einfache Liste',
-    vernehmlAngek: 'Bericht: Vernehmlassungen'
+    vernehmlassung: 'Bericht: Vernehmlassungen'
   }
   const name = nameObject[pages.reportType] || 'Berichte'
   const title = isActive ? name : 'Berichte'
@@ -49,27 +50,36 @@ const NavbarBerichteNav = ({
         }
         if (eventKey === 7.3) {
           setTimeout(() => {
-            geschaefteFilterByFields(filterForAngekVernehml(), 'angekündigte Vernehmlassungen')
-            pagesInitiate('vernehmlAngek')
+            geschaefteFilterByFields(filterForVernehmlAngek(), 'angekündigte Vernehmlassungen')
+            pagesInitiate('FaelligeGeschaefte')
+          }, 0)
+        }
+        if (eventKey === 7.4) {
+          setTimeout(() => {
+            geschaefteFilterByFields(filterForVernehmlLaeuft(), 'laufende Vernehmlassungen')
+            pagesInitiate('FaelligeGeschaefte')
           }, 0)
         }
       }}
     >
       <MenuItem header>
-        Berichte, die den gesetzten Filter übernehmen:
+        Vorlagen,<br />übernehmen den gesetzten Filter:
       </MenuItem>
       <MenuItem eventKey={7.1}>
-        Fällige Geschäfte
+        Typ "fällige Geschäfte"
       </MenuItem>
       <MenuItem eventKey={7.2}>
         Einfache Liste
       </MenuItem>
       <MenuItem divider />
       <MenuItem header>
-        Berichte, welche einen eigenen Filter setzen:
+        Pfannenfertige,<br />setzen einen eigenen Filter:
       </MenuItem>
       <MenuItem eventKey={7.3}>
         angekündigte Vernehmlassungen
+      </MenuItem>
+      <MenuItem eventKey={7.4}>
+        laufende Vernehmlassungen
       </MenuItem>
     </NavDropdown>
   )

@@ -175,7 +175,7 @@ class Page extends Component {
     return geschaefte.map((geschaeft, index) => {
       if (
         reportType === 'FaelligeGeschaefte' ||
-        reportType === 'vernehmlAngek'
+        reportType === 'vernehmlassung'
       ) {
         return (
           <FaelligeGeschaefteRows
@@ -233,7 +233,7 @@ class Page extends Component {
             <FaelligeGeschaefteHeader />
           }
           {
-            reportType === 'vernehmlAngek' &&
+            reportType === 'vernehmlassung' &&
             <FaelligeGeschaefteHeader />
           }
           {
