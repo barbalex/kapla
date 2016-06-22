@@ -26,14 +26,12 @@ const exportGeschaefteRechtsmittelVorjahre = (
     !!g.datumEingangAwel &&
     isInPreviousTwoYears(g.datumEingangAwel)
   ))
-  // TODO: need new fields?
-  // - Rekurrent bzw. Beschwerdeführer / Objekt
-  // - Gegenstand des Rechtsstreits? (= gegenstand?)
-  // - Hauptbetroffene Abteilung
   const fieldsWanted = [
     'datumEingangAwel',
+    'ausloeser',
     'gegenstand',
     'rechtsmittelInstanz',
+    'abteilung',
     'rechtsmittelErledigung',
     'rechtsmittelEntscheidDatum',
     'rechtsmittelEntscheidNr',
