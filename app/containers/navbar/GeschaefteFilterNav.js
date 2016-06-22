@@ -2,8 +2,8 @@
 
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
-import NavbarGeschaefteFilterNav from '../components/NavbarGeschaefteFilterNav'
-import * as GeschaefteActions from '../actions/geschaefte'
+import GeschaefteFilterNav from '../../components/navbar/GeschaefteFilterNav'
+import * as GeschaefteActions from '../../actions/geschaefte'
 
 function mapStateToProps(state, props) {
   const { filterType } = state.geschaefte
@@ -21,4 +21,4 @@ function mapDispatchToProps(dispatch) {
   return bindActionCreators(GeschaefteActions, dispatch)
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(NavbarGeschaefteFilterNav)
+export default connect(mapStateToProps, mapDispatchToProps)(GeschaefteFilterNav)

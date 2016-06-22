@@ -1,7 +1,7 @@
 'use strict'
 
 import React, { Component, PropTypes } from 'react'
-import Navbar from '../containers/Navbar.js'
+import Navbar from '../containers/navbar/Navbar.js'
 
 export default class App extends Component {
   static propTypes = {

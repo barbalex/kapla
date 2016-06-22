@@ -2,9 +2,9 @@
 
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
-import NavbarBerichteNav from '../components/NavbarBerichteNav'
-import * as GeschaefteActions from '../actions/geschaefte'
-import * as PagesActions from '../actions/pages'
+import BerichteNav from '../../components/navbar/BerichteNav'
+import * as GeschaefteActions from '../../actions/geschaefte'
+import * as PagesActions from '../../actions/pages'
 
 const actions = Object.assign(
   GeschaefteActions,
@@ -24,4 +24,4 @@ function mapDispatchToProps(dispatch) {
   return bindActionCreators(actions, dispatch)
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(NavbarBerichteNav)
+export default connect(mapStateToProps, mapDispatchToProps)(BerichteNav)

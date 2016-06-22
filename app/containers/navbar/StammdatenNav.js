@@ -2,8 +2,8 @@
 
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
-import NavbarStammdatenNav from '../components/NavbarStammdatenNav'
-import * as TableActions from '../actions/table'
+import StammdatenNav from '../../components/navbar/StammdatenNav'
+import * as TableActions from '../../actions/table'
 
 function mapStateToProps(state) {
   const {
@@ -20,4 +20,4 @@ function mapDispatchToProps(dispatch) {
   return bindActionCreators(TableActions, dispatch)
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(NavbarStammdatenNav)
+export default connect(mapStateToProps, mapDispatchToProps)(StammdatenNav)

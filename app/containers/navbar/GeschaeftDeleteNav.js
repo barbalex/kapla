@@ -2,8 +2,8 @@
 
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
-import NavbarGeschaeftLoeschenNav from '../components/NavbarGeschaeftLoeschenNav'
-import * as GeschaefteActions from '../actions/geschaefte'
+import GeschaeftDeleteNav from '../../components/navbar/GeschaeftDeleteNav'
+import * as GeschaefteActions from '../../actions/geschaefte'
 
 function mapStateToProps(state) {
   const { activeId } = state.geschaefte
@@ -14,4 +14,4 @@ function mapDispatchToProps(dispatch) {
   return bindActionCreators(GeschaefteActions, dispatch)
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(NavbarGeschaeftLoeschenNav)
+export default connect(mapStateToProps, mapDispatchToProps)(GeschaeftDeleteNav)

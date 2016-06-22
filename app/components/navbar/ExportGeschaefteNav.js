@@ -7,7 +7,7 @@ import {
 } from 'react-bootstrap'
 import moment from 'moment'
 import _ from 'lodash'
-import exportGeschaefte from '../src/exportGeschaefte'
+import exportGeschaefte from '../../src/exportGeschaefte'
 
 const exportGeschaefteRechtsmittelVorjahre = (
   e,

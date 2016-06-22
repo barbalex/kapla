@@ -2,8 +2,8 @@
 
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
-import NavbarExportGeschaefteNav from '../components/NavbarExportGeschaefteNav'
-import * as AppActions from '../actions/app'
+import ExportGeschaefteNav from '../../components/navbar/ExportGeschaefteNav'
+import * as AppActions from '../../actions/app'
 
 function mapStateToProps(state) {
   const {
@@ -20,4 +20,4 @@ function mapDispatchToProps(dispatch) {
   return bindActionCreators(AppActions, dispatch)
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(NavbarExportGeschaefteNav)
+export default connect(mapStateToProps, mapDispatchToProps)(ExportGeschaefteNav)

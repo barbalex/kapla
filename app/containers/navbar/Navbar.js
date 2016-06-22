@@ -2,10 +2,10 @@
 
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
-import Navbar from '../components/Navbar'
-import * as AppActions from '../actions/app'
-import * as GeschaefteActions from '../actions/geschaefte'
-import * as TableActions from '../actions/table'
+import Navbar from '../../components/navbar/Navbar'
+import * as AppActions from '../../actions/app'
+import * as GeschaefteActions from '../../actions/geschaefte'
+import * as TableActions from '../../actions/table'
 
 const actions = Object.assign(
   AppActions,

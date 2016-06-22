@@ -2,8 +2,8 @@
 
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
-import NavbarTableRowNeuNav from '../components/NavbarTableRowNeuNav'
-import * as TableActions from '../actions/table'
+import TableRowNewNav from '../../components/navbar/TableRowNewNav'
+import * as TableActions from '../../actions/table'
 
 function mapStateToProps(state) {
   const { table } = state.table
@@ -14,4 +14,4 @@ function mapDispatchToProps(dispatch) {
   return bindActionCreators(TableActions, dispatch)
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(NavbarTableRowNeuNav)
+export default connect(mapStateToProps, mapDispatchToProps)(TableRowNewNav)

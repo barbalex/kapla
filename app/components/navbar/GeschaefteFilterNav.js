@@ -7,8 +7,8 @@ import {
 } from 'react-bootstrap'
 import { LinkContainer } from 'react-router-bootstrap'
 import moment from 'moment'
-import filterForFaelligeGeschaefte from '../src/filterForFaelligeGeschaefte'
-import filterForAngekVernehml from '../src/filterForAngekVernehml'
+import filterForFaelligeGeschaefte from '../../src/filterForFaelligeGeschaefte'
+import filterForAngekVernehml from '../../src/filterForAngekVernehml'
 
 const onSelectFilterFaelligeGeschaefte = (geschaefteFilterByFields) => {
   const filter = filterForFaelligeGeschaefte()

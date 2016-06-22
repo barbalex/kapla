@@ -6,7 +6,7 @@ import {
   MenuItem
 } from 'react-bootstrap'
 import styles from './Navbar.css'
-import filterForAngekVernehml from '../src/filterForAngekVernehml'
+import filterForAngekVernehml from '../../src/filterForAngekVernehml'
 
 const NavbarBerichteNav = ({
   pagesInitiate,
