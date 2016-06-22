@@ -30,6 +30,7 @@ CREATE TABLE interne (
 CREATE TABLE geschaefte (
   aktennummer TEXT,
   aktenstandort TEXT,
+  ausloeser TEXT,
   benutzer TEXT,
   datumAusgangAwel TEXT,
   datumEingangAwel TEXT,
