@@ -41,6 +41,21 @@ const AreaGeschaeft = ({
           autoFocus={wrapperClass !== styles.wrapperNarrow}
         />
       </div>
+      <div className={styles.fieldAusloeser}>
+        <ControlLabel>
+          Auslöser
+        </ControlLabel>
+        <FormControl
+          componentClass="textarea"
+          value={geschaeft.ausloeser || ''}
+          name="ausloeser"
+          onChange={change}
+          onBlur={blur}
+          bsSize="small"
+          rows={1}
+          tabIndex={2 + tabsToAdd}
+        />
+      </div>
       <div className={styles.fieldOrt}>
         <ControlLabel>
           Ort
@@ -52,7 +67,7 @@ const AreaGeschaeft = ({
           onChange={change}
           onBlur={blur}
           bsSize="small"
-          tabIndex={2 + tabsToAdd}
+          tabIndex={3 + tabsToAdd}
         />
       </div>
       <div className={styles.fieldGeschaeftsart}>
@@ -66,7 +81,7 @@ const AreaGeschaeft = ({
           onChange={change}
           onBlur={blur}
           bsSize="small"
-          tabIndex={3 + tabsToAdd}
+          tabIndex={4 + tabsToAdd}
         >
           {createOptions(geschaeftsartOptions)}
         </FormControl>
@@ -82,7 +97,7 @@ const AreaGeschaeft = ({
           onChange={change}
           onBlur={blur}
           bsSize="small"
-          tabIndex={4 + tabsToAdd}
+          tabIndex={5 + tabsToAdd}
         >
           {createOptions(statusOptions)}
         </FormControl>
