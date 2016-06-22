@@ -10,7 +10,8 @@ function mapStateToProps(state, props) {
     geschaefte,
     activeId,
     statusOptions,
-    geschaeftsartOptions
+    geschaeftsartOptions,
+    vermerkInternVisible
   } = state.geschaefte
   const {
     blur,
@@ -26,6 +27,7 @@ function mapStateToProps(state, props) {
     geschaeft,
     statusOptions,
     geschaeftsartOptions,
+    vermerkInternVisible,
     change,
     blur,
     wrapperClass,

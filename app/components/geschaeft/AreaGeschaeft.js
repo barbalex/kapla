@@ -9,6 +9,8 @@ const AreaGeschaeft = ({
   geschaeft,
   statusOptions,
   geschaeftsartOptions,
+  vermerkInternVisible,
+  vermerkInternToggleVisibility,
   wrapperClass,
   change,
   blur,
@@ -19,6 +21,7 @@ const AreaGeschaeft = ({
     nrOfNrFields :
     0
   )
+  const vermerkInternDisplay = vermerkInternVisible ? 'block' : 'none'
 
   return (
     <div className={styles.areaGeschaeft}>
@@ -161,6 +164,24 @@ const AreaGeschaeft = ({
           tabIndex={9 + tabsToAdd}
         />
       </div>
+      <div className={styles.fieldVermerkIntern}>
+        <ControlLabel
+          onClick={vermerkInternToggleVisibility}
+        >
+          <span className={styles.vermerkInternLabel}>Vermerk intern</span> (in Berichten nicht angezeigt)
+        </ControlLabel>
+        <FormControl
+          componentClass="textarea"
+          value={geschaeft.vermerkIntern || ''}
+          name="vermerkIntern"
+          onChange={change}
+          onBlur={blur}
+          bsSize="small"
+          rows={4}
+          tabIndex={9 + tabsToAdd}
+          style={{ display: vermerkInternDisplay }}
+        />
+      </div>
     </div>
   )
 }
@@ -171,6 +192,8 @@ AreaGeschaeft.propTypes = {
   geschaeft: PropTypes.object,
   statusOptions: PropTypes.array.isRequired,
   geschaeftsartOptions: PropTypes.array.isRequired,
+  vermerkInternVisible: PropTypes.bool,
+  vermerkInternToggleVisibility: PropTypes.func.isRequired,
   change: PropTypes.func.isRequired,
   blur: PropTypes.func.isRequired,
   wrapperClass: PropTypes.string,
