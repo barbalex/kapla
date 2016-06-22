@@ -4,7 +4,7 @@ import React, { PropTypes } from 'react'
 import moment from 'moment'
 moment.locale('de')
 import styles from './AreaHistory.css'
-import getHistoryOfGeschaeft from '../src/getHistoryOfGeschaeft'
+import getHistoryOfGeschaeft from '../../src/getHistoryOfGeschaeft'
 
 const AreaHistoryRows = ({
   geschaefte,

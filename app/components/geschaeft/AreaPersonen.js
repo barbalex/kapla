@@ -4,8 +4,8 @@ import React, { PropTypes } from 'react'
 import { FormControl } from 'react-bootstrap'
 import _ from 'lodash'
 import styles from './AreaPersonen.css'
-import GeschaeftKontakteIntern from '../containers/GeschaeftKontakteIntern'
-import GeschaeftKontakteExtern from '../containers/GeschaeftKontakteExtern'
+import KontakteIntern from '../../containers/geschaeft/KontakteIntern'
+import KontakteExtern from '../../containers/geschaeft/KontakteExtern'
 
 const verwantwortlichOptions = (interneOptions) => {
   // sort interneOptions by kurzzeichen
@@ -82,7 +82,7 @@ const AreaPersonen = ({
         Interne Kontakte
       </div>
     </div>
-    <GeschaeftKontakteIntern
+    <KontakteIntern
       tabIndex={nrOfFieldsBeforePersonen + 1}
     />
     <div className={styles.areaExterneKontakteSubTitle}>
@@ -90,7 +90,7 @@ const AreaPersonen = ({
         Externe Kontakte
       </div>
     </div>
-    <GeschaeftKontakteExtern
+    <KontakteExtern
       tabIndex={nrOfFieldsBeforePersonen + 2}
     />
   </div>

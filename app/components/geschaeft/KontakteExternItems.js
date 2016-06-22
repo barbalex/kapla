@@ -3,7 +3,7 @@
 import React, { PropTypes } from 'react'
 import { Glyphicon } from 'react-bootstrap'
 import _ from 'lodash'
-import styles from './GeschaeftKontakteExtern.css'
+import styles from './KontakteExtern.css'
 
 const verantwortlichData = (gkI, externeOptions) => {
   function addValueToInfo(info, value) {

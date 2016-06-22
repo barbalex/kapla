@@ -2,8 +2,8 @@
 
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
-import GeschaeftKontakteExternItems from '../components/GeschaeftKontakteExternItems'
-import * as GeschaefteKontakteExternActions from '../actions/geschaefteKontakteExtern'
+import KontakteExternItems from '../../components/geschaeft/KontakteExternItems'
+import * as GeschaefteKontakteExternActions from '../../actions/geschaefteKontakteExtern'
 
 function mapStateToProps(state) {
   const {
@@ -25,4 +25,4 @@ function mapDispatchToProps(dispatch) {
   return bindActionCreators(GeschaefteKontakteExternActions, dispatch)
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(GeschaeftKontakteExternItems)
+export default connect(mapStateToProps, mapDispatchToProps)(KontakteExternItems)

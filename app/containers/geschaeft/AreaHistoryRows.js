@@ -2,8 +2,8 @@
 
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
-import AreaHistoryRows from '../components/AreaHistoryRows'
-import * as GeschaefteActions from '../actions/geschaefte'
+import AreaHistoryRows from '../../components/geschaeft/AreaHistoryRows'
+import * as GeschaefteActions from '../../actions/geschaefte'
 
 function mapStateToProps(state) {
   const {

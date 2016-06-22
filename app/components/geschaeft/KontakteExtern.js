@@ -3,8 +3,8 @@
 import React, { PropTypes } from 'react'
 import { FormControl } from 'react-bootstrap'
 import _ from 'lodash'
-import styles from './GeschaeftKontakteExtern.css'
-import GeschaeftKontakteExternItems from '../containers/GeschaeftKontakteExternItems'
+import styles from './KontakteExtern.css'
+import KontakteExternItems from '../../containers/geschaeft/KontakteExternItems'
 
 const onChangeNewKontaktExtern = (e, geschaeftKontaktExternNewCreate, activeId) => {
   const idKontakt = e.target.value
@@ -58,7 +58,7 @@ const GeschaefteKontakteExtern = ({
   externeOptions
 }) =>
   <div className={styles.body}>
-    <GeschaeftKontakteExternItems />
+    <KontakteExternItems />
     <div
       key={0}
       className={styles.rowfVDropdown}

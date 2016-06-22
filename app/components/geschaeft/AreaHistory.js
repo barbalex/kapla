@@ -5,7 +5,7 @@ import { FormControl, ControlLabel } from 'react-bootstrap'
 import moment from 'moment'
 moment.locale('de')
 import styles from './AreaHistory.css'
-import AreaHistoryRows from '../containers/AreaHistoryRows'
+import AreaHistoryRows from '../../containers/geschaeft/AreaHistoryRows'
 
 const AreaHistory = ({ geschaeft, blur, change }) =>
   <div className={styles.areaHistory}>

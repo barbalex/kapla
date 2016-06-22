@@ -3,7 +3,7 @@
 import React, { PropTypes } from 'react'
 import { FormControl, ControlLabel, Radio } from 'react-bootstrap'
 import styles from './AreaParlVorstoss.css'
-import createOptions from '../src/createOptions'
+import createOptions from '../../src/createOptions'
 
 const AreaParlVorstoss = ({
   geschaeft,

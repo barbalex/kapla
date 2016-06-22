@@ -2,18 +2,20 @@
 
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
-import AreaFristen from '../components/AreaFristen'
-import * as GeschaefteActions from '../actions/geschaefte'
+import AreaRechtsmittel from '../../components/geschaeft/AreaRechtsmittel'
+import * as GeschaefteActions from '../../actions/geschaefte'
 
 function mapStateToProps(state, props) {
   const {
     geschaefte,
-    activeId
+    activeId,
+    rechtsmittelErledigungOptions,
+    rechtsmittelInstanzOptions
   } = state.geschaefte
   const {
     blur,
     change,
-    nrOfFieldsBeforeFristen,
+    nrOfFieldsBeforePv,
     onChangeDatePicker
   } = props
   const geschaeft = geschaefte.find((g) =>
@@ -22,9 +24,11 @@ function mapStateToProps(state, props) {
 
   return {
     geschaeft,
+    rechtsmittelErledigungOptions,
+    rechtsmittelInstanzOptions,
     change,
     blur,
-    nrOfFieldsBeforeFristen,
+    nrOfFieldsBeforePv,
     onChangeDatePicker
   }
 }
@@ -33,4 +37,4 @@ function mapDispatchToProps(dispatch) {
   return bindActionCreators(GeschaefteActions, dispatch)
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(AreaFristen)
+export default connect(mapStateToProps, mapDispatchToProps)(AreaRechtsmittel)

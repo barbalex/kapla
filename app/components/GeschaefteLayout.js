@@ -3,7 +3,7 @@
 import React, { Component } from 'react'
 import GoldenLayout from 'golden-layout'
 import wrapComponentInProvider from '../containers/wrapComponentInProvider'
-import Geschaeft from '../containers/Geschaeft'
+import Geschaeft from '../containers/geschaeft/Geschaeft'
 import Geschaefte from '../containers/Geschaefte'
 import saveConfigValue from '../src/saveConfigValue'
 import getConfig from '../src/getConfig.js'

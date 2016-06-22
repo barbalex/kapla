@@ -3,7 +3,7 @@
 import React, { PropTypes } from 'react'
 import { Glyphicon } from 'react-bootstrap'
 import _ from 'lodash'
-import styles from './GeschaeftKontakteIntern.css'
+import styles from './KontakteIntern.css'
 
 const titleText = (idKontakt, interneOptions) => {
   const data = interneOptions.find((o) =>

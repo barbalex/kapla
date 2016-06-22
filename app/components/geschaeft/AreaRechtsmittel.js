@@ -12,8 +12,8 @@ import moment from 'moment'
 moment.locale('de')
 import DateRangePicker from 'react-bootstrap-daterangepicker'
 import styles from './AreaRechtsmittel.css'
-import createOptions from '../src/createOptions'
-import getDateValidationStateDate from '../src/getDateValidationStateDate'
+import createOptions from '../../src/createOptions'
+import getDateValidationStateDate from '../../src/getDateValidationStateDate'
 
 const AreaRechtsmittel = ({
   geschaeft,

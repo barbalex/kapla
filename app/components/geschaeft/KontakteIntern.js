@@ -1,10 +1,10 @@
 'use strict'
 
-import React, { Component, PropTypes } from 'react'
+import React, { PropTypes } from 'react'
 import { FormControl } from 'react-bootstrap'
 import _ from 'lodash'
-import styles from './GeschaeftKontakteIntern.css'
-import GeschaeftKontakteInternItems from '../containers/GeschaeftKontakteInternItems'
+import styles from './KontakteIntern.css'
+import KontakteInternItems from '../../containers/geschaeft/KontakteInternItems'
 
 const onChangeNewKontaktIntern = (e, geschaeftKontaktInternNewCreate, activeId) => {
   const idKontakt = e.target.value
@@ -65,7 +65,7 @@ const GeschaefteKontakteIntern = ({
   geschaefteKontakteIntern
 }) =>
   <div className={styles.body}>
-    <GeschaeftKontakteInternItems />
+    <KontakteInternItems />
     <div
       key={0}
       className={styles.rowfVDropdown}

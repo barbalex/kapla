@@ -2,9 +2,9 @@
 
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
-import GeschaeftKontakteExtern from '../components/GeschaeftKontakteExtern'
-import * as GeschaefteKontakteExternActions from '../actions/geschaefteKontakteExtern'
-import * as AppActions from '../actions/app'
+import KontakteExtern from '../../components/geschaeft/KontakteExtern'
+import * as GeschaefteKontakteExternActions from '../../actions/geschaefteKontakteExtern'
+import * as AppActions from '../../actions/app'
 
 const actions = Object.assign(
   GeschaefteKontakteExternActions,
@@ -33,4 +33,4 @@ function mapDispatchToProps(dispatch) {
   return bindActionCreators(actions, dispatch)
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(GeschaeftKontakteExtern)
+export default connect(mapStateToProps, mapDispatchToProps)(KontakteExtern)

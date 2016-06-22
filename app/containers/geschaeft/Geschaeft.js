@@ -2,9 +2,9 @@
 
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
-import Geschaeft from '../components/Geschaeft'
-import * as GeschaefteActions from '../actions/geschaefte'
-import * as AppActions from '../actions/app'
+import Geschaeft from '../../components/geschaeft/Geschaeft'
+import * as GeschaefteActions from '../../actions/geschaefte'
+import * as AppActions from '../../actions/app'
 
 const actions = Object.assign(GeschaefteActions, AppActions)
 

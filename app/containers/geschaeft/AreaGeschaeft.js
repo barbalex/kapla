@@ -2,21 +2,21 @@
 
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
-import AreaRechtsmittel from '../components/AreaRechtsmittel'
-import * as GeschaefteActions from '../actions/geschaefte'
+import AreaGeschaeft from '../../components/geschaeft/AreaGeschaeft'
+import * as GeschaefteActions from '../../actions/geschaefte'
 
 function mapStateToProps(state, props) {
   const {
     geschaefte,
     activeId,
-    rechtsmittelErledigungOptions,
-    rechtsmittelInstanzOptions
+    statusOptions,
+    geschaeftsartOptions
   } = state.geschaefte
   const {
     blur,
     change,
-    nrOfFieldsBeforePv,
-    onChangeDatePicker
+    wrapperClass,
+    nrOfNrFields
   } = props
   const geschaeft = geschaefte.find((g) =>
     g.idGeschaeft === activeId
@@ -24,12 +24,12 @@ function mapStateToProps(state, props) {
 
   return {
     geschaeft,
-    rechtsmittelErledigungOptions,
-    rechtsmittelInstanzOptions,
+    statusOptions,
+    geschaeftsartOptions,
     change,
     blur,
-    nrOfFieldsBeforePv,
-    onChangeDatePicker
+    wrapperClass,
+    nrOfNrFields
   }
 }
 
@@ -37,4 +37,4 @@ function mapDispatchToProps(dispatch) {
   return bindActionCreators(GeschaefteActions, dispatch)
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(AreaRechtsmittel)
+export default connect(mapStateToProps, mapDispatchToProps)(AreaGeschaeft)

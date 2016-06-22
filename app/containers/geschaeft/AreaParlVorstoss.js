@@ -2,8 +2,8 @@
 
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
-import AreaParlVorstoss from '../components/AreaParlVorstoss'
-import * as GeschaefteActions from '../actions/geschaefte'
+import AreaParlVorstoss from '../../components/geschaeft/AreaParlVorstoss'
+import * as GeschaefteActions from '../../actions/geschaefte'
 
 function mapStateToProps(state, props) {
   const {

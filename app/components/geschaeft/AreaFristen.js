@@ -12,7 +12,7 @@ import moment from 'moment'
 moment.locale('de')
 import DateRangePicker from 'react-bootstrap-daterangepicker'
 import styles from './AreaFristen.css'
-import getDateValidationStateDate from '../src/getDateValidationStateDate'
+import getDateValidationStateDate from '../../src/getDateValidationStateDate'
 
 
 const statusFristInStyle = (dauerBisFristMitarbeiter) => {
