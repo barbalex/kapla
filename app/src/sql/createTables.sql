@@ -28,6 +28,7 @@ CREATE TABLE interne (
 );
 
 CREATE TABLE geschaefte (
+  abteilung TEXT,
   aktennummer TEXT,
   aktenstandort TEXT,
   ausloeser TEXT,

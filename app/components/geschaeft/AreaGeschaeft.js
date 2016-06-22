@@ -102,14 +102,14 @@ const AreaGeschaeft = ({
           {createOptions(statusOptions)}
         </FormControl>
       </div>
-      <div className={styles.fieldDirektion}>
+      <div className={styles.fieldAbteilung}>
         <ControlLabel>
-          Direktion
+          Abteilung
         </ControlLabel>
         <FormControl
           type="text"
-          value={geschaeft.zustaendigeDirektion || ''}
-          name="zustaendigeDirektion"
+          value={geschaeft.abteilung || ''}
+          name="abteilung"
           onChange={change}
           onBlur={blur}
           bsSize="small"
