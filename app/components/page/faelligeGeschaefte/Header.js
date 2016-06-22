@@ -18,7 +18,7 @@ const PageFristenHeader = () =>
       <div
         className={[styles.columnGegenstand, styles.tableHeaderCell].join(' ')}
       >
-        <b>Gegenstand</b> / Details / <em>nächster Schritt</em>
+        <b>Gegenstand</b> / Auslöser / Details / <em>nächster Schritt</em>
       </div>
       <div
         className={[styles.columnStatus, styles.tableHeaderCell].join(' ')}

@@ -13,7 +13,7 @@ const PageList1Header = () =>
       <div
         className={[styles.columnGegenstand, styles.tableHeaderCell].join(' ')}
       >
-        Gegenstand
+        Gegenstand, Auslöser
       </div>
       <div
         className={[styles.columnGeschaeftsart, styles.tableHeaderCell].join(' ')}

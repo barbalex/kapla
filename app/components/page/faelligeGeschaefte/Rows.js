@@ -28,6 +28,11 @@ const PageFristenRows = ({ geschaeft, rowIndex }) => {
     gegenstand = gegenstand.substring(0, maxStringLength)
     gegenstand += '... (Text für die Ausgabe gekürzt)'
   }
+  let ausloeser = geschaeft.ausloeser
+  if (ausloeser && ausloeser.length > maxStringLength) {
+    ausloeser = ausloeser.substring(0, maxStringLength)
+    ausloeser += '... (Text für die Ausgabe gekürzt)'
+  }
   let naechsterSchritt = ''
   if (
     geschaeft.naechsterSchritt &&
@@ -76,6 +81,9 @@ const PageFristenRows = ({ geschaeft, rowIndex }) => {
       >
         <div className={styles.fieldGegenstand}>
           {gegenstand}
+        </div>
+        <div>
+          {ausloeser}
         </div>
         <div>
           {details}

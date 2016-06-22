@@ -19,6 +19,9 @@ const PageList1Rows = ({ geschaeft, rowIndex }) => {
    */
   const maxStringLength = 2000
   let gegenstand = geschaeft.gegenstand
+  if (geschaeft.ausloeser) {
+    gegenstand = `${gegenstand}. Auslöser: ${geschaeft.ausloeser}`
+  }
   if (gegenstand && gegenstand.length > maxStringLength) {
     gegenstand = gegenstand.substring(0, maxStringLength)
     gegenstand += '... (Text für die Ausgabe gekürzt)'
@@ -37,7 +40,7 @@ const PageList1Rows = ({ geschaeft, rowIndex }) => {
     >
       <div className={[styles.columnGegenstand, styles.tableBodyCell].join(' ')}>
         <div>
-          {geschaeft.gegenstand}
+          {gegenstand}
         </div>
       </div>
       <div className={[styles.columnGeschaeftsart, styles.tableBodyCell].join(' ')}>
