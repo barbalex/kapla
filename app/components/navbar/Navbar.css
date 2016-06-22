@@ -8,8 +8,12 @@
   }
 }
 
-.badgeWithActiveFilter {
+.active {
   color: #FF9416;
+}
+
+.active > a {
+  color: #FF9416 !important;
 }
 
 .filterInput {

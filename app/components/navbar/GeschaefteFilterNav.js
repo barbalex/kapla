@@ -9,6 +9,7 @@ import { LinkContainer } from 'react-router-bootstrap'
 import moment from 'moment'
 import filterForFaelligeGeschaefte from '../../src/filterForFaelligeGeschaefte'
 import filterForAngekVernehml from '../../src/filterForAngekVernehml'
+import styles from './Navbar.css'
 
 const onSelectFilterFaelligeGeschaefte = (geschaefteFilterByFields) => {
   const filter = filterForFaelligeGeschaefte()
@@ -44,75 +45,85 @@ const onSelectFilterAngekVernehml = (geschaefteFilterByFields) => {
 
 const NavbarGeschaefteFilterNav = ({
   filterType,
+  geschaefte,
+  geschaefteGefilterteIds,
   focusFulltextFilter,
   removeFilter,
   geschaefteFilterByFields,
   username
-}) =>
-  <NavDropdown
-    eventKey={3}
-    title={filterType ? `Filter: ${filterType}` : 'Filter'}
-    id="filter-nav-dropdown"
-  >
-    <MenuItem header>
-      individuell:
-    </MenuItem>
-    <LinkContainer to={{ pathname: '/filter' }}>
-      <MenuItem eventKey={3.1}>
-        nach Feldern
+}) => {
+  const dataIsFiltered = geschaefte.length !== geschaefteGefilterteIds.length
+  const classNameNavDropdown = dataIsFiltered ? styles.active : null
+  return (
+    <NavDropdown
+      eventKey={3}
+      title={filterType ? `Filter: ${filterType}` : 'Filter'}
+      id="filter-nav-dropdown"
+      className={classNameNavDropdown}
+    >
+      <MenuItem header>
+        individuell:
       </MenuItem>
-    </LinkContainer>
-    <MenuItem
-      eventKey={3.2}
-      onSelect={() =>
-        focusFulltextFilter()
-      }
-    >
-      nach Volltext
-    </MenuItem>
-    <MenuItem divider />
-    <MenuItem header>
-      pfannenfertig:
-    </MenuItem>
-    <MenuItem
-      eventKey={3.3}
-      onSelect={() =>
-        onSelectFilterFaelligeGeschaefte(geschaefteFilterByFields)
-      }
-    >
-      fällige
-    </MenuItem>
-    <MenuItem
-      eventKey={3.4}
-      onSelect={() =>
-        onSelectFilterFaelligeGeschaefteMitarbeiter(geschaefteFilterByFields, username)
-      }
-    >
-      eigene fällige
-    </MenuItem>
-    <MenuItem
-      eventKey={3.5}
-      onSelect={() =>
-        onSelectFilterAngekVernehml(geschaefteFilterByFields)
-      }
-    >
-      angekündigte Vernehmlassungen
-    </MenuItem>
-    <MenuItem divider />
-    <MenuItem
-      eventKey={3.5}
-      onSelect={() =>
-        removeFilter()
-      }
-    >
-      Filter entfernen
-    </MenuItem>
-  </NavDropdown>
+      <LinkContainer to={{ pathname: '/filter' }}>
+        <MenuItem eventKey={3.1}>
+          nach Feldern
+        </MenuItem>
+      </LinkContainer>
+      <MenuItem
+        eventKey={3.2}
+        onSelect={() =>
+          focusFulltextFilter()
+        }
+      >
+        nach Volltext
+      </MenuItem>
+      <MenuItem divider />
+      <MenuItem header>
+        pfannenfertig:
+      </MenuItem>
+      <MenuItem
+        eventKey={3.3}
+        onSelect={() =>
+          onSelectFilterFaelligeGeschaefte(geschaefteFilterByFields)
+        }
+      >
+        fällige
+      </MenuItem>
+      <MenuItem
+        eventKey={3.4}
+        onSelect={() =>
+          onSelectFilterFaelligeGeschaefteMitarbeiter(geschaefteFilterByFields, username)
+        }
+      >
+        eigene fällige
+      </MenuItem>
+      <MenuItem
+        eventKey={3.5}
+        onSelect={() =>
+          onSelectFilterAngekVernehml(geschaefteFilterByFields)
+        }
+      >
+        angekündigte Vernehmlassungen
+      </MenuItem>
+      <MenuItem divider />
+      <MenuItem
+        eventKey={3.5}
+        onSelect={() =>
+          removeFilter()
+        }
+      >
+        Filter entfernen
+      </MenuItem>
+    </NavDropdown>
+  )
+}
 
 NavbarGeschaefteFilterNav.displayName = 'NavbarGeschaefteFilterNav'
 
 NavbarGeschaefteFilterNav.propTypes = {
   filterType: PropTypes.string,
+  geschaefte: PropTypes.array.isRequired,
+  geschaefteGefilterteIds: PropTypes.array.isRequired,
   username: PropTypes.string,
   focusFulltextFilter: PropTypes.func.isRequired,
   geschaefteFilterByFields: PropTypes.func.isRequired,

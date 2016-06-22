@@ -123,7 +123,7 @@ class NavbarComponent extends Component {
     } = this.props
 
     const dataIsFiltered = geschaefte.length !== geschaefteGefilterteIds.length
-    const classNameBadge = dataIsFiltered ? styles.badgeWithActiveFilter : null
+    const classNameBadge = dataIsFiltered ? styles.active : null
     const showPrint = path === '/pages'
     const showGeschaefteStuff = path === '/geschaefte'
     const showGeschaefteAndPrint = showPrint || showGeschaefteStuff

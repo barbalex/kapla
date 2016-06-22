@@ -6,12 +6,18 @@ import GeschaefteFilterNav from '../../components/navbar/GeschaefteFilterNav'
 import * as GeschaefteActions from '../../actions/geschaefte'
 
 function mapStateToProps(state, props) {
-  const { filterType } = state.geschaefte
+  const {
+    filterType,
+    geschaefte,
+    geschaefteGefilterteIds
+  } = state.geschaefte
   const { username } = state.user
   const { focusFulltextFilter, removeFilter } = props
   return {
     username,
     filterType,
+    geschaefte,
+    geschaefteGefilterteIds,
     focusFulltextFilter,
     removeFilter
   }
