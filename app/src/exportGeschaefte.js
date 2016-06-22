@@ -30,7 +30,7 @@ function getDataArrayFromExportObjects(exportObjects) {
        * exceljs errors out if first member of array is null
        * see: https://github.com/guyonroche/exceljs/issues/111
        * unfortunately there is also an issue with passing ''
-       * in versions > 0.2.7
+       * in version 0.2.8
        * see: https://github.com/guyonroche/exceljs/issues/120
        */
       if (object[key] === null && index === 0) return ''
