@@ -11,7 +11,6 @@ const stammdatenTitle = (table, rows) => {
   const tableNameObject = {
     interne: 'Interne',
     externe: 'Externe',
-    gdeplz: 'Gemeinden',
     geschaeftsart: 'Geschäftsart',
     parlVorstossTyp: 'Parl. Vorstoss Typ',
     rechtsmittelInstanz: 'Rechtsmittel-Instanz',
@@ -69,41 +68,34 @@ const NavbarStammdatenNav = ({
       </MenuItem>
       <MenuItem
         eventKey={8.3}
-        onClick={() => getTable('gdeplz')}
-        active={table === 'gdeplz'}
-      >
-        Gemeinden
-      </MenuItem>
-      <MenuItem
-        eventKey={8.4}
         onClick={() => getTable('geschaeftsart')}
         active={table === 'geschaeftsart'}
       >
         Geschäftsart
       </MenuItem>
       <MenuItem
-        eventKey={8.6}
+        eventKey={8.4}
         onClick={() => getTable('parlVorstossTyp')}
         active={table === 'parlVorstossTyp'}
       >
         Parlament. Vorstoss Typ
       </MenuItem>
       <MenuItem
-        eventKey={8.7}
+        eventKey={8.5}
         onClick={() => getTable('rechtsmittelInstanz')}
         active={table === 'rechtsmittelInstanz'}
       >
         Rechtsmittel-Instanz
       </MenuItem>
       <MenuItem
-        eventKey={8.8}
+        eventKey={8.6}
         onClick={() => getTable('rechtsmittelErledigung')}
         active={table === 'rechtsmittelErledigung'}
       >
         Rechtsmittel-Erledigung
       </MenuItem>
       <MenuItem
-        eventKey={8.9}
+        eventKey={8.7}
         onClick={() => getTable('status')}
         active={table === 'status'}
       >

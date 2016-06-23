@@ -8,15 +8,8 @@ CREATE TABLE externe (
   vorname TEXT
 );
 
+DROP INDEX IF EXISTS iExterneVornameName;
 CREATE INDEX iExterneVornameName ON externe (vorname, name);
-
--------------------------------------------
-
-CREATE TABLE gdeplz (
-  id INTEGER PRIMARY KEY,
-  gemeinde TEXT,
-  plz INTEGER
-);
 
 -------------------------------------------
 
@@ -33,6 +26,7 @@ CREATE TABLE interne (
   vorname TEXT
 );
 
+DROP INDEX IF EXISTS iInterneVornameName;
 CREATE INDEX iInterneVornameName ON interne (vorname, name);
 
 -------------------------------------------
@@ -63,7 +57,7 @@ CREATE TABLE geschaefte (
   fristMitarbeiter TEXT,
   gegenstand TEXT,
   gekoNr TEXT,
-  geschaeftsart TEXT REFERENCES geschaeftsart.geschaeftsart ON UPDATE CASCADE ON DELETE RESTRICT,
+  geschaeftsart TEXT REFERENCES geschaeftsart(geschaeftsart) ON UPDATE CASCADE ON DELETE RESTRICT,
   idGeschaeft INTEGER PRIMARY KEY,
   idKontaktExtern_readonly TEXT,
   idKontaktIntern_readonly TEXT,
@@ -73,30 +67,37 @@ CREATE TABLE geschaefte (
   naechsterSchritt TEXT,
   ort TEXT,
   parlVorstossStufe TEXT,
-  parlVorstossTyp TEXT REFERENCES parlVorstossTyp.parlVorstossTyp ON UPDATE CASCADE ON DELETE RESTRICT,
-  rechtsmittelInstanz TEXT REFERENCES rechtsmittelInstanz.rechtsmittelInstanz ON UPDATE CASCADE ON DELETE RESTRICT,
-  rechtsmittelErledigung TEXT REFERENCES rechtsmittelErledigung.rechtsmittelErledigung ON UPDATE CASCADE ON DELETE RESTRICT,
+  parlVorstossTyp TEXT REFERENCES parlVorstossTyp(parlVorstossTyp) ON UPDATE CASCADE ON DELETE RESTRICT,
+  rechtsmittelInstanz TEXT REFERENCES rechtsmittelInstanz(rechtsmittelInstanz) ON UPDATE CASCADE ON DELETE RESTRICT,
+  rechtsmittelErledigung TEXT REFERENCES rechtsmittelErledigung(rechtsmittelErledigung) ON UPDATE CASCADE ON DELETE RESTRICT,
   rechtsmittelEntscheidNr INTEGER,
   rechtsmittelEntscheidDatum TEXT,
-  status TEXT REFERENCES status.status ON UPDATE CASCADE ON DELETE RESTRICT,
-  verantwortlich TEXT REFERENCES interne.kurzzeichen ON UPDATE CASCADE ON DELETE RESTRICT,
+  status TEXT REFERENCES status(status) ON UPDATE CASCADE ON DELETE RESTRICT,
+  verantwortlich TEXT REFERENCES interne(kurzzeichen) ON UPDATE CASCADE ON DELETE RESTRICT,
   vermerk TEXT,
   vermerkIntern TEXT,
   zustaendigeDirektion TEXT
 );
+DROP INDEX IF EXISTS iGeschaefteVerantwortlich;
 CREATE INDEX iGeschaefteVerantwortlich ON geschaefte (verantwortlich);
+DROP INDEX IF EXISTS iGeschaefteFristMitarbeiter;
 CREATE INDEX iGeschaefteFristMitarbeiter ON geschaefte (fristMitarbeiter);
+DROP INDEX IF EXISTS iGeschaefteGeschaeftsart;
 CREATE INDEX iGeschaefteGeschaeftsart ON geschaefte (geschaeftsart);
+DROP INDEX IF EXISTS iGeschaefteParlVorstossTyp;
 CREATE INDEX iGeschaefteParlVorstossTyp ON geschaefte (parlVorstossTyp);
+DROP INDEX IF EXISTS iGeschaefteRechtsmittelInstanz;
 CREATE INDEX iGeschaefteRechtsmittelInstanz ON geschaefte (rechtsmittelInstanz);
+DROP INDEX IF EXISTS iGeschaefteRechtsmittelErledigung;
 CREATE INDEX iGeschaefteRechtsmittelErledigung ON geschaefte (rechtsmittelErledigung);
+DROP INDEX IF EXISTS iGeschaefteStatus;
 CREATE INDEX iGeschaefteStatus ON geschaefte (status);
 
 -------------------------------------------
 
 CREATE TABLE geschaefteKontakteIntern (
-  idGeschaeft INTEGER REFERENCES geschaefte.idGeschaeft ON UPDATE CASCADE ON DELETE CASCADE,
-  idKontakt INTEGER REFERENCES interne.id ON UPDATE CASCADE ON DELETE RESTRICT,
+  idGeschaeft INTEGER REFERENCES geschaefte(idGeschaeft) ON UPDATE CASCADE ON DELETE CASCADE,
+  idKontakt INTEGER REFERENCES interne(id) ON UPDATE CASCADE ON DELETE RESTRICT,
   PRIMARY KEY (idGeschaeft, idKontakt)
 );
 
@@ -125,8 +126,8 @@ FROM
 -------------------------------------------
 
 CREATE TABLE geschaefteKontakteExtern (
-  idGeschaeft INTEGER REFERENCES geschaefte.idGeschaeft ON UPDATE CASCADE ON DELETE CASCADE,
-  idKontakt INTEGER REFERENCES externe.id ON UPDATE CASCADE ON DELETE RESTRICT,
+  idGeschaeft INTEGER REFERENCES geschaefte(idGeschaeft) ON UPDATE CASCADE ON DELETE CASCADE,
+  idKontakt INTEGER REFERENCES externe(id) ON UPDATE CASCADE ON DELETE RESTRICT,
   PRIMARY KEY (idGeschaeft, idKontakt)
 );
 
@@ -142,29 +143,91 @@ WHERE
 
 -------------------------------------------
 
+-- boolean in sqlite is integer
+-- true = 1
+-- false = 0
 CREATE TABLE geschaeftsart (
   geschaeftsart TEXT PRIMARY KEY,
+  historisch integer DEFAULT 0, 
   sort INTEGER
 );
+
+DROP INDEX IF EXISTS iGeschaeftsartSort;
 CREATE INDEX iGeschaeftsartSort ON geschaeftsart (sort);
 
+-- now make sure all geschaeftsarten
+-- contained in geschaefte are included
 INSERT INTO
-  geschaeftsart (geschaeftsart, sort)
-VALUES
-  ('Rechtsgeschäft', 1),
-  ('Rekurs/Beschwerde', 2),
-  ('Parlament. Vorstoss', 3),
-  ('Vernehmlassung', 4),
-  ('Strafverfahren', 5),
-  ('Diverses', 6);
+  geschaeftsart(geschaeftsart)
+SELECT 
+  geschaeftsart
+FROM
+  geschaefte
+GROUP BY
+  geschaeftsart
+HAVING
+  geschaeftsart IS NOT NULL;
 
+-- but only ones to be used actively
+-- are not historical 
+UPDATE
+  geschaeftsart
+SET
+  historisch = 1
+WHERE
+  geschaeftsart NOT IN ('Rechtsgeschäft', 'Rekurs/Beschwerde', 'Parlament. Vorstoss', 'Vernehmlassung', 'Strafverfahren', 'Diverses');
+
+-- and actively used ones have a sort value
+UPDATE
+  geschaeftsart
+SET
+  sort = 1
+WHERE
+  geschaeftsart = 'Rechtsgeschäft';
+
+UPDATE
+  geschaeftsart
+SET
+  sort = 2
+WHERE
+  geschaeftsart = 'Rekurs/Beschwerde';
+
+UPDATE
+  geschaeftsart
+SET
+  sort = 3
+WHERE
+  geschaeftsart = 'Parlament. Vorstoss';
+
+UPDATE
+  geschaeftsart
+SET
+  sort = 4
+WHERE
+  geschaeftsart = 'Vernehmlassung';
+
+UPDATE
+  geschaeftsart
+SET
+  sort = 5
+WHERE
+  geschaeftsart = 'Strafverfahren';
+
+UPDATE
+  geschaeftsart
+SET
+  sort = 6
+WHERE
+  geschaeftsart = 'Diverses';
 -------------------------------------------
 
 CREATE TABLE status (
   status TEXT PRIMARY KEY,
+  historisch integer DEFAULT 0, 
   sort INTEGER
 );
 
+DROP INDEX IF EXISTS iStatusSort;
 CREATE INDEX iStatusSort ON status (sort);
 
 INSERT INTO
@@ -180,16 +243,45 @@ VALUES
 
 CREATE TABLE parlVorstossTyp (
   parlVorstossTyp TEXT PRIMARY KEY,
+  historisch integer DEFAULT 0, 
   sort INTEGER
 );
 
+DROP INDEX IF EXISTS iParlVorstossTypSort;
 CREATE INDEX iParlVorstossTypSort ON parlVorstossTyp (sort);
+
+-- now make sure all types
+-- contained in geschaefte are included
+INSERT INTO
+  parlVorstossTyp(parlVorstossTyp)
+SELECT 
+  parlVorstossTyp
+FROM
+  geschaefte
+GROUP BY
+  parlVorstossTyp
+HAVING
+  parlVorstossTyp IS NOT NULL;
+
+-- but only ones to be used actively
+-- are not historical 
+UPDATE
+  parlVorstossTyp
+SET
+  historisch = 1
+WHERE
+  parlVorstossTyp NOT IN ('Anfrage', 'Interpellation', 'Postulat', 'Dringliches Postulat', 'Leistungsmotion', 'Motion', 'Parlamentatische Initiative', 'Vorlage');
+
+INSERT INTO
+  parlVorstossTyp(parlVorstossTyp, historisch, sort)
+  VALUES ('Dringliche Anfrage', 0, 2);
+
 
 INSERT INTO
   parlVorstossTyp (parlVorstossTyp, sort)
 VALUES
   ('Anfrage', 1),
-  ('Dringliche Anfrage', 2),
+  ('Dringliche Anfrage', 2), --ADD
   ('Interpellation', 3),
   ('Postulat', 4),
   ('Dringliches Postulat', 5),
@@ -202,9 +294,11 @@ VALUES
 
 CREATE TABLE rechtsmittelErledigung (
   rechtsmittelErledigung TEXT PRIMARY KEY,
+  historisch integer DEFAULT 0, 
   sort INTEGER
 );
 
+DROP INDEX IF EXISTS iRechtsmittelErledigungSort;
 CREATE INDEX iRechtsmittelErledigungSort ON rechtsmittelErledigung (sort);
 
 INSERT INTO
@@ -225,9 +319,11 @@ VALUES
 
 CREATE TABLE rechtsmittelInstanz (
   rechtsmittelInstanz TEXT PRIMARY KEY,
+  historisch integer DEFAULT 0, 
   sort INTEGER
 );
 
+DROP INDEX IF EXISTS iRechtsmittelInstanzSort;
 CREATE INDEX iRechtsmittelInstanzSort ON rechtsmittelInstanz (sort);
 
 INSERT INTO
