@@ -17,9 +17,11 @@ const NavbarBerichteNav = ({
 }) => {
   const isActive = path === '/pages'
   const nameObject = {
-    FaelligeGeschaefte: 'Bericht: Typ "fällige Geschäfte"',
-    List1: 'Bericht: Einfache Liste',
-    vernehmlassung: 'Bericht: Vernehmlassungen'
+    typFaelligeGeschaefte: 'Bericht: Typ "fällige Geschäfte"',
+    list1: 'Bericht: Einfache Liste',
+    typVernehmlassungen: 'Bericht: Typ "Vernehmlassungen"',
+    angekVernehml: 'Bericht: angekündigte Vernehmlassungen',
+    laufendeVernehml: 'Bericht: laufende Vernehmlassungen'
   }
   const name = nameObject[pages.reportType] || 'Berichte'
   const title = isActive ? name : 'Berichte'
@@ -40,24 +42,29 @@ const NavbarBerichteNav = ({
          */
         if (eventKey === 7.1) {
           setTimeout(() => {
-            pagesInitiate('FaelligeGeschaefte')
+            pagesInitiate('typFaelligeGeschaefte')
           }, 0)
         }
         if (eventKey === 7.2) {
           setTimeout(() => {
-            pagesInitiate('List1')
+            pagesInitiate('typVernehmlassungen')
           }, 0)
         }
         if (eventKey === 7.3) {
           setTimeout(() => {
-            geschaefteFilterByFields(filterForVernehmlAngek(), 'angekündigte Vernehmlassungen')
-            pagesInitiate('FaelligeGeschaefte')
+            pagesInitiate('list1')
           }, 0)
         }
         if (eventKey === 7.4) {
           setTimeout(() => {
+            geschaefteFilterByFields(filterForVernehmlAngek(), 'angekündigte Vernehmlassungen')
+            pagesInitiate('angekVernehml')
+          }, 0)
+        }
+        if (eventKey === 7.5) {
+          setTimeout(() => {
             geschaefteFilterByFields(filterForVernehmlLaeuft(), 'laufende Vernehmlassungen')
-            pagesInitiate('FaelligeGeschaefte')
+            pagesInitiate('laufendeVernehml')
           }, 0)
         }
       }}
@@ -69,16 +76,19 @@ const NavbarBerichteNav = ({
         Typ "fällige Geschäfte"
       </MenuItem>
       <MenuItem eventKey={7.2}>
+        Typ "Vernehmlassungen"
+      </MenuItem>
+      <MenuItem eventKey={7.3}>
         Einfache Liste
       </MenuItem>
       <MenuItem divider />
       <MenuItem header>
         Pfannenfertige,<br />setzen einen eigenen Filter:
       </MenuItem>
-      <MenuItem eventKey={7.3}>
+      <MenuItem eventKey={7.4}>
         angekündigte Vernehmlassungen
       </MenuItem>
-      <MenuItem eventKey={7.4}>
+      <MenuItem eventKey={7.5}>
         laufende Vernehmlassungen
       </MenuItem>
     </NavDropdown>

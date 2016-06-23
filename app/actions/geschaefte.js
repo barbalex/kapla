@@ -10,6 +10,7 @@ import getInterneOptions from '../src/getInterneOptions'
 import getExterneOptions from '../src/getExterneOptions'
 import updateGeschaeft from '../src/updateGeschaeft'
 import filterGeschaefte from '../src/filterGeschaefte'
+import * as pagesActions from './pages'
 
 export const getGeschaefte = () =>
   (dispatch, getState) => {
@@ -65,7 +66,7 @@ export const geschaefteFilterByFields = (
   filterType = 'nach Feldern'
 ) =>
   (dispatch, getState) => {
-    const { geschaefte } = getState()
+    const { geschaefte, routing, pages } = getState()
     const { filterFulltext } = geschaefte
     // create geschaefteGefilterteIds
     const geschaefteGefilterteIds = filterGeschaefte(
@@ -79,30 +80,31 @@ export const geschaefteFilterByFields = (
       geschaefteGefilterteIds,
       filterType
     })
-    if (geschaefteGefilterteIds.length === 1) {
+    /**
+     * if pages are active,
+     * initiate with new data
+     */
+    const path = routing.locationBeforeTransitions.pathname
+    if (path === '/pages') {
+      const { reportType } = pages
+      dispatch(pagesActions.pagesInitiate(reportType))
+    } else if (geschaefteGefilterteIds.length === 1) {
       dispatch(geschaeftToggleActivated(geschaefteGefilterteIds[0]))
     }
   }
 
 export const GESCHAEFTE_FILTER_BY_FULLTEXT_SET = 'GESCHAEFTE_FILTER_BY_FULLTEXT_SET'
 
-export const geschaefteFilterByFulltextSet = (filterFulltext) =>
-  (dispatch, getState) => {
-    const { routing } = getState()
-    dispatch({
-      type: GESCHAEFTE_FILTER_BY_FULLTEXT_SET,
-      filterFulltext
-    })
-    if (routing.locationBeforeTransitions.pathname !== '/geschaefte') {
-      dispatch(push('/geschaefte'))
-    }
-  }
+export const geschaefteFilterByFulltextSet = (filterFulltext) => ({
+  type: GESCHAEFTE_FILTER_BY_FULLTEXT_SET,
+  filterFulltext
+})
 
 export const GESCHAEFTE_FILTER_BY_FULLTEXT = 'GESCHAEFTE_FILTER_BY_FULLTEXT'
 // filter = word
 export const geschaefteFilterByFulltext = (filterType = 'nach Volltext') =>
   (dispatch, getState) => {
-    const { geschaefte, routing } = getState()
+    const { pages, geschaefte, routing } = getState()
     const { filterFulltext, filterFields } = geschaefte
     // create geschaefteGefilterteIds
     const geschaefteGefilterteIds = filterGeschaefte(
@@ -115,11 +117,21 @@ export const geschaefteFilterByFulltext = (filterType = 'nach Volltext') =>
       geschaefteGefilterteIds,
       filterType
     })
-    if (geschaefteGefilterteIds.length === 1) {
-      dispatch(geschaeftToggleActivated(geschaefteGefilterteIds[0]))
-    }
-    if (routing.locationBeforeTransitions.pathname !== '/geschaefte') {
-      dispatch(push('/geschaefte'))
+    /**
+     * if pages are active,
+     * initiate with new data
+     */
+    const path = routing.locationBeforeTransitions.pathname
+    if (path === '/pages') {
+      const { reportType } = pages
+      dispatch(pagesActions.pagesInitiate(reportType))
+    } else {
+      if (path !== '/geschaefte') {
+        dispatch(push('/geschaefte'))
+      }
+      if (geschaefteGefilterteIds.length === 1) {
+        dispatch(geschaeftToggleActivated(geschaefteGefilterteIds[0]))
+      }
     }
   }
 

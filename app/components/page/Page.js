@@ -10,6 +10,8 @@ import moment from 'moment'
 import styles from './Page.css'
 import FaelligeGeschaefteHeader from './faelligeGeschaefte/Header'
 import FaelligeGeschaefteRows from './faelligeGeschaefte/Rows'
+import VernehmlassungenHeader from './vernehmlassungen/Header'
+import VernehmlassungenRows from './vernehmlassungen/Rows'
 import List1Header from './list1/Header'
 import List1Rows from './list1/Rows'
 
@@ -173,10 +175,7 @@ class Page extends Component {
   tableRows = () => {
     const { geschaefte, reportType } = this.props
     return geschaefte.map((geschaeft, index) => {
-      if (
-        reportType === 'FaelligeGeschaefte' ||
-        reportType === 'vernehmlassung'
-      ) {
+      if (reportType === 'typFaelligeGeschaefte') {
         return (
           <FaelligeGeschaefteRows
             geschaeft={geschaeft}
@@ -185,7 +184,20 @@ class Page extends Component {
           />
         )
       }
-      if (reportType === 'List1') {
+      if (
+        reportType === 'typVernehmlassungen' ||
+        reportType === 'angekVernehml' ||
+        reportType === 'laufendeVernehml'
+      ) {
+        return (
+          <VernehmlassungenRows
+            geschaeft={geschaeft}
+            key={index}
+            rowIndex={index}
+          />
+        )
+      }
+      if (reportType === 'list1') {
         return (
           <List1Rows
             geschaeft={geschaeft}
@@ -229,15 +241,19 @@ class Page extends Component {
             this.textPagesTitle()
           }
           {
-            reportType === 'FaelligeGeschaefte' &&
+            reportType === 'typFaelligeGeschaefte' &&
             <FaelligeGeschaefteHeader />
           }
           {
-            reportType === 'vernehmlassung' &&
-            <FaelligeGeschaefteHeader />
+            (
+              reportType === 'typVernehmlassungen' ||
+              reportType === 'angekVernehml' ||
+              reportType === 'laufendeVernehml'
+            ) &&
+            <VernehmlassungenHeader />
           }
           {
-            reportType === 'List1' &&
+            reportType === 'list1' &&
             <List1Header />
           }
           {this.tableRows()}
