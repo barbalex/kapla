@@ -21,6 +21,11 @@ const PageFristenHeader = () =>
         <b>Gegenstand</b> / Auslöser / Details / <em>nächster Schritt</em>
       </div>
       <div
+        className={[styles.columnKrNr, styles.tableHeaderCell].join(' ')}
+      >
+        <b>KR Nr.</b>
+      </div>
+      <div
         className={[styles.columnStatus, styles.tableHeaderCell].join(' ')}
       >
         <b>Status</b>

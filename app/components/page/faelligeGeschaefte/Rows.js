@@ -93,6 +93,13 @@ const PageFristenRows = ({ geschaeft, rowIndex }) => {
         </div>
       </div>
       <div
+        className={[styles.columnKrNr, styles.tableBodyCell].join(' ')}
+      >
+        <div>
+          {geschaeft.entscheidKrNr}
+        </div>
+      </div>
+      <div
         className={[styles.columnStatus, styles.tableBodyCell].join(' ')}
       >
         <div>

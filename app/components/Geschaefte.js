@@ -138,7 +138,7 @@ class Geschaefte extends Component {
                 Status
               </div>
               <div className={[styles.columnKontaktIntern, styles.tableHeaderCell].join(' ')}>
-                Kontakt
+                Verantwortlich
               </div>
             </div>
           </div>

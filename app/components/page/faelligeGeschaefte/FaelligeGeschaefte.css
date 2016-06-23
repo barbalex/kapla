@@ -39,7 +39,12 @@
 }
 
 .columnGegenstand {
-  width: calc(100% - 290px);
+  width: calc(100% - 340px);
+}
+
+.columnKrNr {
+  min-width: 50px;
+  max-width: 50px;
 }
 
 .columnStatus {
