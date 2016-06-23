@@ -212,7 +212,7 @@ const AreaFristen = ({
         validationState={getDateValidationStateDate(geschaeft.fristMitarbeiter)}
       >
         <ControlLabel>
-          Frist Erledigung nächster Schritt RD
+          Frist Erledigung nächster Schritt Re
         </ControlLabel>
         <InputGroup>
           <FormControl
