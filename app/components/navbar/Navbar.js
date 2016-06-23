@@ -75,7 +75,10 @@ class NavbarComponent extends Component {
       geschaefte,
       geschaefteGefilterteIds
     } = this.props
-    const dataIsFiltered = geschaefte.length !== geschaefteGefilterteIds.length
+    const dataIsFiltered = (
+      geschaefte.length !== geschaefteGefilterteIds.length &&
+      filterFulltext
+    )
     const dataIsFilteredStyle = [
       styles.filterInput,
       styles.filterInputActive
