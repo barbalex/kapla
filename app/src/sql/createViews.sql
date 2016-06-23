@@ -59,9 +59,9 @@ AS
     LEFT JOIN
       v_geschaefte_kontakteExtern
       ON geschaefte.idGeschaeft = v_geschaefte_kontakteExtern.idGeschaeft)
-    LEFT JOIN
+    INNER JOIN
       v_geschaefte_verantwortlich
-      ON geschaefte.verantwortlich = v_geschaefte_verantwortlich.kurzzeichen)
+      ON geschaefte.idGeschaeft = v_geschaefte_verantwortlich.idGeschaeft)
   ORDER BY
     idGeschaeft DESC;
 
