@@ -155,7 +155,7 @@ CREATE TABLE geschaeftsart (
 DROP INDEX IF EXISTS iGeschaeftsartSort;
 CREATE INDEX iGeschaeftsartSort ON geschaeftsart (sort);
 
--- now make sure all geschaeftsarten
+-- now make sure all types
 -- contained in geschaefte are included
 INSERT INTO
   geschaeftsart(geschaeftsart)
@@ -230,14 +230,59 @@ CREATE TABLE status (
 DROP INDEX IF EXISTS iStatusSort;
 CREATE INDEX iStatusSort ON status (sort);
 
+-- now make sure all types
+-- contained in geschaefte are included
 INSERT INTO
-  status (status, sort)
-VALUES
-  ('angekündigt', 1),
-  ('pendent', 2),
-  ('überwachen int.', 3),
-  ('überwachen ext.', 4),
-  ('erledigt', 5);
+  status(status)
+SELECT 
+  status
+FROM
+  geschaefte
+GROUP BY
+  status
+HAVING
+  status IS NOT NULL;
+
+-- but only ones to be used actively
+-- are not historical 
+UPDATE
+  status
+SET
+  historisch = 1
+WHERE
+  status NOT IN ('angekündigt', 'pendent', 'überwachen int.', 'überwachen ext.', 'erledigt');
+
+-- and actively used ones have a sort value
+UPDATE
+  status
+SET
+  sort = 1
+WHERE
+  status = 'angekündigt';
+UPDATE
+  status
+SET
+  sort = 2
+WHERE
+  status = 'pendent';
+UPDATE
+  status
+SET
+  sort = 3
+WHERE
+  status = 'überwachen int.';
+UPDATE
+  status
+SET
+  sort = 4
+WHERE
+  status = 'überwachen ext.';
+UPDATE
+  status
+SET
+  sort = 5
+WHERE
+  status = 'erledigt';
 
 -------------------------------------------
 
@@ -272,6 +317,57 @@ SET
 WHERE
   parlVorstossTyp NOT IN ('Anfrage', 'Interpellation', 'Postulat', 'Dringliches Postulat', 'Leistungsmotion', 'Motion', 'Parlamentatische Initiative', 'Vorlage');
 
+  -- and actively used ones have a sort value
+UPDATE
+  parlVorstossTyp
+SET
+  sort = 1
+WHERE
+  parlVorstossTyp = 'Anfrage';
+UPDATE
+  parlVorstossTyp
+SET
+  sort = 3
+WHERE
+  parlVorstossTyp = 'Interpellation';
+UPDATE
+  parlVorstossTyp
+SET
+  sort = 4
+WHERE
+  parlVorstossTyp = 'Postulat';
+UPDATE
+  parlVorstossTyp
+SET
+  sort = 5
+WHERE
+  parlVorstossTyp = 'Dringliches Postulat';
+UPDATE
+  parlVorstossTyp
+SET
+  sort = 6
+WHERE
+  parlVorstossTyp = 'Leistungsmotion';
+UPDATE
+  parlVorstossTyp
+SET
+  sort = 7
+WHERE
+  parlVorstossTyp = 'Motion';
+UPDATE
+  parlVorstossTyp
+SET
+  sort = 8
+WHERE
+  parlVorstossTyp = 'Parlamentatische Initiative';
+UPDATE
+  parlVorstossTyp
+SET
+  sort = 9
+WHERE
+  parlVorstossTyp = 'Vorlage';
+
+-- add missing value
 INSERT INTO
   parlVorstossTyp(parlVorstossTyp, historisch, sort)
   VALUES ('Dringliche Anfrage', 0, 2);
@@ -301,19 +397,89 @@ CREATE TABLE rechtsmittelErledigung (
 DROP INDEX IF EXISTS iRechtsmittelErledigungSort;
 CREATE INDEX iRechtsmittelErledigungSort ON rechtsmittelErledigung (sort);
 
+-- now make sure all types
+-- contained in geschaefte are included
 INSERT INTO
-  rechtsmittelErledigung (rechtsmittelErledigung, sort)
-VALUES
-  ('vollständig zugunsten AWEL', 1),
-  ('überwiegend zugunsten AWEL', 2),
-  ('zur Hälfte zugunsten AWEL', 3),
-  ('überwiegend zulasten AWEL', 4),
-  ('vollständig zulasten AWEL', 5),
-  ('--------------------------', 6),
-  ('gegenstandlos', 7),
-  ('Rechtsmittelrückzug Rekurrent', 8),
-  ('Rücknahme durch AWEL', 9),
-  ('andere Gründe', 10);
+  rechtsmittelErledigung(rechtsmittelErledigung)
+SELECT 
+  rechtsmittelErledigung
+FROM
+  geschaefte
+GROUP BY
+  rechtsmittelErledigung
+HAVING
+  rechtsmittelErledigung IS NOT NULL;
+
+-- but only ones to be used actively
+-- are not historical 
+UPDATE
+  rechtsmittelErledigung
+SET
+  historisch = 1
+WHERE
+  rechtsmittelErledigung NOT IN ('vollständig zugunsten AWEL', 'überwiegend zugunsten AWEL', 'zur Hälfte zugunsten AWEL', 'überwiegend zulasten AWEL', 'vollständig zulasten AWEL', '-------------------------', 'gegenstandslos', 'Rechtsmittelrückzug Rekurrent', 'Rücknahme durch AWEL', 'andere Gründe');
+
+-- and actively used ones have a sort value
+UPDATE
+  rechtsmittelErledigung
+SET
+  sort = 1
+WHERE
+  rechtsmittelErledigung = 'vollständig zugunsten AWEL';
+UPDATE
+  rechtsmittelErledigung
+SET
+  sort = 2
+WHERE
+  rechtsmittelErledigung = 'überwiegend zugunsten AWEL';
+UPDATE
+  rechtsmittelErledigung
+SET
+  sort = 3
+WHERE
+  rechtsmittelErledigung = 'zur Hälfte zugunsten AWEL';
+UPDATE
+  rechtsmittelErledigung
+SET
+  sort = 4
+WHERE
+  rechtsmittelErledigung = 'überwiegend zulasten AWEL';
+UPDATE
+  rechtsmittelErledigung
+SET
+  sort = 5
+WHERE
+  rechtsmittelErledigung = 'vollständig zulasten AWEL';
+UPDATE
+  rechtsmittelErledigung
+SET
+  sort = 6
+WHERE
+  rechtsmittelErledigung = '-------------------------';
+UPDATE
+  rechtsmittelErledigung
+SET
+  sort = 7
+WHERE
+  rechtsmittelErledigung = 'gegenstandslos';
+UPDATE
+  rechtsmittelErledigung
+SET
+  sort = 8
+WHERE
+  rechtsmittelErledigung = 'Rechtsmittelrückzug Rekurrent';
+UPDATE
+  rechtsmittelErledigung
+SET
+  sort = 9
+WHERE
+  rechtsmittelErledigung = 'Rücknahme durch AWEL';
+UPDATE
+  rechtsmittelErledigung
+SET
+  sort = 10
+WHERE
+  rechtsmittelErledigung = 'andere Gründe';
 
 -------------------------------------------
 
@@ -326,9 +492,44 @@ CREATE TABLE rechtsmittelInstanz (
 DROP INDEX IF EXISTS iRechtsmittelInstanzSort;
 CREATE INDEX iRechtsmittelInstanzSort ON rechtsmittelInstanz (sort);
 
+-- now make sure all types
+-- contained in geschaefte are included
 INSERT INTO
-  rechtsmittelInstanz (rechtsmittelInstanz, sort)
+  rechtsmittelInstanz(rechtsmittelInstanz)
+SELECT 
+  rechtsmittelInstanz
+FROM
+  geschaefte
+GROUP BY
+  rechtsmittelInstanz
+HAVING
+  rechtsmittelInstanz IS NOT NULL;
+
+-- but only ones to be used actively
+-- are not historical 
+UPDATE
+  rechtsmittelInstanz
+SET
+  historisch = 1
+WHERE
+  rechtsmittelInstanz NOT IN ('Instanz 2', 'Instanz 3');
+
+-- and actively used ones have a sort value
+UPDATE
+  rechtsmittelInstanz
+SET
+  sort = 2
+WHERE
+  rechtsmittelInstanz = 'Instanz 2';
+UPDATE
+  rechtsmittelInstanz
+SET
+  sort = 3
+WHERE
+  rechtsmittelInstanz = 'Instanz 3';
+
+-- add missing data
+INSERT INTO
+  rechtsmittelInstanz (rechtsmittelInstanz, historisch, sort)
 VALUES
-  ('Instanz 1', 1),
-  ('Instanz 2', 2),
-  ('Instanz 3', 3);
+  ('Instanz 1', 0, 1);
