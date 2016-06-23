@@ -109,10 +109,10 @@ const PageFristenRows = ({ geschaeft, rowIndex }) => {
         className={[styles.columnKontaktIntern, styles.tableBodyCell].join(' ')}
       >
         <div>
-          {geschaeft.idKontaktIntern}
+          {geschaeft.verantwortlich}
         </div>
         <div>
-          {geschaeft.kontaktInternVornameName}
+          {geschaeft.verantwortlichVornameName}
         </div>
       </div>
     </div>
