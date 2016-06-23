@@ -17,8 +17,9 @@
     "package-all": "npm run package -- --all",
     "postinstall": "node node_modules/fbjs-scripts/node/check-dev-engines.js package.json",
     "dev": "concurrently --kill-others \"npm run hot-server\" \"npm run start-hot\"",
-    "rebuild-sqlite3-win": "cd node_modules/sqlite3 && node-gyp configure --module_name=node_sqlite3 --module_path=../lib/binding/node-v48-win32-x64 && node-gyp rebuild --target=1.2.3 --arch=x64 --target_platform=win32 --dist-url=https://atom.io/download/atom-shell --module_name=node_sqlite3 --module_path=../lib/binding/electron-v1.2-win32-x64",
-    "rebuild-sqlite3-mac": "cd node_modules/sqlite3 && node-gyp configure --module_name=node_sqlite3 --module_path=../lib/binding/node-v48-darwin-x64 && node-gyp rebuild --target=1.2.3 --arch=x64 --target_platform=darwin --dist-url=https://atom.io/download/atom-shell --module_name=node_sqlite3 --module_path=../lib/binding/electron-v1.2-darwin-x64",
+    "rebuild-sqlite3-win64": "cd node_modules/sqlite3 && node-gyp configure --module_name=node_sqlite3 --module_path=../lib/binding/node-v48-win32-x64 && node-gyp rebuild --target=1.2.5 --arch=x64 --target_platform=win32 --dist-url=https://atom.io/download/atom-shell --module_name=node_sqlite3 --module_path=../lib/binding/electron-v1.2-win32-x64",
+    "rebuild-sqlite3-win32": "cd node_modules/sqlite3 && node-gyp configure --module_name=node_sqlite3 --module_path=../lib/binding/node-v48-win32-x32 && node-gyp rebuild --target=1.2.5 --arch=x32 --target_platform=win32 --dist-url=https://atom.io/download/atom-shell --module_name=node_sqlite3 --module_path=../lib/binding/electron-v1.2-win32-x32",
+    "rebuild-sqlite3-mac": "cd node_modules/sqlite3 && node-gyp configure --module_name=node_sqlite3 --module_path=../lib/binding/node-v48-darwin-x64 && node-gyp rebuild --target=1.2.5 --arch=x64 --target_platform=darwin --dist-url=https://atom.io/download/atom-shell --module_name=node_sqlite3 --module_path=../lib/binding/electron-v1.2-darwin-x64",
     "package2": "set NODE_ENV=DEBUG&& electron-packager . kapla --platform=win32 --arch=x64 --overwrite"
   },
   "bin": {
@@ -54,7 +55,7 @@
     "css-loader": "0.23.1",
     "del": "2.2.1",
     "electron-packager": "7.0.4",
-    "electron-prebuilt": "1.2.3",
+    "electron-prebuilt": "1.2.5",
     "electron-rebuild": "1.1.5",
     "eslint": "2.13.1",
     "eslint-config-airbnb": "9.0.1",
