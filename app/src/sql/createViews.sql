@@ -26,27 +26,42 @@ AS
       ON geschaefteKontakteIntern.idKontakt = interne.id
   GROUP BY geschaefteKontakteIntern.idGeschaeft;
 
+DROP VIEW IF EXISTS v_geschaefte_verantwortlich;
+CREATE VIEW
+  v_geschaefte_verantwortlich
+AS
+  SELECT
+    geschaefte.idGeschaeft,
+    interne.kurzzeichen,
+    interne.itKonto,
+    interne.vorname || ' ' || interne.name AS verantwortlichVornameName
+  FROM
+    geschaefte
+    LEFT JOIN
+      interne
+      ON geschaefte.verantwortlich = interne.kurzzeichen;
+
 DROP VIEW IF EXISTS v_geschaefte;
 CREATE VIEW
   v_geschaefte
 AS
   SELECT
     geschaefte.*,
-    interne.vorname || ' ' || interne.name AS verantwortlichVornameName,
-    interne.itKonto,
     v_geschaefte_kontakteIntern.kontaktInternVornameName,
-    v_geschaefte_kontakteExtern.kontaktExternVornameName
+    v_geschaefte_kontakteExtern.kontaktExternVornameName,
+    v_geschaefte_verantwortlich.itKonto,
+    v_geschaefte_verantwortlich.verantwortlichVornameName
   FROM
-    geschaefte
-    LEFT JOIN
-      interne
-      ON geschaefte.verantwortlich = interne.kurzzeichen
+    (((geschaefte
     LEFT JOIN
       v_geschaefte_kontakteIntern
-      ON geschaefte.idGeschaeft = v_geschaefte_kontakteIntern.idGeschaeft
+      ON geschaefte.idGeschaeft = v_geschaefte_kontakteIntern.idGeschaeft)
     LEFT JOIN
       v_geschaefte_kontakteExtern
-      ON geschaefte.idGeschaeft = v_geschaefte_kontakteExtern.idGeschaeft
+      ON geschaefte.idGeschaeft = v_geschaefte_kontakteExtern.idGeschaeft)
+    LEFT JOIN
+      v_geschaefte_verantwortlich
+      ON geschaefte.verantwortlich = v_geschaefte_verantwortlich.kurzzeichen)
   ORDER BY
     idGeschaeft DESC;
 
