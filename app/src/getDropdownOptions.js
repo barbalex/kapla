@@ -7,6 +7,8 @@ export default function (db, name) {
         ${name}
       FROM
         ${name}
+      WHERE
+        historisch = 0
       ORDER BY
         sort`
 
