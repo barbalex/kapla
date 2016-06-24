@@ -5,16 +5,10 @@ import { connect } from 'react-redux'
 import AreaHistoryRows from '../../components/filterFields/AreaHistoryRows'
 import * as GeschaefteActions from '../../actions/geschaefte'
 
-function mapStateToProps(state) {
-  const {
-    geschaefte,
-    activeId
-  } = state.geschaefte
+function mapStateToProps(state, props) {
+  const { values } = props
 
-  return {
-    geschaefte,
-    activeId
-  }
+  return { values }
 }
 
 function mapDispatchToProps(dispatch) {

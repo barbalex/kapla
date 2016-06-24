@@ -6,18 +6,10 @@ import AreaNummern from '../../components/filterFields/AreaNummern'
 import * as GeschaefteActions from '../../actions/geschaefte'
 
 function mapStateToProps(state, props) {
-  const {
-    geschaefte,
-    activeId,
-  } = state.geschaefte
-  const { blur, change, wrapperClass, nrOfGFields } = props
-  const geschaeft = geschaefte.find((g) =>
-    g.idGeschaeft === activeId
-  )
+  const { values, change, wrapperClass, nrOfGFields } = props
 
   return {
-    geschaeft,
-    blur,
+    values,
     change,
     wrapperClass,
     nrOfGFields
