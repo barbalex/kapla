@@ -118,58 +118,60 @@ class Geschaeft extends Component {
     const nrOfFieldsBeforePersonen = nrOfFieldsBeforeFristen + 7
 
     return (
-      <div className={wrapperClass}>
-        <AreaGeschaeft
-          wrapperClass={wrapperClass}
-          nrOfGFields={nrOfGFields}
-          change={this.change}
-          blur={this.blur}
-        />
-        <AreaNummern
-          wrapperClass={wrapperClass}
-          nrOfGFields={nrOfGFields}
-          change={this.change}
-          blur={this.blur}
-        />
-        {
-          showAreaParlVorstoss &&
-          (
-            <AreaParlVorstoss
-              nrOfFieldsBeforePv={nrOfFieldsBeforePv}
-              change={this.change}
-              blur={this.blur}
-            />
-          )
-        }
-        {
-          showAreaRechtsmittel &&
-          (
-            <AreaRechtsmittel
-              nrOfFieldsBeforePv={nrOfFieldsBeforePv}
-              change={this.change}
-              blur={this.blur}
-              onChangeDatePicker={this.onChangeDatePicker}
-            />
-          )
-        }
-        <AreaFristen
-          nrOfFieldsBeforeFristen={nrOfFieldsBeforeFristen}
-          change={this.change}
-          blur={this.blur}
-          onChangeDatePicker={this.onChangeDatePicker}
-        />
-        <AreaPersonen
-          nrOfFieldsBeforePersonen={nrOfFieldsBeforePersonen}
-          change={this.change}
-          blur={this.blur}
-        />
-        <AreaHistory
-          blur={this.blur}
-          change={this.change}
-        />
-        <AreaZuletztMutiert />
-        {/* need this so lowest fields are visible */}
-        <div style={{ height: 52 }} />
+      <div className={styles.scrollContainer}>
+        <div className={wrapperClass}>
+          <AreaGeschaeft
+            wrapperClass={wrapperClass}
+            nrOfGFields={nrOfGFields}
+            change={this.change}
+            blur={this.blur}
+          />
+          <AreaNummern
+            wrapperClass={wrapperClass}
+            nrOfGFields={nrOfGFields}
+            change={this.change}
+            blur={this.blur}
+          />
+          {
+            showAreaParlVorstoss &&
+            (
+              <AreaParlVorstoss
+                nrOfFieldsBeforePv={nrOfFieldsBeforePv}
+                change={this.change}
+                blur={this.blur}
+              />
+            )
+          }
+          {
+            showAreaRechtsmittel &&
+            (
+              <AreaRechtsmittel
+                nrOfFieldsBeforePv={nrOfFieldsBeforePv}
+                change={this.change}
+                blur={this.blur}
+                onChangeDatePicker={this.onChangeDatePicker}
+              />
+            )
+          }
+          <AreaFristen
+            nrOfFieldsBeforeFristen={nrOfFieldsBeforeFristen}
+            change={this.change}
+            blur={this.blur}
+            onChangeDatePicker={this.onChangeDatePicker}
+          />
+          <AreaPersonen
+            nrOfFieldsBeforePersonen={nrOfFieldsBeforePersonen}
+            change={this.change}
+            blur={this.blur}
+          />
+          <AreaHistory
+            blur={this.blur}
+            change={this.change}
+          />
+          <AreaZuletztMutiert />
+          {/* need this so lowest fields are visible */}
+          <div style={{ height: 52 }} />
+        </div>
       </div>
     )
   }

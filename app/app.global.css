@@ -94,14 +94,6 @@ textarea {
 .lm_content::-webkit-scrollbar { 
   display: none;
 }
-/*
-.lm_item {
-  overflow-y: auto;
-}
-.lm_item::-webkit-scrollbar { 
-  display: none;
-}
-*/
 
 @media print {
   /**
