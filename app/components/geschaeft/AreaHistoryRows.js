@@ -28,9 +28,14 @@ const AreaHistoryRows = ({
             <div
               key={index}
               className={styles.areaHistoryFields}
-              onClick={() =>
-                geschaeftToggleActivated(id)
-              }
+              style={{
+                cursor: id === activeId ? 'default' : 'pointer'
+              }}
+              onClick={() => {
+                if (id !== activeId) {
+                  return geschaeftToggleActivated(id)
+                }
+              }}
             >
               <div className={styles.historyIdGeschaeft}>
                 {id}
