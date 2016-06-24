@@ -7,27 +7,21 @@ import * as GeschaefteActions from '../../actions/geschaefte'
 
 function mapStateToProps(state, props) {
   const {
-    geschaefte,
-    activeId,
     rechtsmittelErledigungOptions,
     rechtsmittelInstanzOptions
   } = state.geschaefte
   const {
-    blur,
+    values,
     change,
     nrOfFieldsBeforePv,
     onChangeDatePicker
   } = props
-  const geschaeft = geschaefte.find((g) =>
-    g.idGeschaeft === activeId
-  )
 
   return {
-    geschaeft,
+    values,
     rechtsmittelErledigungOptions,
     rechtsmittelInstanzOptions,
     change,
-    blur,
     nrOfFieldsBeforePv,
     onChangeDatePicker
   }
