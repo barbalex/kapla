@@ -5,9 +5,8 @@ import { FormControl, ControlLabel } from 'react-bootstrap'
 import moment from 'moment'
 moment.locale('de')
 import styles from './AreaHistory.css'
-import AreaHistoryRows from '../../containers/filterFields/AreaHistoryRows'
 
-const AreaHistory = ({ geschaeft, blur, change }) =>
+const AreaHistory = ({ values, change }) =>
   <div className={styles.areaHistory}>
     <div className={styles.areaHistoryTitle}>
       Historie
@@ -18,23 +17,20 @@ const AreaHistory = ({ geschaeft, blur, change }) =>
     <div className={styles.fieldVorgeschaeft}>
       <FormControl
         type="number"
-        value={geschaeft.idVorgeschaeft || ''}
+        value={values.idVorgeschaeft || ''}
         name="idVorgeschaeft"
         onChange={change}
-        onBlur={blur}
         bsSize="small"
         placeholder="ID"
         tabIndex={99}
       />
     </div>
-    <AreaHistoryRows />
   </div>
 
 AreaHistory.displayName = 'AreaHistory'
 
 AreaHistory.propTypes = {
-  geschaeft: PropTypes.object,
-  blur: PropTypes.func.isRequired,
+  values: PropTypes.object,
   change: PropTypes.func.isRequired
 }
 
