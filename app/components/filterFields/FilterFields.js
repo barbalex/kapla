@@ -39,20 +39,24 @@ class FilterFields extends Component {
     const { filterFields, geschaefteFilterByFields } = this.props
     const { type, name, dataset } = e.target
     const newFilterFields = []
-    filterFields.forEach((f) => {
-      if (f.field !== name) {
-        newFilterFields.push(f)
-      }
-    })
+    if (filterFields.forEach) {
+      filterFields.forEach((f) => {
+        if (f.field !== name) {
+          newFilterFields.push(f)
+        }
+      })
+    }
     let { value } = e.target
     if (type === 'radio') {
       value = dataset.value
     }
-    newFilterFields.push({
-      comparator: '=',
-      field: name,
-      value
-    })
+    if (value || value === 0) {
+      newFilterFields.push({
+        comparator: '=',
+        field: name,
+        value
+      })
+    }
     geschaefteFilterByFields(newFilterFields)
   }
 
