@@ -51,13 +51,6 @@ class NavbarComponent extends Component {
     geschaefteFilterByFulltextSet(e.target.value)
   }
 
-  onKeyPressFilterFulltext = (e) => {
-    const { geschaefteFilterByFulltext } = this.props
-    if (e.key === 'Enter') {
-      geschaefteFilterByFulltext()
-    }
-  }
-
   removeFilter = () => {
     const {
       geschaefteFilterByFulltextSet,
@@ -96,7 +89,6 @@ class NavbarComponent extends Component {
             placeholder="Volltext filtern"
             value={filterFulltext}
             onChange={this.onChangeFilterFulltext}
-            onKeyPress={this.onKeyPressFilterFulltext}
             className={classNameFilterInput}
             title="Zum Filtern drücken Sie die Enter-Taste"
             ref="filterFulltext"
