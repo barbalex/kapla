@@ -5,18 +5,12 @@ import { connect } from 'react-redux'
 import AreaZuletztMutiert from '../../components/filterFields/AreaZuletztMutiert'
 import * as GeschaefteActions from '../../actions/geschaefte'
 
-function mapStateToProps(state) {
-  const {
-    geschaefte,
-    activeId,
-    interneOptions
-  } = state.geschaefte
-  const geschaeft = geschaefte.find((g) =>
-    g.idGeschaeft === activeId
-  )
+function mapStateToProps(state, props) {
+  const { interneOptions } = state.geschaefte
+  const { values } = props
 
   return {
-    geschaeft,
+    values,
     interneOptions
   }
 }

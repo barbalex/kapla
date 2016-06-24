@@ -10,16 +10,18 @@ const actions = Object.assign(GeschaefteActions, AppActions)
 
 function mapStateToProps(state, props) {
   const {
-    geschaefte,
+    filterFields,
     activeId
   } = state.geschaefte
   const { layout } = props
-  const geschaeft = geschaefte.find((g) =>
-    g.idGeschaeft === activeId
-  )
+  const values = {}
+  filterFields.forEach((field) => {
+    values[field.field] = field.value
+  })
 
   return {
-    geschaeft,
+    filterFields,
+    values,
     activeId,
     geschaefteLayout: layout
   }
