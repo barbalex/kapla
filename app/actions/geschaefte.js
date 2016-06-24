@@ -95,10 +95,10 @@ export const geschaefteFilterByFields = (
 
 export const GESCHAEFTE_FILTER_BY_FULLTEXT = 'GESCHAEFTE_FILTER_BY_FULLTEXT'
 // filter = word
-export const geschaefteFilterByFulltext = (filterType = 'nach Volltext') =>
+export const geschaefteFilterByFulltext = (filterFulltext, filterType = 'nach Volltext') =>
   (dispatch, getState) => {
     const { pages, geschaefte, routing } = getState()
-    const { filterFulltext, filterFields } = geschaefte
+    const { filterFields } = geschaefte
     // create geschaefteGefilterteIds
     const geschaefteGefilterteIds = filterGeschaefte(
       geschaefte.geschaefte,
@@ -108,7 +108,8 @@ export const geschaefteFilterByFulltext = (filterType = 'nach Volltext') =>
     dispatch({
       type: GESCHAEFTE_FILTER_BY_FULLTEXT,
       geschaefteGefilterteIds,
-      filterType
+      filterType,
+      filterFulltext
     })
     /**
      * if pages are active,
@@ -126,17 +127,6 @@ export const geschaefteFilterByFulltext = (filterType = 'nach Volltext') =>
         dispatch(geschaeftToggleActivated(geschaefteGefilterteIds[0]))
       }
     }
-  }
-
-export const GESCHAEFTE_FILTER_BY_FULLTEXT_SET = 'GESCHAEFTE_FILTER_BY_FULLTEXT_SET'
-
-export const geschaefteFilterByFulltextSet = (filterFulltext) =>
-  (dispatch) => {
-    dispatch({
-      type: GESCHAEFTE_FILTER_BY_FULLTEXT_SET,
-      filterFulltext
-    })
-    dispatch(geschaefteFilterByFulltext())
   }
 
 /*

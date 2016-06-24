@@ -27,7 +27,6 @@ import styles from './Navbar.css'
 
 class NavbarComponent extends Component {
   static propTypes = {
-    geschaefteFilterByFulltextSet: PropTypes.func.isRequired,
     geschaefteFilterByFulltext: PropTypes.func.isRequired,
     filterFulltext: PropTypes.string,
     geschaefte: PropTypes.array.isRequired,
@@ -47,18 +46,16 @@ class NavbarComponent extends Component {
   }
 
   onChangeFilterFulltext = (e) => {
-    const { geschaefteFilterByFulltextSet } = this.props
-    geschaefteFilterByFulltextSet(e.target.value)
+    const { geschaefteFilterByFulltext } = this.props
+    geschaefteFilterByFulltext(e.target.value)
   }
 
   removeFilter = () => {
     const {
-      geschaefteFilterByFulltextSet,
       geschaefteFilterByFulltext
     } = this.props
     const filterFulltext = ''
-    geschaefteFilterByFulltextSet(filterFulltext)
-    geschaefteFilterByFulltext(null)
+    geschaefteFilterByFulltext(filterFulltext)
     this.focusFulltextFilter()
   }
 

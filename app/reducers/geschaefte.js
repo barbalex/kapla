@@ -96,18 +96,14 @@ const geschaefte = (state = standardState, action) => {
         activeId: null,
         geschaefteGefilterteIds: action.geschaefteGefilterteIds
       }
-    case GESCHAEFTE_FILTER_BY_FULLTEXT_SET:
-      return {
-        ...state,
-        filterFulltext: action.filterFulltext,
-        filterFields: {},
-        activeId: null
-      }
     case GESCHAEFTE_FILTER_BY_FULLTEXT:
       return {
         ...state,
         geschaefteGefilterteIds: action.geschaefteGefilterteIds,
         filterType: action.filterType || null,
+        filterFulltext: action.filterFulltext,
+        filterFields: {},
+        activeId: null
       }
     case GESCHAEFT_TOGGLE_ACTIVATED:
       return {
