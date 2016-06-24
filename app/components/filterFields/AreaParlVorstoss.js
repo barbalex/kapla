@@ -6,11 +6,10 @@ import styles from './AreaParlVorstoss.css'
 import createOptions from '../../src/createOptions'
 
 const AreaParlVorstoss = ({
-  geschaeft,
+  values,
   parlVorstossTypOptions,
   nrOfFieldsBeforePv,
-  change,
-  blur
+  change
 }) =>
   <div className={styles.areaForGeschaeftsart}>
     <div className={styles.areaParlVorstTitle}>
@@ -22,10 +21,9 @@ const AreaParlVorstoss = ({
       </ControlLabel>
       <FormControl
         componentClass="select"
-        value={geschaeft.parlVorstossTyp || ''}
+        value={values.parlVorstossTyp || ''}
         name="parlVorstossTyp"
         onChange={change}
-        onBlur={blur}
         bsSize="small"
         tabIndex={1 + nrOfFieldsBeforePv}
       >
@@ -38,7 +36,7 @@ const AreaParlVorstoss = ({
       </ControlLabel>
       <Radio
         data-value={1}
-        checked={geschaeft.parlVorstossStufe == 1}
+        checked={values.parlVorstossStufe == 1}
         onChange={change}
         bsSize="small"
         name="parlVorstossStufe"
@@ -48,7 +46,7 @@ const AreaParlVorstoss = ({
       </Radio>
       <Radio
         data-value={2}
-        checked={geschaeft.parlVorstossStufe == 2}
+        checked={values.parlVorstossStufe == 2}
         name="parlVorstossStufe"
         onChange={change}
         bsSize="small"
@@ -63,7 +61,7 @@ const AreaParlVorstoss = ({
       </ControlLabel>
       <Radio
         data-value="Kanton"
-        checked={geschaeft.parlVorstossEbene === 'Kanton'}
+        checked={values.parlVorstossEbene === 'Kanton'}
         name="parlVorstossEbene"
         onChange={change}
         bsSize="small"
@@ -73,7 +71,7 @@ const AreaParlVorstoss = ({
       </Radio>
       <Radio
         data-value="Bund"
-        checked={geschaeft.parlVorstossEbene === 'Bund'}
+        checked={values.parlVorstossEbene === 'Bund'}
         onChange={change}
         name="parlVorstossEbene"
         bsSize="small"
@@ -88,7 +86,7 @@ const AreaParlVorstoss = ({
       </ControlLabel>
       <Radio
         data-value="hauptzuständig"
-        checked={geschaeft.parlVorstossZustaendigkeitAwel === 'hauptzuständig'}
+        checked={values.parlVorstossZustaendigkeitAwel === 'hauptzuständig'}
         name="parlVorstossZustaendigkeitAwel"
         onChange={change}
         bsSize="small"
@@ -98,7 +96,7 @@ const AreaParlVorstoss = ({
       </Radio>
       <Radio
         data-value="mitberichtzuständig"
-        checked={geschaeft.parlVorstossZustaendigkeitAwel === 'mitberichtzuständig'}
+        checked={values.parlVorstossZustaendigkeitAwel === 'mitberichtzuständig'}
         name="parlVorstossZustaendigkeitAwel"
         onChange={change}
         bsSize="small"
@@ -113,7 +111,7 @@ const AreaParlVorstoss = ({
       </ControlLabel>
       <Radio
         data-value="Gesetz"
-        checked={geschaeft.erlassform === 'Gesetz'}
+        checked={values.erlassform === 'Gesetz'}
         name="erlassform"
         onChange={change}
         bsSize="small"
@@ -123,7 +121,7 @@ const AreaParlVorstoss = ({
       </Radio>
       <Radio
         data-value="Verordnung"
-        checked={geschaeft.erlassform === 'Verordnung'}
+        checked={values.erlassform === 'Verordnung'}
         name="erlassform"
         onChange={change}
         bsSize="small"
@@ -137,11 +135,10 @@ const AreaParlVorstoss = ({
 AreaParlVorstoss.displayName = 'AreaParlVorstoss'
 
 AreaParlVorstoss.propTypes = {
-  geschaeft: PropTypes.object,
+  values: PropTypes.object,
   parlVorstossTypOptions: PropTypes.array.isRequired,
   nrOfFieldsBeforePv: PropTypes.number,
-  change: PropTypes.func.isRequired,
-  blur: PropTypes.func.isRequired
+  change: PropTypes.func.isRequired
 }
 
 export default AreaParlVorstoss

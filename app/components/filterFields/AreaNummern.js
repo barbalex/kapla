@@ -5,11 +5,10 @@ import { FormControl, ControlLabel } from 'react-bootstrap'
 import styles from './AreaNummern.css'
 
 const AreaNummern = ({
-  geschaeft,
+  values,
   wrapperClass,
   nrOfGFields,
-  change,
-  blur
+  change
 }) => {
   const tabsToAdd = wrapperClass === styles.wrapperNarrow ? 0 : nrOfGFields
 
@@ -29,7 +28,7 @@ const AreaNummern = ({
       <div className={styles.fieldIdGeschaeft}>
         <FormControl
           type="number"
-          value={geschaeft.idGeschaeft}
+          value={values.idGeschaeft}
           bsSize="small"
           disabled
           className={[styles.typeNr, styles.inputIdGeschaeft].join(' ')}
@@ -41,10 +40,9 @@ const AreaNummern = ({
       <div className={styles.fieldGekoNr}>
         <FormControl
           type="number"
-          value={geschaeft.GekoNr}
+          value={values.GekoNr}
           name="gekoNr"
           onChange={change}
-          onBlur={blur}
           bsSize="small"
           tabIndex={1 + tabsToAdd}
           autoFocus={wrapperClass === styles.wrapperNarrow}
@@ -61,10 +59,9 @@ const AreaNummern = ({
       <div className={styles.fieldEntscheidAwelNr}>
         <FormControl
           type="number"
-          value={geschaeft.entscheidAwelNr || ''}
+          value={values.entscheidAwelNr || ''}
           name="entscheidAwelNr"
           onChange={change}
-          onBlur={blur}
           bsSize="small"
           tabIndex={2 + tabsToAdd}
         />
@@ -75,10 +72,9 @@ const AreaNummern = ({
       <div className={styles.fieldEntscheidAwelJahr}>
         <FormControl
           type="number"
-          value={geschaeft.entscheidAwelJahr || ''}
+          value={values.entscheidAwelJahr || ''}
           name="entscheidAwelJahr"
           onChange={change}
-          onBlur={blur}
           bsSize="small"
           tabIndex={3 + tabsToAdd}
         />
@@ -89,10 +85,9 @@ const AreaNummern = ({
       <div className={styles.fieldEntscheidBdvNr}>
         <FormControl
           type="number"
-          value={geschaeft.entscheidBdvNr || ''}
+          value={values.entscheidBdvNr || ''}
           name="entscheidBdvNr"
           onChange={change}
-          onBlur={blur}
           bsSize="small"
           tabIndex={4 + tabsToAdd}
         />
@@ -103,10 +98,9 @@ const AreaNummern = ({
       <div className={styles.fieldEntscheidBdvJahr}>
         <FormControl
           type="number"
-          value={geschaeft.entscheidBdvJahr || ''}
+          value={values.entscheidBdvJahr || ''}
           name="entscheidBdvJahr"
           onChange={change}
-          onBlur={blur}
           bsSize="small"
           tabIndex={5 + tabsToAdd}
         />
@@ -117,10 +111,9 @@ const AreaNummern = ({
       <div className={styles.fieldEntscheidKrNr}>
         <FormControl
           type="number"
-          value={geschaeft.entscheidKrNr || ''}
+          value={values.entscheidKrNr || ''}
           name="entscheidKrNr"
           onChange={change}
-          onBlur={blur}
           bsSize="small"
           tabIndex={6 + tabsToAdd}
         />
@@ -131,10 +124,9 @@ const AreaNummern = ({
       <div className={styles.fieldEntscheidKrJahr}>
         <FormControl
           type="number"
-          value={geschaeft.entscheidKrJahr || ''}
+          value={values.entscheidKrJahr || ''}
           name="entscheidKrJahr"
           onChange={change}
-          onBlur={blur}
           bsSize="small"
           tabIndex={7 + tabsToAdd}
         />
@@ -145,10 +137,9 @@ const AreaNummern = ({
       <div className={styles.fieldEntscheidRrbNr}>
         <FormControl
           type="number"
-          value={geschaeft.entscheidRrbNr || ''}
+          value={values.entscheidRrbNr || ''}
           name="entscheidRrbNr"
           onChange={change}
-          onBlur={blur}
           bsSize="small"
           tabIndex={8 + tabsToAdd}
         />
@@ -159,10 +150,9 @@ const AreaNummern = ({
       <div className={styles.fieldEntscheidRrbJahr}>
         <FormControl
           type="number"
-          value={geschaeft.entscheidRrbJahr || ''}
+          value={values.entscheidRrbJahr || ''}
           name="entscheidRrbJahr"
           onChange={change}
-          onBlur={blur}
           bsSize="small"
           tabIndex={9 + tabsToAdd}
         />
@@ -173,10 +163,9 @@ const AreaNummern = ({
         </ControlLabel>
         <FormControl
           type="text"
-          value={geschaeft.aktenstandort || ''}
+          value={values.aktenstandort || ''}
           name="aktenstandort"
           onChange={change}
-          onBlur={blur}
           bsSize="small"
           tabIndex={10 + tabsToAdd}
         />
@@ -187,10 +176,9 @@ const AreaNummern = ({
         </ControlLabel>
         <FormControl
           type="text"
-          value={geschaeft.aktennummer || ''}
+          value={values.aktennummer || ''}
           name="aktennummer"
           onChange={change}
-          onBlur={blur}
           bsSize="small"
           tabIndex={11 + tabsToAdd}
         />
@@ -202,9 +190,8 @@ const AreaNummern = ({
 AreaNummern.displayName = 'AreaNummern'
 
 AreaNummern.propTypes = {
-  geschaeft: PropTypes.object,
+  values: PropTypes.object,
   change: PropTypes.func.isRequired,
-  blur: PropTypes.func.isRequired,
   wrapperClass: PropTypes.string,
   nrOfGFields: PropTypes.number
 }
