@@ -2,17 +2,15 @@
 
 import React, { PropTypes } from 'react'
 import { FormControl, ControlLabel } from 'react-bootstrap'
-import Textarea from 'react-textarea-autosize'
 import styles from './AreaGeschaeft.css'
 import createOptions from '../../src/createOptions'
 
 const AreaGeschaeft = ({
-  geschaeft,
   statusOptions,
   geschaeftsartOptions,
   wrapperClass,
   change,
-  blur,
+  values,
   nrOfNrFields
 }) => {
   const tabsToAdd = (
@@ -30,27 +28,26 @@ const AreaGeschaeft = ({
         <ControlLabel>
           Gegenstand
         </ControlLabel>
-        <Textarea
-          value={geschaeft.gegenstand || ''}
+        <FormControl
+          type="text"
+          value={values.gegenstand || ''}
           name="gegenstand"
           onChange={change}
-          onBlur={blur}
           tabIndex={1 + tabsToAdd}
           autoFocus={wrapperClass !== styles.wrapperNarrow}
-          className={styles.textarea}
         />
       </div>
       <div className={styles.fieldAusloeser}>
         <ControlLabel>
           Auslöser
         </ControlLabel>
-        <Textarea
-          value={geschaeft.ausloeser || ''}
+        <FormControl
+          type="text"
+          value={values.ausloeser || ''}
           name="ausloeser"
           onChange={change}
-          onBlur={blur}
+          bsSize="small"
           tabIndex={2 + tabsToAdd}
-          className={styles.textarea}
         />
       </div>
       <div className={styles.fieldOrt}>
@@ -59,10 +56,9 @@ const AreaGeschaeft = ({
         </ControlLabel>
         <FormControl
           type="text"
-          value={geschaeft.ort || ''}
+          value={values.ort || ''}
           name="ort"
           onChange={change}
-          onBlur={blur}
           bsSize="small"
           tabIndex={3 + tabsToAdd}
         />
@@ -73,10 +69,9 @@ const AreaGeschaeft = ({
         </ControlLabel>
         <FormControl
           componentClass="select"
-          value={geschaeft.geschaeftsart || ''}
+          value={values.geschaeftsart || ''}
           name="geschaeftsart"
           onChange={change}
-          onBlur={blur}
           bsSize="small"
           tabIndex={4 + tabsToAdd}
         >
@@ -89,10 +84,9 @@ const AreaGeschaeft = ({
         </ControlLabel>
         <FormControl
           componentClass="select"
-          value={geschaeft.status || ''}
+          value={values.status || ''}
           name="status"
           onChange={change}
-          onBlur={blur}
           bsSize="small"
           tabIndex={5 + tabsToAdd}
         >
@@ -105,10 +99,9 @@ const AreaGeschaeft = ({
         </ControlLabel>
         <FormControl
           type="text"
-          value={geschaeft.abteilung || ''}
+          value={values.abteilung || ''}
           name="abteilung"
           onChange={change}
-          onBlur={blur}
           bsSize="small"
           tabIndex={6 + tabsToAdd}
         />
@@ -117,52 +110,52 @@ const AreaGeschaeft = ({
         <ControlLabel>
           Details
         </ControlLabel>
-        <Textarea
-          value={geschaeft.details || ''}
+        <FormControl
+          type="text"
+          value={values.details || ''}
           name="details"
           onChange={change}
-          onBlur={blur}
+          bsSize="small"
           tabIndex={7 + tabsToAdd}
-          className={styles.textarea}
         />
       </div>
       <div className={styles.fieldNaechsterSchritt}>
         <ControlLabel>
           Nächster Schritt
         </ControlLabel>
-        <Textarea
-          value={geschaeft.naechsterSchritt || ''}
+        <FormControl
+          type="text"
+          value={values.naechsterSchritt || ''}
           name="naechsterSchritt"
           onChange={change}
-          onBlur={blur}
+          bsSize="small"
           tabIndex={8 + tabsToAdd}
-          className={styles.textarea}
         />
       </div>
       <div className={styles.fieldVermerk}>
         <ControlLabel>
           Vermerk
         </ControlLabel>
-        <Textarea
-          value={geschaeft.vermerk || ''}
+        <FormControl
+          type="text"
+          value={values.vermerk || ''}
           name="vermerk"
           onChange={change}
-          onBlur={blur}
+          bsSize="small"
           tabIndex={9 + tabsToAdd}
-          className={styles.textarea}
         />
       </div>
       <div className={styles.fieldVermerkIntern}>
         <ControlLabel>
           Vermerk intern (in Berichten nicht angezeigt)
         </ControlLabel>
-        <Textarea
-          value={geschaeft.vermerkIntern || ''}
+        <FormControl
+          type="text"
+          value={values.vermerkIntern || ''}
           name="vermerkIntern"
           onChange={change}
-          onBlur={blur}
+          bsSize="small"
           tabIndex={9 + tabsToAdd}
-          className={styles.textarea}
         />
       </div>
     </div>
@@ -172,11 +165,10 @@ const AreaGeschaeft = ({
 AreaGeschaeft.displayName = 'AreaGeschaeft'
 
 AreaGeschaeft.propTypes = {
-  geschaeft: PropTypes.object,
   statusOptions: PropTypes.array.isRequired,
   geschaeftsartOptions: PropTypes.array.isRequired,
   change: PropTypes.func.isRequired,
-  blur: PropTypes.func.isRequired,
+  values: PropTypes.object.isRequired,
   wrapperClass: PropTypes.string,
   nrOfNrFields: PropTypes.number
 }

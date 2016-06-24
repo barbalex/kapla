@@ -37,12 +37,6 @@
   grid-column: 1;
 }
 
-.fieldFristDauerBisMitarbeiter {
-  grid-column: 1;
-  font-weight: 700;
-  font-size: 14px;
-}
-
 .fieldDatumAusgangAwel {
   grid-column: 1;
 }

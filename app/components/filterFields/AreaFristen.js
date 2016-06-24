@@ -14,44 +14,10 @@ import DateRangePicker from 'react-bootstrap-daterangepicker'
 import styles from './AreaFristen.css'
 import getDateValidationStateDate from '../../src/getDateValidationStateDate'
 
-
-const statusFristInStyle = (dauerBisFristMitarbeiter) => {
-  if (dauerBisFristMitarbeiter < 0) {
-    return [styles.fieldFristInUeberfaellig, 'formControlStatic'].join(' ')
-  }
-  if (dauerBisFristMitarbeiter === 0) {
-    return [styles.fieldFristInHeute, 'formControlStatic'].join(' ')
-  }
-  return 'formControlStatic'
-}
-
-const fristDauerBisMitarbeiter = (geschaeft) => {
-  const now = moment()
-  const end = moment(geschaeft.fristMitarbeiter, 'DD.MM.YYYY')
-  const duration = moment.duration(end.diff(now))
-  const days = duration.asDays()
-  return days ? Math.ceil(days) : ''
-}
-
-const fieldFristDauerBisMitarbeiter = (geschaeft) => (
-  <div className={styles.fieldFristDauerBisMitarbeiter}>
-    <ControlLabel>
-      Tage bis Frist Mitarbeiter
-    </ControlLabel>
-    <FormControl.Static
-      style={{ paddingTop: 0, marginTop: 0 }}
-      className={statusFristInStyle(fristDauerBisMitarbeiter(geschaeft))}
-    >
-      {fristDauerBisMitarbeiter(geschaeft)}
-    </FormControl.Static>
-  </div>
-)
-
 const AreaFristen = ({
-  geschaeft,
+  values,
   nrOfFieldsBeforeFristen,
   change,
-  blur,
   onChangeDatePicker
 }) => {
   /**
@@ -77,7 +43,7 @@ const AreaFristen = ({
       </div>
       <FormGroup
         className={styles.fieldDatumEingangAwel}
-        validationState={getDateValidationStateDate(geschaeft.datumEingangAwel)}
+        validationState={getDateValidationStateDate(values.datumEingangAwel)}
       >
         <ControlLabel>
           Datum des Eingangs im AWEL
@@ -85,10 +51,9 @@ const AreaFristen = ({
         <InputGroup>
           <FormControl
             type="text"
-            value={geschaeft.datumEingangAwel}
+            value={values.datumEingangAwel}
             name="datumEingangAwel"
             onChange={change}
-            onBlur={blur}
             bsSize="small"
             tabIndex={1 + nrOfFieldsBeforeFristen}
           />
@@ -110,7 +75,7 @@ const AreaFristen = ({
       </FormGroup>
       <FormGroup
         className={styles.fieldFristAwel}
-        validationState={getDateValidationStateDate(geschaeft.fristAwel)}
+        validationState={getDateValidationStateDate(values.fristAwel)}
       >
         <ControlLabel>
           Frist für Erledigung durch AWEL
@@ -118,10 +83,9 @@ const AreaFristen = ({
         <InputGroup>
           <FormControl
             type="text"
-            value={geschaeft.fristAwel || ''}
+            value={values.fristAwel || ''}
             name="fristAwel"
             onChange={change}
-            onBlur={blur}
             bsSize="small"
             tabIndex={2 + nrOfFieldsBeforeFristen}
           />
@@ -143,7 +107,7 @@ const AreaFristen = ({
       </FormGroup>
       <FormGroup
         className={styles.fieldFristAmtschef}
-        validationState={getDateValidationStateDate(geschaeft.fristAmtschef)}
+        validationState={getDateValidationStateDate(values.fristAmtschef)}
       >
         <ControlLabel>
           Frist Vorlage an Amtschef
@@ -151,10 +115,9 @@ const AreaFristen = ({
         <InputGroup>
           <FormControl
             type="text"
-            value={geschaeft.fristAmtschef || ''}
+            value={values.fristAmtschef || ''}
             name="fristAmtschef"
             onChange={change}
-            onBlur={blur}
             bsSize="small"
             tabIndex={3 + nrOfFieldsBeforeFristen}
           />
@@ -176,7 +139,7 @@ const AreaFristen = ({
       </FormGroup>
       <FormGroup
         className={styles.fieldFristAbteilung}
-        validationState={getDateValidationStateDate(geschaeft.fristAbteilung)}
+        validationState={getDateValidationStateDate(values.fristAbteilung)}
       >
         <ControlLabel>
           Frist für Erledigung durch Abteilung
@@ -184,10 +147,9 @@ const AreaFristen = ({
         <InputGroup>
           <FormControl
             type="text"
-            value={geschaeft.fristAbteilung || ''}
+            value={values.fristAbteilung || ''}
             name="fristAbteilung"
             onChange={change}
-            onBlur={blur}
             bsSize="small"
             tabIndex={4 + nrOfFieldsBeforeFristen}
           />
@@ -209,7 +171,7 @@ const AreaFristen = ({
       </FormGroup>
       <FormGroup
         className={styles.fieldFristMitarbeiter}
-        validationState={getDateValidationStateDate(geschaeft.fristMitarbeiter)}
+        validationState={getDateValidationStateDate(values.fristMitarbeiter)}
       >
         <ControlLabel>
           Frist Erledigung nächster Schritt Re
@@ -217,10 +179,9 @@ const AreaFristen = ({
         <InputGroup>
           <FormControl
             type="text"
-            value={geschaeft.fristMitarbeiter || ''}
+            value={values.fristMitarbeiter || ''}
             name="fristMitarbeiter"
             onChange={change}
-            onBlur={blur}
             bsSize="small"
             tabIndex={5 + nrOfFieldsBeforeFristen}
           />
@@ -237,10 +198,9 @@ const AreaFristen = ({
           </InputGroup.Addon>
         </InputGroup>
       </FormGroup>
-      {!!geschaeft.fristMitarbeiter && fieldFristDauerBisMitarbeiter(geschaeft)}
       <FormGroup
         className={styles.fieldDatumAusgangAwel}
-        validationState={getDateValidationStateDate(geschaeft.datumAusgangAwel)}
+        validationState={getDateValidationStateDate(values.datumAusgangAwel)}
       >
         <ControlLabel>
           Datum Ausgang AWEL (erledigt)
@@ -248,10 +208,9 @@ const AreaFristen = ({
         <InputGroup>
           <FormControl
             type="text"
-            value={geschaeft.datumAusgangAwel || ''}
+            value={values.datumAusgangAwel || ''}
             name="datumAusgangAwel"
             onChange={change}
-            onBlur={blur}
             bsSize="small"
             tabIndex={6 + nrOfFieldsBeforeFristen}
           />
@@ -273,7 +232,7 @@ const AreaFristen = ({
       </FormGroup>
       <FormGroup
         className={styles.fieldFristDirektion}
-        validationState={getDateValidationStateDate(geschaeft.fristDirektion)}
+        validationState={getDateValidationStateDate(values.fristDirektion)}
       >
         <ControlLabel>
           Frist für Erledigung durch Direktion
@@ -281,10 +240,9 @@ const AreaFristen = ({
         <InputGroup>
           <FormControl
             type="text"
-            value={geschaeft.fristDirektion || ''}
+            value={values.fristDirektion || ''}
             name="fristDirektion"
             onChange={change}
-            onBlur={blur}
             bsSize="small"
             tabIndex={7 + nrOfFieldsBeforeFristen}
           />
@@ -311,9 +269,8 @@ const AreaFristen = ({
 AreaFristen.displayName = 'AreaFristen'
 
 AreaFristen.propTypes = {
-  geschaeft: PropTypes.object,
+  values: PropTypes.object,
   change: PropTypes.func.isRequired,
-  blur: PropTypes.func.isRequired,
   onChangeDatePicker: PropTypes.func.isRequired,
   nrOfFieldsBeforeFristen: PropTypes.number
 }
