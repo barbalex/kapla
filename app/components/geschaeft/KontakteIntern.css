@@ -24,10 +24,7 @@
   grid-gap: 0;
   border-bottom: thin solid #CECBCB;
   padding: 3px;
-}
-
-.row div {
-  margin-top: 6px;
+  align-items: center;
 }
 
 .row:first-of-type {
