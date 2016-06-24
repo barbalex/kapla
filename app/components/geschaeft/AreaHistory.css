@@ -46,7 +46,7 @@
   padding-left: 13px;
   padding-top: 10px;
   padding-bottom: 10px;
-  cursor: pointer;
+  align-items: center;
 }
 
 .areaHistoryFields:first-of-type {
