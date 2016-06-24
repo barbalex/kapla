@@ -9,13 +9,13 @@ import styles from './Navbar.css'
 
 const stammdatenTitle = (table, rows) => {
   const tableNameObject = {
-    interne: 'Interne',
-    externe: 'Externe',
-    geschaeftsart: 'Geschäftsart',
-    parlVorstossTyp: 'Parl. Vorstoss Typ',
-    rechtsmittelInstanz: 'Rechtsmittel-Instanz',
-    rechtsmittelErledigung: 'Rechtsmittel-Erledigung',
-    status: 'Status'
+    interne: 'Stammdaten: Interne',
+    externe: 'Stammdaten: Externe',
+    geschaeftsart: 'Stammdaten: Geschäftsart',
+    parlVorstossTyp: 'Stammdaten: Parl. Vorstoss Typ',
+    rechtsmittelInstanz: 'Stammdaten: Rechtsmittel-Instanz',
+    rechtsmittelErledigung: 'Stammdaten: Rechtsmittel-Erledigung',
+    status: 'Stammdaten: Status'
   }
   const tableName = tableNameObject[table] || table
   if (table) {
