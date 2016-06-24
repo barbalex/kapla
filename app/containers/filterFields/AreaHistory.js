@@ -9,19 +9,11 @@ import * as AppActions from '../../actions/app'
 const actions = Object.assign(GeschaefteActions, AppActions)
 
 function mapStateToProps(state, props) {
-  const {
-    geschaefte,
-    activeId
-  } = state.geschaefte
-  const { blur, change } = props
-  const geschaeft = geschaefte.find((g) =>
-    g.idGeschaeft === activeId
-  )
+  const { values, change } = props
 
   return {
-    geschaeft,
-    change,
-    blur
+    values,
+    change
   }
 }
 
