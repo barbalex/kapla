@@ -5,6 +5,8 @@ import ReactDOM from 'react-dom'
 import moment from 'moment'
 moment.locale('de')
 import styles from './Geschaeft.css'
+import isDateField from '../../src/isDateField'
+import validateDate from '../../src/validateDate'
 import AreaGeschaeft from '../../containers/geschaeft/AreaGeschaeft'
 import AreaNummern from '../../containers/geschaeft/AreaNummern'
 import AreaFristen from '../../containers/geschaeft/AreaFristen'
@@ -21,19 +23,67 @@ class Geschaeft extends Component {
     geschaefteChangeState: PropTypes.func.isRequired,
     changeGeschaeftInDb: PropTypes.func.isRequired,
     geschaefteLayout: PropTypes.object.isRequired,
-    geschaeftToggleActivated: PropTypes.func.isRequired,
-    change: PropTypes.func.isRequired,
-    blur: PropTypes.func.isRequired,
-    onChangeDatePicker: PropTypes.func.isRequired
+    geschaeftToggleActivated: PropTypes.func.isRequired
+  }
+
+  onChangeDatePicker = (name, e, picker) => {
+    const rVal = {
+      target: {
+        type: 'text',
+        name,
+        value: picker.startDate
+      }
+    }
+    this.blur(rVal)
+  }
+
+  change = (e) => {
+    const { activeId, geschaefteChangeState } = this.props
+    const { type, name, dataset } = e.target
+    let { value } = e.target
+    if (type === 'radio') {
+      value = dataset.value
+      // blur does not occur in radio
+      this.blur(e)
+    }
+    geschaefteChangeState(activeId, name, value)
+  }
+
+  blur = (e) => {
+    const { activeId, changeGeschaeftInDb, geschaefteChangeState } = this.props
+    const { type, name, dataset } = e.target
+    let { value } = e.target
+    let select = false
+    if (type === 'radio') value = dataset.value
+    if (isDateField(name)) {
+      if (validateDate(value)) {
+        // if correct date, save to db
+        changeGeschaeftInDb(activeId, name, value)
+      }
+      // else: give user hint
+      let value2 = ''
+      if (value) value2 = moment(value, 'DD.MM.YYYY').format('DD.MM.YYYY')
+      if (value2.includes('Invalid date')) {
+        select = true
+        value2 = value2.replace('Invalid date', 'Format: DD.MM.YYYY')
+      }
+      geschaefteChangeState(activeId, name, value2)
+      // and set focus back into the input
+      if (select) {
+        // need timeout for it to work
+        setTimeout(() => {
+          ReactDOM.findDOMNode(this.refs[name]).select()
+        }, 0)
+      }
+    } else {
+      changeGeschaeftInDb(activeId, name, value)
+    }
   }
 
   render = () => {
     const {
       geschaeft,
-      geschaefteLayout,
-      change,
-      blur,
-      onChangeDatePicker
+      geschaefteLayout
     } = this.props
 
     // return immediately if no geschaeft
@@ -73,46 +123,46 @@ class Geschaeft extends Component {
           <AreaGeschaeft
             wrapperClass={wrapperClass}
             nrOfGFields={nrOfGFields}
-            change={change}
-            blur={blur}
+            change={this.change}
+            blur={this.blur}
           />
           <AreaNummern
             wrapperClass={wrapperClass}
             nrOfGFields={nrOfGFields}
-            change={change}
-            blur={blur}
+            change={this.change}
+            blur={this.blur}
           />
           {
             showAreaParlVorstoss &&
             <AreaParlVorstoss
               nrOfFieldsBeforePv={nrOfFieldsBeforePv}
-              change={change}
-              blur={blur}
+              change={this.change}
+              blur={this.blur}
             />
           }
           {
             showAreaRechtsmittel &&
             <AreaRechtsmittel
               nrOfFieldsBeforePv={nrOfFieldsBeforePv}
-              change={change}
-              blur={blur}
-              onChangeDatePicker={onChangeDatePicker}
+              change={this.change}
+              blur={this.blur}
+              onChangeDatePicker={this.onChangeDatePicker}
             />
           }
           <AreaFristen
             nrOfFieldsBeforeFristen={nrOfFieldsBeforeFristen}
-            change={change}
-            blur={blur}
-            onChangeDatePicker={onChangeDatePicker}
+            change={this.change}
+            blur={this.blur}
+            onChangeDatePicker={this.onChangeDatePicker}
           />
           <AreaPersonen
             nrOfFieldsBeforePersonen={nrOfFieldsBeforePersonen}
-            change={change}
-            blur={blur}
+            change={this.change}
+            blur={this.blur}
           />
           <AreaHistory
-            blur={blur}
-            change={change}
+            blur={this.blur}
+            change={this.change}
           />
           <AreaZuletztMutiert />
           {/* need this so lowest fields are visible */}

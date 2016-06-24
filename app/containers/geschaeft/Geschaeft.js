@@ -2,7 +2,7 @@
 
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
-import GeschaeftMethods from './GeschaeftMethods'
+import Geschaeft from '../../components/geschaeft/Geschaeft'
 import * as GeschaefteActions from '../../actions/geschaefte'
 import * as AppActions from '../../actions/app'
 
@@ -29,4 +29,4 @@ function mapDispatchToProps(dispatch) {
   return bindActionCreators(actions, dispatch)
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(GeschaeftMethods)
+export default connect(mapStateToProps, mapDispatchToProps)(Geschaeft)
