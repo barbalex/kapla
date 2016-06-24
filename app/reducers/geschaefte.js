@@ -27,8 +27,7 @@ import {
   INTERNE_OPTIONS_GET_SUCCESS,
   INTERNE_OPTIONS_GET_ERROR,
   EXTERNE_OPTIONS_GET_SUCCESS,
-  EXTERNE_OPTIONS_GET_ERROR,
-  VERMERK_INTERN_TOGGLE_VISIBILITY
+  EXTERNE_OPTIONS_GET_ERROR
 } from '../actions/geschaefte'
 
 const standardState = {
@@ -48,8 +47,7 @@ const standardState = {
   externeOptions: [],
   // following: state for active geschaeft
   activeId: null,
-  willDelete: false,
-  vermerkInternVisible: false
+  willDelete: false
 }
 
 const geschaeft = (state = {}, action) => {
@@ -185,11 +183,6 @@ const geschaefte = (state = standardState, action) => {
       return {
         ...state,
         externeOptions: action.externeOptions
-      }
-    case VERMERK_INTERN_TOGGLE_VISIBILITY:
-      return {
-        ...state,
-        vermerkInternVisible: !state.vermerkInternVisible
       }
     case RECHTSMITTELERLEDIGUNG_OPTIONS_GET_ERROR:
     case PARLVORSTOSSTYP_OPTIONS_GET_ERROR:

@@ -2,6 +2,7 @@
 
 import React, { PropTypes } from 'react'
 import { FormControl, ControlLabel } from 'react-bootstrap'
+import Textarea from 'react-textarea-autosize'
 import styles from './AreaGeschaeft.css'
 import createOptions from '../../src/createOptions'
 
@@ -9,8 +10,6 @@ const AreaGeschaeft = ({
   geschaeft,
   statusOptions,
   geschaeftsartOptions,
-  vermerkInternVisible,
-  vermerkInternToggleVisibility,
   wrapperClass,
   change,
   blur,
@@ -21,7 +20,6 @@ const AreaGeschaeft = ({
     nrOfNrFields :
     0
   )
-  const vermerkInternDisplay = vermerkInternVisible ? 'block' : 'none'
 
   return (
     <div className={styles.areaGeschaeft}>
@@ -32,31 +30,27 @@ const AreaGeschaeft = ({
         <ControlLabel>
           Gegenstand
         </ControlLabel>
-        <FormControl
-          componentClass="textarea"
+        <Textarea
           value={geschaeft.gegenstand || ''}
           name="gegenstand"
           onChange={change}
           onBlur={blur}
-          bsSize="small"
-          rows={2}
           tabIndex={1 + tabsToAdd}
           autoFocus={wrapperClass !== styles.wrapperNarrow}
+          className={styles.textarea}
         />
       </div>
       <div className={styles.fieldAusloeser}>
         <ControlLabel>
           Auslöser
         </ControlLabel>
-        <FormControl
-          componentClass="textarea"
+        <Textarea
           value={geschaeft.ausloeser || ''}
           name="ausloeser"
           onChange={change}
           onBlur={blur}
-          bsSize="small"
-          rows={1}
           tabIndex={2 + tabsToAdd}
+          className={styles.textarea}
         />
       </div>
       <div className={styles.fieldOrt}>
@@ -123,63 +117,52 @@ const AreaGeschaeft = ({
         <ControlLabel>
           Details
         </ControlLabel>
-        <FormControl
-          componentClass="textarea"
+        <Textarea
           value={geschaeft.details || ''}
           name="details"
           onChange={change}
           onBlur={blur}
-          bsSize="small"
-          rows={4}
           tabIndex={7 + tabsToAdd}
+          className={styles.textarea}
         />
       </div>
       <div className={styles.fieldNaechsterSchritt}>
         <ControlLabel>
           Nächster Schritt
         </ControlLabel>
-        <FormControl
-          componentClass="textarea"
+        <Textarea
           value={geschaeft.naechsterSchritt || ''}
           name="naechsterSchritt"
           onChange={change}
           onBlur={blur}
-          bsSize="small"
-          rows={4}
           tabIndex={8 + tabsToAdd}
+          className={styles.textarea}
         />
       </div>
       <div className={styles.fieldVermerk}>
         <ControlLabel>
           Vermerk
         </ControlLabel>
-        <FormControl
-          componentClass="textarea"
+        <Textarea
           value={geschaeft.vermerk || ''}
           name="vermerk"
           onChange={change}
           onBlur={blur}
-          bsSize="small"
-          rows={4}
           tabIndex={9 + tabsToAdd}
+          className={styles.textarea}
         />
       </div>
       <div className={styles.fieldVermerkIntern}>
-        <ControlLabel
-          onClick={vermerkInternToggleVisibility}
-        >
-          <span className={styles.vermerkInternLabel}>Vermerk intern</span> (in Berichten nicht angezeigt)
+        <ControlLabel>
+          Vermerk intern (in Berichten nicht angezeigt)
         </ControlLabel>
-        <FormControl
-          componentClass="textarea"
+        <Textarea
           value={geschaeft.vermerkIntern || ''}
           name="vermerkIntern"
           onChange={change}
           onBlur={blur}
-          bsSize="small"
-          rows={4}
           tabIndex={9 + tabsToAdd}
-          style={{ display: vermerkInternDisplay }}
+          className={styles.textarea}
         />
       </div>
     </div>
@@ -192,8 +175,6 @@ AreaGeschaeft.propTypes = {
   geschaeft: PropTypes.object,
   statusOptions: PropTypes.array.isRequired,
   geschaeftsartOptions: PropTypes.array.isRequired,
-  vermerkInternVisible: PropTypes.bool,
-  vermerkInternToggleVisibility: PropTypes.func.isRequired,
   change: PropTypes.func.isRequired,
   blur: PropTypes.func.isRequired,
   wrapperClass: PropTypes.string,

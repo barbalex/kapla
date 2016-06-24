@@ -405,8 +405,3 @@ const rechtsmittelInstanzOptionsGetError = (error) => ({
   type: RECHTSMITTEL_INSTANZ_OPTIONS_GET_ERROR,
   error
 })
-
-export const VERMERK_INTERN_TOGGLE_VISIBILITY = 'VERMERK_INTERN_TOGGLE_VISIBILITY'
-export const vermerkInternToggleVisibility = () => ({
-  type: VERMERK_INTERN_TOGGLE_VISIBILITY
-})
