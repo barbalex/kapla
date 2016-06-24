@@ -16,12 +16,11 @@ import createOptions from '../../src/createOptions'
 import getDateValidationStateDate from '../../src/getDateValidationStateDate'
 
 const AreaRechtsmittel = ({
-  geschaeft,
+  values,
   rechtsmittelErledigungOptions,
   rechtsmittelInstanzOptions,
   nrOfFieldsBeforePv,
   change,
-  blur,
   onChangeDatePicker
 }) => {
   /**
@@ -51,10 +50,9 @@ const AreaRechtsmittel = ({
         </ControlLabel>
         <FormControl
           componentClass="select"
-          value={geschaeft.rechtsmittelInstanz || ''}
+          value={values.rechtsmittelInstanz || ''}
           name="rechtsmittelInstanz"
           onChange={change}
-          onBlur={blur}
           bsSize="small"
           tabIndex={1 + nrOfFieldsBeforePv}
         >
@@ -67,17 +65,16 @@ const AreaRechtsmittel = ({
         </ControlLabel>
         <FormControl
           type="number"
-          value={geschaeft.rechtsmittelEntscheidNr || ''}
+          value={values.rechtsmittelEntscheidNr || ''}
           name="rechtsmittelEntscheidNr"
           onChange={change}
-          onBlur={blur}
           bsSize="small"
           tabIndex={2 + nrOfFieldsBeforePv}
         />
       </div>
       <FormGroup
         className={styles.fieldEntscheidDatum}
-        validationState={getDateValidationStateDate(geschaeft.rechtsmittelEntscheidDatum)}
+        validationState={getDateValidationStateDate(values.rechtsmittelEntscheidDatum)}
       >
         <ControlLabel>
           Entscheid Datum
@@ -85,10 +82,9 @@ const AreaRechtsmittel = ({
         <InputGroup>
           <FormControl
             type="text"
-            value={geschaeft.rechtsmittelEntscheidDatum || ''}
+            value={values.rechtsmittelEntscheidDatum || ''}
             name="rechtsmittelEntscheidDatum"
             onChange={change}
-            onBlur={blur}
             bsSize="small"
             tabIndex={3 + nrOfFieldsBeforePv}
           />
@@ -114,10 +110,9 @@ const AreaRechtsmittel = ({
         </ControlLabel>
         <FormControl
           componentClass="select"
-          value={geschaeft.rechtsmittelErledigung || ''}
+          value={values.rechtsmittelErledigung || ''}
           name="rechtsmittelErledigung"
           onChange={change}
-          onBlur={blur}
           bsSize="small"
           tabIndex={4 + nrOfFieldsBeforePv}
         >
@@ -131,12 +126,11 @@ const AreaRechtsmittel = ({
 AreaRechtsmittel.displayName = 'AreaRechtsmittel'
 
 AreaRechtsmittel.propTypes = {
-  geschaeft: PropTypes.object,
+  values: PropTypes.object,
   rechtsmittelErledigungOptions: PropTypes.array.isRequired,
   rechtsmittelInstanzOptions: PropTypes.array.isRequired,
   nrOfFieldsBeforePv: PropTypes.number,
   change: PropTypes.func.isRequired,
-  blur: PropTypes.func.isRequired,
   onChangeDatePicker: PropTypes.func.isRequired
 }
 

@@ -30,9 +30,9 @@ const verwantwortlichOptions = (interneOptions) => {
   return options
 }
 
-const verantwortlichData = (geschaeft, interneOptions) => {
+const verantwortlichData = (values, interneOptions) => {
   const data = interneOptions.find((o) =>
-    o.kurzzeichen === geschaeft.verantwortlich
+    o.kurzzeichen === values.verantwortlich
   )
   if (!data) return ''
   const name = `${data.vorname || ''} ${data.name || ''}`
@@ -43,10 +43,9 @@ const verantwortlichData = (geschaeft, interneOptions) => {
 }
 
 const AreaPersonen = ({
-  geschaeft,
+  values,
   nrOfFieldsBeforePersonen = 0,
   change,
-  blur,
   interneOptions
 }) =>
   <div className={styles.areaPersonen}>
@@ -61,10 +60,9 @@ const AreaPersonen = ({
     <div className={styles.fieldVerantwortlich}>
       <FormControl
         componentClass="select"
-        value={geschaeft.verantwortlich || ''}
+        value={values.verantwortlich || ''}
         name="verantwortlich"
         onChange={change}
-        onBlur={blur}
         bsSize="small"
         tabIndex={1 + nrOfFieldsBeforePersonen}
         className={styles.verantwDropdown}
@@ -74,7 +72,7 @@ const AreaPersonen = ({
     </div>
     <div className={styles.fieldVerantwortlichName}>
       <FormControl.Static>
-        {verantwortlichData(geschaeft, interneOptions)}
+        {verantwortlichData(values, interneOptions)}
       </FormControl.Static>
     </div>
     <div className={styles.areaInterneKontakteSubTitle}>
@@ -98,11 +96,10 @@ const AreaPersonen = ({
 AreaPersonen.displayName = 'AreaPersonen'
 
 AreaPersonen.propTypes = {
-  geschaeft: PropTypes.object,
+  values: PropTypes.object,
   interneOptions: PropTypes.array,
   nrOfFieldsBeforePersonen: PropTypes.number,
-  change: PropTypes.func.isRequired,
-  blur: PropTypes.func.isRequired
+  change: PropTypes.func.isRequired
 }
 
 export default AreaPersonen
