@@ -63,7 +63,7 @@ const NavbarGeschaefteFilterNav = ({
   return (
     <NavDropdown
       eventKey={3}
-      title={filterType ? `Filter: ${filterType}` : 'Filter'}
+      title={filterType ? `Filter: ${filterType}` : 'Filter: alle'}
       id="filter-nav-dropdown"
       className={classNameNavDropdown}
     >
