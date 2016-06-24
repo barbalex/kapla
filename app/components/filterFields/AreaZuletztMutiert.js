@@ -3,17 +3,17 @@
 import React, { PropTypes } from 'react'
 import styles from './AreaZuletztMutiert.css'
 
-const AreaZuletztMutiert = ({ geschaeft, interneOptions }) => {
+const AreaZuletztMutiert = ({ values, interneOptions }) => {
   let zuletztMutiertText
 
-  if (!geschaeft.mutationsperson) {
+  if (!values.mutationsperson) {
     zuletztMutiertText = 'Bei diesem Geschäft wurde (noch) keine Mutationsperson gespeichert'
   } else {
     const mutPersonOptions = interneOptions.find((o) => {
       if (o.itKonto) {
         // seems that data contains lower case differences
         // and whitespace
-        return o.itKonto.toLowerCase().replace(/ /g, '') === geschaeft.mutationsperson.toLowerCase().replace(/ /g, '')
+        return o.itKonto.toLowerCase().replace(/ /g, '') === values.mutationsperson.toLowerCase().replace(/ /g, '')
       }
       return false
     })
@@ -22,7 +22,7 @@ const AreaZuletztMutiert = ({ geschaeft, interneOptions }) => {
       ` (${mutPersonOptions.vorname} ${mutPersonOptions.name})` :
       ''
     )
-    zuletztMutiertText = `Zuletzt mutiert durch ${geschaeft.mutationsperson}${name} am ${geschaeft.mutationsdatum}`
+    zuletztMutiertText = `Zuletzt mutiert durch ${values.mutationsperson}${name} am ${values.mutationsdatum}`
   }
 
   return (
@@ -37,7 +37,7 @@ const AreaZuletztMutiert = ({ geschaeft, interneOptions }) => {
 AreaZuletztMutiert.displayName = 'AreaZuletztMutiert'
 
 AreaZuletztMutiert.propTypes = {
-  geschaeft: PropTypes.object,
+  values: PropTypes.object,
   interneOptions: PropTypes.array
 }
 

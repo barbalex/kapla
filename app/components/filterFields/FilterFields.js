@@ -16,14 +16,12 @@ import AreaPersonen from '../../containers/filterFields/AreaPersonen'
 import AreaHistory from '../../containers/filterFields/AreaHistory'
 import AreaZuletztMutiert from '../../containers/filterFields/AreaZuletztMutiert'
 
-class Geschaeft extends Component {
+class FilterFields extends Component {
   static propTypes = {
-    geschaeft: PropTypes.object,
-    activeId: PropTypes.number,
-    geschaefteChangeState: PropTypes.func.isRequired,
-    changeGeschaeftInDb: PropTypes.func.isRequired,
-    geschaefteLayout: PropTypes.object.isRequired,
-    geschaeftToggleActivated: PropTypes.func.isRequired
+    values: PropTypes.object.isRequired,
+    filterFields: PropTypes.array.isRequired,
+    geschaefteFilterByFields: PropTypes.func.isRequired,
+    geschaefteLayout: PropTypes.object.isRequired
   }
 
   onChangeDatePicker = (name, e, picker) => {
@@ -38,60 +36,34 @@ class Geschaeft extends Component {
   }
 
   change = (e) => {
-    const { activeId, geschaefteChangeState } = this.props
+    const { filterFields, geschaefteFilterByFields } = this.props
     const { type, name, dataset } = e.target
+    const newFilterFields = []
+    filterFields.forEach((f) => {
+      if (f.field !== name) {
+        newFilterFields.push(f)
+      }
+    })
     let { value } = e.target
     if (type === 'radio') {
       value = dataset.value
-      // blur does not occur in radio
-      this.blur(e)
     }
-    geschaefteChangeState(activeId, name, value)
-  }
-
-  blur = (e) => {
-    const { activeId, changeGeschaeftInDb, geschaefteChangeState } = this.props
-    const { type, name, dataset } = e.target
-    let { value } = e.target
-    let select = false
-    if (type === 'radio') value = dataset.value
-    if (isDateField(name)) {
-      if (validateDate(value)) {
-        // if correct date, save to db
-        changeGeschaeftInDb(activeId, name, value)
-      }
-      // else: give user hint
-      let value2 = ''
-      if (value) value2 = moment(value, 'DD.MM.YYYY').format('DD.MM.YYYY')
-      if (value2.includes('Invalid date')) {
-        select = true
-        value2 = value2.replace('Invalid date', 'Format: DD.MM.YYYY')
-      }
-      geschaefteChangeState(activeId, name, value2)
-      // and set focus back into the input
-      if (select) {
-        // need timeout for it to work
-        setTimeout(() => {
-          ReactDOM.findDOMNode(this.refs[name]).select()
-        }, 0)
-      }
-    } else {
-      changeGeschaeftInDb(activeId, name, value)
-    }
+    newFilterFields.push({
+      comparator: '=',
+      field: name,
+      value
+    })
+    geschaefteFilterByFields(newFilterFields)
   }
 
   render = () => {
     const {
-      geschaeft,
+      values,
       geschaefteLayout
     } = this.props
 
-    // return immediately if no geschaeft
-    const showGeschaeft = geschaeft && geschaeft.idGeschaeft
-    if (!showGeschaeft) return null
-
-    const showAreaParlVorstoss = geschaeft.geschaeftsart === 'Parlament. Vorstoss'
-    const showAreaRechtsmittel = geschaeft.geschaeftsart === 'Rekurs/Beschwerde'
+    const showAreaParlVorstoss = values.geschaeftsart && values.geschaeftsart === 'Parlament. Vorstoss'
+    const showAreaRechtsmittel = values.geschaeftsart && values.geschaeftsart === 'Rekurs/Beschwerde'
     const showAreaForGeschaeftsart = (
       showAreaParlVorstoss ||
       showAreaRechtsmittel
@@ -124,20 +96,20 @@ class Geschaeft extends Component {
             wrapperClass={wrapperClass}
             nrOfGFields={nrOfGFields}
             change={this.change}
-            blur={this.blur}
+            values={values}
           />
           <AreaNummern
             wrapperClass={wrapperClass}
             nrOfGFields={nrOfGFields}
             change={this.change}
-            blur={this.blur}
+            values={values}
           />
           {
             showAreaParlVorstoss &&
             <AreaParlVorstoss
               nrOfFieldsBeforePv={nrOfFieldsBeforePv}
               change={this.change}
-              blur={this.blur}
+              values={values}
             />
           }
           {
@@ -145,26 +117,26 @@ class Geschaeft extends Component {
             <AreaRechtsmittel
               nrOfFieldsBeforePv={nrOfFieldsBeforePv}
               change={this.change}
-              blur={this.blur}
               onChangeDatePicker={this.onChangeDatePicker}
+              values={values}
             />
           }
           <AreaFristen
             nrOfFieldsBeforeFristen={nrOfFieldsBeforeFristen}
             change={this.change}
-            blur={this.blur}
             onChangeDatePicker={this.onChangeDatePicker}
+            values={values}
           />
           <AreaPersonen
             nrOfFieldsBeforePersonen={nrOfFieldsBeforePersonen}
             change={this.change}
-            blur={this.blur}
+            values={values}
           />
           <AreaHistory
-            blur={this.blur}
             change={this.change}
+            values={values}
           />
-          <AreaZuletztMutiert />
+          <AreaZuletztMutiert values={values} />
           {/* need this so lowest fields are visible */}
           <div style={{ height: 52 }} />
         </div>
@@ -173,4 +145,4 @@ class Geschaeft extends Component {
   }
 }
 
-export default Geschaeft
+export default FilterFields
