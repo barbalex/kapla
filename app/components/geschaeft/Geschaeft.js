@@ -134,24 +134,20 @@ class Geschaeft extends Component {
           />
           {
             showAreaParlVorstoss &&
-            (
-              <AreaParlVorstoss
-                nrOfFieldsBeforePv={nrOfFieldsBeforePv}
-                change={this.change}
-                blur={this.blur}
-              />
-            )
+            <AreaParlVorstoss
+              nrOfFieldsBeforePv={nrOfFieldsBeforePv}
+              change={this.change}
+              blur={this.blur}
+            />
           }
           {
             showAreaRechtsmittel &&
-            (
-              <AreaRechtsmittel
-                nrOfFieldsBeforePv={nrOfFieldsBeforePv}
-                change={this.change}
-                blur={this.blur}
-                onChangeDatePicker={this.onChangeDatePicker}
-              />
-            )
+            <AreaRechtsmittel
+              nrOfFieldsBeforePv={nrOfFieldsBeforePv}
+              change={this.change}
+              blur={this.blur}
+              onChangeDatePicker={this.onChangeDatePicker}
+            />
           }
           <AreaFristen
             nrOfFieldsBeforeFristen={nrOfFieldsBeforeFristen}
