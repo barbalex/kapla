@@ -8,13 +8,13 @@ import Geschaefte from '../containers/Geschaefte'
 import saveConfigValue from '../src/saveConfigValue'
 import getConfig from '../src/getConfig.js'
 
-class GeschaefteLayout extends Component {
+class FilterFieldsLayout extends Component {
   state = {
-    geschaefteLayout: null
+    filterFieldsLayout: null
   }
 
   componentDidMount = () => {
-    let { geschaefteLayout } = this.state
+    let { filterFieldsLayout } = this.state
     const layoutConfig = {
       settings: {
         hasHeaders: false,
@@ -42,32 +42,32 @@ class GeschaefteLayout extends Component {
         ]
       }]
     }
-    const savedState = getConfig().geschaefteLayoutState
+    const savedState = getConfig().filterFieldsLayoutState
     if (savedState) {
-      geschaefteLayout = new GoldenLayout(savedState)
+      filterFieldsLayout = new GoldenLayout(savedState)
     } else {
-      geschaefteLayout = new GoldenLayout(layoutConfig)
+      filterFieldsLayout = new GoldenLayout(layoutConfig)
     }
-    geschaefteLayout.registerComponent('geschaefte', wrapComponentInProvider(Geschaefte))
-    geschaefteLayout.registerComponent('filterFields', wrapComponentInProvider(FilterFields, geschaefteLayout))
-    geschaefteLayout.init()
-    this.setState({ geschaefteLayout })
-    geschaefteLayout.on('stateChanged', () =>
+    filterFieldsLayout.registerComponent('geschaefte', wrapComponentInProvider(Geschaefte))
+    filterFieldsLayout.registerComponent('filterFields', wrapComponentInProvider(FilterFields, filterFieldsLayout))
+    filterFieldsLayout.init()
+    this.setState({ filterFieldsLayout })
+    filterFieldsLayout.on('stateChanged', () =>
       this.saveGeschaefteState()
     )
   }
 
   componentWillUnmount = () => {
-    const { geschaefteLayout } = this.state
-    geschaefteLayout.destroy()
+    const { filterFieldsLayout } = this.state
+    filterFieldsLayout.destroy()
   }
 
   saveGeschaefteState = () => {
-    const { geschaefteLayout } = this.state
-    saveConfigValue('geschaefteLayoutState', geschaefteLayout.toConfig())
+    const { filterFieldsLayout } = this.state
+    saveConfigValue('filterFieldsLayoutState', filterFieldsLayout.toConfig())
   }
 
   render = () => <div></div>
 }
 
-export default GeschaefteLayout
+export default FilterFieldsLayout
