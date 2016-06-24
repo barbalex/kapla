@@ -8,6 +8,7 @@ import createOptions from '../../src/createOptions'
 const AreaGeschaeft = ({
   statusOptions,
   geschaeftsartOptions,
+  abteilungOptions,
   wrapperClass,
   change,
   values,
@@ -98,13 +99,15 @@ const AreaGeschaeft = ({
           Abteilung
         </ControlLabel>
         <FormControl
-          type="text"
+          componentClass="select"
           value={values.abteilung || ''}
           name="abteilung"
           onChange={change}
           bsSize="small"
           tabIndex={6 + tabsToAdd}
-        />
+        >
+          {createOptions(abteilungOptions)}
+        </FormControl>
       </div>
       <div className={styles.fieldDetails}>
         <ControlLabel>
@@ -167,6 +170,7 @@ AreaGeschaeft.displayName = 'AreaGeschaeft'
 AreaGeschaeft.propTypes = {
   statusOptions: PropTypes.array.isRequired,
   geschaeftsartOptions: PropTypes.array.isRequired,
+  abteilungOptions: PropTypes.array.isRequired,
   change: PropTypes.func.isRequired,
   values: PropTypes.object.isRequired,
   wrapperClass: PropTypes.string,

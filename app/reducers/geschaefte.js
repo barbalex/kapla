@@ -6,7 +6,6 @@ import {
   GESCHAEFTE_GET_ERROR,
   GESCHAEFTE_FILTER_BY_FIELDS,
   GESCHAEFTE_FILTER_BY_FULLTEXT,
-  GESCHAEFTE_FILTER_BY_FULLTEXT_SET,
   GESCHAEFT_TOGGLE_ACTIVATED,
   GESCHAEFT_DELETE,
   GESCHAEFT_SET_DELETE_INTENDED,
@@ -24,6 +23,8 @@ import {
   GESCHAEFTSART_OPTIONS_GET_ERROR,
   RECHTSMITTEL_INSTANZ_OPTIONS_GET_SUCCESS,
   RECHTSMITTEL_INSTANZ_OPTIONS_GET_ERROR,
+  ABTEILUNG_OPTIONS_GET_SUCCESS,
+  ABTEILUNG_OPTIONS_GET_ERROR,
   INTERNE_OPTIONS_GET_SUCCESS,
   INTERNE_OPTIONS_GET_ERROR,
   EXTERNE_OPTIONS_GET_SUCCESS,
@@ -170,6 +171,11 @@ const geschaefte = (state = standardState, action) => {
         ...state,
         rechtsmittelInstanzOptions: action.rechtsmittelInstanzOptions
       }
+    case ABTEILUNG_OPTIONS_GET_SUCCESS:
+      return {
+        ...state,
+        abteilungOptions: action.abteilungOptions
+      }
     case INTERNE_OPTIONS_GET_SUCCESS:
       return {
         ...state,
@@ -185,6 +191,7 @@ const geschaefte = (state = standardState, action) => {
     case STATUS_OPTIONS_GET_ERROR:
     case GESCHAEFTSART_OPTIONS_GET_ERROR:
     case RECHTSMITTEL_INSTANZ_OPTIONS_GET_ERROR:
+    case ABTEILUNG_OPTIONS_GET_ERROR:
     case INTERNE_OPTIONS_GET_ERROR:
     case EXTERNE_OPTIONS_GET_ERROR:
     case GESCHAEFTE_CHANGE_DB_ERROR:

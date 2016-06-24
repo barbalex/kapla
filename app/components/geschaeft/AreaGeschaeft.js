@@ -10,6 +10,7 @@ const AreaGeschaeft = ({
   geschaeft,
   statusOptions,
   geschaeftsartOptions,
+  abteilungOptions,
   wrapperClass,
   change,
   blur,
@@ -104,14 +105,16 @@ const AreaGeschaeft = ({
           Abteilung
         </ControlLabel>
         <FormControl
-          type="text"
+          componentClass="select"
           value={geschaeft.abteilung || ''}
           name="abteilung"
           onChange={change}
           onBlur={blur}
           bsSize="small"
           tabIndex={6 + tabsToAdd}
-        />
+        >
+          {createOptions(abteilungOptions)}
+        </FormControl>
       </div>
       <div className={styles.fieldDetails}>
         <ControlLabel>

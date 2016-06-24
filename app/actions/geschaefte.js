@@ -399,3 +399,27 @@ const rechtsmittelInstanzOptionsGetError = (error) => ({
   type: RECHTSMITTEL_INSTANZ_OPTIONS_GET_ERROR,
   error
 })
+
+export const abteilungOptionsGet = () =>
+  (dispatch, getState) => {
+    const { app } = getState()
+    getDropdownOptions(app.db, 'abteilung')
+      .then((abteilungOptions) =>
+        dispatch(abteilungOptionsGetSuccess(abteilungOptions))
+      )
+      .catch((error) =>
+        dispatch(abteilungOptionsGetError(error))
+      )
+  }
+
+export const ABTEILUNG_OPTIONS_GET_SUCCESS = 'ABTEILUNG_OPTIONS_GET_SUCCESS'
+const abteilungOptionsGetSuccess = (abteilungOptions) => ({
+  type: ABTEILUNG_OPTIONS_GET_SUCCESS,
+  abteilungOptions
+})
+
+export const ABTEILUNG_OPTIONS_GET_ERROR = 'ABTEILUNG_OPTIONS_GET_ERROR'
+const abteilungOptionsGetError = (error) => ({
+  type: ABTEILUNG_OPTIONS_GET_ERROR,
+  error
+})

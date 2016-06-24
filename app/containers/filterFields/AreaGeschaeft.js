@@ -8,7 +8,8 @@ import * as GeschaefteActions from '../../actions/geschaefte'
 function mapStateToProps(state, props) {
   const {
     statusOptions,
-    geschaeftsartOptions
+    geschaeftsartOptions,
+    abteilungOptions
   } = state.geschaefte
   const {
     values,
@@ -20,6 +21,7 @@ function mapStateToProps(state, props) {
   return {
     statusOptions,
     geschaeftsartOptions,
+    abteilungOptions,
     change,
     values,
     wrapperClass,

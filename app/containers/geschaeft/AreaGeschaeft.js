@@ -10,6 +10,7 @@ function mapStateToProps(state, props) {
     geschaefte,
     activeId,
     statusOptions,
+    abteilungOptions,
     geschaeftsartOptions
   } = state.geschaefte
   const {
@@ -25,6 +26,7 @@ function mapStateToProps(state, props) {
   return {
     geschaeft,
     statusOptions,
+    abteilungOptions,
     geschaeftsartOptions,
     change,
     blur,
