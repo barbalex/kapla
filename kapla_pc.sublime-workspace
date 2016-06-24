@@ -4,8 +4,28 @@
 		"selected_items":
 		[
 			[
+				"ab",
+				"abteilung"
+			],
+			[
+				"abt",
+				"abteilungOptions"
+			],
+			[
 				"ges",
-				"geschaefteGefilterteIds"
+				"geschaefte"
+			],
+			[
+				"align",
+				"align-items"
+			],
+			[
+				"ge",
+				"geschaefteKontakteIntern"
+			],
+			[
+				"gesc",
+				"geschaeftsart"
 			],
 			[
 				"gesch",
@@ -46,10 +66,6 @@
 			[
 				"filt",
 				"filterValue"
-			],
-			[
-				"ge",
-				"geschaeftValue"
 			],
 			[
 				"ele",
@@ -252,10 +268,6 @@
 				"tableRows"
 			],
 			[
-				"gesc",
-				"geschaefte"
-			],
-			[
 				"in",
 				"inputPagesTitle"
 			],
@@ -387,25 +399,25 @@
 			"file": "package.json",
 			"settings":
 			{
-				"buffer_size": 4619,
+				"buffer_size": 5012,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"contents": "Searching 202 files for \"exceljs\" (case sensitive, whole word)\n\nC:\\Users\\alex\\kapla\\app\\src\\exportGeschaefte.js:\n   28      dataArray.push(Object.keys(object).map((key, index) => {\n   29        /**\n   30:        * exceljs errors out if first member of array is null\n   31:        * see: https://github.com/guyonroche/exceljs/issues/111\n   32         * unfortunately there is also an issue with passing ''\n   33         * in versions > 0.2.7\n   34:        * see: https://github.com/guyonroche/exceljs/issues/120\n   35         */\n   36        if (object[key] === null && index === 0) return ''\n   ..\n   48      if (path) {\n   49        messageShow(true, 'Der Export wird aufgebaut...', '')\n   50:       // set timeout so message appears before exceljs starts working\n   51        // and possibly blocks execution of message\n   52        setTimeout(() => {\n\nC:\\Users\\alex\\kapla\\app\\src\\writeExport.js:\n    8   */\n    9  \n   10: const Excel = require('exceljs')\n   11  \n   12  // path is passed as only argument of the process\n\nC:\\Users\\alex\\kapla\\package.json:\n   87      \"css-modules-require-hook\": \"4.0.1\",\n   88      \"electron-debug\": \"1.0.1\",\n   89:     \"exceljs\": \"0.2.9\",\n   90      \"font-awesome\": \"4.6.3\",\n   91      \"golden-layout\": \"1.5.1\",\n\nC:\\Users\\alex\\kapla\\webpack.config.base.js:\n   34      // put your node 3rd party libraries which can't be built with webpack here\n   35      // (mysql, mongodb, and so on..)\n   36:     'sqlite3', 'exceljs'\n   37    ]\n   38  }\n\n7 matches across 4 files\n",
+			"contents": "Searching 557 files for \"onChangeDatePicker\" (case sensitive)\n\nC:\\Users\\alex\\kapla\\app\\components\\filterFields\\AreaFristen.js:\n   19    nrOfFieldsBeforeFristen,\n   20    change,\n   21:   onChangeDatePicker\n   22  }) => {\n   23    /**\n   ..\n   63                drops=\"up\"\n   64                opens=\"left\"\n   65:               onApply={onChangeDatePicker.bind(this, 'datumEingangAwel')}\n   66                className={styles.datePicker}\n   67              >\n   ..\n   95                drops=\"up\"\n   96                opens=\"left\"\n   97:               onApply={onChangeDatePicker.bind(this, 'fristAwel')}\n   98                className={styles.datePicker}\n   99              >\n  ...\n  127                drops=\"up\"\n  128                opens=\"left\"\n  129:               onApply={onChangeDatePicker.bind(this, 'fristAmtschef')}\n  130                className={styles.datePicker}\n  131              >\n  ...\n  159                drops=\"up\"\n  160                opens=\"left\"\n  161:               onApply={onChangeDatePicker.bind(this, 'fristAbteilung')}\n  162                className={styles.datePicker}\n  163              >\n  ...\n  191                drops=\"up\"\n  192                opens=\"left\"\n  193:               onApply={onChangeDatePicker.bind(this, 'fristMitarbeiter')}\n  194                className={styles.datePicker}\n  195              >\n  ...\n  220                drops=\"up\"\n  221                opens=\"left\"\n  222:               onApply={onChangeDatePicker.bind(this, 'datumAusgangAwel')}\n  223                className={styles.datePicker}\n  224              >\n  ...\n  252                drops=\"up\"\n  253                opens=\"left\"\n  254:               onApply={onChangeDatePicker.bind(this, 'fristDirektion')}\n  255                className={styles.datePicker}\n  256              >\n  ...\n  272    values: PropTypes.object,\n  273    change: PropTypes.func.isRequired,\n  274:   onChangeDatePicker: PropTypes.func.isRequired,\n  275    nrOfFieldsBeforeFristen: PropTypes.number\n  276  }\n\nC:\\Users\\alex\\kapla\\app\\components\\filterFields\\AreaRechtsmittel.js:\n   22    nrOfFieldsBeforePv,\n   23    change,\n   24:   onChangeDatePicker\n   25  }) => {\n   26    /**\n   ..\n   94                drops=\"up\"\n   95                opens=\"left\"\n   96:               onApply={onChangeDatePicker.bind(this, 'rechtsmittelEntscheidDatum')}\n   97                className={styles.datePicker}\n   98              >\n   ..\n  132    nrOfFieldsBeforePv: PropTypes.number,\n  133    change: PropTypes.func.isRequired,\n  134:   onChangeDatePicker: PropTypes.func.isRequired\n  135  }\n  136  \n\nC:\\Users\\alex\\kapla\\app\\components\\filterFields\\FilterFields.js:\n   25    }\n   26  \n   27:   onChangeDatePicker = (name, e, picker) => {\n   28      const rVal = {\n   29        target: {\n   ..\n  122                nrOfFieldsBeforePv={nrOfFieldsBeforePv}\n  123                change={this.change}\n  124:               onChangeDatePicker={this.onChangeDatePicker}\n  125                values={values}\n  126              />\n  ...\n  129              nrOfFieldsBeforeFristen={nrOfFieldsBeforeFristen}\n  130              change={this.change}\n  131:             onChangeDatePicker={this.onChangeDatePicker}\n  132              values={values}\n  133            />\n\nC:\\Users\\alex\\kapla\\app\\components\\geschaeft\\AreaFristen.js:\n   53    change,\n   54    blur,\n   55:   onChangeDatePicker\n   56  }) => {\n   57    /**\n   ..\n   98                drops=\"up\"\n   99                opens=\"left\"\n  100:               onApply={onChangeDatePicker.bind(this, 'datumEingangAwel')}\n  101                className={styles.datePicker}\n  102              >\n  ...\n  131                drops=\"up\"\n  132                opens=\"left\"\n  133:               onApply={onChangeDatePicker.bind(this, 'fristAwel')}\n  134                className={styles.datePicker}\n  135              >\n  ...\n  164                drops=\"up\"\n  165                opens=\"left\"\n  166:               onApply={onChangeDatePicker.bind(this, 'fristAmtschef')}\n  167                className={styles.datePicker}\n  168              >\n  ...\n  197                drops=\"up\"\n  198                opens=\"left\"\n  199:               onApply={onChangeDatePicker.bind(this, 'fristAbteilung')}\n  200                className={styles.datePicker}\n  201              >\n  ...\n  230                drops=\"up\"\n  231                opens=\"left\"\n  232:               onApply={onChangeDatePicker.bind(this, 'fristMitarbeiter')}\n  233                className={styles.datePicker}\n  234              >\n  ...\n  261                drops=\"up\"\n  262                opens=\"left\"\n  263:               onApply={onChangeDatePicker.bind(this, 'datumAusgangAwel')}\n  264                className={styles.datePicker}\n  265              >\n  ...\n  294                drops=\"up\"\n  295                opens=\"left\"\n  296:               onApply={onChangeDatePicker.bind(this, 'fristDirektion')}\n  297                className={styles.datePicker}\n  298              >\n  ...\n  315    change: PropTypes.func.isRequired,\n  316    blur: PropTypes.func.isRequired,\n  317:   onChangeDatePicker: PropTypes.func.isRequired,\n  318    nrOfFieldsBeforeFristen: PropTypes.number\n  319  }\n\nC:\\Users\\alex\\kapla\\app\\components\\geschaeft\\AreaRechtsmittel.js:\n   23    change,\n   24    blur,\n   25:   onChangeDatePicker\n   26  }) => {\n   27    /**\n   ..\n   98                drops=\"up\"\n   99                opens=\"left\"\n  100:               onApply={onChangeDatePicker.bind(this, 'rechtsmittelEntscheidDatum')}\n  101                className={styles.datePicker}\n  102              >\n  ...\n  138    change: PropTypes.func.isRequired,\n  139    blur: PropTypes.func.isRequired,\n  140:   onChangeDatePicker: PropTypes.func.isRequired\n  141  }\n  142  \n\nC:\\Users\\alex\\kapla\\app\\components\\geschaeft\\Geschaeft.js:\n   27    }\n   28  \n   29:   onChangeDatePicker = (name, e, picker) => {\n   30      const rVal = {\n   31        target: {\n   ..\n  147                change={this.change}\n  148                blur={this.blur}\n  149:               onChangeDatePicker={this.onChangeDatePicker}\n  150              />\n  151            }\n  ...\n  154              change={this.change}\n  155              blur={this.blur}\n  156:             onChangeDatePicker={this.onChangeDatePicker}\n  157            />\n  158            <AreaPersonen\n\nC:\\Users\\alex\\kapla\\app\\containers\\filterFields\\AreaFristen.js:\n   11      change,\n   12      nrOfFieldsBeforeFristen,\n   13:     onChangeDatePicker\n   14    } = props\n   15  \n   ..\n   18      change,\n   19      nrOfFieldsBeforeFristen,\n   20:     onChangeDatePicker\n   21    }\n   22  }\n\nC:\\Users\\alex\\kapla\\app\\containers\\filterFields\\AreaRechtsmittel.js:\n   15      change,\n   16      nrOfFieldsBeforePv,\n   17:     onChangeDatePicker\n   18    } = props\n   19  \n   ..\n   24      change,\n   25      nrOfFieldsBeforePv,\n   26:     onChangeDatePicker\n   27    }\n   28  }\n\nC:\\Users\\alex\\kapla\\app\\containers\\geschaeft\\AreaFristen.js:\n   15      change,\n   16      nrOfFieldsBeforeFristen,\n   17:     onChangeDatePicker\n   18    } = props\n   19    const geschaeft = geschaefte.find((g) =>\n   ..\n   26      blur,\n   27      nrOfFieldsBeforeFristen,\n   28:     onChangeDatePicker\n   29    }\n   30  }\n\nC:\\Users\\alex\\kapla\\app\\containers\\geschaeft\\AreaRechtsmittel.js:\n   17      change,\n   18      nrOfFieldsBeforePv,\n   19:     onChangeDatePicker\n   20    } = props\n   21    const geschaeft = geschaefte.find((g) =>\n   ..\n   30      blur,\n   31      nrOfFieldsBeforePv,\n   32:     onChangeDatePicker\n   33    }\n   34  }\n\nC:\\Users\\alex\\kapla\\release\\win32-x64\\Kapla-win32-x64\\resources\\app\\app\\components\\filterFields\\AreaFristen.js:\n   19    nrOfFieldsBeforeFristen,\n   20    change,\n   21:   onChangeDatePicker\n   22  }) => {\n   23    /**\n   ..\n   63                drops=\"up\"\n   64                opens=\"left\"\n   65:               onApply={onChangeDatePicker.bind(this, 'datumEingangAwel')}\n   66                className={styles.datePicker}\n   67              >\n   ..\n   95                drops=\"up\"\n   96                opens=\"left\"\n   97:               onApply={onChangeDatePicker.bind(this, 'fristAwel')}\n   98                className={styles.datePicker}\n   99              >\n  ...\n  127                drops=\"up\"\n  128                opens=\"left\"\n  129:               onApply={onChangeDatePicker.bind(this, 'fristAmtschef')}\n  130                className={styles.datePicker}\n  131              >\n  ...\n  159                drops=\"up\"\n  160                opens=\"left\"\n  161:               onApply={onChangeDatePicker.bind(this, 'fristAbteilung')}\n  162                className={styles.datePicker}\n  163              >\n  ...\n  191                drops=\"up\"\n  192                opens=\"left\"\n  193:               onApply={onChangeDatePicker.bind(this, 'fristMitarbeiter')}\n  194                className={styles.datePicker}\n  195              >\n  ...\n  220                drops=\"up\"\n  221                opens=\"left\"\n  222:               onApply={onChangeDatePicker.bind(this, 'datumAusgangAwel')}\n  223                className={styles.datePicker}\n  224              >\n  ...\n  252                drops=\"up\"\n  253                opens=\"left\"\n  254:               onApply={onChangeDatePicker.bind(this, 'fristDirektion')}\n  255                className={styles.datePicker}\n  256              >\n  ...\n  272    values: PropTypes.object,\n  273    change: PropTypes.func.isRequired,\n  274:   onChangeDatePicker: PropTypes.func.isRequired,\n  275    nrOfFieldsBeforeFristen: PropTypes.number\n  276  }\n\nC:\\Users\\alex\\kapla\\release\\win32-x64\\Kapla-win32-x64\\resources\\app\\app\\components\\filterFields\\AreaRechtsmittel.js:\n   22    nrOfFieldsBeforePv,\n   23    change,\n   24:   onChangeDatePicker\n   25  }) => {\n   26    /**\n   ..\n   94                drops=\"up\"\n   95                opens=\"left\"\n   96:               onApply={onChangeDatePicker.bind(this, 'rechtsmittelEntscheidDatum')}\n   97                className={styles.datePicker}\n   98              >\n   ..\n  132    nrOfFieldsBeforePv: PropTypes.number,\n  133    change: PropTypes.func.isRequired,\n  134:   onChangeDatePicker: PropTypes.func.isRequired\n  135  }\n  136  \n\nC:\\Users\\alex\\kapla\\release\\win32-x64\\Kapla-win32-x64\\resources\\app\\app\\components\\filterFields\\FilterFields.js:\n   25    }\n   26  \n   27:   onChangeDatePicker = (name, e, picker) => {\n   28      const rVal = {\n   29        target: {\n   ..\n  122                nrOfFieldsBeforePv={nrOfFieldsBeforePv}\n  123                change={this.change}\n  124:               onChangeDatePicker={this.onChangeDatePicker}\n  125                values={values}\n  126              />\n  ...\n  129              nrOfFieldsBeforeFristen={nrOfFieldsBeforeFristen}\n  130              change={this.change}\n  131:             onChangeDatePicker={this.onChangeDatePicker}\n  132              values={values}\n  133            />\n\nC:\\Users\\alex\\kapla\\release\\win32-x64\\Kapla-win32-x64\\resources\\app\\app\\components\\geschaeft\\AreaFristen.js:\n   53    change,\n   54    blur,\n   55:   onChangeDatePicker\n   56  }) => {\n   57    /**\n   ..\n   98                drops=\"up\"\n   99                opens=\"left\"\n  100:               onApply={onChangeDatePicker.bind(this, 'datumEingangAwel')}\n  101                className={styles.datePicker}\n  102              >\n  ...\n  131                drops=\"up\"\n  132                opens=\"left\"\n  133:               onApply={onChangeDatePicker.bind(this, 'fristAwel')}\n  134                className={styles.datePicker}\n  135              >\n  ...\n  164                drops=\"up\"\n  165                opens=\"left\"\n  166:               onApply={onChangeDatePicker.bind(this, 'fristAmtschef')}\n  167                className={styles.datePicker}\n  168              >\n  ...\n  197                drops=\"up\"\n  198                opens=\"left\"\n  199:               onApply={onChangeDatePicker.bind(this, 'fristAbteilung')}\n  200                className={styles.datePicker}\n  201              >\n  ...\n  230                drops=\"up\"\n  231                opens=\"left\"\n  232:               onApply={onChangeDatePicker.bind(this, 'fristMitarbeiter')}\n  233                className={styles.datePicker}\n  234              >\n  ...\n  261                drops=\"up\"\n  262                opens=\"left\"\n  263:               onApply={onChangeDatePicker.bind(this, 'datumAusgangAwel')}\n  264                className={styles.datePicker}\n  265              >\n  ...\n  294                drops=\"up\"\n  295                opens=\"left\"\n  296:               onApply={onChangeDatePicker.bind(this, 'fristDirektion')}\n  297                className={styles.datePicker}\n  298              >\n  ...\n  315    change: PropTypes.func.isRequired,\n  316    blur: PropTypes.func.isRequired,\n  317:   onChangeDatePicker: PropTypes.func.isRequired,\n  318    nrOfFieldsBeforeFristen: PropTypes.number\n  319  }\n\nC:\\Users\\alex\\kapla\\release\\win32-x64\\Kapla-win32-x64\\resources\\app\\app\\components\\geschaeft\\AreaRechtsmittel.js:\n   23    change,\n   24    blur,\n   25:   onChangeDatePicker\n   26  }) => {\n   27    /**\n   ..\n   98                drops=\"up\"\n   99                opens=\"left\"\n  100:               onApply={onChangeDatePicker.bind(this, 'rechtsmittelEntscheidDatum')}\n  101                className={styles.datePicker}\n  102              >\n  ...\n  138    change: PropTypes.func.isRequired,\n  139    blur: PropTypes.func.isRequired,\n  140:   onChangeDatePicker: PropTypes.func.isRequired\n  141  }\n  142  \n\nC:\\Users\\alex\\kapla\\release\\win32-x64\\Kapla-win32-x64\\resources\\app\\app\\components\\geschaeft\\Geschaeft.js:\n   27    }\n   28  \n   29:   onChangeDatePicker = (name, e, picker) => {\n   30      const rVal = {\n   31        target: {\n   ..\n  147                change={this.change}\n  148                blur={this.blur}\n  149:               onChangeDatePicker={this.onChangeDatePicker}\n  150              />\n  151            }\n  ...\n  154              change={this.change}\n  155              blur={this.blur}\n  156:             onChangeDatePicker={this.onChangeDatePicker}\n  157            />\n  158            <AreaPersonen\n\nC:\\Users\\alex\\kapla\\release\\win32-x64\\Kapla-win32-x64\\resources\\app\\app\\containers\\filterFields\\AreaFristen.js:\n   11      change,\n   12      nrOfFieldsBeforeFristen,\n   13:     onChangeDatePicker\n   14    } = props\n   15  \n   ..\n   18      change,\n   19      nrOfFieldsBeforeFristen,\n   20:     onChangeDatePicker\n   21    }\n   22  }\n\nC:\\Users\\alex\\kapla\\release\\win32-x64\\Kapla-win32-x64\\resources\\app\\app\\containers\\filterFields\\AreaRechtsmittel.js:\n   15      change,\n   16      nrOfFieldsBeforePv,\n   17:     onChangeDatePicker\n   18    } = props\n   19  \n   ..\n   24      change,\n   25      nrOfFieldsBeforePv,\n   26:     onChangeDatePicker\n   27    }\n   28  }\n\nC:\\Users\\alex\\kapla\\release\\win32-x64\\Kapla-win32-x64\\resources\\app\\app\\containers\\geschaeft\\AreaFristen.js:\n   15      change,\n   16      nrOfFieldsBeforeFristen,\n   17:     onChangeDatePicker\n   18    } = props\n   19    const geschaeft = geschaefte.find((g) =>\n   ..\n   26      blur,\n   27      nrOfFieldsBeforeFristen,\n   28:     onChangeDatePicker\n   29    }\n   30  }\n\nC:\\Users\\alex\\kapla\\release\\win32-x64\\Kapla-win32-x64\\resources\\app\\app\\containers\\geschaeft\\AreaRechtsmittel.js:\n   17      change,\n   18      nrOfFieldsBeforePv,\n   19:     onChangeDatePicker\n   20    } = props\n   21    const geschaeft = geschaefte.find((g) =>\n   ..\n   30      blur,\n   31      nrOfFieldsBeforePv,\n   32:     onChangeDatePicker\n   33    }\n   34  }\n\n84 matches across 20 files\n",
 			"settings":
 			{
-				"buffer_size": 1502,
+				"buffer_size": 15420,
 				"line_ending": "Windows",
 				"name": "Find Results",
 				"scratch": true
 			}
 		},
 		{
-			"file": "app/src/exportGeschaefte.js",
+			"file": "app/components/filterFields/FilterFields.js",
 			"settings":
 			{
-				"buffer_size": 2568,
+				"buffer_size": 4904,
 				"line_ending": "Windows"
 			}
 		}
@@ -462,37 +474,104 @@
 		"/C/Users/alex/kapla",
 		"/C/Users/alex/kapla/app",
 		"/C/Users/alex/kapla/app/components",
+		"/C/Users/alex/kapla/app/components/geschaeft",
 		"/C/Users/alex/kapla/app/containers",
-		"/C/Users/alex/kapla/app/containers/geschaeft",
-		"/C/Users/alex/kapla/app/src"
+		"/C/Users/alex/kapla/app/containers/geschaeft"
 	],
 	"file_history":
 	[
-		"/C/Users/alex/kapla/app/src/writeExport.js",
-		"/C/Users/alex/kapla/app/components/navbar/Navbar.js",
-		"/C/Users/alex/kapla/app/src/sql/createTables.sql",
+		"/C/Users/alex/kapla/app/src/getDropdownOptions.js",
+		"/C/Users/alex/kapla/app/components/filterFields/AreaGeschaeft.js",
+		"/C/Users/alex/kapla/app/containers/filterFields/AreaGeschaeft.js",
+		"/C/Users/alex/kapla/app/containers/geschaeft/AreaGeschaeft.js",
 		"/C/Users/alex/kapla/app/components/geschaeft/AreaGeschaeft.js",
-		"/C/Users/alex/kapla/app/components/geschaeft/AreaGeschaeft.css",
+		"/C/Users/alex/kapla/app/actions/app.js",
 		"/C/Users/alex/kapla/app/actions/geschaefte.js",
 		"/C/Users/alex/kapla/app/reducers/geschaefte.js",
-		"/C/Users/alex/kapla/app/containers/geschaeft/AreaGeschaeft.js",
+		"/C/Users/alex/kapla/app/containers/filterFields/FilterFields.js",
+		"/C/Users/alex/kapla/app/components/filterFields/FilterFields.js",
+		"/C/Users/alex/kapla/app/components/navbar/Navbar.js",
+		"/C/Users/alex/kapla/app/components/navbar/StammdatenNav.js",
+		"/C/Users/alex/kapla/app/src/sql/createTables.sql",
+		"/C/Users/alex/kapla/app/components/filterFields/AreaFristen.js",
+		"/C/Users/alex/kapla/app/components/filterFields/AreaHistory.js",
+		"/C/Users/alex/kapla/app/components/filterFields/AreaNummern.js",
+		"/C/Users/alex/kapla/app/components/filterFields/AreaParlVorstoss.js",
+		"/C/Users/alex/kapla/app/components/filterFields/AreaPersonen.js",
+		"/C/Users/alex/kapla/app/components/filterFields/AreaRechtsmittel.js",
+		"/C/Users/alex/kapla/app/components/filterFields/AreaZuletztMutiert.js",
+		"/C/Users/alex/kapla/app/components/filterFields/AreaFristen.css",
+		"/C/Users/alex/kapla/app/components/filterFields/AreaHistory.css",
+		"/C/Users/alex/kapla/app/containers/filterFields/AreaHistory.js",
+		"/C/Users/alex/kapla/app/containers/filterFields/AreaHistoryRows.js",
+		"/C/Users/alex/kapla/app/containers/filterFields/AreaNummern.js",
+		"/C/Users/alex/kapla/app/containers/filterFields/AreaParlVorstoss.js",
+		"/C/Users/alex/kapla/app/containers/filterFields/AreaPersonen.js",
+		"/C/Users/alex/kapla/app/containers/filterFields/AreaRechtsmittel.js",
+		"/C/Users/alex/kapla/app/containers/filterFields/AreaZuletztMutiert.js",
+		"/C/Users/alex/kapla/app/containers/filterFields/AreaFristen.js",
+		"/C/Users/alex/kapla/app/src/filterGeschaefte.js",
+		"/C/Users/alex/kapla/app/components/FilterFieldsLayout.js",
+		"/C/Users/alex/kapla/app/components/GeschaefteLayout.js",
+		"/C/Users/alex/kapla/app/containers/geschaeft/Geschaeft.js",
+		"/C/Users/alex/kapla/app/components/filterFields/Geschaeft.js",
+		"/C/Users/alex/kapla/app/components/filterFields/AreaZuletztMutiert.css",
+		"/C/Users/alex/kapla/app/containers/filterFields/Geschaeft.js",
+		"/C/Users/alex/kapla/app/containers/filterFields/KontakteExtern.js",
+		"/C/Users/alex/kapla/app/containers/filterFields/KontakteExternItems.js",
+		"/C/Users/alex/kapla/app/containers/filterFields/KontakteIntern.js",
+		"/C/Users/alex/kapla/app/containers/filterFields/KontakteInternItems.js",
+		"/C/Users/alex/kapla/app/components/geschaeft/Geschaeft.js",
+		"/C/Users/alex/kapla/app/components/filterFields/KontakteExtern.js",
+		"/C/Users/alex/kapla/app/components/filterFields/KontakteIntern.js",
+		"/C/Users/alex/kapla/app/containers/geschaeft/GeschaeftMethods.js",
+		"/C/Users/alex/kapla/app/components/geschaeft/Geschaeft.css",
+		"/C/Users/alex/kapla/app/app.global.css",
+		"/C/Users/alex/kapla/app/containers/App.js",
+		"/C/Users/alex/kapla/app/routes.js",
+		"/C/Users/alex/kapla/app/components/geschaeft/AreaZuletztMutiert.css",
+		"/C/Users/alex/kapla/app/components/geschaefteLayout.css",
+		"/C/Users/alex/kapla/app/components/Geschaefte.js",
+		"/C/Users/alex/kapla/app/components/Geschaefte.css",
+		"/C/Users/alex/kapla/app/components/geschaeft/AreaZuletztMutiert.js",
+		"/C/Users/alex/kapla/app/components/geschaeft/AreaNummern.css",
+		"/C/Users/alex/kapla/app/components/geschaeft/AreaHistory.js",
+		"/C/Users/alex/kapla/app/components/geschaeft/AreaHistoryRows.js",
+		"/C/Users/alex/kapla/app/components/geschaeft/AreaHistory.css",
+		"/C/Users/alex/kapla/app/components/geschaeft/AreaPersonen.js",
+		"/C/Users/alex/kapla/app/components/geschaeft/AreaPersonen.css",
+		"/C/Users/alex/kapla/app/components/geschaeft/KontakteIntern.js",
+		"/C/Users/alex/kapla/app/components/geschaeft/KontakteIntern.css",
+		"/C/Users/alex/kapla/app/components/geschaeft/KontakteExtern.css",
+		"/C/Users/alex/kapla/app/components/geschaeft/AreaGeschaeft.css",
+		"/C/Users/alex/kapla/app/components/table/Table.js",
+		"/C/Users/alex/kapla/main.js",
+		"/C/Users/alex/kapla/package.js",
+		"/C/Users/alex/kapla/app/components/page/faelligeGeschaefte/Rows.js",
+		"/C/Users/alex/kapla/app/src/sql/createViews.sql",
+		"/C/Users/alex/kapla/app/src/sql/updateTables.sql",
+		"/C/Users/alex/kapla/app/src/sql/forceReferenceGeschaefteKontakteIntern.sql",
+		"/C/Users/alex/kapla/app/src/sql/forceReferenceGeschaefteKontakteExtern.sql",
+		"/C/Users/alex/kapla/app/src/sql/getGeschaeftsarten.sql",
+		"/D/Google Drive/awel-kapla/howto.txt",
+		"/D/Google Drive/awel-kapla/DatenProbleme.txt",
+		"/C/Users/alex/kapla/app/components/geschaeft/AreaFristen.js",
+		"/C/Users/alex/kapla/app/src/exportGeschaefte.js",
+		"/C/Users/alex/kapla/app/src/writeExport.js",
 		"/C/Users/alex/kapla/app/components/navbar/ExportGeschaefteNav.js",
 		"/C/Users/alex/kapla/app/components/page/list1/Rows.js",
 		"/C/Users/alex/kapla/app/components/page/list1/Header.js",
 		"/C/Users/alex/kapla/app/components/page/faelligeGeschaefte/FaelligeGeschaefte.css",
-		"/C/Users/alex/kapla/app/components/page/faelligeGeschaefte/Rows.js",
 		"/C/Users/alex/kapla/app/components/page/faelligeGeschaefte/Header.js",
 		"/C/Users/alex/kapla/app/components/navbar/BerichteNav.js",
 		"/C/Users/alex/kapla/app/components/navbar/Navbar.css",
 		"/C/Users/alex/kapla/app/components/page/Page.js",
 		"/C/Users/alex/kapla/app/components/navbar/GeschaefteFilterNav.js",
 		"/C/Users/alex/kapla/app/src/filterForVernehmlLaeuft.js",
-		"/C/Users/alex/kapla/app/app.global.css",
 		"/C/Users/alex/kapla/app/containers/navbar/Navbar.js",
 		"/C/Users/alex/kapla/app/containers/page/Page.js",
 		"/C/Users/alex/kapla/app/components/page/faelligeGeschaefte/header.js",
 		"/C/Users/alex/kapla/app/components/page/list1/header.js",
-		"/C/Users/alex/kapla/app/components/geschaeft/AreaFristen.js",
 		"/C/Users/alex/kapla/app/components/Pages.js",
 		"/C/Users/alex/kapla/app/components/TableLayout.js",
 		"/C/Users/alex/kapla/app/components/table/TableLayout.js",
@@ -506,24 +585,16 @@
 		"/C/Users/alex/kapla/app/containers/geschaeft/AreaPersonen.js",
 		"/C/Users/alex/kapla/app/containers/geschaeft/AreaRechtsmittel.js",
 		"/C/Users/alex/kapla/app/containers/geschaeft/AreaZuletztMutiert.js",
-		"/C/Users/alex/kapla/app/components/Geschaefte.js",
-		"/C/Users/alex/kapla/app/containers/geschaeft/Geschaeft.js",
 		"/C/Users/alex/kapla/app/containers/geschaeft/KontakteExtern.js",
 		"/C/Users/alex/kapla/app/containers/geschaeft/KontakteExternItems.js",
 		"/C/Users/alex/kapla/app/containers/geschaeft/KontakteIntern.js",
 		"/C/Users/alex/kapla/app/containers/geschaeft/KontakteInternItems.js",
-		"/C/Users/alex/kapla/app/components/geschaeft/Geschaeft.js",
 		"/C/Users/alex/kapla/app/components/geschaeft/KontakteExtern.js",
 		"/C/Users/alex/kapla/app/components/geschaeft/KontakteExternItems.js",
-		"/C/Users/alex/kapla/app/components/geschaeft/KontakteIntern.js",
 		"/C/Users/alex/kapla/app/components/geschaeft/AreaRechtsmittel.js",
-		"/C/Users/alex/kapla/app/components/geschaeft/AreaPersonen.js",
 		"/C/Users/alex/kapla/app/components/geschaeft/AreaParlVorstoss.js",
-		"/C/Users/alex/kapla/app/components/geschaeft/AreaHistoryRows.js",
-		"/C/Users/alex/kapla/app/components/geschaeft/AreaHistory.js",
 		"/C/Users/alex/kapla/app/components/geschaeft/KontakteInternItems.js",
 		"/C/Users/alex/kapla/app/containers/geschaeft/GeschaeftKontakteExtern.js",
-		"/C/Users/alex/kapla/app/components/GeschaefteLayout.js",
 		"/C/Users/alex/kapla/app/containers/navbar/ExportGeschaefteNav.js",
 		"/C/Users/alex/kapla/app/containers/navbar/GeschaeftDeleteNav.js",
 		"/C/Users/alex/kapla/app/containers/navbar/GeschaefteFilterNav.js",
@@ -533,69 +604,10 @@
 		"/C/Users/alex/kapla/app/containers/navbar/TableRowDeleteNav.js",
 		"/C/Users/alex/kapla/app/containers/navbar/TableRowNewNav.js",
 		"/C/Users/alex/kapla/app/containers/navbar/BerichteNav.js",
-		"/C/Users/alex/kapla/app/containers/App.js",
 		"/C/Users/alex/kapla/app/components/Navbar.js",
 		"/C/Users/alex/kapla/app/components/Navbar.css",
 		"/C/Users/alex/kapla/app/components/NavbarOptionsNav.js",
-		"/C/Users/alex/kapla/app/components/NavbarPrintNav.js",
-		"/C/Users/alex/kapla/app/components/NavbarStammdatenNav.js",
-		"/C/Users/alex/kapla/app/containers/NavbarPrintNav.js",
-		"/C/Users/alex/kapla/app/components/NavbarExportGeschaefteNav.js",
-		"/C/Users/alex/kapla/app/components/NavbarTableRowDeleteNav.js",
-		"/C/Users/alex/kapla/app/components/NavbarTableRowNeuNav.js",
-		"/C/Users/alex/kapla/app/components/NavbarGeschaeftLoeschenNav.js",
-		"/C/Users/alex/kapla/app/containers/NavbarGeschaeftNeuNav.js",
-		"/C/Users/alex/kapla/app/components/NavbarGeschaeftNeuNav.js",
-		"/C/Users/alex/kapla/app/components/NavbarGeschaefteFilterNav.js",
-		"/C/Users/alex/kapla/app/containers/NavbarGeschaefteFilterNav.js",
-		"/C/Users/alex/kapla/app/components/NavbarBerichteNav.js",
-		"/C/Users/alex/kapla/app/containers/NavbarFulltextFilter.js",
-		"/C/Users/alex/kapla/app/components/NavbarFulltextFilter.js",
-		"/C/Users/alex/kapla/app/containers/Navbar.js",
-		"/C/Users/alex/kapla/app/components/AreaFristen.js",
-		"/C/Users/alex/kapla/app/components/Geschaeft.js",
-		"/C/Users/alex/kapla/app/components/AreaHistory.js",
-		"/C/Users/alex/kapla/app/components/AreaHistoryRows.js",
-		"/C/Users/alex/kapla/app/components/GeschaeftKontakteIntern.js",
-		"/C/Users/alex/kapla/app/components/GeschaeftKontakteIntern.css",
-		"/C/Users/alex/kapla/app/components/AreaGeschaeft.js",
-		"/C/Users/alex/kapla/app/components/AreaNummern.js",
-		"/C/Users/alex/kapla/package.js",
-		"/C/Users/alex/kapla/app/components/AreaRechtsmittel.js",
-		"/C/Users/alex/kapla/app/components/GeschaeftKontakteExtern.js",
-		"/C/Users/alex/kapla/app/components/GeschaeftKontakteExternItems.js",
-		"/C/Users/alex/kapla/app/components/Table.js",
-		"/C/Users/alex/kapla/app/components/tableRow.js",
-		"/C/Users/alex/kapla/app/src/sql/createViews.sql",
-		"/C/Users/alex/Downloads/itKonto.sql",
-		"/C/Users/alex/kapla/app/src/filterGeschaefte.js",
-		"/C/Users/alex/kapla/app/reducers/pages.js",
-		"/C/Users/alex/kapla/app/actions/pages.js",
-		"/C/Users/alex/kapla/app/components/PageFristenRows.js",
-		"/C/Users/alex/kapla/app/components/Page.js",
-		"/C/Users/alex/kapla/app/src/filterForAngekVernehml.js",
-		"/C/Users/alex/kapla/app/src/filterForFaelligeGeschaefte.js",
-		"/C/Users/alex/kapla/app/components/PageFristenHeader.js",
-		"/C/Users/alex/kapla/app/components/PageList1Rows.js",
-		"/C/Users/alex/kapla/app/components/PageFristen.css",
-		"/C/Users/alex/kapla/app/components/PageList1Header.js",
-		"/C/Users/alex/kapla/app/components/VernehmlAngekRows.js",
-		"/C/Users/alex/kapla/app/components/VernehmlAngekHeader.js",
-		"/C/Users/alex/kapla/app/components/PageVernehmlAngek.css",
-		"/C/Users/alex/kapla/app/src/exportGeschaefte.js",
-		"/C/Users/alex/kapla/app/actions/app.js",
-		"/C/Users/alex/kapla/app/components/ModalMessage.js",
-		"/C/Users/alex/kapla/app/containers/ModalMessage.js",
-		"/C/Users/alex/kapla/app/reducers/app.js",
-		"/C/Users/alex/kapla/app/src/sql/updateTables.sql",
-		"/C/Users/alex/kapla/app/containers/Geschaefte.js",
-		"/C/Users/alex/kapla/app/reducers/index.js",
-		"/C/Users/alex/Downloads/test.xlsx",
-		"/C/Users/alex/kapla/app/reducers/geschaefteKontakteIntern.js",
-		"/C/Users/alex/kapla/.eslintrc",
-		"/C/Users/alex/kapla/app/index.js",
-		"/C/Users/alex/kapla/app/app.html",
-		"/C/Users/alex/kapla/app/store/configureStore.production.js"
+		"/C/Users/alex/kapla/app/components/NavbarPrintNav.js"
 	],
 	"find":
 	{
@@ -606,6 +618,10 @@
 		"height": 133.0,
 		"where_history":
 		[
+			"C:\\Users\\alex\\kapla",
+			"C:\\Users\\alex\\kapla\\*",
+			"C:\\Users\\alex\\kapla\\app\\components\\filterFields",
+			"C:\\Users\\alex\\kapla\\app\\containers\\filterFields",
 			"C:\\Users\\alex\\kapla, -app.asar, -release\\*",
 			"C:\\Users\\alex\\kapla, -app.asar, -C:\\Users\\alex\\kapla\\release",
 			"C:\\Users\\alex\\kapla, -app.asar, -release",
@@ -624,6 +640,124 @@
 		"case_sensitive": true,
 		"find_history":
 		[
+			"onChangeDatePicker",
+			"statusOptions",
+			"createOptions",
+			"geschaeftsartOptions",
+			"rechtsmittelInstanz",
+			"rechtsmittelInstanzOptionsGet",
+			"rechtsmittelInstanz",
+			"RECHTSMITTEL_INSTANZ",
+			"rechtsmittelInstanz",
+			"getDropdownOptions",
+			"rechtsmittelInstanz",
+			"abteilung",
+			"stammdatenTitle",
+			"geschaefteFilterByFulltextSet",
+			"onKeyPressFilterFulltext",
+			"GESCHAEFTE_FILTER_BY_FULLTEXT",
+			"geschaefteFilterByFulltextSet",
+			"onChangeFilterFulltext",
+			"statusFristInStyle",
+			"geschaeft",
+			"blur",
+			"\n            onBlur={blur}",
+			"\n          onBlur={blur}",
+			"blur",
+			"geschaeft",
+			"verantwortlichData",
+			"blur",
+			"\n        onBlur={blur}",
+			"blur",
+			"geschaeft",
+			"blur",
+			"\n        onBlur={blur}",
+			"blur",
+			"geschaeft",
+			"blur",
+			"\n          onBlur={blur}",
+			"blur",
+			"geschaeft",
+			"fieldFristDauerBisMitarbeiter",
+			"\n            onBlur={blur}",
+			"geschaeft.",
+			"values",
+			"\n          onBlur={blur}",
+			"Geschaeft",
+			"FilterFields",
+			"values",
+			"\n              blur={this.blur}",
+			"showGeschaeft",
+			"\n            blur={this.blur}",
+			"comparator",
+			"\n          className={styles.textarea}",
+			"Textarea",
+			"geschaeft.",
+			"GeschaefteLayout",
+			"geschaefteLayoutState",
+			"geschaefteLayout",
+			"Geschaefte",
+			"geschaefte",
+			"AreaZuletztMutiert",
+			"containers/geschaeft",
+			"components/geschaeft",
+			"this.onChangeDatePicker",
+			"onChangeDatePicker",
+			"Geschaeft",
+			"this.blur",
+			"blur",
+			"this.change",
+			"change",
+			"calc(100vh - 52px)",
+			"#828282",
+			"vermerkInternToggleVisibility",
+			"vermerkInternDisplay",
+			"vermerkInternVisible",
+			"VERMERK_INTERN_TOGGLE_VISIBILITY",
+			"vermerkInternToggleVisibility",
+			"vermerkInternLabel",
+			"Textarea",
+			"textarea",
+			"webkit-scrollbar",
+			"reactList",
+			"webkit-scrollbar",
+			"1.2.3",
+			"REFERENCES",
+			"Intern",
+			"geschaefteKontakteIntern",
+			"geschaeftsart",
+			"rechtsmittelErledigung",
+			"gegenstandlos",
+			"\n",
+			"(",
+			"('",
+			"parlVorstossTyp",
+			"UPDATE TABLE",
+			"UPDATE",
+			"gdeplz",
+			"plz",
+			"gemeinde",
+			"gdeplz",
+			"CREATE TABLE",
+			"geschaeftsart",
+			"geschaefte",
+			"DROP INDEX",
+			"INDEX",
+			"geschaefte",
+			"REFERENCES",
+			"geschaefte",
+			"INDEX",
+			",",
+			"NO ACTION",
+			"status",
+			"\n",
+			" INTEGER",
+			" TEXT",
+			"zeigeBereichRechtsmittel",
+			"kontakteIntern",
+			"RD",
+			"Frist bis",
+			"parlVorstossTyp",
 			"exceljs",
 			"fieldVermerk",
 			"fieldsWanted",
@@ -633,125 +767,7 @@
 			"dir",
 			"gegenstand",
 			"fieldGegenstand",
-			"FaelligeGeschaefteRows",
-			"reportType",
-			"onSelectFilterVernehmlAngek",
-			"onSelectFilterAngekVernehml",
-			"angekündigte Vernehmlassungen",
-			"filterForVernehmlLaeuft",
-			"filterForVernehmlAngek",
-			"vernehmlAngek",
-			"status",
-			"filterForAngekVernehml",
-			"Berichte, die den gesetzten",
-			"Fällige Geschäfte",
-			"classNameBadge",
-			"PageList1Rows",
-			"PageList1Header",
-			"PageFaelligeGeschaefteRows",
-			"PageFaelligeGeschaefteHeader",
-			"Fristen",
-			"Page",
-			"Table",
-			"Geschaefte.css",
-			"GeschaeftKontakteInternItems",
-			"GeschaeftKontakteExternItems",
-			"GeschaeftKontakteExtern",
-			"GeschaeftKontakteIntern",
-			"GeschaeftKontakteInternItems",
-			"GeschaeftKontakteIntern",
-			"GeschaeftKontakteExtern",
-			"GeschaeftKontakteExternItems",
-			"Geschaeft",
-			"Navbar",
-			"NavbarTableRowNeuNav",
-			"NavbarTableRowDeleteNav",
-			"NavbarStammdatenNav",
-			"NavbarOptionsNav",
-			"NavbarGeschaeftNeuNav",
-			"NavbarGeschaefteFilterNav",
-			"NavbarExportGeschaefteNav",
-			"NavbarBerichteNav",
-			"NavbarGeschaeftLoeschenNav",
-			"Navbar",
-			"dbGet",
-			"NavbarComponent",
-			"Navbar",
-			"NavbarStammdatenNav",
-			"NavbarPrintNav",
-			"NavbarExportGeschaefteNav",
-			"NavbarTableRowDeleteNav",
-			"NavbarTableRowNeuNav",
-			"NavbarGeschaeftLoeschenNav",
-			"NavbarBerichteNav",
-			"NavbarGeschaefteFilterNav",
-			"NavbarGeschaeftNeuNav",
-			"stammdatenTitle",
-			"getTable",
-			"stammdatenTitle",
-			"NavbarComponent",
-			"Navbar",
-			"stammdatenTitle",
-			"filterFulltext",
-			"onClickPrint",
-			"printNav",
-			"onClickPrint",
-			"NavbarComponent",
-			"Navbar",
-			"messageShow",
-			"geschaefteGefilterteIds",
-			"geschaefte",
-			"exportGeschaefte",
-			"isInPreviousTwoYears",
-			"exportGeschaefteRechtsmittelVorjahre",
-			"messageShow",
-			"exportGeschaefteRechtsmittelVorjahre",
-			"exportGeschaefteAll",
-			"NavbarExportGeschaefteNav",
-			"exportGeschaefteRechtsmittelVorjahre",
-			"exportGeschaefteAll",
-			"geschaefteGefilterteIds",
-			"exportGeschaefteAll",
-			"exportGeschaefteNav",
-			"exportGeschaefteAll",
-			"exportGeschaefteRechtsmittelVorjahre",
-			"NavbarComponent",
-			"Navbar",
-			"exportGeschaefteRechtsmittelVorjahre",
-			"NavbarTableRowDeleteNav",
-			"tableRowRemove",
-			"activeTableRowId",
-			"table",
-			"tableRowLoeschenNav",
-			"NavbarComponent",
-			"Navbar",
-			"tableRowRemove",
-			"table",
-			"rowNewCreate",
-			"tableRowNeuNav",
-			"rowNewCreate",
-			"NavbarComponent",
-			"Navbar",
-			"activeId",
-			"geschaeftSetDeleteIntended",
-			"geschaeftLoeschenNav",
-			"geschaeftSetDeleteIntended",
-			"NavbarComponent",
-			"Navbar",
-			"geschaeftNewCreate",
-			"NavbarGeschaeftNeuNav",
-			"geschaeftNewCreate",
-			"geschaeftNeuNav",
-			"NavbarComponent",
-			"Navbar",
-			"onSelectFilterFaelligeGeschaefte",
-			"focusFulltextFilter",
-			"onSelectFilterAngekVernehml",
-			"onSelectFilterFaelligeGeschaefteMitarbeiter",
-			"onSelectFilterFaelligeGeschaefte",
-			"()",
-			"onSelectFilterFaelligeGeschaefte",
-			"pages"
+			"FaelligeGeschaefteRows"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -759,6 +775,51 @@
 		"regex": false,
 		"replace_history":
 		[
+			"abteilung",
+			"ABTEILUNG",
+			"abteilung",
+			"values",
+			"",
+			"values",
+			"",
+			"values",
+			"",
+			"values",
+			"",
+			"values",
+			"",
+			"values.",
+			"",
+			"FilterFields",
+			"",
+			"FormControl\n          type=\"text\"",
+			"values.",
+			"FilterFieldsLayout",
+			"filterFieldsLayoutState",
+			"filterFieldsLayout",
+			"containers/filterFields",
+			"components/filterFields",
+			"onChangeDatePicker",
+			"GeschaeftMethods",
+			"blur",
+			"change",
+			"#757575",
+			"1.2.5",
+			"Extern",
+			"geschaefteKontakteIntern2",
+			"rechtsmittelInstanz",
+			"gegenstandslos",
+			" ",
+			"",
+			"UPDATE",
+			"geschaefte2",
+			"DROP INDEX IF EXISTS",
+			"geschaefte2",
+			"",
+			"RESTRICT",
+			" ",
+			"",
+			"verantwortlich",
 			"fieldVermerkIntern",
 			"fieldAbteilung",
 			"ausloeser",
@@ -841,63 +902,18 @@
 			"blur",
 			"change",
 			"AreaGeschaeft",
-			"blur",
-			"change",
-			"AreaNummern",
-			"validateDate",
-			"onChangeDatePicker",
-			"getDateValidationStateDate",
-			"blur",
-			"change",
-			"AreaFristen",
-			"blur",
-			"change",
-			"AreaParlVorstoss",
-			"AreaPersonen",
-			"AreaHistory",
-			"AreaZuletztMutiert",
-			"areaZuletztMutiert",
-			"AreaParlVorstoss",
-			"areaParlVorstoss",
-			"areaHistory",
-			"areaZuletztMutiert",
-			"",
-			"labelEntscheidAwel",
-			"addNachgeschaefteToHistory",
-			"addVorgeschaefteToHistory",
-			"",
-			"GeschaefteLayoutContainer",
-			"externe",
-			"Extern",
-			"EXTERN",
-			"Extern",
-			"geschaeftKontaktInternNewCreate",
-			"geschaefteKontakteIntern",
-			"geschaeftKontaktInternToggleActivated",
-			"geschaefteKontakteIntern",
-			"GESCHAEFTE_KONTAKTE_INTERN",
-			"GESCHAEFT_KONTAKTE_INTERN",
-			"geschaeftKontaktIntern",
-			"GESCHAEFT_KONTAKT_INTERN",
-			"GESCHAEFTE_KONTAKTE_INTERN",
-			"geschaefteKontakteIntern",
-			"GESCHAEFT_KONTAKT_INTERN_REMOVE_DELETE_INTENDED",
-			"GESCHAEFT_KONTAKT_INTERN_SET_DELETE_INTENDED",
-			"GESCHAEFT_KONTAKT_INTERN_NEW_ERROR",
-			"GESCHAEFT_KONTAKT_INTERN_NEW",
-			"GESCHAEFTE_KONTAKTE_INTERN_GET_ERROR",
-			"GESCHAEFTE_KONTAKTE_INTERN_GET_SUCCESS"
+			"blur"
 		],
 		"reverse": false,
 		"show_context": true,
 		"use_buffer2": true,
-		"whole_word": true,
+		"whole_word": false,
 		"wrap": true
 	},
 	"groups":
 	[
 		{
-			"selected": 0,
+			"selected": 2,
 			"sheets":
 			[
 				{
@@ -906,15 +922,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 4619,
+						"buffer_size": 5012,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2393,
-								2393
+								3151,
+								3151
 							]
 						],
 						"settings":
@@ -924,10 +940,10 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 1254.0,
+						"translation.y": 1488.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
+					"stack_index": 2,
 					"type": "text"
 				},
 				{
@@ -935,7 +951,7 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1502,
+						"buffer_size": 15420,
 						"regions":
 						{
 							"match":
@@ -944,32 +960,340 @@
 								"regions":
 								[
 									[
-										214,
-										221
+										187,
+										205
 									],
 									[
-										317,
-										324
+										336,
+										354
 									],
 									[
-										492,
-										499
+										561,
+										579
 									],
 									[
-										742,
-										749
+										779,
+										797
 									],
 									[
-										948,
-										955
+										1001,
+										1019
 									],
 									[
-										1156,
-										1163
+										1224,
+										1242
 									],
 									[
-										1447,
-										1454
+										1449,
+										1467
+									],
+									[
+										1674,
+										1692
+									],
+									[
+										1889,
+										1907
+									],
+									[
+										2121,
+										2139
+									],
+									[
+										2270,
+										2288
+									],
+									[
+										2509,
+										2527
+									],
+									[
+										2666,
+										2684
+									],
+									[
+										2889,
+										2907
+									],
+									[
+										2914,
+										2932
+									],
+									[
+										3127,
+										3145
+									],
+									[
+										3152,
+										3170
+									],
+									[
+										3330,
+										3348
+									],
+									[
+										3479,
+										3497
+									],
+									[
+										3704,
+										3722
+									],
+									[
+										3922,
+										3940
+									],
+									[
+										4144,
+										4162
+									],
+									[
+										4367,
+										4385
+									],
+									[
+										4592,
+										4610
+									],
+									[
+										4817,
+										4835
+									],
+									[
+										5039,
+										5057
+									],
+									[
+										5254,
+										5272
+									],
+									[
+										5403,
+										5421
+									],
+									[
+										5637,
+										5655
+									],
+									[
+										5788,
+										5806
+									],
+									[
+										5988,
+										6006
+									],
+									[
+										6013,
+										6031
+									],
+									[
+										6175,
+										6193
+									],
+									[
+										6200,
+										6218
+									],
+									[
+										6402,
+										6420
+									],
+									[
+										6520,
+										6538
+									],
+									[
+										6690,
+										6708
+									],
+									[
+										6803,
+										6821
+									],
+									[
+										6970,
+										6988
+									],
+									[
+										7128,
+										7146
+									],
+									[
+										7295,
+										7313
+									],
+									[
+										7448,
+										7466
+									],
+									[
+										7660,
+										7678
+									],
+									[
+										7809,
+										7827
+									],
+									[
+										8034,
+										8052
+									],
+									[
+										8252,
+										8270
+									],
+									[
+										8474,
+										8492
+									],
+									[
+										8697,
+										8715
+									],
+									[
+										8922,
+										8940
+									],
+									[
+										9147,
+										9165
+									],
+									[
+										9362,
+										9380
+									],
+									[
+										9642,
+										9660
+									],
+									[
+										9791,
+										9809
+									],
+									[
+										10030,
+										10048
+									],
+									[
+										10235,
+										10253
+									],
+									[
+										10458,
+										10476
+									],
+									[
+										10483,
+										10501
+									],
+									[
+										10696,
+										10714
+									],
+									[
+										10721,
+										10739
+									],
+									[
+										10947,
+										10965
+									],
+									[
+										11096,
+										11114
+									],
+									[
+										11321,
+										11339
+									],
+									[
+										11539,
+										11557
+									],
+									[
+										11761,
+										11779
+									],
+									[
+										11984,
+										12002
+									],
+									[
+										12209,
+										12227
+									],
+									[
+										12434,
+										12452
+									],
+									[
+										12656,
+										12674
+									],
+									[
+										12919,
+										12937
+									],
+									[
+										13068,
+										13086
+									],
+									[
+										13302,
+										13320
+									],
+									[
+										13501,
+										13519
+									],
+									[
+										13701,
+										13719
+									],
+									[
+										13726,
+										13744
+									],
+									[
+										13888,
+										13906
+									],
+									[
+										13913,
+										13931
+									],
+									[
+										14163,
+										14181
+									],
+									[
+										14281,
+										14299
+									],
+									[
+										14499,
+										14517
+									],
+									[
+										14612,
+										14630
+									],
+									[
+										14827,
+										14845
+									],
+									[
+										14985,
+										15003
+									],
+									[
+										15200,
+										15218
+									],
+									[
+										15353,
+										15371
 									]
 								],
 								"scope": ""
@@ -978,8 +1302,8 @@
 						"selection":
 						[
 							[
-								950,
-								950
+								2679,
+								2679
 							]
 						],
 						"settings":
@@ -995,7 +1319,7 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 297.0,
+						"translation.y": 2178.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 1,
@@ -1003,19 +1327,19 @@
 				},
 				{
 					"buffer": 2,
-					"file": "app/src/exportGeschaefte.js",
+					"file": "app/components/filterFields/FilterFields.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 2568,
+						"buffer_size": 4904,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								890,
-								890
+								1310,
+								1314
 							]
 						],
 						"settings":
@@ -1025,10 +1349,10 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 651.0,
+						"translation.y": 717.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 2,
+					"stack_index": 0,
 					"type": "text"
 				}
 			]
@@ -1111,7 +1435,7 @@
 	"show_open_files": true,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 293.0,
+	"side_bar_width": 391.0,
 	"status_bar_visible": true,
 	"template_settings":
 	{

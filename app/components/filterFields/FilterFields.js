@@ -32,7 +32,7 @@ class FilterFields extends Component {
         value: picker.startDate
       }
     }
-    this.blur(rVal)
+    this.change(rVal)
   }
 
   change = (e) => {
