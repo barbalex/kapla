@@ -4,7 +4,7 @@ import React, { Component, PropTypes } from 'react'
 import ReactDOM from 'react-dom'
 import moment from 'moment'
 moment.locale('de')
-import styles from './Geschaeft.css'
+import styles from './filterFields.css'
 import isDateField from '../../src/isDateField'
 import validateDate from '../../src/validateDate'
 import AreaGeschaeft from '../../containers/filterFields/AreaGeschaeft'

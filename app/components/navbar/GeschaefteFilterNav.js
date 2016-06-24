@@ -70,7 +70,7 @@ const NavbarGeschaefteFilterNav = ({
       <MenuItem header>
         individuell:
       </MenuItem>
-      <LinkContainer to={{ pathname: '/filter' }}>
+      <LinkContainer to={{ pathname: '/filterFields' }}>
         <MenuItem eventKey={3.1}>
           nach Feldern
         </MenuItem>
