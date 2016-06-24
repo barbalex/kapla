@@ -1,3 +1,4 @@
+DROP TABLE IF EXISTS externe;
 CREATE TABLE externe (
   id INTEGER PRIMARY KEY,
   eMail TEXT,
@@ -13,6 +14,7 @@ CREATE INDEX iExterneVornameName ON externe (vorname, name);
 
 -------------------------------------------
 
+DROP TABLE IF EXISTS interne;
 CREATE TABLE interne (
   id INTEGER PRIMARY KEY,
   abteilung TEXT,
@@ -31,6 +33,7 @@ CREATE INDEX iInterneVornameName ON interne (vorname, name);
 
 -------------------------------------------
 
+DROP TABLE IF EXISTS geschaefte;
 CREATE TABLE geschaefte (
   abteilung TEXT,
   aktennummer TEXT,
@@ -95,6 +98,7 @@ CREATE INDEX iGeschaefteStatus ON geschaefte (status);
 
 -------------------------------------------
 
+DROP TABLE IF EXISTS geschaefteKontakteIntern;
 CREATE TABLE geschaefteKontakteIntern (
   idGeschaeft INTEGER REFERENCES geschaefte(idGeschaeft) ON UPDATE CASCADE ON DELETE CASCADE,
   idKontakt INTEGER REFERENCES interne(id) ON UPDATE CASCADE ON DELETE RESTRICT,
@@ -125,6 +129,7 @@ FROM
 
 -------------------------------------------
 
+DROP TABLE IF EXISTS geschaefteKontakteExtern;
 CREATE TABLE geschaefteKontakteExtern (
   idGeschaeft INTEGER REFERENCES geschaefte(idGeschaeft) ON UPDATE CASCADE ON DELETE CASCADE,
   idKontakt INTEGER REFERENCES externe(id) ON UPDATE CASCADE ON DELETE RESTRICT,
@@ -146,6 +151,7 @@ WHERE
 -- boolean in sqlite is integer
 -- true = 1
 -- false = 0
+DROP TABLE IF EXISTS geschaeftsart;
 CREATE TABLE geschaeftsart (
   geschaeftsart TEXT PRIMARY KEY,
   historisch integer DEFAULT 0, 
@@ -221,6 +227,7 @@ WHERE
   geschaeftsart = 'Diverses';
 -------------------------------------------
 
+DROP TABLE IF EXISTS status;
 CREATE TABLE status (
   status TEXT PRIMARY KEY,
   historisch integer DEFAULT 0, 
@@ -286,6 +293,7 @@ WHERE
 
 -------------------------------------------
 
+DROP TABLE IF EXISTS parlVorstossTyp;
 CREATE TABLE parlVorstossTyp (
   parlVorstossTyp TEXT PRIMARY KEY,
   historisch integer DEFAULT 0, 
@@ -388,6 +396,7 @@ VALUES
 
 -------------------------------------------
 
+DROP TABLE IF EXISTS rechtsmittelErledigung;
 CREATE TABLE rechtsmittelErledigung (
   rechtsmittelErledigung TEXT PRIMARY KEY,
   historisch integer DEFAULT 0, 
@@ -483,6 +492,7 @@ WHERE
 
 -------------------------------------------
 
+DROP TABLE IF EXISTS rechtsmittelInstanz;
 CREATE TABLE rechtsmittelInstanz (
   rechtsmittelInstanz TEXT PRIMARY KEY,
   historisch integer DEFAULT 0, 
@@ -533,3 +543,26 @@ INSERT INTO
   rechtsmittelInstanz (rechtsmittelInstanz, historisch, sort)
 VALUES
   ('Instanz 1', 0, 1);
+
+-------------------------------------------
+
+DROP TABLE IF EXISTS abteilung;
+CREATE TABLE abteilung (
+  abteilung TEXT PRIMARY KEY,
+  historisch integer DEFAULT 0, 
+  sort INTEGER
+);
+
+DROP INDEX IF EXISTS iAbteilungSort;
+CREATE INDEX iAbteilungSort ON abteilung (sort);
+
+INSERT INTO
+  abteilung(abteilung, historisch, sort)
+VALUES
+  ('AW', 0, 1),
+  ('Di', 0, 2),
+  ('En', 0, 3),
+  ('GS', 0, 4),
+  ('Lu', 0, 5),
+  ('Re', 0, 6),
+  ('WB', 0, 7);
