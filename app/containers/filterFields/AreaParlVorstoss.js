@@ -6,25 +6,17 @@ import AreaParlVorstoss from '../../components/filterFields/AreaParlVorstoss'
 import * as GeschaefteActions from '../../actions/geschaefte'
 
 function mapStateToProps(state, props) {
+  const { parlVorstossTypOptions } = state.geschaefte
   const {
-    geschaefte,
-    activeId,
-    parlVorstossTypOptions
-  } = state.geschaefte
-  const {
-    blur,
+    values,
     change,
     nrOfFieldsBeforePv
   } = props
-  const geschaeft = geschaefte.find((g) =>
-    g.idGeschaeft === activeId
-  )
 
   return {
-    geschaeft,
+    values,
     parlVorstossTypOptions,
     change,
-    blur,
     nrOfFieldsBeforePv
   }
 }
