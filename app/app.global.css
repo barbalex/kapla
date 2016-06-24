@@ -59,15 +59,13 @@ textarea {
 }
 
 /* 
- * hide the scrollbar:
- * because of virtual-list with variable height rows
- * it shows wrong position
+ * move the drag handler to the right
+ * so the vertical scroll handler
+ * can be accessed
  */
-
-.reactList::-webkit-scrollbar,
-.data-reactroot::-webkit-scrollbar,
-textarea::-webkit-scrollbar { 
-  display: none;
+.lm_splitter.lm_horizontal .lm_drag_handle {
+  left: 0;
+  width: 15px;
 }
 
 ::-webkit-scrollbar {
@@ -99,7 +97,6 @@ textarea::-webkit-scrollbar {
 .lm_item {
   overflow-y: auto;
 }
-
 .lm_item::-webkit-scrollbar { 
   display: none;
 }

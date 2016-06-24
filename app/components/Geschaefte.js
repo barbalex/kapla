@@ -117,10 +117,6 @@ class Geschaefte extends Component {
   }
 
   render() {
-    /**
-     * class 'reactList' is needed to
-     * apply ::-webkit-scrollbar: display: none;
-     */
     const { geschaefteGefilterteIds } = this.props
 
     return (
@@ -142,7 +138,7 @@ class Geschaefte extends Component {
               </div>
             </div>
           </div>
-          <div className={[styles.tableBody, 'reactList'].join(' ')}>
+          <div className={styles.tableBody}>
             <ReactList
               itemRenderer={::this.renderItem}
               length={geschaefteGefilterteIds.length}

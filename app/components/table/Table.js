@@ -135,10 +135,6 @@ class Table extends Component {
   }
 
   render() {
-    /**
-     * class 'reactList' is needed to
-     * apply ::-webkit-scrollbar: display: none;
-     */
     const { rows } = this.props
 
     return (
@@ -149,7 +145,7 @@ class Table extends Component {
               {this.tableHeaders()}
             </div>
           </div>
-          <div className={[styles.tableBody, 'reactList'].join(' ')}>
+          <div className={styles.tableBody}>
             <ReactList
               itemRenderer={::this.renderItem}
               length={rows.length}
