@@ -36,7 +36,7 @@ const externeOptionsList = (externeOptions) => {
   const options = externeOptionsSorted.map((o, index) =>
     <option
       key={index + 1}
-      value={o.id}
+      value={o.nameVorname}
     >
       {o.nameVorname}
     </option>

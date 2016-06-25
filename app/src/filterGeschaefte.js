@@ -6,6 +6,10 @@ export default function (geschaefte, filterFulltext, filterFields) {
   const existsFilterFulltext = !!filterFulltext
   const existsFilterFields = Object.keys(filterFields).length > 0
   let geschaefteGefiltert = geschaefte
+  let comparator
+  const fieldsWithList = ['kontaktInternVornameName', 'kontaktExternVornameName']
+
+  console.log('filterFields', filterFields)
 
   if (existsFilterFulltext) {
     geschaefteGefiltert = geschaefte.filter((geschaeft) => {
@@ -47,32 +51,45 @@ export default function (geschaefte, filterFulltext, filterFields) {
       let satisfiesFilter = true
       filterFields.forEach((filterField, index) => {
         let geschaeftValue = geschaeft[filterField.field]
-        if (isString(geschaeft[filterField.field])) {
-          geschaeftValue = geschaeft[filterField.field].toLowerCase()
-        }
-        let filterValue = filterFields[index].value
-        if (isString(filterFields[index].value)) {
-          filterValue = filterFields[index].value.toLowerCase()
-        }
-        const comparator = filterFields[index].comparator || '='
-        if (filterValue === '') {
-          if (!!geschaeftValue) satisfiesFilter = false
-        } else if (comparator === '!==') {
-          if (!(geschaeftValue !== filterValue)) satisfiesFilter = false
-        } else if (!geschaeftValue) {
+        const existsGeschaeftValue = geschaeftValue || geschaeftValue === 0
+        if (!existsGeschaeftValue) {
           satisfiesFilter = false
-        } else if (comparator === '<') {
-          if (!(geschaeftValue < filterValue)) satisfiesFilter = false
-        } else if (comparator === '<=') {
-          if (!(geschaeftValue <= filterValue)) satisfiesFilter = false
-        } else if (comparator === '>') {
-          if (!(geschaeftValue > filterValue)) satisfiesFilter = false
-        } else if (comparator === '>=') {
-          if (!(geschaeftValue >= filterValue)) satisfiesFilter = false
-        } else if (comparator === '=') {
-          if (!includes(geschaeftValue, filterValue)) satisfiesFilter = false
-        } else if (comparator === '===') {
-          if (geschaeftValue !== filterValue) satisfiesFilter = false
+        } else {
+          if (isString(geschaeft[filterField.field])) {
+            geschaeftValue = geschaeft[filterField.field].toLowerCase()
+          }
+          let filterValue = filterFields[index].value
+          if (isString(filterValue)) {
+            filterValue = filterValue.toLowerCase()
+          }
+          const isFieldWithList = fieldsWithList.includes(filterField.field)
+          if (isFieldWithList) {
+            // this field is special = a list of "vorname name"
+            if (!geschaeftValue.includes(filterValue)) {
+              satisfiesFilter = false
+            }
+          } else {
+            comparator = filterFields[index].comparator || '='
+            if (filterValue === '') {
+              if (!!geschaeftValue) satisfiesFilter = false
+            } else if (comparator === '!==') {
+              if (!(geschaeftValue !== filterValue)) satisfiesFilter = false
+            } else if (!geschaeftValue) {  // TODO: remove
+              satisfiesFilter = false
+            } else if (comparator === '<') {
+              if (!(geschaeftValue < filterValue)) satisfiesFilter = false
+            } else if (comparator === '<=') {
+              if (!(geschaeftValue <= filterValue)) satisfiesFilter = false
+            } else if (comparator === '>') {
+              if (!(geschaeftValue > filterValue)) satisfiesFilter = false
+            } else if (comparator === '>=') {
+              if (!(geschaeftValue >= filterValue)) satisfiesFilter = false
+            } else if (comparator === '=') {
+              if (!includes(geschaeftValue, filterValue)) satisfiesFilter = false
+            } else if (comparator === '===') {
+              if (geschaeftValue !== filterValue) satisfiesFilter = false
+            }
+          }
         }
       })
       return satisfiesFilter
