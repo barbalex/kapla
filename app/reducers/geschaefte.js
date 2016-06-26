@@ -61,7 +61,7 @@ const geschaeft = (state = {}, action) => {
       return {
         ...state,
         [action.field]: action.value,
-        mutationsperson: action.user,
+        mutationsperson: action.username,
         mutationsdatum: moment().format('YYYY-MM-DD HH:mm:ss')
       }
     default:
