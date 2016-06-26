@@ -82,7 +82,7 @@ const externeData = (values, externeOptions) => {
     return value
   }
   const data = externeOptions.find((o) =>
-    o.kurzzeichen === values.kontaktExternVornameName
+    o.kurzzeichen === values.kontaktExternNameVorname
   )
   if (!data) return ''
   let info = ''
@@ -158,8 +158,8 @@ const AreaPersonen = ({
     <div className={styles.KontaktInternVornameName}>
       <FormControl
         componentClass="select"
-        value={values.kontaktExternVornameName || ''}
-        name="kontaktExternVornameName"
+        value={values.kontaktExternNameVorname || ''}
+        name="kontaktExternNameVorname"
         onChange={change}
         bsSize="small"
         tabIndex={3 + nrOfFieldsBeforePersonen}

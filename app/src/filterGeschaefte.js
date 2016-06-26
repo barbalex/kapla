@@ -7,7 +7,7 @@ export default function (geschaefte, filterFulltext, filterFields) {
   const existsFilterFields = Object.keys(filterFields).length > 0
   let geschaefteGefiltert = geschaefte
   let comparator
-  const fieldsWithList = ['kontaktInternVornameName', 'kontaktExternVornameName']
+  const fieldsWithList = ['kontaktInternVornameName', 'kontaktExternNameVorname']
 
   if (existsFilterFulltext) {
     geschaefteGefiltert = geschaefte.filter((geschaeft) => {
@@ -62,10 +62,8 @@ export default function (geschaefte, filterFulltext, filterFields) {
           }
           const isFieldWithList = fieldsWithList.includes(filterField.field)
           if (isFieldWithList) {
-            // this field is special = a list of "vorname name"
-            if (!geschaeftValue.includes(filterValue)) {
-              satisfiesFilter = false
-            }
+            // this field is special: a comma separated list of "vorname name"
+            if (!geschaeftValue.includes(filterValue)) satisfiesFilter = false
           } else {
             comparator = filterFields[index].comparator || '='
             if (filterValue === '') {
