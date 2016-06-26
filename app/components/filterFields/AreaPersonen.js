@@ -99,79 +99,75 @@ const AreaPersonen = ({
   interneOptions,
   externeOptions
 }) =>
-  <div className={styles.areaPersonen}>
-    <div className={styles.areaPersonenTitle}>
-      Personen
-    </div>
-    <div className={styles.areaVerantwortlichSubTitle}>
-      <div className={styles.areaSubTitleDiv}>
+  <div className={styles.container}>
+    <div className={styles.areaPersonen}>
+      <div className={styles.areaPersonenTitle}>
+        Personen
+      </div>
+      <div className={styles.areaVerantwortlichSubTitle}>
         Verantwortlich
       </div>
-    </div>
-    <div className={styles.KontaktInternVornameName}>
-      <FormControl
-        componentClass="select"
-        value={values.verantwortlich || ''}
-        name="verantwortlich"
-        onChange={change}
-        bsSize="small"
-        tabIndex={1 + nrOfFieldsBeforePersonen}
-        className={styles.narrowVerantwDropdown}
-      >
-        {interneOptionsList(interneOptions)}
-      </FormControl>
-    </div>
-    <div className={styles.fieldVerantwortlichName}>
-      <FormControl.Static>
-        {verantwortlichData(values, interneOptions)}
-      </FormControl.Static>
-    </div>
-    <div className={styles.areaInterneKontakteSubTitle}>
-      <div className={styles.areaSubTitleDiv}>
+      <div className={styles.KontaktInternVornameName}>
+        <FormControl
+          componentClass="select"
+          value={values.verantwortlich || ''}
+          name="verantwortlich"
+          onChange={change}
+          bsSize="small"
+          tabIndex={1 + nrOfFieldsBeforePersonen}
+          className={styles.narrowVerantwDropdown}
+        >
+          {interneOptionsList(interneOptions)}
+        </FormControl>
+      </div>
+      <div className={styles.fieldVerantwortlichName}>
+        <FormControl.Static>
+          {verantwortlichData(values, interneOptions)}
+        </FormControl.Static>
+      </div>
+      <div className={styles.areaInterneKontakteSubTitle}>
         Interne Kontakte
       </div>
-    </div>
-    <div className={styles.KontaktInternVornameName}>
-      <FormControl
-        componentClass="select"
-        value={values.kontaktInternVornameName || ''}
-        name="kontaktInternVornameName"
-        onChange={change}
-        bsSize="small"
-        tabIndex={2 + nrOfFieldsBeforePersonen}
-        className={styles.narrowVerantwDropdown}
-      >
-        {interneOptionsList(interneOptions)}
-      </FormControl>
-    </div>
-    <div className={styles.fieldVerantwortlichName}>
-      <FormControl.Static>
-        {interneData(values, interneOptions)}
-      </FormControl.Static>
-    </div>
+      <div className={styles.KontaktInternVornameName}>
+        <FormControl
+          componentClass="select"
+          value={values.kontaktInternVornameName || ''}
+          name="kontaktInternVornameName"
+          onChange={change}
+          bsSize="small"
+          tabIndex={2 + nrOfFieldsBeforePersonen}
+          className={styles.narrowVerantwDropdown}
+        >
+          {interneOptionsList(interneOptions)}
+        </FormControl>
+      </div>
+      <div className={styles.fieldVerantwortlichName}>
+        <FormControl.Static>
+          {interneData(values, interneOptions)}
+        </FormControl.Static>
+      </div>
 
-    <div className={styles.areaExterneKontakteSubTitle}>
-      <div className={styles.areaSubTitleDiv}>
+      <div className={styles.areaExterneKontakteSubTitle}>
         Externe Kontakte
       </div>
-    </div>
-    <div className={styles.KontaktInternVornameName}>
-      <FormControl
-        componentClass="select"
-        value={values.kontaktExternNameVorname || ''}
-        name="kontaktExternNameVorname"
-        onChange={change}
-        bsSize="small"
-        tabIndex={3 + nrOfFieldsBeforePersonen}
-        className={styles.verantwDropdown}
-      >
-        {externeOptionsList(externeOptions)}
-      </FormControl>
-    </div>
-    <div className={styles.fieldVerantwortlichName}>
-      <FormControl.Static>
-        {externeData(values, externeOptions)}
-      </FormControl.Static>
+      <div className={styles.KontaktInternVornameName}>
+        <FormControl
+          componentClass="select"
+          value={values.kontaktExternNameVorname || ''}
+          name="kontaktExternNameVorname"
+          onChange={change}
+          bsSize="small"
+          tabIndex={3 + nrOfFieldsBeforePersonen}
+          className={styles.verantwDropdown}
+        >
+          {externeOptionsList(externeOptions)}
+        </FormControl>
+      </div>
+      <div className={styles.fieldVerantwortlichName}>
+        <FormControl.Static>
+          {externeData(values, externeOptions)}
+        </FormControl.Static>
+      </div>
     </div>
   </div>
 
