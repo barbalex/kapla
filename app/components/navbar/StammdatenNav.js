@@ -44,7 +44,7 @@ const NavbarStammdatenNav = ({
     <NavDropdown
       eventKey={8}
       title={stammdatenTitle(table, rows)}
-      id="basic-nav-dropdown"
+      id="stammdaten-nav-dropdown"
       active={isStammdatenMenuActive}
       className={isStammdatenMenuActive ? styles.navActive : null}
     >
