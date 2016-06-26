@@ -1,5 +1,10 @@
 'use strict'
 
+/**
+ * watch versions of username
+ * did not work on 2.2.2
+ * see: https://github.com/sindresorhus/username/issues/9
+ */
 import getMyName from 'username'
 
 export const USERNAME_GET = 'USERNAME_GET'
