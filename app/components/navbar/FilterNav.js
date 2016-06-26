@@ -2,6 +2,7 @@
 
 import ReactDOM from 'react-dom'
 import React, { Component, PropTypes } from 'react'
+import { withRouter } from 'react-router'
 import {
   MenuItem,
   SplitButton,
@@ -62,12 +63,25 @@ class NavbarComponent extends Component {
     geschaefteFilterByFulltext: PropTypes.func.isRequired,
     geschaefteRemoveFilters: PropTypes.func.isRequired,
     filterFulltext: PropTypes.string,
-    username: PropTypes.string
+    username: PropTypes.string,
+    router: PropTypes.shape({
+      push: PropTypes.func.isRequired
+    }).isRequired,
+    path: PropTypes.string.isRequired
   }
 
   onChangeFilterFulltext = (e) => {
     const { geschaefteFilterByFulltext } = this.props
     geschaefteFilterByFulltext(e.target.value)
+  }
+
+  onClickFilterFields = () => {
+    const { router, path, geschaefteRemoveFilters } = this.props
+    // navigate to 'filterFields'
+    if (path !== '/filterFields') {
+      geschaefteRemoveFilters()
+      router.push('/filterFields')
+    }
   }
 
   removeFilter = () => {
@@ -86,7 +100,8 @@ class NavbarComponent extends Component {
       geschaefte,
       geschaefteGefilterteIds,
       geschaefteFilterByFields,
-      username
+      username,
+      path
     } = this.props
     const dataIsFiltered = (
       geschaefte.length !== geschaefteGefilterteIds.length &&
@@ -128,7 +143,8 @@ class NavbarComponent extends Component {
             id="field-filter-dropdown"
             title="Felder filtern"
             className={styles.fieldFilterDropdown}
-            onClick={() => console.log('SplitButton clicked')}
+            style={{ backgroundColor: path === '/filterFields' ? '#FFBF73' : null }}
+            onClick={this.onClickFilterFields}
           >
             <MenuItem header>
               individuell:
@@ -198,4 +214,4 @@ class NavbarComponent extends Component {
   }
 }
 
-export default NavbarComponent
+export default withRouter(NavbarComponent)

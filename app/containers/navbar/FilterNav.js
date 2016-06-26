@@ -13,12 +13,14 @@ function mapStateToProps(state) {
     geschaefteGefilterteIds
   } = state.geschaefte
   const { username } = state.user
+  const path = state.routing.locationBeforeTransitions.pathname
   return {
     username,
     filterType,
     filterFulltext,
     geschaefte,
-    geschaefteGefilterteIds
+    geschaefteGefilterteIds,
+    path
   }
 }
 

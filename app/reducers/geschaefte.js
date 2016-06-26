@@ -114,7 +114,8 @@ const geschaefte = (state = standardState, action) => {
         ...state,
         geschaefteGefilterteIds: [...state.geschaefte.map((g) => g.idGeschaeft)],
         filterFields: {},
-        filterType: null
+        filterType: null,
+        filterFulltext: ''
       }
     case GESCHAEFT_TOGGLE_ACTIVATED:
       return {

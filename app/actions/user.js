@@ -31,6 +31,7 @@ export const fetchUsername = () =>
     const { user } = getState()
     if (!user.username) {
       const username = getMyName.sync()
+      // console.log('actions.user.js, username', username)
       if (username) {
         dispatch(gotUsername(username))
       } else {
