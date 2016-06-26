@@ -10,11 +10,10 @@ const NavbarOptionsNav = ({ dbGet }) =>
   <NavDropdown
     eventKey={9}
     title="&#8942;"
-    id="basic-nav-dropdown"
+    id="last-nav-dropdown"
     noCaret
   >
     <MenuItem
-      eventKey={9.1}
       onClick={dbGet}
     >
       Datenbank wählen
