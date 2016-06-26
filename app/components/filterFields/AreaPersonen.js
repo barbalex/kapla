@@ -82,7 +82,7 @@ const externeData = (values, externeOptions) => {
     return value
   }
   const data = externeOptions.find((o) =>
-    o.kurzzeichen === values.kontaktExternNameVorname
+    o.nameVorname === values.kontaktExternNameVorname
   )
   if (!data) return ''
   let info = ''
