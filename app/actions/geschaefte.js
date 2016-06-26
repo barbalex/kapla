@@ -129,6 +129,13 @@ export const geschaefteFilterByFulltext = (filterFulltext, filterType = 'nach Vo
     }
   }
 
+
+export const GESCHAEFTE_REMOVE_FILTERS = 'GESCHAEFTE_REMOVE_FILTERS'
+
+export const geschaefteRemoveFilters = () => ({
+  type: GESCHAEFTE_REMOVE_FILTERS
+})
+
 /*
  * GESCHAEFT
  */

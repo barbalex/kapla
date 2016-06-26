@@ -6,6 +6,7 @@ import {
   GESCHAEFTE_GET_ERROR,
   GESCHAEFTE_FILTER_BY_FIELDS,
   GESCHAEFTE_FILTER_BY_FULLTEXT,
+  GESCHAEFTE_REMOVE_FILTERS,
   GESCHAEFT_TOGGLE_ACTIVATED,
   GESCHAEFT_DELETE,
   GESCHAEFT_SET_DELETE_INTENDED,
@@ -105,6 +106,13 @@ const geschaefte = (state = standardState, action) => {
         filterFulltext: action.filterFulltext,
         filterFields: {},
         activeId: null
+      }
+    case GESCHAEFTE_REMOVE_FILTERS:
+      return {
+        ...state,
+        geschaefteGefilterteIds: [...state.geschaefte.map((g) => g.idGeschaeft)],
+        filterFields: {},
+        filterType: null
       }
     case GESCHAEFT_TOGGLE_ACTIVATED:
       return {

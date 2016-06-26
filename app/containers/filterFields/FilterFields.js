@@ -11,6 +11,7 @@ const actions = Object.assign(GeschaefteActions, AppActions)
 function mapStateToProps(state, props) {
   let { filterFields } = state.geschaefte
   const { layout } = props
+  // build a fields hash for the values
   const values = {}
   if (filterFields.forEach) {
     filterFields.forEach((field) => {

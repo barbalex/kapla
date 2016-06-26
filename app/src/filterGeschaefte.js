@@ -9,8 +9,6 @@ export default function (geschaefte, filterFulltext, filterFields) {
   let comparator
   const fieldsWithList = ['kontaktInternVornameName', 'kontaktExternVornameName']
 
-  console.log('filterFields', filterFields)
-
   if (existsFilterFulltext) {
     geschaefteGefiltert = geschaefte.filter((geschaeft) => {
       // if any value satisfies the filter, include the geschaeft

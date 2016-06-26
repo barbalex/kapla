@@ -121,7 +121,7 @@ const NavbarGeschaefteFilterNav = ({
       </MenuItem>
       <MenuItem divider />
       <MenuItem
-        eventKey={3.5}
+        eventKey={3.7}
         onSelect={() =>
           removeFilter()
         }
