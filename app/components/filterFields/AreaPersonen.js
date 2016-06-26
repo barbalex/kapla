@@ -116,7 +116,7 @@ const AreaPersonen = ({
         onChange={change}
         bsSize="small"
         tabIndex={1 + nrOfFieldsBeforePersonen}
-        className={styles.verantwDropdown}
+        className={styles.narrowVerantwDropdown}
       >
         {interneOptionsList(interneOptions)}
       </FormControl>
@@ -139,7 +139,7 @@ const AreaPersonen = ({
         onChange={change}
         bsSize="small"
         tabIndex={2 + nrOfFieldsBeforePersonen}
-        className={styles.verantwDropdown}
+        className={styles.narrowVerantwDropdown}
       >
         {interneOptionsList(interneOptions)}
       </FormControl>
