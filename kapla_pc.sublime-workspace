@@ -4,6 +4,26 @@
 		"selected_items":
 		[
 			[
+				"border-bo",
+				"border-bottom-left-radius"
+			],
+			[
+				"border-rad",
+				"border-top-left-radius"
+			],
+			[
+				"ex",
+				"externeOptions"
+			],
+			[
+				"g",
+				"geschaeftValue"
+			],
+			[
+				"ge",
+				"geschaeftValue"
+			],
+			[
 				"ab",
 				"abteilung"
 			],
@@ -18,10 +38,6 @@
 			[
 				"align",
 				"align-items"
-			],
-			[
-				"ge",
-				"geschaefteKontakteIntern"
 			],
 			[
 				"gesc",
@@ -216,10 +232,6 @@
 				"GeschaefteLayout"
 			],
 			[
-				"g",
-				"geschaefteGefiltert"
-			],
-			[
 				"ac",
 				"action"
 			],
@@ -348,10 +360,6 @@
 				"geschaefteList"
 			],
 			[
-				"border-bo",
-				"border-bottom-style"
-			],
-			[
 				"getG",
 				"getGeschaefteWithFieldFilter"
 			],
@@ -399,25 +407,23 @@
 			"file": "package.json",
 			"settings":
 			{
-				"buffer_size": 5012,
+				"buffer_size": 5011,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"contents": "Searching 557 files for \"onChangeDatePicker\" (case sensitive)\n\nC:\\Users\\alex\\kapla\\app\\components\\filterFields\\AreaFristen.js:\n   19    nrOfFieldsBeforeFristen,\n   20    change,\n   21:   onChangeDatePicker\n   22  }) => {\n   23    /**\n   ..\n   63                drops=\"up\"\n   64                opens=\"left\"\n   65:               onApply={onChangeDatePicker.bind(this, 'datumEingangAwel')}\n   66                className={styles.datePicker}\n   67              >\n   ..\n   95                drops=\"up\"\n   96                opens=\"left\"\n   97:               onApply={onChangeDatePicker.bind(this, 'fristAwel')}\n   98                className={styles.datePicker}\n   99              >\n  ...\n  127                drops=\"up\"\n  128                opens=\"left\"\n  129:               onApply={onChangeDatePicker.bind(this, 'fristAmtschef')}\n  130                className={styles.datePicker}\n  131              >\n  ...\n  159                drops=\"up\"\n  160                opens=\"left\"\n  161:               onApply={onChangeDatePicker.bind(this, 'fristAbteilung')}\n  162                className={styles.datePicker}\n  163              >\n  ...\n  191                drops=\"up\"\n  192                opens=\"left\"\n  193:               onApply={onChangeDatePicker.bind(this, 'fristMitarbeiter')}\n  194                className={styles.datePicker}\n  195              >\n  ...\n  220                drops=\"up\"\n  221                opens=\"left\"\n  222:               onApply={onChangeDatePicker.bind(this, 'datumAusgangAwel')}\n  223                className={styles.datePicker}\n  224              >\n  ...\n  252                drops=\"up\"\n  253                opens=\"left\"\n  254:               onApply={onChangeDatePicker.bind(this, 'fristDirektion')}\n  255                className={styles.datePicker}\n  256              >\n  ...\n  272    values: PropTypes.object,\n  273    change: PropTypes.func.isRequired,\n  274:   onChangeDatePicker: PropTypes.func.isRequired,\n  275    nrOfFieldsBeforeFristen: PropTypes.number\n  276  }\n\nC:\\Users\\alex\\kapla\\app\\components\\filterFields\\AreaRechtsmittel.js:\n   22    nrOfFieldsBeforePv,\n   23    change,\n   24:   onChangeDatePicker\n   25  }) => {\n   26    /**\n   ..\n   94                drops=\"up\"\n   95                opens=\"left\"\n   96:               onApply={onChangeDatePicker.bind(this, 'rechtsmittelEntscheidDatum')}\n   97                className={styles.datePicker}\n   98              >\n   ..\n  132    nrOfFieldsBeforePv: PropTypes.number,\n  133    change: PropTypes.func.isRequired,\n  134:   onChangeDatePicker: PropTypes.func.isRequired\n  135  }\n  136  \n\nC:\\Users\\alex\\kapla\\app\\components\\filterFields\\FilterFields.js:\n   25    }\n   26  \n   27:   onChangeDatePicker = (name, e, picker) => {\n   28      const rVal = {\n   29        target: {\n   ..\n  122                nrOfFieldsBeforePv={nrOfFieldsBeforePv}\n  123                change={this.change}\n  124:               onChangeDatePicker={this.onChangeDatePicker}\n  125                values={values}\n  126              />\n  ...\n  129              nrOfFieldsBeforeFristen={nrOfFieldsBeforeFristen}\n  130              change={this.change}\n  131:             onChangeDatePicker={this.onChangeDatePicker}\n  132              values={values}\n  133            />\n\nC:\\Users\\alex\\kapla\\app\\components\\geschaeft\\AreaFristen.js:\n   53    change,\n   54    blur,\n   55:   onChangeDatePicker\n   56  }) => {\n   57    /**\n   ..\n   98                drops=\"up\"\n   99                opens=\"left\"\n  100:               onApply={onChangeDatePicker.bind(this, 'datumEingangAwel')}\n  101                className={styles.datePicker}\n  102              >\n  ...\n  131                drops=\"up\"\n  132                opens=\"left\"\n  133:               onApply={onChangeDatePicker.bind(this, 'fristAwel')}\n  134                className={styles.datePicker}\n  135              >\n  ...\n  164                drops=\"up\"\n  165                opens=\"left\"\n  166:               onApply={onChangeDatePicker.bind(this, 'fristAmtschef')}\n  167                className={styles.datePicker}\n  168              >\n  ...\n  197                drops=\"up\"\n  198                opens=\"left\"\n  199:               onApply={onChangeDatePicker.bind(this, 'fristAbteilung')}\n  200                className={styles.datePicker}\n  201              >\n  ...\n  230                drops=\"up\"\n  231                opens=\"left\"\n  232:               onApply={onChangeDatePicker.bind(this, 'fristMitarbeiter')}\n  233                className={styles.datePicker}\n  234              >\n  ...\n  261                drops=\"up\"\n  262                opens=\"left\"\n  263:               onApply={onChangeDatePicker.bind(this, 'datumAusgangAwel')}\n  264                className={styles.datePicker}\n  265              >\n  ...\n  294                drops=\"up\"\n  295                opens=\"left\"\n  296:               onApply={onChangeDatePicker.bind(this, 'fristDirektion')}\n  297                className={styles.datePicker}\n  298              >\n  ...\n  315    change: PropTypes.func.isRequired,\n  316    blur: PropTypes.func.isRequired,\n  317:   onChangeDatePicker: PropTypes.func.isRequired,\n  318    nrOfFieldsBeforeFristen: PropTypes.number\n  319  }\n\nC:\\Users\\alex\\kapla\\app\\components\\geschaeft\\AreaRechtsmittel.js:\n   23    change,\n   24    blur,\n   25:   onChangeDatePicker\n   26  }) => {\n   27    /**\n   ..\n   98                drops=\"up\"\n   99                opens=\"left\"\n  100:               onApply={onChangeDatePicker.bind(this, 'rechtsmittelEntscheidDatum')}\n  101                className={styles.datePicker}\n  102              >\n  ...\n  138    change: PropTypes.func.isRequired,\n  139    blur: PropTypes.func.isRequired,\n  140:   onChangeDatePicker: PropTypes.func.isRequired\n  141  }\n  142  \n\nC:\\Users\\alex\\kapla\\app\\components\\geschaeft\\Geschaeft.js:\n   27    }\n   28  \n   29:   onChangeDatePicker = (name, e, picker) => {\n   30      const rVal = {\n   31        target: {\n   ..\n  147                change={this.change}\n  148                blur={this.blur}\n  149:               onChangeDatePicker={this.onChangeDatePicker}\n  150              />\n  151            }\n  ...\n  154              change={this.change}\n  155              blur={this.blur}\n  156:             onChangeDatePicker={this.onChangeDatePicker}\n  157            />\n  158            <AreaPersonen\n\nC:\\Users\\alex\\kapla\\app\\containers\\filterFields\\AreaFristen.js:\n   11      change,\n   12      nrOfFieldsBeforeFristen,\n   13:     onChangeDatePicker\n   14    } = props\n   15  \n   ..\n   18      change,\n   19      nrOfFieldsBeforeFristen,\n   20:     onChangeDatePicker\n   21    }\n   22  }\n\nC:\\Users\\alex\\kapla\\app\\containers\\filterFields\\AreaRechtsmittel.js:\n   15      change,\n   16      nrOfFieldsBeforePv,\n   17:     onChangeDatePicker\n   18    } = props\n   19  \n   ..\n   24      change,\n   25      nrOfFieldsBeforePv,\n   26:     onChangeDatePicker\n   27    }\n   28  }\n\nC:\\Users\\alex\\kapla\\app\\containers\\geschaeft\\AreaFristen.js:\n   15      change,\n   16      nrOfFieldsBeforeFristen,\n   17:     onChangeDatePicker\n   18    } = props\n   19    const geschaeft = geschaefte.find((g) =>\n   ..\n   26      blur,\n   27      nrOfFieldsBeforeFristen,\n   28:     onChangeDatePicker\n   29    }\n   30  }\n\nC:\\Users\\alex\\kapla\\app\\containers\\geschaeft\\AreaRechtsmittel.js:\n   17      change,\n   18      nrOfFieldsBeforePv,\n   19:     onChangeDatePicker\n   20    } = props\n   21    const geschaeft = geschaefte.find((g) =>\n   ..\n   30      blur,\n   31      nrOfFieldsBeforePv,\n   32:     onChangeDatePicker\n   33    }\n   34  }\n\nC:\\Users\\alex\\kapla\\release\\win32-x64\\Kapla-win32-x64\\resources\\app\\app\\components\\filterFields\\AreaFristen.js:\n   19    nrOfFieldsBeforeFristen,\n   20    change,\n   21:   onChangeDatePicker\n   22  }) => {\n   23    /**\n   ..\n   63                drops=\"up\"\n   64                opens=\"left\"\n   65:               onApply={onChangeDatePicker.bind(this, 'datumEingangAwel')}\n   66                className={styles.datePicker}\n   67              >\n   ..\n   95                drops=\"up\"\n   96                opens=\"left\"\n   97:               onApply={onChangeDatePicker.bind(this, 'fristAwel')}\n   98                className={styles.datePicker}\n   99              >\n  ...\n  127                drops=\"up\"\n  128                opens=\"left\"\n  129:               onApply={onChangeDatePicker.bind(this, 'fristAmtschef')}\n  130                className={styles.datePicker}\n  131              >\n  ...\n  159                drops=\"up\"\n  160                opens=\"left\"\n  161:               onApply={onChangeDatePicker.bind(this, 'fristAbteilung')}\n  162                className={styles.datePicker}\n  163              >\n  ...\n  191                drops=\"up\"\n  192                opens=\"left\"\n  193:               onApply={onChangeDatePicker.bind(this, 'fristMitarbeiter')}\n  194                className={styles.datePicker}\n  195              >\n  ...\n  220                drops=\"up\"\n  221                opens=\"left\"\n  222:               onApply={onChangeDatePicker.bind(this, 'datumAusgangAwel')}\n  223                className={styles.datePicker}\n  224              >\n  ...\n  252                drops=\"up\"\n  253                opens=\"left\"\n  254:               onApply={onChangeDatePicker.bind(this, 'fristDirektion')}\n  255                className={styles.datePicker}\n  256              >\n  ...\n  272    values: PropTypes.object,\n  273    change: PropTypes.func.isRequired,\n  274:   onChangeDatePicker: PropTypes.func.isRequired,\n  275    nrOfFieldsBeforeFristen: PropTypes.number\n  276  }\n\nC:\\Users\\alex\\kapla\\release\\win32-x64\\Kapla-win32-x64\\resources\\app\\app\\components\\filterFields\\AreaRechtsmittel.js:\n   22    nrOfFieldsBeforePv,\n   23    change,\n   24:   onChangeDatePicker\n   25  }) => {\n   26    /**\n   ..\n   94                drops=\"up\"\n   95                opens=\"left\"\n   96:               onApply={onChangeDatePicker.bind(this, 'rechtsmittelEntscheidDatum')}\n   97                className={styles.datePicker}\n   98              >\n   ..\n  132    nrOfFieldsBeforePv: PropTypes.number,\n  133    change: PropTypes.func.isRequired,\n  134:   onChangeDatePicker: PropTypes.func.isRequired\n  135  }\n  136  \n\nC:\\Users\\alex\\kapla\\release\\win32-x64\\Kapla-win32-x64\\resources\\app\\app\\components\\filterFields\\FilterFields.js:\n   25    }\n   26  \n   27:   onChangeDatePicker = (name, e, picker) => {\n   28      const rVal = {\n   29        target: {\n   ..\n  122                nrOfFieldsBeforePv={nrOfFieldsBeforePv}\n  123                change={this.change}\n  124:               onChangeDatePicker={this.onChangeDatePicker}\n  125                values={values}\n  126              />\n  ...\n  129              nrOfFieldsBeforeFristen={nrOfFieldsBeforeFristen}\n  130              change={this.change}\n  131:             onChangeDatePicker={this.onChangeDatePicker}\n  132              values={values}\n  133            />\n\nC:\\Users\\alex\\kapla\\release\\win32-x64\\Kapla-win32-x64\\resources\\app\\app\\components\\geschaeft\\AreaFristen.js:\n   53    change,\n   54    blur,\n   55:   onChangeDatePicker\n   56  }) => {\n   57    /**\n   ..\n   98                drops=\"up\"\n   99                opens=\"left\"\n  100:               onApply={onChangeDatePicker.bind(this, 'datumEingangAwel')}\n  101                className={styles.datePicker}\n  102              >\n  ...\n  131                drops=\"up\"\n  132                opens=\"left\"\n  133:               onApply={onChangeDatePicker.bind(this, 'fristAwel')}\n  134                className={styles.datePicker}\n  135              >\n  ...\n  164                drops=\"up\"\n  165                opens=\"left\"\n  166:               onApply={onChangeDatePicker.bind(this, 'fristAmtschef')}\n  167                className={styles.datePicker}\n  168              >\n  ...\n  197                drops=\"up\"\n  198                opens=\"left\"\n  199:               onApply={onChangeDatePicker.bind(this, 'fristAbteilung')}\n  200                className={styles.datePicker}\n  201              >\n  ...\n  230                drops=\"up\"\n  231                opens=\"left\"\n  232:               onApply={onChangeDatePicker.bind(this, 'fristMitarbeiter')}\n  233                className={styles.datePicker}\n  234              >\n  ...\n  261                drops=\"up\"\n  262                opens=\"left\"\n  263:               onApply={onChangeDatePicker.bind(this, 'datumAusgangAwel')}\n  264                className={styles.datePicker}\n  265              >\n  ...\n  294                drops=\"up\"\n  295                opens=\"left\"\n  296:               onApply={onChangeDatePicker.bind(this, 'fristDirektion')}\n  297                className={styles.datePicker}\n  298              >\n  ...\n  315    change: PropTypes.func.isRequired,\n  316    blur: PropTypes.func.isRequired,\n  317:   onChangeDatePicker: PropTypes.func.isRequired,\n  318    nrOfFieldsBeforeFristen: PropTypes.number\n  319  }\n\nC:\\Users\\alex\\kapla\\release\\win32-x64\\Kapla-win32-x64\\resources\\app\\app\\components\\geschaeft\\AreaRechtsmittel.js:\n   23    change,\n   24    blur,\n   25:   onChangeDatePicker\n   26  }) => {\n   27    /**\n   ..\n   98                drops=\"up\"\n   99                opens=\"left\"\n  100:               onApply={onChangeDatePicker.bind(this, 'rechtsmittelEntscheidDatum')}\n  101                className={styles.datePicker}\n  102              >\n  ...\n  138    change: PropTypes.func.isRequired,\n  139    blur: PropTypes.func.isRequired,\n  140:   onChangeDatePicker: PropTypes.func.isRequired\n  141  }\n  142  \n\nC:\\Users\\alex\\kapla\\release\\win32-x64\\Kapla-win32-x64\\resources\\app\\app\\components\\geschaeft\\Geschaeft.js:\n   27    }\n   28  \n   29:   onChangeDatePicker = (name, e, picker) => {\n   30      const rVal = {\n   31        target: {\n   ..\n  147                change={this.change}\n  148                blur={this.blur}\n  149:               onChangeDatePicker={this.onChangeDatePicker}\n  150              />\n  151            }\n  ...\n  154              change={this.change}\n  155              blur={this.blur}\n  156:             onChangeDatePicker={this.onChangeDatePicker}\n  157            />\n  158            <AreaPersonen\n\nC:\\Users\\alex\\kapla\\release\\win32-x64\\Kapla-win32-x64\\resources\\app\\app\\containers\\filterFields\\AreaFristen.js:\n   11      change,\n   12      nrOfFieldsBeforeFristen,\n   13:     onChangeDatePicker\n   14    } = props\n   15  \n   ..\n   18      change,\n   19      nrOfFieldsBeforeFristen,\n   20:     onChangeDatePicker\n   21    }\n   22  }\n\nC:\\Users\\alex\\kapla\\release\\win32-x64\\Kapla-win32-x64\\resources\\app\\app\\containers\\filterFields\\AreaRechtsmittel.js:\n   15      change,\n   16      nrOfFieldsBeforePv,\n   17:     onChangeDatePicker\n   18    } = props\n   19  \n   ..\n   24      change,\n   25      nrOfFieldsBeforePv,\n   26:     onChangeDatePicker\n   27    }\n   28  }\n\nC:\\Users\\alex\\kapla\\release\\win32-x64\\Kapla-win32-x64\\resources\\app\\app\\containers\\geschaeft\\AreaFristen.js:\n   15      change,\n   16      nrOfFieldsBeforeFristen,\n   17:     onChangeDatePicker\n   18    } = props\n   19    const geschaeft = geschaefte.find((g) =>\n   ..\n   26      blur,\n   27      nrOfFieldsBeforeFristen,\n   28:     onChangeDatePicker\n   29    }\n   30  }\n\nC:\\Users\\alex\\kapla\\release\\win32-x64\\Kapla-win32-x64\\resources\\app\\app\\containers\\geschaeft\\AreaRechtsmittel.js:\n   17      change,\n   18      nrOfFieldsBeforePv,\n   19:     onChangeDatePicker\n   20    } = props\n   21    const geschaeft = geschaefte.find((g) =>\n   ..\n   30      blur,\n   31      nrOfFieldsBeforePv,\n   32:     onChangeDatePicker\n   33    }\n   34  }\n\n84 matches across 20 files\n",
+			"file": "app/components/navbar/Navbar.js",
 			"settings":
 			{
-				"buffer_size": 15420,
-				"line_ending": "Windows",
-				"name": "Find Results",
-				"scratch": true
+				"buffer_size": 3556,
+				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "app/components/filterFields/FilterFields.js",
+			"file": "app/components/navbar/Navbar.css",
 			"settings":
 			{
-				"buffer_size": 4904,
+				"buffer_size": 980,
 				"line_ending": "Windows"
 			}
 		}
@@ -474,30 +480,49 @@
 		"/C/Users/alex/kapla",
 		"/C/Users/alex/kapla/app",
 		"/C/Users/alex/kapla/app/components",
-		"/C/Users/alex/kapla/app/components/geschaeft",
+		"/C/Users/alex/kapla/app/components/navbar",
 		"/C/Users/alex/kapla/app/containers",
-		"/C/Users/alex/kapla/app/containers/geschaeft"
+		"/C/Users/alex/kapla/app/containers/navbar"
 	],
 	"file_history":
 	[
+		"/C/Users/alex/kapla/app/containers/navbar/filterNav.js",
+		"/C/Users/alex/kapla/app/components/navbar/filterNav.js",
+		"/C/Users/alex/kapla/app/components/navbar/Navbar.js",
+		"/C/Users/alex/kapla/app/components/geschaeft/AreaZuletztMutiert.js",
+		"/C/Users/alex/kapla/app/components/geschaeft/Geschaeft.js",
+		"/C/Users/alex/kapla/app/actions/geschaefte.js",
+		"/C/Users/alex/kapla/app/reducers/geschaefte.js",
+		"/C/Users/alex/kapla/app/components/navbar/Navbar.css",
+		"/C/Users/alex/kapla/app/components/navbar/PrintNav.js",
+		"/C/Users/alex/kapla/app/actions/user.js",
+		"/C/Users/alex/kapla/app/src/updateGeschaeft.js",
+		"/C/Users/alex/kapla/app/components/geschaeft/AreaZuletztMutiert.css",
+		"/C/Users/alex/kapla/app/actions/app.js",
+		"/C/Users/alex/kapla/app/components/filterFields/FilterFields.js",
+		"/C/Users/alex/kapla/app/components/filterFields/AreaPersonen.js",
+		"/C/Users/alex/kapla/app/components/filterFields/AreaPersonen.css",
+		"/C/Users/alex/kapla/app/components/geschaeft/AreaPersonen.js",
+		"/C/Users/alex/kapla/app/components/geschaeft/AreaPersonen.css",
+		"/C/Users/alex/kapla/app/src/filterGeschaefte.js",
+		"/C/Users/alex/kapla/app/src/sql/createViews.sql",
+		"/C/Users/alex/kapla/app/src/sql/forceReferenceGeschaefteKontakteExtern.sql",
+		"/C/Users/alex/kapla/kapla.db",
+		"/C/Users/alex/kapla/app/components/filterFields/KontakteExternItems.js",
+		"/C/Users/alex/kapla/app/components/filterFields/KontakteExtern.js",
+		"/C/Users/alex/kapla/app/containers/filterFields/AreaPersonen.js",
 		"/C/Users/alex/kapla/app/src/getDropdownOptions.js",
 		"/C/Users/alex/kapla/app/components/filterFields/AreaGeschaeft.js",
 		"/C/Users/alex/kapla/app/containers/filterFields/AreaGeschaeft.js",
 		"/C/Users/alex/kapla/app/containers/geschaeft/AreaGeschaeft.js",
 		"/C/Users/alex/kapla/app/components/geschaeft/AreaGeschaeft.js",
-		"/C/Users/alex/kapla/app/actions/app.js",
-		"/C/Users/alex/kapla/app/actions/geschaefte.js",
-		"/C/Users/alex/kapla/app/reducers/geschaefte.js",
 		"/C/Users/alex/kapla/app/containers/filterFields/FilterFields.js",
-		"/C/Users/alex/kapla/app/components/filterFields/FilterFields.js",
-		"/C/Users/alex/kapla/app/components/navbar/Navbar.js",
 		"/C/Users/alex/kapla/app/components/navbar/StammdatenNav.js",
 		"/C/Users/alex/kapla/app/src/sql/createTables.sql",
 		"/C/Users/alex/kapla/app/components/filterFields/AreaFristen.js",
 		"/C/Users/alex/kapla/app/components/filterFields/AreaHistory.js",
 		"/C/Users/alex/kapla/app/components/filterFields/AreaNummern.js",
 		"/C/Users/alex/kapla/app/components/filterFields/AreaParlVorstoss.js",
-		"/C/Users/alex/kapla/app/components/filterFields/AreaPersonen.js",
 		"/C/Users/alex/kapla/app/components/filterFields/AreaRechtsmittel.js",
 		"/C/Users/alex/kapla/app/components/filterFields/AreaZuletztMutiert.js",
 		"/C/Users/alex/kapla/app/components/filterFields/AreaFristen.css",
@@ -506,11 +531,9 @@
 		"/C/Users/alex/kapla/app/containers/filterFields/AreaHistoryRows.js",
 		"/C/Users/alex/kapla/app/containers/filterFields/AreaNummern.js",
 		"/C/Users/alex/kapla/app/containers/filterFields/AreaParlVorstoss.js",
-		"/C/Users/alex/kapla/app/containers/filterFields/AreaPersonen.js",
 		"/C/Users/alex/kapla/app/containers/filterFields/AreaRechtsmittel.js",
 		"/C/Users/alex/kapla/app/containers/filterFields/AreaZuletztMutiert.js",
 		"/C/Users/alex/kapla/app/containers/filterFields/AreaFristen.js",
-		"/C/Users/alex/kapla/app/src/filterGeschaefte.js",
 		"/C/Users/alex/kapla/app/components/FilterFieldsLayout.js",
 		"/C/Users/alex/kapla/app/components/GeschaefteLayout.js",
 		"/C/Users/alex/kapla/app/containers/geschaeft/Geschaeft.js",
@@ -521,25 +544,19 @@
 		"/C/Users/alex/kapla/app/containers/filterFields/KontakteExternItems.js",
 		"/C/Users/alex/kapla/app/containers/filterFields/KontakteIntern.js",
 		"/C/Users/alex/kapla/app/containers/filterFields/KontakteInternItems.js",
-		"/C/Users/alex/kapla/app/components/geschaeft/Geschaeft.js",
-		"/C/Users/alex/kapla/app/components/filterFields/KontakteExtern.js",
 		"/C/Users/alex/kapla/app/components/filterFields/KontakteIntern.js",
 		"/C/Users/alex/kapla/app/containers/geschaeft/GeschaeftMethods.js",
 		"/C/Users/alex/kapla/app/components/geschaeft/Geschaeft.css",
 		"/C/Users/alex/kapla/app/app.global.css",
 		"/C/Users/alex/kapla/app/containers/App.js",
 		"/C/Users/alex/kapla/app/routes.js",
-		"/C/Users/alex/kapla/app/components/geschaeft/AreaZuletztMutiert.css",
 		"/C/Users/alex/kapla/app/components/geschaefteLayout.css",
 		"/C/Users/alex/kapla/app/components/Geschaefte.js",
 		"/C/Users/alex/kapla/app/components/Geschaefte.css",
-		"/C/Users/alex/kapla/app/components/geschaeft/AreaZuletztMutiert.js",
 		"/C/Users/alex/kapla/app/components/geschaeft/AreaNummern.css",
 		"/C/Users/alex/kapla/app/components/geschaeft/AreaHistory.js",
 		"/C/Users/alex/kapla/app/components/geschaeft/AreaHistoryRows.js",
 		"/C/Users/alex/kapla/app/components/geschaeft/AreaHistory.css",
-		"/C/Users/alex/kapla/app/components/geschaeft/AreaPersonen.js",
-		"/C/Users/alex/kapla/app/components/geschaeft/AreaPersonen.css",
 		"/C/Users/alex/kapla/app/components/geschaeft/KontakteIntern.js",
 		"/C/Users/alex/kapla/app/components/geschaeft/KontakteIntern.css",
 		"/C/Users/alex/kapla/app/components/geschaeft/KontakteExtern.css",
@@ -548,10 +565,8 @@
 		"/C/Users/alex/kapla/main.js",
 		"/C/Users/alex/kapla/package.js",
 		"/C/Users/alex/kapla/app/components/page/faelligeGeschaefte/Rows.js",
-		"/C/Users/alex/kapla/app/src/sql/createViews.sql",
 		"/C/Users/alex/kapla/app/src/sql/updateTables.sql",
 		"/C/Users/alex/kapla/app/src/sql/forceReferenceGeschaefteKontakteIntern.sql",
-		"/C/Users/alex/kapla/app/src/sql/forceReferenceGeschaefteKontakteExtern.sql",
 		"/C/Users/alex/kapla/app/src/sql/getGeschaeftsarten.sql",
 		"/D/Google Drive/awel-kapla/howto.txt",
 		"/D/Google Drive/awel-kapla/DatenProbleme.txt",
@@ -564,7 +579,6 @@
 		"/C/Users/alex/kapla/app/components/page/faelligeGeschaefte/FaelligeGeschaefte.css",
 		"/C/Users/alex/kapla/app/components/page/faelligeGeschaefte/Header.js",
 		"/C/Users/alex/kapla/app/components/navbar/BerichteNav.js",
-		"/C/Users/alex/kapla/app/components/navbar/Navbar.css",
 		"/C/Users/alex/kapla/app/components/page/Page.js",
 		"/C/Users/alex/kapla/app/components/navbar/GeschaefteFilterNav.js",
 		"/C/Users/alex/kapla/app/src/filterForVernehmlLaeuft.js",
@@ -599,19 +613,11 @@
 		"/C/Users/alex/kapla/app/containers/navbar/GeschaeftDeleteNav.js",
 		"/C/Users/alex/kapla/app/containers/navbar/GeschaefteFilterNav.js",
 		"/C/Users/alex/kapla/app/containers/navbar/GeschaeftNewNav.js",
-		"/C/Users/alex/kapla/app/containers/navbar/OptionsNav.js",
-		"/C/Users/alex/kapla/app/containers/navbar/StammdatenNav.js",
-		"/C/Users/alex/kapla/app/containers/navbar/TableRowDeleteNav.js",
-		"/C/Users/alex/kapla/app/containers/navbar/TableRowNewNav.js",
-		"/C/Users/alex/kapla/app/containers/navbar/BerichteNav.js",
-		"/C/Users/alex/kapla/app/components/Navbar.js",
-		"/C/Users/alex/kapla/app/components/Navbar.css",
-		"/C/Users/alex/kapla/app/components/NavbarOptionsNav.js",
-		"/C/Users/alex/kapla/app/components/NavbarPrintNav.js"
+		"/C/Users/alex/kapla/app/containers/navbar/OptionsNav.js"
 	],
 	"find":
 	{
-		"height": 47.0
+		"height": 48.0
 	},
 	"find_in_files":
 	{
@@ -640,6 +646,59 @@
 		"case_sensitive": true,
 		"find_history":
 		[
+			"rows",
+			"table",
+			"getTable",
+			"geschaefte",
+			"filterFulltext",
+			"geschaefteRemoveFilters",
+			"geschaefteFilterByFulltext",
+			"removeFilter",
+			"focusFulltextFilter",
+			"removeFilter",
+			"onChangeFilterFulltext",
+			"GeschaefteFilterNav",
+			"geschaefteFilterByFields",
+			"focusFulltextFilter",
+			"rows",
+			"table",
+			"getTable",
+			"path",
+			"willDeleteGeschaeft",
+			"dbGetFromConfig",
+			"showMessageModal",
+			"geschaefteGefilterteIds",
+			"geschaefte",
+			"filterFulltext",
+			"geschaefteRemoveFilters",
+			"geschaefteFilterByFulltext",
+			"focusFulltextFilter",
+			"onChangeFilterFulltext",
+			"removeFilter",
+			"fulltextFilterNav",
+			"filterInput",
+			"classNameFilterInput",
+			"GESCHAEFTE_CHANGE_STATE",
+			"geschaefteChangeState",
+			"updateGeschaeft",
+			"changeGeschaeftInDb",
+			"areaSubTitleDiv",
+			"externeData",
+			"vorname.name",
+			"GESCHAEFTE_FILTER_BY_FIELDS",
+			"GESCHAEFTE_FILTER_BY_FIELDS ",
+			"kontaktExternVornameName",
+			"v_geschaefte_kontakteExtern",
+			"includes",
+			"comparator",
+			"filterFields[index].value",
+			"GESCHAEFTE_FILTER_BY_FIELDS",
+			"externeOptionsList",
+			"externeData",
+			"externeOptionsList",
+			"geschaefteKontakteExtern",
+			"verantwortlichData",
+			"verwantwortlichOptions",
 			"onChangeDatePicker",
 			"statusOptions",
 			"createOptions",
@@ -714,60 +773,7 @@
 			"vermerkInternDisplay",
 			"vermerkInternVisible",
 			"VERMERK_INTERN_TOGGLE_VISIBILITY",
-			"vermerkInternToggleVisibility",
-			"vermerkInternLabel",
-			"Textarea",
-			"textarea",
-			"webkit-scrollbar",
-			"reactList",
-			"webkit-scrollbar",
-			"1.2.3",
-			"REFERENCES",
-			"Intern",
-			"geschaefteKontakteIntern",
-			"geschaeftsart",
-			"rechtsmittelErledigung",
-			"gegenstandlos",
-			"\n",
-			"(",
-			"('",
-			"parlVorstossTyp",
-			"UPDATE TABLE",
-			"UPDATE",
-			"gdeplz",
-			"plz",
-			"gemeinde",
-			"gdeplz",
-			"CREATE TABLE",
-			"geschaeftsart",
-			"geschaefte",
-			"DROP INDEX",
-			"INDEX",
-			"geschaefte",
-			"REFERENCES",
-			"geschaefte",
-			"INDEX",
-			",",
-			"NO ACTION",
-			"status",
-			"\n",
-			" INTEGER",
-			" TEXT",
-			"zeigeBereichRechtsmittel",
-			"kontakteIntern",
-			"RD",
-			"Frist bis",
-			"parlVorstossTyp",
-			"exceljs",
-			"fieldVermerk",
-			"fieldsWanted",
-			"exportGeschaefteRechtsmittelVorjahre",
-			"zustaendigeDirektion",
-			"fieldDirektion",
-			"dir",
-			"gegenstand",
-			"fieldGegenstand",
-			"FaelligeGeschaefteRows"
+			"vermerkInternToggleVisibility"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -775,6 +781,9 @@
 		"regex": false,
 		"replace_history":
 		[
+			"kontaktExternNameVorname",
+			"filterValue",
+			"interneOptionsList",
 			"abteilung",
 			"ABTEILUNG",
 			"abteilung",
@@ -899,21 +908,18 @@
 			"areaForGeschaeftsart",
 			"AreaRechtsmittel",
 			"createOptions",
-			"blur",
-			"change",
-			"AreaGeschaeft",
 			"blur"
 		],
 		"reverse": false,
 		"show_context": true,
 		"use_buffer2": true,
-		"whole_word": false,
+		"whole_word": true,
 		"wrap": true
 	},
 	"groups":
 	[
 		{
-			"selected": 2,
+			"selected": 1,
 			"sheets":
 			[
 				{
@@ -922,15 +928,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 5012,
+						"buffer_size": 5011,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								3151,
-								3151
+								4923,
+								4923
 							]
 						],
 						"settings":
@@ -940,7 +946,7 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 1488.0,
+						"translation.y": 3267.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 2,
@@ -948,411 +954,67 @@
 				},
 				{
 					"buffer": 1,
+					"file": "app/components/navbar/Navbar.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 15420,
-						"regions":
-						{
-							"match":
-							{
-								"flags": 112,
-								"regions":
-								[
-									[
-										187,
-										205
-									],
-									[
-										336,
-										354
-									],
-									[
-										561,
-										579
-									],
-									[
-										779,
-										797
-									],
-									[
-										1001,
-										1019
-									],
-									[
-										1224,
-										1242
-									],
-									[
-										1449,
-										1467
-									],
-									[
-										1674,
-										1692
-									],
-									[
-										1889,
-										1907
-									],
-									[
-										2121,
-										2139
-									],
-									[
-										2270,
-										2288
-									],
-									[
-										2509,
-										2527
-									],
-									[
-										2666,
-										2684
-									],
-									[
-										2889,
-										2907
-									],
-									[
-										2914,
-										2932
-									],
-									[
-										3127,
-										3145
-									],
-									[
-										3152,
-										3170
-									],
-									[
-										3330,
-										3348
-									],
-									[
-										3479,
-										3497
-									],
-									[
-										3704,
-										3722
-									],
-									[
-										3922,
-										3940
-									],
-									[
-										4144,
-										4162
-									],
-									[
-										4367,
-										4385
-									],
-									[
-										4592,
-										4610
-									],
-									[
-										4817,
-										4835
-									],
-									[
-										5039,
-										5057
-									],
-									[
-										5254,
-										5272
-									],
-									[
-										5403,
-										5421
-									],
-									[
-										5637,
-										5655
-									],
-									[
-										5788,
-										5806
-									],
-									[
-										5988,
-										6006
-									],
-									[
-										6013,
-										6031
-									],
-									[
-										6175,
-										6193
-									],
-									[
-										6200,
-										6218
-									],
-									[
-										6402,
-										6420
-									],
-									[
-										6520,
-										6538
-									],
-									[
-										6690,
-										6708
-									],
-									[
-										6803,
-										6821
-									],
-									[
-										6970,
-										6988
-									],
-									[
-										7128,
-										7146
-									],
-									[
-										7295,
-										7313
-									],
-									[
-										7448,
-										7466
-									],
-									[
-										7660,
-										7678
-									],
-									[
-										7809,
-										7827
-									],
-									[
-										8034,
-										8052
-									],
-									[
-										8252,
-										8270
-									],
-									[
-										8474,
-										8492
-									],
-									[
-										8697,
-										8715
-									],
-									[
-										8922,
-										8940
-									],
-									[
-										9147,
-										9165
-									],
-									[
-										9362,
-										9380
-									],
-									[
-										9642,
-										9660
-									],
-									[
-										9791,
-										9809
-									],
-									[
-										10030,
-										10048
-									],
-									[
-										10235,
-										10253
-									],
-									[
-										10458,
-										10476
-									],
-									[
-										10483,
-										10501
-									],
-									[
-										10696,
-										10714
-									],
-									[
-										10721,
-										10739
-									],
-									[
-										10947,
-										10965
-									],
-									[
-										11096,
-										11114
-									],
-									[
-										11321,
-										11339
-									],
-									[
-										11539,
-										11557
-									],
-									[
-										11761,
-										11779
-									],
-									[
-										11984,
-										12002
-									],
-									[
-										12209,
-										12227
-									],
-									[
-										12434,
-										12452
-									],
-									[
-										12656,
-										12674
-									],
-									[
-										12919,
-										12937
-									],
-									[
-										13068,
-										13086
-									],
-									[
-										13302,
-										13320
-									],
-									[
-										13501,
-										13519
-									],
-									[
-										13701,
-										13719
-									],
-									[
-										13726,
-										13744
-									],
-									[
-										13888,
-										13906
-									],
-									[
-										13913,
-										13931
-									],
-									[
-										14163,
-										14181
-									],
-									[
-										14281,
-										14299
-									],
-									[
-										14499,
-										14517
-									],
-									[
-										14612,
-										14630
-									],
-									[
-										14827,
-										14845
-									],
-									[
-										14985,
-										15003
-									],
-									[
-										15200,
-										15218
-									],
-									[
-										15353,
-										15371
-									]
-								],
-								"scope": ""
-							}
-						},
-						"selection":
-						[
-							[
-								2679,
-								2679
-							]
-						],
-						"settings":
-						{
-							"detect_indentation": false,
-							"line_numbers": false,
-							"output_tag": 1,
-							"result_base_dir": "",
-							"result_file_regex": "^([^ 	].*):$",
-							"result_line_regex": "^ +([0-9]+):",
-							"scroll_past_end": true,
-							"syntax": "Packages/Default/Find Results.hidden-tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 2178.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "app/components/filterFields/FilterFields.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 4904,
+						"buffer_size": 3556,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1310,
-								1314
+								893,
+								902
 							]
 						],
 						"settings":
 						{
+							"history_list_is_closing": true,
 							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
 							"tab_size": 2,
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 717.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "app/components/navbar/Navbar.css",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 980,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								213,
+								213
+							],
+							[
+								246,
+								246
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/CSS/CSS.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
 					"type": "text"
 				}
 			]
@@ -1397,7 +1059,7 @@
 	"project": "kapla_pc.sublime-project",
 	"replace":
 	{
-		"height": 90.0
+		"height": 80.0
 	},
 	"save_all_on_build": true,
 	"select_file":

@@ -1,22 +1,15 @@
 'use strict'
 
-import ReactDOM from 'react-dom'
 import React, { Component, PropTypes } from 'react'
 import {
-  ButtonGroup,
-  MenuItem,
-  SplitButton,
   Navbar,
   Nav,
   NavItem,
-  Glyphicon,
-  FormControl
 } from 'react-bootstrap'
 import { LinkContainer } from 'react-router-bootstrap'
 import ModalGeschaeftDelete from '../../containers/ModalGeschaeftDelete'
 import ModalMessage from '../../containers/ModalMessage'
 import BerichteNav from '../../containers/navbar/BerichteNav'
-import GeschaefteFilterNav from '../../containers/navbar/GeschaefteFilterNav'
 import GeschaeftNeuNav from '../../containers/navbar/GeschaeftNewNav'
 import GeschaeftLoeschenNav from '../../containers/navbar/GeschaeftDeleteNav'
 import TableRowNeuNav from '../../containers/navbar/TableRowNewNav'
@@ -24,98 +17,23 @@ import TableRowDeleteNav from '../../containers/navbar/TableRowDeleteNav'
 import ExportGeschaefteNav from '../../containers/navbar/ExportGeschaefteNav'
 import PrintNav from './PrintNav.js'
 import StammdatenNav from '../../containers/navbar/StammdatenNav'
+import FilterNav from '../../containers/navbar/FilterNav'
 import OptionsNav from '../../containers/navbar/OptionsNav'
 import styles from './Navbar.css'
 
 class NavbarComponent extends Component {
   static propTypes = {
-    geschaefteFilterByFulltext: PropTypes.func.isRequired,
-    geschaefteRemoveFilters: PropTypes.func.isRequired,
-    filterFulltext: PropTypes.string,
     geschaefte: PropTypes.array.isRequired,
     geschaefteGefilterteIds: PropTypes.array.isRequired,
     showMessageModal: PropTypes.bool.isRequired,
     dbGetFromConfig: PropTypes.func.isRequired,
     willDeleteGeschaeft: PropTypes.bool.isRequired,
-    path: PropTypes.string.isRequired,
-    getTable: PropTypes.func.isRequired,
-    table: PropTypes.string,
-    rows: PropTypes.array
+    path: PropTypes.string.isRequired
   }
 
   componentWillMount() {
     const { dbGetFromConfig } = this.props
     dbGetFromConfig()
-  }
-
-  onChangeFilterFulltext = (e) => {
-    const { geschaefteFilterByFulltext } = this.props
-    geschaefteFilterByFulltext(e.target.value)
-  }
-
-  removeFilter = () => {
-    const { geschaefteRemoveFilters } = this.props
-    geschaefteRemoveFilters()
-    this.focusFulltextFilter()
-  }
-
-  fulltextFilterNav = () => {
-    const {
-      filterFulltext,
-      geschaefte,
-      geschaefteGefilterteIds
-    } = this.props
-    const dataIsFiltered = (
-      geschaefte.length !== geschaefteGefilterteIds.length &&
-      filterFulltext
-    )
-    const dataIsFilteredStyle = [
-      styles.filterInput,
-      styles.filterInputActive
-    ].join(' ')
-    const classNameFilterInput = (
-      dataIsFiltered ?
-      dataIsFilteredStyle :
-      styles.filterInput
-    )
-    return (
-      <Navbar.Form
-        pullLeft
-        className={styles.filterGroupContainer}
-      >
-        <div className={styles.filterGroup}>
-          <div className={styles.fulltextFilterContainer}>
-            <FormControl
-              type="text"
-              placeholder="Volltext filtern"
-              value={filterFulltext}
-              onChange={this.onChangeFilterFulltext}
-              className={classNameFilterInput}
-              title="Zum Filtern drücken Sie die Enter-Taste"
-              ref="filterFulltext"
-            />
-            <Glyphicon
-              glyph="remove"
-              onClick={this.removeFilter}
-              className={styles.filterInputRemoveIcon}
-              title="Filter entfernen"
-            />
-          </div>
-          <SplitButton
-            id="field-filter-dropdown"
-            title="Felder filtern"
-            className={styles.fieldFilterDropdown}
-            onClick={() => console.log('SplitButton clicked')}
-          >
-            <MenuItem eventKey="1">Action</MenuItem>
-          </SplitButton>
-        </div>
-      </Navbar.Form>
-    )
-  }
-
-  focusFulltextFilter = () => {
-    ReactDOM.findDOMNode(this.refs.filterFulltext).focus()
   }
 
   render() {
@@ -159,13 +77,6 @@ class NavbarComponent extends Component {
               </NavItem>
             </LinkContainer>
             {
-              !showTableStuff &&
-              <GeschaefteFilterNav
-                focusFulltextFilter={this.focusFulltextFilter}
-                removeFilter={this.removeFilter}
-              />
-            }
-            {
               showGeschaefteStuff &&
               <GeschaeftNeuNav />
             }
@@ -197,8 +108,8 @@ class NavbarComponent extends Component {
           </Nav>
           <Nav pullRight>
             {
-              showGeschaefteAndPrint &&
-              this.fulltextFilterNav()
+              !showTableStuff &&
+              <FilterNav />
             }
             <OptionsNav />
           </Nav>
