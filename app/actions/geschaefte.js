@@ -205,12 +205,18 @@ export const geschaeftDeleteError = (error) => ({
 })
 
 export const GESCHAEFTE_CHANGE_STATE = 'GESCHAEFTE_CHANGE_STATE'
-export const geschaefteChangeState = (idGeschaeft, field, value) => ({
-  type: GESCHAEFTE_CHANGE_STATE,
-  idGeschaeft,
-  field,
-  value
-})
+export const geschaefteChangeState = (idGeschaeft, field, value) =>
+  (dispatch, getState) => {
+    const { user } = getState()
+    const username = user.username
+    dispatch({
+      type: GESCHAEFTE_CHANGE_STATE,
+      idGeschaeft,
+      field,
+      value,
+      username
+    })
+  }
 
 export const GESCHAEFTE_CHANGE_DB_ERROR = 'GESCHAEFTE_CHANGE_DB_ERROR'
 // TODO: reload data from db

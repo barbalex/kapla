@@ -1,7 +1,7 @@
 'use strict'
 
 /**
- * watch versions of username
+ * watch versions of username:
  * did not work on 2.2.2
  * see: https://github.com/sindresorhus/username/issues/9
  */

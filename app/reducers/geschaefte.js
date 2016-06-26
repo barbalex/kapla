@@ -1,4 +1,4 @@
-'use strict'
+import moment from 'moment'
 
 import {
   GESCHAEFTE_GET,
@@ -60,7 +60,9 @@ const geschaeft = (state = {}, action) => {
       }
       return {
         ...state,
-        [action.field]: action.value
+        [action.field]: action.value,
+        mutationsperson: action.user,
+        mutationsdatum: moment().format('YYYY-MM-DD HH:mm:ss')
       }
     default:
       return state
