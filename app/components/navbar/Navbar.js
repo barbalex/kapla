@@ -115,7 +115,7 @@ class NavbarComponent extends Component {
     const dataIsFiltered = geschaefte.length !== geschaefteGefilterteIds.length
     const classNameBadge = dataIsFiltered ? styles.active : null
     const showPrint = path === '/pages'
-    const showGeschaefteStuff = path === '/geschaefte'
+    const showGeschaefteStuff = path === '/geschaefte' || path === '/filterFields'
     const showGeschaefteAndPrint = showPrint || showGeschaefteStuff
     const showTableStuff = path === '/table'
 
