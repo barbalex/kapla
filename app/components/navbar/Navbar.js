@@ -3,11 +3,13 @@
 import ReactDOM from 'react-dom'
 import React, { Component, PropTypes } from 'react'
 import {
+  ButtonGroup,
+  MenuItem,
+  SplitButton,
   Navbar,
   Nav,
   NavItem,
   Glyphicon,
-  FormGroup,
   FormControl
 } from 'react-bootstrap'
 import { LinkContainer } from 'react-router-bootstrap'
@@ -78,7 +80,7 @@ class NavbarComponent extends Component {
     )
     return (
       <Navbar.Form pullLeft>
-        <FormGroup>
+        <ButtonGroup>
           <FormControl
             type="text"
             placeholder="Volltext filtern"
@@ -88,13 +90,19 @@ class NavbarComponent extends Component {
             title="Zum Filtern drücken Sie die Enter-Taste"
             ref="filterFulltext"
           />
-        </FormGroup>
-        <Glyphicon
-          glyph="remove"
-          onClick={this.removeFilter}
-          className={styles.filterInputRemoveIcon}
-          title="Filter entfernen"
-        />
+          <Glyphicon
+            glyph="remove"
+            onClick={this.removeFilter}
+            className={styles.filterInputRemoveIcon}
+            title="Filter entfernen"
+          />
+          <SplitButton
+            id="field-filter-dropdown"
+            title="Filter"
+          >
+            <MenuItem eventKey="1">Action</MenuItem>
+          </SplitButton>
+        </ButtonGroup>
       </Navbar.Form>
     )
   }
