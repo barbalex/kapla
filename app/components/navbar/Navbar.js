@@ -79,30 +79,37 @@ class NavbarComponent extends Component {
       styles.filterInput
     )
     return (
-      <Navbar.Form pullLeft>
-        <ButtonGroup>
-          <FormControl
-            type="text"
-            placeholder="Volltext filtern"
-            value={filterFulltext}
-            onChange={this.onChangeFilterFulltext}
-            className={classNameFilterInput}
-            title="Zum Filtern drücken Sie die Enter-Taste"
-            ref="filterFulltext"
-          />
-          <Glyphicon
-            glyph="remove"
-            onClick={this.removeFilter}
-            className={styles.filterInputRemoveIcon}
-            title="Filter entfernen"
-          />
+      <Navbar.Form
+        pullLeft
+        className={styles.filterGroupContainer}
+      >
+        <div className={styles.filterGroup}>
+          <div className={styles.fulltextFilterContainer}>
+            <FormControl
+              type="text"
+              placeholder="Volltext filtern"
+              value={filterFulltext}
+              onChange={this.onChangeFilterFulltext}
+              className={classNameFilterInput}
+              title="Zum Filtern drücken Sie die Enter-Taste"
+              ref="filterFulltext"
+            />
+            <Glyphicon
+              glyph="remove"
+              onClick={this.removeFilter}
+              className={styles.filterInputRemoveIcon}
+              title="Filter entfernen"
+            />
+          </div>
           <SplitButton
             id="field-filter-dropdown"
-            title="Filter"
+            title="Felder filtern"
+            className={styles.fieldFilterDropdown}
+            onClick={() => console.log('SplitButton clicked')}
           >
             <MenuItem eventKey="1">Action</MenuItem>
           </SplitButton>
-        </ButtonGroup>
+        </div>
       </Navbar.Form>
     )
   }

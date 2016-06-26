@@ -8,6 +8,18 @@
   }
 }
 
+.filterGroupContainer {
+  padding-right: 0;
+}
+
+.filterGroup {
+  display: flex;
+}
+
+.fulltextFilterContainer {
+  margin-right: -12px;
+}
+
 .active {
   color: #FF9416;
 }
@@ -30,6 +42,11 @@
   cursor: pointer;
   right: 23px;
   top: 2px;
+}
+
+.fieldFilterDropdown {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
 }
 
 .navbar {
