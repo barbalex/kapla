@@ -49,50 +49,46 @@ const AreaPersonen = ({
   blur,
   interneOptions
 }) =>
-  <div className={styles.areaPersonen}>
-    <div className={styles.areaPersonenTitle}>
-      Personen
-    </div>
-    <div className={styles.areaVerantwortlichSubTitle}>
-      <div className={styles.areaSubTitleDiv}>
+  <div className={styles.container}>
+    <div className={styles.areaPersonen}>
+      <div className={styles.areaPersonenTitle}>
+        Personen
+      </div>
+      <div className={styles.areaVerantwortlichSubTitle}>
         Verantwortlich
       </div>
-    </div>
-    <div className={styles.fieldVerantwortlich}>
-      <FormControl
-        componentClass="select"
-        value={geschaeft.verantwortlich || ''}
-        name="verantwortlich"
-        onChange={change}
-        onBlur={blur}
-        bsSize="small"
-        tabIndex={1 + nrOfFieldsBeforePersonen}
-        className={styles.verantwDropdown}
-      >
-        {verwantwortlichOptions(interneOptions)}
-      </FormControl>
-    </div>
-    <div className={styles.fieldVerantwortlichName}>
-      <FormControl.Static>
-        {verantwortlichData(geschaeft, interneOptions)}
-      </FormControl.Static>
-    </div>
-    <div className={styles.areaInterneKontakteSubTitle}>
-      <div className={styles.areaSubTitleDiv}>
+      <div className={styles.fieldVerantwortlich}>
+        <FormControl
+          componentClass="select"
+          value={geschaeft.verantwortlich || ''}
+          name="verantwortlich"
+          onChange={change}
+          onBlur={blur}
+          bsSize="small"
+          tabIndex={1 + nrOfFieldsBeforePersonen}
+          className={styles.verantwDropdown}
+        >
+          {verwantwortlichOptions(interneOptions)}
+        </FormControl>
+      </div>
+      <div className={styles.fieldVerantwortlichName}>
+        <FormControl.Static>
+          {verantwortlichData(geschaeft, interneOptions)}
+        </FormControl.Static>
+      </div>
+      <div className={styles.areaInterneKontakteSubTitle}>
         Interne Kontakte
       </div>
-    </div>
-    <KontakteIntern
-      tabIndex={nrOfFieldsBeforePersonen + 1}
-    />
-    <div className={styles.areaExterneKontakteSubTitle}>
-      <div className={styles.areaSubTitleDiv}>
+      <KontakteIntern
+        tabIndex={nrOfFieldsBeforePersonen + 1}
+      />
+      <div className={styles.areaExterneKontakteSubTitle}>
         Externe Kontakte
       </div>
+      <KontakteExtern
+        tabIndex={nrOfFieldsBeforePersonen + 2}
+      />
     </div>
-    <KontakteExtern
-      tabIndex={nrOfFieldsBeforePersonen + 2}
-    />
   </div>
 
 AreaPersonen.displayName = 'AreaPersonen'

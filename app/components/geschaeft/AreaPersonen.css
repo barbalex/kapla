@@ -8,11 +8,12 @@
   font-size: 12px;
   position: relative;
   min-height: 18px;
+  margin-top: 10px;
 }
 
-.areaSubTitleDiv {
-  position: absolute;
-  bottom: 0;
+.container {
+  grid-area: areaPersonen;
+  background-color: rgba(208, 255, 202, 0.2);
 }
 
 .areaPersonen {
@@ -23,6 +24,7 @@
   grid-column-gap: 10px;
   grid-row-gap: 2px;
   padding: 8px;
+  align-items: end;
 }
 
 .areaPersonenTitle {
