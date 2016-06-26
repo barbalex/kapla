@@ -9,15 +9,11 @@
 }
 
 .filterGroupContainer {
-  padding-right: 0;
+  padding-right: 10px;
 }
 
 .filterGroup {
   display: flex;
-}
-
-.fulltextFilterContainer {
-  margin-right: -12px;
 }
 
 .active {
@@ -29,24 +25,22 @@
 }
 
 .filterInput {
-  padding-right: 24px;
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
+  width: 150px !important;
 }
 
 .filterInputActive {
   background-color: #FFBF73;
 }
 
-.filterInputRemoveIcon {
-  cursor: pointer;
-  right: 23px;
-  top: 2px;
+.filterRemoveButton {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
 }
 
 .fieldFilterDropdown {
-  border-top-left-radius: 0;
-  border-bottom-left-radius: 0;
+  border-radius: 0;
 }
 
 .navbar {

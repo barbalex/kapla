@@ -1,16 +1,15 @@
 'use strict'
 
-import ReactDOM from 'react-dom'
 import React, { Component, PropTypes } from 'react'
 import { withRouter } from 'react-router'
 import {
   MenuItem,
+  Button,
   SplitButton,
   Navbar,
   Glyphicon,
   FormControl
 } from 'react-bootstrap'
-import { LinkContainer } from 'react-router-bootstrap'
 import moment from 'moment'
 import filterForFaelligeGeschaefte from '../../src/filterForFaelligeGeschaefte'
 import filterForVernehmlAngek from '../../src/filterForVernehmlAngek'
@@ -70,51 +69,43 @@ class NavbarComponent extends Component {
     path: PropTypes.string.isRequired
   }
 
-  onChangeFilterFulltext = (e) => {
-    const { geschaefteFilterByFulltext } = this.props
-    geschaefteFilterByFulltext(e.target.value)
-  }
-
-  onClickFilterFields = () => {
-    const { router, path, geschaefteRemoveFilters } = this.props
-    // navigate to 'filterFields'
-    if (path !== '/filterFields') {
-      geschaefteRemoveFilters()
-      router.push('/filterFields')
-    }
-  }
-
-  removeFilter = () => {
-    const { geschaefteRemoveFilters } = this.props
-    geschaefteRemoveFilters()
-    this.focusFulltextFilter()
-  }
-
-  focusFulltextFilter = () => {
-    ReactDOM.findDOMNode(this.refs.filterFulltext).focus()
-  }
-
   render() {
     const {
       filterFulltext,
+      filterType,
       geschaefte,
       geschaefteGefilterteIds,
       geschaefteFilterByFields,
       username,
-      path
+      geschaefteRemoveFilters,
+      geschaefteFilterByFulltext,
+      path,
+      router
     } = this.props
-    const dataIsFiltered = (
+    const dataIsFilteredByFulltext = (
       geschaefte.length !== geschaefteGefilterteIds.length &&
       filterFulltext
     )
-    const dataIsFilteredStyle = [
+    const dataIsFilteredByFields = (
+      geschaefte.length !== geschaefteGefilterteIds.length &&
+      !filterFulltext
+    )
+    const dataIsFiltered = (
+      geschaefte.length !== geschaefteGefilterteIds.length
+    )
+    const dataIsFilteredByFulltextStyle = [
       styles.filterInput,
       styles.filterInputActive
     ].join(' ')
     const classNameFilterInput = (
-      dataIsFiltered ?
-      dataIsFilteredStyle :
+      dataIsFilteredByFulltext ?
+      dataIsFilteredByFulltextStyle :
       styles.filterInput
+    )
+    const activeFiltercriteria = (
+      dataIsFilteredByFields ?
+      'TODO' :
+      '(kein Filter aktiv)'
     )
     return (
       <Navbar.Form
@@ -122,92 +113,106 @@ class NavbarComponent extends Component {
         className={styles.filterGroupContainer}
       >
         <div className={styles.filterGroup}>
-          <div className={styles.fulltextFilterContainer}>
-            <FormControl
-              type="text"
-              placeholder="Volltext filtern"
-              value={filterFulltext}
-              onChange={this.onChangeFilterFulltext}
-              className={classNameFilterInput}
-              title="Zum Filtern drücken Sie die Enter-Taste"
-              ref="filterFulltext"
-            />
-            <Glyphicon
-              glyph="remove"
-              onClick={this.removeFilter}
-              className={styles.filterInputRemoveIcon}
-              title="Filter entfernen"
-            />
-          </div>
+          <FormControl
+            type="text"
+            placeholder="Volltext filtern"
+            value={filterFulltext}
+            onChange={(e) =>
+              geschaefteFilterByFulltext(e.target.value)
+            }
+            className={classNameFilterInput}
+            title="Zum Filtern drücken Sie die Enter-Taste"
+          />
           <SplitButton
             id="field-filter-dropdown"
             title="Felder filtern"
             className={styles.fieldFilterDropdown}
-            style={{ backgroundColor: path === '/filterFields' ? '#FFBF73' : null }}
-            onClick={this.onClickFilterFields}
+            style={{ backgroundColor: dataIsFilteredByFields ? '#FFBF73' : null }}
+            onClick={() => {
+              if (path !== '/filterFields') {
+                geschaefteRemoveFilters()
+                router.push('/filterFields')
+              }
+            }}
           >
             <MenuItem header>
-              individuell:
+              aktive Filterkriterien:
             </MenuItem>
-            <LinkContainer to={{ pathname: '/filterFields' }}>
-              <MenuItem eventKey={3.1}>
-                nach Feldern
-              </MenuItem>
-            </LinkContainer>
-            <MenuItem
-              eventKey={3.2}
-              onSelect={() =>
-                this.focusFulltextFilter()
-              }
-            >
-              nach Volltext
-            </MenuItem>
-            <MenuItem divider />
             <MenuItem header>
-              pfannenfertig:
+              {activeFiltercriteria}
+            </MenuItem>
+            <MenuItem header>
+              vorbereitete Filter:
             </MenuItem>
             <MenuItem
-              eventKey={3.3}
               onSelect={() =>
                 onSelectFilterFaelligeGeschaefte(geschaefteFilterByFields)
               }
+              style={{
+                backgroundColor: (
+                  filterType === 'fällige' ?
+                  '#FFBF73' :
+                  null
+                )
+              }}
             >
-              fällige
+              fällige Geschäfte
             </MenuItem>
             <MenuItem
-              eventKey={3.4}
               onSelect={() =>
                 onSelectFilterFaelligeGeschaefteMitarbeiter(geschaefteFilterByFields, username)
               }
+              style={{
+                backgroundColor: (
+                  filterType === 'eigene fällige' ?
+                  '#FFBF73' :
+                  null
+                )
+              }}
             >
-              eigene fällige
+              eigene fällige Geschäfte
             </MenuItem>
             <MenuItem
-              eventKey={3.5}
               onSelect={() =>
                 onSelectFilterVernehmlAngek(geschaefteFilterByFields)
               }
+              style={{
+                backgroundColor: (
+                  filterType === 'angekündigte Vernehmlassungen' ?
+                  '#FFBF73' :
+                  null
+                )
+              }}
             >
               angekündigte Vernehmlassungen
             </MenuItem>
             <MenuItem
-              eventKey={3.6}
               onSelect={() =>
                 onSelectFilterVernehmlLaeuft(geschaefteFilterByFields)
               }
+              style={{
+                backgroundColor: (
+                  filterType === 'laufende Vernehmlassungen' ?
+                  '#FFBF73' :
+                  null
+                )
+              }}
             >
               laufende Vernehmlassungen
             </MenuItem>
-            <MenuItem divider />
-            <MenuItem
-              eventKey={3.7}
-              onSelect={() =>
-                this.removeFilter()
-              }
-            >
-              Filter entfernen
-            </MenuItem>
           </SplitButton>
+          <Button
+            disabled={!dataIsFiltered}
+            className={styles.filterRemoveButton}
+          >
+            <Glyphicon
+              glyph="remove"
+              onClick={() =>
+                geschaefteRemoveFilters()
+              }
+              title="Filter entfernen"
+            />
+          </Button>
         </div>
       </Navbar.Form>
     )
