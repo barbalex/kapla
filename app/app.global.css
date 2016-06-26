@@ -95,6 +95,14 @@ textarea {
   display: none;
 }
 
+/**
+ * need to apply this here because
+ * this div (button) is built by bootstrap
+ */
+#field-filter-dropdown {
+  border-radius: 0;
+}
+
 @media print {
   /**
    * make sure, html and body
