@@ -436,3 +436,9 @@ const abteilungOptionsGetError = (error) => ({
   type: ABTEILUNG_OPTIONS_GET_ERROR,
   error
 })
+
+export const GESCHAEFTE_LIST_OVERFLOW = 'GESCHAEFTE_LIST_OVERFLOW'
+export const geschaefteListOverflow = (geschaefteListOverflowing) => ({
+  type: GESCHAEFTE_LIST_OVERFLOW,
+  geschaefteListOverflowing
+})

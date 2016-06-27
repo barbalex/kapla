@@ -38,7 +38,10 @@ class Geschaefte extends Component {
       <div className={styles.body}>
         <div className={styles.table}>
           <div className={styles.tableHeader}>
-            <div className={styles.tableHeaderRow}>
+            {/* if list overflows, need padding-right of 17px */}
+            <div
+              className={styles.tableHeaderRow}
+            >
               <div className={[styles.columnIdGeschaeft, styles.tableHeaderCell].join(' ')}>
                 ID
               </div>

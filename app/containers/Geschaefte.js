@@ -5,8 +5,14 @@ import { connect } from 'react-redux'
 import Geschaefte from '../components/Geschaefte'
 
 function mapStateToProps(state) {
-  const { geschaefteGefilterteIds } = state.geschaefte
-  return { geschaefteGefilterteIds }
+  const {
+    geschaefteGefilterteIds,
+    geschaefteListOverflowing
+  } = state.geschaefte
+  return {
+    geschaefteGefilterteIds,
+    geschaefteListOverflowing
+  }
 }
 
 function mapDispatchToProps(dispatch) {

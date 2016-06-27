@@ -29,7 +29,8 @@ import {
   INTERNE_OPTIONS_GET_SUCCESS,
   INTERNE_OPTIONS_GET_ERROR,
   EXTERNE_OPTIONS_GET_SUCCESS,
-  EXTERNE_OPTIONS_GET_ERROR
+  EXTERNE_OPTIONS_GET_ERROR,
+  GESCHAEFTE_LIST_OVERFLOW
 } from '../actions/geschaefte'
 
 const standardState = {
@@ -49,7 +50,8 @@ const standardState = {
   externeOptions: [],
   // following: state for active geschaeft
   activeId: null,
-  willDelete: false
+  willDelete: false,
+  geschaefteListOverflowing: true
 }
 
 const geschaeft = (state = {}, action) => {
@@ -196,6 +198,11 @@ const geschaefte = (state = standardState, action) => {
       return {
         ...state,
         externeOptions: action.externeOptions
+      }
+    case GESCHAEFTE_LIST_OVERFLOW:
+      return {
+        ...state,
+        geschaefteListOverflowing: action.geschaefteListOverflowing
       }
     case RECHTSMITTELERLEDIGUNG_OPTIONS_GET_ERROR:
     case PARLVORSTOSSTYP_OPTIONS_GET_ERROR:
