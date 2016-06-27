@@ -56,7 +56,10 @@ class Geschaefte extends Component {
               </div>
             </div>
           </div>
-          <div className={styles.tableBody}>
+          <div
+            className={styles.tableBody}
+            ref={(c) => { this.tableBody = c }}
+          >
             <ReactList
               itemRenderer={::this.renderItem}
               length={geschaefteGefilterteIds.length}
