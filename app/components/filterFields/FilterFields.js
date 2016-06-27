@@ -41,14 +41,45 @@ class FilterFields extends Component {
     this.change(rVal)
   }
 
-  change = (e) => {
+  changeComparator = (e) => {
     const { filterFields, geschaefteFilterByFields } = this.props
-    const { type, name, dataset } = e.target
+    const { name, value } = e.target
     const newFilterFields = []
+    let changedField = {
+      comparator: '=',
+      field: null,
+      value: null
+    }
     if (filterFields.forEach) {
       filterFields.forEach((f) => {
         if (f.field !== name) {
           newFilterFields.push(f)
+        } else {
+          changedField = f
+        }
+      })
+    }
+    changedField.name = name
+    changedField.comparator = value
+    newFilterFields.push(changedField)
+    geschaefteFilterByFields(newFilterFields)
+  }
+
+  change = (e) => {
+    const { filterFields, geschaefteFilterByFields } = this.props
+    const { type, name, dataset } = e.target
+    const newFilterFields = []
+    let changedField = {
+      comparator: '=',
+      field: null,
+      value: null
+    }
+    if (filterFields.forEach) {
+      filterFields.forEach((f) => {
+        if (f.field !== name) {
+          newFilterFields.push(f)
+        } else {
+          changedField = f
         }
       })
     }
@@ -56,13 +87,9 @@ class FilterFields extends Component {
     if (type === 'radio') {
       value = dataset.value
     }
-    if (value || value === 0) {
-      newFilterFields.push({
-        comparator: '=',
-        field: name,
-        value
-      })
-    }
+    changedField.field = name
+    changedField.value = value
+    newFilterFields.push(changedField)
     geschaefteFilterByFields(newFilterFields)
   }
 
@@ -142,6 +169,7 @@ class FilterFields extends Component {
           <AreaFristen
             nrOfFieldsBeforeFristen={nrOfFieldsBeforeFristen}
             change={this.change}
+            changeComparator={this.changeComparator}
             onChangeDatePicker={this.onChangeDatePicker}
             values={values}
           />

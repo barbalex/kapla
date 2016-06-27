@@ -68,15 +68,19 @@ export const geschaefteFilterByFields = (
   (dispatch, getState) => {
     const { geschaefte, routing, pages } = getState()
     const { filterFulltext } = geschaefte
+    // remove filterFields with empty values
+    const filterFieldsWithValues = filterFields.filter((ff) =>
+      ff.value || ff.value === 0
+    )
     // create geschaefteGefilterteIds
     const geschaefteGefilterteIds = filterGeschaefte(
       geschaefte.geschaefte,
       filterFulltext,
-      filterFields
+      filterFieldsWithValues
     )
     dispatch({
       type: GESCHAEFTE_FILTER_BY_FIELDS,
-      filterFields,
+      filterFields: filterFieldsWithValues,
       geschaefteGefilterteIds,
       filterType
     })

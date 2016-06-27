@@ -2,6 +2,7 @@
 
 import React, { PropTypes } from 'react'
 import {
+  DropdownButton,
   FormGroup,
   InputGroup,
   FormControl,
@@ -18,6 +19,7 @@ const AreaFristen = ({
   values,
   nrOfFieldsBeforeFristen,
   change,
+  changeComparator,
   onChangeDatePicker
 }) => {
   /**
@@ -271,6 +273,7 @@ AreaFristen.displayName = 'AreaFristen'
 AreaFristen.propTypes = {
   values: PropTypes.object,
   change: PropTypes.func.isRequired,
+  changeComparator: PropTypes.func.isRequired,
   onChangeDatePicker: PropTypes.func.isRequired,
   nrOfFieldsBeforeFristen: PropTypes.number
 }
