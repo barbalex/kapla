@@ -21,6 +21,7 @@ function mapStateToProps(state) {
   } = state.geschaefte
   const { username } = state.user
   const { dbPath, db } = state.app
+  const path = state.routing.locationBeforeTransitions.pathname
 
   return {
     geschaefte,
@@ -28,7 +29,8 @@ function mapStateToProps(state) {
     username,
     dbPath,
     db,
-    activeId
+    activeId,
+    path
   }
 }
 

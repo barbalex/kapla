@@ -1,9 +1,32 @@
 'use strict'
 
 import React, { Component, PropTypes } from 'react'
+import { withRouter } from 'react-router'
 import ReactList from 'react-list'
 import moment from 'moment'
 import styles from './Geschaefte.css'
+
+const getDauerBisFristMitarbeiter = (geschaeft) => {
+  if (!geschaeft.fristMitarbeiter) return null
+  const now = moment()
+  const end = moment(geschaeft.fristMitarbeiter, 'DD.MM.YYYY')
+  const duration = moment.duration(end.diff(now))
+  const days = duration.asDays()
+  return days ? Math.ceil(days) : ''
+}
+
+const getStatusFristInText = (dauerBisFristMitarbeiter) => {
+  if (dauerBisFristMitarbeiter < 0) return 'Überfällig'
+  if (dauerBisFristMitarbeiter === 0) return 'Heute'
+  if (dauerBisFristMitarbeiter === 1) return `In ${dauerBisFristMitarbeiter} Tag`
+  return `In ${dauerBisFristMitarbeiter} Tagen`
+}
+
+const getStatusFristInStyle = (statusFristInText) => {
+  if (statusFristInText === 'Überfällig') return styles.fieldFristInUeberfaellig
+  if (statusFristInText === 'Heute') return styles.fieldFristInHeute
+  return null
+}
 
 class Geschaefte extends Component {
   static propTypes = {
@@ -11,38 +34,22 @@ class Geschaefte extends Component {
     geschaefteGefilterteIds: PropTypes.array.isRequired,
     username: PropTypes.string,
     geschaeftToggleActivated: PropTypes.func.isRequired,
-    activeId: PropTypes.number
-  }
-
-  onClickGeschaeft(idGeschaeft) {
-    const { geschaeftToggleActivated } = this.props
-    geschaeftToggleActivated(idGeschaeft)
-  }
-
-  dauerBisFristMitarbeiter = (geschaeft) => {
-    if (!geschaeft.fristMitarbeiter) return null
-    const now = moment()
-    const end = moment(geschaeft.fristMitarbeiter, 'DD.MM.YYYY')
-    const duration = moment.duration(end.diff(now))
-    const days = duration.asDays()
-    return days ? Math.ceil(days) : ''
-  }
-
-  statusFristInText = (dauerBisFristMitarbeiter) => {
-    if (dauerBisFristMitarbeiter < 0) return 'Überfällig'
-    if (dauerBisFristMitarbeiter === 0) return 'Heute'
-    if (dauerBisFristMitarbeiter === 1) return `In ${dauerBisFristMitarbeiter} Tag`
-    return `In ${dauerBisFristMitarbeiter} Tagen`
-  }
-
-  statusFristInStyle = (statusFristInText) => {
-    if (statusFristInText === 'Überfällig') return styles.fieldFristInUeberfaellig
-    if (statusFristInText === 'Heute') return styles.fieldFristInHeute
-    return null
+    activeId: PropTypes.number,
+    path: PropTypes.string.isRequired,
+    router: PropTypes.shape({
+      push: PropTypes.func.isRequired
+    })
   }
 
   renderItem(index, key) {
-    const { geschaefte, geschaefteGefilterteIds, activeId } = this.props
+    const {
+      geschaefte,
+      geschaefteGefilterteIds,
+      activeId,
+      path,
+      router,
+      geschaeftToggleActivated,
+    } = this.props
     const isActive = activeId && activeId === geschaefteGefilterteIds[index]
     const trClassName = (
       isActive ?
@@ -57,15 +64,23 @@ class Geschaefte extends Component {
       `Frist: ${geschaeft.fristMitarbeiter}` :
       ''
     )
-    const dauerBisFristMitarbeiter = this.dauerBisFristMitarbeiter(geschaeft)
-    const statusFristInText = this.statusFristInText(dauerBisFristMitarbeiter)
+    const dauerBisFristMitarbeiter = getDauerBisFristMitarbeiter(geschaeft)
+    const statusFristInText = getStatusFristInText(dauerBisFristMitarbeiter)
     const statusFristIn = geschaeft.fristMitarbeiter ? statusFristInText : null
 
     return (
       <div
         key={key}
         className={trClassName}
-        onClick={() => this.onClickGeschaeft(geschaeft.idGeschaeft)}
+        onClick={() => {
+          // if path is not '/geschaefte', make it that
+          // because this is also called from '/fieldFilter'
+          // TODO: Error router is undefined?????
+          if (path !== '/geschaefte') {
+            router.push('/geschaefte')
+          }
+          geschaeftToggleActivated(geschaeft.idGeschaeft)
+        }}
       >
         <div className={styles.columnIdGeschaeft}>
           <div>
@@ -89,7 +104,7 @@ class Geschaefte extends Component {
           <div>
             {fristMitarbeiter}
           </div>
-          <div className={this.statusFristInStyle(statusFristInText)}>
+          <div className={getStatusFristInStyle(statusFristInText)}>
             {statusFristIn}
           </div>
         </div>
@@ -151,4 +166,4 @@ class Geschaefte extends Component {
   }
 }
 
-export default Geschaefte
+export default withRouter(Geschaefte)
