@@ -112,7 +112,6 @@ GeschaefteItem.propTypes = {
   geschaefte: PropTypes.array.isRequired,
   geschaefteGefilterteIds: PropTypes.array.isRequired,
   geschaeftToggleActivated: PropTypes.func.isRequired,
-  geschaefteListOverflowing: PropTypes.func.isRequired,
   activeId: PropTypes.number,
   path: PropTypes.string.isRequired,
   index: PropTypes.number.isRequired,

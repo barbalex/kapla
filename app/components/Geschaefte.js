@@ -1,6 +1,7 @@
 'use strict'
 
 import React, { Component, PropTypes } from 'react'
+import ReactDOM from 'react-dom'
 import ReactList from 'react-list'
 import styles from './Geschaefte.css'
 import GeschaefteItem from '../containers/GeschaefteItem'
@@ -8,6 +9,31 @@ import GeschaefteItem from '../containers/GeschaefteItem'
 class Geschaefte extends Component {
   static propTypes = {
     geschaefteGefilterteIds: PropTypes.array.isRequired
+  }
+
+  state = {
+    tableBodyOverflows: true
+  }
+
+  componentDidUpdate() {
+    /**
+     * this only works in a setTimeout!
+     * otherwise tableBody scrollHeight equals offsetHeight
+     */
+    setTimeout(() => this.setTableBodyOverflow(), 0)
+  }
+
+  setTableBodyOverflow() {
+    const { tableBodyOverflows } = this.state
+    const overflows = this.doesTableBodyOverflow()
+    if (overflows !== tableBodyOverflows) {
+      this.setState({ tableBodyOverflows: !tableBodyOverflows })
+    }
+  }
+
+  doesTableBodyOverflow() {
+    const tableBodyNode = ReactDOM.findDOMNode(this.tableBody)
+    return tableBodyNode.offsetHeight < tableBodyNode.scrollHeight
   }
 
   renderItem(index, key) {
@@ -33,6 +59,7 @@ class Geschaefte extends Component {
 
   render() {
     const { geschaefteGefilterteIds } = this.props
+    const { tableBodyOverflows } = this.state
 
     return (
       <div className={styles.body}>
@@ -41,6 +68,9 @@ class Geschaefte extends Component {
             {/* if list overflows, need padding-right of 17px */}
             <div
               className={styles.tableHeaderRow}
+              style={{
+                paddingRight: tableBodyOverflows ? 17 : null
+              }}
             >
               <div className={[styles.columnIdGeschaeft, styles.tableHeaderCell].join(' ')}>
                 ID
@@ -58,6 +88,7 @@ class Geschaefte extends Component {
           </div>
           <div
             className={styles.tableBody}
+            id="tableBodyId"
             ref={(c) => { this.tableBody = c }}
           >
             <ReactList

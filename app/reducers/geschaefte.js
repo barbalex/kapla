@@ -50,8 +50,7 @@ const standardState = {
   externeOptions: [],
   // following: state for active geschaeft
   activeId: null,
-  willDelete: false,
-  geschaefteListOverflowing: true
+  willDelete: false
 }
 
 const geschaeft = (state = {}, action) => {
@@ -198,11 +197,6 @@ const geschaefte = (state = standardState, action) => {
       return {
         ...state,
         externeOptions: action.externeOptions
-      }
-    case GESCHAEFTE_LIST_OVERFLOW:
-      return {
-        ...state,
-        geschaefteListOverflowing: action.geschaefteListOverflowing
       }
     case RECHTSMITTELERLEDIGUNG_OPTIONS_GET_ERROR:
     case PARLVORSTOSSTYP_OPTIONS_GET_ERROR:
