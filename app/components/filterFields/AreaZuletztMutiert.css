@@ -2,11 +2,27 @@
   grid-area: areaZuletztMutiert;
   background-color: rgba(210, 210, 210, 0.2);
   display: grid;
-  grid-template-columns: 100%;
+  grid-template-columns: 160px calc((100% - 10px) - 160px);
+  grid-column-gap: 2px;
+  grid-row-gap: 2px;
   padding: 8px;
-  align-items: center;
+  align-items: end;
 }
 
-.fieldZuletztMutiert {
-  grid-column: 1;
+.fieldVerantwortlich {
+  grid-column: 1 / span 1;
+}
+
+.fieldVerantwortlichName {
+  grid-column: 2 / span 1;
+}
+
+/* need monospace to line up text vertically */
+.verantwDropdown {
+  font-family: "Lucida Console", Monaco, monospace;
+}
+
+.narrowVerantwDropdown {
+  composes: verantwDropdown;
+  width: 80px;
 }
