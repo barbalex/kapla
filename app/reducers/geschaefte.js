@@ -29,8 +29,7 @@ import {
   INTERNE_OPTIONS_GET_SUCCESS,
   INTERNE_OPTIONS_GET_ERROR,
   EXTERNE_OPTIONS_GET_SUCCESS,
-  EXTERNE_OPTIONS_GET_ERROR,
-  GESCHAEFTE_LIST_OVERFLOW
+  EXTERNE_OPTIONS_GET_ERROR
 } from '../actions/geschaefte'
 
 const standardState = {
@@ -38,7 +37,7 @@ const standardState = {
   error: [],
   geschaefte: [],
   geschaefteGefilterteIds: [],
-  filterFields: {},
+  filterFields: [],
   filterFulltext: '',
   filterType: null,
   // dropdown lists
@@ -107,14 +106,14 @@ const geschaefte = (state = standardState, action) => {
         geschaefteGefilterteIds: action.geschaefteGefilterteIds,
         filterType: action.filterType || null,
         filterFulltext: action.filterFulltext,
-        filterFields: {},
+        filterFields: [],
         activeId: null
       }
     case GESCHAEFTE_REMOVE_FILTERS:
       return {
         ...state,
         geschaefteGefilterteIds: [...state.geschaefte.map((g) => g.idGeschaeft)],
-        filterFields: {},
+        filterFields: [],
         filterType: null,
         filterFulltext: ''
       }
