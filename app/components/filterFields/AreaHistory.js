@@ -11,7 +11,7 @@ const AreaHistory = ({ values, change }) =>
     <div className={styles.areaHistoryTitle}>
       Historie
     </div>
-    <ControlLabel className={styles.labelVorgeschaeft}>
+    <ControlLabel>
       Vorgeschäft
     </ControlLabel>
     <div className={styles.fieldVorgeschaeft}>
