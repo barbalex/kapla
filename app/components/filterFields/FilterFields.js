@@ -72,8 +72,14 @@ class FilterFields extends Component {
       geschaefteLayout
     } = this.props
 
-    const showAreaParlVorstoss = values.geschaeftsart && values.geschaeftsart === 'Parlament. Vorstoss'
-    const showAreaRechtsmittel = values.geschaeftsart && values.geschaeftsart === 'Rekurs/Beschwerde'
+    const showAreaParlVorstoss = (
+      values.geschaeftsart &&
+      values.geschaeftsart === 'Parlament. Vorstoss'
+    )
+    const showAreaRechtsmittel = (
+      values.geschaeftsart &&
+      values.geschaeftsart === 'Rekurs/Beschwerde'
+    )
     const showAreaForGeschaeftsart = (
       showAreaParlVorstoss ||
       showAreaRechtsmittel
