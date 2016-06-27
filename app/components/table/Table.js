@@ -2,6 +2,7 @@
 
 import React, { Component, PropTypes } from 'react'
 import ReactList from 'react-list'
+import ReactDOM from 'react-dom'
 import _ from 'lodash'
 import styles from './Table.css'
 
@@ -13,6 +14,10 @@ class Table extends Component {
     tableLayout: PropTypes.object.isRequired,
     tableRowToggleActivated: PropTypes.func.isRequired,
     tableReset: PropTypes.func.isRequired
+  }
+
+  state = {
+    tableBodyOverflows: true
   }
 
   componentDidUpdate = () => {
@@ -35,6 +40,11 @@ class Table extends Component {
         rL.scrollAround(id)
       }
     }
+    /**
+     * this only works in a setTimeout!
+     * otherwise tableBody scrollHeight equals offsetHeight
+     */
+    setTimeout(() => this.setTableBodyOverflow(), 0)
   }
 
   componentWillUnmount = () => {
@@ -45,6 +55,19 @@ class Table extends Component {
   onClickTableRow(id) {
     const { tableRowToggleActivated, table } = this.props
     tableRowToggleActivated(table, id)
+  }
+
+  setTableBodyOverflow() {
+    const { tableBodyOverflows } = this.state
+    const overflows = this.doesTableBodyOverflow()
+    if (overflows !== tableBodyOverflows) {
+      this.setState({ tableBodyOverflows: !tableBodyOverflows })
+    }
+  }
+
+  doesTableBodyOverflow() {
+    const tableBodyNode = ReactDOM.findDOMNode(this.tableBody)
+    return tableBodyNode.offsetHeight < tableBodyNode.scrollHeight
   }
 
   itemColumns = (row) => {
@@ -136,16 +159,25 @@ class Table extends Component {
 
   render() {
     const { rows } = this.props
+    const { tableBodyOverflows } = this.state
 
     return (
       <div className={styles.body}>
         <div className={styles.table}>
           <div className={styles.tableHeader}>
-            <div className={styles.tableHeaderRow}>
+            <div
+              className={styles.tableHeaderRow}
+              style={{
+                paddingRight: tableBodyOverflows ? 17 : null
+              }}
+            >
               {this.tableHeaders()}
             </div>
           </div>
-          <div className={styles.tableBody}>
+          <div
+            className={styles.tableBody}
+            ref={(c) => { this.tableBody = c }}
+          >
             <ReactList
               itemRenderer={::this.renderItem}
               length={rows.length}

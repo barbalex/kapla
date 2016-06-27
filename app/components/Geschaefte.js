@@ -65,7 +65,6 @@ class Geschaefte extends Component {
       <div className={styles.body}>
         <div className={styles.table}>
           <div className={styles.tableHeader}>
-            {/* if list overflows, need padding-right of 17px */}
             <div
               className={styles.tableHeaderRow}
               style={{
@@ -88,7 +87,6 @@ class Geschaefte extends Component {
           </div>
           <div
             className={styles.tableBody}
-            id="tableBodyId"
             ref={(c) => { this.tableBody = c }}
           >
             <ReactList
