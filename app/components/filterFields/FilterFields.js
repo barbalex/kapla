@@ -31,13 +31,16 @@ class FilterFields extends Component {
   }
 
   onChangeDatePicker = (name, e, picker) => {
+    const datePassed = picker.startDate
+    const value = moment(datePassed).format('YYYY-MM-DD')
     const rVal = {
       target: {
         type: 'text',
         name,
-        value: picker.startDate
+        value
       }
     }
+    console.log('FilterFields.js, value', value)
     this.change(rVal)
   }
 
@@ -68,6 +71,7 @@ class FilterFields extends Component {
   change = (e) => {
     const { filterFields, geschaefteFilterByFields } = this.props
     const { type, name, dataset } = e.target
+    console.log('FilterFields.js, e', e)
     const newFilterFields = []
     let changedField = {
       comparator: '=',
@@ -78,7 +82,7 @@ class FilterFields extends Component {
       filterFields.forEach((f) => {
         if (f.field !== name) {
           newFilterFields.push(f)
-        } else {
+        } else if (f.comparator) {
           changedField = f
         }
       })
@@ -89,6 +93,7 @@ class FilterFields extends Component {
     }
     changedField.field = name
     changedField.value = value
+    console.log('FilterFields.js, changedField', changedField)
     newFilterFields.push(changedField)
     geschaefteFilterByFields(newFilterFields)
   }

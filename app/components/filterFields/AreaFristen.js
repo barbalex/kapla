@@ -13,6 +13,7 @@ import moment from 'moment'
 moment.locale('de')
 import DateRangePicker from 'react-bootstrap-daterangepicker'
 import styles from './AreaFristen.css'
+import AreaFristenField from '../../containers/filterFields/AreaFristenField'
 import getDateValidationStateDate from '../../src/getDateValidationStateDate'
 
 const AreaFristen = ({
@@ -43,38 +44,15 @@ const AreaFristen = ({
       <div className={styles.areaFristenTitle}>
         Fristen
       </div>
-      <FormGroup
-        className={styles.fieldDatumEingangAwel}
-        validationState={getDateValidationStateDate(values.datumEingangAwel)}
-      >
-        <ControlLabel>
-          Datum des Eingangs im AWEL
-        </ControlLabel>
-        <InputGroup>
-          <FormControl
-            type="text"
-            value={values.datumEingangAwel}
-            name="datumEingangAwel"
-            onChange={change}
-            bsSize="small"
-            tabIndex={1 + nrOfFieldsBeforeFristen}
-          />
-          <InputGroup.Addon style={datePickerAddonStyle}>
-            <DateRangePicker
-              singleDatePicker
-              drops="up"
-              opens="left"
-              onApply={onChangeDatePicker.bind(this, 'datumEingangAwel')}
-              className={styles.datePicker}
-            >
-              <Glyphicon
-                glyph="calendar"
-                style={datePickerCalendarStyle}
-              />
-            </DateRangePicker>
-          </InputGroup.Addon>
-        </InputGroup>
-      </FormGroup>
+      <AreaFristenField
+        name="datumEingangAwel"
+        label="Datum des Eingangs im AWEL"
+        tabIndex={1 + nrOfFieldsBeforeFristen}
+        values={values}
+        change={change}
+        changeComparator={changeComparator}
+        onChangeDatePicker={onChangeDatePicker}
+      />
       <FormGroup
         className={styles.fieldFristAwel}
         validationState={getDateValidationStateDate(values.fristAwel)}
