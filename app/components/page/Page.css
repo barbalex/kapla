@@ -85,3 +85,9 @@
   cursor: pointer;
   margin-top: 0;
 }
+
+.filterCriteria {
+  margin-top: 15px;
+  margin-bottom: 15px;
+  padding-left: 5px;
+}

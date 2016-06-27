@@ -24,13 +24,14 @@ function mapStateToProps(state, props) {
     building,
     reportType
   } = pages
-  const { geschaefteGefilterteIds } = state.geschaefte
+  const { geschaefteGefilterteIds, filterFields } = state.geschaefte
   const myGeschaefte = pages.pages[pageIndex].geschaefte
 
   return {
     pages: pages.pages,
     building,
     geschaefte: myGeschaefte,
+    filterFields,
     remainingGeschaefte,
     activePageIndex,
     pageIndex,

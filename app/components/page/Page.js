@@ -14,11 +14,13 @@ import VernehmlassungenHeader from './vernehmlassungen/Header'
 import VernehmlassungenRows from './vernehmlassungen/Rows'
 import List1Header from './list1/Header'
 import List1Rows from './list1/Rows'
+import filterCriteriaToArrayOfStrings from '../../src/filterCriteriaToArrayOfStrings'
 
 class Page extends Component {
   static propTypes = {
     pages: PropTypes.array,
     geschaefte: PropTypes.array,
+    filterFields: PropTypes.array,
     remainingGeschaefte: PropTypes.array,
     geschaefteGefilterteIds: PropTypes.array,
     activePageIndex: PropTypes.number,
@@ -212,12 +214,13 @@ class Page extends Component {
 
   render = () => {
     const {
+      filterFields,
       pageIndex,
       queryTitle,
       building,
       reportType
     } = this.props
-    const showPagesTitle = pageIndex === 0
+    const firstPage = pageIndex === 0
     const pageContainerStyle = (
       building ?
       [styles.pageContainer, styles.pageContainerOverflow].join(' ') :
@@ -231,14 +234,22 @@ class Page extends Component {
           ref={`rowsContainer${pageIndex}`}
         >
           {
-            showPagesTitle &&
+            firstPage &&
             queryTitle &&
             this.inputPagesTitle()
           }
           {
-            showPagesTitle &&
+            firstPage &&
             !queryTitle &&
             this.textPagesTitle()
+          }
+          {
+            firstPage &&
+            <div
+              className={styles.filterCriteria}
+            >
+              Filterkriterien: {filterCriteriaToArrayOfStrings(filterFields).join(' & ')}
+            </div>
           }
           {
             reportType === 'typFaelligeGeschaefte' &&
