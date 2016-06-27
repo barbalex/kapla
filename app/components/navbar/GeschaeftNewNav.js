@@ -8,7 +8,6 @@ import {
 
 const NavbarGeschaeftNeuNav = ({ geschaeftNewCreate }) =>
   <NavItem
-    eventKey={4}
     onClick={geschaeftNewCreate}
     title="neues Geschäft"
   >

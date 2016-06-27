@@ -8,7 +8,6 @@ import {
 
 const NavbarOptionsNav = ({ dbGet }) =>
   <NavDropdown
-    eventKey={9}
     title="&#8942;"
     id="last-nav-dropdown"
     noCaret

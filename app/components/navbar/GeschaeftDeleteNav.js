@@ -11,7 +11,6 @@ const NavbarGeschaeftLoeschenNav = ({
   activeId
 }) =>
   <NavItem
-    eventKey={5}
     onClick={() =>
       geschaeftSetDeleteIntended(activeId)
     }

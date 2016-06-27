@@ -4,6 +4,10 @@
 		"selected_items":
 		[
 			[
+				"data",
+				"dataIsFilteredByFields"
+			],
+			[
 				"border-bo",
 				"border-bottom-left-radius"
 			],
@@ -74,10 +78,6 @@
 			[
 				"Vernehm",
 				"VernehmlAngekHeader"
-			],
-			[
-				"data",
-				"dataArrayString"
 			],
 			[
 				"filt",
@@ -412,18 +412,26 @@
 			}
 		},
 		{
-			"file": "app/components/navbar/Navbar.js",
+			"file": "app/components/navbar/FilterNav.js",
 			"settings":
 			{
-				"buffer_size": 3556,
+				"buffer_size": 6497,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "app/components/navbar/Navbar.css",
+			"file": "app/containers/navbar/OptionsNav.js",
 			"settings":
 			{
-				"buffer_size": 980,
+				"buffer_size": 413,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "app/components/navbar/OptionsNav.js",
+			"settings":
+			{
+				"buffer_size": 502,
 				"line_ending": "Windows"
 			}
 		}
@@ -479,6 +487,7 @@
 	[
 		"/C/Users/alex/kapla",
 		"/C/Users/alex/kapla/app",
+		"/C/Users/alex/kapla/app/actions",
 		"/C/Users/alex/kapla/app/components",
 		"/C/Users/alex/kapla/app/components/navbar",
 		"/C/Users/alex/kapla/app/containers",
@@ -486,16 +495,20 @@
 	],
 	"file_history":
 	[
+		"/C/Users/alex/kapla/app/components/navbar/Navbar.css",
+		"/C/Users/alex/kapla/app/app.global.css",
+		"/C/Users/alex/kapla/app/components/navbar/StammdatenNav.js",
+		"/C/Users/alex/kapla/app/reducers/geschaefte.js",
+		"/C/Users/alex/kapla/app/containers/navbar/FilterNav.js",
+		"/C/Users/alex/kapla/app/components/navbar/BerichteNav.js",
+		"/C/Users/alex/kapla/app/actions/geschaefte.js",
+		"/C/Users/alex/kapla/app/actions/user.js",
+		"/C/Users/alex/kapla/app/components/navbar/Navbar.js",
 		"/C/Users/alex/kapla/app/containers/navbar/filterNav.js",
 		"/C/Users/alex/kapla/app/components/navbar/filterNav.js",
-		"/C/Users/alex/kapla/app/components/navbar/Navbar.js",
 		"/C/Users/alex/kapla/app/components/geschaeft/AreaZuletztMutiert.js",
 		"/C/Users/alex/kapla/app/components/geschaeft/Geschaeft.js",
-		"/C/Users/alex/kapla/app/actions/geschaefte.js",
-		"/C/Users/alex/kapla/app/reducers/geschaefte.js",
-		"/C/Users/alex/kapla/app/components/navbar/Navbar.css",
 		"/C/Users/alex/kapla/app/components/navbar/PrintNav.js",
-		"/C/Users/alex/kapla/app/actions/user.js",
 		"/C/Users/alex/kapla/app/src/updateGeschaeft.js",
 		"/C/Users/alex/kapla/app/components/geschaeft/AreaZuletztMutiert.css",
 		"/C/Users/alex/kapla/app/actions/app.js",
@@ -517,7 +530,6 @@
 		"/C/Users/alex/kapla/app/containers/geschaeft/AreaGeschaeft.js",
 		"/C/Users/alex/kapla/app/components/geschaeft/AreaGeschaeft.js",
 		"/C/Users/alex/kapla/app/containers/filterFields/FilterFields.js",
-		"/C/Users/alex/kapla/app/components/navbar/StammdatenNav.js",
 		"/C/Users/alex/kapla/app/src/sql/createTables.sql",
 		"/C/Users/alex/kapla/app/components/filterFields/AreaFristen.js",
 		"/C/Users/alex/kapla/app/components/filterFields/AreaHistory.js",
@@ -547,7 +559,6 @@
 		"/C/Users/alex/kapla/app/components/filterFields/KontakteIntern.js",
 		"/C/Users/alex/kapla/app/containers/geschaeft/GeschaeftMethods.js",
 		"/C/Users/alex/kapla/app/components/geschaeft/Geschaeft.css",
-		"/C/Users/alex/kapla/app/app.global.css",
 		"/C/Users/alex/kapla/app/containers/App.js",
 		"/C/Users/alex/kapla/app/routes.js",
 		"/C/Users/alex/kapla/app/components/geschaefteLayout.css",
@@ -578,7 +589,6 @@
 		"/C/Users/alex/kapla/app/components/page/list1/Header.js",
 		"/C/Users/alex/kapla/app/components/page/faelligeGeschaefte/FaelligeGeschaefte.css",
 		"/C/Users/alex/kapla/app/components/page/faelligeGeschaefte/Header.js",
-		"/C/Users/alex/kapla/app/components/navbar/BerichteNav.js",
 		"/C/Users/alex/kapla/app/components/page/Page.js",
 		"/C/Users/alex/kapla/app/components/navbar/GeschaefteFilterNav.js",
 		"/C/Users/alex/kapla/app/src/filterForVernehmlLaeuft.js",
@@ -612,12 +622,11 @@
 		"/C/Users/alex/kapla/app/containers/navbar/ExportGeschaefteNav.js",
 		"/C/Users/alex/kapla/app/containers/navbar/GeschaeftDeleteNav.js",
 		"/C/Users/alex/kapla/app/containers/navbar/GeschaefteFilterNav.js",
-		"/C/Users/alex/kapla/app/containers/navbar/GeschaeftNewNav.js",
-		"/C/Users/alex/kapla/app/containers/navbar/OptionsNav.js"
+		"/C/Users/alex/kapla/app/containers/navbar/GeschaeftNewNav.js"
 	],
 	"find":
 	{
-		"height": 48.0
+		"height": 47.0
 	},
 	"find_in_files":
 	{
@@ -646,6 +655,37 @@
 		"case_sensitive": true,
 		"find_history":
 		[
+			"basic-nav-dropdown",
+			"geschaefteFilterByFields",
+			"onSelectFilterFaelligeGeschaefte",
+			"eventKey",
+			"geschaefteRemoveFilters",
+			"onClickFilterFields",
+			"onChangeFilterFulltext",
+			"removeFilter",
+			"filterGroupContainer",
+			"filterGroup",
+			"dataIsFiltered",
+			"filterGroupRemoveIcon",
+			"fieldFilterDropdown",
+			"filterFulltext",
+			"focusFulltextFilter",
+			"dataIsFiltered",
+			"filterInput",
+			"classNameFilterInput",
+			"fulltextFilterContainer",
+			"filterInputRemoveIcon",
+			"dataIsFiltered",
+			"filterGroupRemoveIcon",
+			"removeFilter",
+			"Glyphicon",
+			"GESCHAEFTE_REMOVE_FILTERS",
+			"geschaefteRemoveFilters",
+			"GESCHAEFTE_REMOVE_FILTERS",
+			"geschaefteRemoveFilters",
+			"path",
+			"Navbar",
+			"displayName",
 			"rows",
 			"table",
 			"getTable",
@@ -742,38 +782,7 @@
 			"geschaeft.",
 			"values",
 			"\n          onBlur={blur}",
-			"Geschaeft",
-			"FilterFields",
-			"values",
-			"\n              blur={this.blur}",
-			"showGeschaeft",
-			"\n            blur={this.blur}",
-			"comparator",
-			"\n          className={styles.textarea}",
-			"Textarea",
-			"geschaeft.",
-			"GeschaefteLayout",
-			"geschaefteLayoutState",
-			"geschaefteLayout",
-			"Geschaefte",
-			"geschaefte",
-			"AreaZuletztMutiert",
-			"containers/geschaeft",
-			"components/geschaeft",
-			"this.onChangeDatePicker",
-			"onChangeDatePicker",
-			"Geschaeft",
-			"this.blur",
-			"blur",
-			"this.change",
-			"change",
-			"calc(100vh - 52px)",
-			"#828282",
-			"vermerkInternToggleVisibility",
-			"vermerkInternDisplay",
-			"vermerkInternVisible",
-			"VERMERK_INTERN_TOGGLE_VISIBILITY",
-			"vermerkInternToggleVisibility"
+			"Geschaeft"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -781,6 +790,7 @@
 		"regex": false,
 		"replace_history":
 		[
+			"FilterNav",
 			"kontaktExternNameVorname",
 			"filterValue",
 			"interneOptionsList",
@@ -907,8 +917,7 @@
 			"rechtsmittelerledigungOptions",
 			"areaForGeschaeftsart",
 			"AreaRechtsmittel",
-			"createOptions",
-			"blur"
+			"createOptions"
 		],
 		"reverse": false,
 		"show_context": true,
@@ -919,7 +928,7 @@
 	"groups":
 	[
 		{
-			"selected": 1,
+			"selected": 4,
 			"sheets":
 			[
 				{
@@ -935,8 +944,8 @@
 						"selection":
 						[
 							[
-								4923,
-								4923
+								4488,
+								4488
 							]
 						],
 						"settings":
@@ -946,32 +955,119 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 3267.0,
+						"translation.y": 2907.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 2,
+					"stack_index": 4,
 					"type": "text"
 				},
 				{
 					"buffer": 1,
-					"file": "app/components/navbar/Navbar.js",
+					"file": "app/components/navbar/FilterNav.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 3556,
+						"buffer_size": 6497,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								893,
-								902
+								6160,
+								6178
 							]
 						],
 						"settings":
 						{
-							"history_list_is_closing": true,
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 6610.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "app/components/navbar/FilterNav.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 6497,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								5020,
+								5020
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 6501.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "app/containers/navbar/OptionsNav.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 413,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "app/components/navbar/OptionsNav.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 502,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								246,
+								246
+							]
+						],
+						"settings":
+						{
 							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
 							"tab_size": 2,
 							"translate_tabs_to_spaces": true
@@ -982,47 +1078,13 @@
 					},
 					"stack_index": 0,
 					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "app/components/navbar/Navbar.css",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 980,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								213,
-								213
-							],
-							[
-								246,
-								246
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/CSS/CSS.sublime-syntax",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
-					"type": "text"
 				}
 			]
 		}
 	],
 	"incremental_find":
 	{
-		"height": 42.0
+		"height": 41.0
 	},
 	"input":
 	{
@@ -1059,7 +1121,7 @@
 	"project": "kapla_pc.sublime-project",
 	"replace":
 	{
-		"height": 80.0
+		"height": 90.0
 	},
 	"save_all_on_build": true,
 	"select_file":

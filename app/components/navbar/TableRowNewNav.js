@@ -8,7 +8,6 @@ import {
 
 const NavbarTableRowNeuNav = ({ rowNewCreate, table }) =>
   <NavItem
-    eventKey={4}
     onClick={() =>
       rowNewCreate(table)
     }

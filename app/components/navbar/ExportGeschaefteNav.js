@@ -63,12 +63,10 @@ const NavbarExportGeschaefteNav = ({
   geschaefteGefilterteIds
 }) =>
   <NavDropdown
-    eventKey={6}
     title="Exporte"
     id="exportGeschaefteNavDropdown"
   >
     <MenuItem
-      eventKey={6.1}
       onClick={(e) =>
         exportGeschaefteAll(
           e,
@@ -81,7 +79,6 @@ const NavbarExportGeschaefteNav = ({
       Gefilterte Geschäfte mit allen Feldern
     </MenuItem>
     <MenuItem
-      eventKey={6.2}
       onClick={(e) =>
         exportGeschaefteRechtsmittelVorjahre(
           e,

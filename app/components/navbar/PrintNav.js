@@ -43,7 +43,6 @@ const onClickPrint = (e) => {
 
 const NavbarPrintNav = () =>
   <NavItem
-    eventKey={7}
     onClick={(e) =>
       onClickPrint(e)
     }

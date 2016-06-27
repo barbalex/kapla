@@ -12,7 +12,6 @@ const NavbarTableRowDeleteNav = ({
   activeTableRowId
 }) =>
   <NavItem
-    eventKey={5}
     onClick={() =>
       tableRowRemove(table, activeTableRowId)
     }

@@ -70,7 +70,6 @@ class NavbarComponent extends Component {
           <Nav>
             <LinkContainer to={{ pathname: '/geschaefte' }}>
               <NavItem
-                eventKey={1}
                 href="#"
               >
                 Geschäfte <sup className={classNameBadge}>{geschaefteGefilterteIds.length}</sup>

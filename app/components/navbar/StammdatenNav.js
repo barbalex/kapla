@@ -42,21 +42,18 @@ const NavbarStammdatenNav = ({
 
   return (
     <NavDropdown
-      eventKey={8}
       title={stammdatenTitle(table, rows)}
       id="stammdaten-nav-dropdown"
       active={isStammdatenMenuActive}
       className={isStammdatenMenuActive ? styles.navActive : null}
     >
       <MenuItem
-        eventKey={8.1}
         onClick={() => getTable('interne')}
         active={table === 'interne'}
       >
         Interne
       </MenuItem>
       <MenuItem
-        eventKey={8.2}
         onClick={() => getTable('externe')}
         active={table === 'externe'}
       >
@@ -67,35 +64,30 @@ const NavbarStammdatenNav = ({
         Auswahllisten:
       </MenuItem>
       <MenuItem
-        eventKey={8.3}
         onClick={() => getTable('geschaeftsart')}
         active={table === 'geschaeftsart'}
       >
         Geschäftsart
       </MenuItem>
       <MenuItem
-        eventKey={8.4}
         onClick={() => getTable('parlVorstossTyp')}
         active={table === 'parlVorstossTyp'}
       >
         Parlament. Vorstoss Typ
       </MenuItem>
       <MenuItem
-        eventKey={8.5}
         onClick={() => getTable('rechtsmittelInstanz')}
         active={table === 'rechtsmittelInstanz'}
       >
         Rechtsmittel-Instanz
       </MenuItem>
       <MenuItem
-        eventKey={8.6}
         onClick={() => getTable('rechtsmittelErledigung')}
         active={table === 'rechtsmittelErledigung'}
       >
         Rechtsmittel-Erledigung
       </MenuItem>
       <MenuItem
-        eventKey={8.7}
         onClick={() => getTable('status')}
         active={table === 'status'}
       >
