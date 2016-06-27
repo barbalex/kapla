@@ -3,15 +3,7 @@
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import GeschaefteItem from '../components/GeschaefteItem'
-import * as UserActions from '../actions/user'
 import * as GeschaefteActions from '../actions/geschaefte'
-import * as AppActions from '../actions/app'
-
-const actions = Object.assign(
-  GeschaefteActions,
-  AppActions,
-  UserActions
-)
 
 function mapStateToProps(state, props) {
   const {
@@ -19,17 +11,12 @@ function mapStateToProps(state, props) {
     geschaefteGefilterteIds,
     activeId
   } = state.geschaefte
-  const { username } = state.user
-  const { dbPath, db } = state.app
   const path = state.routing.locationBeforeTransitions.pathname
   const { index, keyPassed } = props
 
   return {
     geschaefte,
     geschaefteGefilterteIds,
-    username,
-    dbPath,
-    db,
     activeId,
     path,
     index,
@@ -38,7 +25,7 @@ function mapStateToProps(state, props) {
 }
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators(actions, dispatch)
+  return bindActionCreators(GeschaefteActions, dispatch)
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(GeschaefteItem)

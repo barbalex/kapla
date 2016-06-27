@@ -1,7 +1,7 @@
 'use strict'
 
 import React, { PropTypes } from 'react'
-import { withRouter } from 'react-router'
+import { withRouter, hashHistory } from 'react-router'
 import moment from 'moment'
 import styles from './Geschaefte.css'
 
@@ -37,7 +37,9 @@ const GeschaefteItem = ({
   index,
   keyPassed
 }) => {
-  console.log('GeschaefteItem, router', router)
+  // TODO: why is router undefined?
+  // console.log('GeschaefteItem, router', router)
+  // console.log('GeschaefteItem, hashHistory', hashHistory)
 
   const isActive = activeId && activeId === geschaefteGefilterteIds[index]
   const trClassName = (
@@ -66,7 +68,8 @@ const GeschaefteItem = ({
         // because this is also called from '/fieldFilter'
         // TODO: Error router is undefined?????
         if (path !== '/geschaefte') {
-          router.push('/geschaefte')
+          //router.push('/geschaefte')
+          hashHistory.push('/geschaefte')
         }
         geschaeftToggleActivated(geschaeft.idGeschaeft)
       }}
