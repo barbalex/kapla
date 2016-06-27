@@ -16,7 +16,16 @@ import AreaZuletztMutiert from '../../containers/filterFields/AreaZuletztMutiert
 class FilterFields extends Component {
   static propTypes = {
     values: PropTypes.object.isRequired,
-    filterFields: PropTypes.array.isRequired,
+    filterFields: PropTypes.arrayOf(
+      PropTypes.shape({
+        comparator: PropTypes.oneOf(['=', '===', '!==', '<', '<=', '>', '>=']),
+        field: PropTypes.string,
+        value: PropTypes.oneOfType([
+          PropTypes.string,
+          PropTypes.number
+        ])
+      })
+    ).isRequired,
     geschaefteFilterByFields: PropTypes.func.isRequired,
     geschaefteLayout: PropTypes.object.isRequired
   }
