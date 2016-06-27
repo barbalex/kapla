@@ -7,6 +7,7 @@ import * as GeschaefteActions from '../../actions/geschaefte'
 
 function mapStateToProps(state) {
   const {
+    filterFields,
     filterType,
     filterFulltext,
     geschaefte,
@@ -16,6 +17,7 @@ function mapStateToProps(state) {
   const path = state.routing.locationBeforeTransitions.pathname
   return {
     username,
+    filterFields,
     filterType,
     filterFulltext,
     geschaefte,

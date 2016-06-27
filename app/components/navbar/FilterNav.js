@@ -14,6 +14,7 @@ import moment from 'moment'
 import filterForFaelligeGeschaefte from '../../src/filterForFaelligeGeschaefte'
 import filterForVernehmlAngek from '../../src/filterForVernehmlAngek'
 import filterForVernehmlLaeuft from '../../src/filterForVernehmlLaeuft'
+import filterCriteriaToArrayOfStrings from '../../src/filterCriteriaToArrayOfStrings'
 import styles from './Navbar.css'
 
 const onSelectFilterFaelligeGeschaefte = (geschaefteFilterByFields) => {
@@ -55,6 +56,7 @@ const onSelectFilterVernehmlLaeuft = (geschaefteFilterByFields) => {
 
 const FilterNav = ({
   filterFulltext,
+  filterFields,
   filterType,
   geschaefte,
   geschaefteGefilterteIds,
@@ -87,8 +89,8 @@ const FilterNav = ({
   )
   const activeFiltercriteria = (
     dataIsFilteredByFields ?
-    'TODO' :
-    '(kein Filter aktiv)'
+    filterCriteriaToArrayOfStrings(filterFields).join(' & ') :
+    '(es werden keine Felder gefiltert)'
   )
   return (
     <Navbar.Form
@@ -120,8 +122,8 @@ const FilterNav = ({
           <MenuItem header>
             aktive Filterkriterien:
           </MenuItem>
-          <MenuItem header>
-            {activeFiltercriteria}
+          <MenuItem>
+            <span className={styles.filterCriteria}>{activeFiltercriteria}</span>
           </MenuItem>
           <MenuItem header>
             vorbereitete Filter:
@@ -203,6 +205,7 @@ const FilterNav = ({
 FilterNav.displayName = 'FilterNav'
 
 FilterNav.propTypes = {
+  filterFields: PropTypes.array.isRequired,
   filterType: PropTypes.string,
   geschaefte: PropTypes.array.isRequired,
   geschaefteGefilterteIds: PropTypes.array.isRequired,

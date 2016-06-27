@@ -64,3 +64,8 @@
 .navActive > a {
   color: #fff !important;
 }
+
+.filterCriteria {
+  cursor: default !important;
+  font-style: italic;
+}
