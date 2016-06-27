@@ -1,34 +1,30 @@
 'use strict'
 
 import React, { PropTypes } from 'react'
+import { FormControl, ControlLabel } from 'react-bootstrap'
 import styles from './AreaZuletztMutiert.css'
 
-const AreaZuletztMutiert = ({ values, interneOptions }) => {
-  let zuletztMutiertText
-
-  if (!values.mutationsperson) {
-    zuletztMutiertText = 'Bei diesem Geschäft wurde (noch) keine Mutationsperson gespeichert'
-  } else {
-    const mutPersonOptions = interneOptions.find((o) => {
-      if (o.itKonto) {
-        // seems that data contains lower case differences
-        // and whitespace
-        return o.itKonto.toLowerCase().replace(/ /g, '') === values.mutationsperson.toLowerCase().replace(/ /g, '')
-      }
-      return false
-    })
-    const name = (
-      mutPersonOptions ?
-      ` (${mutPersonOptions.vorname} ${mutPersonOptions.name})` :
-      ''
-    )
-    zuletztMutiertText = `Zuletzt mutiert durch ${values.mutationsperson}${name} am ${values.mutationsdatum}`
-  }
+const AreaZuletztMutiert = ({
+  values,
+  interneOptions,
+  change,
+  nrOfFieldsBeforeZuletztMutiert
+}) => {
 
   return (
     <div className={styles.areaZuletztMutiert}>
-      <div className={styles.fieldZuletztMutiert}>
-        {zuletztMutiertText}
+      <div className={styles.fieldMutationsperson}>
+        <ControlLabel>
+          Auslöser
+        </ControlLabel>
+        <FormControl
+          type="text"
+          value={values.mutationsperson || ''}
+          name="mutationsperson"
+          onChange={change}
+          bsSize="small"
+          tabIndex={1 + nrOfFieldsBeforeZuletztMutiert}
+        />
       </div>
     </div>
   )
@@ -38,7 +34,9 @@ AreaZuletztMutiert.displayName = 'AreaZuletztMutiert'
 
 AreaZuletztMutiert.propTypes = {
   values: PropTypes.object,
-  interneOptions: PropTypes.array
+  interneOptions: PropTypes.array,
+  nrOfFieldsBeforePersonen: PropTypes.number,
+  change: PropTypes.func.isRequired
 }
 
 export default AreaZuletztMutiert

@@ -98,6 +98,8 @@ class FilterFields extends Component {
     const nrOfPvFields = 9
     const nrOfFieldsBeforeFristen = nrOfFieldsBeforePv + nrOfPvFields
     const nrOfFieldsBeforePersonen = nrOfFieldsBeforeFristen + 7
+    const nrOfFieldsBeforeHistory = nrOfFieldsBeforePersonen + 3
+    const nrOfFieldsBeforeZuletztMutiert = nrOfFieldsBeforeHistory + 1
 
     return (
       <div className={styles.scrollContainer}>
@@ -143,10 +145,15 @@ class FilterFields extends Component {
             values={values}
           />
           <AreaHistory
+            nrOfFieldsBeforeHistory={nrOfFieldsBeforeHistory}
             change={this.change}
             values={values}
           />
-          <AreaZuletztMutiert values={values} />
+          <AreaZuletztMutiert
+            nrOfFieldsBeforeZuletztMutiert={nrOfFieldsBeforeZuletztMutiert}
+            change={this.change}
+            values={values}
+          />
           {/* need this so lowest fields are visible */}
           <div style={{ height: 52 }} />
         </div>

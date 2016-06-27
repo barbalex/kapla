@@ -7,11 +7,13 @@ import * as GeschaefteActions from '../../actions/geschaefte'
 
 function mapStateToProps(state, props) {
   const { interneOptions } = state.geschaefte
-  const { values } = props
+  const { values, change, nrOfFieldsBeforeZuletztMutiert } = props
 
   return {
     values,
-    interneOptions
+    interneOptions,
+    change,
+    nrOfFieldsBeforeZuletztMutiert
   }
 }
 
