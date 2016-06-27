@@ -1,7 +1,7 @@
 'use strict'
 
 import React, { PropTypes } from 'react'
-import { withRouter, hashHistory } from 'react-router'
+import { hashHistory } from 'react-router'
 import moment from 'moment'
 import styles from './Geschaefte.css'
 
@@ -32,15 +32,10 @@ const GeschaefteItem = ({
   geschaefteGefilterteIds,
   activeId,
   path,
-  router,
   geschaeftToggleActivated,
   index,
   keyPassed
 }) => {
-  // TODO: why is router undefined?
-  // console.log('GeschaefteItem, router', router)
-  // console.log('GeschaefteItem, hashHistory', hashHistory)
-
   const isActive = activeId && activeId === geschaefteGefilterteIds[index]
   const trClassName = (
     isActive ?
@@ -66,9 +61,8 @@ const GeschaefteItem = ({
       onClick={() => {
         // if path is not '/geschaefte', make it that
         // because this is also called from '/fieldFilter'
-        // TODO: Error router is undefined?????
+        // no idea why but using 'router' passed by 'withRouter' did not work here
         if (path !== '/geschaefte') {
-          //router.push('/geschaefte')
           hashHistory.push('/geschaefte')
         }
         geschaeftToggleActivated(geschaeft.idGeschaeft)
@@ -120,11 +114,8 @@ GeschaefteItem.propTypes = {
   geschaeftToggleActivated: PropTypes.func.isRequired,
   activeId: PropTypes.number,
   path: PropTypes.string.isRequired,
-  router: PropTypes.shape({
-    push: PropTypes.func.isRequired
-  }),
   index: PropTypes.number.isRequired,
   keyPassed: PropTypes.number.isRequired
 }
 
-export default withRouter(GeschaefteItem)
+export default GeschaefteItem
