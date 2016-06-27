@@ -19,4 +19,5 @@
 
 .fieldVorgeschaeft {
   grid-column: 1;
+  width: 80px;
 }
