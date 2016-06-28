@@ -2,6 +2,7 @@
 
 import { includes, isString } from 'lodash'
 import moment from 'moment'
+import isDateField from './isDateField'
 
 export default function (geschaefte, filterFulltext, filterFields) {
   const existsFilterFulltext = !!filterFulltext
@@ -82,9 +83,10 @@ export default function (geschaefte, filterFulltext, filterFields) {
             } else if (comparator === '>=') {
               if (!(geschaeftValue >= filterValue)) satisfiesFilter = false
             } else if (comparator === '=') {
-              if (moment(geschaeftValue, 'DD.MM.YYYY').isValid()) {
+              if (isDateField(filterField.field)) {
                 // this is a date - can't compare parts
-                if (geschaeftValue !== filterValue) satisfiesFilter = false
+                //if (geschaeftValue !== filterValue) satisfiesFilter = false
+                if (!includes(moment(geschaeftValue).format('DD.MM.YYYY'), filterValue)) satisfiesFilter = false
               } else {
                 if (!includes(geschaeftValue, filterValue)) satisfiesFilter = false
               }

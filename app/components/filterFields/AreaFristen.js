@@ -20,6 +20,7 @@ const AreaFristen = ({
   values,
   nrOfFieldsBeforeFristen,
   change,
+  blur,
   changeComparator,
   onChangeDatePicker
 }) => {
@@ -50,6 +51,7 @@ const AreaFristen = ({
         tabIndex={1 + nrOfFieldsBeforeFristen}
         values={values}
         change={change}
+        blur={blur}
         changeComparator={changeComparator}
         onChangeDatePicker={onChangeDatePicker}
       />
@@ -66,6 +68,7 @@ const AreaFristen = ({
             value={values.fristAwel || ''}
             name="fristAwel"
             onChange={change}
+            onBlur={blur}
             bsSize="small"
             tabIndex={2 + nrOfFieldsBeforeFristen}
           />
@@ -98,6 +101,7 @@ const AreaFristen = ({
             value={values.fristAmtschef || ''}
             name="fristAmtschef"
             onChange={change}
+            onBlur={blur}
             bsSize="small"
             tabIndex={3 + nrOfFieldsBeforeFristen}
           />
@@ -130,6 +134,7 @@ const AreaFristen = ({
             value={values.fristAbteilung || ''}
             name="fristAbteilung"
             onChange={change}
+            onBlur={blur}
             bsSize="small"
             tabIndex={4 + nrOfFieldsBeforeFristen}
           />
@@ -162,6 +167,7 @@ const AreaFristen = ({
             value={values.fristMitarbeiter || ''}
             name="fristMitarbeiter"
             onChange={change}
+            onBlur={blur}
             bsSize="small"
             tabIndex={5 + nrOfFieldsBeforeFristen}
           />
@@ -191,6 +197,7 @@ const AreaFristen = ({
             value={values.datumAusgangAwel || ''}
             name="datumAusgangAwel"
             onChange={change}
+            onBlur={blur}
             bsSize="small"
             tabIndex={6 + nrOfFieldsBeforeFristen}
           />
@@ -223,6 +230,7 @@ const AreaFristen = ({
             value={values.fristDirektion || ''}
             name="fristDirektion"
             onChange={change}
+            onBlur={blur}
             bsSize="small"
             tabIndex={7 + nrOfFieldsBeforeFristen}
           />
@@ -251,6 +259,7 @@ AreaFristen.displayName = 'AreaFristen'
 AreaFristen.propTypes = {
   values: PropTypes.object,
   change: PropTypes.func.isRequired,
+  blur: PropTypes.func.isRequired,
   changeComparator: PropTypes.func.isRequired,
   onChangeDatePicker: PropTypes.func.isRequired,
   nrOfFieldsBeforeFristen: PropTypes.number

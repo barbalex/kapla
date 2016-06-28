@@ -21,6 +21,7 @@ const AreaFristenField = ({
   tabIndex,
   values,
   change,
+  blur,
   changeComparator,
   onChangeDatePicker
 }) => {
@@ -56,6 +57,7 @@ const AreaFristenField = ({
           value={values[name] || ''}
           name={name}
           onChange={change}
+          onBlur={blur}
           bsSize="small"
           tabIndex={tabIndex}
         />

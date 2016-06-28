@@ -12,6 +12,7 @@ function mapStateToProps(state, props) {
     tabIndex,
     values,
     change,
+    blur,
     changeComparator,
     onChangeDatePicker
   } = props
@@ -22,6 +23,7 @@ function mapStateToProps(state, props) {
     tabIndex,
     values,
     change,
+    blur,
     changeComparator,
     onChangeDatePicker
   }
