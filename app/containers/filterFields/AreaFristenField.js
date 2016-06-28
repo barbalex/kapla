@@ -15,12 +15,14 @@ function mapStateToProps(state, props) {
     blur,
     changeComparator
   } = props
+  const { filterFields } = state.geschaefte
 
   return {
     name,
     label,
     tabIndex,
     values,
+    filterFields,
     change,
     blur,
     changeComparator

@@ -1,6 +1,5 @@
 import React, { Component, PropTypes } from 'react'
 import {
-  DropdownButton,
   FormGroup,
   InputGroup,
   FormControl,
@@ -28,7 +27,8 @@ class AreaFristenField extends Component {
     name: PropTypes.string.isRequired,
     label: PropTypes.string.isRequired,
     tabIndex: PropTypes.number.isRequired,
-    values: PropTypes.object,
+    values: PropTypes.object.isRequired,
+    filterFields: PropTypes.array.isRequired,
     change: PropTypes.func.isRequired,
     changeComparator: PropTypes.func.isRequired
   }
@@ -93,8 +93,7 @@ class AreaFristenField extends Component {
       name,
       label,
       tabIndex,
-      values,
-      change,
+      filterFields,
       changeComparator
     } = this.props
     const { value } = this.state
@@ -115,11 +114,13 @@ class AreaFristenField extends Component {
     }
 
     const fieldStyleName = `field${name.charAt(0).toUpperCase()}${name.slice(1)}`
+    const filterField = filterFields.find((ff) => ff.field === name)
+    const comparatorValue = filterField ? filterField.comparator : ''
 
     return (
       <FormGroup
         className={styles[fieldStyleName]}
-        validationState={getDateValidationStateDate(values[name])}
+        validationState={getDateValidationStateDate(value)}
       >
         <ControlLabel>
           {label}
@@ -129,7 +130,10 @@ class AreaFristenField extends Component {
             <FormControl
               componentClass="select"
               className={styles.comparator}
+              onChange={(e) => changeComparator(e.target.value, name)}
+              value={comparatorValue}
             >
+              <option value=""></option>
               <option value="=">=</option>
               <option value="!==">!=</option>
               <option value=">">{'>'}</option>

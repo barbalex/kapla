@@ -70,7 +70,7 @@ export const geschaefteFilterByFields = (
     const { filterFulltext } = geschaefte
     // remove filterFields with empty values
     const filterFieldsWithValues = filterFields.filter((ff) =>
-      ff.value || ff.value === 0
+      ff.value || ff.value === 0 || ff.comparator
     )
     // create geschaefteGefilterteIds
     const geschaefteGefilterteIds = filterGeschaefte(
