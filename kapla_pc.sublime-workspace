@@ -4,6 +4,26 @@
 		"selected_items":
 		[
 			[
+				"ab",
+				"abteilungOptions"
+			],
+			[
+				"g",
+				"geschaefteLayout"
+			],
+			[
+				"Ge",
+				"GeschaefteItem"
+			],
+			[
+				"ge",
+				"geschaeft"
+			],
+			[
+				"filter",
+				"filterFieldsWithValues"
+			],
+			[
 				"data",
 				"dataIsFilteredByFields"
 			],
@@ -18,18 +38,6 @@
 			[
 				"ex",
 				"externeOptions"
-			],
-			[
-				"g",
-				"geschaeftValue"
-			],
-			[
-				"ge",
-				"geschaeftValue"
-			],
-			[
-				"ab",
-				"abteilung"
 			],
 			[
 				"abt",
@@ -228,10 +236,6 @@
 				"tableLayoutState"
 			],
 			[
-				"Ge",
-				"GeschaefteLayout"
-			],
-			[
 				"ac",
 				"action"
 			],
@@ -298,10 +302,6 @@
 			[
 				"con",
 				"containsFilter"
-			],
-			[
-				"filter",
-				"filterFulltext"
 			],
 			[
 				"onC",
@@ -412,10 +412,36 @@
 			}
 		},
 		{
-			"file": "app/src/filterGeschaefte.js",
+			"file": "app/routes.js",
 			"settings":
 			{
-				"buffer_size": 4278,
+				"buffer_size": 680,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"contents": "Searching 249 files for \"/filterFields\" (case sensitive)\n\nC:\\Users\\alex\\kapla\\app\\components\\filterFields\\AreaFristen.js:\n    3  import React, { PropTypes } from 'react'\n    4  import styles from './areaFristen.css'\n    5: import DateField from '../../containers/filterFields/AreaFristenField'\n    6  \n    7  const AreaFristen = ({\n\nC:\\Users\\alex\\kapla\\app\\components\\filterFields\\FilterFields.js:\n    4  import moment from 'moment'\n    5  moment.locale('de')\n    6: import styles from './filterFields.css'\n    7: import AreaGeschaeft from '../../containers/filterFields/AreaGeschaeft'\n    8: import AreaNummern from '../../containers/filterFields/AreaNummern'\n    9: import AreaFristen from '../../containers/filterFields/AreaFristen'\n   10: import AreaParlVorstoss from '../../containers/filterFields/AreaParlVorstoss'\n   11: import AreaRechtsmittel from '../../containers/filterFields/AreaRechtsmittel'\n   12: import AreaPersonen from '../../containers/filterFields/AreaPersonen'\n   13: import AreaHistory from '../../containers/filterFields/AreaHistory'\n   14: import AreaZuletztMutiert from '../../containers/filterFields/AreaZuletztMutiert'\n   15  import isDateField from '../../src/isDateField'\n   16  \n\nC:\\Users\\alex\\kapla\\app\\components\\FilterFieldsLayout.js:\n    4  import GoldenLayout from 'golden-layout'\n    5  import wrapComponentInProvider from '../containers/wrapComponentInProvider'\n    6: import FilterFields from '../containers/filterFields/FilterFields'\n    7  import Geschaefte from '../containers/Geschaefte'\n    8  import saveConfigValue from '../src/saveConfigValue'\n\nC:\\Users\\alex\\kapla\\app\\components\\GeschaefteLayout.js:\n    5  import wrapComponentInProvider from '../containers/wrapComponentInProvider'\n    6  import Geschaeft from '../containers/geschaeft/Geschaeft'\n    7: import FilterFields from '../containers/filterFields/FilterFields'\n    8  import Geschaefte from '../containers/Geschaefte'\n    9  import saveConfigValue from '../src/saveConfigValue'\n\nC:\\Users\\alex\\kapla\\app\\components\\navbar\\FilterNav.js:\n  115            style={{ backgroundColor: dataIsFilteredByFields ? '#FFBF73' : null }}\n  116            onClick={() => {\n  117:             if (path !== '/filterFields') {\n  118:               router.push('/filterFields')\n  119              }\n  120            }}\n\nC:\\Users\\alex\\kapla\\app\\components\\navbar\\Navbar.js:\n   49      const classNameBadge = dataIsFiltered ? styles.active : null\n   50      const showPrint = path === '/pages'\n   51:     const showGeschaefteStuff = path === '/geschaefte' || path === '/filterFields'\n   52      const showGeschaefteAndPrint = showPrint || showGeschaefteStuff\n   53      const showTableStuff = path === '/table'\n\nC:\\Users\\alex\\kapla\\app\\containers\\filterFields\\AreaFristen.js:\n    3  import { bindActionCreators } from 'redux'\n    4  import { connect } from 'react-redux'\n    5: import AreaFristen from '../../components/filterFields/AreaFristen'\n    6  import * as GeschaefteActions from '../../actions/geschaefte'\n    7  \n\nC:\\Users\\alex\\kapla\\app\\containers\\filterFields\\AreaFristenField.js:\n    3  import { bindActionCreators } from 'redux'\n    4  import { connect } from 'react-redux'\n    5: import AreaFristenField from '../../components/filterFields/AreaFristenField'\n    6  import * as GeschaefteActions from '../../actions/geschaefte'\n    7  \n\nC:\\Users\\alex\\kapla\\app\\containers\\filterFields\\AreaGeschaeft.js:\n    3  import { bindActionCreators } from 'redux'\n    4  import { connect } from 'react-redux'\n    5: import AreaGeschaeft from '../../components/filterFields/AreaGeschaeft'\n    6  import * as GeschaefteActions from '../../actions/geschaefte'\n    7  \n\nC:\\Users\\alex\\kapla\\app\\containers\\filterFields\\AreaHistory.js:\n    3  import { bindActionCreators } from 'redux'\n    4  import { connect } from 'react-redux'\n    5: import AreaHistory from '../../components/filterFields/AreaHistory'\n    6  \n    7  function mapStateToProps(state, props) {\n\nC:\\Users\\alex\\kapla\\app\\containers\\filterFields\\AreaHistoryRows.js:\n    3  import { bindActionCreators } from 'redux'\n    4  import { connect } from 'react-redux'\n    5: import AreaHistoryRows from '../../components/filterFields/AreaHistoryRows'\n    6  import * as GeschaefteActions from '../../actions/geschaefte'\n    7  \n\nC:\\Users\\alex\\kapla\\app\\containers\\filterFields\\AreaNummern.js:\n    3  import { bindActionCreators } from 'redux'\n    4  import { connect } from 'react-redux'\n    5: import AreaNummern from '../../components/filterFields/AreaNummern'\n    6  import * as GeschaefteActions from '../../actions/geschaefte'\n    7  \n\nC:\\Users\\alex\\kapla\\app\\containers\\filterFields\\AreaParlVorstoss.js:\n    3  import { bindActionCreators } from 'redux'\n    4  import { connect } from 'react-redux'\n    5: import AreaParlVorstoss from '../../components/filterFields/AreaParlVorstoss'\n    6  import * as GeschaefteActions from '../../actions/geschaefte'\n    7  \n\nC:\\Users\\alex\\kapla\\app\\containers\\filterFields\\AreaPersonen.js:\n    3  import { bindActionCreators } from 'redux'\n    4  import { connect } from 'react-redux'\n    5: import AreaPersonen from '../../components/filterFields/AreaPersonen'\n    6  import * as GeschaefteActions from '../../actions/geschaefte'\n    7  \n\nC:\\Users\\alex\\kapla\\app\\containers\\filterFields\\AreaRechtsmittel.js:\n    3  import { bindActionCreators } from 'redux'\n    4  import { connect } from 'react-redux'\n    5: import AreaRechtsmittel from '../../components/filterFields/AreaRechtsmittel'\n    6  import * as GeschaefteActions from '../../actions/geschaefte'\n    7  \n\nC:\\Users\\alex\\kapla\\app\\containers\\filterFields\\AreaZuletztMutiert.js:\n    3  import { bindActionCreators } from 'redux'\n    4  import { connect } from 'react-redux'\n    5: import AreaZuletztMutiert from '../../components/filterFields/AreaZuletztMutiert'\n    6  import * as GeschaefteActions from '../../actions/geschaefte'\n    7  \n\nC:\\Users\\alex\\kapla\\app\\containers\\filterFields\\FilterFields.js:\n    3  import { bindActionCreators } from 'redux'\n    4  import { connect } from 'react-redux'\n    5: import FilterFields from '../../components/filterFields/FilterFields'\n    6  import * as GeschaefteActions from '../../actions/geschaefte'\n    7  import * as AppActions from '../../actions/app'\n\nC:\\Users\\alex\\kapla\\app\\containers\\filterFields\\KontakteExtern.js:\n    3  import { bindActionCreators } from 'redux'\n    4  import { connect } from 'react-redux'\n    5: import KontakteExtern from '../../components/filterFields/KontakteExtern'\n    6  import * as GeschaefteKontakteExternActions from '../../actions/geschaefteKontakteExtern'\n    7  import * as AppActions from '../../actions/app'\n\nC:\\Users\\alex\\kapla\\app\\containers\\filterFields\\KontakteExternItems.js:\n    3  import { bindActionCreators } from 'redux'\n    4  import { connect } from 'react-redux'\n    5: import KontakteExternItems from '../../components/filterFields/KontakteExternItems'\n    6  import * as GeschaefteKontakteExternActions from '../../actions/geschaefteKontakteExtern'\n    7  \n\nC:\\Users\\alex\\kapla\\app\\containers\\filterFields\\KontakteIntern.js:\n    3  import { bindActionCreators } from 'redux'\n    4  import { connect } from 'react-redux'\n    5: import KontakteIntern from '../../components/filterFields/KontakteIntern'\n    6  import * as GeschaefteKontakteInternActions from '../../actions/geschaefteKontakteIntern'\n    7  import * as AppActions from '../../actions/app'\n\nC:\\Users\\alex\\kapla\\app\\containers\\filterFields\\KontakteInternItems.js:\n    3  import { bindActionCreators } from 'redux'\n    4  import { connect } from 'react-redux'\n    5: import KontakteInternItems from '../../components/filterFields/KontakteInternItems'\n    6  import * as GeschaefteKontakteInternActions from '../../actions/geschaefteKontakteIntern'\n    7  import * as AppActions from '../../actions/app'\n\nC:\\Users\\alex\\kapla\\app\\routes.js:\n   13      <IndexRoute component={GeschaefteLayout} />\n   14      <Route path=\"/geschaefte\" component={GeschaefteLayout} />\n   15:     <Route path=\"/filterFields\" component={FilterFieldsLayout} />\n   16      <Route path=\"/table\" component={TableLayout} />\n   17      <Route path=\"/pages\" component={Pages} />\n\n31 matches across 22 files\n",
+			"settings":
+			{
+				"buffer_size": 8186,
+				"line_ending": "Windows",
+				"name": "Find Results",
+				"scratch": true
+			}
+		},
+		{
+			"file": "app/components/GeschaefteLayout.js",
+			"settings":
+			{
+				"buffer_size": 2619,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "app/components/FilterFieldsLayout.js",
+			"settings":
+			{
+				"buffer_size": 2113,
 				"line_ending": "Windows"
 			}
 		},
@@ -423,23 +449,7 @@
 			"file": "app/components/filterFields/FilterFields.js",
 			"settings":
 			{
-				"buffer_size": 6377,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "app/components/filterFields/AreaFristen.js",
-			"settings":
-			{
-				"buffer_size": 2787,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "app/components/filterFields/AreaFristenField.js",
-			"settings":
-			{
-				"buffer_size": 2319,
+				"buffer_size": 6337,
 				"line_ending": "Windows"
 			}
 		}
@@ -495,42 +505,68 @@
 	[
 		"/C/Users/alex/kapla",
 		"/C/Users/alex/kapla/app",
-		"/C/Users/alex/kapla/app/actions",
 		"/C/Users/alex/kapla/app/components",
 		"/C/Users/alex/kapla/app/components/filterFields",
+		"/C/Users/alex/kapla/app/components/geschaeft",
 		"/C/Users/alex/kapla/app/containers",
-		"/C/Users/alex/kapla/app/containers/filterFields",
 		"/C/Users/alex/kapla/app/src"
 	],
 	"file_history":
 	[
-		"/C/Users/alex/kapla/app/components/filterFields/FilterFields.js",
-		"/C/Users/alex/kapla/app/containers/filterFields/AreaFristen.js",
-		"/C/Users/alex/kapla/app/actions/geschaefte.js",
-		"/C/Users/alex/kapla/app/containers/filterFields/AreaFristenField.js",
+		"/C/Users/alex/kapla/app/containers/wrapComponentInProvider.js",
+		"/C/Users/alex/kapla/app/containers/geschaeft/Geschaeft.js",
+		"/C/Users/alex/kapla/app/components/geschaeft/Geschaeft.js",
+		"/C/Users/alex/kapla/app/containers/Geschaefte.js",
+		"/C/Users/alex/kapla/app/containers/filterFields/FilterFields.js",
 		"/C/Users/alex/kapla/app/src/filterGeschaefte.js",
+		"/C/Users/alex/kapla/app/components/filterFields/AreaGeschaeft.js",
+		"/C/Users/alex/kapla/app/containers/filterFields/AreaGeschaeft.js",
+		"/C/Users/alex/kapla/app/components/filterFields/AreaPersonen.js",
+		"/C/Users/alex/kapla/app/components/geschaeft/AreaGeschaeft.js",
+		"/C/Users/alex/kapla/app/components/geschaeft/AreaHistory.js",
+		"/C/Users/alex/kapla/app/components/geschaeft/AreaHistoryRows.js",
+		"/C/Users/alex/kapla/app/components/geschaeft/AreaNummern.js",
+		"/C/Users/alex/kapla/app/components/geschaeft/AreaParlVorstoss.js",
+		"/C/Users/alex/kapla/app/components/geschaeft/AreaPersonen.js",
+		"/C/Users/alex/kapla/app/components/geschaeft/AreaRechtsmittel.js",
+		"/C/Users/alex/kapla/app/components/geschaeft/AreaZuletztMutiert.js",
+		"/C/Users/alex/kapla/app/components/geschaeft/KontakteExtern.js",
+		"/C/Users/alex/kapla/app/components/geschaeft/KontakteExternItems.js",
+		"/C/Users/alex/kapla/app/components/geschaeft/AreaFristen.js",
+		"/C/Users/alex/kapla/app/components/geschaeft/KontakteIntern.js",
+		"/C/Users/alex/kapla/app/components/geschaeft/KontakteInternItems.js",
+		"/C/Users/alex/kapla/app/containers/geschaeft/AreaGeschaeft.js",
+		"/C/Users/alex/kapla/app/src/createOptions.js",
+		"/C/Users/alex/kapla/app/components/filterFields/AreaFristenField.js",
+		"/C/Users/alex/kapla/app/containers/filterFields/AreaFristen.js",
+		"/C/Users/alex/kapla/app/components/filterFields/AreaFristen.js",
+		"/C/Users/alex/kapla/app/routes.js",
+		"/C/Users/alex/kapla/app/index.js",
+		"/C/Users/alex/kapla/app/containers/GeschaefteLayout.js",
+		"/C/Users/alex/kapla/app/actions/geschaefte.js",
+		"/C/Users/alex/kapla/app/reducers/geschaefte.js",
+		"/C/Users/alex/kapla/app/components/Geschaefte.js",
+		"/C/Users/alex/kapla/app/containers/GeschaefteItem.js",
+		"/C/Users/alex/kapla/app/components/GeschaefteItem.js",
+		"/C/Users/alex/kapla/app/containers/filterFields/AreaFristenField.js",
+		"/C/Users/alex/kapla/app/components/filterFields/FilterFields.js",
 		"/C/Users/alex/kapla/app/components/navbar/FilterNav.js",
 		"/C/Users/alex/kapla/app/containers/navbar/OptionsNav.js",
 		"/C/Users/alex/kapla/app/components/navbar/OptionsNav.js",
 		"/C/Users/alex/kapla/app/components/navbar/Navbar.css",
 		"/C/Users/alex/kapla/app/app.global.css",
 		"/C/Users/alex/kapla/app/components/navbar/StammdatenNav.js",
-		"/C/Users/alex/kapla/app/reducers/geschaefte.js",
 		"/C/Users/alex/kapla/app/containers/navbar/FilterNav.js",
 		"/C/Users/alex/kapla/app/components/navbar/BerichteNav.js",
 		"/C/Users/alex/kapla/app/actions/user.js",
 		"/C/Users/alex/kapla/app/components/navbar/Navbar.js",
 		"/C/Users/alex/kapla/app/containers/navbar/filterNav.js",
 		"/C/Users/alex/kapla/app/components/navbar/filterNav.js",
-		"/C/Users/alex/kapla/app/components/geschaeft/AreaZuletztMutiert.js",
-		"/C/Users/alex/kapla/app/components/geschaeft/Geschaeft.js",
 		"/C/Users/alex/kapla/app/components/navbar/PrintNav.js",
 		"/C/Users/alex/kapla/app/src/updateGeschaeft.js",
 		"/C/Users/alex/kapla/app/components/geschaeft/AreaZuletztMutiert.css",
 		"/C/Users/alex/kapla/app/actions/app.js",
-		"/C/Users/alex/kapla/app/components/filterFields/AreaPersonen.js",
 		"/C/Users/alex/kapla/app/components/filterFields/AreaPersonen.css",
-		"/C/Users/alex/kapla/app/components/geschaeft/AreaPersonen.js",
 		"/C/Users/alex/kapla/app/components/geschaeft/AreaPersonen.css",
 		"/C/Users/alex/kapla/app/src/sql/createViews.sql",
 		"/C/Users/alex/kapla/app/src/sql/forceReferenceGeschaefteKontakteExtern.sql",
@@ -539,13 +575,7 @@
 		"/C/Users/alex/kapla/app/components/filterFields/KontakteExtern.js",
 		"/C/Users/alex/kapla/app/containers/filterFields/AreaPersonen.js",
 		"/C/Users/alex/kapla/app/src/getDropdownOptions.js",
-		"/C/Users/alex/kapla/app/components/filterFields/AreaGeschaeft.js",
-		"/C/Users/alex/kapla/app/containers/filterFields/AreaGeschaeft.js",
-		"/C/Users/alex/kapla/app/containers/geschaeft/AreaGeschaeft.js",
-		"/C/Users/alex/kapla/app/components/geschaeft/AreaGeschaeft.js",
-		"/C/Users/alex/kapla/app/containers/filterFields/FilterFields.js",
 		"/C/Users/alex/kapla/app/src/sql/createTables.sql",
-		"/C/Users/alex/kapla/app/components/filterFields/AreaFristen.js",
 		"/C/Users/alex/kapla/app/components/filterFields/AreaHistory.js",
 		"/C/Users/alex/kapla/app/components/filterFields/AreaNummern.js",
 		"/C/Users/alex/kapla/app/components/filterFields/AreaParlVorstoss.js",
@@ -561,7 +591,6 @@
 		"/C/Users/alex/kapla/app/containers/filterFields/AreaZuletztMutiert.js",
 		"/C/Users/alex/kapla/app/components/FilterFieldsLayout.js",
 		"/C/Users/alex/kapla/app/components/GeschaefteLayout.js",
-		"/C/Users/alex/kapla/app/containers/geschaeft/Geschaeft.js",
 		"/C/Users/alex/kapla/app/components/filterFields/Geschaeft.js",
 		"/C/Users/alex/kapla/app/components/filterFields/AreaZuletztMutiert.css",
 		"/C/Users/alex/kapla/app/containers/filterFields/Geschaeft.js",
@@ -573,15 +602,10 @@
 		"/C/Users/alex/kapla/app/containers/geschaeft/GeschaeftMethods.js",
 		"/C/Users/alex/kapla/app/components/geschaeft/Geschaeft.css",
 		"/C/Users/alex/kapla/app/containers/App.js",
-		"/C/Users/alex/kapla/app/routes.js",
 		"/C/Users/alex/kapla/app/components/geschaefteLayout.css",
-		"/C/Users/alex/kapla/app/components/Geschaefte.js",
 		"/C/Users/alex/kapla/app/components/Geschaefte.css",
 		"/C/Users/alex/kapla/app/components/geschaeft/AreaNummern.css",
-		"/C/Users/alex/kapla/app/components/geschaeft/AreaHistory.js",
-		"/C/Users/alex/kapla/app/components/geschaeft/AreaHistoryRows.js",
 		"/C/Users/alex/kapla/app/components/geschaeft/AreaHistory.css",
-		"/C/Users/alex/kapla/app/components/geschaeft/KontakteIntern.js",
 		"/C/Users/alex/kapla/app/components/geschaeft/KontakteIntern.css",
 		"/C/Users/alex/kapla/app/components/geschaeft/KontakteExtern.css",
 		"/C/Users/alex/kapla/app/components/geschaeft/AreaGeschaeft.css",
@@ -594,7 +618,6 @@
 		"/C/Users/alex/kapla/app/src/sql/getGeschaeftsarten.sql",
 		"/D/Google Drive/awel-kapla/howto.txt",
 		"/D/Google Drive/awel-kapla/DatenProbleme.txt",
-		"/C/Users/alex/kapla/app/components/geschaeft/AreaFristen.js",
 		"/C/Users/alex/kapla/app/src/exportGeschaefte.js",
 		"/C/Users/alex/kapla/app/src/writeExport.js",
 		"/C/Users/alex/kapla/app/components/navbar/ExportGeschaefteNav.js",
@@ -617,21 +640,7 @@
 		"/C/Users/alex/kapla/app/containers/geschaeft/AreaFristen.js",
 		"/C/Users/alex/kapla/app/containers/geschaeft/AreaHistory.js",
 		"/C/Users/alex/kapla/app/containers/geschaeft/AreaHistoryRows.js",
-		"/C/Users/alex/kapla/app/containers/geschaeft/AreaNummern.js",
-		"/C/Users/alex/kapla/app/containers/geschaeft/AreaParlVorstoss.js",
-		"/C/Users/alex/kapla/app/containers/geschaeft/AreaPersonen.js",
-		"/C/Users/alex/kapla/app/containers/geschaeft/AreaRechtsmittel.js",
-		"/C/Users/alex/kapla/app/containers/geschaeft/AreaZuletztMutiert.js",
-		"/C/Users/alex/kapla/app/containers/geschaeft/KontakteExtern.js",
-		"/C/Users/alex/kapla/app/containers/geschaeft/KontakteExternItems.js",
-		"/C/Users/alex/kapla/app/containers/geschaeft/KontakteIntern.js",
-		"/C/Users/alex/kapla/app/containers/geschaeft/KontakteInternItems.js",
-		"/C/Users/alex/kapla/app/components/geschaeft/KontakteExtern.js",
-		"/C/Users/alex/kapla/app/components/geschaeft/KontakteExternItems.js",
-		"/C/Users/alex/kapla/app/components/geschaeft/AreaRechtsmittel.js",
-		"/C/Users/alex/kapla/app/components/geschaeft/AreaParlVorstoss.js",
-		"/C/Users/alex/kapla/app/components/geschaeft/KontakteInternItems.js",
-		"/C/Users/alex/kapla/app/containers/geschaeft/GeschaeftKontakteExtern.js"
+		"/C/Users/alex/kapla/app/containers/geschaeft/AreaNummern.js"
 	],
 	"find":
 	{
@@ -664,6 +673,22 @@
 		"case_sensitive": true,
 		"find_history":
 		[
+			"getConfig",
+			"/filterFields",
+			"abteilungOptions",
+			"nrOfNrFields",
+			"layoutConfig",
+			"abteilungOptions",
+			"geschaefteLayout",
+			"store",
+			"Store",
+			"GeschaefteLayout",
+			"wrapComponentInProvider",
+			"GESCHAEFTE_FILTER_BY_FIELDS",
+			"onChangeDatePicker",
+			"fristMitarbeiter",
+			"AreaFristenField",
+			"blur",
 			"geschaefteFilterByFields",
 			"isDateField",
 			"change",
@@ -775,23 +800,7 @@
 			"geschaeft",
 			"blur",
 			"\n            onBlur={blur}",
-			"\n          onBlur={blur}",
-			"blur",
-			"geschaeft",
-			"verantwortlichData",
-			"blur",
-			"\n        onBlur={blur}",
-			"blur",
-			"geschaeft",
-			"blur",
-			"\n        onBlur={blur}",
-			"blur",
-			"geschaeft",
-			"blur",
-			"\n          onBlur={blur}",
-			"blur",
-			"geschaeft",
-			"fieldFristDauerBisMitarbeiter"
+			"\n          onBlur={blur}"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -799,6 +808,7 @@
 		"regex": false,
 		"replace_history":
 		[
+			"nrOfGFields",
 			"FilterNav",
 			"kontaktExternNameVorname",
 			"filterValue",
@@ -925,13 +935,12 @@
 			"rechtsmittelErledigung",
 			"rechtsmittelerledigungOptions",
 			"areaForGeschaeftsart",
-			"AreaRechtsmittel",
-			"createOptions"
+			"AreaRechtsmittel"
 		],
 		"reverse": false,
 		"show_context": true,
 		"use_buffer2": true,
-		"whole_word": true,
+		"whole_word": false,
 		"wrap": true
 	},
 	"groups":
@@ -953,8 +962,8 @@
 						"selection":
 						[
 							[
-								4138,
-								4138
+								1149,
+								1170
 							]
 						],
 						"settings":
@@ -964,37 +973,35 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 2280.0,
+						"translation.y": 465.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 3,
+					"stack_index": 5,
 					"type": "text"
 				},
 				{
 					"buffer": 1,
-					"file": "app/src/filterGeschaefte.js",
+					"file": "app/routes.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 4278,
+						"buffer_size": 680,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								3604,
-								3615
+								482,
+								498
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax"
 						},
 						"translation.x": 0.0,
-						"translation.y": 2079.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 2,
@@ -1002,50 +1009,216 @@
 				},
 				{
 					"buffer": 2,
-					"file": "app/components/filterFields/FilterFields.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 6377,
+						"buffer_size": 8186,
+						"regions":
+						{
+							"match":
+							{
+								"flags": 112,
+								"regions":
+								[
+									[
+										262,
+										275
+									],
+									[
+										488,
+										501
+									],
+									[
+										557,
+										570
+									],
+									[
+										634,
+										647
+									],
+									[
+										709,
+										722
+									],
+									[
+										789,
+										802
+									],
+									[
+										874,
+										887
+									],
+									[
+										955,
+										968
+									],
+									[
+										1031,
+										1044
+									],
+									[
+										1113,
+										1126
+									],
+									[
+										1446,
+										1459
+									],
+									[
+										1842,
+										1855
+									],
+									[
+										2199,
+										2212
+									],
+									[
+										2251,
+										2264
+									],
+									[
+										2556,
+										2569
+									],
+									[
+										2906,
+										2919
+									],
+									[
+										3228,
+										3241
+									],
+									[
+										3549,
+										3562
+									],
+									[
+										3863,
+										3876
+									],
+									[
+										4162,
+										4175
+									],
+									[
+										4478,
+										4491
+									],
+									[
+										4800,
+										4813
+									],
+									[
+										5119,
+										5132
+									],
+									[
+										5442,
+										5455
+									],
+									[
+										5773,
+										5786
+									],
+									[
+										6094,
+										6107
+									],
+									[
+										6460,
+										6473
+									],
+									[
+										6866,
+										6879
+									],
+									[
+										7220,
+										7233
+									],
+									[
+										7626,
+										7639
+									],
+									[
+										7997,
+										8010
+									]
+								],
+								"scope": ""
+							}
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"detect_indentation": false,
+							"line_numbers": false,
+							"output_tag": 1,
+							"result_base_dir": "",
+							"result_file_regex": "^([^ 	].*):$",
+							"result_line_regex": "^ +([0-9]+):",
+							"scroll_past_end": true,
+							"syntax": "Packages/Default/Find Results.hidden-tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 4455.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "app/components/GeschaefteLayout.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2619,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								5557,
-								5557
+								853,
+								853
 							]
 						],
 						"settings":
 						{
-							"history_list_is_closing": true,
 							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
 							"tab_size": 2,
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 5592.0,
+						"translation.y": 990.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 1,
+					"stack_index": 0,
 					"type": "text"
 				},
 				{
-					"buffer": 3,
-					"file": "app/components/filterFields/AreaFristen.js",
+					"buffer": 4,
+					"file": "app/components/FilterFieldsLayout.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 2787,
+						"buffer_size": 2113,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								188,
-								188
+								2045,
+								1885
 							]
 						],
 						"settings":
@@ -1058,37 +1231,38 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
+					"stack_index": 1,
 					"type": "text"
 				},
 				{
-					"buffer": 4,
-					"file": "app/components/filterFields/AreaFristenField.js",
+					"buffer": 5,
+					"file": "app/components/filterFields/FilterFields.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 2319,
+						"buffer_size": 6337,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								489,
-								489
+								3039,
+								3055
 							]
 						],
 						"settings":
 						{
+							"history_list_is_closing": true,
 							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
 							"tab_size": 2,
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 396.0,
+						"translation.y": 3908.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 4,
+					"stack_index": 3,
 					"type": "text"
 				}
 			]

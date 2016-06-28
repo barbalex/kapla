@@ -23,8 +23,9 @@ class GeschaefteLayout extends Component {
       settings: {
         hasHeaders: true,
         reorderEnabled: false,
-        showPopoutIcon: true,
-        showCloseIcon: false
+        showPopoutIcon: false,
+        showCloseIcon: false,
+        showMaximiseIcon: false
       },
       labels: {
         maximise: 'Breite maximieren',
