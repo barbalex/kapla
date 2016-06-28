@@ -3,7 +3,7 @@
 import React, { PropTypes } from 'react'
 import { FormControl } from 'react-bootstrap'
 import _ from 'lodash'
-import styles from './KontakteExtern.css'
+import styles from './kontakteExtern.css'
 import KontakteExternItems from '../../containers/geschaeft/KontakteExternItems'
 
 const onChangeNewKontaktExtern = (e, geschaeftKontaktExternNewCreate, activeId) => {

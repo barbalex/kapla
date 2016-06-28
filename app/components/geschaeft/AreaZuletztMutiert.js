@@ -1,7 +1,7 @@
 'use strict'
 
 import React, { PropTypes } from 'react'
-import styles from './AreaZuletztMutiert.css'
+import styles from './areaZuletztMutiert.css'
 
 const AreaZuletztMutiert = ({ geschaeft, interneOptions }) => {
   let zuletztMutiertText
@@ -13,7 +13,10 @@ const AreaZuletztMutiert = ({ geschaeft, interneOptions }) => {
       if (o.itKonto) {
         // seems that data contains lower case differences
         // and whitespace
-        return o.itKonto.toLowerCase().replace(/ /g, '') === geschaeft.mutationsperson.toLowerCase().replace(/ /g, '')
+        return (
+          o.itKonto.toLowerCase().replace(/ /g, '') ===
+          geschaeft.mutationsperson.toLowerCase().replace(/ /g, '')
+        )
       }
       return false
     })

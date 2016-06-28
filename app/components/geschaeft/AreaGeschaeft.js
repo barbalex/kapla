@@ -3,7 +3,7 @@
 import React, { PropTypes } from 'react'
 import { FormControl, ControlLabel } from 'react-bootstrap'
 import Textarea from 'react-textarea-autosize'
-import styles from './AreaGeschaeft.css'
+import styles from './areaGeschaeft.css'
 import createOptions from '../../src/createOptions'
 
 const AreaGeschaeft = ({

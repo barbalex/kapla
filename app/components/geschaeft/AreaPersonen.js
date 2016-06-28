@@ -3,7 +3,7 @@
 import React, { PropTypes } from 'react'
 import { FormControl } from 'react-bootstrap'
 import _ from 'lodash'
-import styles from './AreaPersonen.css'
+import styles from './areaPersonen.css'
 import KontakteIntern from '../../containers/geschaeft/KontakteIntern'
 import KontakteExtern from '../../containers/geschaeft/KontakteExtern'
 

@@ -3,7 +3,7 @@
 import React, { PropTypes } from 'react'
 import { FormControl, ControlLabel } from 'react-bootstrap'
 import _ from 'lodash'
-import styles from './AreaZuletztMutiert.css'
+import styles from './areaZuletztMutiert.css'
 
 const interneOptionsList = (interneOptions) => {
   // sort interneOptions by kurzzeichen

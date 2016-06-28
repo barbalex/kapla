@@ -2,7 +2,7 @@
 
 import React, { PropTypes } from 'react'
 import { FormControl, ControlLabel } from 'react-bootstrap'
-import styles from './AreaNummern.css'
+import styles from './areaNummern.css'
 
 const AreaNummern = ({
   values,

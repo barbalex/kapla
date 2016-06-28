@@ -1,9 +1,7 @@
 'use strict'
 
 import React, { PropTypes } from 'react'
-import moment from 'moment'
-moment.locale('de')
-import styles from './AreaHistory.css'
+import styles from './areaHistory.css'
 import getHistoryOfGeschaeft from '../../src/getHistoryOfGeschaeft'
 
 const AreaHistoryRows = ({

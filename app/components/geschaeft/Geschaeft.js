@@ -4,7 +4,7 @@ import React, { Component, PropTypes } from 'react'
 import ReactDOM from 'react-dom'
 import moment from 'moment'
 moment.locale('de')
-import styles from './Geschaeft.css'
+import styles from './geschaeft.css'
 import isDateField from '../../src/isDateField'
 import validateDate from '../../src/validateDate'
 import AreaGeschaeft from '../../containers/geschaeft/AreaGeschaeft'
@@ -34,7 +34,6 @@ class Geschaeft extends Component {
         value: picker.startDate
       }
     }
-    console.log('FilterFields.js, picker.startDate', picker.startDate)
     this.blur(rVal)
   }
 

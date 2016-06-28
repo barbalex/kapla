@@ -1,7 +1,7 @@
 'use strict'
 
 import React, { PropTypes } from 'react'
-import styles from './AreaFristen.css'
+import styles from './areaFristen.css'
 import DateField from '../../containers/filterFields/AreaFristenField'
 
 const AreaFristen = ({

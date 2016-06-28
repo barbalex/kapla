@@ -88,6 +88,7 @@ AreaFristenField.propTypes = {
   tabIndex: PropTypes.number.isRequired,
   values: PropTypes.object,
   change: PropTypes.func.isRequired,
+  blur: PropTypes.func.isRequired,
   changeComparator: PropTypes.func.isRequired,
   onChangeDatePicker: PropTypes.func.isRequired
 }
