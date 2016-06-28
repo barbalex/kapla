@@ -4,22 +4,26 @@ import React, { Component } from 'react'
 import GoldenLayout from 'golden-layout'
 import wrapComponentInProvider from '../containers/wrapComponentInProvider'
 import Geschaeft from '../containers/geschaeft/Geschaeft'
+import FilterFields from '../containers/filterFields/FilterFields'
 import Geschaefte from '../containers/Geschaefte'
 import saveConfigValue from '../src/saveConfigValue'
 import getConfig from '../src/getConfig.js'
 
 class GeschaefteLayout extends Component {
-  state = {
-    geschaefteLayout: null
+  constructor(props) {
+    super(props)
+    this.state = {
+      geschaefteLayout: null
+    }
   }
 
   componentDidMount = () => {
     let { geschaefteLayout } = this.state
     const layoutConfig = {
       settings: {
-        hasHeaders: false,
+        hasHeaders: true,
         reorderEnabled: false,
-        showPopoutIcon: false,
+        showPopoutIcon: true,
         showCloseIcon: false
       },
       labels: {
@@ -35,9 +39,18 @@ class GeschaefteLayout extends Component {
             title: 'Geschäfte'
           },
           {
-            type: 'react-component',
-            component: 'geschaeft',
-            title: 'Aktives Geschäft'
+            type: 'stack',
+            content: [
+              {
+                type: 'react-component',
+                component: 'geschaeft',
+                title: 'Aktives Geschäft'
+              }, {
+                type: 'react-component',
+                component: 'filterFields',
+                title: 'Filtern nach Feldern'
+              }
+            ]
           }
         ]
       }]
@@ -48,8 +61,9 @@ class GeschaefteLayout extends Component {
     } else {
       geschaefteLayout = new GoldenLayout(layoutConfig)
     }
-    geschaefteLayout.registerComponent('geschaefte', wrapComponentInProvider(Geschaefte))
+    geschaefteLayout.registerComponent('geschaefte', wrapComponentInProvider(Geschaefte, geschaefteLayout))
     geschaefteLayout.registerComponent('geschaeft', wrapComponentInProvider(Geschaeft, geschaefteLayout))
+    geschaefteLayout.registerComponent('filterFields', wrapComponentInProvider(FilterFields, geschaefteLayout))
     geschaefteLayout.init()
     this.setState({ geschaefteLayout })
     geschaefteLayout.on('stateChanged', () =>
