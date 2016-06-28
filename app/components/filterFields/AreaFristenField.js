@@ -1,6 +1,4 @@
-'use strict'
-
-import React, { PropTypes } from 'react'
+import React, { Component, PropTypes } from 'react'
 import {
   DropdownButton,
   FormGroup,
@@ -16,6 +14,16 @@ import styles from './areaFristenField.css'
 import getDateValidationStateDate from '../../src/getDateValidationStateDate'
 
 class AreaFristenField extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      value: ''
+    }
+    this.onChange = this.onChange.bind(this)
+    this.onBlur = this.onBlur.bind(this)
+    this.onChangeDatePicker = this.onChangeDatePicker.bind(this)
+  }
+
   static propTypes = {
     name: PropTypes.string.isRequired,
     label: PropTypes.string.isRequired,
@@ -26,8 +34,46 @@ class AreaFristenField extends Component {
     onChangeDatePicker: PropTypes.func.isRequired
   }
 
-  state = {
-    tableBodyOverflows: true
+  componentDidMount() {
+    const { values, name } = this.props
+    this.setState({ value: values[name] || '' })
+  }
+
+  componentDidUpdate() {
+    const { values, name } = this.props
+    const { value } = this.state
+    if (values[name] !== undefined && value !== values[name]) {
+      console.log('AreaFristenField componentDidUpdate')
+      this.setState({ value: values[name] })
+    }
+  }
+
+  onChange(e) {
+    console.log('AreaFristenField onChange')
+    this.setState({ value: e.target.value })
+  }
+
+  onBlur(e) {
+    const { values, name, change } = this.props
+    const { value } = this.state
+    // only filter if value has changed
+    if (e.target.value != values[name]) {
+      console.log('AreaFristenField onBlur calling change with value', e.target.value)
+      if (e.target.value) e.target.value = moment(e.target.value, 'DD.MM.YYYY').format('DD.MM.YYYY')
+      console.log('AreaFristenField onBlur calling change with corrected value', e.target.value)
+      change(e)
+    }
+  }
+
+  onChangeDatePicker = (name, e, picker) => {
+    const rVal = {
+      target: {
+        type: 'text',
+        name,
+        value: picker.startDate
+      }
+    }
+    this.onBlur(rVal)
   }
 
   render() {
@@ -40,6 +86,7 @@ class AreaFristenField extends Component {
       changeComparator,
       onChangeDatePicker
     } = this.props
+    const { value } = this.state
     /**
      * need to give addon no padding
      * and the originally addon's padding to the glyphicon
@@ -69,9 +116,10 @@ class AreaFristenField extends Component {
         <InputGroup>
           <FormControl
             type="text"
-            value={values[name] || ''}
+            value={value}
             name={name}
-            onChange={change}
+            onChange={this.onChange}
+            onBlur={this.onBlur}
             bsSize="small"
             tabIndex={tabIndex}
           />
@@ -80,7 +128,7 @@ class AreaFristenField extends Component {
               singleDatePicker
               drops="up"
               opens="left"
-              onApply={onChangeDatePicker.bind(this, name)}
+              onApply={this.onChangeDatePicker.bind(this, name)}
               className={styles.datePicker}
             >
               <Glyphicon

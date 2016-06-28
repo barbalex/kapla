@@ -36,7 +36,6 @@ export default function (geschaefte, filterFulltext, filterFields) {
             }
           } else {
             // a number is queried
-            // TODO
             // convert to string to also find 7681 when filtering for 681
             if (includes(geschaeft[key].toString(), filterFulltext.toString())) {
               satisfiesFilter = true
@@ -86,8 +85,8 @@ export default function (geschaefte, filterFulltext, filterFields) {
             } else if (comparator === '=') {
               if (isDateField(filterField.field)) {
                 // this is a date - can't compare parts
-                //if (geschaeftValue !== filterValue) satisfiesFilter = false
-                if (!includes(moment(geschaeftValue).format('DD.MM.YYYY'), filterValue)) satisfiesFilter = false
+                if (geschaeftValue !== filterValue) satisfiesFilter = false
+                // if (!includes(moment(geschaeftValue).format('DD.MM.YYYY'), filterValue)) satisfiesFilter = false
               } else {
                 if (!includes(geschaeftValue, filterValue)) satisfiesFilter = false
               }

@@ -87,7 +87,7 @@ class FilterFields extends Component {
     let { value } = e.target
     console.log('FilterFields, value on change:', value)
     if (isDateField(name) && value) {
-      value = moment(value).format('DD.MM.YYYY')
+      value = moment(value, 'DD.MM.YYYY').format('DD.MM.YYYY')
     }
     if (type === 'radio') {
       value = dataset.value
