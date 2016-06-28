@@ -125,6 +125,14 @@ class AreaFristenField extends Component {
           {label}
         </ControlLabel>
         <InputGroup>
+          <InputGroup.Button>
+            <FormControl componentClass="select">
+              <option value="=">=</option>
+              <option value="!==">!=</option>
+              <option value=">">{'>'}</option>
+              <option value="<">{'<'}</option>
+            </FormControl>
+          </InputGroup.Button>
           <FormControl
             type="text"
             value={value}
