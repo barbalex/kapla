@@ -137,9 +137,9 @@ const AreaParlVorstoss = ({
 AreaParlVorstoss.displayName = 'AreaParlVorstoss'
 
 AreaParlVorstoss.propTypes = {
-  geschaeft: PropTypes.object,
-  parlVorstossTypOptions: PropTypes.array.isRequired,
-  nrOfFieldsBeforePv: PropTypes.number,
+  geschaeft: PropTypes.object.isRequired,
+  parlVorstossTypOptions: PropTypes.array,
+  nrOfFieldsBeforePv: PropTypes.number.isRequired,
   change: PropTypes.func.isRequired,
   blur: PropTypes.func.isRequired
 }

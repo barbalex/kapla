@@ -18,7 +18,7 @@ import AreaZuletztMutiert from '../../containers/geschaeft/AreaZuletztMutiert'
 
 class Geschaeft extends Component {
   static propTypes = {
-    geschaeft: PropTypes.object,
+    geschaeft: PropTypes.object.isRequired,
     activeId: PropTypes.number,
     geschaefteChangeState: PropTypes.func.isRequired,
     changeGeschaeftInDb: PropTypes.func.isRequired,

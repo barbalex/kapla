@@ -96,8 +96,8 @@ const GeschaefteKontakteIntern = ({
 GeschaefteKontakteIntern.displayName = 'GeschaefteKontakteIntern'
 
 GeschaefteKontakteIntern.propTypes = {
-  interneOptions: PropTypes.array.isRequired,
-  geschaefteKontakteIntern: PropTypes.array.isRequired,
+  interneOptions: PropTypes.array,
+  geschaefteKontakteIntern: PropTypes.array,
   activeIdGeschaeft: PropTypes.number,
   activeIdKontakt: PropTypes.number,
   geschaeftKontaktInternNewCreate: PropTypes.func.isRequired,

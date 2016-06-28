@@ -10,6 +10,9 @@ import store from '../store'
 import { Provider } from 'react-redux'
 
 export default function wrapComponent(Component, layout) {
+  // do not make it a stateless function as
+  // golden-layout will not have access to
+  // componentWillUpdate
   class Wrapped extends React.Component {
     render() {
       return (

@@ -40,7 +40,7 @@ const AreaZuletztMutiert = ({ geschaeft, interneOptions }) => {
 AreaZuletztMutiert.displayName = 'AreaZuletztMutiert'
 
 AreaZuletztMutiert.propTypes = {
-  geschaeft: PropTypes.object,
+  geschaeft: PropTypes.object.isRequired,
   interneOptions: PropTypes.array
 }
 

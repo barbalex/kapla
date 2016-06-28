@@ -93,10 +93,14 @@ const AreaPersonen = ({
 
 AreaPersonen.displayName = 'AreaPersonen'
 
+/**
+ * do not make options required
+ * as they may be loaded after the component
+ */
 AreaPersonen.propTypes = {
-  geschaeft: PropTypes.object,
+  geschaeft: PropTypes.object.isRequired,
   interneOptions: PropTypes.array,
-  nrOfFieldsBeforePersonen: PropTypes.number,
+  nrOfFieldsBeforePersonen: PropTypes.number.isRequired,
   change: PropTypes.func.isRequired,
   blur: PropTypes.func.isRequired
 }

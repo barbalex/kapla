@@ -31,7 +31,7 @@ const AreaHistory = ({ geschaeft, blur, change }) =>
 AreaHistory.displayName = 'AreaHistory'
 
 AreaHistory.propTypes = {
-  geschaeft: PropTypes.object,
+  geschaeft: PropTypes.object.isRequired,
   blur: PropTypes.func.isRequired,
   change: PropTypes.func.isRequired
 }

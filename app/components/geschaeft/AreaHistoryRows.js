@@ -52,8 +52,8 @@ const AreaHistoryRows = ({
 AreaHistoryRows.displayName = 'AreaHistoryRows'
 
 AreaHistoryRows.propTypes = {
-  geschaefte: PropTypes.array,
-  activeId: PropTypes.number,
+  geschaefte: PropTypes.array.isRequired,
+  activeId: PropTypes.number.isRequired,
   geschaeftToggleActivated: PropTypes.func.isRequired
 }
 

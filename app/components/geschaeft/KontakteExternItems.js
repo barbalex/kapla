@@ -86,8 +86,8 @@ const GeschaefteKontakteExtern = ({
 GeschaefteKontakteExtern.displayName = 'GeschaefteKontakteExtern'
 
 GeschaefteKontakteExtern.propTypes = {
-  externeOptions: PropTypes.array.isRequired,
-  geschaefteKontakteExtern: PropTypes.array.isRequired,
+  externeOptions: PropTypes.array,
+  geschaefteKontakteExtern: PropTypes.array,
   geschaeftKontaktExternRemove: PropTypes.func.isRequired,
   activeId: PropTypes.number.isRequired
 }

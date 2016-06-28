@@ -311,11 +311,11 @@ const AreaFristen = ({
 AreaFristen.displayName = 'AreaFristen'
 
 AreaFristen.propTypes = {
-  geschaeft: PropTypes.object,
+  geschaeft: PropTypes.object.isRequired,
   change: PropTypes.func.isRequired,
   blur: PropTypes.func.isRequired,
   onChangeDatePicker: PropTypes.func.isRequired,
-  nrOfFieldsBeforeFristen: PropTypes.number
+  nrOfFieldsBeforeFristen: PropTypes.number.isRequired
 }
 
 export default AreaFristen

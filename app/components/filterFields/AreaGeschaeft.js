@@ -12,11 +12,11 @@ const AreaGeschaeft = ({
   wrapperClass,
   change,
   values,
-  nrOfNrFields
+  nrOfGFields
 }) => {
   const tabsToAdd = (
     wrapperClass === styles.wrapperNarrow ?
-    nrOfNrFields :
+    nrOfGFields :
     0
   )
 
@@ -167,14 +167,18 @@ const AreaGeschaeft = ({
 
 AreaGeschaeft.displayName = 'AreaGeschaeft'
 
+/**
+ * do not make options required
+ * as they may be loaded after the component
+ */
 AreaGeschaeft.propTypes = {
-  statusOptions: PropTypes.array.isRequired,
-  geschaeftsartOptions: PropTypes.array.isRequired,
-  abteilungOptions: PropTypes.array.isRequired,
+  statusOptions: PropTypes.array,
+  geschaeftsartOptions: PropTypes.array,
+  abteilungOptions: PropTypes.array,
   change: PropTypes.func.isRequired,
   values: PropTypes.object.isRequired,
-  wrapperClass: PropTypes.string,
-  nrOfNrFields: PropTypes.number
+  wrapperClass: PropTypes.string.isRequired,
+  nrOfGFields: PropTypes.number.isRequired
 }
 
 export default AreaGeschaeft

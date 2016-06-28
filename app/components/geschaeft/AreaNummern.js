@@ -202,11 +202,11 @@ const AreaNummern = ({
 AreaNummern.displayName = 'AreaNummern'
 
 AreaNummern.propTypes = {
-  geschaeft: PropTypes.object,
+  geschaeft: PropTypes.object.isRequired,
   change: PropTypes.func.isRequired,
   blur: PropTypes.func.isRequired,
-  wrapperClass: PropTypes.string,
-  nrOfGFields: PropTypes.number
+  wrapperClass: PropTypes.string.isRequired,
+  nrOfGFields: PropTypes.number.isRequired
 }
 
 export default AreaNummern

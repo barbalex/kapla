@@ -15,7 +15,7 @@ function mapStateToProps(state, props) {
     values,
     change,
     wrapperClass,
-    nrOfNrFields
+    nrOfGFields
   } = props
 
   return {
@@ -25,7 +25,7 @@ function mapStateToProps(state, props) {
     change,
     values,
     wrapperClass,
-    nrOfNrFields
+    nrOfGFields
   }
 }
 

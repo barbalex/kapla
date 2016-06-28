@@ -131,10 +131,10 @@ const AreaRechtsmittel = ({
 AreaRechtsmittel.displayName = 'AreaRechtsmittel'
 
 AreaRechtsmittel.propTypes = {
-  geschaeft: PropTypes.object,
-  rechtsmittelErledigungOptions: PropTypes.array.isRequired,
-  rechtsmittelInstanzOptions: PropTypes.array.isRequired,
-  nrOfFieldsBeforePv: PropTypes.number,
+  geschaeft: PropTypes.object.isRequired,
+  rechtsmittelErledigungOptions: PropTypes.array,
+  rechtsmittelInstanzOptions: PropTypes.array,
+  nrOfFieldsBeforePv: PropTypes.number.isRequired,
   change: PropTypes.func.isRequired,
   blur: PropTypes.func.isRequired,
   onChangeDatePicker: PropTypes.func.isRequired
