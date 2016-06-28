@@ -44,11 +44,11 @@ class GeschaefteLayout extends Component {
               {
                 type: 'react-component',
                 component: 'geschaeft',
-                title: 'Aktives Geschäft'
+                title: 'aktives Geschäft'
               }, {
                 type: 'react-component',
                 component: 'filterFields',
-                title: 'Filtern nach Feldern'
+                title: 'nach Feldern filtern'
               }
             ]
           }
@@ -61,14 +61,16 @@ class GeschaefteLayout extends Component {
     } else {
       geschaefteLayout = new GoldenLayout(layoutConfig)
     }
-    geschaefteLayout.registerComponent('geschaefte', wrapComponentInProvider(Geschaefte, geschaefteLayout))
+    geschaefteLayout.registerComponent('geschaefte', wrapComponentInProvider(Geschaefte))
     geschaefteLayout.registerComponent('geschaeft', wrapComponentInProvider(Geschaeft, geschaefteLayout))
     geschaefteLayout.registerComponent('filterFields', wrapComponentInProvider(FilterFields, geschaefteLayout))
     geschaefteLayout.init()
-    this.setState({ geschaefteLayout })
-    geschaefteLayout.on('stateChanged', () =>
-      this.saveGeschaefteState()
-    )
+    setTimeout(() => {
+      this.setState({ geschaefteLayout })
+      geschaefteLayout.on('stateChanged', () =>
+        this.saveGeschaefteState()
+      )
+    }, 0)
   }
 
   componentWillUnmount = () => {
