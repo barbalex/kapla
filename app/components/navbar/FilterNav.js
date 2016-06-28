@@ -188,12 +188,12 @@ const FilterNav = ({
         <Button
           disabled={!dataIsFiltered}
           className={styles.filterRemoveButton}
+          onClick={() =>
+            geschaefteRemoveFilters()
+          }
         >
           <Glyphicon
             glyph="remove"
-            onClick={() =>
-              geschaefteRemoveFilters()
-            }
             title="Filter entfernen"
           />
         </Button>
