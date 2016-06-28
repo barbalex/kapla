@@ -8,7 +8,6 @@ const AreaFristen = ({
   values,
   nrOfFieldsBeforeFristen,
   change,
-  blur,
   changeComparator,
   onChangeDatePicker
 }) =>
@@ -22,7 +21,6 @@ const AreaFristen = ({
       tabIndex={1 + nrOfFieldsBeforeFristen}
       values={values}
       change={change}
-      blur={blur}
       changeComparator={changeComparator}
       onChangeDatePicker={onChangeDatePicker}
     />
@@ -32,7 +30,6 @@ const AreaFristen = ({
       tabIndex={2 + nrOfFieldsBeforeFristen}
       values={values}
       change={change}
-      blur={blur}
       changeComparator={changeComparator}
       onChangeDatePicker={onChangeDatePicker}
     />
@@ -42,7 +39,6 @@ const AreaFristen = ({
       tabIndex={3 + nrOfFieldsBeforeFristen}
       values={values}
       change={change}
-      blur={blur}
       changeComparator={changeComparator}
       onChangeDatePicker={onChangeDatePicker}
     />
@@ -52,7 +48,6 @@ const AreaFristen = ({
       tabIndex={4 + nrOfFieldsBeforeFristen}
       values={values}
       change={change}
-      blur={blur}
       changeComparator={changeComparator}
       onChangeDatePicker={onChangeDatePicker}
     />
@@ -62,7 +57,6 @@ const AreaFristen = ({
       tabIndex={5 + nrOfFieldsBeforeFristen}
       values={values}
       change={change}
-      blur={blur}
       changeComparator={changeComparator}
       onChangeDatePicker={onChangeDatePicker}
     />
@@ -72,7 +66,6 @@ const AreaFristen = ({
       tabIndex={6 + nrOfFieldsBeforeFristen}
       values={values}
       change={change}
-      blur={blur}
       changeComparator={changeComparator}
       onChangeDatePicker={onChangeDatePicker}
     />
@@ -82,7 +75,6 @@ const AreaFristen = ({
       tabIndex={7 + nrOfFieldsBeforeFristen}
       values={values}
       change={change}
-      blur={blur}
       changeComparator={changeComparator}
       onChangeDatePicker={onChangeDatePicker}
     />
@@ -93,7 +85,6 @@ AreaFristen.displayName = 'AreaFristen'
 AreaFristen.propTypes = {
   values: PropTypes.object,
   change: PropTypes.func.isRequired,
-  blur: PropTypes.func.isRequired,
   changeComparator: PropTypes.func.isRequired,
   onChangeDatePicker: PropTypes.func.isRequired,
   nrOfFieldsBeforeFristen: PropTypes.number

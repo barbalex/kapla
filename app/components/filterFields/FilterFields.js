@@ -39,7 +39,7 @@ class FilterFields extends Component {
         value: picker.startDate
       }
     }
-    this.blur(rVal)
+    this.change(rVal)
   }
 
   changeComparator = (e) => {
@@ -85,7 +85,7 @@ class FilterFields extends Component {
       })
     }
     let { value } = e.target
-    console.log('FilterFields, value on blur:', value)
+    console.log('FilterFields, value on change:', value)
     if (isDateField(name) && value) {
       value = moment(value).format('DD.MM.YYYY')
     }

@@ -36,6 +36,7 @@ export default function (geschaefte, filterFulltext, filterFields) {
             }
           } else {
             // a number is queried
+            // TODO
             // convert to string to also find 7681 when filtering for 681
             if (includes(geschaeft[key].toString(), filterFulltext.toString())) {
               satisfiesFilter = true
