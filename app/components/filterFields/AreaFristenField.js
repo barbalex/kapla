@@ -30,8 +30,7 @@ class AreaFristenField extends Component {
     tabIndex: PropTypes.number.isRequired,
     values: PropTypes.object,
     change: PropTypes.func.isRequired,
-    changeComparator: PropTypes.func.isRequired,
-    onChangeDatePicker: PropTypes.func.isRequired
+    changeComparator: PropTypes.func.isRequired
   }
 
   componentDidMount() {
@@ -49,7 +48,7 @@ class AreaFristenField extends Component {
   }
 
   onChange(e) {
-    console.log('AreaFristenField onChange')
+    console.log('AreaFristenField onChange, value', e.target.value)
     this.setState({ value: e.target.value })
   }
 
@@ -58,9 +57,10 @@ class AreaFristenField extends Component {
     const { value } = this.state
     // only filter if value has changed
     if (e.target.value != values[name]) {
-      console.log('AreaFristenField onBlur calling change with value', e.target.value)
       if (e.target.value) e.target.value = moment(e.target.value, 'DD.MM.YYYY').format('DD.MM.YYYY')
-      console.log('AreaFristenField onBlur calling change with corrected value', e.target.value)
+      console.log('AreaFristenField onBlur, value', e.target.value)
+      console.log('AreaFristenField onBlur, type', e.target.type)
+      console.log('AreaFristenField onBlur, name', e.target.name)
       change(e)
     }
   }
@@ -92,8 +92,7 @@ class AreaFristenField extends Component {
       tabIndex,
       values,
       change,
-      changeComparator,
-      onChangeDatePicker
+      changeComparator
     } = this.props
     const { value } = this.state
     /**

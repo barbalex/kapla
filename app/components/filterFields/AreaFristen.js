@@ -8,8 +8,7 @@ const AreaFristen = ({
   values,
   nrOfFieldsBeforeFristen,
   change,
-  changeComparator,
-  onChangeDatePicker
+  changeComparator
 }) =>
   <div className={styles.areaFristen}>
     <div className={styles.areaFristenTitle}>
@@ -22,7 +21,6 @@ const AreaFristen = ({
       values={values}
       change={change}
       changeComparator={changeComparator}
-      onChangeDatePicker={onChangeDatePicker}
     />
     <DateField
       name="fristAwel"
@@ -31,7 +29,6 @@ const AreaFristen = ({
       values={values}
       change={change}
       changeComparator={changeComparator}
-      onChangeDatePicker={onChangeDatePicker}
     />
     <DateField
       name="fristAmtschef"
@@ -40,7 +37,6 @@ const AreaFristen = ({
       values={values}
       change={change}
       changeComparator={changeComparator}
-      onChangeDatePicker={onChangeDatePicker}
     />
     <DateField
       name="fristAbteilung"
@@ -49,7 +45,6 @@ const AreaFristen = ({
       values={values}
       change={change}
       changeComparator={changeComparator}
-      onChangeDatePicker={onChangeDatePicker}
     />
     <DateField
       name="fristMitarbeiter"
@@ -58,7 +53,6 @@ const AreaFristen = ({
       values={values}
       change={change}
       changeComparator={changeComparator}
-      onChangeDatePicker={onChangeDatePicker}
     />
     <DateField
       name="datumAusgangAwel"
@@ -67,7 +61,6 @@ const AreaFristen = ({
       values={values}
       change={change}
       changeComparator={changeComparator}
-      onChangeDatePicker={onChangeDatePicker}
     />
     <DateField
       name="fristDirektion"
@@ -76,7 +69,6 @@ const AreaFristen = ({
       values={values}
       change={change}
       changeComparator={changeComparator}
-      onChangeDatePicker={onChangeDatePicker}
     />
   </div>
 
@@ -86,7 +78,6 @@ AreaFristen.propTypes = {
   values: PropTypes.object,
   change: PropTypes.func.isRequired,
   changeComparator: PropTypes.func.isRequired,
-  onChangeDatePicker: PropTypes.func.isRequired,
   nrOfFieldsBeforeFristen: PropTypes.number
 }
 

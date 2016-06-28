@@ -1,12 +1,12 @@
 'use strict'
 
-import React, { Component, PropTypes } from 'react'
+import React, { PropTypes } from 'react'
 import { hashHistory } from 'react-router'
 import moment from 'moment'
 import styles from './Geschaefte.css'
 
 const getDauerBisFristMitarbeiter = (geschaeft) => {
-  if (!geschaeft.fristMitarbeiter) return null
+  if (!geschaeft || !geschaeft.fristMitarbeiter) return null
   const now = moment()
   const end = moment(geschaeft.fristMitarbeiter, 'DD.MM.YYYY')
   const duration = moment.duration(end.diff(now))
@@ -45,6 +45,8 @@ const GeschaefteItem = ({
   const geschaeft = geschaefte.find((g) =>
     g.idGeschaeft === geschaefteGefilterteIds[index]
   )
+  // make sure geschaeft exists
+  if (!geschaeft) return null
   const fristMitarbeiter = (
     geschaeft.fristMitarbeiter ?
     `Frist: ${geschaeft.fristMitarbeiter}` :

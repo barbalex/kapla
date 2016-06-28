@@ -175,7 +175,6 @@ class FilterFields extends Component {
             nrOfFieldsBeforeFristen={nrOfFieldsBeforeFristen}
             change={this.change}
             changeComparator={this.changeComparator}
-            onChangeDatePicker={this.onChangeDatePicker}
             values={values}
           />
           <AreaPersonen

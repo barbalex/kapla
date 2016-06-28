@@ -72,12 +72,14 @@ export const geschaefteFilterByFields = (
     const filterFieldsWithValues = filterFields.filter((ff) =>
       ff.value || ff.value === 0
     )
+    console.log('actions.geschaefteFilterByFields, will filter geschaefte with filterFields:', filterFieldsWithValues)
     // create geschaefteGefilterteIds
     const geschaefteGefilterteIds = filterGeschaefte(
       geschaefte.geschaefte,
       filterFulltext,
       filterFieldsWithValues
     )
+    console.log('actions.geschaefteFilterByFields, will dispatch GESCHAEFTE_FILTER_BY_FIELDS with geschaefteGefilterteIds:', geschaefteGefilterteIds)
     dispatch({
       type: GESCHAEFTE_FILTER_BY_FIELDS,
       filterFields: filterFieldsWithValues,
@@ -93,6 +95,7 @@ export const geschaefteFilterByFields = (
       const { reportType } = pages
       dispatch(pagesActions.pagesInitiate(reportType))
     } else if (geschaefteGefilterteIds.length === 1) {
+      console.log('actions.geschaefteFilterByFields, will toggle activated of id:', geschaefteGefilterteIds[0])
       dispatch(geschaeftToggleActivated(geschaefteGefilterteIds[0]))
     }
   }

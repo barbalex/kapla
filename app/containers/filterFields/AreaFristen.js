@@ -10,16 +10,14 @@ function mapStateToProps(state, props) {
     values,
     change,
     changeComparator,
-    nrOfFieldsBeforeFristen,
-    onChangeDatePicker
+    nrOfFieldsBeforeFristen
   } = props
 
   return {
     values,
     change,
     changeComparator,
-    nrOfFieldsBeforeFristen,
-    onChangeDatePicker
+    nrOfFieldsBeforeFristen
   }
 }
 
