@@ -65,15 +65,24 @@ class AreaFristenField extends Component {
     }
   }
 
-  onChangeDatePicker = (name, e, picker) => {
-    const rVal = {
+  onChangeDatePicker = (e, picker) => {
+    const { name } = this.props
+    const rValForBlur = {
       target: {
         type: 'text',
         name,
         value: picker.startDate
       }
     }
-    this.onBlur(rVal)
+    const rValForChange = {
+      target: {
+        type: 'text',
+        name,
+        value: moment(picker.startDate, 'DD.MM.YYYY').format('DD.MM.YYYY')
+      }
+    }
+    this.onChange(rValForChange)
+    this.onBlur(rValForBlur)
   }
 
   render() {
@@ -128,7 +137,7 @@ class AreaFristenField extends Component {
               singleDatePicker
               drops="up"
               opens="left"
-              onApply={this.onChangeDatePicker.bind(this, name)}
+              onApply={this.onChangeDatePicker}
               className={styles.datePicker}
             >
               <Glyphicon
