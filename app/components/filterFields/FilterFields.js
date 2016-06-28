@@ -68,44 +68,6 @@ class FilterFields extends Component {
 
   change = (e) => {
     const { filterFields, geschaefteFilterByFields } = this.props
-    //if (isDateField(name)) return
-    const { type, name, dataset } = e.target
-    const newFilterFields = []
-    let changedField = {
-      comparator: '=',
-      field: null,
-      value: null
-    }
-    if (filterFields.forEach) {
-      filterFields.forEach((f) => {
-        if (f.field !== name) {
-          newFilterFields.push(f)
-        } else if (f.comparator) {
-          changedField = f
-        }
-      })
-    }
-    let { value } = e.target
-    if (isDateField(name) && value) {
-      console.log('FilterFields, value on change:', value)
-      changedField.field = name
-      changedField.value = value.toString()
-    } else {
-      if (type === 'radio') {
-        value = dataset.value
-      }
-      changedField.field = name
-      changedField.value = value
-    }
-    newFilterFields.push(changedField)
-    geschaefteFilterByFields(newFilterFields)
-  }
-
-  /**
-   * date fields need to set date on blur
-   */
-  blur = (e) => {
-    const { filterFields, geschaefteFilterByFields } = this.props
     const { type, name, dataset } = e.target
     const newFilterFields = []
     let changedField = {
@@ -212,7 +174,6 @@ class FilterFields extends Component {
           <AreaFristen
             nrOfFieldsBeforeFristen={nrOfFieldsBeforeFristen}
             change={this.change}
-            blur={this.blur}
             changeComparator={this.changeComparator}
             onChangeDatePicker={this.onChangeDatePicker}
             values={values}

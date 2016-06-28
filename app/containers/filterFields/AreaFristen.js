@@ -9,7 +9,6 @@ function mapStateToProps(state, props) {
   const {
     values,
     change,
-    blur,
     changeComparator,
     nrOfFieldsBeforeFristen,
     onChangeDatePicker
@@ -18,7 +17,6 @@ function mapStateToProps(state, props) {
   return {
     values,
     change,
-    blur,
     changeComparator,
     nrOfFieldsBeforeFristen,
     onChangeDatePicker
