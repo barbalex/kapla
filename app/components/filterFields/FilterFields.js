@@ -12,6 +12,7 @@ import AreaRechtsmittel from '../../containers/filterFields/AreaRechtsmittel'
 import AreaPersonen from '../../containers/filterFields/AreaPersonen'
 import AreaHistory from '../../containers/filterFields/AreaHistory'
 import AreaZuletztMutiert from '../../containers/filterFields/AreaZuletztMutiert'
+import isDateField from '../../src/isDateField'
 
 class FilterFields extends Component {
   static propTypes = {
@@ -33,6 +34,7 @@ class FilterFields extends Component {
   onChangeDatePicker = (name, e, picker) => {
     const datePassed = picker.startDate
     const value = moment(datePassed).format('YYYY-MM-DD')
+    // const value = moment(datePassed).format('DD.MM.YYYY')
     const rVal = {
       target: {
         type: 'text',
@@ -40,7 +42,6 @@ class FilterFields extends Component {
         value
       }
     }
-    console.log('FilterFields.js, value', value)
     this.change(rVal)
   }
 
@@ -71,7 +72,6 @@ class FilterFields extends Component {
   change = (e) => {
     const { filterFields, geschaefteFilterByFields } = this.props
     const { type, name, dataset } = e.target
-    console.log('FilterFields.js, e', e)
     const newFilterFields = []
     let changedField = {
       comparator: '=',
@@ -88,12 +88,14 @@ class FilterFields extends Component {
       })
     }
     let { value } = e.target
+    if (isDateField(name) && value) {
+      value = moment(value).format('DD.MM.YYYY')
+    }
     if (type === 'radio') {
       value = dataset.value
     }
     changedField.field = name
     changedField.value = value
-    console.log('FilterFields.js, changedField', changedField)
     newFilterFields.push(changedField)
     geschaefteFilterByFields(newFilterFields)
   }

@@ -34,6 +34,7 @@ class Geschaeft extends Component {
         value: picker.startDate
       }
     }
+    console.log('FilterFields.js, picker.startDate', picker.startDate)
     this.blur(rVal)
   }
 

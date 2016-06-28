@@ -1,6 +1,7 @@
 'use strict'
 
 import { includes, isString } from 'lodash'
+import moment from 'moment'
 
 export default function (geschaefte, filterFulltext, filterFields) {
   const existsFilterFulltext = !!filterFulltext
@@ -81,7 +82,12 @@ export default function (geschaefte, filterFulltext, filterFields) {
             } else if (comparator === '>=') {
               if (!(geschaeftValue >= filterValue)) satisfiesFilter = false
             } else if (comparator === '=') {
-              if (!includes(geschaeftValue, filterValue)) satisfiesFilter = false
+              if (moment(geschaeftValue, 'DD.MM.YYYY').isValid()) {
+                // this is a date - can't compare parts
+                if (geschaeftValue !== filterValue) satisfiesFilter = false
+              } else {
+                if (!includes(geschaeftValue, filterValue)) satisfiesFilter = false
+              }
             } else if (comparator === '===') {
               if (geschaeftValue !== filterValue) satisfiesFilter = false
             }

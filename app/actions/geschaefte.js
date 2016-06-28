@@ -72,12 +72,14 @@ export const geschaefteFilterByFields = (
     const filterFieldsWithValues = filterFields.filter((ff) =>
       ff.value || ff.value === 0
     )
+    console.log('actions.geschaefte, filterFieldsWithValues', filterFieldsWithValues)
     // create geschaefteGefilterteIds
     const geschaefteGefilterteIds = filterGeschaefte(
       geschaefte.geschaefte,
       filterFulltext,
       filterFieldsWithValues
     )
+    console.log('actions.geschaefte, geschaefteGefilterteIds', geschaefteGefilterteIds)
     dispatch({
       type: GESCHAEFTE_FILTER_BY_FIELDS,
       filterFields: filterFieldsWithValues,
