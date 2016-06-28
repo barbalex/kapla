@@ -126,7 +126,10 @@ class AreaFristenField extends Component {
         </ControlLabel>
         <InputGroup>
           <InputGroup.Button>
-            <FormControl componentClass="select">
+            <FormControl
+              componentClass="select"
+              className={styles.comparator}
+            >
               <option value="=">=</option>
               <option value="!==">!=</option>
               <option value=">">{'>'}</option>

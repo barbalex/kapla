@@ -29,3 +29,9 @@
 .datePicker {
   cursor: pointer;
 }
+
+.comparator {
+  width: 45px !important;
+  border-top-right-radius: 0 !important;
+  border-bottom-right-radius: 0 !important;
+}
