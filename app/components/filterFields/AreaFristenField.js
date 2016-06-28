@@ -41,14 +41,16 @@ class AreaFristenField extends Component {
   componentDidUpdate() {
     const { values, name } = this.props
     const { value } = this.state
-    if (values[name] !== undefined && value !== values[name]) {
-      console.log('AreaFristenField componentDidUpdate')
+    console.log('AreaFristenField componentDidUpdate, name:', name)
+    console.log('AreaFristenField componentDidUpdate, propsValue:', values[name])
+    console.log('AreaFristenField componentDidUpdate, stateValue:', value)
+    if (value !== values[name] && (values[name] || values[name] === 0)) {
+      console.log('AreaFristenField component did update')
       this.setState({ value: values[name] })
     }
   }
 
   onChange(e) {
-    console.log('AreaFristenField onChange, value', e.target.value)
     this.setState({ value: e.target.value })
   }
 
@@ -56,11 +58,12 @@ class AreaFristenField extends Component {
     const { values, name, change } = this.props
     const { value } = this.state
     // only filter if value has changed
-    if (e.target.value != values[name]) {
-      if (e.target.value) e.target.value = moment(e.target.value, 'DD.MM.YYYY').format('DD.MM.YYYY')
-      console.log('AreaFristenField onBlur, value', e.target.value)
-      console.log('AreaFristenField onBlur, type', e.target.type)
-      console.log('AreaFristenField onBlur, name', e.target.name)
+    console.log('onBlur, propsValue:', values[name])
+    console.log('onBlur, stateValue:', e.target.value)
+    if (e.target.value != values[name] && (e.target.value || e.target.value === 0)) {
+      if (e.target.value) {
+        e.target.value = moment(e.target.value, 'DD.MM.YYYY').format('DD.MM.YYYY')
+      }
       change(e)
     }
   }
