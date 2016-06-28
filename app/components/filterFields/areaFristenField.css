@@ -1,0 +1,31 @@
+.fieldDatumEingangAwel {
+  grid-column: 1;
+}
+
+.fieldFristAwel {
+  grid-column: 1;
+}
+
+.fieldFristAmtschef {
+  grid-column: 1;
+}
+
+.fieldFristAbteilung {
+  grid-column: 1;
+}
+
+.fieldFristMitarbeiter {
+  grid-column: 1;
+}
+
+.fieldDatumAusgangAwel {
+  grid-column: 1;
+}
+
+.fieldFristDirektion {
+  grid-column: 1;
+}
+
+.datePicker {
+  cursor: pointer;
+}
