@@ -6,6 +6,7 @@ import getConfig from '../src/getConfig.js'
 import saveConfigValue from '../src/saveConfigValue.js'
 import filterForFaelligeGeschaefte from '../src/filterForFaelligeGeschaefte'
 import * as GeschaefteActions from './geschaefte'
+import * as TableActions from './table'
 import * as GeschaefteKontakteInternActions from './geschaefteKontakteIntern'
 import * as GeschaefteKontakteExternActions from './geschaefteKontakteExtern'
 import * as UserActions from './user'
@@ -37,6 +38,7 @@ const dbChooseSuccess = (dbPath, db) =>
     })
     // get data
     dispatch(GeschaefteActions.geschaefteColumnWidthGetFromDb())
+    dispatch(TableActions.tableColumnWidthGetFromDb())
     dispatch(UserActions.fetchUsername())
     dispatch(GeschaefteActions.getGeschaefte())
     dispatch(GeschaefteActions.rechtsmittelErledigungOptionsGet())

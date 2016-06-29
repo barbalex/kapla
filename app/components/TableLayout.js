@@ -1,21 +1,23 @@
 'use strict'
 
-import React, { Component } from 'react'
+import React, { Component, PropTypes } from 'react'
 import GoldenLayout from 'golden-layout'
 import wrapComponentInProvider from '../containers/wrapComponentInProvider'
 import TableRow from '../containers/table/TableRow'
 import Table from '../containers/table/Table'
 import saveConfigValue from '../src/saveConfigValue'
-import getConfig from '../src/getConfig.js'
 
 class TableLayout extends Component {
-
-  state = {
-    tableLayout: null
+  static propTypes = {
+    tableLayout: PropTypes.object,
+    tableColumnWidth: PropTypes.number.isRequired,
+    tableLayoutSet: PropTypes.func.isRequired,
+    tableColumnSet: PropTypes.func.isRequired
   }
 
   componentDidMount = () => {
-    let { tableLayout } = this.state
+    let { tableLayout } = this.props
+    const { tableLayoutSet, tableColumnWidth } = this.props
     const layoutConfig = {
       settings: {
         hasHeaders: false
@@ -27,7 +29,8 @@ class TableLayout extends Component {
             {
               type: 'react-component',
               component: 'table',
-              title: 'Tabelle'
+              title: 'Tabelle',
+              width: tableColumnWidth
             },
             {
               type: 'react-component',
@@ -38,29 +41,29 @@ class TableLayout extends Component {
         }
       ]
     }
-    const savedState = getConfig().tableLayoutState
-    if (savedState) {
-      tableLayout = new GoldenLayout(savedState)
-    } else {
-      tableLayout = new GoldenLayout(layoutConfig)
-    }
+    tableLayout = new GoldenLayout(layoutConfig)
     tableLayout.registerComponent('table', wrapComponentInProvider(Table, tableLayout))
     tableLayout.registerComponent('tableRow', wrapComponentInProvider(TableRow))
     tableLayout.init()
-    this.setState({ tableLayout })
-    tableLayout.on('stateChanged', () =>
-      this.saveTableState()
-    )
+    setTimeout(() => {
+      tableLayoutSet(tableLayout)
+      tableLayout.on('stateChanged', () =>
+        this.saveTableState()
+      )
+    }, 0)
   }
 
   componentWillUnmount = () => {
-    const { tableLayout } = this.state
+    const { tableLayout } = this.props
     tableLayout.destroy()
   }
 
   saveTableState = () => {
-    const { tableLayout } = this.state
-    saveConfigValue('tableLayoutState', tableLayout.toConfig())
+    const { tableLayout, tableColumnSet } = this.props
+    const config = tableLayout.toConfig()
+    const tableColumnWidth = config.content[0].content[0].width
+    saveConfigValue('tableColumnWidth', tableColumnWidth)
+    tableColumnSet(tableColumnWidth)
   }
 
   render = () => <div></div>

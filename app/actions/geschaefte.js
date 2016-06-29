@@ -1,5 +1,3 @@
-'use strict'
-
 // this line produced error
 // see: https://github.com/mapbox/node-sqlite3/issues/621
 // see: https://github.com/mapbox/node-pre-gyp/pull/187
