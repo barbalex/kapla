@@ -36,6 +36,7 @@ const dbChooseSuccess = (dbPath, db) =>
       dbPath
     })
     // get data
+    dispatch(GeschaefteActions.geschaefteColumnWidthGetFromDb())
     dispatch(UserActions.fetchUsername())
     dispatch(GeschaefteActions.getGeschaefte())
     dispatch(GeschaefteActions.rechtsmittelErledigungOptionsGet())

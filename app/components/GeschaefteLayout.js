@@ -11,40 +11,33 @@ import getConfig from '../src/getConfig.js'
 class GeschaefteLayout extends Component {
   static propTypes = {
     geschaefteLayout: PropTypes.object,
+    filterFieldsLayout: PropTypes.object,
+    geschaefteColumnWidth: PropTypes.number.isRequired,
     geschaefteLayoutSet: PropTypes.func.isRequired,
+    geschaefteColumnSet: PropTypes.func.isRequired
   }
 
   componentDidMount = () => {
     let { geschaefteLayout } = this.props
-    const { geschaefteLayoutSet } = this.props
+    const { geschaefteLayoutSet, geschaefteColumnWidth } = this.props
+    console.log('GeschaefteLayout.js, geschaefteColumnWidth', geschaefteColumnWidth)
     const layoutConfig = {
       settings: {
-        hasHeaders: false,
-        reorderEnabled: false,
-        showPopoutIcon: false,
-        showCloseIcon: false,
-        showMaximiseIcon: false
-      },
-      labels: {
-        maximise: 'Breite maximieren',
-        minimise: 'Breite zurücksetzen'
+        hasHeaders: false
       },
       content: [{
         type: 'row',
-        isClosable: false,
-        reorderEnabled: false,
         content: [
           {
             type: 'react-component',
             component: 'geschaefte',
-            title: 'Geschäfte'
+            title: 'Geschäfte',
+            width: geschaefteColumnWidth
           },
           {
             type: 'react-component',
             component: 'geschaeft',
-            title: 'aktives Geschäft',
-            isClosable: false,
-            reorderEnabled: false
+            title: 'aktives Geschäft'
           }
         ]
       }]
@@ -52,6 +45,8 @@ class GeschaefteLayout extends Component {
     const savedState = getConfig().geschaefteLayoutState
     if (savedState) {
       geschaefteLayout = new GoldenLayout(savedState)
+      // correct geschaefte column width in case it has changed
+      geschaefteLayout.config.content[0].content[0].width = geschaefteColumnWidth
     } else {
       geschaefteLayout = new GoldenLayout(layoutConfig)
     }
@@ -72,8 +67,12 @@ class GeschaefteLayout extends Component {
   }
 
   saveGeschaefteState = () => {
-    const { geschaefteLayout } = this.props
-    saveConfigValue('geschaefteLayoutState', geschaefteLayout.toConfig())
+    const { geschaefteLayout, geschaefteColumnSet, filterFieldsLayout } = this.props
+    const config = geschaefteLayout.toConfig()
+    saveConfigValue('geschaefteColumnWidth', geschaefteColumnWidth)
+    const geschaefteColumnWidth = config.content[0].content[0].width
+    geschaefteColumnSet(geschaefteColumnWidth)
+    if (filterFieldsLayout.destroy) filterFieldsLayout.destroy()
   }
 
   render = () => <div></div>

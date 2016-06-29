@@ -18,14 +18,7 @@ class TableLayout extends Component {
     let { tableLayout } = this.state
     const layoutConfig = {
       settings: {
-        hasHeaders: false,
-        reorderEnabled: false,
-        showPopoutIcon: false,
-        showCloseIcon: false
-      },
-      labels: {
-        maximise: 'Breite maximieren',
-        minimise: 'Breite zurücksetzen'
+        hasHeaders: false
       },
       content: [
         {

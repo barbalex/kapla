@@ -1,6 +1,6 @@
 'use strict'
 
-import React, { Component } from 'react'
+import React, { Component, PropTypes } from 'react'
 import GoldenLayout from 'golden-layout'
 import wrapComponentInProvider from '../containers/wrapComponentInProvider'
 import FilterFields from '../containers/filterFields/FilterFields'
@@ -9,22 +9,21 @@ import saveConfigValue from '../src/saveConfigValue'
 import getConfig from '../src/getConfig.js'
 
 class FilterFieldsLayout extends Component {
-  state = {
-    filterFieldsLayout: null
+  static propTypes = {
+    geschaefteLayout: PropTypes.object,
+    filterFieldsLayout: PropTypes.object,
+    geschaefteColumnWidth: PropTypes.number.isRequired,
+    filterFieldsLayoutSet: PropTypes.func.isRequired,
+    geschaefteColumnSet: PropTypes.func.isRequired
   }
 
   componentDidMount = () => {
-    let { filterFieldsLayout } = this.state
+    let { filterFieldsLayout } = this.props
+    const { filterFieldsLayoutSet, geschaefteColumnWidth } = this.props
+    console.log('FilterFieldsLayout.js, geschaefteColumnWidth', geschaefteColumnWidth)
     const layoutConfig = {
       settings: {
-        hasHeaders: false,
-        reorderEnabled: false,
-        showPopoutIcon: false,
-        showCloseIcon: false
-      },
-      labels: {
-        maximise: 'Breite maximieren',
-        minimise: 'Breite zurücksetzen'
+        hasHeaders: false
       },
       content: [{
         type: 'row',
@@ -32,7 +31,8 @@ class FilterFieldsLayout extends Component {
           {
             type: 'react-component',
             component: 'geschaefte',
-            title: 'Geschäfte'
+            title: 'Geschäfte',
+            width: geschaefteColumnWidth
           },
           {
             type: 'react-component',
@@ -45,26 +45,34 @@ class FilterFieldsLayout extends Component {
     const savedState = getConfig().filterFieldsLayoutState
     if (savedState) {
       filterFieldsLayout = new GoldenLayout(savedState)
+      // correct geschaefte column width in case it has changed
+      filterFieldsLayout.config.content[0].content[0].width = geschaefteColumnWidth
     } else {
       filterFieldsLayout = new GoldenLayout(layoutConfig)
     }
     filterFieldsLayout.registerComponent('geschaefte', wrapComponentInProvider(Geschaefte))
     filterFieldsLayout.registerComponent('filterFields', wrapComponentInProvider(FilterFields, filterFieldsLayout))
     filterFieldsLayout.init()
-    this.setState({ filterFieldsLayout })
-    filterFieldsLayout.on('stateChanged', () =>
-      this.saveGeschaefteState()
-    )
+    setTimeout(() => {
+      filterFieldsLayoutSet(filterFieldsLayout)
+      filterFieldsLayout.on('stateChanged', () =>
+        this.saveGeschaefteState()
+      )
+    }, 0)
   }
 
   componentWillUnmount = () => {
-    const { filterFieldsLayout } = this.state
+    const { filterFieldsLayout } = this.props
     filterFieldsLayout.destroy()
   }
 
   saveGeschaefteState = () => {
-    const { filterFieldsLayout } = this.state
-    saveConfigValue('filterFieldsLayoutState', filterFieldsLayout.toConfig())
+    const { filterFieldsLayout, geschaefteColumnSet, geschaefteLayout } = this.props
+    const config = filterFieldsLayout.toConfig()
+    saveConfigValue('geschaefteColumnWidth', geschaefteColumnWidth)
+    const geschaefteColumnWidth = config.content[0].content[0].width
+    geschaefteColumnSet(geschaefteColumnWidth)
+    if (geschaefteLayout.destroy) geschaefteLayout.destroy()
   }
 
   render = () => <div></div>

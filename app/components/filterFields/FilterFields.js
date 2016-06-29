@@ -120,6 +120,9 @@ class FilterFields extends Component {
     const geschaeftWidthPercent = geschaefteLayout.config.content[0].content[1].width
     const totalWidth = geschaefteLayoutWidth * geschaeftWidthPercent / 100
     const wrapperClassBaseString = totalWidth < 750 ? 'wrapperNarrow' : 'wrapperWide'
+    console.log('FilterFields.js, geschaefteLayout.width', geschaefteLayout.width)
+    console.log('FilterFields.js, geschaefteLayout.width', geschaefteLayout.width)
+    console.log('FilterFields.js, geschaefteLayout.width', geschaefteLayout.width)
     // layout needs to work with or without area for geschaeftsart
     const wrapperClassString = (
       showAreaForGeschaeftsart ?

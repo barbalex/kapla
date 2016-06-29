@@ -10,12 +10,35 @@ import getInterneOptions from '../src/getInterneOptions'
 import getExterneOptions from '../src/getExterneOptions'
 import updateGeschaeft from '../src/updateGeschaeft'
 import filterGeschaefte from '../src/filterGeschaefte'
+import getConfig from '../src/getConfig.js'
 import * as pagesActions from './pages'
+
+export const GESCHAEFTE_COLUMN_WIDTH_GET_FROM_DB = 'GESCHAEFTE_COLUMN_WIDTH_GET_FROM_DB'
+export const geschaefteColumnWidthGetFromDb = () =>
+  (dispatch) => {
+    const geschaefteColumnWidth = getConfig().geschaefteColumnWidth
+    dispatch({
+      type: GESCHAEFTE_COLUMN_WIDTH_GET_FROM_DB,
+      geschaefteColumnWidth
+    })
+  }
+
+export const GESCHAEFTECOLUMN_SET = 'GESCHAEFTECOLUMN_SET'
+export const geschaefteColumnSet = (geschaefteColumnWidth) => ({
+  type: GESCHAEFTECOLUMN_SET,
+  geschaefteColumnWidth
+})
 
 export const GESCHAEFTELAYOUT_SET = 'GESCHAEFTELAYOUT_SET'
 export const geschaefteLayoutSet = (geschaefteLayout) => ({
   type: GESCHAEFTELAYOUT_SET,
   geschaefteLayout
+})
+
+export const FILTERFIELDSLAYOUT_SET = 'FILTERFIELDSLAYOUT_SET'
+export const filterFieldsLayoutSet = (filterFieldsLayout) => ({
+  type: FILTERFIELDSLAYOUT_SET,
+  filterFieldsLayout
 })
 
 export const getGeschaefte = () =>

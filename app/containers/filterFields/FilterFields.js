@@ -8,9 +8,9 @@ import * as AppActions from '../../actions/app'
 
 const actions = Object.assign(GeschaefteActions, AppActions)
 
-function mapStateToProps(state, props) {
+function mapStateToProps(state) {
   let { filterFields } = state.geschaefte
-  const { layout } = props
+  const { geschaefteLayout } = state.geschaefte
   // build a fields hash for the values
   const values = {}
   if (filterFields.forEach) {
@@ -24,7 +24,7 @@ function mapStateToProps(state, props) {
   return {
     filterFields,
     values,
-    geschaefteLayout: layout
+    geschaefteLayout
   }
 }
 

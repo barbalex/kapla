@@ -7,10 +7,14 @@ import * as GeschaefteActions from '../actions/geschaefte'
 
 function mapStateToProps(state) {
   const {
-    geschaefteLayout
+    geschaefteLayout,
+    filterFieldsLayout,
+    geschaefteColumnWidth
   } = state.geschaefte
   return {
-    geschaefteLayout
+    geschaefteLayout,
+    filterFieldsLayout,
+    geschaefteColumnWidth
   }
 }
 
