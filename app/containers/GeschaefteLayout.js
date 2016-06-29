@@ -9,12 +9,12 @@ function mapStateToProps(state) {
   const {
     geschaefteLayout,
     filterFieldsLayout,
-    geschaefteColumnWidth
+    geschaefteColumnWidth,
   } = state.geschaefte
   return {
     geschaefteLayout,
     filterFieldsLayout,
-    geschaefteColumnWidth
+    geschaefteColumnWidth,
   }
 }
 

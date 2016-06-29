@@ -16,7 +16,7 @@ import * as pagesActions from './pages'
 export const GESCHAEFTE_COLUMN_WIDTH_GET_FROM_DB = 'GESCHAEFTE_COLUMN_WIDTH_GET_FROM_DB'
 export const geschaefteColumnWidthGetFromDb = () =>
   (dispatch) => {
-    const geschaefteColumnWidth = getConfig().geschaefteColumnWidth
+    const geschaefteColumnWidth = getConfig().geschaefteColumnWidth || 40
     dispatch({
       type: GESCHAEFTE_COLUMN_WIDTH_GET_FROM_DB,
       geschaefteColumnWidth

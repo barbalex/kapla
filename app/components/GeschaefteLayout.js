@@ -6,7 +6,6 @@ import wrapComponentInProvider from '../containers/wrapComponentInProvider'
 import Geschaeft from '../containers/geschaeft/Geschaeft'
 import Geschaefte from '../containers/Geschaefte'
 import saveConfigValue from '../src/saveConfigValue'
-import getConfig from '../src/getConfig.js'
 
 class GeschaefteLayout extends Component {
   static propTypes = {
@@ -20,7 +19,6 @@ class GeschaefteLayout extends Component {
   componentDidMount = () => {
     let { geschaefteLayout } = this.props
     const { geschaefteLayoutSet, geschaefteColumnWidth } = this.props
-    console.log('GeschaefteLayout.js, geschaefteColumnWidth', geschaefteColumnWidth)
     const layoutConfig = {
       settings: {
         hasHeaders: false
@@ -42,14 +40,7 @@ class GeschaefteLayout extends Component {
         ]
       }]
     }
-    const savedState = getConfig().geschaefteLayoutState
-    if (savedState) {
-      geschaefteLayout = new GoldenLayout(savedState)
-      // correct geschaefte column width in case it has changed
-      geschaefteLayout.config.content[0].content[0].width = geschaefteColumnWidth
-    } else {
-      geschaefteLayout = new GoldenLayout(layoutConfig)
-    }
+    geschaefteLayout = new GoldenLayout(layoutConfig)
     geschaefteLayout.registerComponent('geschaefte', wrapComponentInProvider(Geschaefte))
     geschaefteLayout.registerComponent('geschaeft', wrapComponentInProvider(Geschaeft, geschaefteLayout))
     geschaefteLayout.init()
@@ -69,8 +60,8 @@ class GeschaefteLayout extends Component {
   saveGeschaefteState = () => {
     const { geschaefteLayout, geschaefteColumnSet, filterFieldsLayout } = this.props
     const config = geschaefteLayout.toConfig()
-    saveConfigValue('geschaefteColumnWidth', geschaefteColumnWidth)
     const geschaefteColumnWidth = config.content[0].content[0].width
+    saveConfigValue('geschaefteColumnWidth', geschaefteColumnWidth)
     geschaefteColumnSet(geschaefteColumnWidth)
     if (filterFieldsLayout.destroy) filterFieldsLayout.destroy()
   }

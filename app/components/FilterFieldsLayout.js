@@ -6,8 +6,6 @@ import wrapComponentInProvider from '../containers/wrapComponentInProvider'
 import FilterFields from '../containers/filterFields/FilterFields'
 import Geschaefte from '../containers/Geschaefte'
 import saveConfigValue from '../src/saveConfigValue'
-import getConfig from '../src/getConfig.js'
-
 class FilterFieldsLayout extends Component {
   static propTypes = {
     geschaefteLayout: PropTypes.object,
@@ -20,7 +18,6 @@ class FilterFieldsLayout extends Component {
   componentDidMount = () => {
     let { filterFieldsLayout } = this.props
     const { filterFieldsLayoutSet, geschaefteColumnWidth } = this.props
-    console.log('FilterFieldsLayout.js, geschaefteColumnWidth', geschaefteColumnWidth)
     const layoutConfig = {
       settings: {
         hasHeaders: false
@@ -42,14 +39,7 @@ class FilterFieldsLayout extends Component {
         ]
       }]
     }
-    const savedState = getConfig().filterFieldsLayoutState
-    if (savedState) {
-      filterFieldsLayout = new GoldenLayout(savedState)
-      // correct geschaefte column width in case it has changed
-      filterFieldsLayout.config.content[0].content[0].width = geschaefteColumnWidth
-    } else {
-      filterFieldsLayout = new GoldenLayout(layoutConfig)
-    }
+    filterFieldsLayout = new GoldenLayout(layoutConfig)
     filterFieldsLayout.registerComponent('geschaefte', wrapComponentInProvider(Geschaefte))
     filterFieldsLayout.registerComponent('filterFields', wrapComponentInProvider(FilterFields, filterFieldsLayout))
     filterFieldsLayout.init()
@@ -69,8 +59,8 @@ class FilterFieldsLayout extends Component {
   saveGeschaefteState = () => {
     const { filterFieldsLayout, geschaefteColumnSet, geschaefteLayout } = this.props
     const config = filterFieldsLayout.toConfig()
-    saveConfigValue('geschaefteColumnWidth', geschaefteColumnWidth)
     const geschaefteColumnWidth = config.content[0].content[0].width
+    saveConfigValue('geschaefteColumnWidth', geschaefteColumnWidth)
     geschaefteColumnSet(geschaefteColumnWidth)
     if (geschaefteLayout.destroy) geschaefteLayout.destroy()
   }
