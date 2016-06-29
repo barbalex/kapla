@@ -13,7 +13,6 @@ import {
 const standardState = {
   fetchingDb: false,
   errorFetchingDb: null,
-  dbPath: null,
   db: null,
   showMessageModal: false,
   messageTextLine1: '',
@@ -69,7 +68,6 @@ const app = (state = standardState, action) => {
         ...state,
         fetchingDb: false,
         errorFetchingDb: null,
-        dbPath: action.dbPath,
         db: action.db
       }
     case DB_CHOOSE_ERROR:
@@ -77,7 +75,6 @@ const app = (state = standardState, action) => {
         ...state,
         fetchingDb: false,
         errorFetchingDb: action.error,
-        dbPath: null,
         db: null
       }
     default:

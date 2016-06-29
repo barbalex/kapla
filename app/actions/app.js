@@ -24,8 +24,14 @@ export const configGet = () =>
           config: newConfig
         })
         console.log('now get db, newConfig', newConfig)
-        console.log('now get db, dbGetFromConfig', dbGetFromConfig)
-        dbGetFromConfig(newConfig)
+        const { dbPath } = newConfig
+        console.log('now get db, dbPath', dbPath)
+        if (!dbPath) {
+          dispatch(dbGet())
+        } else {
+          const db = new sqlite3.Database(dbPath)
+          dispatch(dbChooseSuccess(dbPath, db))
+        }
       })
       .catch((error) =>
         console.error(error)
@@ -106,13 +112,12 @@ const dbChoose = () => ({
 export const DB_CHOOSE_SUCCESS = 'DB_CHOOSE_SUCCESS'
 const dbChooseSuccess = (dbPath, db) =>
   (dispatch) => {
+    configSet('dbPath', dbPath)
     dispatch({
       type: DB_CHOOSE_SUCCESS,
-      db,
-      dbPath
+      db
     })
     // get data
-    dispatch(configGet())
     dispatch(UserActions.fetchUsername())
     dispatch(GeschaefteActions.getGeschaefte())
     dispatch(GeschaefteActions.rechtsmittelErledigungOptionsGet())
@@ -134,19 +139,6 @@ const dbChooseError = (error) => ({
   type: DB_CHOOSE_ERROR,
   error
 })
-
-const dbGetFromConfig = (config) =>
-  (dispatch) => {
-    // only do this if not yet done
-    console.log('dbGetFromConfig, config', config)
-    const { dbPath } = config
-    if (!dbPath) {
-      dispatch(dbGet())
-    } else {
-      const db = new sqlite3.Database(dbPath)
-      dispatch(dbChooseSuccess(dbPath, db))
-    }
-  }
 
 export function dbGet() {
   return dispatch => {

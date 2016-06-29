@@ -33,6 +33,7 @@ class NavbarComponent extends Component {
 
   componentWillMount() {
     const { configGet } = this.props
+    console.log('Navbar.js, componentWillMount')
     configGet()
   }
 
