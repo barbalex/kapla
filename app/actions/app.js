@@ -44,6 +44,7 @@ export const configUiReset = () =>
     if (dbPath) {
       newConfig.dbPath = dbPath
     }
+    saveConfig(newConfig)
     dispatch({
       type: CONFIG_SET,
       config: newConfig
@@ -54,7 +55,6 @@ export const CONFIG_SET_KEY = 'CONFIG_SET_KEY'
 export const configSetKey = (key, value) =>
   (dispatch, getState) => {
     const { config } = getState().app
-    console.log('actions.configSetKey, config from app:', config)
     if (value) {
       config[key] = value
     } else {
