@@ -11,7 +11,7 @@ class TableLayout extends Component {
     tableLayout: PropTypes.object,
     config: PropTypes.object.isRequired,
     tableLayoutSet: PropTypes.func.isRequired,
-    configSet: PropTypes.func.isRequired
+    configSetKey: PropTypes.func.isRequired
   }
 
   componentDidMount = () => {
@@ -56,10 +56,10 @@ class TableLayout extends Component {
   }
 
   saveTableState = () => {
-    const { tableLayout, configSet } = this.props
+    const { tableLayout, configSetKey } = this.props
     const config = tableLayout.toConfig()
     const tableColumnWidth = config.content[0].content[0].width
-    configSet('tableColumnWidth', tableColumnWidth)
+    configSetKey('tableColumnWidth', tableColumnWidth)
   }
 
   render = () => <div></div>

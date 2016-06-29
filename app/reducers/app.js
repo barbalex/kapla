@@ -8,6 +8,7 @@ import {
   FILTERFIELDSLAYOUT_SET,
   CONFIG_GET,
   CONFIG_SET,
+  CONFIG_SET_KEY,
 } from '../actions/app'
 
 const standardState = {
@@ -34,6 +35,13 @@ const app = (state = standardState, action) => {
       return {
         ...state,
         config: action.config
+      }
+    case CONFIG_SET_KEY:
+      return {
+        ...state,
+        config: Object.assign({}, state.config, {
+          [action.key]: action.value
+        })
       }
     case GESCHAEFTELAYOUT_SET:
       return {
@@ -68,7 +76,10 @@ const app = (state = standardState, action) => {
         ...state,
         fetchingDb: false,
         errorFetchingDb: null,
-        db: action.db
+        db: action.db,
+        config: Object.assign({}, state.config, {
+          dbPath: action.dbPath
+        })
       }
     case DB_CHOOSE_ERROR:
       return {

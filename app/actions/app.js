@@ -23,9 +23,7 @@ export const configGet = () =>
           type: CONFIG_GET,
           config: newConfig
         })
-        console.log('now get db, newConfig', newConfig)
         const { dbPath } = newConfig
-        console.log('now get db, dbPath', dbPath)
         if (!dbPath) {
           dispatch(dbGet())
         } else {
@@ -47,15 +45,16 @@ export const configUiReset = () =>
       newConfig.dbPath = dbPath
     }
     dispatch({
-      type: CONFIG_GET,
+      type: CONFIG_SET,
       config: newConfig
     })
   }
 
-export const CONFIG_SET = 'CONFIG_SET'
-export const configSet = (key, value) =>
+export const CONFIG_SET_KEY = 'CONFIG_SET_KEY'
+export const configSetKey = (key, value) =>
   (dispatch, getState) => {
     const { config } = getState().app
+    console.log('actions.configSetKey, config from app:', config)
     if (value) {
       config[key] = value
     } else {
@@ -67,6 +66,12 @@ export const configSet = (key, value) =>
       config
     })
   }
+
+export const CONFIG_SET = 'CONFIG_SET'
+export const configSet = (config) => ({
+  type: CONFIG_SET,
+  config
+})
 
 export const TABLECOLUMN_SET = 'TABLECOLUMN_SET'
 export const tableColumnSet = (tableColumnWidth) => ({
@@ -112,10 +117,10 @@ const dbChoose = () => ({
 export const DB_CHOOSE_SUCCESS = 'DB_CHOOSE_SUCCESS'
 const dbChooseSuccess = (dbPath, db) =>
   (dispatch) => {
-    configSet('dbPath', dbPath)
     dispatch({
       type: DB_CHOOSE_SUCCESS,
-      db
+      db,
+      dbPath
     })
     // get data
     dispatch(UserActions.fetchUsername())
@@ -147,7 +152,7 @@ export function dbGet() {
       .then((dbPath) => {
         const db = new sqlite3.Database(dbPath)
         dispatch(dbChooseSuccess(dbPath, db))
-        configSet('dbPath', dbPath)
+        dispatch(configSetKey('dbPath', dbPath))
       })
       .catch((error) => dispatch(dbChooseError(error)))
   }

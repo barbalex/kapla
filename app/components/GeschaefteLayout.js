@@ -12,7 +12,7 @@ class GeschaefteLayout extends Component {
     filterFieldsLayout: PropTypes.object,
     config: PropTypes.object.isRequired,
     geschaefteLayoutSet: PropTypes.func.isRequired,
-    configSet: PropTypes.func.isRequired
+    configSetKey: PropTypes.func.isRequired,
   }
 
   componentDidMount = () => {
@@ -55,10 +55,10 @@ class GeschaefteLayout extends Component {
   }
 
   saveGeschaefteState = () => {
-    const { geschaefteLayout, configSet, filterFieldsLayout } = this.props
+    const { geschaefteLayout, configSetKey, filterFieldsLayout } = this.props
     const config = geschaefteLayout.toConfig()
     const geschaefteColumnWidth = config.content[0].content[0].width
-    configSet('geschaefteColumnWidth', geschaefteColumnWidth)
+    configSetKey('geschaefteColumnWidth', geschaefteColumnWidth)
     if (filterFieldsLayout.destroy) filterFieldsLayout.destroy()
   }
 
