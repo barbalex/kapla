@@ -3,10 +3,10 @@
 import React, { PropTypes } from 'react'
 import {
   NavDropdown,
-  MenuItem
+  MenuItem,
 } from 'react-bootstrap'
 
-const NavbarOptionsNav = ({ dbGet }) =>
+const OptionsNav = ({ dbGet, configUiReset }) =>
   <NavDropdown
     title="&#8942;"
     id="last-nav-dropdown"
@@ -17,12 +17,18 @@ const NavbarOptionsNav = ({ dbGet }) =>
     >
       Datenbank wählen
     </MenuItem>
+    <MenuItem
+      onClick={configUiReset}
+    >
+      Einstellungen zurücksetzen
+    </MenuItem>
   </NavDropdown>
 
-NavbarOptionsNav.displayName = 'NavbarOptionsNav'
+OptionsNav.displayName = 'OptionsNav'
 
-NavbarOptionsNav.propTypes = {
-  dbGet: PropTypes.func.isRequired
+OptionsNav.propTypes = {
+  dbGet: PropTypes.func.isRequired,
+  configUiReset: PropTypes.func.isRequired,
 }
 
-export default NavbarOptionsNav
+export default OptionsNav

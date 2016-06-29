@@ -9,13 +9,13 @@ function mapStateToProps(state) {
   const {
     geschaefteLayout,
     filterFieldsLayout,
-    geschaefteColumnWidth,
+    config,
   } = state.app
 
   return {
     geschaefteLayout,
     filterFieldsLayout,
-    geschaefteColumnWidth,
+    config,
   }
 }
 

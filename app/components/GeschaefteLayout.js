@@ -5,20 +5,19 @@ import GoldenLayout from 'golden-layout'
 import wrapComponentInProvider from '../containers/wrapComponentInProvider'
 import Geschaeft from '../containers/geschaeft/Geschaeft'
 import Geschaefte from '../containers/Geschaefte'
-import saveConfigValue from '../src/saveConfigValue'
 
 class GeschaefteLayout extends Component {
   static propTypes = {
     geschaefteLayout: PropTypes.object,
     filterFieldsLayout: PropTypes.object,
-    geschaefteColumnWidth: PropTypes.number.isRequired,
+    config: PropTypes.object.isRequired,
     geschaefteLayoutSet: PropTypes.func.isRequired,
-    geschaefteColumnSet: PropTypes.func.isRequired
+    configSet: PropTypes.func.isRequired
   }
 
   componentDidMount = () => {
     let { geschaefteLayout } = this.props
-    const { geschaefteLayoutSet, geschaefteColumnWidth } = this.props
+    const { geschaefteLayoutSet, config } = this.props
     const layoutConfig = {
       settings: {
         hasHeaders: false
@@ -30,7 +29,7 @@ class GeschaefteLayout extends Component {
             type: 'react-component',
             component: 'geschaefte',
             title: 'Geschäfte',
-            width: geschaefteColumnWidth
+            width: config.geschaefteColumnWidth
           },
           {
             type: 'react-component',
@@ -56,14 +55,10 @@ class GeschaefteLayout extends Component {
   }
 
   saveGeschaefteState = () => {
-    const { geschaefteLayout, geschaefteColumnSet, filterFieldsLayout } = this.props
+    const { geschaefteLayout, configSet, filterFieldsLayout } = this.props
     const config = geschaefteLayout.toConfig()
     const geschaefteColumnWidth = config.content[0].content[0].width
-    // try to get saveConfigValue calls not to meet...
-    setTimeout(() => {
-      saveConfigValue('geschaefteColumnWidth', geschaefteColumnWidth)
-    }, 500)
-    geschaefteColumnSet(geschaefteColumnWidth)
+    configSet('geschaefteColumnWidth', geschaefteColumnWidth)
     if (filterFieldsLayout.destroy) filterFieldsLayout.destroy()
   }
 

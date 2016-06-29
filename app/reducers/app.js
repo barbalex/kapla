@@ -4,11 +4,7 @@ import {
   DB_CHOOSE_ERROR,
   MESSAGE_SHOW,
   TABLELAYOUT_SET,
-  TABLECOLUMN_SET,
-  TABLE_COLUMN_WIDTH_GET_FROM_DB,
-  GESCHAEFTE_COLUMN_WIDTH_GET_FROM_DB,
   GESCHAEFTELAYOUT_SET,
-  GESCHAEFTECOLUMN_SET,
   FILTERFIELDSLAYOUT_SET,
   CONFIG_GET,
   CONFIG_SET,
@@ -24,10 +20,12 @@ const standardState = {
   messageTextLine2: '',
   geschaefteLayout: {},
   filterFieldsLayout: {},
-  geschaefteColumnWidth: 40,
   tableLayout: {},
-  tableColumnWidth: 70,
-  config: {}
+  config: {
+    dbPath: '',
+    tableColumnWidth: 70,
+    geschaefteColumnWidth: 40,
+  }
 }
 
 const app = (state = standardState, action) => {
@@ -43,16 +41,6 @@ const app = (state = standardState, action) => {
         ...state,
         geschaefteLayout: action.geschaefteLayout
       }
-    case GESCHAEFTECOLUMN_SET:
-      return {
-        ...state,
-        geschaefteColumnWidth: action.geschaefteColumnWidth
-      }
-    case GESCHAEFTE_COLUMN_WIDTH_GET_FROM_DB:
-      return {
-        ...state,
-        geschaefteColumnWidth: action.geschaefteColumnWidth
-      }
     case FILTERFIELDSLAYOUT_SET:
       return {
         ...state,
@@ -62,16 +50,6 @@ const app = (state = standardState, action) => {
       return {
         ...state,
         tableLayout: action.tableLayout
-      }
-    case TABLECOLUMN_SET:
-      return {
-        ...state,
-        tableColumnWidth: action.tableColumnWidth
-      }
-    case TABLE_COLUMN_WIDTH_GET_FROM_DB:
-      return {
-        ...state,
-        tableColumnWidth: action.tableColumnWidth
       }
     case MESSAGE_SHOW:
       return {

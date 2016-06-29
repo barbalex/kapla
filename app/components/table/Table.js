@@ -14,7 +14,7 @@ class Table extends Component {
     id: PropTypes.number,
     tableRowToggleActivated: PropTypes.func.isRequired,
     tableReset: PropTypes.func.isRequired,
-    tableColumnWidth: PropTypes.number.isRequired,
+    config: PropTypes.object.isRequired,
   }
 
   state = {
@@ -72,11 +72,11 @@ class Table extends Component {
   }
 
   itemColumns = (row) => {
-    const { tableColumnWidth } = this.props
+    const { config } = this.props
     const keys = Object.keys(row)
     const values = _.values(row)
     const windowWidth = $(window).width()
-    const tableWidth = windowWidth * tableColumnWidth / 100
+    const tableWidth = windowWidth * config.tableColumnWidth / 100
     const normalFieldWidth = (tableWidth - 50) / (keys.length - 1)
 
     return values.map((val, index) => {
@@ -99,10 +99,10 @@ class Table extends Component {
   }
 
   tableHeaders = () => {
-    const { rows, tableColumnWidth } = this.props
+    const { rows, config } = this.props
     const headers = Object.keys(rows[0])
     const windowWidth = $(window).width()
-    const tableWidth = windowWidth * tableColumnWidth / 100
+    const tableWidth = windowWidth * config.tableColumnWidth / 100
 
     const normalFieldWidth = (tableWidth - 50) / (headers.length - 1)
     return headers.map((header, index) => {

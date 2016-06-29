@@ -12,14 +12,14 @@ function mapStateToProps(state) {
     id
   } = state.table
   const {
-    tableColumnWidth,
+    config,
   } = state.app
 
   return {
     table,
     rows,
     id,
-    tableColumnWidth,
+    config,
   }
 }
 

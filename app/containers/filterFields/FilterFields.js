@@ -13,7 +13,7 @@ function mapStateToProps(state) {
     filterFields,
   } = state.geschaefte
   const {
-    geschaefteColumnWidth,
+    config,
   } = state.app
   // build a fields hash for the values
   const values = {}
@@ -28,7 +28,7 @@ function mapStateToProps(state) {
   return {
     filterFields,
     values,
-    geschaefteColumnWidth,
+    config,
   }
 }
 

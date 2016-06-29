@@ -5,19 +5,18 @@ import GoldenLayout from 'golden-layout'
 import wrapComponentInProvider from '../containers/wrapComponentInProvider'
 import TableRow from '../containers/table/TableRow'
 import Table from '../containers/table/Table'
-import saveConfigValue from '../src/saveConfigValue'
 
 class TableLayout extends Component {
   static propTypes = {
     tableLayout: PropTypes.object,
-    tableColumnWidth: PropTypes.number.isRequired,
+    config: PropTypes.object.isRequired,
     tableLayoutSet: PropTypes.func.isRequired,
-    tableColumnSet: PropTypes.func.isRequired
+    configSet: PropTypes.func.isRequired
   }
 
   componentDidMount = () => {
     let { tableLayout } = this.props
-    const { tableLayoutSet, tableColumnWidth } = this.props
+    const { tableLayoutSet, config } = this.props
     const layoutConfig = {
       settings: {
         hasHeaders: false
@@ -30,7 +29,7 @@ class TableLayout extends Component {
               type: 'react-component',
               component: 'table',
               title: 'Tabelle',
-              width: tableColumnWidth
+              width: config.tableColumnWidth
             },
             {
               type: 'react-component',
@@ -57,11 +56,10 @@ class TableLayout extends Component {
   }
 
   saveTableState = () => {
-    const { tableLayout, tableColumnSet } = this.props
+    const { tableLayout, configSet } = this.props
     const config = tableLayout.toConfig()
     const tableColumnWidth = config.content[0].content[0].width
-    saveConfigValue('tableColumnWidth', tableColumnWidth)
-    tableColumnSet(tableColumnWidth)
+    configSet('tableColumnWidth', tableColumnWidth)
   }
 
   render = () => <div></div>

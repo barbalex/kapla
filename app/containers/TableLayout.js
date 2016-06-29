@@ -6,11 +6,11 @@ import * as AppActions from '../actions/app'
 function mapStateToProps(state) {
   const {
     tableLayout,
-    tableColumnWidth,
+    config,
   } = state.app
   return {
     tableLayout,
-    tableColumnWidth,
+    config,
   }
 }
 

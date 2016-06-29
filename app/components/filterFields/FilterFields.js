@@ -29,7 +29,7 @@ class FilterFields extends Component {
       })
     ).isRequired,
     geschaefteFilterByFields: PropTypes.func.isRequired,
-    geschaefteColumnWidth: PropTypes.number.isRequired,
+    config: PropTypes.object.isRequired,
   }
 
   onChangeDatePicker = (name, e, picker) => {
@@ -100,7 +100,7 @@ class FilterFields extends Component {
   render = () => {
     const {
       values,
-      geschaefteColumnWidth,
+      config,
     } = this.props
 
     const showAreaParlVorstoss = (
@@ -118,7 +118,7 @@ class FilterFields extends Component {
 
     // need width to adapt layout to differing widths
     const windowWidth = $(window).width()
-    const areaFilterFieldsWidth = windowWidth * (100 - geschaefteColumnWidth) / 100
+    const areaFilterFieldsWidth = windowWidth * (100 - config.geschaefteColumnWidth) / 100
     const wrapperClassBaseString = areaFilterFieldsWidth < 750 ? 'wrapperNarrow' : 'wrapperWide'
 
     // layout needs to work with or without area for geschaeftsart

@@ -24,7 +24,7 @@ class Geschaeft extends Component {
     geschaefteChangeState: PropTypes.func.isRequired,
     changeGeschaeftInDb: PropTypes.func.isRequired,
     geschaeftToggleActivated: PropTypes.func.isRequired,
-    geschaefteColumnWidth: PropTypes.number.isRequired,
+    config: PropTypes.object.isRequired,
   }
 
   onChangeDatePicker = (name, e, picker) => {
@@ -84,7 +84,7 @@ class Geschaeft extends Component {
   render = () => {
     const {
       geschaeft,
-      geschaefteColumnWidth
+      config
     } = this.props
 
     // return immediately if no geschaeft
@@ -100,7 +100,7 @@ class Geschaeft extends Component {
 
     // need width to adapt layout to differing widths
     const windowWidth = $(window).width()
-    const areaGeschaefteWidth = windowWidth * (100 - geschaefteColumnWidth) / 100
+    const areaGeschaefteWidth = windowWidth * (100 - config.geschaefteColumnWidth) / 100
     const wrapperClassBaseString = areaGeschaefteWidth < 750 ? 'wrapperNarrow' : 'wrapperWide'
 
     // layout needs to work with or without area for geschaeftsart
