@@ -5,6 +5,7 @@ import chooseDb from '../src/chooseDb.js'
 import getConfig from '../src/getConfig.js'
 import saveConfigValue from '../src/saveConfigValue.js'
 import filterForFaelligeGeschaefte from '../src/filterForFaelligeGeschaefte'
+import resetUiConfig from '../src/resetUiConfig'
 import * as GeschaefteActions from './geschaefte'
 import * as TableActions from './table'
 import * as GeschaefteKontakteInternActions from './geschaefteKontakteIntern'
@@ -27,6 +28,15 @@ export const DB_CHOOSE = 'DB_CHOOSE'
 const dbChoose = () => ({
   type: DB_CHOOSE
 })
+
+export const UI_CONFIG_RESET = 'UI_CONFIG_RESET'
+export const uiConfigReset = () =>
+  (dispatch) => {
+    resetUiConfig()
+    dispatch({
+      type: UI_CONFIG_RESET
+    })
+  }
 
 export const DB_CHOOSE_SUCCESS = 'DB_CHOOSE_SUCCESS'
 const dbChooseSuccess = (dbPath, db) =>
