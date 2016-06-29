@@ -12,6 +12,12 @@ import updateGeschaeft from '../src/updateGeschaeft'
 import filterGeschaefte from '../src/filterGeschaefte'
 import * as pagesActions from './pages'
 
+export const GESCHAEFTELAYOUT_SET = 'GESCHAEFTELAYOUT_SET'
+export const geschaefteLayoutSet = (geschaefteLayout) => ({
+  type: GESCHAEFTELAYOUT_SET,
+  geschaefteLayout
+})
+
 export const getGeschaefte = () =>
   (dispatch, getState) => {
     const { app, routing } = getState()

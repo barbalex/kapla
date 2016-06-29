@@ -8,12 +8,12 @@ import * as AppActions from '../../actions/app'
 
 const actions = Object.assign(GeschaefteActions, AppActions)
 
-function mapStateToProps(state, props) {
+function mapStateToProps(state) {
   const {
     geschaefte,
-    activeId
+    activeId,
+    geschaefteLayout
   } = state.geschaefte
-  const { layout } = props
   const geschaeft = geschaefte.find((g) =>
     g.idGeschaeft === activeId
   )
@@ -21,7 +21,7 @@ function mapStateToProps(state, props) {
   return {
     geschaeft,
     activeId,
-    geschaefteLayout: layout
+    geschaefteLayout
   }
 }
 

@@ -8,7 +8,7 @@ import GeschaefteItem from '../containers/GeschaefteItem'
 
 class Geschaefte extends Component {
   static propTypes = {
-    geschaefteGefilterteIds: PropTypes.array.isRequired
+    geschaefteGefilterteIds: PropTypes.array
   }
 
   state = {
@@ -91,7 +91,7 @@ class Geschaefte extends Component {
           >
             <ReactList
               itemRenderer={::this.renderItem}
-              length={geschaefteGefilterteIds.length}
+              length={geschaefteGefilterteIds ? geschaefteGefilterteIds.length : 0}
               type="uniform"
             />
           </div>

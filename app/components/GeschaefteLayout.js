@@ -1,27 +1,25 @@
 'use strict'
 
-import React, { Component } from 'react'
+import React, { Component, PropTypes } from 'react'
 import GoldenLayout from 'golden-layout'
 import wrapComponentInProvider from '../containers/wrapComponentInProvider'
 import Geschaeft from '../containers/geschaeft/Geschaeft'
-import FilterFields from '../containers/filterFields/FilterFields'
 import Geschaefte from '../containers/Geschaefte'
 import saveConfigValue from '../src/saveConfigValue'
 import getConfig from '../src/getConfig.js'
 
 class GeschaefteLayout extends Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      geschaefteLayout: null
-    }
+  static propTypes = {
+    geschaefteLayout: PropTypes.object,
+    geschaefteLayoutSet: PropTypes.func.isRequired,
   }
 
   componentDidMount = () => {
-    let { geschaefteLayout } = this.state
+    let { geschaefteLayout } = this.props
+    const { geschaefteLayoutSet } = this.props
     const layoutConfig = {
       settings: {
-        hasHeaders: true,
+        hasHeaders: false,
         reorderEnabled: false,
         showPopoutIcon: false,
         showCloseIcon: false,
@@ -33,6 +31,8 @@ class GeschaefteLayout extends Component {
       },
       content: [{
         type: 'row',
+        isClosable: false,
+        reorderEnabled: false,
         content: [
           {
             type: 'react-component',
@@ -40,18 +40,11 @@ class GeschaefteLayout extends Component {
             title: 'Geschäfte'
           },
           {
-            type: 'stack',
-            content: [
-              {
-                type: 'react-component',
-                component: 'geschaeft',
-                title: 'aktives Geschäft'
-              }, {
-                type: 'react-component',
-                component: 'filterFields',
-                title: 'nach Feldern filtern'
-              }
-            ]
+            type: 'react-component',
+            component: 'geschaeft',
+            title: 'aktives Geschäft',
+            isClosable: false,
+            reorderEnabled: false
           }
         ]
       }]
@@ -64,10 +57,9 @@ class GeschaefteLayout extends Component {
     }
     geschaefteLayout.registerComponent('geschaefte', wrapComponentInProvider(Geschaefte))
     geschaefteLayout.registerComponent('geschaeft', wrapComponentInProvider(Geschaeft, geschaefteLayout))
-    geschaefteLayout.registerComponent('filterFields', wrapComponentInProvider(FilterFields, geschaefteLayout))
     geschaefteLayout.init()
     setTimeout(() => {
-      this.setState({ geschaefteLayout })
+      geschaefteLayoutSet(geschaefteLayout)
       geschaefteLayout.on('stateChanged', () =>
         this.saveGeschaefteState()
       )
@@ -75,12 +67,12 @@ class GeschaefteLayout extends Component {
   }
 
   componentWillUnmount = () => {
-    const { geschaefteLayout } = this.state
+    const { geschaefteLayout } = this.props
     geschaefteLayout.destroy()
   }
 
   saveGeschaefteState = () => {
-    const { geschaefteLayout } = this.state
+    const { geschaefteLayout } = this.props
     saveConfigValue('geschaefteLayoutState', geschaefteLayout.toConfig())
   }
 
