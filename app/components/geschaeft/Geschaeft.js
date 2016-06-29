@@ -4,6 +4,7 @@ import React, { Component, PropTypes } from 'react'
 import ReactDOM from 'react-dom'
 import moment from 'moment'
 moment.locale('de')
+import $ from 'jquery'
 import styles from './geschaeft.css'
 import isDateField from '../../src/isDateField'
 import validateDate from '../../src/validateDate'
@@ -22,8 +23,8 @@ class Geschaeft extends Component {
     activeId: PropTypes.number,
     geschaefteChangeState: PropTypes.func.isRequired,
     changeGeschaeftInDb: PropTypes.func.isRequired,
-    geschaefteLayout: PropTypes.object.isRequired,
-    geschaeftToggleActivated: PropTypes.func.isRequired
+    geschaeftToggleActivated: PropTypes.func.isRequired,
+    geschaefteColumnWidth: PropTypes.number.isRequired,
   }
 
   onChangeDatePicker = (name, e, picker) => {
@@ -83,7 +84,7 @@ class Geschaeft extends Component {
   render = () => {
     const {
       geschaeft,
-      geschaefteLayout
+      geschaefteColumnWidth
     } = this.props
 
     // return immediately if no geschaeft
@@ -97,11 +98,11 @@ class Geschaeft extends Component {
       showAreaRechtsmittel
     )
 
-    // need width to set layout for differing widths
-    const geschaefteLayoutWidth = geschaefteLayout.width
-    const geschaeftWidthPercent = geschaefteLayout.config.content[0].content[1].width
-    const totalWidth = geschaefteLayoutWidth * geschaeftWidthPercent / 100
-    const wrapperClassBaseString = totalWidth < 750 ? 'wrapperNarrow' : 'wrapperWide'
+    // need width to adapt layout to differing widths
+    const windowWidth = $(window).width()
+    const areaGeschaefteWidth = windowWidth * (100 - geschaefteColumnWidth) / 100
+    const wrapperClassBaseString = areaGeschaefteWidth < 750 ? 'wrapperNarrow' : 'wrapperWide'
+
     // layout needs to work with or without area for geschaeftsart
     const wrapperClassString = (
       showAreaForGeschaeftsart ?
@@ -109,6 +110,7 @@ class Geschaeft extends Component {
       `${wrapperClassBaseString}NoAreaForGeschaeftsart`
     )
     const wrapperClass = styles[wrapperClassString]
+
     // prepare tab indexes
     const nrOfGFields = 10
     const nrOfNrFields = 10

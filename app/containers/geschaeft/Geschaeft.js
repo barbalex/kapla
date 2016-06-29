@@ -12,8 +12,10 @@ function mapStateToProps(state) {
   const {
     geschaefte,
     activeId,
-    geschaefteLayout
   } = state.geschaefte
+  const {
+    geschaefteColumnWidth,
+  } = state.app
   const geschaeft = geschaefte.find((g) =>
     g.idGeschaeft === activeId
   )
@@ -21,7 +23,7 @@ function mapStateToProps(state) {
   return {
     geschaeft,
     activeId,
-    geschaefteLayout
+    geschaefteColumnWidth,
   }
 }
 

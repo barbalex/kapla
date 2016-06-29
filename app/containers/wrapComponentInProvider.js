@@ -9,7 +9,7 @@ import React from 'react'
 import store from '../store'
 import { Provider } from 'react-redux'
 
-export default function wrapComponent(Component, layout) {
+export default function wrapComponent(Component) {
   // do not make it a stateless function as
   // golden-layout will not have access to
   // componentWillUpdate
@@ -19,7 +19,6 @@ export default function wrapComponent(Component, layout) {
         <Provider store={store}>
           <Component
             {...this.props}
-            layout={layout}
           />
         </Provider>
       )

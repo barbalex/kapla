@@ -3,6 +3,7 @@
 import React, { Component, PropTypes } from 'react'
 import moment from 'moment'
 moment.locale('de')
+import $ from 'jquery'
 import styles from './filterFields.css'
 import AreaGeschaeft from '../../containers/filterFields/AreaGeschaeft'
 import AreaNummern from '../../containers/filterFields/AreaNummern'
@@ -28,7 +29,7 @@ class FilterFields extends Component {
       })
     ).isRequired,
     geschaefteFilterByFields: PropTypes.func.isRequired,
-    geschaefteLayout: PropTypes.object.isRequired
+    geschaefteColumnWidth: PropTypes.number.isRequired,
   }
 
   onChangeDatePicker = (name, e, picker) => {
@@ -99,7 +100,7 @@ class FilterFields extends Component {
   render = () => {
     const {
       values,
-      geschaefteLayout
+      geschaefteColumnWidth,
     } = this.props
 
     const showAreaParlVorstoss = (
@@ -115,14 +116,11 @@ class FilterFields extends Component {
       showAreaRechtsmittel
     )
 
-    // need width to set layout for differing widths
-    const geschaefteLayoutWidth = geschaefteLayout.width
-    const geschaeftWidthPercent = geschaefteLayout.config.content[0].content[1].width
-    const totalWidth = geschaefteLayoutWidth * geschaeftWidthPercent / 100
-    const wrapperClassBaseString = totalWidth < 750 ? 'wrapperNarrow' : 'wrapperWide'
-    console.log('FilterFields.js, geschaefteLayout.width', geschaefteLayout.width)
-    console.log('FilterFields.js, geschaefteLayout.width', geschaefteLayout.width)
-    console.log('FilterFields.js, geschaefteLayout.width', geschaefteLayout.width)
+    // need width to adapt layout to differing widths
+    const windowWidth = $(window).width()
+    const areaFilterFieldsWidth = windowWidth * (100 - geschaefteColumnWidth) / 100
+    const wrapperClassBaseString = areaFilterFieldsWidth < 750 ? 'wrapperNarrow' : 'wrapperWide'
+
     // layout needs to work with or without area for geschaeftsart
     const wrapperClassString = (
       showAreaForGeschaeftsart ?
@@ -130,6 +128,7 @@ class FilterFields extends Component {
       `${wrapperClassBaseString}NoAreaForGeschaeftsart`
     )
     const wrapperClass = styles[wrapperClassString]
+
     // prepare tab indexes
     const nrOfGFields = 10
     const nrOfNrFields = 10

@@ -3,9 +3,15 @@ import saveConfig from './saveConfig'
 
 export default () => {
   const newConfig = {}
-  const dbPath = getConfig().dbPath
-  if (dbPath) {
-    newConfig.dbPath = dbPath
-  }
-  saveConfig(newConfig)
+  getConfig()
+    .then((config) => {
+      const dbPath = config.dbPath
+      if (dbPath) {
+        newConfig.dbPath = dbPath
+      }
+      saveConfig(newConfig)
+    })
+    .catch((error) =>
+      console.error(error)
+    )
 }

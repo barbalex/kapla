@@ -13,17 +13,12 @@ import {
   TABLE_CHANGE_DB_ERROR,
   TABLE_ROW_NEW,
   TABLE_RESET,
-  TABLELAYOUT_SET,
-  TABLECOLUMN_SET,
-  TABLE_COLUMN_WIDTH_GET_FROM_DB
 } from '../actions/table'
 
 const standardState = {
   table: null,
   rows: [],
   fetching: false,
-  tableLayout: {},
-  tableColumnWidth: 70,
   // following: state for active row
   id: null,
   willDelete: false
@@ -46,21 +41,6 @@ const row = (state = {}, action) => {
 
 const table = (state = standardState, action) => {
   switch (action.type) {
-    case TABLELAYOUT_SET:
-      return {
-        ...state,
-        tableLayout: action.tableLayout
-      }
-    case TABLECOLUMN_SET:
-      return {
-        ...state,
-        tableColumnWidth: action.tableColumnWidth
-      }
-    case TABLE_COLUMN_WIDTH_GET_FROM_DB:
-      return {
-        ...state,
-        tableColumnWidth: action.tableColumnWidth
-      }
     case TABLE_GET:
       return {
         ...state,

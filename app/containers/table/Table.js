@@ -5,19 +5,21 @@ import { connect } from 'react-redux'
 import Table from '../../components/table/Table'
 import * as TableActions from '../../actions/table'
 
-function mapStateToProps(state, props) {
+function mapStateToProps(state) {
   const {
     table,
     rows,
     id
   } = state.table
-  const { layout } = props
+  const {
+    tableColumnWidth,
+  } = state.app
 
   return {
     table,
     rows,
     id,
-    tableLayout: layout
+    tableColumnWidth,
   }
 }
 

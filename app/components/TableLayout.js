@@ -42,15 +42,13 @@ class TableLayout extends Component {
       ]
     }
     tableLayout = new GoldenLayout(layoutConfig)
-    tableLayout.registerComponent('table', wrapComponentInProvider(Table, tableLayout))
+    tableLayout.registerComponent('table', wrapComponentInProvider(Table))
     tableLayout.registerComponent('tableRow', wrapComponentInProvider(TableRow))
     tableLayout.init()
-    setTimeout(() => {
-      tableLayoutSet(tableLayout)
-      tableLayout.on('stateChanged', () =>
-        this.saveTableState()
-      )
-    }, 0)
+    tableLayoutSet(tableLayout)
+    tableLayout.on('stateChanged', () =>
+      this.saveTableState()
+    )
   }
 
   componentWillUnmount = () => {

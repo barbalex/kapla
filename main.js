@@ -12,7 +12,7 @@ let mainWindow = null
 
 
 const saveConfigValue = require('./app/src/saveConfigValue.js')
-const getConfig = require('./app/src/getConfig.js')
+const getConfigSync = require('./app/src/getConfigSync.js')
 
 crashReporter.start({ companyName: 'wtf', submitURL: 'wtf@wtf.com' })
 
@@ -34,7 +34,7 @@ const browserWindowOptions = {
 
 // get last window state
 // and set it again
-const lastWindowState = getConfig().lastWindowState
+const lastWindowState = getConfigSync().lastWindowState
 if (lastWindowState) {
   if (lastWindowState.width) browserWindowOptions.width = lastWindowState.width
   if (lastWindowState.height) browserWindowOptions.height = lastWindowState.height

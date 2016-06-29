@@ -7,29 +7,6 @@
 import getTableFromDb from '../src/getTableFromDb.js'
 import updateTableRow from '../src/updateTableRow.js'
 import * as GeschaefteActions from './geschaefte'
-import getConfig from '../src/getConfig.js'
-
-export const TABLE_COLUMN_WIDTH_GET_FROM_DB = 'TABLE_COLUMN_WIDTH_GET_FROM_DB'
-export const tableColumnWidthGetFromDb = () =>
-  (dispatch) => {
-    const tableColumnWidth = getConfig().tableColumnWidth || 70
-    dispatch({
-      type: TABLE_COLUMN_WIDTH_GET_FROM_DB,
-      tableColumnWidth
-    })
-  }
-
-export const TABLECOLUMN_SET = 'TABLECOLUMN_SET'
-export const tableColumnSet = (tableColumnWidth) => ({
-  type: TABLECOLUMN_SET,
-  tableColumnWidth
-})
-
-export const TABLELAYOUT_SET = 'TABLELAYOUT_SET'
-export const tableLayoutSet = (tableLayout) => ({
-  type: TABLELAYOUT_SET,
-  tableLayout
-})
 
 export const TABLE_RESET = 'TABLE_RESET'
 export const tableReset = () => ({

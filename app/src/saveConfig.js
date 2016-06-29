@@ -12,5 +12,5 @@ const path = require('path')
 const dataFilePath = path.join(app.getPath('userData'), 'kaplaConfig.json')
 
 module.exports = function saveConfig(data) {
-  fs.writeFileSync(dataFilePath, JSON.stringify(data))
+  fs.writeFileSync(dataFilePath, JSON.stringify(data, 4))
 }

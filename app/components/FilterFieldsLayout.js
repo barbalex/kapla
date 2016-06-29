@@ -6,6 +6,7 @@ import wrapComponentInProvider from '../containers/wrapComponentInProvider'
 import FilterFields from '../containers/filterFields/FilterFields'
 import Geschaefte from '../containers/Geschaefte'
 import saveConfigValue from '../src/saveConfigValue'
+
 class FilterFieldsLayout extends Component {
   static propTypes = {
     geschaefteLayout: PropTypes.object,
@@ -41,19 +42,17 @@ class FilterFieldsLayout extends Component {
     }
     filterFieldsLayout = new GoldenLayout(layoutConfig)
     filterFieldsLayout.registerComponent('geschaefte', wrapComponentInProvider(Geschaefte))
-    filterFieldsLayout.registerComponent('filterFields', wrapComponentInProvider(FilterFields, filterFieldsLayout))
+    filterFieldsLayout.registerComponent('filterFields', wrapComponentInProvider(FilterFields))
     filterFieldsLayout.init()
-    setTimeout(() => {
-      filterFieldsLayoutSet(filterFieldsLayout)
-      filterFieldsLayout.on('stateChanged', () =>
-        this.saveGeschaefteState()
-      )
-    }, 0)
+    filterFieldsLayoutSet(filterFieldsLayout)
+    filterFieldsLayout.on('stateChanged', () =>
+      this.saveGeschaefteState()
+    )
   }
 
   componentWillUnmount = () => {
     const { filterFieldsLayout } = this.props
-    filterFieldsLayout.destroy()
+    if (filterFieldsLayout.destroy) filterFieldsLayout.destroy()
   }
 
   saveGeschaefteState = () => {

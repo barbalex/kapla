@@ -42,26 +42,27 @@ class GeschaefteLayout extends Component {
     }
     geschaefteLayout = new GoldenLayout(layoutConfig)
     geschaefteLayout.registerComponent('geschaefte', wrapComponentInProvider(Geschaefte))
-    geschaefteLayout.registerComponent('geschaeft', wrapComponentInProvider(Geschaeft, geschaefteLayout))
+    geschaefteLayout.registerComponent('geschaeft', wrapComponentInProvider(Geschaeft))
     geschaefteLayout.init()
-    setTimeout(() => {
-      geschaefteLayoutSet(geschaefteLayout)
-      geschaefteLayout.on('stateChanged', () =>
-        this.saveGeschaefteState()
-      )
-    }, 0)
+    geschaefteLayoutSet(geschaefteLayout)
+    geschaefteLayout.on('stateChanged', () =>
+      this.saveGeschaefteState()
+    )
   }
 
   componentWillUnmount = () => {
     const { geschaefteLayout } = this.props
-    geschaefteLayout.destroy()
+    if (geschaefteLayout.destroy) geschaefteLayout.destroy()
   }
 
   saveGeschaefteState = () => {
     const { geschaefteLayout, geschaefteColumnSet, filterFieldsLayout } = this.props
     const config = geschaefteLayout.toConfig()
     const geschaefteColumnWidth = config.content[0].content[0].width
-    saveConfigValue('geschaefteColumnWidth', geschaefteColumnWidth)
+    // try to get saveConfigValue calls not to meet...
+    setTimeout(() => {
+      saveConfigValue('geschaefteColumnWidth', geschaefteColumnWidth)
+    }, 500)
     geschaefteColumnSet(geschaefteColumnWidth)
     if (filterFieldsLayout.destroy) filterFieldsLayout.destroy()
   }

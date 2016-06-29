@@ -26,14 +26,14 @@ class NavbarComponent extends Component {
     geschaefte: PropTypes.array.isRequired,
     geschaefteGefilterteIds: PropTypes.array.isRequired,
     showMessageModal: PropTypes.bool.isRequired,
-    dbGetFromConfig: PropTypes.func.isRequired,
+    configGet: PropTypes.func.isRequired,
     willDeleteGeschaeft: PropTypes.bool.isRequired,
     path: PropTypes.string.isRequired
   }
 
   componentWillMount() {
-    const { dbGetFromConfig } = this.props
-    dbGetFromConfig()
+    const { configGet } = this.props
+    configGet()
   }
 
   render() {

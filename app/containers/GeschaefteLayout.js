@@ -3,14 +3,15 @@
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import GeschaefteLayout from '../components/GeschaefteLayout'
-import * as GeschaefteActions from '../actions/geschaefte'
+import * as AppActions from '../actions/app'
 
 function mapStateToProps(state) {
   const {
     geschaefteLayout,
     filterFieldsLayout,
     geschaefteColumnWidth,
-  } = state.geschaefte
+  } = state.app
+
   return {
     geschaefteLayout,
     filterFieldsLayout,
@@ -19,7 +20,7 @@ function mapStateToProps(state) {
 }
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators(GeschaefteActions, dispatch)
+  return bindActionCreators(AppActions, dispatch)
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(GeschaefteLayout)

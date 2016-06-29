@@ -1,13 +1,13 @@
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import TableLayout from '../components/TableLayout'
-import * as TableActions from '../actions/table'
+import * as AppActions from '../actions/app'
 
 function mapStateToProps(state) {
   const {
     tableLayout,
     tableColumnWidth,
-  } = state.table
+  } = state.app
   return {
     tableLayout,
     tableColumnWidth,
@@ -15,7 +15,7 @@ function mapStateToProps(state) {
 }
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators(TableActions, dispatch)
+  return bindActionCreators(AppActions, dispatch)
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(TableLayout)

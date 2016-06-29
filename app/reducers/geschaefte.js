@@ -14,10 +14,6 @@ import {
   GESCHAEFTE_CHANGE_STATE,
   GESCHAEFTE_CHANGE_DB_ERROR,
   GESCHAEFT_NEW,
-  GESCHAEFTE_COLUMN_WIDTH_GET_FROM_DB,
-  GESCHAEFTELAYOUT_SET,
-  GESCHAEFTECOLUMN_SET,
-  FILTERFIELDSLAYOUT_SET,
   RECHTSMITTELERLEDIGUNG_OPTIONS_GET_SUCCESS,
   RECHTSMITTELERLEDIGUNG_OPTIONS_GET_ERROR,
   PARLVORSTOSSTYP_OPTIONS_GET_SUCCESS,
@@ -44,9 +40,6 @@ const standardState = {
   filterFields: [],
   filterFulltext: '',
   filterType: null,
-  geschaefteLayout: {},
-  filterFieldsLayout: {},
-  geschaefteColumnWidth: 40,
   // dropdown lists
   rechtsmittelErledigungOptions: [],
   parlVorstossTypOptions: [],
@@ -78,26 +71,6 @@ const geschaeft = (state = {}, action) => {
 
 const geschaefte = (state = standardState, action) => {
   switch (action.type) {
-    case GESCHAEFTELAYOUT_SET:
-      return {
-        ...state,
-        geschaefteLayout: action.geschaefteLayout
-      }
-    case GESCHAEFTECOLUMN_SET:
-      return {
-        ...state,
-        geschaefteColumnWidth: action.geschaefteColumnWidth
-      }
-    case GESCHAEFTE_COLUMN_WIDTH_GET_FROM_DB:
-      return {
-        ...state,
-        geschaefteColumnWidth: action.geschaefteColumnWidth
-      }
-    case FILTERFIELDSLAYOUT_SET:
-      return {
-        ...state,
-        filterFieldsLayout: action.filterFieldsLayout
-      }
     case GESCHAEFTE_GET:
       return {
         ...state,

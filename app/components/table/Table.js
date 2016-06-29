@@ -4,6 +4,7 @@ import React, { Component, PropTypes } from 'react'
 import ReactList from 'react-list'
 import ReactDOM from 'react-dom'
 import _ from 'lodash'
+import $ from 'jquery'
 import styles from './Table.css'
 
 class Table extends Component {
@@ -11,9 +12,9 @@ class Table extends Component {
     table: PropTypes.string.isRequired,
     rows: PropTypes.array.isRequired,
     id: PropTypes.number,
-    tableLayout: PropTypes.object.isRequired,
     tableRowToggleActivated: PropTypes.func.isRequired,
-    tableReset: PropTypes.func.isRequired
+    tableReset: PropTypes.func.isRequired,
+    tableColumnWidth: PropTypes.number.isRequired,
   }
 
   state = {
@@ -71,12 +72,11 @@ class Table extends Component {
   }
 
   itemColumns = (row) => {
-    const { tableLayout } = this.props
+    const { tableColumnWidth } = this.props
     const keys = Object.keys(row)
     const values = _.values(row)
-    const tableLayoutWidth = tableLayout.width
-    const tableWidthPercent = tableLayout.config.content[0].content[0].width
-    const tableWidth = tableLayoutWidth * tableWidthPercent / 100
+    const windowWidth = $(window).width()
+    const tableWidth = windowWidth * tableColumnWidth / 100
     const normalFieldWidth = (tableWidth - 50) / (keys.length - 1)
 
     return values.map((val, index) => {
@@ -99,11 +99,11 @@ class Table extends Component {
   }
 
   tableHeaders = () => {
-    const { rows, tableLayout } = this.props
+    const { rows, tableColumnWidth } = this.props
     const headers = Object.keys(rows[0])
-    const tableLayoutWidth = tableLayout.width
-    const tableWidthPercent = tableLayout.config.content[0].content[0].width
-    const tableWidth = tableLayoutWidth * tableWidthPercent / 100
+    const windowWidth = $(window).width()
+    const tableWidth = windowWidth * tableColumnWidth / 100
+
     const normalFieldWidth = (tableWidth - 50) / (headers.length - 1)
     return headers.map((header, index) => {
       const widthClass = (

@@ -1,5 +1,3 @@
-'use strict'
-
 const dialog = require('electron').remote.dialog
 const options = {
   title: 'Datenbank für Kapla wählen',
@@ -7,11 +5,10 @@ const options = {
   filters: [{ name: 'sqlite-Datenbanken', extensions: ['db'] }]
 }
 
-export default function () {
-  return new Promise((resolve, reject) => {
+export default () =>
+  new Promise((resolve, reject) => {
     dialog.showOpenDialog(options, (result) => {
       if (result[0]) resolve(result[0])
       reject('keine Datenbank gewählt')
     })
   })
-}
