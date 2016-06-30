@@ -1,30 +1,27 @@
 'use strict'
 
-import React, { Component, PropTypes } from 'react'
+import React, { PropTypes } from 'react'
 import Page from '../containers/page/Page.js'
 import styles from './Pages.css'
 
 
-class Pages extends Component {
-  static propTypes = {
-    pages: PropTypes.array.isRequired
-  }
+const Pages = ({ pages }) =>
+  <div className={styles.body}>
+    {
+      pages.map((page, pageIndex) =>
+        <Page
+          key={pageIndex}
+          pageIndex={pageIndex}
+          className={styles.pageContainer}
+        />
+      )
+    }
+  </div>
 
-  pages = () => {
-    const { pages } = this.props
-    return pages.map((page, pageIndex) =>
-      <Page
-        key={pageIndex}
-        pageIndex={pageIndex}
-        className={styles.pageContainer}
-      />
-    )
-  }
+Pages.displayName = 'Pages'
 
-  render = () =>
-    <div className={styles.body}>
-      {this.pages()}
-    </div>
+Pages.propTypes = {
+  pages: PropTypes.array.isRequired,
 }
 
 export default Pages
