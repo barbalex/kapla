@@ -5,13 +5,13 @@ export default function () {
     {
       field: 'geschaeftsart',
       value: 'Vernehmlassung',
-      comparator: '='
+      comparator: '=',
     },
     {
       field: 'status',
       value: 'angekündigt',
-      comparator: '='
-    }
+      comparator: '=',
+    },
   ]
   return filter
 }

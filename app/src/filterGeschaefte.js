@@ -1,15 +1,21 @@
 'use strict'
 
 import { includes, isString } from 'lodash'
-import moment from 'moment'
 import isDateField from './isDateField'
 
-export default function (geschaefte, filterFulltext, filterFields) {
+export default function (
+  geschaefte,
+  filterFulltext,
+  filterFields,
+) {
   const existsFilterFulltext = !!filterFulltext
   const existsFilterFields = Object.keys(filterFields).length > 0
   let geschaefteGefiltert = geschaefte
   let comparator
-  const fieldsWithList = ['kontaktInternVornameName', 'kontaktExternNameVorname']
+  const fieldsWithList = [
+    'kontaktInternVornameName',
+    'kontaktExternNameVorname',
+  ]
 
   if (existsFilterFulltext) {
     geschaefteGefiltert = geschaefte.filter((geschaeft) => {
@@ -48,7 +54,9 @@ export default function (geschaefte, filterFulltext, filterFields) {
   } else if (existsFilterFields) {
     // some filterFields may only have a comparator >
     // reduce to filterFields with values
-    const filterFieldsWithValues = filterFields.filter((ff) => ff.value || ff.value === 0)
+    const filterFieldsWithValues = filterFields.filter((ff) =>
+      ff.value || ff.value === 0
+    )
     geschaefteGefiltert = geschaefte.filter((geschaeft) => {
       // if all conditions are met, include the geschaeft
       let satisfiesFilter = true
