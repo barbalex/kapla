@@ -9,10 +9,10 @@ function mapStateToProps(state) {
   const {
     geschaefte,
     geschaefteGefilterteIds,
-    willDelete
+    willDelete,
   } = state.geschaefte
   const {
-    showMessageModal
+    showMessageModal,
   } = state.app
   const path = state.routing.locationBeforeTransitions.pathname
   return {

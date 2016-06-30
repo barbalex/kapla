@@ -1,6 +1,12 @@
 'use strict'
 
-export default function (db, table, id, field, value) {
+export default function (
+  db,
+  table,
+  id,
+  field,
+  value,
+) {
   return new Promise((resolve, reject) => {
     const sql = `
       UPDATE

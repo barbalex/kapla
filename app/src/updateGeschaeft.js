@@ -9,7 +9,7 @@ export default function (
   idGeschaeft,
   field,
   value,
-  username
+  username,
 ) {
   return new Promise((resolve, reject) => {
     /**
