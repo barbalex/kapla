@@ -4,7 +4,10 @@ import React, { PropTypes } from 'react'
 import { FormControl, ControlLabel } from 'react-bootstrap'
 import styles from './areaHistory.css'
 
-const AreaHistory = ({ values, change }) =>
+const AreaHistory = ({
+  values,
+  change,
+}) =>
   <div className={styles.areaHistory}>
     <div className={styles.areaHistoryTitle}>
       Historie
@@ -29,7 +32,7 @@ AreaHistory.displayName = 'AreaHistory'
 
 AreaHistory.propTypes = {
   values: PropTypes.object,
-  change: PropTypes.func.isRequired
+  change: PropTypes.func.isRequired,
 }
 
 export default AreaHistory

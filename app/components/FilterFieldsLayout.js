@@ -12,7 +12,7 @@ class FilterFieldsLayout extends Component {
     filterFieldsLayout: PropTypes.object,
     config: PropTypes.object.isRequired,
     filterFieldsLayoutSet: PropTypes.func.isRequired,
-    configSetKey: PropTypes.func.isRequired
+    configSetKey: PropTypes.func.isRequired,
   }
 
   componentDidMount = () => {
@@ -29,19 +29,25 @@ class FilterFieldsLayout extends Component {
             type: 'react-component',
             component: 'geschaefte',
             title: 'Geschäfte',
-            width: config.geschaefteColumnWidth
+            width: config.geschaefteColumnWidth,
           },
           {
             type: 'react-component',
             component: 'filterFields',
-            title: 'Filtern nach Feldern'
+            title: 'Filtern nach Feldern',
           }
         ]
       }]
     }
     filterFieldsLayout = new GoldenLayout(layoutConfig)
-    filterFieldsLayout.registerComponent('geschaefte', wrapComponentInProvider(Geschaefte))
-    filterFieldsLayout.registerComponent('filterFields', wrapComponentInProvider(FilterFields))
+    filterFieldsLayout.registerComponent(
+      'geschaefte',
+      wrapComponentInProvider(Geschaefte)
+    )
+    filterFieldsLayout.registerComponent(
+      'filterFields',
+      wrapComponentInProvider(FilterFields)
+    )
     filterFieldsLayout.init()
     filterFieldsLayoutSet(filterFieldsLayout)
     filterFieldsLayout.on('stateChanged', () =>
@@ -51,15 +57,23 @@ class FilterFieldsLayout extends Component {
 
   componentWillUnmount = () => {
     const { filterFieldsLayout } = this.props
-    if (filterFieldsLayout.destroy) filterFieldsLayout.destroy()
+    if (filterFieldsLayout.destroy) {
+      filterFieldsLayout.destroy()
+    }
   }
 
   saveGeschaefteState = () => {
-    const { filterFieldsLayout, configSetKey, geschaefteLayout } = this.props
+    const {
+      filterFieldsLayout,
+      configSetKey,
+      geschaefteLayout,
+    } = this.props
     const config = filterFieldsLayout.toConfig()
     const geschaefteColumnWidth = config.content[0].content[0].width
     configSetKey('geschaefteColumnWidth', geschaefteColumnWidth)
-    if (geschaefteLayout.destroy) geschaefteLayout.destroy()
+    if (geschaefteLayout.destroy) {
+      geschaefteLayout.destroy()
+    }
   }
 
   render = () => <div></div>
