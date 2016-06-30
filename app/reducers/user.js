@@ -3,13 +3,13 @@
 import {
   USERNAME_GET,
   USERNAME_GET_SUCCESS,
-  USERNAME_GET_ERROR
+  USERNAME_GET_ERROR,
 } from '../actions/user'
 
 const standardState = {
   fetching: false,
   error: null,
-  username: ''
+  username: '',
 }
 
 const geschaefte = (state = standardState, action) => {
@@ -18,21 +18,21 @@ const geschaefte = (state = standardState, action) => {
       return {
         ...state,
         fetching: true,
-        error: null
+        error: null,
       }
     case USERNAME_GET_SUCCESS:
       return {
         ...state,
         fetching: false,
         error: null,
-        username: action.username
+        username: action.username,
       }
     case USERNAME_GET_ERROR:
       return {
         ...state,
         fetching: false,
         error: action.error,
-        username: ''
+        username: '',
       }
     default:
       return state

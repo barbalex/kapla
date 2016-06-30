@@ -21,7 +21,7 @@ const standardState = {
   fetching: false,
   // following: state for active row
   id: null,
-  willDelete: false
+  willDelete: false,
 }
 
 const row = (state = {}, action) => {
@@ -32,7 +32,7 @@ const row = (state = {}, action) => {
       }
       return {
         ...state,
-        [action.field]: action.value
+        [action.field]: action.value,
       }
     default:
       return state
@@ -46,7 +46,7 @@ const table = (state = standardState, action) => {
         ...state,
         table: action.table,
         fetching: true,
-        error: []
+        error: [],
       }
     case TABLE_GET_SUCCESS:
       return {
@@ -55,54 +55,64 @@ const table = (state = standardState, action) => {
         fetching: false,
         error: [],
         rows: action.rows,
-        id: null
+        id: null,
       }
     case TABLE_ROW_TOGGLE_ACTIVATED:
       return {
         ...state,
-        id: state.id && state.id === action.id ? null : action.id
+        id: (
+          state.id && state.id === action.id ?
+          null :
+          action.id
+        ),
       }
     case TABLE_ROW_DEACTIVATE:
       return {
         ...state,
-        id: null
+        id: null,
       }
     case TABLE_ROW_SET_DELETE_INTENDED:
       return {
         ...state,
-        willDelete: true
+        willDelete: true,
       }
     case TABLE_ROW_REMOVE_DELETE_INTENDED:
       return {
         ...state,
-        willDelete: false
+        willDelete: false,
       }
     case TABLE_ROW_DELETE:
       return {
         ...state,
-        rows: [...state.rows.filter((g) => g.id !== action.id)]
+        rows: [
+          ...state.rows.filter((g) =>
+            g.id !== action.id
+          ),
+        ],
       }
     case TABLE_CHANGE_STATE:
       return {
         ...state,
-        rows: state.rows.map((g) => row(g, action))
+        rows: state.rows.map((g) =>
+          row(g, action)
+        ),
       }
     case TABLE_ROW_NEW:
       return {
         ...state,
-        rows: [...state.rows, action.row]
+        rows: [...state.rows, action.row],
       }
     case TABLE_RESET:
       return {
         ...state,
-        ...standardState
+        ...standardState,
       }
     case TABLE_GET_ERROR:
     case TABLE_CHANGE_DB_ERROR:
       return {
         ...state,
         fetching: false,
-        error: [...state.error, action.error]
+        error: [...state.error, action.error],
       }
     default:
       return state

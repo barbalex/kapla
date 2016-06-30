@@ -7,12 +7,12 @@ import {
   PAGES_QUERY_TITLE,
   PAGES_FINISHED_BUILDING,
   PAGE_ADD_GESCHAEFT,
-  PAGE_REMOVE_GESCHAEFT
+  PAGE_REMOVE_GESCHAEFT,
 } from '../actions/pages'
 
 const standardPageState = {
   geschaefte: [],
-  full: false
+  full: false,
 }
 
 const standardPagesState = {
@@ -22,18 +22,26 @@ const standardPagesState = {
   title: '',
   queryTitle: true,
   reportType: 'fristen',
-  building: false
+  building: false,
 }
 
-const page = (state, action, pagesState, pageIndex) => {
+const page = (
+  state,
+  action,
+  pagesState,
+  pageIndex,
+) => {
   switch (action.type) {
     case PAGE_ADD_GESCHAEFT:
       if (pageIndex === pagesState.activePageIndex) {
         const geschaefte = [
           ...state.geschaefte,
-          pagesState.remainingGeschaefte[0]
+          pagesState.remainingGeschaefte[0],
         ]
-        return { ...state, geschaefte }
+        return {
+          ...state,
+          geschaefte,
+        }
       }
       return state
     case PAGE_REMOVE_GESCHAEFT:
@@ -42,7 +50,11 @@ const page = (state, action, pagesState, pageIndex) => {
           g.idGeschaeft !== action.geschaeft.idGeschaeft
         )
         const full = true
-        return { ...state, geschaefte, full }
+        return {
+          ...state,
+          geschaefte,
+          full,
+        }
       }
       return state
     default:
@@ -57,23 +69,26 @@ const pages = (state = standardPagesState, action) => {
         ...standardPagesState,
         reportType: action.reportType,
         remainingGeschaefte: action.geschaefteGefiltert,
-        building: true
+        building: true,
       }
     case PAGES_QUERY_TITLE:
       return {
         ...state,
-        queryTitle: action.queryTitle
+        queryTitle: action.queryTitle,
       }
     case PAGES_SET_TITLE:
       return {
         ...state,
-        title: action.title
+        title: action.title,
       }
     case PAGES_NEW_PAGE:
       return {
         ...state,
         activePageIndex: state.activePageIndex + 1,
-        pages: [...state.pages, Object.assign(standardPageState)]
+        pages: [
+          ...state.pages,
+          Object.assign(standardPageState),
+        ],
       }
     case PAGE_ADD_GESCHAEFT:
       return {
@@ -83,7 +98,7 @@ const pages = (state = standardPagesState, action) => {
         ),
         remainingGeschaefte: state.remainingGeschaefte.filter(
           (g, index) => index !== 0
-        )
+        ),
       }
     case PAGE_REMOVE_GESCHAEFT:
       return {
@@ -93,13 +108,13 @@ const pages = (state = standardPagesState, action) => {
         ),
         remainingGeschaefte: [
           action.geschaeft,
-          ...state.remainingGeschaefte
-        ]
+          ...state.remainingGeschaefte,
+        ],
       }
     case PAGES_FINISHED_BUILDING:
       return {
         ...state,
-        building: false
+        building: false,
       }
     default:
       return state
