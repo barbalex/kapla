@@ -9,16 +9,16 @@ import {
 import moment from 'moment'
 moment.locale('de')
 import DateRangePicker from 'react-bootstrap-daterangepicker'
-import styles from './areaFristenField.css'
+import styles from './dateField.css'
+import ComparatorSelector from '../../containers/filterFields/ComparatorSelector'
 import getDateValidationStateDate from '../../src/getDateValidationStateDate'
 
-class AreaFristenField extends Component {
+class DateField extends Component {
   static propTypes = {
     name: PropTypes.string.isRequired,
     label: PropTypes.string.isRequired,
     tabIndex: PropTypes.number.isRequired,
     values: PropTypes.object.isRequired,
-    filterFields: PropTypes.array.isRequired,
     change: PropTypes.func.isRequired,
     changeComparator: PropTypes.func.isRequired,
   }
@@ -62,7 +62,7 @@ class AreaFristenField extends Component {
         change(e)
       } else {
         // TODO: tell user this is invalid
-        console.log('AreaFristenField.js: invalid date')
+        console.log('DateField.js: invalid date')
       }
     }
   }
@@ -92,7 +92,6 @@ class AreaFristenField extends Component {
       name,
       label,
       tabIndex,
-      filterFields,
       changeComparator,
     } = this.props
     const {
@@ -115,8 +114,6 @@ class AreaFristenField extends Component {
     }
 
     const fieldStyleName = `field${name.charAt(0).toUpperCase()}${name.slice(1)}`
-    const filterField = filterFields.find((ff) => ff.field === name)
-    const comparatorValue = filterField ? filterField.comparator : ''
 
     return (
       <FormGroup
@@ -127,21 +124,10 @@ class AreaFristenField extends Component {
           {label}
         </ControlLabel>
         <InputGroup>
-          <InputGroup.Button>
-            <FormControl
-              componentClass="select"
-              className={styles.comparator}
-              onChange={(e) => changeComparator(e.target.value, name)}
-              value={comparatorValue}
-            >
-              <option value=""></option>
-              <option value="=">&#8776;</option>
-              <option value="===">=</option>
-              <option value="!==">&#60;</option>
-              <option value="&#60;">&#60;&#62;</option>
-              <option value="&#62;">&#62;</option>
-            </FormControl>
-          </InputGroup.Button>
+          <ComparatorSelector
+            name={name}
+            changeComparator={changeComparator}
+          />
           <FormControl
             type="text"
             value={value || ''}
@@ -171,4 +157,4 @@ class AreaFristenField extends Component {
   }
 }
 
-export default AreaFristenField
+export default DateField

@@ -2,8 +2,7 @@
 
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
-import AreaFristenField from '../../components/filterFields/AreaFristenField'
-import * as GeschaefteActions from '../../actions/geschaefte'
+import DateField from '../../components/filterFields/DateField'
 
 function mapStateToProps(state, props) {
   const {
@@ -15,14 +14,12 @@ function mapStateToProps(state, props) {
     blur,
     changeComparator,
   } = props
-  const { filterFields } = state.geschaefte
 
   return {
     name,
     label,
     tabIndex,
     values,
-    filterFields,
     change,
     blur,
     changeComparator,
@@ -30,7 +27,7 @@ function mapStateToProps(state, props) {
 }
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators(GeschaefteActions, dispatch)
+  return bindActionCreators({}, dispatch)
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(AreaFristenField)
+export default connect(mapStateToProps, mapDispatchToProps)(DateField)

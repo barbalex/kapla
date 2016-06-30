@@ -93,12 +93,8 @@ export default function (
               satisfiesFilter = false
             } else if (comparator === '<') {
               if (!(geschaeftValue < filterValue)) satisfiesFilter = false
-            } else if (comparator === '<=') {
-              if (!(geschaeftValue <= filterValue)) satisfiesFilter = false
             } else if (comparator === '>') {
               if (!(geschaeftValue > filterValue)) satisfiesFilter = false
-            } else if (comparator === '>=') {
-              if (!(geschaeftValue >= filterValue)) satisfiesFilter = false
             } else if (comparator === '=') {
               if (isDateField(filterField.field)) {
                 if (geschaeftValue !== filterValue) satisfiesFilter = false

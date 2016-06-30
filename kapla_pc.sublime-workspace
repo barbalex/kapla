@@ -4,8 +4,60 @@
 		"selected_items":
 		[
 			[
+				"filter",
+				"filterValue"
+			],
+			[
+				"sati",
+				"satisfies"
+			],
+			[
+				"ge",
+				"geschaeft"
+			],
+			[
+				"filterF",
+				"filterFields"
+			],
+			[
+				"YYYY",
+				"YYYY-MM-DD"
+			],
+			[
+				"ges",
+				"geschaeftValue"
+			],
+			[
+				"int",
+				"interne"
+			],
+			[
+				"idK",
+				"idKontaktExtern_readonly"
+			],
+			[
+				"UNI",
+				"UNIQUE"
+			],
+			[
+				"tabl",
+				"tablesWithId"
+			],
+			[
+				"Mo",
+				"ModalMessage"
+			],
+			[
+				"table",
+				"tableColumnWidth"
+			],
+			[
 				"CO",
-				"CONFIG_SET_SUCCESS"
+				"CONFIG_UI_RESET"
+			],
+			[
+				"C",
+				"CONFIG_UI_RESET"
 			],
 			[
 				"config",
@@ -20,10 +72,6 @@
 				"filterFieldsLayoutWidth"
 			],
 			[
-				"ge",
-				"geschaefteLayout"
-			],
-			[
 				"com",
 				"componentWillUnmount"
 			],
@@ -34,10 +82,6 @@
 			[
 				"Filter",
 				"FilterFieldsLayout"
-			],
-			[
-				"ges",
-				"geschaefteColumnSet"
 			],
 			[
 				"fil",
@@ -54,10 +98,6 @@
 			[
 				"Ge",
 				"GeschaefteItem"
-			],
-			[
-				"filter",
-				"filterFieldsWithValues"
 			],
 			[
 				"data",
@@ -128,10 +168,6 @@
 				"electron-remote"
 			],
 			[
-				"table",
-				"tableNameObject"
-			],
-			[
 				"Rech",
 				"Rechtsmittel-Erledigung"
 			],
@@ -186,10 +222,6 @@
 			[
 				"de",
 				"deleteGlyphiconDiv"
-			],
-			[
-				"int",
-				"interneOptions"
 			],
 			[
 				"interne",
@@ -250,10 +282,6 @@
 			[
 				"are",
 				"areaNummern"
-			],
-			[
-				"tabl",
-				"tableLayout"
 			],
 			[
 				"tab",
@@ -432,60 +460,50 @@
 			}
 		},
 		{
-			"file": "app/src/resetUiConfig.js",
+			"file": "app/components/filterFields/FilterFields.js",
 			"settings":
 			{
-				"buffer_size": 348,
+				"buffer_size": 6360,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "app/actions/app.js",
+			"file": "app/components/filterFields/AreaFristen.js",
 			"settings":
 			{
-				"buffer_size": 5689,
+				"buffer_size": 2220,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"contents": "Searching 255 files for \"dbGetFromConfig\" (case sensitive, whole word)\n\nC:\\Users\\alex\\kapla\\app\\actions\\app.js:\n   26            config: newConfig\n   27          })\n   28:         dbGetFromConfig(newConfig)\n   29        })\n   30        .catch((error) =>\n   ..\n  175  })\n  176  \n  177: export const dbGetFromConfig = (config) =>\n  178    (dispatch) => {\n  179      // only do this if not yet done\n\n2 matches in 1 file\n",
+			"file": "app/components/filterFields/DateField.js",
 			"settings":
 			{
-				"buffer_size": 417,
-				"line_ending": "Windows",
-				"name": "Find Results",
-				"scratch": true
-			}
-		},
-		{
-			"file": "app/reducers/app.js",
-			"settings":
-			{
-				"buffer_size": 2442,
+				"buffer_size": 4690,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "app/components/navbar/Navbar.js",
+			"file": "app/components/filterFields/ComparatorSelector.js",
 			"settings":
 			{
-				"buffer_size": 3509,
+				"buffer_size": 4717,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "app/containers/navbar/Navbar.js",
+			"file": "app/containers/filterFields/ComparatorSelector.js",
 			"settings":
 			{
-				"buffer_size": 1070,
+				"buffer_size": 746,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "app/components/navbar/OptionsNav.js",
+			"file": "app/components/filterFields/dateField.css",
 			"settings":
 			{
-				"buffer_size": 485,
+				"buffer_size": 632,
 				"line_ending": "Windows"
 			}
 		}
@@ -542,48 +560,112 @@
 		"/C/Users/alex/kapla",
 		"/C/Users/alex/kapla/app",
 		"/C/Users/alex/kapla/app/components",
-		"/C/Users/alex/kapla/app/components/navbar",
+		"/C/Users/alex/kapla/app/components/filterFields",
 		"/C/Users/alex/kapla/app/containers",
-		"/C/Users/alex/kapla/app/containers/navbar"
+		"/C/Users/alex/kapla/app/containers/filterFields"
 	],
 	"file_history":
 	[
-		"/C/Users/alex/AppData/Roaming/Kapla/kaplaConfig.json",
-		"/C/Users/alex/kapla/app/components/GeschaefteLayout.js",
-		"/C/Users/alex/kapla/app/src/saveConfigValue.js",
-		"/C/Users/alex/kapla/app/src/saveConfig.js",
-		"/C/Users/alex/kapla/main.js",
+		"/C/Users/alex/kapla/app/containers/filterFields/DateField.js",
+		"/C/Users/alex/kapla/app/src/filterGeschaefte.js",
+		"/C/Users/alex/Downloads/Logo.xml",
+		"/C/Users/alex/kapla/app/src/getDateValidationStateDate.js",
+		"/C/Users/alex/kapla/app/components/geschaeft/AreaFristen.js",
+		"/C/Users/alex/kapla/app/components/navbar/FilterNav.js",
+		"/C/Users/alex/kapla/app/components/navbar/Navbar.css",
+		"/C/Users/alex/kapla/app/src/updateTableRow.js",
+		"/C/Users/alex/kapla/app/src/newTableRowInDb.js",
+		"/C/Users/alex/kapla/app/src/sql/createTables.sql",
+		"/C/Users/alex/kapla/app/src/sql/updateTables.sql",
+		"/C/Users/alex/kapla/app/containers/navbar/BerichteNav.js",
+		"/C/Users/alex/kapla/app/containers/navbar/ExportGeschaefteNav.js",
+		"/C/Users/alex/kapla/app/containers/navbar/FilterNav.js",
+		"/C/Users/alex/kapla/app/containers/navbar/GeschaeftDeleteNav.js",
+		"/C/Users/alex/kapla/app/containers/navbar/Navbar.js",
+		"/C/Users/alex/kapla/app/containers/navbar/StammdatenNav.js",
+		"/C/Users/alex/kapla/app/containers/navbar/TableRowDeleteNav.js",
+		"/C/Users/alex/kapla/app/containers/navbar/TableRowNewNav.js",
+		"/C/Users/alex/kapla/app/containers/page/Page.js",
+		"/C/Users/alex/kapla/app/containers/table/Table.js",
+		"/C/Users/alex/kapla/app/containers/table/TableRow.js",
+		"/C/Users/alex/kapla/app/containers/App.js",
+		"/C/Users/alex/kapla/app/containers/FilterFieldsLayout.js",
+		"/C/Users/alex/kapla/app/containers/Geschaefte.js",
+		"/C/Users/alex/kapla/app/containers/GeschaefteItem.js",
+		"/C/Users/alex/kapla/app/containers/ModalGeschaeftDelete.js",
+		"/C/Users/alex/kapla/app/containers/ModalMessage.js",
+		"/C/Users/alex/kapla/app/containers/Pages.js",
 		"/C/Users/alex/kapla/app/reducers/app.js",
-		"/C/Users/alex/kapla/app/src/chooseDb.js",
+		"/C/Users/alex/kapla/app/reducers/geschaefte.js",
+		"/C/Users/alex/kapla/app/reducers/geschaefteKontakteExtern.js",
+		"/C/Users/alex/kapla/app/reducers/geschaefteKontakteIntern.js",
+		"/C/Users/alex/kapla/app/reducers/index.js",
+		"/C/Users/alex/kapla/app/reducers/pages.js",
+		"/C/Users/alex/kapla/app/reducers/table.js",
+		"/C/Users/alex/kapla/app/reducers/user.js",
+		"/C/Users/alex/kapla/app/src/exportGeschaefte.js",
+		"/C/Users/alex/kapla/app/src/filterForFaelligeGeschaefte.js",
+		"/C/Users/alex/kapla/app/src/filterForVernehmlAngek.js",
+		"/C/Users/alex/kapla/app/src/filterForVernehmlLaeuft.js",
 		"/C/Users/alex/kapla/app/src/getConfig.js",
 		"/C/Users/alex/kapla/app/src/getConfigSync.js",
-		"/C/Users/alex/kapla/app/src/saveConfigValues.js",
-		"/C/Users/alex/kapla/app/actions/app.js",
+		"/C/Users/alex/kapla/app/src/isDateField.js",
+		"/C/Users/alex/kapla/app/src/newGeschaeftKontaktExternInDb.js",
+		"/C/Users/alex/kapla/app/src/newGeschaeftKontaktInternInDb.js",
+		"/C/Users/alex/kapla/app/src/saveConfig.js",
+		"/C/Users/alex/AppData/Roaming/Kapla/kaplaConfig.json",
+		"/C/Users/alex/kapla/app/src/saveConfigValue.js",
+		"/C/Users/alex/kapla/app/src/updateGeschaeft.js",
+		"/C/Users/alex/kapla/app/components/ModalGeschaeftDelete.js",
+		"/C/Users/alex/kapla/app/components/ModalMessage.js",
+		"/C/Users/alex/kapla/app/components/Pages.js",
 		"/C/Users/alex/kapla/app/components/TableLayout.js",
-		"/C/Users/alex/kapla/app/containers/TableLayout.js",
-		"/C/Users/alex/kapla/app/components/FilterFieldsLayout.js",
-		"/C/Users/alex/kapla/app/components/table/Table.js",
-		"/C/Users/alex/kapla/app/components/geschaeft/Geschaeft.js",
-		"/C/Users/alex/kapla/app/containers/geschaeft/Geschaeft.js",
-		"/C/Users/alex/kapla/app/components/filterFields/FilterFields.js",
-		"/C/Users/alex/kapla/app/containers/filterFields/FilterFields.js",
-		"/C/Users/alex/kapla/app/containers/table/Table.js",
-		"/C/Users/alex/kapla/app/containers/GeschaefteLayout.js",
-		"/C/Users/alex/kapla/app/routes.js",
-		"/C/Users/alex/kapla/app/containers/wrapComponentInProvider.js",
-		"/C/Users/alex/kapla/app/containers/FilterFieldsLayout.js",
-		"/C/Users/alex/kapla/app/reducers/geschaefte.js",
-		"/C/Users/alex/kapla/app/actions/table.js",
-		"/C/Users/alex/kapla/app/actions/geschaefte.js",
-		"/C/Users/alex/kapla/app/reducers/table.js",
-		"/C/Users/alex/kapla/app/components/Geschaefte.js",
-		"/C/Users/alex/kapla/app/containers/Geschaefte.js",
-		"/C/Users/alex/kapla/app/components/navbar/FilterNav.js",
-		"/C/Users/alex/kapla/app/components/table/Table.css",
-		"/C/Users/alex/kapla/app/src/filterGeschaefte.js",
-		"/C/Users/alex/kapla/app/components/filterFields/AreaGeschaeft.js",
+		"/C/Users/alex/kapla/app/containers/filterFields/AreaFristen.js",
+		"/C/Users/alex/kapla/app/containers/filterFields/AreaFristenField.js",
 		"/C/Users/alex/kapla/app/containers/filterFields/AreaGeschaeft.js",
-		"/C/Users/alex/kapla/app/components/filterFields/AreaPersonen.js",
+		"/C/Users/alex/kapla/app/containers/filterFields/AreaHistory.js",
+		"/C/Users/alex/kapla/app/containers/filterFields/AreaNummern.js",
+		"/C/Users/alex/kapla/app/containers/filterFields/AreaParlVorstoss.js",
+		"/C/Users/alex/kapla/app/containers/filterFields/AreaPersonen.js",
+		"/C/Users/alex/kapla/app/containers/filterFields/AreaRechtsmittel.js",
+		"/C/Users/alex/kapla/app/containers/filterFields/AreaZuletztMutiert.js",
+		"/C/Users/alex/kapla/app/containers/geschaeft/AreaFristen.js",
+		"/C/Users/alex/kapla/app/containers/geschaeft/AreaGeschaeft.js",
+		"/C/Users/alex/kapla/app/containers/geschaeft/AreaHistory.js",
+		"/C/Users/alex/kapla/app/containers/geschaeft/AreaHistoryRows.js",
+		"/C/Users/alex/kapla/app/containers/geschaeft/AreaNummern.js",
+		"/C/Users/alex/kapla/app/containers/geschaeft/AreaParlVorstoss.js",
+		"/C/Users/alex/kapla/app/containers/geschaeft/AreaPersonen.js",
+		"/C/Users/alex/kapla/app/containers/geschaeft/AreaRechtsmittel.js",
+		"/C/Users/alex/kapla/app/containers/geschaeft/AreaZuletztMutiert.js",
+		"/C/Users/alex/kapla/app/containers/geschaeft/KontakteExtern.js",
+		"/C/Users/alex/kapla/app/containers/geschaeft/KontakteExternItems.js",
+		"/C/Users/alex/kapla/app/containers/geschaeft/KontakteIntern.js",
+		"/C/Users/alex/kapla/app/containers/geschaeft/KontakteInternItems.js",
+		"/C/Users/alex/kapla/app/components/page/Page.js",
+		"/C/Users/alex/kapla/app/components/table/TableRow.js",
+		"/C/Users/alex/kapla/app/components/FilterFieldsLayout.js",
+		"/C/Users/alex/kapla/app/components/Geschaefte.js",
+		"/C/Users/alex/kapla/app/components/GeschaefteItem.js",
+		"/C/Users/alex/kapla/app/components/GeschaefteLayout.js",
+		"/C/Users/alex/kapla/app/components/geschaeft/KontakteIntern.js",
+		"/C/Users/alex/kapla/app/components/geschaeft/KontakteInternItems.js",
+		"/C/Users/alex/kapla/app/components/navbar/BerichteNav.js",
+		"/C/Users/alex/kapla/app/components/navbar/ExportGeschaefteNav.js",
+		"/C/Users/alex/kapla/app/components/navbar/GeschaeftDeleteNav.js",
+		"/C/Users/alex/kapla/app/components/navbar/GeschaeftNewNav.js",
+		"/C/Users/alex/kapla/app/components/navbar/Navbar.js",
+		"/C/Users/alex/kapla/app/components/navbar/OptionsNav.js",
+		"/C/Users/alex/kapla/app/components/navbar/PrintNav.js",
+		"/C/Users/alex/kapla/app/components/navbar/StammdatenNav.js",
+		"/C/Users/alex/kapla/app/components/navbar/TableRowDeleteNav.js",
+		"/C/Users/alex/kapla/app/components/navbar/TableRowNewNav.js",
+		"/C/Users/alex/kapla/app/components/page/faelligeGeschaefte/Header.js",
+		"/C/Users/alex/kapla/app/components/page/faelligeGeschaefte/Rows.js",
+		"/C/Users/alex/kapla/app/components/page/list1/Header.js",
+		"/C/Users/alex/kapla/app/components/page/list1/Rows.js",
+		"/C/Users/alex/kapla/app/components/page/vernehmlassungen/Header.js",
+		"/C/Users/alex/kapla/app/components/page/vernehmlassungen/Rows.js",
 		"/C/Users/alex/kapla/app/components/geschaeft/AreaGeschaeft.js",
 		"/C/Users/alex/kapla/app/components/geschaeft/AreaHistory.js",
 		"/C/Users/alex/kapla/app/components/geschaeft/AreaHistoryRows.js",
@@ -592,94 +674,30 @@
 		"/C/Users/alex/kapla/app/components/geschaeft/AreaPersonen.js",
 		"/C/Users/alex/kapla/app/components/geschaeft/AreaRechtsmittel.js",
 		"/C/Users/alex/kapla/app/components/geschaeft/AreaZuletztMutiert.js",
+		"/C/Users/alex/kapla/app/components/geschaeft/Geschaeft.js",
 		"/C/Users/alex/kapla/app/components/geschaeft/KontakteExtern.js",
 		"/C/Users/alex/kapla/app/components/geschaeft/KontakteExternItems.js",
-		"/C/Users/alex/kapla/app/components/geschaeft/AreaFristen.js",
-		"/C/Users/alex/kapla/app/components/geschaeft/KontakteIntern.js",
-		"/C/Users/alex/kapla/app/components/geschaeft/KontakteInternItems.js",
-		"/C/Users/alex/kapla/app/containers/geschaeft/AreaGeschaeft.js",
-		"/C/Users/alex/kapla/app/src/createOptions.js",
-		"/C/Users/alex/kapla/app/components/filterFields/AreaFristenField.js",
-		"/C/Users/alex/kapla/app/containers/filterFields/AreaFristen.js",
-		"/C/Users/alex/kapla/app/components/filterFields/AreaFristen.js",
-		"/C/Users/alex/kapla/app/index.js",
-		"/C/Users/alex/kapla/app/containers/GeschaefteItem.js",
-		"/C/Users/alex/kapla/app/components/GeschaefteItem.js",
-		"/C/Users/alex/kapla/app/containers/filterFields/AreaFristenField.js",
-		"/C/Users/alex/kapla/app/containers/navbar/OptionsNav.js",
-		"/C/Users/alex/kapla/app/components/navbar/OptionsNav.js",
-		"/C/Users/alex/kapla/app/components/navbar/Navbar.css",
-		"/C/Users/alex/kapla/app/app.global.css",
-		"/C/Users/alex/kapla/app/components/navbar/StammdatenNav.js",
-		"/C/Users/alex/kapla/app/containers/navbar/FilterNav.js",
-		"/C/Users/alex/kapla/app/components/navbar/BerichteNav.js",
-		"/C/Users/alex/kapla/app/actions/user.js",
-		"/C/Users/alex/kapla/app/components/navbar/Navbar.js",
-		"/C/Users/alex/kapla/app/containers/navbar/filterNav.js",
-		"/C/Users/alex/kapla/app/components/navbar/filterNav.js",
-		"/C/Users/alex/kapla/app/components/navbar/PrintNav.js",
-		"/C/Users/alex/kapla/app/src/updateGeschaeft.js",
-		"/C/Users/alex/kapla/app/components/geschaeft/AreaZuletztMutiert.css",
-		"/C/Users/alex/kapla/app/components/filterFields/AreaPersonen.css",
-		"/C/Users/alex/kapla/app/components/geschaeft/AreaPersonen.css",
-		"/C/Users/alex/kapla/app/src/sql/createViews.sql",
-		"/C/Users/alex/kapla/app/src/sql/forceReferenceGeschaefteKontakteExtern.sql",
-		"/C/Users/alex/kapla/kapla.db",
-		"/C/Users/alex/kapla/app/components/filterFields/KontakteExternItems.js",
-		"/C/Users/alex/kapla/app/components/filterFields/KontakteExtern.js",
-		"/C/Users/alex/kapla/app/containers/filterFields/AreaPersonen.js",
-		"/C/Users/alex/kapla/app/src/getDropdownOptions.js",
-		"/C/Users/alex/kapla/app/src/sql/createTables.sql",
-		"/C/Users/alex/kapla/app/components/filterFields/AreaHistory.js",
-		"/C/Users/alex/kapla/app/components/filterFields/AreaNummern.js",
-		"/C/Users/alex/kapla/app/components/filterFields/AreaParlVorstoss.js",
-		"/C/Users/alex/kapla/app/components/filterFields/AreaRechtsmittel.js",
+		"/C/Users/alex/kapla/app/components/filterFields/AreaPersonen.js",
 		"/C/Users/alex/kapla/app/components/filterFields/AreaZuletztMutiert.js",
-		"/C/Users/alex/kapla/app/components/filterFields/AreaFristen.css",
-		"/C/Users/alex/kapla/app/components/filterFields/AreaHistory.css",
-		"/C/Users/alex/kapla/app/containers/filterFields/AreaHistory.js",
-		"/C/Users/alex/kapla/app/containers/filterFields/AreaHistoryRows.js",
-		"/C/Users/alex/kapla/app/containers/filterFields/AreaNummern.js",
-		"/C/Users/alex/kapla/app/containers/filterFields/AreaParlVorstoss.js",
-		"/C/Users/alex/kapla/app/containers/filterFields/AreaRechtsmittel.js",
-		"/C/Users/alex/kapla/app/containers/filterFields/AreaZuletztMutiert.js",
-		"/C/Users/alex/kapla/app/components/filterFields/Geschaeft.js",
-		"/C/Users/alex/kapla/app/components/filterFields/AreaZuletztMutiert.css",
-		"/C/Users/alex/kapla/app/containers/filterFields/Geschaeft.js",
-		"/C/Users/alex/kapla/app/containers/filterFields/KontakteExtern.js",
-		"/C/Users/alex/kapla/app/containers/filterFields/KontakteExternItems.js",
-		"/C/Users/alex/kapla/app/containers/filterFields/KontakteIntern.js",
-		"/C/Users/alex/kapla/app/containers/filterFields/KontakteInternItems.js",
-		"/C/Users/alex/kapla/app/components/filterFields/KontakteIntern.js",
-		"/C/Users/alex/kapla/app/containers/geschaeft/GeschaeftMethods.js",
-		"/C/Users/alex/kapla/app/components/geschaeft/Geschaeft.css",
-		"/C/Users/alex/kapla/app/containers/App.js",
-		"/C/Users/alex/kapla/app/components/geschaefteLayout.css",
-		"/C/Users/alex/kapla/app/components/Geschaefte.css",
-		"/C/Users/alex/kapla/app/components/geschaeft/AreaNummern.css",
-		"/C/Users/alex/kapla/app/components/geschaeft/AreaHistory.css",
-		"/C/Users/alex/kapla/app/components/geschaeft/KontakteIntern.css",
-		"/C/Users/alex/kapla/app/components/geschaeft/KontakteExtern.css",
-		"/C/Users/alex/kapla/app/components/geschaeft/AreaGeschaeft.css",
-		"/C/Users/alex/kapla/package.js",
-		"/C/Users/alex/kapla/app/components/page/faelligeGeschaefte/Rows.js",
-		"/C/Users/alex/kapla/app/src/sql/updateTables.sql",
-		"/C/Users/alex/kapla/app/src/sql/forceReferenceGeschaefteKontakteIntern.sql",
-		"/C/Users/alex/kapla/app/src/sql/getGeschaeftsarten.sql",
-		"/D/Google Drive/awel-kapla/howto.txt",
-		"/D/Google Drive/awel-kapla/DatenProbleme.txt",
-		"/C/Users/alex/kapla/app/src/exportGeschaefte.js",
-		"/C/Users/alex/kapla/app/src/writeExport.js",
-		"/C/Users/alex/kapla/app/components/navbar/ExportGeschaefteNav.js",
-		"/C/Users/alex/kapla/app/components/page/list1/Rows.js",
-		"/C/Users/alex/kapla/app/components/page/list1/Header.js",
-		"/C/Users/alex/kapla/app/components/page/faelligeGeschaefte/FaelligeGeschaefte.css",
-		"/C/Users/alex/kapla/app/components/page/faelligeGeschaefte/Header.js",
-		"/C/Users/alex/kapla/app/components/page/Page.js"
+		"/C/Users/alex/kapla/app/components/filterFields/AreaRechtsmittel.js",
+		"/C/Users/alex/kapla/app/components/filterFields/AreaParlVorstoss.js",
+		"/C/Users/alex/kapla/app/components/filterFields/AreaNummern.js",
+		"/C/Users/alex/kapla/app/components/filterFields/AreaHistory.js",
+		"/C/Users/alex/kapla/app/components/filterFields/AreaGeschaeft.js",
+		"/C/Users/alex/kapla/app/components/filterFields/AreaFristen.js",
+		"/C/Users/alex/kapla/app/components/navbar/optionsNav.css",
+		"/C/Users/alex/kapla/app/containers/navbar/OptionsNav.js",
+		"/C/Users/alex/kapla/app/actions/app.js",
+		"/C/Users/alex/kapla/app/src/fuckThis.js",
+		"/C/Users/alex/kapla/main.js",
+		"/C/Users/alex/kapla/app/src/saveConfigValues.js",
+		"/C/Users/alex/kapla/app/containers/geschaeft/Geschaeft.js",
+		"/C/Users/alex/kapla/app/components/filterFields/FilterFields.js",
+		"/C/Users/alex/kapla/app/components/table/Table.js"
 	],
 	"find":
 	{
-		"height": 47.0
+		"height": 51.0
 	},
 	"find_in_files":
 	{
@@ -708,6 +726,68 @@
 		"case_sensitive": true,
 		"find_history":
 		[
+			"DateField",
+			"FilterFieldDate",
+			"AreaFristenField",
+			"comparator",
+			"filterValue",
+			"filterFields[index].value",
+			"geschaeft[filterField.field]",
+			"comparatorValue",
+			"comparator",
+			"filterValue",
+			"isValid",
+			"getDateValidationStateDate",
+			"fieldFilterDropdown",
+			"UPDATE",
+			"interne",
+			"verantwortlich",
+			"\n",
+			" INTEGER",
+			" TEXT",
+			"geschaeftsart",
+			"aufbewahrungsfrist",
+			"value",
+			"dbPath",
+			"actions.configSetKey",
+			"CONFIG_SET",
+			"configUiReset",
+			"configSetKey",
+			"dbChooseSuccess",
+			"dbGet",
+			"configUiReset",
+			"dbGet",
+			"configSetKey",
+			"configSet",
+			"CONFIG_SET",
+			"configSet",
+			"DB_CHOOSE_SUCCESS",
+			"dbPath",
+			"dbChooseSuccess",
+			"dbGet",
+			"configGet",
+			"dbGetFromConfig",
+			"saveConfigValue",
+			"dbPath",
+			"config: PropTypes.number",
+			"tableColumnWidthGetFromDb",
+			"geschaefteColumnWidthGetFromDb",
+			"geschaefteColumnWidth",
+			"tableColumnWidth",
+			"tableColumnSet",
+			"tableColumnWidth",
+			"TABLE_COLUMN_WIDTH_GET_FROM_DB",
+			"geschaefteColumnWidthGetFromDb",
+			"filterFieldsLayoutSet",
+			"geschaefteColumnSet",
+			"configSet",
+			"dbGetFromConfig",
+			"chooseDb",
+			"dbChoose",
+			"dbGetFromConfig",
+			"resetUiConfig",
+			"NavbarOptionsNav",
+			"saveConfig",
 			"dbGetFromConfig",
 			"DB_CHOOSE_ERROR",
 			"saveConfigValue",
@@ -773,69 +853,7 @@
 			"propa",
 			"state",
 			"geschaefte",
-			"Geschaefte",
-			"geschaefte",
-			"GESCHAEFTE",
-			"GESCHAEFTE_COLUMN_WIDTH_GET_FROM_DB",
-			"geschaefte",
-			"GESCHAEFTE",
-			"dbGetFromConfig",
-			"geschaefteLayout",
-			"filterFieldsLayout",
-			"GeschaefteLayout",
-			"GESCHAEFTELAYOUT_SET",
-			"geschaefteLayout",
-			"Geschaefte",
-			"geschaefteLayout",
-			"state",
-			"geschaefteGefilterteIds",
-			"normalFieldWidth",
-			"maxWidth",
-			"getConfig",
-			"/filterFields",
-			"abteilungOptions",
-			"nrOfNrFields",
-			"layoutConfig",
-			"abteilungOptions",
-			"geschaefteLayout",
-			"store",
-			"Store",
-			"GeschaefteLayout",
-			"wrapComponentInProvider",
-			"GESCHAEFTE_FILTER_BY_FIELDS",
-			"onChangeDatePicker",
-			"fristMitarbeiter",
-			"AreaFristenField",
-			"blur",
-			"geschaefteFilterByFields",
-			"isDateField",
-			"change",
-			"isValid",
-			"geschaefteFilterByFields",
-			"basic-nav-dropdown",
-			"geschaefteFilterByFields",
-			"onSelectFilterFaelligeGeschaefte",
-			"eventKey",
-			"geschaefteRemoveFilters",
-			"onClickFilterFields",
-			"onChangeFilterFulltext",
-			"removeFilter",
-			"filterGroupContainer",
-			"filterGroup",
-			"dataIsFiltered",
-			"filterGroupRemoveIcon",
-			"fieldFilterDropdown",
-			"filterFulltext",
-			"focusFulltextFilter",
-			"dataIsFiltered",
-			"filterInput",
-			"classNameFilterInput",
-			"fulltextFilterContainer",
-			"filterInputRemoveIcon",
-			"dataIsFiltered",
-			"filterGroupRemoveIcon",
-			"removeFilter",
-			"Glyphicon"
+			"Geschaefte"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -843,6 +861,19 @@
 		"regex": false,
 		"replace_history":
 		[
+			"ComparatorSelector",
+			"DateField",
+			"FilterFieldDate",
+			" geschaeftValue",
+			" ",
+			"",
+			"configSetKey",
+			"config: PropTypes.object",
+			"config",
+			"configSet",
+			"config",
+			"configSet",
+			"OptionsNav",
 			"configGet",
 			"getConfigSync",
 			"console.error(error)",
@@ -957,20 +988,7 @@
 			"NavbarPrintNav",
 			"NavbarExportGeschaefteNav",
 			"NavbarTableRowDeleteNav",
-			"NavbarTableRowNeuNav",
-			"NavbarGeschaeftLoeschenNav",
-			"NavbarGeschaeftNeuNav",
-			"NavbarGeschaefteFilterNavComponent",
-			"NavbarGeschaefteFilterNav",
-			"NavbarBerichteNav",
-			"NavbarFulltextFilter",
-			"{ e, activeId, changeGeschaeftInDb, geschaefteChangeState }",
-			"event",
-			"GeschaeftKontakteExternItems",
-			"VernehmlAngek",
-			"VernehmlAngekHeader",
-			"1.2.3",
-			""
+			"NavbarTableRowNeuNav"
 		],
 		"reverse": false,
 		"show_context": true,
@@ -981,7 +999,7 @@
 	"groups":
 	[
 		{
-			"selected": 2,
+			"selected": 5,
 			"sheets":
 			[
 				{
@@ -1008,188 +1026,49 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 2742.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 5,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "app/src/resetUiConfig.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 348,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								283,
-								283
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 521.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 6,
 					"type": "text"
 				},
 				{
+					"buffer": 1,
+					"file": "app/components/filterFields/FilterFields.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 6360,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								422,
+								422
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"type": "text"
+				},
+				{
 					"buffer": 2,
-					"file": "app/actions/app.js",
+					"file": "app/components/filterFields/AreaFristen.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 5689,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								879,
-								879
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 321.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 417,
-						"regions":
-						{
-							"match":
-							{
-								"flags": 112,
-								"regions":
-								[
-									[
-										180,
-										195
-									],
-									[
-										298,
-										313
-									]
-								],
-								"scope": ""
-							}
-						},
-						"selection":
-						[
-							[
-								191,
-								191
-							]
-						],
-						"settings":
-						{
-							"detect_indentation": false,
-							"line_numbers": false,
-							"output_tag": 1,
-							"result_base_dir": "",
-							"result_file_regex": "^([^ 	].*):$",
-							"result_line_regex": "^ +([0-9]+):",
-							"scroll_past_end": true,
-							"syntax": "Packages/Default/Find Results.hidden-tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
-					"type": "text"
-				},
-				{
-					"buffer": 4,
-					"file": "app/reducers/app.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 2442,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								290,
-								290
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 4,
-					"type": "text"
-				},
-				{
-					"buffer": 5,
-					"file": "app/components/navbar/Navbar.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 3509,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1417,
-								1426
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 693.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 2,
-					"type": "text"
-				},
-				{
-					"buffer": 6,
-					"file": "app/containers/navbar/Navbar.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1070,
+						"buffer_size": 2220,
 						"regions":
 						{
 						},
@@ -1207,27 +1086,57 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 396.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 3,
+					"stack_index": 4,
 					"type": "text"
 				},
 				{
-					"buffer": 7,
-					"file": "app/components/navbar/OptionsNav.js",
+					"buffer": 3,
+					"file": "app/components/filterFields/DateField.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 485,
+						"buffer_size": 4690,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								217,
-								217
+								0,
+								4690
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 4551.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "app/components/filterFields/ComparatorSelector.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 4717,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								87,
+								87
 							]
 						],
 						"settings":
@@ -1240,7 +1149,67 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 7,
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "app/containers/filterFields/ComparatorSelector.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 746,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								605,
+								605
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "app/components/filterFields/dateField.css",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 632,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								606,
+								606
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/CSS/CSS.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 555.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
 					"type": "text"
 				}
 			]
@@ -1248,7 +1217,7 @@
 	],
 	"incremental_find":
 	{
-		"height": 41.0
+		"height": 45.0
 	},
 	"input":
 	{
@@ -1285,7 +1254,7 @@
 	"project": "kapla_pc.sublime-project",
 	"replace":
 	{
-		"height": 90.0
+		"height": 98.0
 	},
 	"save_all_on_build": true,
 	"select_file":
@@ -1323,7 +1292,7 @@
 	"show_open_files": true,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 391.0,
+	"side_bar_width": 222.0,
 	"status_bar_visible": true,
 	"template_settings":
 	{
