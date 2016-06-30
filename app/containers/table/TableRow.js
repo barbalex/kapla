@@ -12,15 +12,17 @@ function mapStateToProps(state, props) {
   const {
     table,
     rows,
-    id
+    id,
   } = state.table
-  const { tableLayout } = props
+  const {
+    tableLayout,
+  } = props
 
   return {
     table,
     rows,
     id,
-    tableLayout
+    tableLayout,
   }
 }
 

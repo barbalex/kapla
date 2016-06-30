@@ -34,42 +34,44 @@ const app = (state = standardState, action) => {
     case CONFIG_SET:
       return {
         ...state,
-        config: action.config
+        config: action.config,
       }
     case CONFIG_SET_KEY:
       return {
         ...state,
-        config: Object.assign({}, state.config, {
-          [action.key]: action.value
-        })
+        config: Object.assign(
+          {},
+          state.config,
+          { [action.key]: action.value },
+        ),
       }
     case GESCHAEFTELAYOUT_SET:
       return {
         ...state,
-        geschaefteLayout: action.geschaefteLayout
+        geschaefteLayout: action.geschaefteLayout,
       }
     case FILTERFIELDSLAYOUT_SET:
       return {
         ...state,
-        filterFieldsLayout: action.filterFieldsLayout
+        filterFieldsLayout: action.filterFieldsLayout,
       }
     case TABLELAYOUT_SET:
       return {
         ...state,
-        tableLayout: action.tableLayout
+        tableLayout: action.tableLayout,
       }
     case MESSAGE_SHOW:
       return {
         ...state,
         showMessageModal: action.showMessageModal,
         messageTextLine1: action.messageTextLine1,
-        messageTextLine2: action.messageTextLine2
+        messageTextLine2: action.messageTextLine2,
       }
     case DB_CHOOSE:
       return {
         ...state,
         fetchingDb: true,
-        errorFetchingDb: null
+        errorFetchingDb: null,
       }
     case DB_CHOOSE_SUCCESS:
       return {
@@ -77,16 +79,18 @@ const app = (state = standardState, action) => {
         fetchingDb: false,
         errorFetchingDb: null,
         db: action.db,
-        config: Object.assign({}, state.config, {
-          dbPath: action.dbPath
-        })
+        config: Object.assign(
+          {},
+          state.config,
+          { dbPath: action.dbPath },
+        ),
       }
     case DB_CHOOSE_ERROR:
       return {
         ...state,
         fetchingDb: false,
         errorFetchingDb: action.error,
-        db: null
+        db: null,
       }
     default:
       return state

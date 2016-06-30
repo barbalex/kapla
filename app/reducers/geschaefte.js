@@ -29,7 +29,7 @@ import {
   INTERNE_OPTIONS_GET_SUCCESS,
   INTERNE_OPTIONS_GET_ERROR,
   EXTERNE_OPTIONS_GET_SUCCESS,
-  EXTERNE_OPTIONS_GET_ERROR
+  EXTERNE_OPTIONS_GET_ERROR,
 } from '../actions/geschaefte'
 
 const standardState = {
@@ -49,7 +49,7 @@ const standardState = {
   externeOptions: [],
   // following: state for active geschaeft
   activeId: null,
-  willDelete: false
+  willDelete: false,
 }
 
 const geschaeft = (state = {}, action) => {
@@ -62,7 +62,7 @@ const geschaeft = (state = {}, action) => {
         ...state,
         [action.field]: action.value,
         mutationsperson: action.username,
-        mutationsdatum: moment().format('YYYY-MM-DD HH:mm:ss')
+        mutationsdatum: moment().format('YYYY-MM-DD HH:mm:ss'),
       }
     default:
       return state
@@ -75,7 +75,7 @@ const geschaefte = (state = standardState, action) => {
       return {
         ...state,
         fetching: true,
-        error: []
+        error: [],
       }
     case GESCHAEFTE_GET_SUCCESS:
       return {
@@ -83,13 +83,13 @@ const geschaefte = (state = standardState, action) => {
         fetching: false,
         error: [],
         geschaefte: action.geschaefte,
-        geschaefteGefilterteIds: action.geschaefteGefilterteIds
+        geschaefteGefilterteIds: action.geschaefteGefilterteIds,
       }
     case GESCHAEFTE_GET_ERROR:
       return {
         ...state,
         fetching: false,
-        error: [...state.error, action.error]
+        error: [...state.error, action.error],
       }
     case GESCHAEFTE_FILTER_BY_FIELDS:
       return {
@@ -98,7 +98,7 @@ const geschaefte = (state = standardState, action) => {
         filterFulltext: '',
         filterType: action.filterType || null,
         activeId: null,
-        geschaefteGefilterteIds: action.geschaefteGefilterteIds
+        geschaefteGefilterteIds: action.geschaefteGefilterteIds,
       }
     case GESCHAEFTE_FILTER_BY_FULLTEXT:
       return {
@@ -107,15 +107,19 @@ const geschaefte = (state = standardState, action) => {
         filterType: action.filterType || null,
         filterFulltext: action.filterFulltext,
         filterFields: [],
-        activeId: null
+        activeId: null,
       }
     case GESCHAEFTE_REMOVE_FILTERS:
       return {
         ...state,
-        geschaefteGefilterteIds: [...state.geschaefte.map((g) => g.idGeschaeft)],
+        geschaefteGefilterteIds: [
+          ...state.geschaefte.map((g) =>
+            g.idGeschaeft
+          )
+        ],
         filterFields: [],
         filterType: null,
-        filterFulltext: ''
+        filterFulltext: '',
       }
     case GESCHAEFT_TOGGLE_ACTIVATED:
       return {
@@ -124,29 +128,39 @@ const geschaefte = (state = standardState, action) => {
           state.activeId && state.activeId === action.idGeschaeft ?
           null :
           action.idGeschaeft
-        )
+        ),
       }
     case GESCHAEFT_SET_DELETE_INTENDED:
       return {
         ...state,
-        willDelete: true
+        willDelete: true,
       }
     case GESCHAEFT_REMOVE_DELETE_INTENDED:
       return {
         ...state,
-        willDelete: false
+        willDelete: false,
       }
     case GESCHAEFT_DELETE:
       return {
         ...state,
-        geschaefte: [...state.geschaefte.filter((g) => g.idGeschaeft !== action.idGeschaeft)],
-        geschaefteGefilterteIds: [...state.geschaefteGefilterteIds.filter((id) => id !== action.idGeschaeft)],
-        activeId: null
+        geschaefte: [
+          ...state.geschaefte.filter((g) =>
+            g.idGeschaeft !== action.idGeschaeft
+          )
+        ],
+        geschaefteGefilterteIds: [
+          ...state.geschaefteGefilterteIds.filter((id) =>
+            id !== action.idGeschaeft
+          )
+        ],
+        activeId: null,
       }
     case GESCHAEFTE_CHANGE_STATE:
       return {
         ...state,
-        geschaefte: state.geschaefte.map((g) => geschaeft(g, action))
+        geschaefte: state.geschaefte.map((g) =>
+          geschaeft(g, action)
+        ),
       }
     case GESCHAEFT_NEW:
       /**
@@ -154,48 +168,54 @@ const geschaefte = (state = standardState, action) => {
        */
       return {
         ...state,
-        geschaefte: [action.geschaeft, ...state.geschaefte],
-        geschaefteGefilterteIds: [action.geschaeft.idGeschaeft, ...state.geschaefteGefilterteIds]
+        geschaefte: [
+          action.geschaeft,
+          ...state.geschaefte,
+        ],
+        geschaefteGefilterteIds: [
+          action.geschaeft.idGeschaeft,
+          ...state.geschaefteGefilterteIds,
+        ],
       }
     case RECHTSMITTELERLEDIGUNG_OPTIONS_GET_SUCCESS:
       return {
         ...state,
-        rechtsmittelErledigungOptions: action.rechtsmittelErledigungOptions
+        rechtsmittelErledigungOptions: action.rechtsmittelErledigungOptions,
       }
     case PARLVORSTOSSTYP_OPTIONS_GET_SUCCESS:
       return {
         ...state,
-        parlVorstossTypOptions: action.parlVorstossTypOptions
+        parlVorstossTypOptions: action.parlVorstossTypOptions,
       }
     case STATUS_OPTIONS_GET_SUCCESS:
       return {
         ...state,
-        statusOptions: action.statusOptions
+        statusOptions: action.statusOptions,
       }
     case GESCHAEFTSART_OPTIONS_GET_SUCCESS:
       return {
         ...state,
-        geschaeftsartOptions: action.geschaeftsartOptions
+        geschaeftsartOptions: action.geschaeftsartOptions,
       }
     case RECHTSMITTEL_INSTANZ_OPTIONS_GET_SUCCESS:
       return {
         ...state,
-        rechtsmittelInstanzOptions: action.rechtsmittelInstanzOptions
+        rechtsmittelInstanzOptions: action.rechtsmittelInstanzOptions,
       }
     case ABTEILUNG_OPTIONS_GET_SUCCESS:
       return {
         ...state,
-        abteilungOptions: action.abteilungOptions
+        abteilungOptions: action.abteilungOptions,
       }
     case INTERNE_OPTIONS_GET_SUCCESS:
       return {
         ...state,
-        interneOptions: action.interneOptions
+        interneOptions: action.interneOptions,
       }
     case EXTERNE_OPTIONS_GET_SUCCESS:
       return {
         ...state,
-        externeOptions: action.externeOptions
+        externeOptions: action.externeOptions,
       }
     case RECHTSMITTELERLEDIGUNG_OPTIONS_GET_ERROR:
     case PARLVORSTOSSTYP_OPTIONS_GET_ERROR:
@@ -208,7 +228,7 @@ const geschaefte = (state = standardState, action) => {
     case GESCHAEFTE_CHANGE_DB_ERROR:
       return {
         ...state,
-        error: [...state.error, action.error]
+        error: [...state.error, action.error],
       }
     default:
       return state
