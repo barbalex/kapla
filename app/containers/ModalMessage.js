@@ -9,12 +9,12 @@ function mapStateToProps(state) {
   const {
     showMessageModal,
     messageTextLine1,
-    messageTextLine2
+    messageTextLine2,
   } = state.app
   return {
     showMessageModal,
     messageTextLine1,
-    messageTextLine2
+    messageTextLine2,
   }
 }
 

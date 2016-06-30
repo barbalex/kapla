@@ -8,15 +8,17 @@ import * as PagesActions from '../../actions/pages'
 
 const actions = Object.assign(
   GeschaefteActions,
-  PagesActions
+  PagesActions,
 )
 
 function mapStateToProps(state) {
-  const { pages } = state
+  const {
+    pages,
+  } = state
   const path = state.routing.locationBeforeTransitions.pathname
   return {
     path,
-    pages
+    pages,
   }
 }
 
