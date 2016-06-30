@@ -8,12 +8,12 @@ import * as GeschaefteActions from '../../actions/geschaefte'
 function mapStateToProps(state) {
   const {
     geschaefte,
-    activeId
+    activeId,
   } = state.geschaefte
 
   return {
     geschaefte,
-    activeId
+    activeId,
   }
 }
 

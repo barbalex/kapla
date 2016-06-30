@@ -10,7 +10,12 @@ function mapStateToProps(state, props) {
     geschaefte,
     activeId,
   } = state.geschaefte
-  const { blur, change, wrapperClass, nrOfGFields } = props
+  const {
+    blur,
+    change,
+    wrapperClass,
+    nrOfGFields,
+  } = props
   const geschaeft = geschaefte.find((g) =>
     g.idGeschaeft === activeId
   )
@@ -20,7 +25,7 @@ function mapStateToProps(state, props) {
     blur,
     change,
     wrapperClass,
-    nrOfGFields
+    nrOfGFields,
   }
 }
 
