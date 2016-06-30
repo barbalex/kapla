@@ -3,7 +3,7 @@
 import React, { PropTypes } from 'react'
 import {
   NavDropdown,
-  MenuItem
+  MenuItem,
 } from 'react-bootstrap'
 import styles from './Navbar.css'
 import filterForVernehmlAngek from '../../src/filterForVernehmlAngek'
@@ -13,7 +13,7 @@ const NavbarBerichteNav = ({
   pagesInitiate,
   path,
   pages,
-  geschaefteFilterByFields
+  geschaefteFilterByFields,
 }) => {
   const isActive = path === '/pages'
   const nameObject = {
@@ -101,7 +101,7 @@ NavbarBerichteNav.propTypes = {
   geschaefteFilterByFields: PropTypes.func.isRequired,
   pagesInitiate: PropTypes.func.isRequired,
   path: PropTypes.string.isRequired,
-  pages: PropTypes.object.isRequired
+  pages: PropTypes.object.isRequired,
 }
 
 export default NavbarBerichteNav

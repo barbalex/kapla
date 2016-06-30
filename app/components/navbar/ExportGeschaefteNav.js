@@ -3,7 +3,7 @@
 import React, { PropTypes } from 'react'
 import {
   NavDropdown,
-  MenuItem
+  MenuItem,
 } from 'react-bootstrap'
 import moment from 'moment'
 import _ from 'lodash'
@@ -12,7 +12,7 @@ import exportGeschaefte from '../../src/exportGeschaefte'
 const exportGeschaefteRechtsmittelVorjahre = (
   e,
   geschaefte,
-  messageShow
+  messageShow,
 ) => {
   e.preventDefault()
   const thisYear = moment().year()
@@ -35,7 +35,7 @@ const exportGeschaefteRechtsmittelVorjahre = (
     'rechtsmittelErledigung',
     'rechtsmittelEntscheidDatum',
     'rechtsmittelEntscheidNr',
-    'idGeschaeft'
+    'idGeschaeft',
   ]
   // now reduce fields to wanted
   geschaefteGefiltert.forEach((g, index) => {
@@ -48,7 +48,7 @@ const exportGeschaefteAll = (
   e,
   geschaefteGefilterteIds,
   geschaefte,
-  messageShow
+  messageShow,
 ) => {
   e.preventDefault()
   const geschaefteGefiltert = geschaefte.filter((g) =>
@@ -60,7 +60,7 @@ const exportGeschaefteAll = (
 const NavbarExportGeschaefteNav = ({
   geschaefte,
   messageShow,
-  geschaefteGefilterteIds
+  geschaefteGefilterteIds,
 }) =>
   <NavDropdown
     title="Exporte"
@@ -72,7 +72,7 @@ const NavbarExportGeschaefteNav = ({
           e,
           geschaefteGefilterteIds,
           geschaefte,
-          messageShow
+          messageShow,
         )
       }
     >
@@ -83,7 +83,7 @@ const NavbarExportGeschaefteNav = ({
         exportGeschaefteRechtsmittelVorjahre(
           e,
           geschaefte,
-          messageShow
+          messageShow,
         )
       }
     >
@@ -96,7 +96,7 @@ NavbarExportGeschaefteNav.displayName = 'NavbarExportGeschaefteNav'
 NavbarExportGeschaefteNav.propTypes = {
   geschaefte: PropTypes.array.isRequired,
   geschaefteGefilterteIds: PropTypes.array.isRequired,
-  messageShow: PropTypes.func.isRequired
+  messageShow: PropTypes.func.isRequired,
 }
 
 export default NavbarExportGeschaefteNav

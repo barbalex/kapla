@@ -25,7 +25,7 @@ const standardState = {
     dbPath: '',
     tableColumnWidth: 70,
     geschaefteColumnWidth: 40,
-  }
+  },
 }
 
 const app = (state = standardState, action) => {
