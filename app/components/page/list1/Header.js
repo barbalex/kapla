@@ -11,37 +11,58 @@ const PageList1Header = () =>
   <div className={styles.tableHeader}>
     <div className={styles.tableHeaderRow}>
       <div
-        className={[styles.columnGegenstand, styles.tableHeaderCell].join(' ')}
+        className={[
+          styles.columnGegenstand,
+          styles.tableHeaderCell,
+        ].join(' ')}
       >
         Gegenstand, Auslöser
       </div>
       <div
-        className={[styles.columnGeschaeftsart, styles.tableHeaderCell].join(' ')}
+        className={[
+          styles.columnGeschaeftsart,
+          styles.tableHeaderCell,
+        ].join(' ')}
       >
         Geschäftsart
       </div>
       <div
-        className={[styles.columnStatus, styles.tableHeaderCell].join(' ')}
+        className={[
+          styles.columnStatus,
+          styles.tableHeaderCell,
+        ].join(' ')}
       >
         Status
       </div>
       <div
-        className={[styles.columnVerantwortlich, styles.tableHeaderCell].join(' ')}
+        className={[
+          styles.columnVerantwortlich,
+          styles.tableHeaderCell,
+        ].join(' ')}
       >
         Verant- wortlich
       </div>
       <div
-        className={[styles.columnFristMitarbeiter, styles.tableHeaderCell].join(' ')}
+        className={[
+          styles.columnFristMitarbeiter,
+          styles.tableHeaderCell,
+        ].join(' ')}
       >
         Frist
       </div>
       <div
-        className={[styles.columnIdVorgeschaeft, styles.tableHeaderCell].join(' ')}
+        className={[
+          styles.columnIdVorgeschaeft,
+          styles.tableHeaderCell,
+        ].join(' ')}
       >
         Vorge- schäft
       </div>
       <div
-        className={[styles.columnIdGeschaeft, styles.tableHeaderCell].join(' ')}
+        className={[
+          styles.columnIdGeschaeft,
+          styles.tableHeaderCell,
+        ].join(' ')}
       >
         ID
       </div>

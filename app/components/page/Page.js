@@ -34,7 +34,7 @@ class Page extends Component {
     queryTitle: PropTypes.bool,
     messageShow: PropTypes.func.isRequired,
     building: PropTypes.bool.isRequired,
-    reportType: PropTypes.string
+    reportType: PropTypes.string,
   }
 
   componentDidMount = () => {
@@ -71,7 +71,7 @@ class Page extends Component {
       messageShow,
       pages,
       geschaefteGefilterteIds,
-      remainingGeschaefte
+      remainingGeschaefte,
     } = this.props
     const msgLine2Txt = `Bisher ${pages.length} Seiten, ${remainingGeschaefte.length} Geschäfte noch zu verarbeiten`
     const msgLine2 = geschaefteGefilterteIds.length > 50 ? msgLine2Txt : ''
@@ -97,7 +97,7 @@ class Page extends Component {
       pageAddGeschaeft,
       pagesMoveGeschaeftToNewPage,
       pagesFinishedBuilding,
-      messageShow
+      messageShow,
     } = this.props
 
     // don't do anything on not active pages
@@ -218,7 +218,7 @@ class Page extends Component {
       pageIndex,
       queryTitle,
       building,
-      reportType
+      reportType,
     } = this.props
     const firstPage = pageIndex === 0
     const pageContainerStyle = (
