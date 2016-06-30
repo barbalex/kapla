@@ -9,8 +9,11 @@ const app = electron.app ? electron.app : electron.remote.app
 
 const fs = require('fs')
 const path = require('path')
-const dataFilePath = path.join(app.getPath('userData'), 'kaplaConfig.json')
+const dataFilePath = path.join(
+  app.getPath('userData'),
+  'kaplaConfig.json'
+)
 
 module.exports = function saveConfig(data) {
-  fs.writeFileSync(dataFilePath, JSON.stringify(data, 4))
+  fs.writeFileSync(dataFilePath, JSON.stringify(data, null, 2))
 }
