@@ -5,7 +5,11 @@ import { FormControl, ControlLabel } from 'react-bootstrap'
 import styles from './areaHistory.css'
 import AreaHistoryRows from '../../containers/geschaeft/AreaHistoryRows'
 
-const AreaHistory = ({ geschaeft, blur, change }) =>
+const AreaHistory = ({
+  geschaeft,
+  blur,
+  change,
+}) =>
   <div className={styles.areaHistory}>
     <div className={styles.areaHistoryTitle}>
       Historie
@@ -33,7 +37,7 @@ AreaHistory.displayName = 'AreaHistory'
 AreaHistory.propTypes = {
   geschaeft: PropTypes.object.isRequired,
   blur: PropTypes.func.isRequired,
-  change: PropTypes.func.isRequired
+  change: PropTypes.func.isRequired,
 }
 
 export default AreaHistory

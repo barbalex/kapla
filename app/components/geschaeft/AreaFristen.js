@@ -6,7 +6,7 @@ import {
   InputGroup,
   FormControl,
   ControlLabel,
-  Glyphicon
+  Glyphicon,
 } from 'react-bootstrap'
 import moment from 'moment'
 moment.locale('de')
@@ -39,7 +39,10 @@ const fieldFristDauerBisMitarbeiter = (geschaeft) => (
       Tage bis Frist Mitarbeiter
     </ControlLabel>
     <FormControl.Static
-      style={{ paddingTop: 0, marginTop: 0 }}
+      style={{
+        paddingTop: 0,
+        marginTop: 0,
+      }}
       className={statusFristInStyle(fristDauerBisMitarbeiter(geschaeft))}
     >
       {fristDauerBisMitarbeiter(geschaeft)}
@@ -52,7 +55,7 @@ const AreaFristen = ({
   nrOfFieldsBeforeFristen,
   change,
   blur,
-  onChangeDatePicker
+  onChangeDatePicker,
 }) => {
   /**
    * need to give addon no padding
@@ -61,13 +64,13 @@ const AreaFristen = ({
    * for opening calendar
    */
   const datePickerAddonStyle = {
-    padding: 0
+    padding: 0,
   }
   const datePickerCalendarStyle = {
     paddingTop: 6,
     paddingBottom: 6,
     paddingLeft: 12,
-    paddingRight: 12
+    paddingRight: 12,
   }
 
   return (
@@ -315,7 +318,7 @@ AreaFristen.propTypes = {
   change: PropTypes.func.isRequired,
   blur: PropTypes.func.isRequired,
   onChangeDatePicker: PropTypes.func.isRequired,
-  nrOfFieldsBeforeFristen: PropTypes.number.isRequired
+  nrOfFieldsBeforeFristen: PropTypes.number.isRequired,
 }
 
 export default AreaFristen

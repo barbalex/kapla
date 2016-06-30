@@ -14,7 +14,7 @@ const AreaGeschaeft = ({
   wrapperClass,
   change,
   blur,
-  nrOfGFields
+  nrOfGFields,
 }) => {
   const tabsToAdd = (
     wrapperClass === styles.wrapperNarrow ?
@@ -186,7 +186,7 @@ AreaGeschaeft.propTypes = {
   change: PropTypes.func.isRequired,
   blur: PropTypes.func.isRequired,
   wrapperClass: PropTypes.string.isRequired,
-  nrOfGFields: PropTypes.number.isRequired
+  nrOfGFields: PropTypes.number.isRequired,
 }
 
 export default AreaGeschaeft
