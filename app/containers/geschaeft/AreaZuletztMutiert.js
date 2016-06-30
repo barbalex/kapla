@@ -9,7 +9,7 @@ function mapStateToProps(state) {
   const {
     geschaefte,
     activeId,
-    interneOptions
+    interneOptions,
   } = state.geschaefte
   const geschaeft = geschaefte.find((g) =>
     g.idGeschaeft === activeId
@@ -17,7 +17,7 @@ function mapStateToProps(state) {
 
   return {
     geschaeft,
-    interneOptions
+    interneOptions,
   }
 }
 
