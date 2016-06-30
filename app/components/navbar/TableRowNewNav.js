@@ -3,10 +3,13 @@
 import React, { PropTypes } from 'react'
 import {
   NavItem,
-  Glyphicon
+  Glyphicon,
 } from 'react-bootstrap'
 
-const NavbarTableRowNeuNav = ({ rowNewCreate, table }) =>
+const NavbarTableRowNeuNav = ({
+  rowNewCreate,
+  table,
+}) =>
   <NavItem
     onClick={() =>
       rowNewCreate(table)
@@ -20,7 +23,7 @@ NavbarTableRowNeuNav.displayName = 'NavbarTableRowNeuNav'
 
 NavbarTableRowNeuNav.propTypes = {
   table: PropTypes.string,
-  rowNewCreate: PropTypes.func.isRequired
+  rowNewCreate: PropTypes.func.isRequired,
 }
 
 export default NavbarTableRowNeuNav
