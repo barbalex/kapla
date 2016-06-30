@@ -5,8 +5,9 @@ import {
   NavDropdown,
   MenuItem,
 } from 'react-bootstrap'
+import styles from './optionsNav.css'
 
-const OptionsNav = ({ dbGet, configUiReset }) =>
+const OptionsNav = ({ config, dbGet, configUiReset }) =>
   <NavDropdown
     title="&#8942;"
     id="last-nav-dropdown"
@@ -16,7 +17,12 @@ const OptionsNav = ({ dbGet, configUiReset }) =>
       onClick={dbGet}
     >
       Datenbank wählen
+      {
+        config.dbPath &&
+        <div className={styles.dbPath}>Aktuell: {config.dbPath}</div>
+      }
     </MenuItem>
+    <MenuItem divider />
     <MenuItem
       onClick={configUiReset}
     >
@@ -27,6 +33,7 @@ const OptionsNav = ({ dbGet, configUiReset }) =>
 OptionsNav.displayName = 'OptionsNav'
 
 OptionsNav.propTypes = {
+  config: PropTypes.object.isRequired,
   dbGet: PropTypes.func.isRequired,
   configUiReset: PropTypes.func.isRequired,
 }

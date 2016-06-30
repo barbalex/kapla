@@ -5,8 +5,13 @@ import { connect } from 'react-redux'
 import OptionsNav from '../../components/navbar/OptionsNav'
 import * as AppActions from '../../actions/app'
 
-function mapStateToProps() {
-  return {}
+function mapStateToProps(state) {
+  const {
+    config,
+  } = state.app
+  return {
+    config,
+  }
 }
 
 function mapDispatchToProps(dispatch) {
