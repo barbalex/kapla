@@ -22,6 +22,32 @@ const interneOptionsList = (interneOptions) => {
     return (
       <option
         key={index + 1}
+        value={name}
+      >
+        {`${o.kurzzeichen}${space}${'\xa0\xa0\xa0'}${name}`}
+      </option>
+    )
+  })
+  options.unshift(<option key={0} value=""></option>)
+  return options
+}
+
+const verantwortlichOptionsList = (interneOptions) => {
+  // sort interneOptions by kurzzeichen
+  const interneOptionsSorted = _.sortBy(interneOptions, (o) =>
+    o.kurzzeichen.toLowerCase()
+  )
+  const options = interneOptionsSorted.map((o, index) => {
+    let times = 5 - o.kurzzeichen.length
+    // make sure, times is never < 0
+    if (times < 0) {
+      times = 0
+    }
+    const space = '\xa0'.repeat(times)
+    const name = `${o.vorname || ''} ${o.name || ''}`
+    return (
+      <option
+        key={index + 1}
         value={o.kurzzeichen}
       >
         {`${o.kurzzeichen}${space}${'\xa0\xa0\xa0'}${name}`}
@@ -68,9 +94,10 @@ const verantwortlichData = (values, interneOptions) => {
 }
 
 const interneData = (values, interneOptions) => {
-  const data = interneOptions.find((o) =>
-    o.kurzzeichen === values.kontaktInternVornameName
-  )
+  const data = interneOptions.find((o) => {
+    const name = `${o.vorname || ''} ${o.name || ''}`
+    return name === values.kontaktInternVornameName
+  })
   if (!data) return ''
   const name = `${data.vorname || ''} ${data.name || ''}`
   const abt = data.abteilung ? `, ${data.abteilung}` : ''
@@ -90,6 +117,7 @@ const externeData = (values, externeOptions) => {
   )
   if (!data) return ''
   let info = ''
+  info = addValueToInfo(info, data.nameVorname)
   info = addValueToInfo(info, data.firma)
   info = addValueToInfo(info, data.email)
   info = addValueToInfo(info, data.telefon)
@@ -127,7 +155,7 @@ const AreaPersonen = ({
             tabIndex={1 + nrOfFieldsBeforePersonen}
             className={styles.narrowVerantwDropdown}
           >
-            {interneOptionsList(interneOptions)}
+            {verantwortlichOptionsList(interneOptions)}
           </FormControl>
         </InputGroup>
       </div>
@@ -167,7 +195,7 @@ const AreaPersonen = ({
       <div className={styles.areaExterneKontakteSubTitle}>
         Externe Kontakte
       </div>
-      <div className={styles.KontaktInternVornameName}>
+      <div className={styles.KontaktExternVornameName}>
         <InputGroup>
           <ComparatorSelector
             name="kontaktExternNameVorname"

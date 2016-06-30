@@ -27,17 +27,26 @@ ALTER TABLE geschaefte2 RENAME TO geschaefte;
 
 --geschaefteKontakteIntern
 INSERT INTO
-  geschaefteKontakteIntern2(idGeschaeft, idKontakt)
+  geschaefteKontakteIntern(idGeschaeft, idKontakt)
 SELECT
-  geschaefteKontakteIntern.idGeschaeft, geschaefteKontakteIntern.idKontakt
+  geschaefteKontakteIntern_sik.idGeschaeft, geschaefteKontakteIntern_sik.idKontakt
 FROM
-  geschaefteKontakteIntern
-LEFT JOIN
+  geschaefteKontakteIntern_sik
+  LEFT JOIN
     geschaefte
-    ON geschaefte.idGeschaeft = geschaefteKontakteIntern.idGeschaeft
+    ON geschaefte.idGeschaeft = geschaefteKontakteIntern_sik.idGeschaeft
 WHERE
   geschaefte.idGeschaeft IS NOT NULL;
 
-DROP TABLE geschaefteKontakteIntern
 
-ALTER TABLE geschaefteKontakteIntern2 RENAME TO geschaefteKontakteIntern
+INSERT INTO
+  geschaefteKontakteExtern(idGeschaeft, idKontakt)
+SELECT
+  geschaefteKontakteExtern_sik.idGeschaeft, geschaefteKontakteExtern_sik.idKontakt
+FROM
+  geschaefteKontakteExtern_sik
+  LEFT JOIN
+    geschaefte
+    ON geschaefte.idGeschaeft = geschaefteKontakteExtern_sik.idGeschaeft
+WHERE
+  geschaefte.idGeschaeft IS NOT NULL;
