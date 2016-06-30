@@ -11,13 +11,13 @@ function mapStateToProps(state) {
   } = state.geschaefteKontakteExtern
   const {
     externeOptions,
-    activeId
+    activeId,
   } = state.geschaefte
 
   return {
     geschaefteKontakteExtern,
     externeOptions,
-    activeId
+    activeId,
   }
 }
 
