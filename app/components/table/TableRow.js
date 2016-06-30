@@ -5,7 +5,7 @@ import {
   Form,
   FormGroup,
   FormControl,
-  ControlLabel
+  ControlLabel,
 } from 'react-bootstrap'
 import styles from './TableRow.css'
 
@@ -13,7 +13,7 @@ const change = ({
   event,
   table,
   id,
-  tableChangeState
+  tableChangeState,
 }) => {
   const { type, name, dataset } = event.target
   let { value } = event.target
@@ -29,7 +29,7 @@ const blur = ({
   event,
   table,
   id,
-  changeTableInDb
+  changeTableInDb,
 }) => {
   const { type, name, dataset } = event.target
   let { value } = event.target
@@ -42,7 +42,7 @@ const fields = ({
   table,
   id,
   tableChangeState,
-  changeTableInDb
+  changeTableInDb,
 }) =>
   Object.keys(row).map((fieldName, index) => {
     let value = row[fieldName]
@@ -77,7 +77,7 @@ const TableRow = ({
   id,
   table,
   tableChangeState,
-  changeTableInDb
+  changeTableInDb,
 }) => {
   const row = rows.find((r) =>
     r.id === id
@@ -88,7 +88,13 @@ const TableRow = ({
   return (
     <div className={styles.body}>
       <Form>
-        {fields({ row, table, id, tableChangeState, changeTableInDb })}
+        {fields({
+          row,
+          table,
+          id,
+          tableChangeState,
+          changeTableInDb,
+        })}
       </Form>
     </div>
   )
@@ -101,7 +107,7 @@ TableRow.propTypes = {
   rows: PropTypes.array.isRequired,
   id: PropTypes.number,
   tableChangeState: PropTypes.func.isRequired,
-  changeTableInDb: PropTypes.func.isRequired
+  changeTableInDb: PropTypes.func.isRequired,
 }
 
 export default TableRow

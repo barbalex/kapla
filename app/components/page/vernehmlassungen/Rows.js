@@ -11,7 +11,10 @@ function isOdd(num) {
   return num % 2
 }
 
-const PageFristenRows = ({ geschaeft, rowIndex }) => {
+const PageFristenRows = ({
+  geschaeft,
+  rowIndex,
+}) => {
   const fristMitarbeiter = (
     geschaeft.fristMitarbeiter ?
     `Frist: ${geschaeft.fristMitarbeiter}` :
@@ -70,14 +73,20 @@ const PageFristenRows = ({ geschaeft, rowIndex }) => {
       className={rowClassName}
     >
       <div
-        className={[styles.columnIdGeschaeft, styles.tableBodyCell].join(' ')}
+        className={[
+          styles.columnIdGeschaeft,
+          styles.tableBodyCell,
+        ].join(' ')}
       >
         <div>
           {geschaeft.idGeschaeft}
         </div>
       </div>
       <div
-        className={[styles.columnGegenstand, styles.tableBodyCell].join(' ')}
+        className={[
+          styles.columnGegenstand,
+          styles.tableBodyCell,
+        ].join(' ')}
       >
         <div className={styles.fieldGegenstand}>
           {gegenstand}
@@ -93,7 +102,10 @@ const PageFristenRows = ({ geschaeft, rowIndex }) => {
         </div>
       </div>
       <div
-        className={[styles.columnStatus, styles.tableBodyCell].join(' ')}
+        className={[
+          styles.columnStatus,
+          styles.tableBodyCell,
+        ].join(' ')}
       >
         <div>
           {geschaeft.status}
@@ -106,7 +118,10 @@ const PageFristenRows = ({ geschaeft, rowIndex }) => {
         </div>
       </div>
       <div
-        className={[styles.columnKontaktIntern, styles.tableBodyCell].join(' ')}
+        className={[
+          styles.columnKontaktIntern,
+          styles.tableBodyCell,
+        ].join(' ')}
       >
         <div>
           {geschaeft.verantwortlich}
@@ -123,7 +138,7 @@ PageFristenRows.displayName = 'PageFristenRows'
 
 PageFristenRows.propTypes = {
   geschaeft: PropTypes.object,
-  rowIndex: PropTypes.number
+  rowIndex: PropTypes.number,
 }
 
 export default PageFristenRows
