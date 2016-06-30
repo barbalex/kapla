@@ -41,6 +41,8 @@
 
 .fieldFilterDropdown {
   border-radius: 0;
+  min-width: 160px;
+  font-weight: 700;
 }
 
 .navbar {

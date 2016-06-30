@@ -92,6 +92,7 @@ const FilterNav = ({
     filterCriteriaToArrayOfStrings(filterFields).join(' & ') :
     '(es werden keine Felder gefiltert)'
   )
+  const title = filterType ? `Filter: ${filterType}` : 'Felder filtern'
   return (
     <Navbar.Form
       pullLeft
@@ -110,7 +111,7 @@ const FilterNav = ({
         />
         <SplitButton
           id="field-filter-dropdown"
-          title="Felder filtern"
+          title={title}
           className={styles.fieldFilterDropdown}
           style={{
             backgroundColor: dataIsFilteredByFields ? '#FFBF73' : null
