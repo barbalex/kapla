@@ -8,8 +8,8 @@ export default function () {
     {
       field: 'fristMitarbeiter',
       value: now,
-      comparator: '<'
-    }
+      comparator: '<',
+    },
   ]
   return filter
 }

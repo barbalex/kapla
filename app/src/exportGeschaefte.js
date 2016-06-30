@@ -22,27 +22,39 @@ function getDataArrayFromExportObjects(exportObjects) {
   const dataArray = []
 
   // first the field names:
-  dataArray.push(Object.keys(exportObjects[0]))
+  dataArray
+    .push(
+      Object.keys(exportObjects[0])
+    )
   // then the field values
   exportObjects.forEach((object) =>
-    dataArray.push(Object.keys(object).map((key, index) => {
-      /**
-       * exceljs errors out if first member of array is null
-       * see: https://github.com/guyonroche/exceljs/issues/111
-       * unfortunately there is also an issue with passing ''
-       * in version 0.2.8
-       * see: https://github.com/guyonroche/exceljs/issues/120
-       */
-      if (object[key] === null && index === 0) return ''
-      return object[key]
-    })))
+    dataArray
+      .push(
+        Object.keys(object)
+          .map((key, index) => {
+            /**
+             * exceljs errors out if first member of array is null
+             * see: https://github.com/guyonroche/exceljs/issues/111
+             * unfortunately there is also an issue with passing ''
+             * in version 0.2.8
+             * see: https://github.com/guyonroche/exceljs/issues/120
+             */
+            if (object[key] === null && index === 0) return ''
+            return object[key]
+          })
+      ))
   return dataArray
 }
 
 export default (geschaefte, messageShow) => {
   const dialogOptions = {
     title: 'exportierte Geschäfte speichern',
-    filters: [{ name: 'Excel-Datei', extensions: ['xlsx'] }]
+    filters: [
+      {
+        name: 'Excel-Datei',
+        extensions: ['xlsx']
+      }
+    ],
   }
   dialog.showSaveDialog(dialogOptions, (path) => {
     if (path) {
@@ -63,9 +75,9 @@ export default (geschaefte, messageShow) => {
             // show the message
             const msg = `Die Geschäfte wurden nach ${path} exportiert`
             messageShow(true, msg, '')
-            setTimeout(() => {
-              messageShow(false, '', '')
-            }, 8000)
+            setTimeout(() =>
+              messageShow(false, '', ''), 8000
+            )
           } else if (message.error) {
             // show the error
             messageShow(true, 'Fehler:', message.error)
