@@ -9,12 +9,12 @@ function mapStateToProps(state) {
   const {
     geschaefteLayout,
     filterFieldsLayout,
-    config
+    config,
   } = state.app
   return {
     geschaefteLayout,
     filterFieldsLayout,
-    config
+    config,
   }
 }
 

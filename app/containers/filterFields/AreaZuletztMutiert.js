@@ -6,14 +6,20 @@ import AreaZuletztMutiert from '../../components/filterFields/AreaZuletztMutiert
 import * as GeschaefteActions from '../../actions/geschaefte'
 
 function mapStateToProps(state, props) {
-  const { interneOptions } = state.geschaefte
-  const { values, change, nrOfFieldsBeforeZuletztMutiert } = props
+  const {
+    interneOptions,
+  } = state.geschaefte
+  const {
+    values,
+    change,
+    nrOfFieldsBeforeZuletztMutiert,
+  } = props
 
   return {
     values,
     interneOptions,
     change,
-    nrOfFieldsBeforeZuletztMutiert
+    nrOfFieldsBeforeZuletztMutiert,
   }
 }
 

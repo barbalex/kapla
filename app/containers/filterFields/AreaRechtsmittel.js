@@ -8,13 +8,13 @@ import * as GeschaefteActions from '../../actions/geschaefte'
 function mapStateToProps(state, props) {
   const {
     rechtsmittelErledigungOptions,
-    rechtsmittelInstanzOptions
+    rechtsmittelInstanzOptions,
   } = state.geschaefte
   const {
     values,
     change,
     nrOfFieldsBeforePv,
-    onChangeDatePicker
+    onChangeDatePicker,
   } = props
 
   return {
@@ -23,7 +23,7 @@ function mapStateToProps(state, props) {
     rechtsmittelInstanzOptions,
     change,
     nrOfFieldsBeforePv,
-    onChangeDatePicker
+    onChangeDatePicker,
   }
 }
 
