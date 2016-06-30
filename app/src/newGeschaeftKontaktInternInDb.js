@@ -13,7 +13,9 @@ export default function (db, idGeschaeft, idKontakt) {
     db.run(sql, (error) => {
       if (error) reject(error)
       getGeschaeftKontaktInternFromDb(db, idGeschaeft, idKontakt)
-        .then((geschaeftKontaktIntern) => resolve(geschaeftKontaktIntern))
+        .then((geschaeftKontaktIntern) =>
+          resolve(geschaeftKontaktIntern)
+        )
         .catch((err) => reject(err))
     })
   })

@@ -4,11 +4,22 @@ import getTableRowFromDb from './getTableRowFromDb'
 
 export default function (db, table) {
   return new Promise((resolve, reject) => {
-    const sql = `
-      INSERT INTO
-        ${table} (id)
-      VALUES
-        (NULL)`
+    const tablesWithId = [
+      'externe',
+      'interne'
+    ]
+    let sql
+    if (tablesWithId.includes(table)) {
+      sql = `
+        INSERT INTO
+          ${table} (id)
+        VALUES
+          (NULL)`
+    } else {
+      sql = `
+
+      `
+    }
 
     /*
      * This is weird:
