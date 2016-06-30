@@ -5,7 +5,7 @@ import Navbar from '../containers/navbar/Navbar.js'
 
 export default class App extends Component {
   static propTypes = {
-    children: PropTypes.element.isRequired
+    children: PropTypes.element.isRequired,
   }
 
   render() {

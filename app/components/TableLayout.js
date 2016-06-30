@@ -11,7 +11,7 @@ class TableLayout extends Component {
     tableLayout: PropTypes.object,
     config: PropTypes.object.isRequired,
     tableLayoutSet: PropTypes.func.isRequired,
-    configSetKey: PropTypes.func.isRequired
+    configSetKey: PropTypes.func.isRequired,
   }
 
   componentDidMount = () => {
@@ -29,20 +29,26 @@ class TableLayout extends Component {
               type: 'react-component',
               component: 'table',
               title: 'Tabelle',
-              width: config.tableColumnWidth
+              width: config.tableColumnWidth,
             },
             {
               type: 'react-component',
               component: 'tableRow',
-              title: 'Aktiver Datensatz'
+              title: 'Aktiver Datensatz',
             }
           ]
         }
       ]
     }
     tableLayout = new GoldenLayout(layoutConfig)
-    tableLayout.registerComponent('table', wrapComponentInProvider(Table))
-    tableLayout.registerComponent('tableRow', wrapComponentInProvider(TableRow))
+    tableLayout.registerComponent(
+      'table',
+      wrapComponentInProvider(Table)
+    )
+    tableLayout.registerComponent(
+      'tableRow',
+      wrapComponentInProvider(TableRow)
+    )
     tableLayout.init()
     tableLayoutSet(tableLayout)
     tableLayout.on('stateChanged', () =>
@@ -52,7 +58,7 @@ class TableLayout extends Component {
 
   componentWillUnmount = () => {
     const { tableLayout } = this.props
-    tableLayout.destroy()
+    if (tableLayout.destroy) tableLayout.destroy()
   }
 
   saveTableState = () => {

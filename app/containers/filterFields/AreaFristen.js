@@ -10,14 +10,14 @@ function mapStateToProps(state, props) {
     values,
     change,
     changeComparator,
-    nrOfFieldsBeforeFristen
+    nrOfFieldsBeforeFristen,
   } = props
 
   return {
     values,
     change,
     changeComparator,
-    nrOfFieldsBeforeFristen
+    nrOfFieldsBeforeFristen,
   }
 }
 
