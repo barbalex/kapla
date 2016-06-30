@@ -3,7 +3,7 @@
 import React, { PropTypes } from 'react'
 import {
   NavDropdown,
-  MenuItem
+  MenuItem,
 } from 'react-bootstrap'
 import styles from './Navbar.css'
 
@@ -15,7 +15,7 @@ const stammdatenTitle = (table, rows) => {
     parlVorstossTyp: 'Stammdaten: Parl. Vorstoss Typ',
     rechtsmittelInstanz: 'Stammdaten: Rechtsmittel-Instanz',
     rechtsmittelErledigung: 'Stammdaten: Rechtsmittel-Erledigung',
-    status: 'Stammdaten: Status'
+    status: 'Stammdaten: Status',
   }
   const tableName = tableNameObject[table] || table
   if (table) {
@@ -31,7 +31,7 @@ const stammdatenTitle = (table, rows) => {
 const NavbarStammdatenNav = ({
   getTable,
   table,
-  rows
+  rows,
 }) => {
   /**
    * does not work - should keep menu active when table is loaded
@@ -102,7 +102,7 @@ NavbarStammdatenNav.displayName = 'NavbarStammdatenNav'
 NavbarStammdatenNav.propTypes = {
   getTable: PropTypes.func.isRequired,
   table: PropTypes.string,
-  rows: PropTypes.array
+  rows: PropTypes.array,
 }
 
 export default NavbarStammdatenNav

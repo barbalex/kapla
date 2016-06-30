@@ -6,7 +6,7 @@ import fs from 'fs'
 import React from 'react'
 import {
   NavItem,
-  Glyphicon
+  Glyphicon,
 } from 'react-bootstrap'
 
 const onClickPrint = (e) => {

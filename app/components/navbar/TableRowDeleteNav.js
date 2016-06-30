@@ -3,13 +3,13 @@
 import React, { PropTypes } from 'react'
 import {
   NavItem,
-  Glyphicon
+  Glyphicon,
 } from 'react-bootstrap'
 
 const NavbarTableRowDeleteNav = ({
   tableRowRemove,
   table,
-  activeTableRowId
+  activeTableRowId,
 }) =>
   <NavItem
     onClick={() =>
@@ -26,7 +26,7 @@ NavbarTableRowDeleteNav.displayName = 'NavbarTableRowDeleteNav'
 NavbarTableRowDeleteNav.propTypes = {
   table: PropTypes.string,
   activeTableRowId: PropTypes.number,
-  tableRowRemove: PropTypes.func.isRequired
+  tableRowRemove: PropTypes.func.isRequired,
 }
 
 export default NavbarTableRowDeleteNav
