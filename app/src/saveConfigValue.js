@@ -8,7 +8,6 @@ const saveConfig = require('./saveConfig.js')
 
 module.exports = (key, value) =>
   new Promise((resolve, reject) => {
-    console.log('saveConfigValue.js, saving key', key)
     getConfig()
       .then((config) => {
         config[key] = value
