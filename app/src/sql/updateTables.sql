@@ -18,11 +18,11 @@ alter table interne2 rename to interne
 -- geschaefte
 INSERT INTO geschaefte2 (abteilung, aktennummer, aktenstandort, ausloeser, benutzer, datumAusgangAwel, datumEingangAwel, details, entscheidAwelJahr, entscheidAwelNr, entscheidBdvJahr, entscheidBdvNr, entscheidBvvJahr, entscheidBvvNr, entscheidKrJahr, entscheidKrNr, entscheidRrbJahr, entscheidRrbNr, fristAbteilung, fristAmtschef, fristAwel, fristDirektion, fristMitarbeiter, gegenstand, gekoNr, geschaeftsart, idGeschaeft, idKontaktExtern_readonly, idKontaktIntern_readonly, idVorgeschaeft, mutationsdatum, mutationsperson, naechsterSchritt, ort, parlVorstossStufe, parlVorstossTyp, rechtsmittelInstanz, rechtsmittelErledigung, rechtsmittelEntscheidNr, rechtsmittelEntscheidDatum, status, verantwortlich, vermerk, vermerkIntern, zustaendigeDirektion)
 SELECT abteilung, aktennummer, aktenstandort, ausloeser, benutzer, datumAusgangAwel, datumEingangAwel, details, entscheidAwelJahr, entscheidAwelNr, entscheidBdvJahr, entscheidBdvNr, entscheidBvvJahr, entscheidBvvNr, entscheidKrJahr, entscheidKrNr, entscheidRrbJahr, entscheidRrbNr, fristAbteilung, fristAmtschef, fristAwel, fristDirektion, fristMitarbeiter, gegenstand, gekoNr, geschaeftsart, idGeschaeft, idKontaktExtern_readonly, idKontaktIntern_readonly, idVorgeschaeft, mutationsdatum, mutationsperson, naechsterSchritt, ort, parlVorstossStufe, parlVorstossTyp, rechtsmittelInstanz, rechtsmittelErledigung, rechtsmittelEntscheidNr, rechtsmittelEntscheidDatum, status, verantwortlich, vermerk, vermerkIntern, zustaendigeDirektion
-FROM geschaefte
+FROM geschaefte;
 
-DROP TABLE geschaefte
+DROP TABLE geschaefte;
 
-ALTER TABLE geschaefte2 RENAME TO geschaefte
+ALTER TABLE geschaefte2 RENAME TO geschaefte;
 
 
 --geschaefteKontakteIntern

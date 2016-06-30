@@ -76,6 +76,7 @@ CREATE TABLE geschaefte (
   rechtsmittelEntscheidNr INTEGER,
   rechtsmittelEntscheidDatum TEXT,
   status TEXT REFERENCES status(status) ON UPDATE CASCADE ON DELETE RESTRICT,
+  -- first correct data before referencing
   verantwortlich TEXT REFERENCES interne(kurzzeichen) ON UPDATE CASCADE ON DELETE RESTRICT,
   vermerk TEXT,
   vermerkIntern TEXT,
@@ -153,7 +154,8 @@ WHERE
 -- false = 0
 DROP TABLE IF EXISTS geschaeftsart;
 CREATE TABLE geschaeftsart (
-  geschaeftsart TEXT PRIMARY KEY,
+  id integer PRIMARY KEY,
+  geschaeftsart TEXT UNIQUE,
   historisch integer DEFAULT 0, 
   sort INTEGER
 );
@@ -229,7 +231,8 @@ WHERE
 
 DROP TABLE IF EXISTS status;
 CREATE TABLE status (
-  status TEXT PRIMARY KEY,
+  id integer PRIMARY KEY,
+  status TEXT UNIQUE,
   historisch integer DEFAULT 0, 
   sort INTEGER
 );
@@ -295,7 +298,8 @@ WHERE
 
 DROP TABLE IF EXISTS parlVorstossTyp;
 CREATE TABLE parlVorstossTyp (
-  parlVorstossTyp TEXT PRIMARY KEY,
+  id integer PRIMARY KEY,
+  parlVorstossTyp TEXT UNIQUE,
   historisch integer DEFAULT 0, 
   sort INTEGER
 );
@@ -380,25 +384,12 @@ INSERT INTO
   parlVorstossTyp(parlVorstossTyp, historisch, sort)
   VALUES ('Dringliche Anfrage', 0, 2);
 
-
-INSERT INTO
-  parlVorstossTyp (parlVorstossTyp, sort)
-VALUES
-  ('Anfrage', 1),
-  ('Dringliche Anfrage', 2), --ADD
-  ('Interpellation', 3),
-  ('Postulat', 4),
-  ('Dringliches Postulat', 5),
-  ('Leistungsmotion', 6),
-  ('Motion', 7),
-  ('Parlamentatische Initiative', 8),
-  ('Vorlage', 9);
-
 -------------------------------------------
 
 DROP TABLE IF EXISTS rechtsmittelErledigung;
 CREATE TABLE rechtsmittelErledigung (
-  rechtsmittelErledigung TEXT PRIMARY KEY,
+  id integer PRIMARY KEY,
+  rechtsmittelErledigung TEXT UNIQUE,
   historisch integer DEFAULT 0, 
   sort INTEGER
 );
@@ -494,7 +485,8 @@ WHERE
 
 DROP TABLE IF EXISTS rechtsmittelInstanz;
 CREATE TABLE rechtsmittelInstanz (
-  rechtsmittelInstanz TEXT PRIMARY KEY,
+  id integer PRIMARY KEY,
+  rechtsmittelInstanz TEXT UNIQUE,
   historisch integer DEFAULT 0, 
   sort INTEGER
 );
@@ -548,7 +540,8 @@ VALUES
 
 DROP TABLE IF EXISTS abteilung;
 CREATE TABLE abteilung (
-  abteilung TEXT PRIMARY KEY,
+  id integer PRIMARY KEY,
+  abteilung TEXT UNIQUE,
   historisch integer DEFAULT 0, 
   sort INTEGER
 );
@@ -566,3 +559,45 @@ VALUES
   ('Lu', 0, 5),
   ('Re', 0, 6),
   ('WB', 0, 7);
+
+-------------------------------------------
+
+-- set empty values to null:
+-- do for all fields
+UPDATE geschaefte
+SET idKontaktIntern_readonly = NULL
+WHERE idKontaktIntern_readonly = ''
+
+-------------------------------------------
+
+-- trim verantwortlich
+UPDATE
+  geschaefte
+SET
+  verantwortlich = trim(verantwortlich, ' ')
+
+-------------------------------------------
+
+SELECT
+  idGeschaeft,
+  verantwortlich
+FROM
+  geschaefte
+  LEFT JOIN interne
+  ON interne.kurzzeichen = geschaefte.verantwortlich
+WHERE
+  verantwortlich IS NOT NULL AND
+  kurzzeichen IS NULL
+
+
+SELECT
+  verantwortlich
+FROM
+  geschaefte
+  LEFT JOIN interne
+  ON interne.kurzzeichen = geschaefte.verantwortlich
+WHERE
+  verantwortlich IS NOT NULL AND
+  kurzzeichen IS NULL
+GROUP BY
+  verantwortlich
