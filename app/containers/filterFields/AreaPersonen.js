@@ -6,11 +6,14 @@ import AreaPersonen from '../../components/filterFields/AreaPersonen'
 import * as GeschaefteActions from '../../actions/geschaefte'
 
 function mapStateToProps(state, props) {
-  const { interneOptions, externeOptions } = state.geschaefte
+  const {
+    interneOptions,
+    externeOptions,
+  } = state.geschaefte
   const {
     values,
     change,
-    nrOfFieldsBeforePersonen
+    nrOfFieldsBeforePersonen,
   } = props
 
   return {
@@ -18,7 +21,7 @@ function mapStateToProps(state, props) {
     interneOptions,
     externeOptions,
     change,
-    nrOfFieldsBeforePersonen
+    nrOfFieldsBeforePersonen,
   }
 }
 

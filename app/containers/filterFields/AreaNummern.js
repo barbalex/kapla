@@ -6,13 +6,18 @@ import AreaNummern from '../../components/filterFields/AreaNummern'
 import * as GeschaefteActions from '../../actions/geschaefte'
 
 function mapStateToProps(state, props) {
-  const { values, change, wrapperClass, nrOfGFields } = props
+  const {
+    values,
+    change,
+    wrapperClass,
+    nrOfGFields,
+  } = props
 
   return {
     values,
     change,
     wrapperClass,
-    nrOfGFields
+    nrOfGFields,
   }
 }
 
