@@ -98,11 +98,13 @@ export default function (
             } else if (comparator === '=') {
               if (isDateField(filterField.field)) {
                 if (geschaeftValue !== filterValue) satisfiesFilter = false
-              } else {
+              } else if (isNaN(filterValue)) {
                 if (!includes(geschaeftValue, filterValue)) satisfiesFilter = false
+              } else {
+                if (!includes(geschaeftValue.toString(), filterValue.toString())) satisfiesFilter = false
               }
             } else if (comparator === '===') {
-              if (geschaeftValue !== filterValue) satisfiesFilter = false
+              if (geschaeftValue != filterValue) satisfiesFilter = false
             }
           }
         }

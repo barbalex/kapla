@@ -1,7 +1,8 @@
 'use strict'
 
 import React, { PropTypes } from 'react'
-import { FormControl, ControlLabel } from 'react-bootstrap'
+import { FormControl, ControlLabel, InputGroup } from 'react-bootstrap'
+import ComparatorSelector from '../../containers/filterFields/ComparatorSelector'
 import styles from './areaNummern.css'
 
 const AreaNummern = ({
@@ -31,13 +32,21 @@ const AreaNummern = ({
         ID
       </ControlLabel>
       <div className={styles.fieldIdGeschaeft}>
-        <FormControl
-          type="number"
-          value={values.idGeschaeft}
-          bsSize="small"
-          disabled
-          className={[styles.typeNr, styles.inputIdGeschaeft].join(' ')}
-        />
+        <InputGroup>
+          <ComparatorSelector
+            name="idGeschaeft"
+            changeComparator={changeComparator}
+          />
+          <FormControl
+            type="number"
+            value={values.idGeschaeft || ''}
+            name="idGeschaeft"
+            onChange={change}
+            bsSize="small"
+            tabIndex={1 + tabsToAdd}
+            className={[styles.typeNr, styles.inputIdGeschaeft].join(' ')}
+          />
+        </InputGroup>
       </div>
       <ControlLabel className={styles.labelGekoNr}>
         Geko
@@ -45,11 +54,11 @@ const AreaNummern = ({
       <div className={styles.fieldGekoNr}>
         <FormControl
           type="number"
-          value={values.GekoNr}
+          value={values.GekoNr || ''}
           name="gekoNr"
           onChange={change}
           bsSize="small"
-          tabIndex={1 + tabsToAdd}
+          tabIndex={2 + tabsToAdd}
           autoFocus={wrapperClass === styles.wrapperNarrow}
         />
       </div>
@@ -68,7 +77,7 @@ const AreaNummern = ({
           name="entscheidAwelNr"
           onChange={change}
           bsSize="small"
-          tabIndex={2 + tabsToAdd}
+          tabIndex={3 + tabsToAdd}
         />
       </div>
       <div className={styles.slashAwel}>
@@ -81,7 +90,7 @@ const AreaNummern = ({
           name="entscheidAwelJahr"
           onChange={change}
           bsSize="small"
-          tabIndex={3 + tabsToAdd}
+          tabIndex={4 + tabsToAdd}
         />
       </div>
       <ControlLabel className={styles.labelEntscheidBdv}>
@@ -94,7 +103,7 @@ const AreaNummern = ({
           name="entscheidBdvNr"
           onChange={change}
           bsSize="small"
-          tabIndex={4 + tabsToAdd}
+          tabIndex={5 + tabsToAdd}
         />
       </div>
       <div className={styles.slashBdv}>
@@ -107,7 +116,7 @@ const AreaNummern = ({
           name="entscheidBdvJahr"
           onChange={change}
           bsSize="small"
-          tabIndex={5 + tabsToAdd}
+          tabIndex={6 + tabsToAdd}
         />
       </div>
       <ControlLabel className={styles.labelEntscheidKr}>
@@ -120,7 +129,7 @@ const AreaNummern = ({
           name="entscheidKrNr"
           onChange={change}
           bsSize="small"
-          tabIndex={6 + tabsToAdd}
+          tabIndex={7 + tabsToAdd}
         />
       </div>
       <div className={styles.slashKr}>
@@ -133,7 +142,7 @@ const AreaNummern = ({
           name="entscheidKrJahr"
           onChange={change}
           bsSize="small"
-          tabIndex={7 + tabsToAdd}
+          tabIndex={8 + tabsToAdd}
         />
       </div>
       <ControlLabel className={styles.labelEntscheidRrb}>
@@ -146,7 +155,7 @@ const AreaNummern = ({
           name="entscheidRrbNr"
           onChange={change}
           bsSize="small"
-          tabIndex={8 + tabsToAdd}
+          tabIndex={9 + tabsToAdd}
         />
       </div>
       <div className={styles.slashRrb}>
@@ -159,7 +168,7 @@ const AreaNummern = ({
           name="entscheidRrbJahr"
           onChange={change}
           bsSize="small"
-          tabIndex={9 + tabsToAdd}
+          tabIndex={10 + tabsToAdd}
         />
       </div>
       <div className={styles.fieldAktenstandort}>
@@ -172,7 +181,7 @@ const AreaNummern = ({
           name="aktenstandort"
           onChange={change}
           bsSize="small"
-          tabIndex={10 + tabsToAdd}
+          tabIndex={11 + tabsToAdd}
         />
       </div>
       <div className={styles.fieldAktennummer}>
@@ -185,7 +194,7 @@ const AreaNummern = ({
           name="aktennummer"
           onChange={change}
           bsSize="small"
-          tabIndex={11 + tabsToAdd}
+          tabIndex={12 + tabsToAdd}
         />
       </div>
     </div>
