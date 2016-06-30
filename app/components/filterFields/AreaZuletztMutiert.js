@@ -1,13 +1,18 @@
 'use strict'
 
 import React, { PropTypes } from 'react'
-import { FormControl, ControlLabel } from 'react-bootstrap'
+import {
+  FormControl,
+  ControlLabel,
+} from 'react-bootstrap'
 import _ from 'lodash'
 import styles from './areaZuletztMutiert.css'
 
 const interneOptionsList = (interneOptions) => {
   // sort interneOptions by kurzzeichen
-  const interneOptionsWithItKonto = interneOptions.filter((o) => !!o.itKonto)
+  const interneOptionsWithItKonto = interneOptions.filter((o) =>
+    !!o.itKonto
+  )
   const interneOptionsSorted = _.sortBy(interneOptionsWithItKonto, (o) =>
     o.kurzzeichen.toLowerCase()
   )
@@ -20,7 +25,10 @@ const interneOptionsList = (interneOptions) => {
     const space = '\xa0'.repeat(times)
     const name = `${o.vorname || ''} ${o.name || ''}`
     return (
-      <option key={index + 1} value={o.itKonto}>
+      <option
+        key={index + 1}
+        value={o.itKonto}
+      >
         {`${o.kurzzeichen}${space}${'\xa0\xa0\xa0'}${name}`}
       </option>
     )
@@ -45,7 +53,7 @@ const AreaZuletztMutiert = ({
   values,
   interneOptions,
   change,
-  nrOfFieldsBeforeZuletztMutiert
+  nrOfFieldsBeforeZuletztMutiert,
 }) =>
   <div className={styles.areaZuletztMutiert}>
     <div className={styles.fieldVerantwortlich}>
@@ -77,7 +85,7 @@ AreaZuletztMutiert.propTypes = {
   values: PropTypes.object,
   interneOptions: PropTypes.array,
   nrOfFieldsBeforeZuletztMutiert: PropTypes.number,
-  change: PropTypes.func.isRequired
+  change: PropTypes.func.isRequired,
 }
 
 export default AreaZuletztMutiert

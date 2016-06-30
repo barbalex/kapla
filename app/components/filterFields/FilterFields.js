@@ -49,7 +49,7 @@ class FilterFields extends Component {
     let changedField = {
       comparator: '=',
       field: name,
-      value: null
+      value: null,
     }
     if (filterFields.forEach) {
       filterFields.forEach((f) => {
@@ -67,13 +67,20 @@ class FilterFields extends Component {
   }
 
   change = (e) => {
-    const { filterFields, geschaefteFilterByFields } = this.props
-    const { type, name, dataset } = e.target
+    const {
+      filterFields,
+      geschaefteFilterByFields,
+    } = this.props
+    const {
+      type,
+      name,
+      dataset,
+    } = e.target
     const newFilterFields = []
     let changedField = {
       comparator: '=',
       field: name,
-      value: null
+      value: null,
     }
     if (filterFields.forEach) {
       filterFields.forEach((f) => {
@@ -118,8 +125,16 @@ class FilterFields extends Component {
 
     // need width to adapt layout to differing widths
     const windowWidth = $(window).width()
-    const areaFilterFieldsWidth = windowWidth * (100 - config.geschaefteColumnWidth) / 100
-    const wrapperClassBaseString = areaFilterFieldsWidth < 750 ? 'wrapperNarrow' : 'wrapperWide'
+    const areaFilterFieldsWidth = (
+      windowWidth *
+      (100 - config.geschaefteColumnWidth) /
+      100
+    )
+    const wrapperClassBaseString = (
+      areaFilterFieldsWidth < 750 ?
+      'wrapperNarrow' :
+      'wrapperWide'
+    )
 
     // layout needs to work with or without area for geschaeftsart
     const wrapperClassString = (
