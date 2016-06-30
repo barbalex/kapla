@@ -1,7 +1,8 @@
 'use strict'
 
 import React, { PropTypes } from 'react'
-import { FormControl, ControlLabel } from 'react-bootstrap'
+import { FormControl, ControlLabel, InputGroup } from 'react-bootstrap'
+import ComparatorSelector from '../../containers/filterFields/ComparatorSelector'
 import styles from './areaHistory.css'
 
 const AreaHistory = ({
@@ -18,15 +19,21 @@ const AreaHistory = ({
       Vorgeschäft
     </ControlLabel>
     <div className={styles.fieldVorgeschaeft}>
-      <FormControl
-        type="number"
-        value={values.idVorgeschaeft || ''}
-        name="idVorgeschaeft"
-        onChange={change}
-        bsSize="small"
-        placeholder="ID"
-        tabIndex={nrOfFieldsBeforeHistory + 1}
-      />
+      <InputGroup>
+        <ComparatorSelector
+          name="idVorgeschaeft"
+          changeComparator={changeComparator}
+        />
+        <FormControl
+          type="number"
+          value={values.idVorgeschaeft || ''}
+          name="idVorgeschaeft"
+          onChange={change}
+          bsSize="small"
+          placeholder="ID"
+          tabIndex={nrOfFieldsBeforeHistory + 1}
+        />
+      </InputGroup>
     </div>
   </div>
 

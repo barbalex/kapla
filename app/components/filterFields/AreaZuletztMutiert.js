@@ -4,8 +4,10 @@ import React, { PropTypes } from 'react'
 import {
   FormControl,
   ControlLabel,
+  InputGroup,
 } from 'react-bootstrap'
 import _ from 'lodash'
+import ComparatorSelector from '../../containers/filterFields/ComparatorSelector'
 import styles from './areaZuletztMutiert.css'
 
 const interneOptionsList = (interneOptions) => {
@@ -61,17 +63,23 @@ const AreaZuletztMutiert = ({
       <ControlLabel>
         Mutations-Person
       </ControlLabel>
-      <FormControl
-        componentClass="select"
-        value={values.mutationsperson || ''}
-        name="mutationsperson"
-        onChange={change}
-        bsSize="small"
-        tabIndex={1 + nrOfFieldsBeforeZuletztMutiert}
-        className={styles.narrowVerantwDropdown}
-      >
-        {interneOptionsList(interneOptions)}
-      </FormControl>
+      <InputGroup>
+        <ComparatorSelector
+          name="mutationsperson"
+          changeComparator={changeComparator}
+        />
+        <FormControl
+          componentClass="select"
+          value={values.mutationsperson || ''}
+          name="mutationsperson"
+          onChange={change}
+          bsSize="small"
+          tabIndex={1 + nrOfFieldsBeforeZuletztMutiert}
+          className={styles.narrowVerantwDropdown}
+        >
+          {interneOptionsList(interneOptions)}
+        </FormControl>
+      </InputGroup>
     </div>
     <div className={styles.fieldVerantwortlichName}>
       <FormControl.Static>

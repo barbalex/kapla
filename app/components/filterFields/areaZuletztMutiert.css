@@ -2,8 +2,8 @@
   grid-area: areaZuletztMutiert;
   background-color: rgba(210, 210, 210, 0.2);
   display: grid;
-  grid-template-columns: 160px calc((100% - 10px) - 160px);
-  grid-column-gap: 2px;
+  grid-template-columns: 130px calc((100% - 10px) - 130px);
+  grid-column-gap: 8px;
   grid-row-gap: 2px;
   padding: 8px;
   align-items: end;

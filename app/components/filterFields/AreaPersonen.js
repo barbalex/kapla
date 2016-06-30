@@ -1,8 +1,9 @@
 'use strict'
 
 import React, { PropTypes } from 'react'
-import { FormControl } from 'react-bootstrap'
+import { FormControl, InputGroup } from 'react-bootstrap'
 import _ from 'lodash'
+import ComparatorSelector from '../../containers/filterFields/ComparatorSelector'
 import styles from './areaPersonen.css'
 
 const interneOptionsList = (interneOptions) => {
@@ -112,17 +113,23 @@ const AreaPersonen = ({
         Verantwortlich
       </div>
       <div className={styles.KontaktInternVornameName}>
-        <FormControl
-          componentClass="select"
-          value={values.verantwortlich || ''}
-          name="verantwortlich"
-          onChange={change}
-          bsSize="small"
-          tabIndex={1 + nrOfFieldsBeforePersonen}
-          className={styles.narrowVerantwDropdown}
-        >
-          {interneOptionsList(interneOptions)}
-        </FormControl>
+        <InputGroup>
+          <ComparatorSelector
+            name="verantwortlich"
+            changeComparator={changeComparator}
+          />
+          <FormControl
+            componentClass="select"
+            value={values.verantwortlich || ''}
+            name="verantwortlich"
+            onChange={change}
+            bsSize="small"
+            tabIndex={1 + nrOfFieldsBeforePersonen}
+            className={styles.narrowVerantwDropdown}
+          >
+            {interneOptionsList(interneOptions)}
+          </FormControl>
+        </InputGroup>
       </div>
       <div className={styles.fieldVerantwortlichName}>
         <FormControl.Static>
@@ -133,17 +140,23 @@ const AreaPersonen = ({
         Interne Kontakte
       </div>
       <div className={styles.KontaktInternVornameName}>
-        <FormControl
-          componentClass="select"
-          value={values.kontaktInternVornameName || ''}
-          name="kontaktInternVornameName"
-          onChange={change}
-          bsSize="small"
-          tabIndex={2 + nrOfFieldsBeforePersonen}
-          className={styles.narrowVerantwDropdown}
-        >
-          {interneOptionsList(interneOptions)}
-        </FormControl>
+        <InputGroup>
+          <ComparatorSelector
+            name="kontaktInternVornameName"
+            changeComparator={changeComparator}
+          />
+          <FormControl
+            componentClass="select"
+            value={values.kontaktInternVornameName || ''}
+            name="kontaktInternVornameName"
+            onChange={change}
+            bsSize="small"
+            tabIndex={2 + nrOfFieldsBeforePersonen}
+            className={styles.narrowVerantwDropdown}
+          >
+            {interneOptionsList(interneOptions)}
+          </FormControl>
+        </InputGroup>
       </div>
       <div className={styles.fieldVerantwortlichName}>
         <FormControl.Static>
@@ -155,17 +168,23 @@ const AreaPersonen = ({
         Externe Kontakte
       </div>
       <div className={styles.KontaktInternVornameName}>
-        <FormControl
-          componentClass="select"
-          value={values.kontaktExternNameVorname || ''}
-          name="kontaktExternNameVorname"
-          onChange={change}
-          bsSize="small"
-          tabIndex={3 + nrOfFieldsBeforePersonen}
-          className={styles.verantwDropdown}
-        >
-          {externeOptionsList(externeOptions)}
-        </FormControl>
+        <InputGroup>
+          <ComparatorSelector
+            name="kontaktExternNameVorname"
+            changeComparator={changeComparator}
+          />
+          <FormControl
+            componentClass="select"
+            value={values.kontaktExternNameVorname || ''}
+            name="kontaktExternNameVorname"
+            onChange={change}
+            bsSize="small"
+            tabIndex={3 + nrOfFieldsBeforePersonen}
+            className={styles.verantwDropdown}
+          >
+            {externeOptionsList(externeOptions)}
+          </FormControl>
+        </InputGroup>
       </div>
       <div className={styles.fieldVerantwortlichName}>
         <FormControl.Static>
