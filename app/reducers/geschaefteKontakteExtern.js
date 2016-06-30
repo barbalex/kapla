@@ -8,7 +8,7 @@ import {
   GESCHAEFT_KONTAKT_EXTERN_DELETE,
   GESCHAEFT_KONTAKT_EXTERN_SET_DELETE_INTENDED,
   GESCHAEFT_KONTAKT_EXTERN_REMOVE_DELETE_INTENDED,
-  GESCHAEFT_KONTAKT_EXTERN_NEW
+  GESCHAEFT_KONTAKT_EXTERN_NEW,
 } from '../actions/geschaefteKontakteExtern'
 
 const standardState = {
@@ -18,7 +18,7 @@ const standardState = {
   // state for active geschaeftKontaktExtern:
   activeIdGeschaeft: null,
   activeIdKontakt: null,
-  willDelete: false
+  willDelete: false,
 }
 
 const geschaefteKontakteExtern = (state = standardState, action) => {
@@ -27,20 +27,20 @@ const geschaefteKontakteExtern = (state = standardState, action) => {
       return {
         ...state,
         fetching: true,
-        error: []
+        error: [],
       }
     case GESCHAEFTE_KONTAKTE_EXTERN_GET_SUCCESS:
       return {
         ...state,
         fetching: false,
         error: [],
-        geschaefteKontakteExtern: action.geschaefteKontakteExtern
+        geschaefteKontakteExtern: action.geschaefteKontakteExtern,
       }
     case GESCHAEFTE_KONTAKTE_EXTERN_GET_ERROR:
       return {
         ...state,
         fetching: false,
-        error: [...state.error, action.error]
+        error: [...state.error, action.error],
       }
     case GESCHAEFT_KONTAKT_EXTERN_TOGGLE_ACTIVATED:
       return {
@@ -54,33 +54,41 @@ const geschaefteKontakteExtern = (state = standardState, action) => {
           state.activeIdKontakt && state.activeIdKontakt === action.activeIdKontakt ?
           null :
           action.activeIdKontakt
-        )
+        ),
       }
     case GESCHAEFT_KONTAKT_EXTERN_SET_DELETE_INTENDED:
       return {
         ...state,
         willDelete: true,
         activeIdGeschaeft: action.idGeschaeft,
-        activeIdKontakt: action.idKontakt
+        activeIdKontakt: action.idKontakt,
       }
     case GESCHAEFT_KONTAKT_EXTERN_REMOVE_DELETE_INTENDED:
       return {
         ...state,
-        willDelete: false
+        willDelete: false,
       }
     case GESCHAEFT_KONTAKT_EXTERN_DELETE:
       return {
         ...state,
-        geschaefteKontakteExtern: [...state.geschaefteKontakteExtern.filter((g) =>
-          (g.idGeschaeft !== action.idGeschaeft || g.idKontakt !== action.idKontakt))
+        geschaefteKontakteExtern: [
+          ...state.geschaefteKontakteExtern.filter((g) =>
+            (
+              g.idGeschaeft !== action.idGeschaeft ||
+              g.idKontakt !== action.idKontakt
+            )
+          )
         ],
         activeIdGeschaeft: null,
-        activeIdKontakt: null
+        activeIdKontakt: null,
       }
     case GESCHAEFT_KONTAKT_EXTERN_NEW:
       return {
         ...state,
-        geschaefteKontakteExtern: [action.geschaeftKontaktExtern, ...state.geschaefteKontakteExtern]
+        geschaefteKontakteExtern: [
+          action.geschaeftKontaktExtern,
+          ...state.geschaefteKontakteExtern,
+        ],
       }
     default:
       return state

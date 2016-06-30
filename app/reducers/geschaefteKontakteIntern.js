@@ -8,7 +8,7 @@ import {
   GESCHAEFT_KONTAKT_INTERN_DELETE,
   GESCHAEFT_KONTAKT_INTERN_SET_DELETE_INTENDED,
   GESCHAEFT_KONTAKT_INTERN_REMOVE_DELETE_INTENDED,
-  GESCHAEFT_KONTAKT_INTERN_NEW
+  GESCHAEFT_KONTAKT_INTERN_NEW,
 } from '../actions/geschaefteKontakteIntern'
 
 const standardState = {
@@ -18,7 +18,7 @@ const standardState = {
   // state for active geschaeftKontaktIntern:
   activeIdGeschaeft: null,
   activeIdKontakt: null,
-  willDelete: false
+  willDelete: false,
 }
 
 const geschaefteKontakteIntern = (state = standardState, action) => {
@@ -27,20 +27,20 @@ const geschaefteKontakteIntern = (state = standardState, action) => {
       return {
         ...state,
         fetching: true,
-        error: []
+        error: [],
       }
     case GESCHAEFTE_KONTAKTE_INTERN_GET_SUCCESS:
       return {
         ...state,
         fetching: false,
         error: [],
-        geschaefteKontakteIntern: action.geschaefteKontakteIntern
+        geschaefteKontakteIntern: action.geschaefteKontakteIntern,
       }
     case GESCHAEFTE_KONTAKTE_INTERN_GET_ERROR:
       return {
         ...state,
         fetching: false,
-        error: [...state.error, action.error]
+        error: [...state.error, action.error],
       }
     case GESCHAEFT_KONTAKT_INTERN_TOGGLE_ACTIVATED:
       return {
@@ -54,19 +54,19 @@ const geschaefteKontakteIntern = (state = standardState, action) => {
           state.activeIdKontakt && state.activeIdKontakt === action.activeIdKontakt ?
           null :
           action.activeIdKontakt
-        )
+        ),
       }
     case GESCHAEFT_KONTAKT_INTERN_SET_DELETE_INTENDED:
       return {
         ...state,
         willDelete: true,
         activeIdGeschaeft: action.idGeschaeft,
-        activeIdKontakt: action.idKontakt
+        activeIdKontakt: action.idKontakt,
       }
     case GESCHAEFT_KONTAKT_INTERN_REMOVE_DELETE_INTENDED:
       return {
         ...state,
-        willDelete: false
+        willDelete: false,
       }
     case GESCHAEFT_KONTAKT_INTERN_DELETE:
       return {
@@ -75,12 +75,15 @@ const geschaefteKontakteIntern = (state = standardState, action) => {
           (g.idGeschaeft !== action.idGeschaeft || g.idKontakt !== action.idKontakt))
         ],
         activeIdGeschaeft: null,
-        activeIdKontakt: null
+        activeIdKontakt: null,
       }
     case GESCHAEFT_KONTAKT_INTERN_NEW:
       return {
         ...state,
-        geschaefteKontakteIntern: [action.geschaeftKontaktIntern, ...state.geschaefteKontakteIntern]
+        geschaefteKontakteIntern: [
+          action.geschaeftKontaktIntern,
+          ...state.geschaefteKontakteIntern,
+        ],
       }
     default:
       return state

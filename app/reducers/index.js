@@ -18,7 +18,7 @@ const rootReducer = combineReducers({
   pages,
   user,
   app,
-  routing
+  routing,
 })
 
 export default rootReducer
