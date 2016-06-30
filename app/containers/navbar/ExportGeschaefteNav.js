@@ -8,11 +8,11 @@ import * as AppActions from '../../actions/app'
 function mapStateToProps(state) {
   const {
     geschaefte,
-    geschaefteGefilterteIds
+    geschaefteGefilterteIds,
   } = state.geschaefte
   return {
     geschaefte,
-    geschaefteGefilterteIds
+    geschaefteGefilterteIds,
   }
 }
 
