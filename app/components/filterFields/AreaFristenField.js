@@ -13,6 +13,16 @@ import styles from './areaFristenField.css'
 import getDateValidationStateDate from '../../src/getDateValidationStateDate'
 
 class AreaFristenField extends Component {
+  static propTypes = {
+    name: PropTypes.string.isRequired,
+    label: PropTypes.string.isRequired,
+    tabIndex: PropTypes.number.isRequired,
+    values: PropTypes.object.isRequired,
+    filterFields: PropTypes.array.isRequired,
+    change: PropTypes.func.isRequired,
+    changeComparator: PropTypes.func.isRequired,
+  }
+
   constructor(props) {
     super(props)
     this.state = {
@@ -21,16 +31,6 @@ class AreaFristenField extends Component {
     this.onChange = this.onChange.bind(this)
     this.onBlur = this.onBlur.bind(this)
     this.onChangeDatePicker = this.onChangeDatePicker.bind(this)
-  }
-
-  static propTypes = {
-    name: PropTypes.string.isRequired,
-    label: PropTypes.string.isRequired,
-    tabIndex: PropTypes.number.isRequired,
-    values: PropTypes.object.isRequired,
-    filterFields: PropTypes.array.isRequired,
-    change: PropTypes.func.isRequired,
-    changeComparator: PropTypes.func.isRequired
   }
 
   componentDidMount() {
@@ -94,9 +94,11 @@ class AreaFristenField extends Component {
       label,
       tabIndex,
       filterFields,
-      changeComparator
+      changeComparator,
     } = this.props
-    const { value } = this.state
+    const {
+      value,
+    } = this.state
     /**
      * need to give addon no padding
      * and the originally addon's padding to the glyphicon
@@ -104,13 +106,13 @@ class AreaFristenField extends Component {
      * for opening calendar
      */
     const datePickerAddonStyle = {
-      padding: 0
+      padding: 0,
     }
     const datePickerCalendarStyle = {
       paddingTop: 6,
       paddingBottom: 6,
       paddingLeft: 12,
-      paddingRight: 12
+      paddingRight: 12,
     }
 
     const fieldStyleName = `field${name.charAt(0).toUpperCase()}${name.slice(1)}`

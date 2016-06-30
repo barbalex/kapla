@@ -8,7 +8,7 @@ const AreaFristen = ({
   values,
   nrOfFieldsBeforeFristen,
   change,
-  changeComparator
+  changeComparator,
 }) =>
   <div className={styles.areaFristen}>
     <div className={styles.areaFristenTitle}>
@@ -78,7 +78,7 @@ AreaFristen.propTypes = {
   values: PropTypes.object,
   change: PropTypes.func.isRequired,
   changeComparator: PropTypes.func.isRequired,
-  nrOfFieldsBeforeFristen: PropTypes.number
+  nrOfFieldsBeforeFristen: PropTypes.number,
 }
 
 export default AreaFristen
