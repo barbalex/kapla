@@ -8,11 +8,11 @@ import GeschaefteItem from '../containers/GeschaefteItem'
 
 class Geschaefte extends Component {
   static propTypes = {
-    geschaefteGefilterteIds: PropTypes.array
+    geschaefteGefilterteIds: PropTypes.array,
   }
 
   state = {
-    tableBodyOverflows: true
+    tableBodyOverflows: true,
   }
 
   componentDidUpdate() {
@@ -71,16 +71,36 @@ class Geschaefte extends Component {
                 paddingRight: tableBodyOverflows ? 17 : null
               }}
             >
-              <div className={[styles.columnIdGeschaeft, styles.tableHeaderCell].join(' ')}>
+              <div
+                className={[
+                  styles.columnIdGeschaeft,
+                  styles.tableHeaderCell,
+                ].join(' ')}
+              >
                 ID
               </div>
-              <div className={[styles.columnGegenstand, styles.tableHeaderCell].join(' ')}>
+              <div
+                className={[
+                  styles.columnGegenstand,
+                  styles.tableHeaderCell,
+                ].join(' ')}
+              >
                 Gegenstand
               </div>
-              <div className={[styles.columnStatus, styles.tableHeaderCell].join(' ')}>
+              <div
+                className={[
+                  styles.columnStatus,
+                  styles.tableHeaderCell,
+                ].join(' ')}
+              >
                 Status
               </div>
-              <div className={[styles.columnKontaktIntern, styles.tableHeaderCell].join(' ')}>
+              <div
+                className={[
+                  styles.columnKontaktIntern,
+                  styles.tableHeaderCell,
+                ].join(' ')}
+              >
                 Verantwortlich
               </div>
             </div>

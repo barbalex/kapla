@@ -6,7 +6,11 @@ import _ from 'lodash'
 import styles from './kontakteIntern.css'
 import KontakteInternItems from '../../containers/geschaeft/KontakteInternItems'
 
-const onChangeNewKontaktIntern = (e, geschaeftKontaktInternNewCreate, activeId) => {
+const onChangeNewKontaktIntern = (
+  e,
+  geschaeftKontaktInternNewCreate,
+  activeId,
+) => {
   const idKontakt = e.target.value
   geschaeftKontaktInternNewCreate(activeId, idKontakt)
   // need to empty dropdown
@@ -16,7 +20,7 @@ const onChangeNewKontaktIntern = (e, geschaeftKontaktInternNewCreate, activeId) 
 const optionsList = (
   interneOptions,
   geschaefteKontakteIntern,
-  activeId
+  activeId,
 ) => {
   // filter out options already choosen
   const kontakteInternOfActiveGeschaeft = geschaefteKontakteIntern.filter((g) =>
@@ -62,7 +66,7 @@ const GeschaefteKontakteIntern = ({
   geschaeftKontaktInternNewCreate,
   activeId,
   interneOptions,
-  geschaefteKontakteIntern
+  geschaefteKontakteIntern,
 }) =>
   <div className={styles.body}>
     <KontakteInternItems />
@@ -76,7 +80,11 @@ const GeschaefteKontakteIntern = ({
           bsSize="small"
           className={styles.dropdown}
           onChange={(e) =>
-            onChangeNewKontaktIntern(e, geschaeftKontaktInternNewCreate, activeId)
+            onChangeNewKontaktIntern(
+              e,
+              geschaeftKontaktInternNewCreate,
+              activeId,
+            )
           }
           title="Neuen Kontakt hinzufügen"
           tabIndex={tabIndex}
@@ -85,7 +93,7 @@ const GeschaefteKontakteIntern = ({
             optionsList(
               interneOptions,
               geschaefteKontakteIntern,
-              activeId
+              activeId,
             )
           }
         </FormControl>
@@ -103,7 +111,7 @@ GeschaefteKontakteIntern.propTypes = {
   geschaeftKontaktInternNewCreate: PropTypes.func.isRequired,
   geschaeftKontaktInternRemove: PropTypes.func.isRequired,
   activeId: PropTypes.number.isRequired,
-  tabIndex: PropTypes.number.isRequired
+  tabIndex: PropTypes.number.isRequired,
 }
 
 export default GeschaefteKontakteIntern
