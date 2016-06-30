@@ -70,8 +70,12 @@ export default function (
           filterValue = filterFields[index].value
         } else {
           if (isDateField(filterField.field)) {
-            if (geschaeftValue) geschaeftValue = moment(geschaeftValue).format('YYYY-MM-DD')
-            if (filterValue) filterValue = moment(filterValue).format('YYYY-MM-DD')
+            if (geschaeftValue) {
+              geschaeftValue = moment(geschaeftValue, 'DD.MM.YYYY').format('YYYY-MM-DD')
+            }
+            if (filterValue) {
+              filterValue = moment(filterValue, 'DD.MM.YYYY').format('YYYY-MM-DD')
+            }
           }
           if (isString(geschaeft[filterField.field])) {
             geschaeftValue = geschaeft[filterField.field].toLowerCase()
