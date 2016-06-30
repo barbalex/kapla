@@ -6,10 +6,10 @@ import Geschaefte from '../components/Geschaefte'
 
 function mapStateToProps(state) {
   const {
-    geschaefteGefilterteIds
+    geschaefteGefilterteIds,
   } = state.geschaefte
   return {
-    geschaefteGefilterteIds
+    geschaefteGefilterteIds,
   }
 }
 

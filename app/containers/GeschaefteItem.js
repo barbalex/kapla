@@ -9,10 +9,13 @@ function mapStateToProps(state, props) {
   const {
     geschaefte,
     geschaefteGefilterteIds,
-    activeId
+    activeId,
   } = state.geschaefte
   const path = state.routing.locationBeforeTransitions.pathname
-  const { index, keyPassed } = props
+  const {
+    index,
+    keyPassed,
+  } = props
 
   return {
     geschaefte,
@@ -20,7 +23,7 @@ function mapStateToProps(state, props) {
     activeId,
     path,
     index,
-    keyPassed
+    keyPassed,
   }
 }
 
