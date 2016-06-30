@@ -88,7 +88,7 @@ const AreaFristen = ({
         <InputGroup>
           <FormControl
             type="text"
-            value={geschaeft.datumEingangAwel}
+            value={geschaeft.datumEingangAwel || ''}
             name="datumEingangAwel"
             onChange={change}
             onBlur={blur}
