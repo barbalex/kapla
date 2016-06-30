@@ -12,8 +12,6 @@ export default function (
   const existsFilterFulltext = !!filterFulltext
   const existsFilterFields = Object.keys(filterFields).length > 0
   let geschaefteGefiltert = geschaefte
-  let comparator
-  let filterValue
   const fieldsWithList = [
     'kontaktInternVornameName',
     'kontaktExternNameVorname',
@@ -34,7 +32,7 @@ export default function (
               geschaeft[key].toLowerCase() :
               geschaeft[key]
             )
-            filterValue = (
+            const filterValue = (
               isString(filterFulltext) ?
               filterFulltext.toLowerCase() :
               filterFulltext
@@ -64,21 +62,19 @@ export default function (
       let satisfiesFilter = true
       filterFieldsWithValues.forEach((filterField, index) => {
         let geschaeftValue = geschaeft[filterField.field]
+        let filterValue = filterField.value
         const existsGeschaeftValue = geschaeftValue || geschaeftValue === 0
         if (!existsGeschaeftValue) {
           satisfiesFilter = false
-          filterValue = filterFields[index].value
         } else {
           if (isDateField(filterField.field)) {
             if (geschaeftValue) {
+              // format geschaeftValue same as filterValue
               geschaeftValue = moment(geschaeftValue, 'DD.MM.YYYY').format('YYYY-MM-DD')
             }
-            if (filterValue) {
-              filterValue = moment(filterValue, 'DD.MM.YYYY').format('YYYY-MM-DD')
-            }
           }
-          if (isString(geschaeft[filterField.field])) {
-            geschaeftValue = geschaeft[filterField.field].toLowerCase()
+          if (isString(geschaeftValue)) {
+            geschaeftValue = geschaeftValue.toLowerCase()
           }
           if (isString(filterValue)) {
             filterValue = filterValue.toLowerCase()
@@ -88,7 +84,7 @@ export default function (
             // this field is special: a comma separated list of "vorname name"
             if (!geschaeftValue.includes(filterValue)) satisfiesFilter = false
           } else {
-            comparator = filterFields[index].comparator || '='
+            const comparator = filterFields[index].comparator || '='
             if (filterValue === '') {
               if (!!geschaeftValue) satisfiesFilter = false
             } else if (comparator === '!==') {

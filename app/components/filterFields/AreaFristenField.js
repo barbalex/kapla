@@ -135,10 +135,11 @@ class AreaFristenField extends Component {
               value={comparatorValue}
             >
               <option value=""></option>
-              <option value="=">=</option>
-              <option value="!==">!=</option>
-              <option value=">">{'>'}</option>
-              <option value="<">{'<'}</option>
+              <option value="=">&#8776;</option>
+              <option value="===">=</option>
+              <option value="!==">&#60;</option>
+              <option value="&#60;">&#60;&#62;</option>
+              <option value="&#62;">&#62;</option>
             </FormControl>
           </InputGroup.Button>
           <FormControl

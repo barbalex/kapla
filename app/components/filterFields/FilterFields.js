@@ -20,7 +20,7 @@ class FilterFields extends Component {
     values: PropTypes.object.isRequired,
     filterFields: PropTypes.arrayOf(
       PropTypes.shape({
-        comparator: PropTypes.oneOf(['=', '===', '!==', '<', '<=', '>', '>=']),
+        comparator: PropTypes.oneOf(['=', '===', '!==', '<', '>', '']),
         field: PropTypes.string,
         value: PropTypes.oneOfType([
           PropTypes.string,
