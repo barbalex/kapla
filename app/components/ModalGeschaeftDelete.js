@@ -7,14 +7,14 @@ class ModalGeschaeftDelete extends Component {
   static propTypes = {
     geschaeftRemove: PropTypes.func.isRequired,
     geschaeftRemoveDeleteIntended: PropTypes.func.isRequired,
-    activeId: PropTypes.number
+    activeId: PropTypes.number,
   }
 
   render() {
     const {
       geschaeftRemove,
       geschaeftRemoveDeleteIntended,
-      activeId
+      activeId,
     } = this.props
 
     return (

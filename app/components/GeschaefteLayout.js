@@ -29,19 +29,25 @@ class GeschaefteLayout extends Component {
             type: 'react-component',
             component: 'geschaefte',
             title: 'Geschäfte',
-            width: config.geschaefteColumnWidth
+            width: config.geschaefteColumnWidth,
           },
           {
             type: 'react-component',
             component: 'geschaeft',
-            title: 'aktives Geschäft'
+            title: 'aktives Geschäft',
           }
         ]
       }]
     }
     geschaefteLayout = new GoldenLayout(layoutConfig)
-    geschaefteLayout.registerComponent('geschaefte', wrapComponentInProvider(Geschaefte))
-    geschaefteLayout.registerComponent('geschaeft', wrapComponentInProvider(Geschaeft))
+    geschaefteLayout.registerComponent(
+      'geschaefte',
+      wrapComponentInProvider(Geschaefte)
+    )
+    geschaefteLayout.registerComponent(
+      'geschaeft',
+      wrapComponentInProvider(Geschaeft)
+    )
     geschaefteLayout.init()
     geschaefteLayoutSet(geschaefteLayout)
     geschaefteLayout.on('stateChanged', () =>
@@ -51,15 +57,23 @@ class GeschaefteLayout extends Component {
 
   componentWillUnmount = () => {
     const { geschaefteLayout } = this.props
-    if (geschaefteLayout.destroy) geschaefteLayout.destroy()
+    if (geschaefteLayout.destroy) {
+      geschaefteLayout.destroy()
+    }
   }
 
   saveGeschaefteState = () => {
-    const { geschaefteLayout, configSetKey, filterFieldsLayout } = this.props
+    const {
+      geschaefteLayout,
+      configSetKey,
+      filterFieldsLayout,
+    } = this.props
     const config = geschaefteLayout.toConfig()
     const geschaefteColumnWidth = config.content[0].content[0].width
     configSetKey('geschaefteColumnWidth', geschaefteColumnWidth)
-    if (filterFieldsLayout.destroy) filterFieldsLayout.destroy()
+    if (filterFieldsLayout.destroy) {
+      filterFieldsLayout.destroy()
+    }
   }
 
   render = () => <div></div>

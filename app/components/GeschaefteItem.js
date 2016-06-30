@@ -34,9 +34,12 @@ const GeschaefteItem = ({
   path,
   geschaeftToggleActivated,
   index,
-  keyPassed
+  keyPassed,
 }) => {
-  const isActive = activeId && activeId === geschaefteGefilterteIds[index]
+  const isActive = (
+    activeId &&
+    activeId === geschaefteGefilterteIds[index]
+  )
   const trClassName = (
     isActive ?
     [styles.tableBodyRow, styles.active].join(' ') :
@@ -92,7 +95,9 @@ const GeschaefteItem = ({
         <div>
           {fristMitarbeiter}
         </div>
-        <div className={getStatusFristInStyle(statusFristInText)}>
+        <div
+          className={getStatusFristInStyle(statusFristInText)}
+        >
           {statusFristIn}
         </div>
       </div>
@@ -117,7 +122,7 @@ GeschaefteItem.propTypes = {
   activeId: PropTypes.number,
   path: PropTypes.string.isRequired,
   index: PropTypes.number.isRequired,
-  keyPassed: PropTypes.number.isRequired
+  keyPassed: PropTypes.number.isRequired,
 }
 
 export default GeschaefteItem
