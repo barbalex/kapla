@@ -3,7 +3,10 @@
 import React, { PropTypes } from 'react'
 import styles from './areaZuletztMutiert.css'
 
-const AreaZuletztMutiert = ({ geschaeft, interneOptions }) => {
+const AreaZuletztMutiert = ({
+  geschaeft,
+  interneOptions,
+}) => {
   let zuletztMutiertText
 
   if (!geschaeft.mutationsperson) {
@@ -41,7 +44,7 @@ AreaZuletztMutiert.displayName = 'AreaZuletztMutiert'
 
 AreaZuletztMutiert.propTypes = {
   geschaeft: PropTypes.object.isRequired,
-  interneOptions: PropTypes.array
+  interneOptions: PropTypes.array,
 }
 
 export default AreaZuletztMutiert

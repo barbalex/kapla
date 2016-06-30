@@ -6,7 +6,7 @@ import {
   FormControl,
   InputGroup,
   ControlLabel,
-  Glyphicon
+  Glyphicon,
 } from 'react-bootstrap'
 import moment from 'moment'
 moment.locale('de')
@@ -22,7 +22,7 @@ const AreaRechtsmittel = ({
   nrOfFieldsBeforePv,
   change,
   blur,
-  onChangeDatePicker
+  onChangeDatePicker,
 }) => {
   /**
    * need to give addon no padding
@@ -31,13 +31,13 @@ const AreaRechtsmittel = ({
    * for opening calendar
    */
   const datePickerAddonStyle = {
-    padding: 0
+    padding: 0,
   }
   const datePickerCalendarStyle = {
     paddingTop: 6,
     paddingBottom: 6,
     paddingLeft: 12,
-    paddingRight: 12
+    paddingRight: 12,
   }
 
   return (
@@ -137,7 +137,7 @@ AreaRechtsmittel.propTypes = {
   nrOfFieldsBeforePv: PropTypes.number.isRequired,
   change: PropTypes.func.isRequired,
   blur: PropTypes.func.isRequired,
-  onChangeDatePicker: PropTypes.func.isRequired
+  onChangeDatePicker: PropTypes.func.isRequired,
 }
 
 export default AreaRechtsmittel
