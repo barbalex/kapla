@@ -8,11 +8,11 @@ import * as TableActions from '../../actions/table'
 function mapStateToProps(state) {
   const {
     table,
-    rows
+    rows,
   } = state.table
   return {
     table,
-    rows
+    rows,
   }
 }
 

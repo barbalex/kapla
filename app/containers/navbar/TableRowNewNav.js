@@ -6,8 +6,12 @@ import TableRowNewNav from '../../components/navbar/TableRowNewNav'
 import * as TableActions from '../../actions/table'
 
 function mapStateToProps(state) {
-  const { table } = state.table
-  return { table }
+  const {
+    table,
+  } = state.table
+  return {
+    table,
+  }
 }
 
 function mapDispatchToProps(dispatch) {
