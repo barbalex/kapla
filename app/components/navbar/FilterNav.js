@@ -8,7 +8,7 @@ import {
   SplitButton,
   Navbar,
   Glyphicon,
-  FormControl
+  FormControl,
 } from 'react-bootstrap'
 import moment from 'moment'
 import filterForFaelligeGeschaefte from '../../src/filterForFaelligeGeschaefte'
@@ -25,19 +25,19 @@ const onSelectFilterFaelligeGeschaefte = (geschaefteFilterByFields) => {
 
 const onSelectFilterFaelligeGeschaefteMitarbeiter = (
   geschaefteFilterByFields,
-  username
+  username,
 ) => {
   const now = moment().format('YYYY-MM-DD')
   const filter = [
     {
       field: 'fristMitarbeiter',
       value: now,
-      comparator: '<'
+      comparator: '<',
     },
     {
       field: 'mutationsperson',
       value: username,
-      comparator: '==='
+      comparator: '===',
     }
   ]
   geschaefteFilterByFields(filter, 'eigene fällige')
@@ -65,7 +65,7 @@ const FilterNav = ({
   geschaefteRemoveFilters,
   geschaefteFilterByFulltext,
   path,
-  router
+  router,
 }) => {
   const dataIsFilteredByFulltext = (
     geschaefte.length !== geschaefteGefilterteIds.length &&
@@ -80,7 +80,7 @@ const FilterNav = ({
   )
   const dataIsFilteredByFulltextStyle = [
     styles.filterInput,
-    styles.filterInputActive
+    styles.filterInputActive,
   ].join(' ')
   const classNameFilterInput = (
     dataIsFilteredByFulltext ?
@@ -112,7 +112,9 @@ const FilterNav = ({
           id="field-filter-dropdown"
           title="Felder filtern"
           className={styles.fieldFilterDropdown}
-          style={{ backgroundColor: dataIsFilteredByFields ? '#FFBF73' : null }}
+          style={{
+            backgroundColor: dataIsFilteredByFields ? '#FFBF73' : null
+          }}
           onClick={() => {
             if (path !== '/filterFields') {
               router.push('/filterFields')
@@ -123,7 +125,9 @@ const FilterNav = ({
             aktive Filterkriterien:
           </MenuItem>
           <MenuItem>
-            <span className={styles.filterCriteria}>{activeFiltercriteria}</span>
+            <span className={styles.filterCriteria}>
+              {activeFiltercriteria}
+            </span>
           </MenuItem>
           <MenuItem header>
             vorbereitete Filter:
@@ -144,7 +148,10 @@ const FilterNav = ({
           </MenuItem>
           <MenuItem
             onSelect={() =>
-              onSelectFilterFaelligeGeschaefteMitarbeiter(geschaefteFilterByFields, username)
+              onSelectFilterFaelligeGeschaefteMitarbeiter(
+                geschaefteFilterByFields,
+                username,
+              )
             }
             style={{
               backgroundColor: (
@@ -217,7 +224,7 @@ FilterNav.propTypes = {
   router: PropTypes.shape({
     push: PropTypes.func.isRequired
   }).isRequired,
-  path: PropTypes.string.isRequired
+  path: PropTypes.string.isRequired,
 }
 
 export default withRouter(FilterNav)

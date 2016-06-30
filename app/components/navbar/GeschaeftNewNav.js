@@ -3,10 +3,12 @@
 import React, { PropTypes } from 'react'
 import {
   NavItem,
-  Glyphicon
+  Glyphicon,
 } from 'react-bootstrap'
 
-const NavbarGeschaeftNeuNav = ({ geschaeftNewCreate }) =>
+const NavbarGeschaeftNeuNav = ({
+  geschaeftNewCreate,
+}) =>
   <NavItem
     onClick={geschaeftNewCreate}
     title="neues Geschäft"
@@ -17,7 +19,7 @@ const NavbarGeschaeftNeuNav = ({ geschaeftNewCreate }) =>
 NavbarGeschaeftNeuNav.displayName = 'NavbarGeschaeftNeuNav'
 
 NavbarGeschaeftNeuNav.propTypes = {
-  geschaeftNewCreate: PropTypes.func.isRequired
+  geschaeftNewCreate: PropTypes.func.isRequired,
 }
 
 export default NavbarGeschaeftNeuNav

@@ -3,12 +3,12 @@
 import React, { PropTypes } from 'react'
 import {
   NavItem,
-  Glyphicon
+  Glyphicon,
 } from 'react-bootstrap'
 
 const NavbarGeschaeftLoeschenNav = ({
   geschaeftSetDeleteIntended,
-  activeId
+  activeId,
 }) =>
   <NavItem
     onClick={() =>
@@ -24,7 +24,7 @@ NavbarGeschaeftLoeschenNav.displayName = 'NavbarGeschaeftLoeschenNav'
 
 NavbarGeschaeftLoeschenNav.propTypes = {
   geschaeftSetDeleteIntended: PropTypes.func.isRequired,
-  activeId: PropTypes.number
+  activeId: PropTypes.number,
 }
 
 export default NavbarGeschaeftLoeschenNav
