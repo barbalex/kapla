@@ -44,7 +44,7 @@ const AreaNummern = ({
             onChange={change}
             bsSize="small"
             tabIndex={1 + tabsToAdd}
-            className={[styles.typeNr, styles.inputIdGeschaeft].join(' ')}
+            className={styles.typeNr}
           />
         </InputGroup>
       </div>
@@ -52,15 +52,21 @@ const AreaNummern = ({
         Geko
       </ControlLabel>
       <div className={styles.fieldGekoNr}>
-        <FormControl
-          type="number"
-          value={values.GekoNr || ''}
-          name="gekoNr"
-          onChange={change}
-          bsSize="small"
-          tabIndex={2 + tabsToAdd}
-          autoFocus={wrapperClass === styles.wrapperNarrow}
-        />
+        <InputGroup>
+          <ComparatorSelector
+            name="gekoNr"
+            changeComparator={changeComparator}
+          />
+          <FormControl
+            type="number"
+            value={values.GekoNr || ''}
+            name="gekoNr"
+            onChange={change}
+            bsSize="small"
+            tabIndex={2 + tabsToAdd}
+            autoFocus={wrapperClass === styles.wrapperNarrow}
+          />
+        </InputGroup>
       </div>
       <div className={styles.labelJahre}>
         <div className={styles.labelNrDiv}>
@@ -71,131 +77,191 @@ const AreaNummern = ({
         AWEL
       </ControlLabel>
       <div className={styles.fieldEntscheidAwelNr}>
-        <FormControl
-          type="number"
-          value={values.entscheidAwelNr || ''}
-          name="entscheidAwelNr"
-          onChange={change}
-          bsSize="small"
-          tabIndex={3 + tabsToAdd}
-        />
+        <InputGroup>
+          <ComparatorSelector
+            name="entscheidAwelNr"
+            changeComparator={changeComparator}
+          />
+          <FormControl
+            type="number"
+            value={values.entscheidAwelNr || ''}
+            name="entscheidAwelNr"
+            onChange={change}
+            bsSize="small"
+            tabIndex={3 + tabsToAdd}
+          />
+        </InputGroup>
       </div>
       <div className={styles.slashAwel}>
         <div>/</div>
       </div>
       <div className={styles.fieldEntscheidAwelJahr}>
-        <FormControl
-          type="number"
-          value={values.entscheidAwelJahr || ''}
-          name="entscheidAwelJahr"
-          onChange={change}
-          bsSize="small"
-          tabIndex={4 + tabsToAdd}
-        />
+        <InputGroup>
+          <ComparatorSelector
+            name="entscheidAwelJahr"
+            changeComparator={changeComparator}
+          />
+          <FormControl
+            type="number"
+            value={values.entscheidAwelJahr || ''}
+            name="entscheidAwelJahr"
+            onChange={change}
+            bsSize="small"
+            tabIndex={4 + tabsToAdd}
+          />
+        </InputGroup>
       </div>
       <ControlLabel className={styles.labelEntscheidBdv}>
         BDV
       </ControlLabel>
       <div className={styles.fieldEntscheidBdvNr}>
-        <FormControl
-          type="number"
-          value={values.entscheidBdvNr || ''}
-          name="entscheidBdvNr"
-          onChange={change}
-          bsSize="small"
-          tabIndex={5 + tabsToAdd}
-        />
+        <InputGroup>
+          <ComparatorSelector
+            name="entscheidBdvNr"
+            changeComparator={changeComparator}
+          />
+          <FormControl
+            type="number"
+            value={values.entscheidBdvNr || ''}
+            name="entscheidBdvNr"
+            onChange={change}
+            bsSize="small"
+            tabIndex={5 + tabsToAdd}
+          />
+        </InputGroup>
       </div>
       <div className={styles.slashBdv}>
         <div>/</div>
       </div>
       <div className={styles.fieldEntscheidBdvJahr}>
-        <FormControl
-          type="number"
-          value={values.entscheidBdvJahr || ''}
-          name="entscheidBdvJahr"
-          onChange={change}
-          bsSize="small"
-          tabIndex={6 + tabsToAdd}
-        />
+        <InputGroup>
+          <ComparatorSelector
+            name="entscheidBdvJahr"
+            changeComparator={changeComparator}
+          />
+          <FormControl
+            type="number"
+            value={values.entscheidBdvJahr || ''}
+            name="entscheidBdvJahr"
+            onChange={change}
+            bsSize="small"
+            tabIndex={6 + tabsToAdd}
+          />
+        </InputGroup>
       </div>
       <ControlLabel className={styles.labelEntscheidKr}>
         KR
       </ControlLabel>
       <div className={styles.fieldEntscheidKrNr}>
-        <FormControl
-          type="number"
-          value={values.entscheidKrNr || ''}
-          name="entscheidKrNr"
-          onChange={change}
-          bsSize="small"
-          tabIndex={7 + tabsToAdd}
-        />
+        <InputGroup>
+          <ComparatorSelector
+            name="entscheidKrNr"
+            changeComparator={changeComparator}
+          />
+          <FormControl
+            type="number"
+            value={values.entscheidKrNr || ''}
+            name="entscheidKrNr"
+            onChange={change}
+            bsSize="small"
+            tabIndex={7 + tabsToAdd}
+          />
+        </InputGroup>
       </div>
       <div className={styles.slashKr}>
         <div>/</div>
       </div>
       <div className={styles.fieldEntscheidKrJahr}>
-        <FormControl
-          type="number"
-          value={values.entscheidKrJahr || ''}
-          name="entscheidKrJahr"
-          onChange={change}
-          bsSize="small"
-          tabIndex={8 + tabsToAdd}
-        />
+        <InputGroup>
+          <ComparatorSelector
+            name="entscheidKrJahr"
+            changeComparator={changeComparator}
+          />
+          <FormControl
+            type="number"
+            value={values.entscheidKrJahr || ''}
+            name="entscheidKrJahr"
+            onChange={change}
+            bsSize="small"
+            tabIndex={8 + tabsToAdd}
+          />
+        </InputGroup>
       </div>
       <ControlLabel className={styles.labelEntscheidRrb}>
         RRB
       </ControlLabel>
       <div className={styles.fieldEntscheidRrbNr}>
-        <FormControl
-          type="number"
-          value={values.entscheidRrbNr || ''}
-          name="entscheidRrbNr"
-          onChange={change}
-          bsSize="small"
-          tabIndex={9 + tabsToAdd}
-        />
+        <InputGroup>
+          <ComparatorSelector
+            name="entscheidRrbNr"
+            changeComparator={changeComparator}
+          />
+          <FormControl
+            type="number"
+            value={values.entscheidRrbNr || ''}
+            name="entscheidRrbNr"
+            onChange={change}
+            bsSize="small"
+            tabIndex={9 + tabsToAdd}
+          />
+        </InputGroup>
       </div>
       <div className={styles.slashRrb}>
         <div>/</div>
       </div>
       <div className={styles.fieldEntscheidRrbJahr}>
-        <FormControl
-          type="number"
-          value={values.entscheidRrbJahr || ''}
-          name="entscheidRrbJahr"
-          onChange={change}
-          bsSize="small"
-          tabIndex={10 + tabsToAdd}
-        />
+        <InputGroup>
+          <ComparatorSelector
+            name="entscheidRrbJahr"
+            changeComparator={changeComparator}
+          />
+          <FormControl
+            type="number"
+            value={values.entscheidRrbJahr || ''}
+            name="entscheidRrbJahr"
+            onChange={change}
+            bsSize="small"
+            tabIndex={10 + tabsToAdd}
+          />
+        </InputGroup>
       </div>
       <div className={styles.fieldAktenstandort}>
         <ControlLabel>
           Aktenstandort
         </ControlLabel>
-        <FormControl
-          type="text"
-          value={values.aktenstandort || ''}
-          name="aktenstandort"
-          onChange={change}
-          bsSize="small"
-          tabIndex={11 + tabsToAdd}
-        />
+        <InputGroup>
+          <ComparatorSelector
+            name="aktenstandort"
+            changeComparator={changeComparator}
+          />
+          <FormControl
+            type="text"
+            value={values.aktenstandort || ''}
+            name="aktenstandort"
+            onChange={change}
+            bsSize="small"
+            tabIndex={11 + tabsToAdd}
+          />
+        </InputGroup>
       </div>
       <div className={styles.fieldAktennummer}>
         <ControlLabel>
           Nr.
         </ControlLabel>
-        <FormControl
-          type="text"
-          value={values.aktennummer || ''}
-          name="aktennummer"
-          onChange={change}
-          bsSize="small"
-          tabIndex={12 + tabsToAdd}
-        />
+        <InputGroup>
+          <ComparatorSelector
+            name="aktennummer"
+            changeComparator={changeComparator}
+          />
+          <FormControl
+            type="text"
+            value={values.aktennummer || ''}
+            name="aktennummer"
+            onChange={change}
+            bsSize="small"
+            tabIndex={12 + tabsToAdd}
+          />
+        </InputGroup>
       </div>
     </div>
   )

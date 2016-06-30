@@ -14,7 +14,7 @@
   background-color: rgba(210, 210, 210, 0.2);
   display: grid;
   /* can't use 1fr for first column - does not work correctly, no idea why */
-  grid-template-columns: calc(100% - 236px) 8px 110px 8px 110px;
+  grid-template-columns: calc(100% - 256px) 8px 120px 8px 120px;
   grid-template-rows: auto;
   grid-template-areas:
    "areaNummernTitle areaNummernTitle areaNummernTitle areaNummernTitle labelNr"
@@ -93,10 +93,6 @@
 .labelIdGeschaeft {
   composes: labelHorizontal;
   grid-area: labelIdGeschaeft;
-}
-
-.inputIdGeschaeft {
-  background: transparent !important;
 }
 
 .fieldGekoNr {

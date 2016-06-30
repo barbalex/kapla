@@ -8,6 +8,7 @@ const AreaHistory = ({
   values,
   change,
   changeComparator,
+  nrOfFieldsBeforeHistory,
 }) =>
   <div className={styles.areaHistory}>
     <div className={styles.areaHistoryTitle}>
@@ -24,7 +25,7 @@ const AreaHistory = ({
         onChange={change}
         bsSize="small"
         placeholder="ID"
-        tabIndex={99}
+        tabIndex={nrOfFieldsBeforeHistory + 1}
       />
     </div>
   </div>
@@ -35,6 +36,7 @@ AreaHistory.propTypes = {
   values: PropTypes.object,
   change: PropTypes.func.isRequired,
   changeComparator: PropTypes.func.isRequired,
+  nrOfFieldsBeforeHistory: PropTypes.number.isRequired,
 }
 
 export default AreaHistory
