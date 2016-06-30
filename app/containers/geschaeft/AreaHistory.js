@@ -11,9 +11,12 @@ const actions = Object.assign(GeschaefteActions, AppActions)
 function mapStateToProps(state, props) {
   const {
     geschaefte,
-    activeId
+    activeId,
   } = state.geschaefte
-  const { blur, change } = props
+  const {
+    blur,
+    change,
+  } = props
   const geschaeft = geschaefte.find((g) =>
     g.idGeschaeft === activeId
   )
@@ -21,7 +24,7 @@ function mapStateToProps(state, props) {
   return {
     geschaeft,
     change,
-    blur
+    blur,
   }
 }
 
