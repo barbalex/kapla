@@ -7,7 +7,11 @@ import {
 } from 'react-bootstrap'
 import styles from './optionsNav.css'
 
-const OptionsNav = ({ config, dbGet, configUiReset }) =>
+const OptionsNav = ({
+  config,
+  dbGet,
+  configUiReset,
+}) =>
   <NavDropdown
     title="&#8942;"
     id="last-nav-dropdown"
@@ -19,7 +23,9 @@ const OptionsNav = ({ config, dbGet, configUiReset }) =>
       Datenbank wählen
       {
         config.dbPath &&
-        <div className={styles.dbPath}>Aktuell: {config.dbPath}</div>
+        <div className={styles.dbPath}>
+          Aktuell: {config.dbPath}
+        </div>
       }
     </MenuItem>
     <MenuItem divider />

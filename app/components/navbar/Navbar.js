@@ -28,7 +28,7 @@ class NavbarComponent extends Component {
     showMessageModal: PropTypes.bool.isRequired,
     configGet: PropTypes.func.isRequired,
     willDeleteGeschaeft: PropTypes.bool.isRequired,
-    path: PropTypes.string.isRequired
+    path: PropTypes.string.isRequired,
   }
 
   componentWillMount() {
@@ -42,13 +42,16 @@ class NavbarComponent extends Component {
       geschaefteGefilterteIds,
       showMessageModal,
       willDeleteGeschaeft,
-      path
+      path,
     } = this.props
 
     const dataIsFiltered = geschaefte.length !== geschaefteGefilterteIds.length
     const classNameBadge = dataIsFiltered ? styles.active : null
     const showPrint = path === '/pages'
-    const showGeschaefteStuff = path === '/geschaefte' || path === '/filterFields'
+    const showGeschaefteStuff = (
+      path === '/geschaefte' ||
+      path === '/filterFields'
+    )
     const showGeschaefteAndPrint = showPrint || showGeschaefteStuff
     const showTableStuff = path === '/table'
 
