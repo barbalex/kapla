@@ -8,6 +8,7 @@ import {
 } from 'react-bootstrap'
 import moment from 'moment'
 moment.locale('de')
+import _ from 'lodash'
 import DateRangePicker from 'react-bootstrap-daterangepicker'
 import styles from './dateField.css'
 import ComparatorSelector from '../../containers/filterFields/ComparatorSelector'
@@ -32,6 +33,16 @@ class DateField extends Component {
     this.onChange = this.onChange.bind(this)
     this.onBlur = this.onBlur.bind(this)
     this.onChangeDatePicker = this.onChangeDatePicker.bind(this)
+  }
+
+  componentDidUpdate(prevProps) {
+    const { values, name } = this.props
+    let value = values[name]
+    const prevValue = prevProps.values[name]
+    if (value !== prevValue) {
+      if (value) value = moment(value, 'YYYY-MM-DD').format('DD.MM.YYYY')
+      this.setState({ value })
+    }
   }
 
   onChange(e) {

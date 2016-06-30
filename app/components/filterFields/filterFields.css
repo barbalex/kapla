@@ -1,6 +1,7 @@
 .scrollContainer {
   overflow: auto;
-  height: calc(100vh - 52px)
+  height: calc(100vh - 52px);
+  /*background-color: rgba(210, 210, 210, 0.2);*/
 }
 
 .wrapperNarrow {

@@ -4,6 +4,18 @@
 		"selected_items":
 		[
 			[
+				"change",
+				"changeComparator"
+			],
+			[
+				"Comp",
+				"ComparatorSelector"
+			],
+			[
+				"com",
+				"ComparatorSelector"
+			],
+			[
 				"filter",
 				"filterValue"
 			],
@@ -70,10 +82,6 @@
 			[
 				"fi",
 				"filterFieldsLayoutWidth"
-			],
-			[
-				"com",
-				"componentWillUnmount"
 			],
 			[
 				"g",
@@ -456,14 +464,14 @@
 			"settings":
 			{
 				"buffer_size": 5012,
-				"line_ending": "Unix"
+				"line_ending": "Windows"
 			}
 		},
 		{
 			"file": "app/components/filterFields/FilterFields.js",
 			"settings":
 			{
-				"buffer_size": 6360,
+				"buffer_size": 6650,
 				"line_ending": "Windows"
 			}
 		},
@@ -479,31 +487,7 @@
 			"file": "app/components/filterFields/DateField.js",
 			"settings":
 			{
-				"buffer_size": 4690,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "app/components/filterFields/ComparatorSelector.js",
-			"settings":
-			{
-				"buffer_size": 4717,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "app/containers/filterFields/ComparatorSelector.js",
-			"settings":
-			{
-				"buffer_size": 746,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "app/components/filterFields/dateField.css",
-			"settings":
-			{
-				"buffer_size": 632,
+				"buffer_size": 4391,
 				"line_ending": "Windows"
 			}
 		}
@@ -561,13 +545,40 @@
 		"/C/Users/alex/kapla/app",
 		"/C/Users/alex/kapla/app/components",
 		"/C/Users/alex/kapla/app/components/filterFields",
-		"/C/Users/alex/kapla/app/containers",
-		"/C/Users/alex/kapla/app/containers/filterFields"
+		"/C/Users/alex/kapla/app/src"
 	],
 	"file_history":
 	[
-		"/C/Users/alex/kapla/app/containers/filterFields/DateField.js",
+		"/C/Users/alex/kapla/app/components/filterFields/filterFields.css",
+		"/C/Users/alex/kapla/app/components/filterFields/AreaPersonen.js",
+		"/C/Users/alex/kapla/app/components/filterFields/areaPersonen.css",
+		"/C/Users/alex/kapla/app/src/sql/createViews.sql",
+		"/C/Users/alex/kapla/app/src/sql/updateTables.sql",
+		"/C/Users/alex/kapla/app/components/filterFields/AreaNummern.js",
+		"/C/Users/alex/kapla/app/components/filterFields/AreaHistory.js",
+		"/C/Users/alex/kapla/app/components/filterFields/AreaZuletztMutiert.js",
+		"/C/Users/alex/kapla/app/components/filterFields/areaZuletztMutiert.css",
+		"/C/Users/alex/kapla/app/components/filterFields/areaHistory.css",
+		"/C/Users/alex/kapla/app/containers/filterFields/AreaHistory.js",
+		"/C/Users/alex/kapla/app/components/filterFields/AreaGeschaeft.js",
+		"/C/Users/alex/kapla/app/components/filterFields/areaNummern.css",
 		"/C/Users/alex/kapla/app/src/filterGeschaefte.js",
+		"/C/Users/alex/kapla/app/containers/filterFields/AreaNummern.js",
+		"/C/Users/alex/kapla/app/components/filterFields/ComparatorSelector.js",
+		"/C/Users/alex/kapla/app/src/filterCriteriaToArrayOfStrings.js",
+		"/C/Users/alex/kapla/app/containers/filterFields/AreaGeschaeft.js",
+		"/C/Users/alex/kapla/app/containers/filterFields/AreaFristen.js",
+		"/C/Users/alex/kapla/app/containers/filterFields/ComparatorSelector.js",
+		"/C/Users/alex/kapla/app/components/filterFields/AreaParlVorstoss.js",
+		"/C/Users/alex/kapla/app/components/filterFields/AreaRechtsmittel.js",
+		"/C/Users/alex/kapla/app/containers/filterFields/AreaParlVorstoss.js",
+		"/C/Users/alex/kapla/app/containers/filterFields/AreaPersonen.js",
+		"/C/Users/alex/kapla/app/containers/filterFields/AreaRechtsmittel.js",
+		"/C/Users/alex/kapla/app/containers/filterFields/AreaZuletztMutiert.js",
+		"/C/Users/alex/kapla/app/components/filterFields/AreaFristen.js",
+		"/C/Users/alex/kapla/app/components/filterFields/comparatorSelector.css",
+		"/C/Users/alex/kapla/app/components/filterFields/dateField.css",
+		"/C/Users/alex/kapla/app/containers/filterFields/DateField.js",
 		"/C/Users/alex/Downloads/Logo.xml",
 		"/C/Users/alex/kapla/app/src/getDateValidationStateDate.js",
 		"/C/Users/alex/kapla/app/components/geschaeft/AreaFristen.js",
@@ -576,7 +587,6 @@
 		"/C/Users/alex/kapla/app/src/updateTableRow.js",
 		"/C/Users/alex/kapla/app/src/newTableRowInDb.js",
 		"/C/Users/alex/kapla/app/src/sql/createTables.sql",
-		"/C/Users/alex/kapla/app/src/sql/updateTables.sql",
 		"/C/Users/alex/kapla/app/containers/navbar/BerichteNav.js",
 		"/C/Users/alex/kapla/app/containers/navbar/ExportGeschaefteNav.js",
 		"/C/Users/alex/kapla/app/containers/navbar/FilterNav.js",
@@ -620,15 +630,7 @@
 		"/C/Users/alex/kapla/app/components/ModalMessage.js",
 		"/C/Users/alex/kapla/app/components/Pages.js",
 		"/C/Users/alex/kapla/app/components/TableLayout.js",
-		"/C/Users/alex/kapla/app/containers/filterFields/AreaFristen.js",
 		"/C/Users/alex/kapla/app/containers/filterFields/AreaFristenField.js",
-		"/C/Users/alex/kapla/app/containers/filterFields/AreaGeschaeft.js",
-		"/C/Users/alex/kapla/app/containers/filterFields/AreaHistory.js",
-		"/C/Users/alex/kapla/app/containers/filterFields/AreaNummern.js",
-		"/C/Users/alex/kapla/app/containers/filterFields/AreaParlVorstoss.js",
-		"/C/Users/alex/kapla/app/containers/filterFields/AreaPersonen.js",
-		"/C/Users/alex/kapla/app/containers/filterFields/AreaRechtsmittel.js",
-		"/C/Users/alex/kapla/app/containers/filterFields/AreaZuletztMutiert.js",
 		"/C/Users/alex/kapla/app/containers/geschaeft/AreaFristen.js",
 		"/C/Users/alex/kapla/app/containers/geschaeft/AreaGeschaeft.js",
 		"/C/Users/alex/kapla/app/containers/geschaeft/AreaHistory.js",
@@ -674,26 +676,7 @@
 		"/C/Users/alex/kapla/app/components/geschaeft/AreaPersonen.js",
 		"/C/Users/alex/kapla/app/components/geschaeft/AreaRechtsmittel.js",
 		"/C/Users/alex/kapla/app/components/geschaeft/AreaZuletztMutiert.js",
-		"/C/Users/alex/kapla/app/components/geschaeft/Geschaeft.js",
-		"/C/Users/alex/kapla/app/components/geschaeft/KontakteExtern.js",
-		"/C/Users/alex/kapla/app/components/geschaeft/KontakteExternItems.js",
-		"/C/Users/alex/kapla/app/components/filterFields/AreaPersonen.js",
-		"/C/Users/alex/kapla/app/components/filterFields/AreaZuletztMutiert.js",
-		"/C/Users/alex/kapla/app/components/filterFields/AreaRechtsmittel.js",
-		"/C/Users/alex/kapla/app/components/filterFields/AreaParlVorstoss.js",
-		"/C/Users/alex/kapla/app/components/filterFields/AreaNummern.js",
-		"/C/Users/alex/kapla/app/components/filterFields/AreaHistory.js",
-		"/C/Users/alex/kapla/app/components/filterFields/AreaGeschaeft.js",
-		"/C/Users/alex/kapla/app/components/filterFields/AreaFristen.js",
-		"/C/Users/alex/kapla/app/components/navbar/optionsNav.css",
-		"/C/Users/alex/kapla/app/containers/navbar/OptionsNav.js",
-		"/C/Users/alex/kapla/app/actions/app.js",
-		"/C/Users/alex/kapla/app/src/fuckThis.js",
-		"/C/Users/alex/kapla/main.js",
-		"/C/Users/alex/kapla/app/src/saveConfigValues.js",
-		"/C/Users/alex/kapla/app/containers/geschaeft/Geschaeft.js",
-		"/C/Users/alex/kapla/app/components/filterFields/FilterFields.js",
-		"/C/Users/alex/kapla/app/components/table/Table.js"
+		"/C/Users/alex/kapla/app/components/geschaeft/Geschaeft.js"
 	],
 	"find":
 	{
@@ -726,6 +709,29 @@
 		"case_sensitive": true,
 		"find_history":
 		[
+			"KontaktInternVornameName",
+			"kontaktInternVornameName",
+			"interneOptionsList",
+			"interneData",
+			"interneOptionsList",
+			"Intern",
+			"nrOfFieldsBeforeHistory",
+			"nrOfFieldsBeforeZuletztMutiert",
+			"inputIdGeschaeft",
+			"value",
+			"tabIndex",
+			"changeComparator",
+			"filterFields",
+			"name",
+			"ComparatorSelector",
+			"changeComparator",
+			"filterFields",
+			"changeComparator",
+			"change",
+			"state",
+			"onChange",
+			"onBlur",
+			"onChangeDatePicker",
 			"DateField",
 			"FilterFieldDate",
 			"AreaFristenField",
@@ -830,30 +836,7 @@
 			"TABLE_COLUMN_WIDTH_GET_FROM_DB",
 			"tableColumnWidthGetFromDb",
 			"geschaeftWidthPercent",
-			"geschaefteLayoutWidth",
-			"geschaefteLayout",
-			"AppActions",
-			"tableLayoutSet",
-			"TABLELAYOUT_SET",
-			"tableLayout",
-			"filterFieldsLayout",
-			"geschaefteLayout",
-			"filterFieldsLayoutSet",
-			"geschaefteLayoutSet",
-			"geschaefteColumnSet",
-			"geschaefteColumnWidthGetFromDb",
-			"tableLayoutSet",
-			"tableColumnSet",
-			"tableColumnWidthGetFromDb",
-			"geschaefteLayout",
-			"TABLELAYOUT_SET",
-			"geschaefteLayout",
-			"getConfig",
-			"geschaefte",
-			"propa",
-			"state",
-			"geschaefte",
-			"Geschaefte"
+			"geschaefteLayoutWidth"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -861,6 +844,7 @@
 		"regex": false,
 		"replace_history":
 		[
+			"Extern",
 			"ComparatorSelector",
 			"DateField",
 			"FilterFieldDate",
@@ -987,19 +971,18 @@
 			"NavbarStammdatenNav",
 			"NavbarPrintNav",
 			"NavbarExportGeschaefteNav",
-			"NavbarTableRowDeleteNav",
-			"NavbarTableRowNeuNav"
+			"NavbarTableRowDeleteNav"
 		],
 		"reverse": false,
 		"show_context": true,
 		"use_buffer2": true,
-		"whole_word": true,
+		"whole_word": false,
 		"wrap": true
 	},
 	"groups":
 	[
 		{
-			"selected": 5,
+			"selected": 3,
 			"sheets":
 			[
 				{
@@ -1029,7 +1012,7 @@
 						"translation.y": 521.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 6,
+					"stack_index": 3,
 					"type": "text"
 				},
 				{
@@ -1038,15 +1021,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 6360,
+						"buffer_size": 6650,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								422,
-								422
+								810,
+								1310
 							]
 						],
 						"settings":
@@ -1056,10 +1039,10 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 333.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 5,
+					"stack_index": 2,
 					"type": "text"
 				},
 				{
@@ -1075,68 +1058,8 @@
 						"selection":
 						[
 							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 4,
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "app/components/filterFields/DateField.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 4690,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								4690
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 4551.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 2,
-					"type": "text"
-				},
-				{
-					"buffer": 4,
-					"file": "app/components/filterFields/ComparatorSelector.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 4717,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								87,
-								87
+								293,
+								293
 							]
 						],
 						"settings":
@@ -1153,63 +1076,33 @@
 					"type": "text"
 				},
 				{
-					"buffer": 5,
-					"file": "app/containers/filterFields/ComparatorSelector.js",
+					"buffer": 3,
+					"file": "app/components/filterFields/DateField.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 746,
+						"buffer_size": 4391,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								605,
-								605
+								1418,
+								1418
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/Text/Plain text.tmLanguage",
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
 							"tab_size": 2,
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 888.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
-					"type": "text"
-				},
-				{
-					"buffer": 6,
-					"file": "app/components/filterFields/dateField.css",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 632,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								606,
-								606
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/CSS/CSS.sublime-syntax",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 555.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 3,
 					"type": "text"
 				}
 			]
@@ -1292,7 +1185,7 @@
 	"show_open_files": true,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 222.0,
+	"side_bar_width": 372.0,
 	"status_bar_visible": true,
 	"template_settings":
 	{
