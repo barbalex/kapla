@@ -9,7 +9,7 @@ function mapStateToProps(state) {
   const {
     table,
     rows,
-    id
+    id,
   } = state.table
   const {
     config,

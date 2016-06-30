@@ -10,19 +10,23 @@ import * as AppActions from '../../actions/app'
 const actions = Object.assign(
   AppActions,
   GeschaefteActions,
-  PagesActions
+  PagesActions,
 )
 
 function mapStateToProps(state, props) {
-  const { pages } = state
-  const { pageIndex } = props
+  const {
+    pages,
+  } = state
+  const {
+    pageIndex,
+  } = props
   const {
     remainingGeschaefte,
     activePageIndex,
     title,
     queryTitle,
     building,
-    reportType
+    reportType,
   } = pages
   const { geschaefteGefilterteIds, filterFields } = state.geschaefte
   const myGeschaefte = pages.pages[pageIndex].geschaefte
@@ -38,7 +42,7 @@ function mapStateToProps(state, props) {
     title,
     queryTitle,
     reportType,
-    geschaefteGefilterteIds
+    geschaefteGefilterteIds,
   }
 }
 
