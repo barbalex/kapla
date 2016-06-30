@@ -8,9 +8,13 @@ const AreaNummern = ({
   values,
   wrapperClass,
   nrOfGFields,
-  change
+  change,
 }) => {
-  const tabsToAdd = wrapperClass === styles.wrapperNarrow ? 0 : nrOfGFields
+  const tabsToAdd = (
+    wrapperClass === styles.wrapperNarrow ?
+    0 :
+    nrOfGFields
+  )
 
   return (
     <div className={styles.areaNummern}>
@@ -193,7 +197,7 @@ AreaNummern.propTypes = {
   values: PropTypes.object,
   change: PropTypes.func.isRequired,
   wrapperClass: PropTypes.string,
-  nrOfGFields: PropTypes.number
+  nrOfGFields: PropTypes.number,
 }
 
 export default AreaNummern

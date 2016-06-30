@@ -19,7 +19,10 @@ const interneOptionsList = (interneOptions) => {
     const space = '\xa0'.repeat(times)
     const name = `${o.vorname || ''} ${o.name || ''}`
     return (
-      <option key={index + 1} value={o.kurzzeichen}>
+      <option
+        key={index + 1}
+        value={o.kurzzeichen}
+      >
         {`${o.kurzzeichen}${space}${'\xa0\xa0\xa0'}${name}`}
       </option>
     )
@@ -97,7 +100,7 @@ const AreaPersonen = ({
   nrOfFieldsBeforePersonen = 0,
   change,
   interneOptions,
-  externeOptions
+  externeOptions,
 }) =>
   <div className={styles.container}>
     <div className={styles.areaPersonen}>
@@ -182,7 +185,7 @@ AreaPersonen.propTypes = {
   interneOptions: PropTypes.array,
   externeOptions: PropTypes.array,
   nrOfFieldsBeforePersonen: PropTypes.number.isRequired,
-  change: PropTypes.func.isRequired
+  change: PropTypes.func.isRequired,
 }
 
 export default AreaPersonen
