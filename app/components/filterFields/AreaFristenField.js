@@ -25,46 +25,45 @@ class AreaFristenField extends Component {
 
   constructor(props) {
     super(props)
-    this.state = {
-      value: ''
-    }
+    const { values, name } = this.props
+    let value = values[name]
+    if (value) value = moment(value, 'YYYY-MM-DD').format('DD.MM.YYYY')
+    this.state = { value }
     this.onChange = this.onChange.bind(this)
     this.onBlur = this.onBlur.bind(this)
     this.onChangeDatePicker = this.onChangeDatePicker.bind(this)
-  }
-
-  componentDidMount() {
-    const { values, name } = this.props
-    this.setState({ value: values[name] || '' })
-  }
-
-  componentDidUpdate() {
-    const { values, name } = this.props
-    const { value } = this.state
-    console.log('AreaFristenField componentDidUpdate, name:', name)
-    console.log('AreaFristenField componentDidUpdate, propsValue:', values[name])
-    console.log('AreaFristenField componentDidUpdate, stateValue:', value)
-    if (value !== values[name] && (values[name] || values[name] === 0)) {
-      console.log('AreaFristenField component did update')
-      this.setState({ value: values[name] })
-    }
   }
 
   onChange(e) {
     this.setState({ value: e.target.value })
   }
 
-  onBlur(e) {
+  onBlur() {
     const { values, name, change } = this.props
-    const { value } = this.state
+    let { value } = this.state
     // only filter if value has changed
-    console.log('onBlur, propsValue:', values[name])
-    console.log('onBlur, stateValue:', e.target.value)
-    if (e.target.value != values[name] && (e.target.value || e.target.value === 0)) {
-      if (e.target.value) {
-        e.target.value = moment(e.target.value, 'DD.MM.YYYY').format('DD.MM.YYYY')
+    if (value !== values[name]) {
+      if (
+        !value ||
+        moment(value, 'DD.MM.YYYY').isValid()
+      ) {
+        if (value) {
+          // convert value for local state
+          value = moment(value, 'DD.MM.YYYY').format('DD.MM.YYYY')
+          this.setState({ value })
+        }
+        const e = {
+          target: {
+            type: 'text',
+            name,
+            value
+          }
+        }
+        change(e)
+      } else {
+        // TODO: tell user this is invalid
+        console.log('AreaFristenField.js: invalid date')
       }
-      change(e)
     }
   }
 
@@ -144,7 +143,7 @@ class AreaFristenField extends Component {
           </InputGroup.Button>
           <FormControl
             type="text"
-            value={value}
+            value={value || ''}
             name={name}
             onChange={this.onChange}
             onBlur={this.onBlur}

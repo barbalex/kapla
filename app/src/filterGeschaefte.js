@@ -1,6 +1,7 @@
 'use strict'
 
 import { includes, isString } from 'lodash'
+import moment from 'moment'
 import isDateField from './isDateField'
 
 export default function (
@@ -12,6 +13,7 @@ export default function (
   const existsFilterFields = Object.keys(filterFields).length > 0
   let geschaefteGefiltert = geschaefte
   let comparator
+  let filterValue
   const fieldsWithList = [
     'kontaktInternVornameName',
     'kontaktExternNameVorname',
@@ -32,7 +34,7 @@ export default function (
               geschaeft[key].toLowerCase() :
               geschaeft[key]
             )
-            const filterValue = (
+            filterValue = (
               isString(filterFulltext) ?
               filterFulltext.toLowerCase() :
               filterFulltext
@@ -65,11 +67,15 @@ export default function (
         const existsGeschaeftValue = geschaeftValue || geschaeftValue === 0
         if (!existsGeschaeftValue) {
           satisfiesFilter = false
+          filterValue = filterFields[index].value
         } else {
+          if (isDateField(filterField.field)) {
+            if (geschaeftValue) geschaeftValue = moment(geschaeftValue).format('YYYY-MM-DD')
+            if (filterValue) filterValue = moment(filterValue).format('YYYY-MM-DD')
+          }
           if (isString(geschaeft[filterField.field])) {
             geschaeftValue = geschaeft[filterField.field].toLowerCase()
           }
-          let filterValue = filterFields[index].value
           if (isString(filterValue)) {
             filterValue = filterValue.toLowerCase()
           }
@@ -95,9 +101,7 @@ export default function (
               if (!(geschaeftValue >= filterValue)) satisfiesFilter = false
             } else if (comparator === '=') {
               if (isDateField(filterField.field)) {
-                // this is a date - can't compare parts
                 if (geschaeftValue !== filterValue) satisfiesFilter = false
-                // if (!includes(moment(geschaeftValue).format('DD.MM.YYYY'), filterValue)) satisfiesFilter = false
               } else {
                 if (!includes(geschaeftValue, filterValue)) satisfiesFilter = false
               }
