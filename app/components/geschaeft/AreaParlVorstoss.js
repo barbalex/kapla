@@ -1,7 +1,11 @@
 'use strict'
 
 import React, { PropTypes } from 'react'
-import { FormControl, ControlLabel, Radio } from 'react-bootstrap'
+import {
+  FormControl,
+  ControlLabel,
+  Radio,
+} from 'react-bootstrap'
 import styles from './areaParlVorstoss.css'
 import createOptions from '../../src/createOptions'
 
@@ -10,7 +14,7 @@ const AreaParlVorstoss = ({
   parlVorstossTypOptions,
   nrOfFieldsBeforePv,
   change,
-  blur
+  blur,
 }) =>
   <div className={styles.areaForGeschaeftsart}>
     <div className={styles.areaParlVorstTitle}>
@@ -141,7 +145,7 @@ AreaParlVorstoss.propTypes = {
   parlVorstossTypOptions: PropTypes.array,
   nrOfFieldsBeforePv: PropTypes.number.isRequired,
   change: PropTypes.func.isRequired,
-  blur: PropTypes.func.isRequired
+  blur: PropTypes.func.isRequired,
 }
 
 export default AreaParlVorstoss

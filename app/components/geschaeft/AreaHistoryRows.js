@@ -7,7 +7,7 @@ import getHistoryOfGeschaeft from '../../src/getHistoryOfGeschaeft'
 const AreaHistoryRows = ({
   geschaefte,
   activeId,
-  geschaeftToggleActivated
+  geschaeftToggleActivated,
 }) => {
   const history = getHistoryOfGeschaeft(geschaefte, activeId)
   // sort descending
@@ -54,7 +54,7 @@ AreaHistoryRows.displayName = 'AreaHistoryRows'
 AreaHistoryRows.propTypes = {
   geschaefte: PropTypes.array.isRequired,
   activeId: PropTypes.number.isRequired,
-  geschaeftToggleActivated: PropTypes.func.isRequired
+  geschaeftToggleActivated: PropTypes.func.isRequired,
 }
 
 export default AreaHistoryRows
