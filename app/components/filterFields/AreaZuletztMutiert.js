@@ -54,6 +54,7 @@ const AreaZuletztMutiert = ({
   interneOptions,
   change,
   nrOfFieldsBeforeZuletztMutiert,
+  changeComparator,
 }) =>
   <div className={styles.areaZuletztMutiert}>
     <div className={styles.fieldVerantwortlich}>
@@ -86,6 +87,7 @@ AreaZuletztMutiert.propTypes = {
   interneOptions: PropTypes.array,
   nrOfFieldsBeforeZuletztMutiert: PropTypes.number,
   change: PropTypes.func.isRequired,
+  changeComparator: PropTypes.func.isRequired,
 }
 
 export default AreaZuletztMutiert

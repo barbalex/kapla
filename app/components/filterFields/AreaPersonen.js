@@ -101,6 +101,7 @@ const AreaPersonen = ({
   change,
   interneOptions,
   externeOptions,
+  changeComparator,
 }) =>
   <div className={styles.container}>
     <div className={styles.areaPersonen}>
@@ -186,6 +187,7 @@ AreaPersonen.propTypes = {
   externeOptions: PropTypes.array,
   nrOfFieldsBeforePersonen: PropTypes.number.isRequired,
   change: PropTypes.func.isRequired,
+  changeComparator: PropTypes.func.isRequired,
 }
 
 export default AreaPersonen

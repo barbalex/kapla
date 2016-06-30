@@ -54,13 +54,13 @@ export default function (
   } else if (existsFilterFields) {
     // some filterFields may only have a comparator >
     // reduce to filterFields with values
-    const filterFieldsWithValues = filterFields.filter((ff) =>
+    filterFields = filterFields.filter((ff) =>
       ff.value || ff.value === 0
     )
     geschaefteGefiltert = geschaefte.filter((geschaeft) => {
       // if all conditions are met, include the geschaeft
       let satisfiesFilter = true
-      filterFieldsWithValues.forEach((filterField, index) => {
+      filterFields.forEach((filterField, index) => {
         let geschaeftValue = geschaeft[filterField.field]
         let filterValue = filterField.value
         const existsGeschaeftValue = geschaeftValue || geschaeftValue === 0

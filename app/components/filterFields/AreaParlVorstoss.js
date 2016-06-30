@@ -10,6 +10,7 @@ const AreaParlVorstoss = ({
   parlVorstossTypOptions,
   nrOfFieldsBeforePv,
   change,
+  changeComparator,
 }) =>
   <div className={styles.areaForGeschaeftsart}>
     <div className={styles.areaParlVorstTitle}>
@@ -139,6 +140,7 @@ AreaParlVorstoss.propTypes = {
   parlVorstossTypOptions: PropTypes.array.isRequired,
   nrOfFieldsBeforePv: PropTypes.number,
   change: PropTypes.func.isRequired,
+  changeComparator: PropTypes.func.isRequired,
 }
 
 export default AreaParlVorstoss

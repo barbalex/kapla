@@ -15,6 +15,7 @@ function mapStateToProps(state, props) {
     change,
     nrOfFieldsBeforePv,
     onChangeDatePicker,
+    changeComparator,
   } = props
 
   return {
@@ -24,6 +25,7 @@ function mapStateToProps(state, props) {
     change,
     nrOfFieldsBeforePv,
     onChangeDatePicker,
+    changeComparator,
   }
 }
 

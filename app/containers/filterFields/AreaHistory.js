@@ -8,11 +8,13 @@ function mapStateToProps(state, props) {
   const {
     values,
     change,
+    changeComparator,
   } = props
 
   return {
     values,
     change,
+    changeComparator,
   }
 }
 

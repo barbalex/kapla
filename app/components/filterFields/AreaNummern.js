@@ -9,6 +9,7 @@ const AreaNummern = ({
   wrapperClass,
   nrOfGFields,
   change,
+  changeComparator,
 }) => {
   const tabsToAdd = (
     wrapperClass === styles.wrapperNarrow ?
@@ -198,6 +199,7 @@ AreaNummern.propTypes = {
   change: PropTypes.func.isRequired,
   wrapperClass: PropTypes.string,
   nrOfGFields: PropTypes.number,
+  changeComparator: PropTypes.func.isRequired,
 }
 
 export default AreaNummern

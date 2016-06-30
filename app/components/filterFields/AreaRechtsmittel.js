@@ -22,6 +22,7 @@ const AreaRechtsmittel = ({
   nrOfFieldsBeforePv,
   change,
   onChangeDatePicker,
+  changeComparator,
 }) => {
   /**
    * need to give addon no padding
@@ -132,6 +133,7 @@ AreaRechtsmittel.propTypes = {
   nrOfFieldsBeforePv: PropTypes.number,
   change: PropTypes.func.isRequired,
   onChangeDatePicker: PropTypes.func.isRequired,
+  changeComparator: PropTypes.func.isRequired,
 }
 
 export default AreaRechtsmittel

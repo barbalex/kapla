@@ -14,6 +14,7 @@ function mapStateToProps(state, props) {
     values,
     change,
     nrOfFieldsBeforePersonen,
+    changeComparator,
   } = props
 
   return {
@@ -22,6 +23,7 @@ function mapStateToProps(state, props) {
     externeOptions,
     change,
     nrOfFieldsBeforePersonen,
+    changeComparator,
   }
 }
 

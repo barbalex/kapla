@@ -3,7 +3,7 @@ import {
   InputGroup,
   FormControl,
 } from 'react-bootstrap'
-import styles from './dateField.css'
+import styles from './comparatorSelector.css'
 
 const ComparatorSelector = ({
   name,

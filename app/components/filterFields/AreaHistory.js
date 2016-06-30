@@ -7,6 +7,7 @@ import styles from './areaHistory.css'
 const AreaHistory = ({
   values,
   change,
+  changeComparator,
 }) =>
   <div className={styles.areaHistory}>
     <div className={styles.areaHistoryTitle}>
@@ -33,6 +34,7 @@ AreaHistory.displayName = 'AreaHistory'
 AreaHistory.propTypes = {
   values: PropTypes.object,
   change: PropTypes.func.isRequired,
+  changeComparator: PropTypes.func.isRequired,
 }
 
 export default AreaHistory

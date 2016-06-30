@@ -62,7 +62,6 @@ class FilterFields extends Component {
     }
     changedField.comparator = value
     newFilterFields.push(changedField)
-    console.log('FilterFields, changeComparator, newFilterFields:', newFilterFields)
     geschaefteFilterByFields(newFilterFields)
   }
 
@@ -161,12 +160,14 @@ class FilterFields extends Component {
             wrapperClass={wrapperClass}
             nrOfGFields={nrOfGFields}
             change={this.change}
+            changeComparator={this.changeComparator}
             values={values}
           />
           <AreaNummern
             wrapperClass={wrapperClass}
             nrOfGFields={nrOfGFields}
             change={this.change}
+            changeComparator={this.changeComparator}
             values={values}
           />
           {
@@ -174,6 +175,7 @@ class FilterFields extends Component {
             <AreaParlVorstoss
               nrOfFieldsBeforePv={nrOfFieldsBeforePv}
               change={this.change}
+              changeComparator={this.changeComparator}
               values={values}
             />
           }
@@ -183,6 +185,7 @@ class FilterFields extends Component {
               nrOfFieldsBeforePv={nrOfFieldsBeforePv}
               change={this.change}
               onChangeDatePicker={this.onChangeDatePicker}
+              changeComparator={this.changeComparator}
               values={values}
             />
           }
@@ -195,16 +198,19 @@ class FilterFields extends Component {
           <AreaPersonen
             nrOfFieldsBeforePersonen={nrOfFieldsBeforePersonen}
             change={this.change}
+            changeComparator={this.changeComparator}
             values={values}
           />
           <AreaHistory
             nrOfFieldsBeforeHistory={nrOfFieldsBeforeHistory}
             change={this.change}
+            changeComparator={this.changeComparator}
             values={values}
           />
           <AreaZuletztMutiert
             nrOfFieldsBeforeZuletztMutiert={nrOfFieldsBeforeZuletztMutiert}
             change={this.change}
+            changeComparator={this.changeComparator}
             values={values}
           />
           {/* need this so lowest fields are visible */}

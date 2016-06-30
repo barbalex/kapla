@@ -16,6 +16,7 @@ function mapStateToProps(state, props) {
     change,
     wrapperClass,
     nrOfGFields,
+    changeComparator,
   } = props
 
   return {
@@ -26,6 +27,7 @@ function mapStateToProps(state, props) {
     values,
     wrapperClass,
     nrOfGFields,
+    changeComparator,
   }
 }
 
