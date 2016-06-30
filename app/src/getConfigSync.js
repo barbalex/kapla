@@ -6,7 +6,10 @@ const app = electron.app ? electron.app : electron.remote.app
 
 const fs = require('fs')
 const path = require('path')
-const dataFilePath = path.join(app.getPath('userData'), 'kaplaConfig.json')
+const dataFilePath = path.join(
+  app.getPath('userData'),
+  'kaplaConfig.json'
+)
 
 module.exports = () => {
   if (!fs.existsSync(dataFilePath)) return {}
