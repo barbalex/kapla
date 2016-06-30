@@ -32,15 +32,22 @@ class Geschaeft extends Component {
       target: {
         type: 'text',
         name,
-        value: picker.startDate
+        value: picker.startDate,
       }
     }
     this.blur(rVal)
   }
 
   change = (e) => {
-    const { activeId, geschaefteChangeState } = this.props
-    const { type, name, dataset } = e.target
+    const {
+      activeId,
+      geschaefteChangeState,
+    } = this.props
+    const {
+      type,
+      name,
+      dataset,
+    } = e.target
     let { value } = e.target
     if (type === 'radio') {
       value = dataset.value
@@ -51,8 +58,16 @@ class Geschaeft extends Component {
   }
 
   blur = (e) => {
-    const { activeId, changeGeschaeftInDb, geschaefteChangeState } = this.props
-    const { type, name, dataset } = e.target
+    const {
+      activeId,
+      changeGeschaeftInDb,
+      geschaefteChangeState,
+    } = this.props
+    const {
+      type,
+      name,
+      dataset,
+    } = e.target
     let { value } = e.target
     let select = false
     if (type === 'radio') value = dataset.value
@@ -84,7 +99,7 @@ class Geschaeft extends Component {
   render = () => {
     const {
       geschaeft,
-      config
+      config,
     } = this.props
 
     // return immediately if no geschaeft
@@ -100,8 +115,16 @@ class Geschaeft extends Component {
 
     // need width to adapt layout to differing widths
     const windowWidth = $(window).width()
-    const areaGeschaefteWidth = windowWidth * (100 - config.geschaefteColumnWidth) / 100
-    const wrapperClassBaseString = areaGeschaefteWidth < 750 ? 'wrapperNarrow' : 'wrapperWide'
+    const areaGeschaefteWidth = (
+      windowWidth *
+      (100 - config.geschaefteColumnWidth) /
+      100
+    )
+    const wrapperClassBaseString = (
+      areaGeschaefteWidth < 750 ?
+      'wrapperNarrow' :
+      'wrapperWide'
+    )
 
     // layout needs to work with or without area for geschaeftsart
     const wrapperClassString = (

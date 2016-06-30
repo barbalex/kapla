@@ -16,7 +16,7 @@ const onChangeNewKontaktExtern = (e, geschaeftKontaktExternNewCreate, activeId) 
 const optionsList = (
   externeOptions,
   geschaefteKontakteExtern,
-  activeId
+  activeId,
 ) => {
   // filter out options already choosen
   const kontakteInternOfActiveGeschaeft = geschaefteKontakteExtern.filter((g) =>
@@ -55,7 +55,7 @@ const GeschaefteKontakteExtern = ({
   tabIndex,
   geschaeftKontaktExternNewCreate,
   activeId,
-  externeOptions
+  externeOptions,
 }) =>
   <div className={styles.body}>
     <KontakteExternItems />
@@ -68,7 +68,11 @@ const GeschaefteKontakteExtern = ({
           componentClass="select"
           bsSize="small"
           onChange={(e) =>
-            onChangeNewKontaktExtern(e, geschaeftKontaktExternNewCreate, activeId)
+            onChangeNewKontaktExtern(
+              e,
+              geschaeftKontaktExternNewCreate,
+              activeId,
+            )
           }
           title="Neuen Kontakt hinzufügen"
           tabIndex={tabIndex}
@@ -77,7 +81,7 @@ const GeschaefteKontakteExtern = ({
             optionsList(
               externeOptions,
               geschaefteKontakteExtern,
-              activeId
+              activeId,
             )
           }
         </FormControl>
@@ -92,7 +96,7 @@ GeschaefteKontakteExtern.propTypes = {
   geschaefteKontakteExtern: PropTypes.array,
   geschaeftKontaktExternNewCreate: PropTypes.func.isRequired,
   activeId: PropTypes.number.isRequired,
-  tabIndex: PropTypes.number.isRequired
+  tabIndex: PropTypes.number.isRequired,
 }
 
 export default GeschaefteKontakteExtern
