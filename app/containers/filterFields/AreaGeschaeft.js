@@ -9,13 +9,13 @@ function mapStateToProps(state, props) {
   const {
     statusOptions,
     geschaeftsartOptions,
-    abteilungOptions
+    abteilungOptions,
   } = state.geschaefte
   const {
     values,
     change,
     wrapperClass,
-    nrOfGFields
+    nrOfGFields,
   } = props
 
   return {
@@ -25,7 +25,7 @@ function mapStateToProps(state, props) {
     change,
     values,
     wrapperClass,
-    nrOfGFields
+    nrOfGFields,
   }
 }
 

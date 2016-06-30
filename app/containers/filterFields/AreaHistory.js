@@ -5,11 +5,14 @@ import { connect } from 'react-redux'
 import AreaHistory from '../../components/filterFields/AreaHistory'
 
 function mapStateToProps(state, props) {
-  const { values, change } = props
+  const {
+    values,
+    change,
+  } = props
 
   return {
     values,
-    change
+    change,
   }
 }
 

@@ -13,7 +13,7 @@ function mapStateToProps(state, props) {
     values,
     change,
     blur,
-    changeComparator
+    changeComparator,
   } = props
   const { filterFields } = state.geschaefte
 
@@ -25,7 +25,7 @@ function mapStateToProps(state, props) {
     filterFields,
     change,
     blur,
-    changeComparator
+    changeComparator,
   }
 }
 
