@@ -21,6 +21,8 @@ function mapStateToProps(state, props) {
     interneOptions,
     activeId,
   } = state.geschaefte
+  const path = state.routing.locationBeforeTransitions.pathname
+  const isPrintPreview = path === '/geschaeftPdf'
   const {
     tabIndex,
   } = props
@@ -32,6 +34,7 @@ function mapStateToProps(state, props) {
     interneOptions,
     activeId,
     tabIndex,
+    isPrintPreview,
   }
 }
 
