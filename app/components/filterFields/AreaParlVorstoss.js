@@ -1,7 +1,8 @@
 'use strict'
 
 import React, { PropTypes } from 'react'
-import { FormControl, ControlLabel, Radio } from 'react-bootstrap'
+import { FormControl, ControlLabel, Radio, InputGroup } from 'react-bootstrap'
+import ComparatorSelector from '../../containers/filterFields/ComparatorSelector'
 import styles from './areaParlVorstoss.css'
 import createOptions from '../../src/createOptions'
 
@@ -20,16 +21,22 @@ const AreaParlVorstoss = ({
       <ControlLabel>
         Typ
       </ControlLabel>
-      <FormControl
-        componentClass="select"
-        value={values.parlVorstossTyp || ''}
-        name="parlVorstossTyp"
-        onChange={change}
-        bsSize="small"
-        tabIndex={1 + nrOfFieldsBeforePv}
-      >
-        {createOptions(parlVorstossTypOptions)}
-      </FormControl>
+      <InputGroup>
+        <ComparatorSelector
+          name="parlVorstossTyp"
+          changeComparator={changeComparator}
+        />
+        <FormControl
+          componentClass="select"
+          value={values.parlVorstossTyp || ''}
+          name="parlVorstossTyp"
+          onChange={change}
+          bsSize="small"
+          tabIndex={1 + nrOfFieldsBeforePv}
+        >
+          {createOptions(parlVorstossTypOptions)}
+        </FormControl>
+      </InputGroup>
     </div>
     <div className={styles.fieldStufe}>
       <ControlLabel>
@@ -37,7 +44,7 @@ const AreaParlVorstoss = ({
       </ControlLabel>
       <Radio
         data-value={1}
-        checked={values.parlVorstossStufe == 1}
+        checked={values.parlVorstossStufe === 1}
         onChange={change}
         bsSize="small"
         name="parlVorstossStufe"
@@ -47,7 +54,7 @@ const AreaParlVorstoss = ({
       </Radio>
       <Radio
         data-value={2}
-        checked={values.parlVorstossStufe == 2}
+        checked={values.parlVorstossStufe === 2}
         name="parlVorstossStufe"
         onChange={change}
         bsSize="small"
