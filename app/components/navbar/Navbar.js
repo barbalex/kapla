@@ -15,7 +15,7 @@ import GeschaeftLoeschenNav from '../../containers/navbar/GeschaeftDeleteNav'
 import TableRowNeuNav from '../../containers/navbar/TableRowNewNav'
 import TableRowDeleteNav from '../../containers/navbar/TableRowDeleteNav'
 import ExportGeschaefteNav from '../../containers/navbar/ExportGeschaefteNav'
-import PrintNav from './PrintNav.js'
+import PrintNav from '../../containers/navbar/PrintNav.js'
 import StammdatenNav from '../../containers/navbar/StammdatenNav'
 import FilterNav from '../../containers/navbar/FilterNav'
 import OptionsNav from '../../containers/navbar/OptionsNav'
@@ -47,7 +47,7 @@ class NavbarComponent extends Component {
 
     const dataIsFiltered = geschaefte.length !== geschaefteGefilterteIds.length
     const classNameBadge = dataIsFiltered ? styles.active : null
-    const showPrint = path === '/pages'
+    const showPrint = path === '/pages' || path === '/geschaeftPdf'
     const showGeschaefteStuff = (
       path === '/geschaefte' ||
       path === '/filterFields'
