@@ -460,34 +460,66 @@
 	"buffers":
 	[
 		{
-			"file": "package.json",
+			"file": "app/routes.js",
 			"settings":
 			{
-				"buffer_size": 5012,
+				"buffer_size": 793,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "app/components/filterFields/FilterFields.js",
+			"file": "app/components/GeschaeftPdf.js",
 			"settings":
 			{
-				"buffer_size": 6650,
+				"buffer_size": 301,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "app/components/filterFields/AreaFristen.js",
+			"file": "app/components/geschaeftPdf.css",
 			"settings":
 			{
-				"buffer_size": 2220,
+				"buffer_size": 545,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "app/components/filterFields/DateField.js",
+			"file": "app/actions/pages.js",
 			"settings":
 			{
-				"buffer_size": 4391,
+				"buffer_size": 1703,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "app/components/navbar/PrintNav.js",
+			"settings":
+			{
+				"buffer_size": 1206,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "app/components/Pages.js",
+			"settings":
+			{
+				"buffer_size": 500,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "app/components/page/Page.js",
+			"settings":
+			{
+				"buffer_size": 7119,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "app/components/page/Page.css",
+			"settings":
+			{
+				"buffer_size": 1817,
 				"line_ending": "Windows"
 			}
 		}
@@ -543,12 +575,25 @@
 	[
 		"/C/Users/alex/kapla",
 		"/C/Users/alex/kapla/app",
-		"/C/Users/alex/kapla/app/components",
-		"/C/Users/alex/kapla/app/components/filterFields",
-		"/C/Users/alex/kapla/app/src"
+		"/C/Users/alex/kapla/app/containers",
+		"/C/Users/alex/kapla/app/containers/geschaeft"
 	],
 	"file_history":
 	[
+		"/C/Users/alex/kapla/app/components/Pages.css",
+		"/C/Users/alex/kapla/app/containers/GeschaeftPdf.js",
+		"/C/Users/alex/kapla/app/containers/Pages.js",
+		"/C/Users/alex/kapla/app/actions/pages.js",
+		"/C/Users/alex/kapla/app/actions/geschaefte.js",
+		"/C/Users/alex/kapla/app/components/TableLayout.js",
+		"/C/Users/alex/kapla/package.json",
+		"/C/Users/alex/kapla/app/components/filterFields/FilterFields.js",
+		"/C/Users/alex/kapla/app/components/filterFields/areaParlVorstoss.css",
+		"/C/Users/alex/kapla/app/components/filterFields/AreaParlVorstoss.js",
+		"/C/Users/alex/kapla/app/components/filterFields/AreaFristen.js",
+		"/C/Users/alex/kapla/app/components/filterFields/areaRechtsmittel.css",
+		"/C/Users/alex/kapla/app/components/filterFields/AreaRechtsmittel.js",
+		"/C/Users/alex/kapla/app/components/filterFields/DateField.js",
 		"/C/Users/alex/kapla/app/components/filterFields/filterFields.css",
 		"/C/Users/alex/kapla/app/components/filterFields/AreaPersonen.js",
 		"/C/Users/alex/kapla/app/components/filterFields/areaPersonen.css",
@@ -569,13 +614,10 @@
 		"/C/Users/alex/kapla/app/containers/filterFields/AreaGeschaeft.js",
 		"/C/Users/alex/kapla/app/containers/filterFields/AreaFristen.js",
 		"/C/Users/alex/kapla/app/containers/filterFields/ComparatorSelector.js",
-		"/C/Users/alex/kapla/app/components/filterFields/AreaParlVorstoss.js",
-		"/C/Users/alex/kapla/app/components/filterFields/AreaRechtsmittel.js",
 		"/C/Users/alex/kapla/app/containers/filterFields/AreaParlVorstoss.js",
 		"/C/Users/alex/kapla/app/containers/filterFields/AreaPersonen.js",
 		"/C/Users/alex/kapla/app/containers/filterFields/AreaRechtsmittel.js",
 		"/C/Users/alex/kapla/app/containers/filterFields/AreaZuletztMutiert.js",
-		"/C/Users/alex/kapla/app/components/filterFields/AreaFristen.js",
 		"/C/Users/alex/kapla/app/components/filterFields/comparatorSelector.css",
 		"/C/Users/alex/kapla/app/components/filterFields/dateField.css",
 		"/C/Users/alex/kapla/app/containers/filterFields/DateField.js",
@@ -604,7 +646,6 @@
 		"/C/Users/alex/kapla/app/containers/GeschaefteItem.js",
 		"/C/Users/alex/kapla/app/containers/ModalGeschaeftDelete.js",
 		"/C/Users/alex/kapla/app/containers/ModalMessage.js",
-		"/C/Users/alex/kapla/app/containers/Pages.js",
 		"/C/Users/alex/kapla/app/reducers/app.js",
 		"/C/Users/alex/kapla/app/reducers/geschaefte.js",
 		"/C/Users/alex/kapla/app/reducers/geschaefteKontakteExtern.js",
@@ -629,7 +670,6 @@
 		"/C/Users/alex/kapla/app/components/ModalGeschaeftDelete.js",
 		"/C/Users/alex/kapla/app/components/ModalMessage.js",
 		"/C/Users/alex/kapla/app/components/Pages.js",
-		"/C/Users/alex/kapla/app/components/TableLayout.js",
 		"/C/Users/alex/kapla/app/containers/filterFields/AreaFristenField.js",
 		"/C/Users/alex/kapla/app/containers/geschaeft/AreaFristen.js",
 		"/C/Users/alex/kapla/app/containers/geschaeft/AreaGeschaeft.js",
@@ -667,16 +707,7 @@
 		"/C/Users/alex/kapla/app/components/page/list1/Header.js",
 		"/C/Users/alex/kapla/app/components/page/list1/Rows.js",
 		"/C/Users/alex/kapla/app/components/page/vernehmlassungen/Header.js",
-		"/C/Users/alex/kapla/app/components/page/vernehmlassungen/Rows.js",
-		"/C/Users/alex/kapla/app/components/geschaeft/AreaGeschaeft.js",
-		"/C/Users/alex/kapla/app/components/geschaeft/AreaHistory.js",
-		"/C/Users/alex/kapla/app/components/geschaeft/AreaHistoryRows.js",
-		"/C/Users/alex/kapla/app/components/geschaeft/AreaNummern.js",
-		"/C/Users/alex/kapla/app/components/geschaeft/AreaParlVorstoss.js",
-		"/C/Users/alex/kapla/app/components/geschaeft/AreaPersonen.js",
-		"/C/Users/alex/kapla/app/components/geschaeft/AreaRechtsmittel.js",
-		"/C/Users/alex/kapla/app/components/geschaeft/AreaZuletztMutiert.js",
-		"/C/Users/alex/kapla/app/components/geschaeft/Geschaeft.js"
+		"/C/Users/alex/kapla/app/components/page/vernehmlassungen/Rows.js"
 	],
 	"find":
 	{
@@ -709,6 +740,12 @@
 		"case_sensitive": true,
 		"find_history":
 		[
+			"Pages",
+			"path",
+			"showPrint",
+			"pagesInitiate",
+			"Table",
+			"onChangeDatePicker",
 			"KontaktInternVornameName",
 			"kontaktInternVornameName",
 			"interneOptionsList",
@@ -830,13 +867,7 @@
 			"geschaefteColumnSet",
 			"geschaefteColumnWidth",
 			"GESCHAEFTE_COLUMN_WIDTH_GET_FROM_DB",
-			"geschaefteColumnWidthGetFromDb",
-			"tableLayoutSet",
-			"tableColumnSet",
-			"TABLE_COLUMN_WIDTH_GET_FROM_DB",
-			"tableColumnWidthGetFromDb",
-			"geschaeftWidthPercent",
-			"geschaefteLayoutWidth"
+			"geschaefteColumnWidthGetFromDb"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -844,6 +875,7 @@
 		"regex": false,
 		"replace_history":
 		[
+			"GeschaeftPdf",
 			"Extern",
 			"ComparatorSelector",
 			"DateField",
@@ -970,96 +1002,63 @@
 			"GeschaeftNeuNav",
 			"NavbarStammdatenNav",
 			"NavbarPrintNav",
-			"NavbarExportGeschaefteNav",
-			"NavbarTableRowDeleteNav"
+			"NavbarExportGeschaefteNav"
 		],
 		"reverse": false,
 		"show_context": true,
 		"use_buffer2": true,
-		"whole_word": false,
+		"whole_word": true,
 		"wrap": true
 	},
 	"groups":
 	[
 		{
-			"selected": 3,
+			"selected": 0,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "package.json",
+					"file": "app/routes.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 5012,
+						"buffer_size": 793,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								4256,
-								4256
+								359,
+								359
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/JavaScript/JSON.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax"
 						},
 						"translation.x": 0.0,
-						"translation.y": 521.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 3,
+					"stack_index": 0,
 					"type": "text"
 				},
 				{
 					"buffer": 1,
-					"file": "app/components/filterFields/FilterFields.js",
+					"file": "app/components/GeschaeftPdf.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 6650,
+						"buffer_size": 301,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								810,
-								1310
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 333.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 2,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "app/components/filterFields/AreaFristen.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 2220,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								293,
-								293
+								26,
+								26
 							]
 						],
 						"settings":
@@ -1076,20 +1075,50 @@
 					"type": "text"
 				},
 				{
-					"buffer": 3,
-					"file": "app/components/filterFields/DateField.js",
+					"buffer": 2,
+					"file": "app/components/geschaeftPdf.css",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 4391,
+						"buffer_size": 545,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1418,
-								1418
+								179,
+								179
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/CSS/CSS.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "app/actions/pages.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1703,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								104,
+								104
 							]
 						],
 						"settings":
@@ -1099,10 +1128,130 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 888.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
+					"stack_index": 5,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "app/components/navbar/PrintNav.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1206,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								251,
+								267
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 333.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "app/components/Pages.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 500,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								500
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "app/components/page/Page.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 7119,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1452,
+								1452
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 5772.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 7,
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "app/components/page/Page.css",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1817,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/CSS/CSS.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 6,
 					"type": "text"
 				}
 			]

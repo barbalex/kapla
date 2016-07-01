@@ -10,6 +10,9 @@ import updateGeschaeft from '../src/updateGeschaeft'
 import filterGeschaefte from '../src/filterGeschaefte'
 import * as pagesActions from './pages'
 
+export const geschaeftPdfShow = () =>
+  (dispatch) => dispatch(push('/geschaeftPdf'))
+
 export const getGeschaefte = () =>
   (dispatch, getState) => {
     const { app, routing } = getState()

@@ -15,10 +15,14 @@ function mapStateToProps(state) {
   const {
     pages,
   } = state
+  const {
+    activeId
+  } = state.geschaefte
   const path = state.routing.locationBeforeTransitions.pathname
   return {
     path,
     pages,
+    activeId,
   }
 }
 

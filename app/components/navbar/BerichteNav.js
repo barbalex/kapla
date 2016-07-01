@@ -11,9 +11,11 @@ import filterForVernehmlLaeuft from '../../src/filterForVernehmlLaeuft'
 
 const NavbarBerichteNav = ({
   pagesInitiate,
+  geschaeftPdfShow,
   path,
   pages,
   geschaefteFilterByFields,
+  activeId,
 }) => {
   const isActive = path === '/pages'
   const nameObject = {
@@ -67,6 +69,11 @@ const NavbarBerichteNav = ({
             pagesInitiate('laufendeVernehml')
           }, 0)
         }
+        if (eventKey === 7.6) {
+          setTimeout(() => {
+            geschaeftPdfShow()
+          }, 0)
+        }
       }}
     >
       <MenuItem header>
@@ -91,6 +98,16 @@ const NavbarBerichteNav = ({
       <MenuItem eventKey={7.5}>
         laufende Vernehmlassungen
       </MenuItem>
+      {
+        activeId &&
+        <MenuItem divider />
+      }
+      {
+        activeId &&
+        <MenuItem eventKey={7.6}>
+          Deckblatt (= aktuelles Geschäft)
+        </MenuItem>
+      }
     </NavDropdown>
   )
 }
@@ -100,8 +117,10 @@ NavbarBerichteNav.displayName = 'NavbarBerichteNav'
 NavbarBerichteNav.propTypes = {
   geschaefteFilterByFields: PropTypes.func.isRequired,
   pagesInitiate: PropTypes.func.isRequired,
+  geschaeftPdfShow: PropTypes.func.isRequired,
   path: PropTypes.string.isRequired,
   pages: PropTypes.object.isRequired,
+  activeId: PropTypes.number
 }
 
 export default NavbarBerichteNav
