@@ -14,6 +14,7 @@ import DateRangePicker from 'react-bootstrap-daterangepicker'
 import styles from './areaRechtsmittel.css'
 import createOptions from '../../src/createOptions'
 import getDateValidationStateDate from '../../src/getDateValidationStateDate'
+import DateField from '../../containers/filterFields/DateField'
 
 const AreaRechtsmittel = ({
   values,
@@ -73,38 +74,14 @@ const AreaRechtsmittel = ({
           tabIndex={2 + nrOfFieldsBeforePv}
         />
       </div>
-      <FormGroup
-        className={styles.fieldEntscheidDatum}
-        validationState={getDateValidationStateDate(values.rechtsmittelEntscheidDatum)}
-      >
-        <ControlLabel>
-          Entscheid Datum
-        </ControlLabel>
-        <InputGroup>
-          <FormControl
-            type="text"
-            value={values.rechtsmittelEntscheidDatum || ''}
-            name="rechtsmittelEntscheidDatum"
-            onChange={change}
-            bsSize="small"
-            tabIndex={3 + nrOfFieldsBeforePv}
-          />
-          <InputGroup.Addon style={datePickerAddonStyle}>
-            <DateRangePicker
-              singleDatePicker
-              drops="up"
-              opens="left"
-              onApply={onChangeDatePicker.bind(this, 'rechtsmittelEntscheidDatum')}
-              className={styles.datePicker}
-            >
-              <Glyphicon
-                glyph="calendar"
-                style={datePickerCalendarStyle}
-              />
-            </DateRangePicker>
-          </InputGroup.Addon>
-        </InputGroup>
-      </FormGroup>
+      <DateField
+        name="rechtsmittelEntscheidDatum"
+        label="Entscheid Datum"
+        tabIndex={3 + nrOfFieldsBeforePv}
+        values={values}
+        change={change}
+        changeComparator={changeComparator}
+      />
       <div className={styles.fieldErledigung}>
         <ControlLabel>
           Erledigung
