@@ -3,7 +3,8 @@
 import React, { PropTypes } from 'react'
 import { FormControl, ControlLabel } from 'react-bootstrap'
 import Textarea from 'react-textarea-autosize'
-import styles from './areaGeschaeft.css'
+import regularStyles from './areaGeschaeft.css'
+import pdfStyles from './areaGeschaeftPdf.css'
 import createOptions from '../../src/createOptions'
 
 const AreaGeschaeft = ({
@@ -17,6 +18,7 @@ const AreaGeschaeft = ({
   nrOfGFields,
   isPrintPreview,
 }) => {
+  const styles = isPrintPreview ? pdfStyles : regularStyles
   const tabsToAdd = (
     wrapperClass === styles.wrapperNarrow ?
     nrOfGFields :
@@ -38,7 +40,7 @@ const AreaGeschaeft = ({
           onChange={change}
           onBlur={blur}
           tabIndex={1 + tabsToAdd}
-          autoFocus={wrapperClass !== styles.wrapperNarrow}
+          autoFocus={wrapperClass !== styles.wrapperNarrow && !isPrintPreview}
           className={styles.textarea}
         />
       </div>

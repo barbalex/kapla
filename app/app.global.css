@@ -120,3 +120,24 @@ textarea {
     overflow: visible !important;
   }
 }
+
+.geschaeftPdf div {
+  background-color: white !important;
+}
+.geschaeftPdf input,
+.geschaeftPdf textarea,
+.geschaeftPdf select {
+  -webkit-appearance: none;
+  border: none;
+  border-bottom: 1px solid #CCC;
+  border-radius: 0;
+  box-shadow: none;
+  padding: 0;
+  overflow-y: visible;
+}
+.geschaeftPdf .form-control {
+  height: auto;
+}
+.geschaeftPdf .input-group-addon {
+  display: none;
+}

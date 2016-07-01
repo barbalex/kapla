@@ -3,7 +3,8 @@
 import React, { PropTypes } from 'react'
 import { Glyphicon } from 'react-bootstrap'
 import _ from 'lodash'
-import styles from './kontakteInternItems.css'
+import regularStyles from './kontakteInternItems.css'
+import pdfStyles from './kontakteInternItems.css'
 
 const titleText = (idKontakt, interneOptions) => {
   const data = interneOptions.find((o) =>
@@ -32,6 +33,7 @@ const GeschaefteKontakteInternItems = ({
   geschaeftKontaktInternRemove,
   isPrintPreview,
 }) => {
+  const styles = isPrintPreview ? pdfStyles : regularStyles
   // filter for this geschaeft
   const gkIFiltered = geschaefteKontakteIntern.filter((g) =>
     g.idGeschaeft === activeId

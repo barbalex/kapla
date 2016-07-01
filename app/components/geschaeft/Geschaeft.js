@@ -5,7 +5,8 @@ import ReactDOM from 'react-dom'
 import moment from 'moment'
 moment.locale('de')
 import $ from 'jquery'
-import styles from './geschaeft.css'
+import regularStyles from './geschaeft.css'
+import pdfStyles from './geschaeftPdf.css'
 import isDateField from '../../src/isDateField'
 import validateDate from '../../src/validateDate'
 import AreaGeschaeft from '../../containers/geschaeft/AreaGeschaeft'
@@ -104,6 +105,8 @@ class Geschaeft extends Component {
       isPrintPreview,
     } = this.props
 
+    const styles = isPrintPreview ? pdfStyles : regularStyles
+
     // return immediately if no geschaeft
     const showGeschaeft = geschaeft && geschaeft.idGeschaeft
     if (!showGeschaeft) return null
@@ -123,7 +126,7 @@ class Geschaeft extends Component {
       100
     )
     const wrapperClassBaseString = (
-      areaGeschaefteWidth < 750 ?
+      areaGeschaefteWidth < 750 && !isPrintPreview ?
       'wrapperNarrow' :
       'wrapperWide'
     )

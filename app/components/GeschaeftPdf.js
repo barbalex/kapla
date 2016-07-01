@@ -7,7 +7,7 @@ import styles from './geschaeftPdf.css'
 
 
 const GeschaeftPdf = () =>
-  <div className={styles.body}>
+  <div className={[styles.body, 'geschaeftPdf'].join(' ')}>
     <div className={styles.pageContainer}>
       <Geschaeft />
       <div className={styles.footer}>

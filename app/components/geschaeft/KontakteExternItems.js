@@ -3,7 +3,8 @@
 import React, { PropTypes } from 'react'
 import { Glyphicon } from 'react-bootstrap'
 import _ from 'lodash'
-import styles from './kontakteExternItems.css'
+import regularStyles from './kontakteExternItems.css'
+import pdfStyles from './kontakteExternItemsPdf.css'
 
 const verantwortlichData = (gkI, externeOptions) => {
   function addValueToInfo(info, value) {
@@ -37,6 +38,7 @@ const GeschaefteKontakteExtern = ({
   geschaeftKontaktExternRemove,
   isPrintPreview,
 }) => {
+  const styles = isPrintPreview ? pdfStyles : regularStyles
   // filter for this geschaeft
   const gkIFiltered = geschaefteKontakteExtern.filter((g) =>
     g.idGeschaeft === activeId

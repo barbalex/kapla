@@ -3,7 +3,8 @@
 import React, { PropTypes } from 'react'
 import { FormControl } from 'react-bootstrap'
 import _ from 'lodash'
-import styles from './areaPersonen.css'
+import regularStyles from './areaPersonen.css'
+import pdfStyles from './areaPersonenPdf.css'
 import KontakteIntern from '../../containers/geschaeft/KontakteIntern'
 import KontakteExtern from '../../containers/geschaeft/KontakteExtern'
 
@@ -52,48 +53,52 @@ const AreaPersonen = ({
   blur,
   interneOptions,
   isPrintPreview,
-}) =>
-  <div className={styles.container}>
-    <div className={styles.areaPersonen}>
-      <div className={styles.areaPersonenTitle}>
-        Personen
+}) => {
+  const styles = isPrintPreview ? pdfStyles : regularStyles
+  return (
+    <div className={styles.container}>
+      <div className={styles.areaPersonen}>
+        <div className={styles.areaPersonenTitle}>
+          Personen
+        </div>
+        <div className={styles.areaVerantwortlichSubTitle}>
+          Verantwortlich
+        </div>
+        <div className={styles.fieldVerantwortlich}>
+          <FormControl
+            componentClass="select"
+            value={geschaeft.verantwortlich || ''}
+            name="verantwortlich"
+            onChange={change}
+            onBlur={blur}
+            bsSize="small"
+            tabIndex={1 + nrOfFieldsBeforePersonen}
+            className={styles.verantwDropdown}
+          >
+            {verwantwortlichOptions(interneOptions)}
+          </FormControl>
+        </div>
+        <div className={styles.fieldVerantwortlichName}>
+          <FormControl.Static>
+            {verantwortlichData(geschaeft, interneOptions)}
+          </FormControl.Static>
+        </div>
+        <div className={styles.areaInterneKontakteSubTitle}>
+          Interne Kontakte
+        </div>
+        <KontakteIntern
+          tabIndex={nrOfFieldsBeforePersonen + 1}
+        />
+        <div className={styles.areaExterneKontakteSubTitle}>
+          Externe Kontakte
+        </div>
+        <KontakteExtern
+          tabIndex={nrOfFieldsBeforePersonen + 2}
+        />
       </div>
-      <div className={styles.areaVerantwortlichSubTitle}>
-        Verantwortlich
-      </div>
-      <div className={styles.fieldVerantwortlich}>
-        <FormControl
-          componentClass="select"
-          value={geschaeft.verantwortlich || ''}
-          name="verantwortlich"
-          onChange={change}
-          onBlur={blur}
-          bsSize="small"
-          tabIndex={1 + nrOfFieldsBeforePersonen}
-          className={styles.verantwDropdown}
-        >
-          {verwantwortlichOptions(interneOptions)}
-        </FormControl>
-      </div>
-      <div className={styles.fieldVerantwortlichName}>
-        <FormControl.Static>
-          {verantwortlichData(geschaeft, interneOptions)}
-        </FormControl.Static>
-      </div>
-      <div className={styles.areaInterneKontakteSubTitle}>
-        Interne Kontakte
-      </div>
-      <KontakteIntern
-        tabIndex={nrOfFieldsBeforePersonen + 1}
-      />
-      <div className={styles.areaExterneKontakteSubTitle}>
-        Externe Kontakte
-      </div>
-      <KontakteExtern
-        tabIndex={nrOfFieldsBeforePersonen + 2}
-      />
     </div>
-  </div>
+  )
+}
 
 AreaPersonen.displayName = 'AreaPersonen'
 
