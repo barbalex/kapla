@@ -16,6 +16,8 @@ function mapStateToProps(state, props) {
     nrOfFieldsBeforeFristen,
     onChangeDatePicker,
   } = props
+  const path = state.routing.locationBeforeTransitions.pathname
+  const isPrintPreview = path === '/geschaeftPdf'
   const geschaeft = geschaefte.find((g) =>
     g.idGeschaeft === activeId
   )
@@ -26,6 +28,7 @@ function mapStateToProps(state, props) {
     blur,
     nrOfFieldsBeforeFristen,
     onChangeDatePicker,
+    isPrintPreview,
   }
 }
 

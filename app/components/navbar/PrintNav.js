@@ -3,24 +3,28 @@
 import { remote } from 'electron'
 const { dialog } = remote
 import fs from 'fs'
-import React from 'react'
+import React, { PropTypes } from 'react'
 import {
   NavItem,
   Glyphicon,
 } from 'react-bootstrap'
 
-const onClickPrint = (e) => {
+const onClickPrint = (e, path) => {
   e.preventDefault()
+  const landscape = path === '/pages'
   const win = remote.getCurrentWindow()
   const printToPDFOptions = {
     marginsType: 1,
     pageSize: 'A4',
-    landscape: true,
+    landscape,
     printBackground: true
   }
   const dialogOptions = {
     title: 'pdf speichern',
-    filters: [{ name: 'pdf', extensions: ['pdf'] }]
+    filters: [{
+      name: 'pdf',
+      extensions: ['pdf']
+    }]
   }
   /* not working ?!
   win.webContents.print({ silent: false, printBackground: false }, (error, data) => {
@@ -31,9 +35,9 @@ const onClickPrint = (e) => {
   // first remove navbar
   win.webContents.printToPDF(printToPDFOptions, (error, data) => {
     if (error) throw error
-    dialog.showSaveDialog(dialogOptions, (path) => {
-      if (path) {
-        fs.writeFile(path, data, (err) => {
+    dialog.showSaveDialog(dialogOptions, (filePath) => {
+      if (filePath) {
+        fs.writeFile(filePath, data, (err) => {
           if (err) throw err
         })
       }
@@ -41,10 +45,10 @@ const onClickPrint = (e) => {
   })
 }
 
-const NavbarPrintNav = () =>
+const NavbarPrintNav = ({ path }) =>
   <NavItem
     onClick={(e) =>
-      onClickPrint(e)
+      onClickPrint(e, path)
     }
     title="Drucken"
   >
@@ -52,5 +56,9 @@ const NavbarPrintNav = () =>
   </NavItem>
 
 NavbarPrintNav.displayName = 'NavbarPrintNav'
+
+NavbarPrintNav.propTypes = {
+  path: PropTypes.string.isRequired,
+}
 
 export default NavbarPrintNav
