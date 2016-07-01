@@ -19,11 +19,14 @@ function mapStateToProps(state) {
     interneOptions,
     activeId,
   } = state.geschaefte
+  const path = state.routing.locationBeforeTransitions.pathname
+  const isPrintPreview = path === '/geschaeftPdf'
 
   return {
     geschaefteKontakteIntern,
     interneOptions,
     activeId,
+    isPrintPreview,
   }
 }
 
