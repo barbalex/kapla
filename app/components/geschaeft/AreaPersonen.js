@@ -51,6 +51,7 @@ const AreaPersonen = ({
   change,
   blur,
   interneOptions,
+  isPrintPreview,
 }) =>
   <div className={styles.container}>
     <div className={styles.areaPersonen}>
@@ -106,6 +107,7 @@ AreaPersonen.propTypes = {
   nrOfFieldsBeforePersonen: PropTypes.number.isRequired,
   change: PropTypes.func.isRequired,
   blur: PropTypes.func.isRequired,
+  isPrintPreview: PropTypes.bool.isRequired,
 }
 
 export default AreaPersonen

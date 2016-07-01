@@ -23,6 +23,7 @@ const AreaRechtsmittel = ({
   change,
   blur,
   onChangeDatePicker,
+  isPrintPreview,
 }) => {
   /**
    * need to give addon no padding
@@ -138,6 +139,7 @@ AreaRechtsmittel.propTypes = {
   change: PropTypes.func.isRequired,
   blur: PropTypes.func.isRequired,
   onChangeDatePicker: PropTypes.func.isRequired,
+  isPrintPreview: PropTypes.bool.isRequired,
 }
 
 export default AreaRechtsmittel

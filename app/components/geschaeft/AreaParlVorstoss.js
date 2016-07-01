@@ -15,6 +15,7 @@ const AreaParlVorstoss = ({
   nrOfFieldsBeforePv,
   change,
   blur,
+  isPrintPreview,
 }) =>
   <div className={styles.areaForGeschaeftsart}>
     <div className={styles.areaParlVorstTitle}>
@@ -146,6 +147,7 @@ AreaParlVorstoss.propTypes = {
   nrOfFieldsBeforePv: PropTypes.number.isRequired,
   change: PropTypes.func.isRequired,
   blur: PropTypes.func.isRequired,
+  isPrintPreview: PropTypes.bool.isRequired,
 }
 
 export default AreaParlVorstoss
