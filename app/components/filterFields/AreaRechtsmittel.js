@@ -2,18 +2,15 @@
 
 import React, { PropTypes } from 'react'
 import {
-  FormGroup,
   FormControl,
-  InputGroup,
   ControlLabel,
-  Glyphicon,
+  InputGroup,
 } from 'react-bootstrap'
+import ComparatorSelector from '../../containers/filterFields/ComparatorSelector'
 import moment from 'moment'
 moment.locale('de')
-import DateRangePicker from 'react-bootstrap-daterangepicker'
 import styles from './areaRechtsmittel.css'
 import createOptions from '../../src/createOptions'
-import getDateValidationStateDate from '../../src/getDateValidationStateDate'
 import DateField from '../../containers/filterFields/DateField'
 
 const AreaRechtsmittel = ({
@@ -22,34 +19,21 @@ const AreaRechtsmittel = ({
   rechtsmittelInstanzOptions,
   nrOfFieldsBeforePv,
   change,
-  onChangeDatePicker,
   changeComparator,
-}) => {
-  /**
-   * need to give addon no padding
-   * and the originally addon's padding to the glyphicon
-   * to make entire addon clickable
-   * for opening calendar
-   */
-  const datePickerAddonStyle = {
-    padding: 0,
-  }
-  const datePickerCalendarStyle = {
-    paddingTop: 6,
-    paddingBottom: 6,
-    paddingLeft: 12,
-    paddingRight: 12,
-  }
-
-  return (
-    <div className={styles.areaForGeschaeftsart}>
-      <div className={styles.areaRechtsmittelTitle}>
-        Rekurs / Beschwerde
-      </div>
-      <div className={styles.fieldInstanz}>
-        <ControlLabel>
-          Instanz
-        </ControlLabel>
+}) =>
+  <div className={styles.areaForGeschaeftsart}>
+    <div className={styles.areaRechtsmittelTitle}>
+      Rekurs / Beschwerde
+    </div>
+    <div className={styles.fieldInstanz}>
+      <ControlLabel>
+        Instanz
+      </ControlLabel>
+      <InputGroup>
+        <ComparatorSelector
+          name="rechtsmittelInstanz"
+          changeComparator={changeComparator}
+        />
         <FormControl
           componentClass="select"
           value={values.rechtsmittelInstanz || ''}
@@ -60,11 +44,17 @@ const AreaRechtsmittel = ({
         >
           {createOptions(rechtsmittelInstanzOptions)}
         </FormControl>
-      </div>
-      <div className={styles.fieldEntscheidNr}>
-        <ControlLabel>
-          Entscheid Nr.
-        </ControlLabel>
+      </InputGroup>
+    </div>
+    <div className={styles.fieldEntscheidNr}>
+      <ControlLabel>
+        Entscheid Nr.
+      </ControlLabel>
+      <InputGroup>
+        <ComparatorSelector
+          name="rechtsmittelEntscheidNr"
+          changeComparator={changeComparator}
+        />
         <FormControl
           type="number"
           value={values.rechtsmittelEntscheidNr || ''}
@@ -73,19 +63,25 @@ const AreaRechtsmittel = ({
           bsSize="small"
           tabIndex={2 + nrOfFieldsBeforePv}
         />
-      </div>
-      <DateField
-        name="rechtsmittelEntscheidDatum"
-        label="Entscheid Datum"
-        tabIndex={3 + nrOfFieldsBeforePv}
-        values={values}
-        change={change}
-        changeComparator={changeComparator}
-      />
-      <div className={styles.fieldErledigung}>
-        <ControlLabel>
-          Erledigung
-        </ControlLabel>
+      </InputGroup>
+    </div>
+    <DateField
+      name="rechtsmittelEntscheidDatum"
+      label="Entscheid Datum"
+      tabIndex={3 + nrOfFieldsBeforePv}
+      values={values}
+      change={change}
+      changeComparator={changeComparator}
+    />
+    <div className={styles.fieldErledigung}>
+      <ControlLabel>
+        Erledigung
+      </ControlLabel>
+      <InputGroup>
+        <ComparatorSelector
+          name="rechtsmittelErledigung"
+          changeComparator={changeComparator}
+        />
         <FormControl
           componentClass="select"
           value={values.rechtsmittelErledigung || ''}
@@ -96,10 +92,9 @@ const AreaRechtsmittel = ({
         >
           {createOptions(rechtsmittelErledigungOptions)}
         </FormControl>
-      </div>
+      </InputGroup>
     </div>
-  )
-}
+  </div>
 
 AreaRechtsmittel.displayName = 'AreaRechtsmittel'
 
@@ -109,7 +104,6 @@ AreaRechtsmittel.propTypes = {
   rechtsmittelInstanzOptions: PropTypes.array.isRequired,
   nrOfFieldsBeforePv: PropTypes.number,
   change: PropTypes.func.isRequired,
-  onChangeDatePicker: PropTypes.func.isRequired,
   changeComparator: PropTypes.func.isRequired,
 }
 

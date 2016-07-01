@@ -14,7 +14,6 @@ function mapStateToProps(state, props) {
     values,
     change,
     nrOfFieldsBeforePv,
-    onChangeDatePicker,
     changeComparator,
   } = props
 
@@ -24,7 +23,6 @@ function mapStateToProps(state, props) {
     rechtsmittelInstanzOptions,
     change,
     nrOfFieldsBeforePv,
-    onChangeDatePicker,
     changeComparator,
   }
 }
