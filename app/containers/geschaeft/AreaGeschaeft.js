@@ -19,6 +19,8 @@ function mapStateToProps(state, props) {
     wrapperClass,
     nrOfGFields,
   } = props
+  const path = state.routing.locationBeforeTransitions.pathname
+  const isPrintPreview = path === '/geschaeftPdf'
   const geschaeft = geschaefte.find((g) =>
     g.idGeschaeft === activeId
   )
@@ -32,6 +34,7 @@ function mapStateToProps(state, props) {
     blur,
     wrapperClass,
     nrOfGFields,
+    isPrintPreview,
   }
 }
 
