@@ -30,6 +30,7 @@ const GeschaefteKontakteInternItems = ({
   activeId,
   interneOptions,
   geschaeftKontaktInternRemove,
+  isPrintPreview,
 }) => {
   // filter for this geschaeft
   const gkIFiltered = geschaefteKontakteIntern.filter((g) =>
@@ -83,6 +84,7 @@ GeschaefteKontakteInternItems.propTypes = {
   geschaefteKontakteIntern: PropTypes.array,
   geschaeftKontaktInternRemove: PropTypes.func.isRequired,
   activeId: PropTypes.number.isRequired,
+  isPrintPreview: PropTypes.bool.isRequired,
 }
 
 export default GeschaefteKontakteInternItems

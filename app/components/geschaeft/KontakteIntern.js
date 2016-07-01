@@ -67,6 +67,7 @@ const GeschaefteKontakteIntern = ({
   activeId,
   interneOptions,
   geschaefteKontakteIntern,
+  isPrintPreview,
 }) =>
   <div className={styles.body}>
     <KontakteInternItems />
@@ -112,6 +113,7 @@ GeschaefteKontakteIntern.propTypes = {
   geschaeftKontaktInternRemove: PropTypes.func.isRequired,
   activeId: PropTypes.number.isRequired,
   tabIndex: PropTypes.number.isRequired,
+  isPrintPreview: PropTypes.bool.isRequired,
 }
 
 export default GeschaefteKontakteIntern

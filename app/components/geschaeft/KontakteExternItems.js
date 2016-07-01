@@ -35,6 +35,7 @@ const GeschaefteKontakteExtern = ({
   activeId,
   externeOptions,
   geschaeftKontaktExternRemove,
+  isPrintPreview,
 }) => {
   // filter for this geschaeft
   const gkIFiltered = geschaefteKontakteExtern.filter((g) =>
@@ -90,6 +91,7 @@ GeschaefteKontakteExtern.propTypes = {
   geschaefteKontakteExtern: PropTypes.array,
   geschaeftKontaktExternRemove: PropTypes.func.isRequired,
   activeId: PropTypes.number.isRequired,
+  isPrintPreview: PropTypes.bool.isRequired,
 }
 
 export default GeschaefteKontakteExtern
