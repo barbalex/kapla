@@ -56,6 +56,7 @@ const AreaFristen = ({
   change,
   blur,
   onChangeDatePicker,
+  isPrintPreview,
 }) => {
   /**
    * need to give addon no padding
@@ -319,6 +320,7 @@ AreaFristen.propTypes = {
   blur: PropTypes.func.isRequired,
   onChangeDatePicker: PropTypes.func.isRequired,
   nrOfFieldsBeforeFristen: PropTypes.number.isRequired,
+  isPrintPreview: PropTypes.bool.isRequired,
 }
 
 export default AreaFristen
