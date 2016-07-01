@@ -56,6 +56,7 @@ const GeschaefteKontakteExtern = ({
   geschaeftKontaktExternNewCreate,
   activeId,
   externeOptions,
+  isPrintPreview,
 }) =>
   <div className={styles.body}>
     <KontakteExternItems />
@@ -97,6 +98,7 @@ GeschaefteKontakteExtern.propTypes = {
   geschaeftKontaktExternNewCreate: PropTypes.func.isRequired,
   activeId: PropTypes.number.isRequired,
   tabIndex: PropTypes.number.isRequired,
+  isPrintPreview: PropTypes.bool.isRequired,
 }
 
 export default GeschaefteKontakteExtern

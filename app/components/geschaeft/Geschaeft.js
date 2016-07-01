@@ -25,6 +25,7 @@ class Geschaeft extends Component {
     changeGeschaeftInDb: PropTypes.func.isRequired,
     geschaeftToggleActivated: PropTypes.func.isRequired,
     config: PropTypes.object.isRequired,
+    isPrintPreview: PropTypes.bool.isRequired,
   }
 
   onChangeDatePicker = (name, e, picker) => {
@@ -100,6 +101,7 @@ class Geschaeft extends Component {
     const {
       geschaeft,
       config,
+      isPrintPreview,
     } = this.props
 
     // return immediately if no geschaeft
