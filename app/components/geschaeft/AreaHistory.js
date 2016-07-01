@@ -9,6 +9,7 @@ const AreaHistory = ({
   geschaeft,
   blur,
   change,
+  isPrintPreview,
 }) =>
   <div className={styles.areaHistory}>
     <div className={styles.areaHistoryTitle}>
@@ -38,6 +39,7 @@ AreaHistory.propTypes = {
   geschaeft: PropTypes.object.isRequired,
   blur: PropTypes.func.isRequired,
   change: PropTypes.func.isRequired,
+  isPrintPreview: PropTypes.bool.isRequired,
 }
 
 export default AreaHistory

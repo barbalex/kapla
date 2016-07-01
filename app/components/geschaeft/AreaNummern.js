@@ -10,6 +10,7 @@ const AreaNummern = ({
   nrOfGFields,
   change,
   blur,
+  isPrintPreview,
 }) => {
   const tabsToAdd = (
     wrapperClass === styles.wrapperNarrow ?
@@ -211,6 +212,7 @@ AreaNummern.propTypes = {
   blur: PropTypes.func.isRequired,
   wrapperClass: PropTypes.string.isRequired,
   nrOfGFields: PropTypes.number.isRequired,
+  isPrintPreview: PropTypes.bool.isRequired,
 }
 
 export default AreaNummern
