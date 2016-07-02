@@ -23,6 +23,7 @@
   grid-row-gap: 2px;
   padding: 8px;
   align-items: end;
+  border: 1px solid #CCC;
 }
 
 .areaPersonenTitle {

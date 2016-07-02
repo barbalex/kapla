@@ -11,7 +11,8 @@ import {
 import moment from 'moment'
 moment.locale('de')
 import DateRangePicker from 'react-bootstrap-daterangepicker'
-import styles from './areaRechtsmittel.css'
+import regularStyles from './areaRechtsmittel.css'
+import pdfStyles from './areaRechtsmittelPdf.css'
 import createOptions from '../../src/createOptions'
 import getDateValidationStateDate from '../../src/getDateValidationStateDate'
 
@@ -25,6 +26,7 @@ const AreaRechtsmittel = ({
   onChangeDatePicker,
   isPrintPreview,
 }) => {
+  const styles = isPrintPreview ? pdfStyles : regularStyles
   /**
    * need to give addon no padding
    * and the originally addon's padding to the glyphicon
