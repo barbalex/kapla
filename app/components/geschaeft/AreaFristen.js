@@ -11,16 +11,17 @@ import {
 import moment from 'moment'
 moment.locale('de')
 import DateRangePicker from 'react-bootstrap-daterangepicker'
-import styles from './areaFristen.css'
+import regularStyles from './areaFristen.css'
+import pdfStyles from './areaFristenPdf.css'
 import getDateValidationStateDate from '../../src/getDateValidationStateDate'
 
 
 const statusFristInStyle = (dauerBisFristMitarbeiter) => {
   if (dauerBisFristMitarbeiter < 0) {
-    return [styles.fieldFristInUeberfaellig, 'formControlStatic'].join(' ')
+    return [regularStyles.fieldFristInUeberfaellig, 'formControlStatic'].join(' ')
   }
   if (dauerBisFristMitarbeiter === 0) {
-    return [styles.fieldFristInHeute, 'formControlStatic'].join(' ')
+    return [regularStyles.fieldFristInHeute, 'formControlStatic'].join(' ')
   }
   return 'formControlStatic'
 }
@@ -34,7 +35,7 @@ const fristDauerBisMitarbeiter = (geschaeft) => {
 }
 
 const fieldFristDauerBisMitarbeiter = (geschaeft) => (
-  <div className={styles.fieldFristDauerBisMitarbeiter}>
+  <div className={regularStyles.fieldFristDauerBisMitarbeiter}>
     <ControlLabel>
       Tage bis Frist Mitarbeiter
     </ControlLabel>
@@ -58,6 +59,7 @@ const AreaFristen = ({
   onChangeDatePicker,
   isPrintPreview,
 }) => {
+  const styles = isPrintPreview ? pdfStyles : regularStyles
   /**
    * need to give addon no padding
    * and the originally addon's padding to the glyphicon
