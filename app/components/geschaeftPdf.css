@@ -24,7 +24,7 @@
 
   height: 29.7cm;
   width: 21cm;
-  padding: 2cm;
+  padding: 1.5cm;
 
   overflow-y: visible;
 }
@@ -65,10 +65,10 @@
      * something seems to change the measurements
      * if they are not repeated here using important
      */
-    width: 29.7cm !important;
-    height: 21cm !important;
+    height: 29.7cm !important;
+    width: 21cm !important;
     margin: 0 !important;
-    padding: 2cm !important;
+    padding: 1.5cm !important;
     overflow-y: hidden !important;
     /* try this */
     page-break-inside: avoid !important;
