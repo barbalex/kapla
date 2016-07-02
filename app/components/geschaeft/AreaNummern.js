@@ -2,7 +2,8 @@
 
 import React, { PropTypes } from 'react'
 import { FormControl, ControlLabel } from 'react-bootstrap'
-import styles from './areaNummern.css'
+import regularStyles from './areaNummern.css'
+import pdfStyles from './areaNummernPdf.css'
 
 const AreaNummern = ({
   geschaeft,
@@ -12,6 +13,7 @@ const AreaNummern = ({
   blur,
   isPrintPreview,
 }) => {
+  const styles = isPrintPreview ? pdfStyles : regularStyles
   const tabsToAdd = (
     wrapperClass === styles.wrapperNarrow ?
     0 :

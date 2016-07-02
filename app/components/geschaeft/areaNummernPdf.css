@@ -4,7 +4,7 @@
 }
 
 .labelHorizontal {
-  margin-top: 11px;
+  margin-top: 1px;
   text-align: right;
 }
 
@@ -14,7 +14,7 @@
   background-color: white;
   display: grid;
   /* can't use 1fr for first column - does not work correctly, no idea why */
-  grid-template-columns: calc(100% - 196px) 8px 90px 8px 90px;
+  grid-template-columns: calc(100% - 166px) 8px 75px 8px 75px;
   grid-template-rows: auto;
   grid-template-areas:
    "areaNummernTitle areaNummernTitle areaNummernTitle areaNummernTitle labelNr"
@@ -28,6 +28,7 @@
    "fieldAktenstandort fieldAktenstandort fieldAktenstandort . fieldAktennummer";
   grid-row-gap: 2px;
   padding: 8px;
+  border: 1px solid #CCC;
 }
 
 .label {
@@ -55,7 +56,7 @@
 }
 
 .slash {
-  margin-top: 2px;
+  margin-top: -7px;
   font-size: 22px;
   color: #757575;
   margin-left: 1px;
