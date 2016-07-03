@@ -5,6 +5,7 @@ import {
   GESCHAEFTE_GET_SUCCESS,
   GESCHAEFTE_GET_ERROR,
   GESCHAEFTE_FILTER_BY_FIELDS,
+  GESCHAEFTE_SORT_BY_FIELDS,
   GESCHAEFTE_FILTER_BY_FULLTEXT,
   GESCHAEFTE_REMOVE_FILTERS,
   GESCHAEFT_TOGGLE_ACTIVATED,
@@ -99,6 +100,17 @@ const geschaefte = (state = standardState, action) => {
         filterType: action.filterType || null,
         activeId: null,
         geschaefteGefilterteIds: action.geschaefteGefilterteIds,
+      }
+    case GESCHAEFTE_SORT_BY_FIELDS:
+      return {
+        ...state,
+        sortFields: () => {
+          if (action.direction) {
+            // TODO: remove field
+          } else {
+            // TODO: add field
+          }
+        }
       }
     case GESCHAEFTE_FILTER_BY_FULLTEXT:
       return {

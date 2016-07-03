@@ -57,11 +57,6 @@ const geschaefteGetError = (error) => ({
 })
 
 export const GESCHAEFTE_FILTER_BY_FIELDS = 'GESCHAEFTE_FILTER_BY_FIELDS'
-/*
- * filter is an object
- * keys = field names
- * values = filter values
- */
 export const geschaefteFilterByFields = (
   filterFields,
   filterType = 'nach Feldern'
@@ -95,6 +90,29 @@ export const geschaefteFilterByFields = (
       dispatch(pagesActions.pagesInitiate(reportType))
     } else if (geschaefteGefilterteIds.length === 1) {
       dispatch(geschaeftToggleActivated(geschaefteGefilterteIds[0]))
+    }
+  }
+
+export const GESCHAEFTE_SORT_BY_FIELDS = 'GESCHAEFTE_SORT_BY_FIELDS'
+export const geschaefteSortByFields = (
+  field,
+  direction,
+) =>
+  (dispatch, getState) => {
+    const { routing, pages } = getState()
+    dispatch({
+      type: GESCHAEFTE_SORT_BY_FIELDS,
+      field,
+      direction
+    })
+    /**
+     * if pages are active,
+     * initiate with new data
+     */
+    const path = routing.locationBeforeTransitions.pathname
+    if (path === '/pages') {
+      const { reportType } = pages
+      dispatch(pagesActions.pagesInitiate(reportType))
     }
   }
 
