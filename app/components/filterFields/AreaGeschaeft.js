@@ -4,6 +4,7 @@ import React, { PropTypes } from 'react'
 import { FormControl, ControlLabel, InputGroup } from 'react-bootstrap'
 import styles from './areaGeschaeft.css'
 import ComparatorSelector from '../../containers/filterFields/ComparatorSelector'
+import SortSelector from '../../containers/filterFields/SortSelector'
 import createOptions from '../../src/createOptions'
 
 const AreaGeschaeft = ({
@@ -32,6 +33,10 @@ const AreaGeschaeft = ({
           Gegenstand
         </ControlLabel>
         <InputGroup>
+          <SortSelector
+            name="gegenstand"
+            changeComparator={changeComparator}
+          />
           <ComparatorSelector
             name="gegenstand"
             changeComparator={changeComparator}
