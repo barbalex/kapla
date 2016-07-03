@@ -22,11 +22,8 @@ const SortSelector = ({
         value={comparatorValue}
       >
         <option value=""></option>
-        <option value="=">&#8776;</option>
-        <option value="===">=</option>
-        <option value="!==">&#60;&#62;</option>
-        <option value="&#60;">&#60;</option>
-        <option value="&#62;">&#62;</option>
+        <option value="ASCENDING">&#8679;</option>
+        <option value="DESCENDING">&#8681;</option>
       </FormControl>
     </InputGroup.Button>
   )
