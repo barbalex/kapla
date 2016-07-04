@@ -13,7 +13,7 @@ function mapStateToProps(state, props) {
   const {
     values,
     change,
-    nrOfFieldsBeforePersonen,
+    firstTabIndex,
     changeComparator,
   } = props
 
@@ -22,7 +22,7 @@ function mapStateToProps(state, props) {
     interneOptions,
     externeOptions,
     change,
-    nrOfFieldsBeforePersonen,
+    firstTabIndex,
     changeComparator,
   }
 }

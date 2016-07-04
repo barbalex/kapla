@@ -12,7 +12,7 @@ function mapStateToProps(state, props) {
   const {
     values,
     change,
-    nrOfFieldsBeforeZuletztMutiert,
+    firstTabIndex,
     changeComparator,
   } = props
 
@@ -20,7 +20,7 @@ function mapStateToProps(state, props) {
     values,
     interneOptions,
     change,
-    nrOfFieldsBeforeZuletztMutiert,
+    firstTabIndex,
     changeComparator,
   }
 }

@@ -9,16 +9,14 @@ function mapStateToProps(state, props) {
   const {
     values,
     change,
-    wrapperClass,
-    nrOfGFields,
+    firstTabIndex,
     changeComparator,
   } = props
 
   return {
     values,
     change,
-    wrapperClass,
-    nrOfGFields,
+    firstTabIndex,
     changeComparator,
   }
 }

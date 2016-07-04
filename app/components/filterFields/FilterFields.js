@@ -145,7 +145,7 @@ class FilterFields extends Component {
 
     // prepare tab indexes
     const nrOfGFields = 10
-    const nrOfNrFields = 11
+    const nrOfNrFields = 12
     const nrOfFieldsBeforePv = nrOfGFields + nrOfNrFields
     const nrOfPvFields = 9
     const nrOfFieldsBeforeFristen = nrOfFieldsBeforePv + nrOfPvFields
@@ -157,15 +157,13 @@ class FilterFields extends Component {
       <div className={styles.scrollContainer}>
         <div className={wrapperClass}>
           <AreaGeschaeft
-            wrapperClass={wrapperClass}
-            nrOfGFields={nrOfGFields}
+            firstTabIndex={wrapperClassBaseString === 'wrapperNarrow' ? nrOfNrFields : 0}
             change={this.change}
             changeComparator={this.changeComparator}
             values={values}
           />
           <AreaNummern
-            wrapperClass={wrapperClass}
-            nrOfGFields={nrOfGFields}
+            firstTabIndex={wrapperClassBaseString === 'wrapperNarrow' ? 0 : nrOfGFields}
             change={this.change}
             changeComparator={this.changeComparator}
             values={values}
@@ -173,7 +171,7 @@ class FilterFields extends Component {
           {
             showAreaParlVorstoss &&
             <AreaParlVorstoss
-              nrOfFieldsBeforePv={nrOfFieldsBeforePv}
+              firstTabIndex={nrOfFieldsBeforePv}
               change={this.change}
               changeComparator={this.changeComparator}
               values={values}
@@ -182,7 +180,7 @@ class FilterFields extends Component {
           {
             showAreaRechtsmittel &&
             <AreaRechtsmittel
-              nrOfFieldsBeforePv={nrOfFieldsBeforePv}
+              firstTabIndex={nrOfFieldsBeforePv}
               change={this.change}
               onChangeDatePicker={this.onChangeDatePicker}
               changeComparator={this.changeComparator}
@@ -190,25 +188,25 @@ class FilterFields extends Component {
             />
           }
           <AreaFristen
-            nrOfFieldsBeforeFristen={nrOfFieldsBeforeFristen}
+            firstTabIndex={nrOfFieldsBeforeFristen}
             change={this.change}
             changeComparator={this.changeComparator}
             values={values}
           />
           <AreaPersonen
-            nrOfFieldsBeforePersonen={nrOfFieldsBeforePersonen}
+            firstTabIndex={nrOfFieldsBeforePersonen}
             change={this.change}
             changeComparator={this.changeComparator}
             values={values}
           />
           <AreaHistory
-            nrOfFieldsBeforeHistory={nrOfFieldsBeforeHistory}
+            firstTabIndex={nrOfFieldsBeforeHistory}
             change={this.change}
             changeComparator={this.changeComparator}
             values={values}
           />
           <AreaZuletztMutiert
-            nrOfFieldsBeforeZuletztMutiert={nrOfFieldsBeforeZuletztMutiert}
+            firstTabIndex={nrOfFieldsBeforeZuletztMutiert}
             change={this.change}
             changeComparator={this.changeComparator}
             values={values}

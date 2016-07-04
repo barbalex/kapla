@@ -126,7 +126,7 @@ const externeData = (values, externeOptions) => {
 
 const AreaPersonen = ({
   values,
-  nrOfFieldsBeforePersonen = 0,
+  firstTabIndex = 0,
   change,
   interneOptions,
   externeOptions,
@@ -152,7 +152,7 @@ const AreaPersonen = ({
             name="verantwortlich"
             onChange={change}
             bsSize="small"
-            tabIndex={1 + nrOfFieldsBeforePersonen}
+            tabIndex={1 + firstTabIndex}
             className={styles.narrowVerantwDropdown}
           >
             {verantwortlichOptionsList(interneOptions)}
@@ -179,7 +179,7 @@ const AreaPersonen = ({
             name="kontaktInternVornameName"
             onChange={change}
             bsSize="small"
-            tabIndex={2 + nrOfFieldsBeforePersonen}
+            tabIndex={2 + firstTabIndex}
             className={styles.narrowVerantwDropdown}
           >
             {interneOptionsList(interneOptions)}
@@ -207,7 +207,7 @@ const AreaPersonen = ({
             name="kontaktExternNameVorname"
             onChange={change}
             bsSize="small"
-            tabIndex={3 + nrOfFieldsBeforePersonen}
+            tabIndex={3 + firstTabIndex}
             className={styles.verantwDropdown}
           >
             {externeOptionsList(externeOptions)}
@@ -232,7 +232,7 @@ AreaPersonen.propTypes = {
   values: PropTypes.object.isRequired,
   interneOptions: PropTypes.array,
   externeOptions: PropTypes.array,
-  nrOfFieldsBeforePersonen: PropTypes.number.isRequired,
+  firstTabIndex: PropTypes.number.isRequired,
   change: PropTypes.func.isRequired,
   changeComparator: PropTypes.func.isRequired,
 }

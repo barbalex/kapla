@@ -14,8 +14,7 @@ function mapStateToProps(state, props) {
   const {
     values,
     change,
-    wrapperClass,
-    nrOfGFields,
+    firstTabIndex,
     changeComparator,
   } = props
 
@@ -25,8 +24,7 @@ function mapStateToProps(state, props) {
     abteilungOptions,
     change,
     values,
-    wrapperClass,
-    nrOfGFields,
+    firstTabIndex,
     changeComparator,
   }
 }

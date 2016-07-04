@@ -9,7 +9,7 @@ import createOptions from '../../src/createOptions'
 const AreaParlVorstoss = ({
   values,
   parlVorstossTypOptions,
-  nrOfFieldsBeforePv,
+  firstTabIndex,
   change,
   changeComparator,
 }) =>
@@ -32,7 +32,7 @@ const AreaParlVorstoss = ({
           name="parlVorstossTyp"
           onChange={change}
           bsSize="small"
-          tabIndex={1 + nrOfFieldsBeforePv}
+          tabIndex={1 + firstTabIndex}
         >
           {createOptions(parlVorstossTypOptions)}
         </FormControl>
@@ -48,7 +48,7 @@ const AreaParlVorstoss = ({
         onChange={change}
         bsSize="small"
         name="parlVorstossStufe"
-        tabIndex={2 + nrOfFieldsBeforePv}
+        tabIndex={2 + firstTabIndex}
       >
         1: nicht überwiesen
       </Radio>
@@ -58,7 +58,7 @@ const AreaParlVorstoss = ({
         name="parlVorstossStufe"
         onChange={change}
         bsSize="small"
-        tabIndex={3 + nrOfFieldsBeforePv}
+        tabIndex={3 + firstTabIndex}
       >
         2: überwiesen
       </Radio>
@@ -73,7 +73,7 @@ const AreaParlVorstoss = ({
         name="parlVorstossEbene"
         onChange={change}
         bsSize="small"
-        tabIndex={4 + nrOfFieldsBeforePv}
+        tabIndex={4 + firstTabIndex}
       >
         Kanton
       </Radio>
@@ -83,7 +83,7 @@ const AreaParlVorstoss = ({
         onChange={change}
         name="parlVorstossEbene"
         bsSize="small"
-        tabIndex={5 + nrOfFieldsBeforePv}
+        tabIndex={5 + firstTabIndex}
       >
         Bund
       </Radio>
@@ -98,7 +98,7 @@ const AreaParlVorstoss = ({
         name="parlVorstossZustaendigkeitAwel"
         onChange={change}
         bsSize="small"
-        tabIndex={6 + nrOfFieldsBeforePv}
+        tabIndex={6 + firstTabIndex}
       >
         haupt
       </Radio>
@@ -108,7 +108,7 @@ const AreaParlVorstoss = ({
         name="parlVorstossZustaendigkeitAwel"
         onChange={change}
         bsSize="small"
-        tabIndex={7 + nrOfFieldsBeforePv}
+        tabIndex={7 + firstTabIndex}
       >
         mitbericht
       </Radio>
@@ -123,7 +123,7 @@ const AreaParlVorstoss = ({
         name="erlassform"
         onChange={change}
         bsSize="small"
-        tabIndex={8 + nrOfFieldsBeforePv}
+        tabIndex={8 + firstTabIndex}
       >
         Gesetz
       </Radio>
@@ -133,7 +133,7 @@ const AreaParlVorstoss = ({
         name="erlassform"
         onChange={change}
         bsSize="small"
-        tabIndex={9 + nrOfFieldsBeforePv}
+        tabIndex={9 + firstTabIndex}
       >
         Verordnung
       </Radio>
@@ -145,7 +145,7 @@ AreaParlVorstoss.displayName = 'AreaParlVorstoss'
 AreaParlVorstoss.propTypes = {
   values: PropTypes.object,
   parlVorstossTypOptions: PropTypes.array.isRequired,
-  nrOfFieldsBeforePv: PropTypes.number,
+  firstTabIndex: PropTypes.number.isRequired,
   change: PropTypes.func.isRequired,
   changeComparator: PropTypes.func.isRequired,
 }

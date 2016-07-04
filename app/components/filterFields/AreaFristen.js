@@ -6,7 +6,7 @@ import DateField from '../../containers/filterFields/DateField'
 
 const AreaFristen = ({
   values,
-  nrOfFieldsBeforeFristen,
+  firstTabIndex,
   change,
   changeComparator,
 }) =>
@@ -17,7 +17,7 @@ const AreaFristen = ({
     <DateField
       name="datumEingangAwel"
       label="Datum des Eingangs im AWEL"
-      tabIndex={1 + nrOfFieldsBeforeFristen}
+      tabIndex={1 + firstTabIndex}
       values={values}
       change={change}
       changeComparator={changeComparator}
@@ -25,7 +25,7 @@ const AreaFristen = ({
     <DateField
       name="fristAwel"
       label="Frist für Erledigung durch AWEL"
-      tabIndex={2 + nrOfFieldsBeforeFristen}
+      tabIndex={2 + firstTabIndex}
       values={values}
       change={change}
       changeComparator={changeComparator}
@@ -33,7 +33,7 @@ const AreaFristen = ({
     <DateField
       name="fristAmtschef"
       label="Frist Vorlage an Amtschef"
-      tabIndex={3 + nrOfFieldsBeforeFristen}
+      tabIndex={3 + firstTabIndex}
       values={values}
       change={change}
       changeComparator={changeComparator}
@@ -41,7 +41,7 @@ const AreaFristen = ({
     <DateField
       name="fristAbteilung"
       label="Frist für Erledigung durch Abteilung"
-      tabIndex={4 + nrOfFieldsBeforeFristen}
+      tabIndex={4 + firstTabIndex}
       values={values}
       change={change}
       changeComparator={changeComparator}
@@ -49,7 +49,7 @@ const AreaFristen = ({
     <DateField
       name="fristMitarbeiter"
       label="Frist Erledigung nächster Schritt Re"
-      tabIndex={5 + nrOfFieldsBeforeFristen}
+      tabIndex={5 + firstTabIndex}
       values={values}
       change={change}
       changeComparator={changeComparator}
@@ -57,7 +57,7 @@ const AreaFristen = ({
     <DateField
       name="datumAusgangAwel"
       label="Datum Ausgang AWEL (erledigt)"
-      tabIndex={6 + nrOfFieldsBeforeFristen}
+      tabIndex={6 + firstTabIndex}
       values={values}
       change={change}
       changeComparator={changeComparator}
@@ -65,7 +65,7 @@ const AreaFristen = ({
     <DateField
       name="fristDirektion"
       label="Frist für Erledigung durch Direktion"
-      tabIndex={7 + nrOfFieldsBeforeFristen}
+      tabIndex={7 + firstTabIndex}
       values={values}
       change={change}
       changeComparator={changeComparator}
@@ -78,7 +78,7 @@ AreaFristen.propTypes = {
   values: PropTypes.object,
   change: PropTypes.func.isRequired,
   changeComparator: PropTypes.func.isRequired,
-  nrOfFieldsBeforeFristen: PropTypes.number,
+  firstTabIndex: PropTypes.number.isRequired,
 }
 
 export default AreaFristen

@@ -17,7 +17,7 @@ const AreaRechtsmittel = ({
   values,
   rechtsmittelErledigungOptions,
   rechtsmittelInstanzOptions,
-  nrOfFieldsBeforePv,
+  firstTabIndex,
   change,
   changeComparator,
 }) =>
@@ -40,7 +40,7 @@ const AreaRechtsmittel = ({
           name="rechtsmittelInstanz"
           onChange={change}
           bsSize="small"
-          tabIndex={1 + nrOfFieldsBeforePv}
+          tabIndex={1 + firstTabIndex}
         >
           {createOptions(rechtsmittelInstanzOptions)}
         </FormControl>
@@ -61,14 +61,14 @@ const AreaRechtsmittel = ({
           name="rechtsmittelEntscheidNr"
           onChange={change}
           bsSize="small"
-          tabIndex={2 + nrOfFieldsBeforePv}
+          tabIndex={2 + firstTabIndex}
         />
       </InputGroup>
     </div>
     <DateField
       name="rechtsmittelEntscheidDatum"
       label="Entscheid Datum"
-      tabIndex={3 + nrOfFieldsBeforePv}
+      tabIndex={3 + firstTabIndex}
       values={values}
       change={change}
       changeComparator={changeComparator}
@@ -88,7 +88,7 @@ const AreaRechtsmittel = ({
           name="rechtsmittelErledigung"
           onChange={change}
           bsSize="small"
-          tabIndex={4 + nrOfFieldsBeforePv}
+          tabIndex={4 + firstTabIndex}
         >
           {createOptions(rechtsmittelErledigungOptions)}
         </FormControl>
@@ -102,7 +102,7 @@ AreaRechtsmittel.propTypes = {
   values: PropTypes.object,
   rechtsmittelErledigungOptions: PropTypes.array.isRequired,
   rechtsmittelInstanzOptions: PropTypes.array.isRequired,
-  nrOfFieldsBeforePv: PropTypes.number,
+  firstTabIndex: PropTypes.number.isRequired,
   change: PropTypes.func.isRequired,
   changeComparator: PropTypes.func.isRequired,
 }

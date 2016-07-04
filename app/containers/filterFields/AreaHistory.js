@@ -9,14 +9,14 @@ function mapStateToProps(state, props) {
     values,
     change,
     changeComparator,
-    nrOfFieldsBeforeHistory,
+    firstTabIndex,
   } = props
 
   return {
     values,
     change,
     changeComparator,
-    nrOfFieldsBeforeHistory,
+    firstTabIndex,
   }
 }
 

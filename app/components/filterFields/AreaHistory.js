@@ -9,7 +9,7 @@ const AreaHistory = ({
   values,
   change,
   changeComparator,
-  nrOfFieldsBeforeHistory,
+  firstTabIndex,
 }) =>
   <div className={styles.areaHistory}>
     <div className={styles.areaHistoryTitle}>
@@ -31,7 +31,7 @@ const AreaHistory = ({
           onChange={change}
           bsSize="small"
           placeholder="ID"
-          tabIndex={nrOfFieldsBeforeHistory + 1}
+          tabIndex={firstTabIndex + 1}
         />
       </InputGroup>
     </div>
@@ -43,7 +43,7 @@ AreaHistory.propTypes = {
   values: PropTypes.object,
   change: PropTypes.func.isRequired,
   changeComparator: PropTypes.func.isRequired,
-  nrOfFieldsBeforeHistory: PropTypes.number.isRequired,
+  firstTabIndex: PropTypes.number.isRequired,
 }
 
 export default AreaHistory

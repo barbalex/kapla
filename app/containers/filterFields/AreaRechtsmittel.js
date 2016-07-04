@@ -13,7 +13,7 @@ function mapStateToProps(state, props) {
   const {
     values,
     change,
-    nrOfFieldsBeforePv,
+    firstTabIndex,
     changeComparator,
   } = props
 
@@ -22,7 +22,7 @@ function mapStateToProps(state, props) {
     rechtsmittelErledigungOptions,
     rechtsmittelInstanzOptions,
     change,
-    nrOfFieldsBeforePv,
+    firstTabIndex,
     changeComparator,
   }
 }

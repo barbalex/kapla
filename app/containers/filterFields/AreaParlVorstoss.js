@@ -12,7 +12,7 @@ function mapStateToProps(state, props) {
   const {
     values,
     change,
-    nrOfFieldsBeforePv,
+    firstTabIndex,
     changeComparator,
   } = props
 
@@ -20,7 +20,7 @@ function mapStateToProps(state, props) {
     values,
     parlVorstossTypOptions,
     change,
-    nrOfFieldsBeforePv,
+    firstTabIndex,
     changeComparator,
   }
 }

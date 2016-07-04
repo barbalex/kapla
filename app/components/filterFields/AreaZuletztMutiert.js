@@ -55,7 +55,7 @@ const AreaZuletztMutiert = ({
   values,
   interneOptions,
   change,
-  nrOfFieldsBeforeZuletztMutiert,
+  firstTabIndex,
   changeComparator,
 }) =>
   <div className={styles.areaZuletztMutiert}>
@@ -74,7 +74,7 @@ const AreaZuletztMutiert = ({
           name="mutationsperson"
           onChange={change}
           bsSize="small"
-          tabIndex={1 + nrOfFieldsBeforeZuletztMutiert}
+          tabIndex={1 + firstTabIndex}
           className={styles.narrowVerantwDropdown}
         >
           {interneOptionsList(interneOptions)}
@@ -93,7 +93,7 @@ AreaZuletztMutiert.displayName = 'AreaZuletztMutiert'
 AreaZuletztMutiert.propTypes = {
   values: PropTypes.object,
   interneOptions: PropTypes.array,
-  nrOfFieldsBeforeZuletztMutiert: PropTypes.number,
+  firstTabIndex: PropTypes.number.isRequired,
   change: PropTypes.func.isRequired,
   changeComparator: PropTypes.func.isRequired,
 }

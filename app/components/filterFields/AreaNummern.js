@@ -1,267 +1,195 @@
 'use strict'
 
 import React, { PropTypes } from 'react'
-import { FormControl, ControlLabel, InputGroup } from 'react-bootstrap'
-import ComparatorSelector from '../../containers/filterFields/ComparatorSelector'
+import { ControlLabel } from 'react-bootstrap'
 import Input from '../../containers/filterFields/Input'
 import styles from './areaNummern.css'
 
 const AreaNummern = ({
   values,
-  wrapperClass,
-  nrOfGFields,
+  firstTabIndex,
   change,
   changeComparator,
-}) => {
-  const tabsToAdd = (
-    wrapperClass === styles.wrapperNarrow ?
-    0 :
-    nrOfGFields
-  )
-
-  return (
-    <div className={styles.areaNummern}>
-      <div className={styles.areaNummernTitle}>
-        Nummern
+}) =>
+  <div className={styles.areaNummern}>
+    <div className={styles.areaNummernTitle}>
+      Nummern
+    </div>
+    <ControlLabel className={styles.labelNr}>
+      <div className={styles.labelNrDiv}>
+        Nr.
       </div>
-      <ControlLabel className={styles.labelNr}>
-        <div className={styles.labelNrDiv}>
-          Nr.
-        </div>
-      </ControlLabel>
-      <ControlLabel className={styles.labelIdGeschaeft}>
-        ID
-      </ControlLabel>
-      <div className={styles.fieldIdGeschaeft}>
-        <Input
-          type="number"
-          name="idGeschaeft"
-          change={change}
-          values={values}
-          changeComparator={changeComparator}
-          tabIndex={1 + tabsToAdd}
-          autoFocus={wrapperClass === styles.wrapperNarrow}
-        />
-      </div>
-      <ControlLabel className={styles.labelGekoNr}>
-        Geko
-      </ControlLabel>
-      <div className={styles.fieldGekoNr}>
-        <Input
-          type="number"
-          name="gekoNr"
-          change={change}
-          values={values}
-          changeComparator={changeComparator}
-          tabIndex={2 + tabsToAdd}
-        />
-      </div>
-      <div className={styles.labelJahre}>
-        <div className={styles.labelNrDiv}>
-          Jahr
-        </div>
-      </div>
-      <ControlLabel className={styles.labelEntscheidAwel}>
-        AWEL
-      </ControlLabel>
-      <div className={styles.fieldEntscheidAwelNr}>
-        <InputGroup>
-          <ComparatorSelector
-            name="entscheidAwelNr"
-            changeComparator={changeComparator}
-          />
-          <FormControl
-            type="number"
-            value={values.entscheidAwelNr || ''}
-            name="entscheidAwelNr"
-            onChange={change}
-            bsSize="small"
-            tabIndex={3 + tabsToAdd}
-          />
-        </InputGroup>
-      </div>
-      <div className={styles.slashAwel}>
-        <div>/</div>
-      </div>
-      <div className={styles.fieldEntscheidAwelJahr}>
-        <InputGroup>
-          <ComparatorSelector
-            name="entscheidAwelJahr"
-            changeComparator={changeComparator}
-          />
-          <FormControl
-            type="number"
-            value={values.entscheidAwelJahr || ''}
-            name="entscheidAwelJahr"
-            onChange={change}
-            bsSize="small"
-            tabIndex={4 + tabsToAdd}
-          />
-        </InputGroup>
-      </div>
-      <ControlLabel className={styles.labelEntscheidBdv}>
-        BDV
-      </ControlLabel>
-      <div className={styles.fieldEntscheidBdvNr}>
-        <InputGroup>
-          <ComparatorSelector
-            name="entscheidBdvNr"
-            changeComparator={changeComparator}
-          />
-          <FormControl
-            type="number"
-            value={values.entscheidBdvNr || ''}
-            name="entscheidBdvNr"
-            onChange={change}
-            bsSize="small"
-            tabIndex={5 + tabsToAdd}
-          />
-        </InputGroup>
-      </div>
-      <div className={styles.slashBdv}>
-        <div>/</div>
-      </div>
-      <div className={styles.fieldEntscheidBdvJahr}>
-        <InputGroup>
-          <ComparatorSelector
-            name="entscheidBdvJahr"
-            changeComparator={changeComparator}
-          />
-          <FormControl
-            type="number"
-            value={values.entscheidBdvJahr || ''}
-            name="entscheidBdvJahr"
-            onChange={change}
-            bsSize="small"
-            tabIndex={6 + tabsToAdd}
-          />
-        </InputGroup>
-      </div>
-      <ControlLabel className={styles.labelEntscheidKr}>
-        KR
-      </ControlLabel>
-      <div className={styles.fieldEntscheidKrNr}>
-        <InputGroup>
-          <ComparatorSelector
-            name="entscheidKrNr"
-            changeComparator={changeComparator}
-          />
-          <FormControl
-            type="number"
-            value={values.entscheidKrNr || ''}
-            name="entscheidKrNr"
-            onChange={change}
-            bsSize="small"
-            tabIndex={7 + tabsToAdd}
-          />
-        </InputGroup>
-      </div>
-      <div className={styles.slashKr}>
-        <div>/</div>
-      </div>
-      <div className={styles.fieldEntscheidKrJahr}>
-        <InputGroup>
-          <ComparatorSelector
-            name="entscheidKrJahr"
-            changeComparator={changeComparator}
-          />
-          <FormControl
-            type="number"
-            value={values.entscheidKrJahr || ''}
-            name="entscheidKrJahr"
-            onChange={change}
-            bsSize="small"
-            tabIndex={8 + tabsToAdd}
-          />
-        </InputGroup>
-      </div>
-      <ControlLabel className={styles.labelEntscheidRrb}>
-        RRB
-      </ControlLabel>
-      <div className={styles.fieldEntscheidRrbNr}>
-        <InputGroup>
-          <ComparatorSelector
-            name="entscheidRrbNr"
-            changeComparator={changeComparator}
-          />
-          <FormControl
-            type="number"
-            value={values.entscheidRrbNr || ''}
-            name="entscheidRrbNr"
-            onChange={change}
-            bsSize="small"
-            tabIndex={9 + tabsToAdd}
-          />
-        </InputGroup>
-      </div>
-      <div className={styles.slashRrb}>
-        <div>/</div>
-      </div>
-      <div className={styles.fieldEntscheidRrbJahr}>
-        <InputGroup>
-          <ComparatorSelector
-            name="entscheidRrbJahr"
-            changeComparator={changeComparator}
-          />
-          <FormControl
-            type="number"
-            value={values.entscheidRrbJahr || ''}
-            name="entscheidRrbJahr"
-            onChange={change}
-            bsSize="small"
-            tabIndex={10 + tabsToAdd}
-          />
-        </InputGroup>
-      </div>
-      <div className={styles.fieldAktenstandort}>
-        <ControlLabel>
-          Aktenstandort
-        </ControlLabel>
-        <InputGroup>
-          <ComparatorSelector
-            name="aktenstandort"
-            changeComparator={changeComparator}
-          />
-          <FormControl
-            type="text"
-            value={values.aktenstandort || ''}
-            name="aktenstandort"
-            onChange={change}
-            bsSize="small"
-            tabIndex={11 + tabsToAdd}
-          />
-        </InputGroup>
-      </div>
-      <div className={styles.fieldAktennummer}>
-        <ControlLabel>
-          Nr.
-        </ControlLabel>
-        <InputGroup>
-          <ComparatorSelector
-            name="aktennummer"
-            changeComparator={changeComparator}
-          />
-          <FormControl
-            type="text"
-            value={values.aktennummer || ''}
-            name="aktennummer"
-            onChange={change}
-            bsSize="small"
-            tabIndex={12 + tabsToAdd}
-          />
-        </InputGroup>
+    </ControlLabel>
+    <ControlLabel className={styles.labelIdGeschaeft}>
+      ID
+    </ControlLabel>
+    <div className={styles.fieldIdGeschaeft}>
+      <Input
+        type="number"
+        name="idGeschaeft"
+        change={change}
+        values={values}
+        changeComparator={changeComparator}
+        tabIndex={1 + firstTabIndex}
+        autoFocus={firstTabIndex === 0}
+      />
+    </div>
+    <ControlLabel className={styles.labelGekoNr}>
+      Geko
+    </ControlLabel>
+    <div className={styles.fieldGekoNr}>
+      <Input
+        type="number"
+        name="gekoNr"
+        change={change}
+        values={values}
+        changeComparator={changeComparator}
+        tabIndex={2 + firstTabIndex}
+      />
+    </div>
+    <div className={styles.labelJahre}>
+      <div className={styles.labelNrDiv}>
+        Jahr
       </div>
     </div>
-  )
-}
+    <ControlLabel className={styles.labelEntscheidAwel}>
+      AWEL
+    </ControlLabel>
+    <div className={styles.fieldEntscheidAwelNr}>
+      <Input
+        type="number"
+        name="entscheidAwelNr"
+        change={change}
+        values={values}
+        changeComparator={changeComparator}
+        tabIndex={3 + firstTabIndex}
+      />
+    </div>
+    <div className={styles.slashAwel}>
+      <div>/</div>
+    </div>
+    <div className={styles.fieldEntscheidAwelJahr}>
+      <Input
+        type="number"
+        name="entscheidAwelJahr"
+        change={change}
+        values={values}
+        changeComparator={changeComparator}
+        tabIndex={4 + firstTabIndex}
+      />
+    </div>
+    <ControlLabel className={styles.labelEntscheidBdv}>
+      BDV
+    </ControlLabel>
+    <div className={styles.fieldEntscheidBdvNr}>
+      <Input
+        type="number"
+        name="entscheidBdvNr"
+        change={change}
+        values={values}
+        changeComparator={changeComparator}
+        tabIndex={5 + firstTabIndex}
+      />
+    </div>
+    <div className={styles.slashBdv}>
+      <div>/</div>
+    </div>
+    <div className={styles.fieldEntscheidBdvJahr}>
+      <Input
+        type="number"
+        name="entscheidBdvJahr"
+        change={change}
+        values={values}
+        changeComparator={changeComparator}
+        tabIndex={6 + firstTabIndex}
+      />
+    </div>
+    <ControlLabel className={styles.labelEntscheidKr}>
+      KR
+    </ControlLabel>
+    <div className={styles.fieldEntscheidKrNr}>
+      <Input
+        type="number"
+        name="entscheidKrNr"
+        change={change}
+        values={values}
+        changeComparator={changeComparator}
+        tabIndex={7 + firstTabIndex}
+      />
+    </div>
+    <div className={styles.slashKr}>
+      <div>/</div>
+    </div>
+    <div className={styles.fieldEntscheidKrJahr}>
+      <Input
+        type="number"
+        name="entscheidKrJahr"
+        change={change}
+        values={values}
+        changeComparator={changeComparator}
+        tabIndex={8 + firstTabIndex}
+      />
+    </div>
+    <ControlLabel className={styles.labelEntscheidRrb}>
+      RRB
+    </ControlLabel>
+    <div className={styles.fieldEntscheidRrbNr}>
+      <Input
+        type="number"
+        name="entscheidRrbNr"
+        change={change}
+        values={values}
+        changeComparator={changeComparator}
+        tabIndex={9 + firstTabIndex}
+      />
+    </div>
+    <div className={styles.slashRrb}>
+      <div>/</div>
+    </div>
+    <div className={styles.fieldEntscheidRrbJahr}>
+      <Input
+        type="number"
+        name="entscheidRrbJahr"
+        change={change}
+        values={values}
+        changeComparator={changeComparator}
+        tabIndex={10 + firstTabIndex}
+      />
+    </div>
+    <div className={styles.fieldAktenstandort}>
+      <ControlLabel>
+        Aktenstandort
+      </ControlLabel>
+      <Input
+        type="text"
+        name="aktenstandort"
+        change={change}
+        values={values}
+        changeComparator={changeComparator}
+        tabIndex={11 + firstTabIndex}
+      />
+    </div>
+    <div className={styles.fieldAktennummer}>
+      <ControlLabel>
+        Nr.
+      </ControlLabel>
+      <Input
+        type="text"
+        name="aktennummer"
+        change={change}
+        values={values}
+        changeComparator={changeComparator}
+        tabIndex={12 + firstTabIndex}
+      />
+    </div>
+  </div>
 
 AreaNummern.displayName = 'AreaNummern'
 
 AreaNummern.propTypes = {
   values: PropTypes.object,
   change: PropTypes.func.isRequired,
-  wrapperClass: PropTypes.string,
-  nrOfGFields: PropTypes.number,
+  firstTabIndex: PropTypes.number.isRequired,
   changeComparator: PropTypes.func.isRequired,
 }
 
