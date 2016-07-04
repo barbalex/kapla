@@ -5,6 +5,7 @@ import { FormControl, ControlLabel, InputGroup } from 'react-bootstrap'
 import styles from './areaGeschaeft.css'
 import ComparatorSelector from '../../containers/filterFields/ComparatorSelector'
 import SortSelector from '../../containers/filterFields/SortSelector'
+import TextInput from '../../containers/filterFields/TextInput'
 import createOptions from '../../src/createOptions'
 
 const AreaGeschaeft = ({
@@ -32,62 +33,38 @@ const AreaGeschaeft = ({
         <ControlLabel>
           Gegenstand
         </ControlLabel>
-        <InputGroup>
-          <SortSelector
-            name="gegenstand"
-            changeComparator={changeComparator}
-          />
-          <ComparatorSelector
-            name="gegenstand"
-            changeComparator={changeComparator}
-          />
-          <FormControl
-            type="text"
-            value={values.gegenstand || ''}
-            name="gegenstand"
-            onChange={change}
-            tabIndex={1 + tabsToAdd}
-            autoFocus={wrapperClass !== styles.wrapperNarrow}
-          />
-        </InputGroup>
+        <TextInput
+          name="gegenstand"
+          change={change}
+          values={values}
+          changeComparator={changeComparator}
+          tabIndex={1 + tabsToAdd}
+          autoFocus={wrapperClass !== styles.wrapperNarrow}
+        />
       </div>
       <div className={styles.fieldAusloeser}>
         <ControlLabel>
           Auslöser
         </ControlLabel>
-        <InputGroup>
-          <ComparatorSelector
-            name="ausloeser"
-            changeComparator={changeComparator}
-          />
-          <FormControl
-            type="text"
-            value={values.ausloeser || ''}
-            name="ausloeser"
-            onChange={change}
-            bsSize="small"
-            tabIndex={2 + tabsToAdd}
-          />
-        </InputGroup>
+        <TextInput
+          name="ausloeser"
+          change={change}
+          values={values}
+          changeComparator={changeComparator}
+          tabIndex={2 + tabsToAdd}
+        />
       </div>
       <div className={styles.fieldOrt}>
         <ControlLabel>
           Ort
         </ControlLabel>
-        <InputGroup>
-          <ComparatorSelector
-            name="ort"
-            changeComparator={changeComparator}
-          />
-          <FormControl
-            type="text"
-            value={values.ort || ''}
-            name="ort"
-            onChange={change}
-            bsSize="small"
-            tabIndex={3 + tabsToAdd}
-          />
-        </InputGroup>
+        <TextInput
+          name="ort"
+          change={change}
+          values={values}
+          changeComparator={changeComparator}
+          tabIndex={3 + tabsToAdd}
+        />
       </div>
       <div className={styles.fieldGeschaeftsart}>
         <ControlLabel>
