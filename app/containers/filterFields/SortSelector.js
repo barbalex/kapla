@@ -3,23 +3,22 @@
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import SortSelector from '../../components/filterFields/SortSelector'
+import * as GeschaefteActions from '../../actions/geschaefte'
 
 function mapStateToProps(state, props) {
   const {
     name,
-    changeComparator,
   } = props
   const { filterFields } = state.geschaefte
 
   return {
     name,
     filterFields,
-    changeComparator,
   }
 }
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators({}, dispatch)
+  return bindActionCreators(GeschaefteActions, dispatch)
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(SortSelector)

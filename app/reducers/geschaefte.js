@@ -1,4 +1,5 @@
 import moment from 'moment'
+import geschaefteSortByFields from './geschaefte/geschaefteSortByFields'
 
 import {
   GESCHAEFTE_GET,
@@ -41,6 +42,7 @@ const standardState = {
   filterFields: [],
   filterFulltext: '',
   filterType: null,
+  sortFields: [],
   // dropdown lists
   rechtsmittelErledigungOptions: [],
   parlVorstossTypOptions: [],
@@ -101,26 +103,13 @@ const geschaefte = (state = standardState, action) => {
         activeId: null,
         geschaefteGefilterteIds: action.geschaefteGefilterteIds,
       }
-    case GESCHAEFTE_SORT_BY_FIELDS:
+    case GESCHAEFTE_SORT_BY_FIELDS: {
+      const sortFields = geschaefteSortByFields(state, action)
       return {
         ...state,
-        sortFields: () => {
-          const sortFieldsWithoutPassedField = state.sortFields.map((sf) =>
-            sf.field !== action.field
-          )
-          if (!action.direction) {
-            // remove field
-            return sortFieldsWithoutPassedField
-          }
-          return [
-            sortFieldsWithoutPassedField,
-            {
-              field: action.field,
-              direction: action.direction,
-            }
-          ]
-        }
+        sortFields
       }
+    }
     case GESCHAEFTE_FILTER_BY_FULLTEXT:
       return {
         ...state,
