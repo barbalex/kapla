@@ -7,19 +7,19 @@ import styles from './sortSelector.css'
 
 const SortSelector = ({
   name,
-  filterFields,
+  sortFields,
   geschaefteSortByFields,
 }) => {
-  const filterField = filterFields.find((ff) => ff.field === name)
-  const comparatorValue = filterField ? filterField.comparator : ''
+  const filterField = sortFields.find((ff) => ff.field === name)
+  const direction = filterField ? filterField.direction : ''
 
   return (
     <InputGroup.Button>
       <FormControl
         componentClass="select"
         className={styles.sortSelector}
-        onChange={(e) => geschaefteSortByFields(e.target.value, name)}
-        value={comparatorValue}
+        onChange={(e) => geschaefteSortByFields(name, e.target.value)}
+        value={direction}
       >
         <option value=""></option>
         <option value="ASCENDING">&#8679;</option>
@@ -33,7 +33,7 @@ SortSelector.displayName = 'SortSelector'
 
 SortSelector.propTypes = {
   name: PropTypes.string.isRequired,
-  filterFields: PropTypes.array.isRequired,
+  sortFields: PropTypes.array.isRequired,
   geschaefteSortByFields: PropTypes.func.isRequired,
 }
 

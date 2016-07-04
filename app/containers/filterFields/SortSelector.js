@@ -9,11 +9,13 @@ function mapStateToProps(state, props) {
   const {
     name,
   } = props
-  const { filterFields } = state.geschaefte
+  const {
+    sortFields,
+  } = state.geschaefte
 
   return {
     name,
-    filterFields,
+    sortFields,
   }
 }
 
