@@ -14,7 +14,7 @@
   background-color: rgba(210, 210, 210, 0.2);
   display: grid;
   /* can't use 1fr for first column - does not work correctly, no idea why */
-  grid-template-columns: calc(100% - 256px) 8px 120px 8px 120px;
+  grid-template-columns: calc(100% - 366px) 8px 175px 8px 175px;
   grid-template-rows: auto;
   grid-template-areas:
    "areaNummernTitle areaNummernTitle areaNummernTitle areaNummernTitle labelNr"

@@ -16,7 +16,7 @@
 
 .areaPersonen {
   display: grid;
-  grid-template-columns: 130px calc((100% - 10px) - 130px);
+  grid-template-columns: 175px calc((100% - 10px) - 175px);
   grid-column-gap: 8px;
   grid-row-gap: 2px;
   padding: 8px;
