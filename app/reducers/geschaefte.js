@@ -1,5 +1,6 @@
 import moment from 'moment'
-import geschaefteSortByFields from './geschaefte/geschaefteSortByFields'
+import geschaefteSortByFieldsGetSortFields from './geschaefte/geschaefteSortByFieldsGetSortFields'
+import geschaefteSortByFieldsGetGeschaefte from './geschaefte/geschaefteSortByFieldsGetGeschaefte'
 
 import {
   GESCHAEFTE_GET,
@@ -104,10 +105,13 @@ const geschaefte = (state = standardState, action) => {
         geschaefteGefilterteIds: action.geschaefteGefilterteIds,
       }
     case GESCHAEFTE_SORT_BY_FIELDS: {
-      const sortFields = geschaefteSortByFields(state, action)
+      const sortFields = geschaefteSortByFieldsGetSortFields(state, action)
+      const myGeschaefte = geschaefteSortByFieldsGetGeschaefte(state, sortFields)
       return {
         ...state,
-        sortFields
+        geschaefte: myGeschaefte,
+        geschaefteGefilterteIds: myGeschaefte.map((g) => g.idGeschaeft),
+        sortFields,
       }
     }
     case GESCHAEFTE_FILTER_BY_FULLTEXT:

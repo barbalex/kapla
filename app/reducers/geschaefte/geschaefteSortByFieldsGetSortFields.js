@@ -1,5 +1,5 @@
 export default (state, action) => {
-  const sortFieldsWithoutPassedField = state.sortFields.map((sf) =>
+  const sortFieldsWithoutPassedField = state.sortFields.filter((sf) =>
     sf.field !== action.field
   )
   if (!action.direction) {
