@@ -13,46 +13,54 @@ class GeschaefteLayout extends Component {
     config: PropTypes.object.isRequired,
     geschaefteLayoutSet: PropTypes.func.isRequired,
     configSetKey: PropTypes.func.isRequired,
+    path: PropTypes.string.isRequired,
   }
 
   componentDidMount = () => {
-    let { geschaefteLayout } = this.props
-    const { geschaefteLayoutSet, config } = this.props
-    const layoutConfig = {
-      settings: {
-        hasHeaders: false
-      },
-      content: [{
-        type: 'row',
-        content: [
-          {
-            type: 'react-component',
-            component: 'geschaefte',
-            title: 'Geschäfte',
-            width: config.geschaefteColumnWidth,
-          },
-          {
-            type: 'react-component',
-            component: 'geschaeft',
-            title: 'aktives Geschäft',
-          }
-        ]
-      }]
+    const { path } = this.props
+    console.log('GeschaefteLayout, componentDidMount, path', path)
+    if (
+      path === '/geschaefte' ||
+      path === '/'
+    ) {
+      let { geschaefteLayout } = this.props
+      const { geschaefteLayoutSet, config } = this.props
+      const layoutConfig = {
+        settings: {
+          hasHeaders: false
+        },
+        content: [{
+          type: 'row',
+          content: [
+            {
+              type: 'react-component',
+              component: 'geschaefte',
+              title: 'Geschäfte',
+              width: config.geschaefteColumnWidth,
+            },
+            {
+              type: 'react-component',
+              component: 'geschaeft',
+              title: 'aktives Geschäft',
+            }
+          ]
+        }]
+      }
+      geschaefteLayout = new GoldenLayout(layoutConfig)
+      geschaefteLayout.registerComponent(
+        'geschaefte',
+        wrapComponentInProvider(Geschaefte)
+      )
+      geschaefteLayout.registerComponent(
+        'geschaeft',
+        wrapComponentInProvider(Geschaeft)
+      )
+      geschaefteLayout.init()
+      geschaefteLayoutSet(geschaefteLayout)
+      geschaefteLayout.on('stateChanged', () =>
+        this.saveGeschaefteState()
+      )
     }
-    geschaefteLayout = new GoldenLayout(layoutConfig)
-    geschaefteLayout.registerComponent(
-      'geschaefte',
-      wrapComponentInProvider(Geschaefte)
-    )
-    geschaefteLayout.registerComponent(
-      'geschaeft',
-      wrapComponentInProvider(Geschaeft)
-    )
-    geschaefteLayout.init()
-    geschaefteLayoutSet(geschaefteLayout)
-    geschaefteLayout.on('stateChanged', () =>
-      this.saveGeschaefteState()
-    )
   }
 
   componentWillUnmount = () => {
@@ -76,7 +84,17 @@ class GeschaefteLayout extends Component {
     }
   }
 
-  render = () => <div></div>
+  render = () => {
+    const { path } = this.props
+    console.log('GeschaefteLayout, rendering, path', path)
+    if (
+      path === '/geschaefte' ||
+      path === '/'
+    ) {
+      return (<div></div>)
+    }
+    return null
+  }
 }
 
 export default GeschaefteLayout

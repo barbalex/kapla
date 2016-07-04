@@ -15,9 +15,11 @@ import filterForFaelligeGeschaefte from '../../src/filterForFaelligeGeschaefte'
 import filterForVernehmlAngek from '../../src/filterForVernehmlAngek'
 import filterForVernehmlLaeuft from '../../src/filterForVernehmlLaeuft'
 import filterCriteriaToArrayOfStrings from '../../src/filterCriteriaToArrayOfStrings'
+import sortCriteriaToArrayOfStrings from '../../src/sortCriteriaToArrayOfStrings'
 import styles from './Navbar.css'
 
 const FilterNav = ({
+  sortFields,
   filterFulltext,
   filterFields,
   filterType,
@@ -56,7 +58,12 @@ const FilterNav = ({
     filterCriteriaToArrayOfStrings(filterFields).join(' & ') :
     '(es werden keine Felder gefiltert)'
   )
-  const title = filterType ? `Filter: ${filterType}` : 'Felder filtern'
+  const activeSortcriteria = (
+    sortFields.length > 0 ?
+    sortCriteriaToArrayOfStrings(sortFields).join(' & ') :
+    '(die Geschäfte werden nicht sortiert)'
+  )
+  const title = filterType ? `Filter: ${filterType}` : 'Felder filtern / sortieren'
   return (
     <Navbar.Form
       pullLeft
@@ -92,6 +99,14 @@ const FilterNav = ({
           <MenuItem>
             <span className={styles.filterCriteria}>
               {activeFiltercriteria}
+            </span>
+          </MenuItem>
+          <MenuItem header>
+            aktive Sortierkriterien:
+          </MenuItem>
+          <MenuItem>
+            <span className={styles.filterCriteria}>
+              {activeSortcriteria}
             </span>
           </MenuItem>
           <MenuItem header>
@@ -193,6 +208,7 @@ const FilterNav = ({
 FilterNav.displayName = 'FilterNav'
 
 FilterNav.propTypes = {
+  sortFields: PropTypes.array.isRequired,
   filterFields: PropTypes.array.isRequired,
   filterType: PropTypes.string,
   geschaefte: PropTypes.array.isRequired,

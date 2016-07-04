@@ -11,11 +11,13 @@ function mapStateToProps(state) {
     filterFieldsLayout,
     config,
   } = state.app
+  const path = state.routing.locationBeforeTransitions.pathname
 
   return {
     geschaefteLayout,
     filterFieldsLayout,
     config,
+    path,
   }
 }
 

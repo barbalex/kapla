@@ -8,8 +8,11 @@ function mapStateToProps(state) {
   const {
     geschaefteGefilterteIds,
   } = state.geschaefte
+  const path = state.routing.locationBeforeTransitions.pathname
+
   return {
     geschaefteGefilterteIds,
+    path,
   }
 }
 

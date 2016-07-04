@@ -9,6 +9,7 @@ import GeschaefteItem from '../containers/GeschaefteItem'
 class Geschaefte extends Component {
   static propTypes = {
     geschaefteGefilterteIds: PropTypes.array,
+    path: PropTypes.string.isReqiured,
   }
 
   state = {
@@ -16,11 +17,17 @@ class Geschaefte extends Component {
   }
 
   componentDidUpdate() {
-    /**
-     * this only works in a setTimeout!
-     * otherwise tableBody scrollHeight equals offsetHeight
-     */
-    setTimeout(() => this.setTableBodyOverflow(), 0)
+    const { path } = this.props
+    if (
+      path === '/geschaefte' ||
+      path === '/'
+    ) {
+      /**
+       * this only works in a setTimeout!
+       * otherwise tableBody scrollHeight equals offsetHeight
+       */
+      setTimeout(() => this.setTableBodyOverflow(), 0)
+    }
   }
 
   setTableBodyOverflow() {
@@ -33,7 +40,8 @@ class Geschaefte extends Component {
 
   doesTableBodyOverflow() {
     const tableBodyNode = ReactDOM.findDOMNode(this.tableBody)
-    return tableBodyNode.offsetHeight < tableBodyNode.scrollHeight
+    if (tableBodyNode) return tableBodyNode.offsetHeight < tableBodyNode.scrollHeight
+    return false
   }
 
   renderItem(index, key) {

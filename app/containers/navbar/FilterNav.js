@@ -10,6 +10,7 @@ function mapStateToProps(state) {
     filterFields,
     filterType,
     filterFulltext,
+    sortFields,
     geschaefte,
     geschaefteGefilterteIds,
   } = state.geschaefte
@@ -22,6 +23,7 @@ function mapStateToProps(state) {
     filterFields,
     filterType,
     filterFulltext,
+    sortFields,
     geschaefte,
     geschaefteGefilterteIds,
     path,

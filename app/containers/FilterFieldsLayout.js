@@ -11,6 +11,7 @@ function mapStateToProps(state) {
     filterFieldsLayout,
     config,
   } = state.app
+
   return {
     geschaefteLayout,
     filterFieldsLayout,
