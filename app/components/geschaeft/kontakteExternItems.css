@@ -42,7 +42,8 @@
 }
 
 .deleteGlyphiconDiv {
-  display: none
+  grid-column: 3 / span 1;
+  margin-top: 4px;
 }
 
 .removeGlyphicon {

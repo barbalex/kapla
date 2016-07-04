@@ -3,7 +3,8 @@
 import React, { PropTypes } from 'react'
 import { FormControl } from 'react-bootstrap'
 import _ from 'lodash'
-import styles from './kontakteExtern.css'
+import regularStyles from './kontakteExtern.css'
+import pdfStyles from './kontakteExternPdf.css'
 import KontakteExternItems from '../../containers/geschaeft/KontakteExternItems'
 
 const onChangeNewKontaktExtern = (e, geschaeftKontaktExternNewCreate, activeId) => {
@@ -57,38 +58,42 @@ const GeschaefteKontakteExtern = ({
   activeId,
   externeOptions,
   isPrintPreview,
-}) =>
-  <div className={styles.body}>
-    <KontakteExternItems />
-    <div
-      key={0}
-      className={styles.rowfVDropdown}
-    >
-      <div className={styles.fVDropdown}>
-        <FormControl
-          componentClass="select"
-          bsSize="small"
-          onChange={(e) =>
-            onChangeNewKontaktExtern(
-              e,
-              geschaeftKontaktExternNewCreate,
-              activeId,
-            )
-          }
-          title="Neuen Kontakt hinzufügen"
-          tabIndex={tabIndex}
-        >
-          {
-            optionsList(
-              externeOptions,
-              geschaefteKontakteExtern,
-              activeId,
-            )
-          }
-        </FormControl>
+}) => {
+  const styles = isPrintPreview ? pdfStyles : regularStyles
+  return (
+    <div className={styles.body}>
+      <KontakteExternItems />
+      <div
+        key={0}
+        className={styles.rowfVDropdown}
+      >
+        <div className={styles.fVDropdown}>
+          <FormControl
+            componentClass="select"
+            bsSize="small"
+            onChange={(e) =>
+              onChangeNewKontaktExtern(
+                e,
+                geschaeftKontaktExternNewCreate,
+                activeId,
+              )
+            }
+            title="Neuen Kontakt hinzufügen"
+            tabIndex={tabIndex}
+          >
+            {
+              optionsList(
+                externeOptions,
+                geschaefteKontakteExtern,
+                activeId,
+              )
+            }
+          </FormControl>
+        </div>
       </div>
     </div>
-  </div>
+  )
+}
 
 GeschaefteKontakteExtern.displayName = 'GeschaefteKontakteExtern'
 

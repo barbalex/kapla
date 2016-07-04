@@ -30,7 +30,7 @@ const AreaHistory = ({
           onChange={change}
           onBlur={blur}
           bsSize="small"
-          placeholder="ID"
+          placeholder={isPrintPreview ? null : 'ID'}
           tabIndex={99}
         />
       </div>

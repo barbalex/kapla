@@ -3,7 +3,8 @@
 import React, { PropTypes } from 'react'
 import { FormControl } from 'react-bootstrap'
 import _ from 'lodash'
-import styles from './kontakteIntern.css'
+import regularStyles from './kontakteIntern.css'
+import pdfStyles from './kontakteInternPdf.css'
 import KontakteInternItems from '../../containers/geschaeft/KontakteInternItems'
 
 const onChangeNewKontaktIntern = (
@@ -68,39 +69,43 @@ const GeschaefteKontakteIntern = ({
   interneOptions,
   geschaefteKontakteIntern,
   isPrintPreview,
-}) =>
-  <div className={styles.body}>
-    <KontakteInternItems />
-    <div
-      key={0}
-      className={styles.rowfVDropdown}
-    >
-      <div className={styles.fVDropdown}>
-        <FormControl
-          componentClass="select"
-          bsSize="small"
-          className={styles.dropdown}
-          onChange={(e) =>
-            onChangeNewKontaktIntern(
-              e,
-              geschaeftKontaktInternNewCreate,
-              activeId,
-            )
-          }
-          title="Neuen Kontakt hinzufügen"
-          tabIndex={tabIndex}
-        >
-          {
-            optionsList(
-              interneOptions,
-              geschaefteKontakteIntern,
-              activeId,
-            )
-          }
-        </FormControl>
+}) => {
+  const styles = isPrintPreview ? pdfStyles : regularStyles
+  return (
+    <div className={styles.body}>
+      <KontakteInternItems />
+      <div
+        key={0}
+        className={styles.rowfVDropdown}
+      >
+        <div className={styles.fVDropdown}>
+          <FormControl
+            componentClass="select"
+            bsSize="small"
+            className={styles.dropdown}
+            onChange={(e) =>
+              onChangeNewKontaktIntern(
+                e,
+                geschaeftKontaktInternNewCreate,
+                activeId,
+              )
+            }
+            title="Neuen Kontakt hinzufügen"
+            tabIndex={tabIndex}
+          >
+            {
+              optionsList(
+                interneOptions,
+                geschaefteKontakteIntern,
+                activeId,
+              )
+            }
+          </FormControl>
+        </div>
       </div>
     </div>
-  </div>
+  )
+}
 
 GeschaefteKontakteIntern.displayName = 'GeschaefteKontakteIntern'
 

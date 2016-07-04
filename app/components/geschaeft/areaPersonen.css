@@ -15,7 +15,6 @@
 }
 
 .areaPersonen {
-  grid-area: areaPersonen;
   background-color: rgba(208, 255, 202, 0.2);
   display: grid;
   grid-template-columns: 80px calc((100% - 10px) - 80px);

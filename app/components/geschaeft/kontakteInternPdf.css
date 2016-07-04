@@ -14,7 +14,7 @@
 }
 
 .fVDropdown {
-  grid-column: 1 / span 1;
+  display: none;
 }
 
 /* need monospace to line up text vertically */

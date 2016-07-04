@@ -16,12 +16,12 @@ import pdfStyles from './areaFristenPdf.css'
 import getDateValidationStateDate from '../../src/getDateValidationStateDate'
 
 
-const statusFristInStyle = (dauerBisFristMitarbeiter) => {
+const statusFristInStyle = (dauerBisFristMitarbeiter, styles) => {
   if (dauerBisFristMitarbeiter < 0) {
-    return [regularStyles.fieldFristInUeberfaellig, 'formControlStatic'].join(' ')
+    return [styles.fieldFristInUeberfaellig, 'formControlStatic'].join(' ')
   }
   if (dauerBisFristMitarbeiter === 0) {
-    return [regularStyles.fieldFristInHeute, 'formControlStatic'].join(' ')
+    return [styles.fieldFristInHeute, 'formControlStatic'].join(' ')
   }
   return 'formControlStatic'
 }
@@ -34,7 +34,7 @@ const fristDauerBisMitarbeiter = (geschaeft) => {
   return days ? Math.ceil(days) : ''
 }
 
-const fieldFristDauerBisMitarbeiter = (geschaeft) => (
+const fieldFristDauerBisMitarbeiter = (geschaeft, styles) => (
   <div className={regularStyles.fieldFristDauerBisMitarbeiter}>
     <ControlLabel>
       Tage bis Frist Mitarbeiter
@@ -44,7 +44,7 @@ const fieldFristDauerBisMitarbeiter = (geschaeft) => (
         paddingTop: 0,
         marginTop: 0,
       }}
-      className={statusFristInStyle(fristDauerBisMitarbeiter(geschaeft))}
+      className={statusFristInStyle(fristDauerBisMitarbeiter(geschaeft), styles)}
     >
       {fristDauerBisMitarbeiter(geschaeft)}
     </FormControl.Static>
@@ -59,6 +59,7 @@ const AreaFristen = ({
   onChangeDatePicker,
   isPrintPreview,
 }) => {
+  console.log('AreaFristen.js, isPrintPreview', isPrintPreview)
   const styles = isPrintPreview ? pdfStyles : regularStyles
   /**
    * need to give addon no padding
@@ -243,7 +244,7 @@ const AreaFristen = ({
           </InputGroup.Addon>
         </InputGroup>
       </FormGroup>
-      {!!geschaeft.fristMitarbeiter && fieldFristDauerBisMitarbeiter(geschaeft)}
+      {!!geschaeft.fristMitarbeiter && fieldFristDauerBisMitarbeiter(geschaeft, styles)}
       <FormGroup
         className={styles.fieldDatumAusgangAwel}
         validationState={getDateValidationStateDate(geschaeft.datumAusgangAwel)}

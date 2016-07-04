@@ -11,50 +11,48 @@
 
 .container {
   grid-area: areaPersonen;
-  background-color: rgba(208, 255, 202, 0.2);
+  border: 1px solid #CCC;
 }
 
 .areaPersonen {
-  grid-area: areaPersonen;
-  background-color: rgba(208, 255, 202, 0.2);
   display: grid;
-  grid-template-columns: 80px calc((100% - 10px) - 80px);
   grid-column-gap: 10px;
   grid-row-gap: 2px;
   padding: 8px;
   align-items: end;
-  border: 1px solid #CCC;
 }
 
 .areaPersonenTitle {
   composes: areaTitle;
-  grid-column: 1 / span 2;
+  grid-column: 1 / span 1;
 }
 
 .areaVerantwortlichSubTitle {
   composes: areaSubTitle;
-  grid-column: 1 / span 2;
+  grid-column: 1 / span 1;
 }
 
 .fieldVerantwortlich {
+  grid-column: 1 / span 1;
   display: none;
 }
 
 .fieldVerantwortlichName {
-  grid-column: 1 / span 2;
+  grid-column: 1 / span 1;
 }
 
 .areaInterneKontakteSubTitle {
   composes: areaSubTitle;
-  grid-column: 1 / span 2;
+  grid-column: 1 / span 1;
 }
 
 .areaExterneKontakteSubTitle {
   composes: areaSubTitle;
-  grid-column: 1 / span 2;
+  grid-column: 1 / span 1;
 }
 
 /* need monospace to line up text vertically */
 .verantwDropdown {
+  grid-column: 1 / span 1;
   display: none;
 }

@@ -72,8 +72,7 @@
 
 .textarea {
   display: block;
-  /* TODO */
-  /*width: 100%;*/
+  width: 100%;
   padding: 6px 12px;
   line-height: 1.42857143;
   color: #555;
