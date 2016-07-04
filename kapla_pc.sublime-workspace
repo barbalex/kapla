@@ -4,6 +4,10 @@
 		"selected_items":
 		[
 			[
+				"tableB",
+				"tableBodyNode"
+			],
+			[
 				"ges",
 				"geschaefte"
 			],
@@ -464,62 +468,51 @@
 	"buffers":
 	[
 		{
-			"file": "app/actions/app.js",
+			"file": "app/components/page/Page.js",
 			"settings":
 			{
-				"buffer_size": 4443,
+				"buffer_size": 7749,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "app/actions/geschaefte.js",
+			"file": "app/components/geschaeft/AreaFristen.js",
 			"settings":
 			{
-				"buffer_size": 14600,
+				"buffer_size": 11007,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"contents": "Searching 278 files for \"filterGeschaefte\" (case sensitive, whole word)\n\nC:\\Users\\alex\\kapla\\app\\actions\\geschaefte.js:\n    8  import getExterneOptions from '../src/getExterneOptions'\n    9  import updateGeschaeft from '../src/updateGeschaeft'\n   10: import filterGeschaefte from '../src/filterGeschaefte'\n   11  import sortIdsBySortFields from '../src/sortIdsBySortFields'\n   12  import * as pagesActions from './pages'\n   ..\n   40      const { filterFields, filterFulltext } = geschaefte\n   41      // create geschaefteGefilterteIds\n   42:     const geschaefteGefilterteIds = filterGeschaefte(\n   43        geschaefteArray,\n   44        filterFulltext,\n   ..\n   72      )\n   73      // create geschaefteGefilterteIds\n   74:     const geschaefteGefilterteIds = filterGeschaefte(\n   75        geschaefte.geschaefte,\n   76        filterFulltext,\n   ..\n  128      const { filterFields } = geschaefte\n  129      // create geschaefteGefilterteIds\n  130:     const geschaefteGefilterteIds = filterGeschaefte(\n  131        geschaefte.geschaefte,\n  132        filterFulltext,\n\n5 matches in 1 file\n",
+			"file": "app/components/geschaeft/AreaGeschaeft.js",
 			"settings":
 			{
-				"buffer_size": 1090,
-				"line_ending": "Windows",
-				"name": "Find Results",
-				"scratch": true
-			}
-		},
-		{
-			"file": "app/reducers/geschaefte.js",
-			"settings":
-			{
-				"buffer_size": 7145,
+				"buffer_size": 6035,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "app/reducers/geschaefte/geschaefteSortByFieldsGetSortFields.js",
+			"file": "app/components/geschaeft/areaHistoryPdf.css",
 			"settings":
 			{
-				"buffer_size": 361,
+				"buffer_size": 1337,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "app/src/filterGeschaefte.js",
+			"file": "app/containers/geschaeft/AreaHistory.js",
 			"settings":
 			{
-				"buffer_size": 4426,
+				"buffer_size": 912,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "app/src/sortIdsBySortFields.js",
+			"file": "app/components/geschaeft/AreaHistory.js",
 			"settings":
 			{
-				"buffer_size": 915,
-				"line_ending": "Windows",
-				"name": "sortIdsLikeGeschaefte"
+				"buffer_size": 1366,
+				"line_ending": "Windows"
 			}
 		}
 	],
@@ -574,28 +567,54 @@
 	[
 		"/C/Users/alex/kapla",
 		"/C/Users/alex/kapla/app",
-		"/C/Users/alex/kapla/app/actions",
 		"/C/Users/alex/kapla/app/components",
-		"/C/Users/alex/kapla/app/components/navbar",
-		"/C/Users/alex/kapla/app/reducers",
-		"/C/Users/alex/kapla/app/reducers/geschaefte",
-		"/C/Users/alex/kapla/app/src"
+		"/C/Users/alex/kapla/app/components/geschaeft",
+		"/C/Users/alex/kapla/app/containers",
+		"/C/Users/alex/kapla/app/containers/geschaeft",
+		"/C/Users/alex/kapla/app/containers/page",
+		"/C/Users/alex/kapla/app/reducers/geschaefte"
 	],
 	"file_history":
 	[
-		"/C/Users/alex/kapla/app/reducers/geschaefte/geschaefteSortByFieldsGetIds.js",
-		"/C/Users/alex/kapla/app/reducers/geschaefte/geschaefteSortByFieldsGetGeschaefte.js",
-		"/C/Users/alex/kapla/app/components/navbar/FilterNav.js",
-		"/C/Users/alex/kapla/app/components/geschaeft/AreaFristen.js",
-		"/C/Users/alex/kapla/app/containers/geschaeft/AreaFristen.js",
-		"/C/Users/alex/kapla/app/components/geschaeft/areaFristenPdf.css",
-		"/C/Users/alex/kapla/app/containers/filterFields/AreaFristen.js",
-		"/C/Users/alex/kapla/app/components/GeschaeftPdf.js",
-		"/C/Users/alex/kapla/app/components/geschaeft/AreaPersonen.js",
-		"/C/Users/alex/kapla/app/components/geschaeft/kontakteInternItems.css",
 		"/C/Users/alex/kapla/app/components/geschaeft/areaHistory.css",
 		"/C/Users/alex/kapla/app/components/geschaeft/areaHistoryPdf.css",
+		"/C/Users/alex/kapla/app/components/geschaeft/areaGeschaeftPdf.css",
+		"/C/Users/alex/kapla/app/components/GeschaeftPdf.js",
+		"/C/Users/alex/kapla/app/components/page/Page.css",
+		"/C/Users/alex/kapla/package.json",
+		"/C/Users/alex/kapla/app/components/geschaeftPdf.css",
+		"/C/Users/alex/kapla/app/components/geschaeft/areaFristenPdf.css",
+		"/C/Users/alex/kapla/app/app.global.css",
 		"/C/Users/alex/kapla/app/components/geschaeft/geschaeftPdf.css",
+		"/C/Users/alex/kapla/app/src/sortCriteriaToArrayOfStrings.js",
+		"/C/Users/alex/kapla/package.js",
+		"/C/Users/alex/kapla/app/containers/page/Page.js",
+		"/C/Users/alex/kapla/app/reducers/geschaefte.js",
+		"/C/Users/alex/kapla/app/actions/geschaefte.js",
+		"/C/Users/alex/kapla/app/components/navbar/BerichteNav.js",
+		"/C/Users/alex/kapla/app/components/navbar/FilterNav.js",
+		"/C/Users/alex/kapla/app/components/Geschaefte.js",
+		"/C/Users/alex/kapla/app/containers/navbar/BerichteNav.js",
+		"/C/Users/alex/kapla/app/containers/Geschaefte.js",
+		"/C/Users/alex/kapla/app/components/GeschaefteLayout.js",
+		"/C/Users/alex/kapla/app/containers/navbar/FilterNav.js",
+		"/C/Users/alex/kapla/app/src/filterCriteriaToArrayOfStrings.js",
+		"/C/Users/alex/kapla/app/components/navbar/Navbar.js",
+		"/C/Users/alex/kapla/app/components/navbar/Navbar.css",
+		"/C/Users/alex/kapla/app/actions/pages.js",
+		"/C/Users/alex/kapla/app/containers/FilterFieldsLayout.js",
+		"/C/Users/alex/kapla/app/containers/GeschaefteLayout.js",
+		"/C/Users/alex/kapla/app/reducers/geschaefte/geschaefteSortByFieldsGetSortFields.js",
+		"/C/Users/alex/kapla/app/actions/app.js",
+		"/C/Users/alex/kapla/app/src/sortIdsBySortFields.js",
+		"/C/Users/alex/kapla/app/src/filterGeschaefte.js",
+		"/C/Users/alex/kapla/app/reducers/geschaefte/geschaefteSortByFieldsGetIds.js",
+		"/C/Users/alex/kapla/app/reducers/geschaefte/geschaefteSortByFieldsGetGeschaefte.js",
+		"/C/Users/alex/kapla/app/components/geschaeft/AreaFristen.js",
+		"/C/Users/alex/kapla/app/containers/geschaeft/AreaFristen.js",
+		"/C/Users/alex/kapla/app/containers/filterFields/AreaFristen.js",
+		"/C/Users/alex/kapla/app/components/geschaeft/AreaPersonen.js",
+		"/C/Users/alex/kapla/app/components/geschaeft/kontakteInternItems.css",
 		"/C/Users/alex/kapla/app/components/geschaeft/AreaHistory.js",
 		"/C/Users/alex/kapla/app/components/geschaeft/KontakteIntern.js",
 		"/C/Users/alex/kapla/app/components/geschaeft/kontakteIntern.css",
@@ -611,17 +630,9 @@
 		"/C/Users/alex/kapla/app/containers/geschaeft/KontakteExternItems.js",
 		"/C/Users/alex/kapla/app/components/geschaeft/areaPersonen.css",
 		"/C/Users/alex/kapla/app/components/geschaeft/areaPersonenPdf.css",
-		"/C/Users/alex/kapla/app/components/geschaeftPdf.css",
-		"/C/Users/alex/kapla/app/components/geschaeft/areaGeschaeftPdf.css",
 		"/C/Users/alex/kapla/app/components/FilterFieldsLayout.js",
-		"/C/Users/alex/kapla/app/reducers/geschaefte.js",
-		"/C/Users/alex/kapla/app/reducers/geschaefte/geschaefteSortByFieldsGetSortFields.js",
 		"/C/Users/alex/kapla/app/components/filterFields/sortSelector.css",
-		"/C/Users/alex/kapla/app/actions/geschaefte.js",
 		"/C/Users/alex/kapla/app/components/filterFields/comparatorSelector.css",
-		"/C/Users/alex/kapla/package.json",
-		"/C/Users/alex/kapla/app/components/navbar/Navbar.js",
-		"/C/Users/alex/kapla/app/components/Geschaefte.js",
 		"/C/Users/alex/kapla/app/components/table/Table.js",
 		"/C/Users/alex/kapla/app/components/filterFields/FilterFields.js",
 		"/C/Users/alex/kapla/app/components/filterFields/AreaGeschaeft.js",
@@ -651,18 +662,15 @@
 		"/C/Users/alex/kapla/app/components/filterFields/SelectInput.js",
 		"/C/Users/alex/kapla/app/components/filterFields/SortSelector.js",
 		"/C/Users/alex/kapla/app/components/filterFields/areaGeschaeft.css",
-		"/C/Users/alex/kapla/app/containers/Geschaefte.js",
 		"/C/Users/alex/kapla/app/components/GeschaefteItem.js",
 		"/C/Users/alex/kapla/app/reducers/geschaefte/geschaefteSortByFields.js",
 		"/C/Users/alex/kapla/app/containers/filterFields/SortSelector.js",
 		"/C/Users/alex/kapla/app/containers/filterFields/FilterFields.js",
 		"/C/Users/alex/kapla/app/components/geschaeft/Geschaeft.js",
 		"/C/Users/alex/kapla/app/components/geschaeft/AreaGeschaeft.js",
-		"/C/Users/alex/kapla/app/components/page/Page.css",
 		"/C/Users/alex/kapla/app/components/page/Page.js",
 		"/C/Users/alex/kapla/app/components/Pages.js",
 		"/C/Users/alex/kapla/app/components/navbar/PrintNav.js",
-		"/C/Users/alex/kapla/app/actions/pages.js",
 		"/C/Users/alex/kapla/app/routes.js",
 		"/C/Users/alex/kapla/app/components/Pages.css",
 		"/C/Users/alex/kapla/app/containers/GeschaeftPdf.js",
@@ -672,45 +680,30 @@
 		"/C/Users/alex/kapla/app/components/filterFields/areaRechtsmittel.css",
 		"/C/Users/alex/kapla/app/src/sql/createViews.sql",
 		"/C/Users/alex/kapla/app/src/sql/updateTables.sql",
-		"/C/Users/alex/kapla/app/src/filterGeschaefte.js",
-		"/C/Users/alex/kapla/app/src/filterCriteriaToArrayOfStrings.js",
 		"/C/Users/alex/kapla/app/containers/filterFields/ComparatorSelector.js",
 		"/C/Users/alex/kapla/app/components/filterFields/dateField.css",
 		"/C/Users/alex/kapla/app/containers/filterFields/DateField.js",
 		"/C/Users/alex/Downloads/Logo.xml",
 		"/C/Users/alex/kapla/app/src/getDateValidationStateDate.js",
-		"/C/Users/alex/kapla/app/components/navbar/Navbar.css",
 		"/C/Users/alex/kapla/app/src/updateTableRow.js",
 		"/C/Users/alex/kapla/app/src/newTableRowInDb.js",
 		"/C/Users/alex/kapla/app/src/sql/createTables.sql",
-		"/C/Users/alex/kapla/app/containers/navbar/BerichteNav.js",
 		"/C/Users/alex/kapla/app/containers/navbar/ExportGeschaefteNav.js",
-		"/C/Users/alex/kapla/app/containers/navbar/FilterNav.js",
 		"/C/Users/alex/kapla/app/containers/navbar/GeschaeftDeleteNav.js",
 		"/C/Users/alex/kapla/app/containers/navbar/Navbar.js",
 		"/C/Users/alex/kapla/app/containers/navbar/StammdatenNav.js",
 		"/C/Users/alex/kapla/app/containers/navbar/TableRowDeleteNav.js",
 		"/C/Users/alex/kapla/app/containers/navbar/TableRowNewNav.js",
-		"/C/Users/alex/kapla/app/containers/page/Page.js",
 		"/C/Users/alex/kapla/app/containers/table/Table.js",
 		"/C/Users/alex/kapla/app/containers/table/TableRow.js",
 		"/C/Users/alex/kapla/app/containers/App.js",
-		"/C/Users/alex/kapla/app/containers/FilterFieldsLayout.js",
 		"/C/Users/alex/kapla/app/containers/GeschaefteItem.js",
 		"/C/Users/alex/kapla/app/containers/ModalGeschaeftDelete.js",
 		"/C/Users/alex/kapla/app/containers/ModalMessage.js",
 		"/C/Users/alex/kapla/app/reducers/app.js",
 		"/C/Users/alex/kapla/app/reducers/geschaefteKontakteExtern.js",
 		"/C/Users/alex/kapla/app/reducers/geschaefteKontakteIntern.js",
-		"/C/Users/alex/kapla/app/reducers/index.js",
-		"/C/Users/alex/kapla/app/reducers/pages.js",
-		"/C/Users/alex/kapla/app/reducers/table.js",
-		"/C/Users/alex/kapla/app/reducers/user.js",
-		"/C/Users/alex/kapla/app/src/exportGeschaefte.js",
-		"/C/Users/alex/kapla/app/src/filterForFaelligeGeschaefte.js",
-		"/C/Users/alex/kapla/app/src/filterForVernehmlAngek.js",
-		"/C/Users/alex/kapla/app/src/filterForVernehmlLaeuft.js",
-		"/C/Users/alex/kapla/app/src/getConfig.js"
+		"/C/Users/alex/kapla/app/reducers/index.js"
 	],
 	"find":
 	{
@@ -743,6 +736,36 @@
 		"case_sensitive": true,
 		"find_history":
 		[
+			"styles",
+			"loader",
+			"geschaefteResetSort",
+			"GeschaefteLayout, rendering, path",
+			"geschaefteResetSort",
+			"NavbarBerichteNav",
+			"geschaefteResetSort",
+			"geschaefteSortByFields",
+			"GESCHAEFTE_SORT_BY_FIELDS",
+			"filterCriteriaToArrayOfStrings",
+			"sortFields",
+			"sortCriteriaToArrayOfStrings",
+			"activeSortcriteria",
+			"activeFiltercriteria",
+			"filterCriteriaToArrayOfStrings",
+			"ff",
+			"filterFields",
+			"classNameFilterInput",
+			"setState",
+			"setTableBodyOverflow",
+			"setState",
+			"onSelectFilterFaelligeGeschaefte",
+			"onSelectFilterFaelligeGeschaefteMitarbeiter",
+			"onSelectFilterVernehmlLaeuft",
+			"onSelectFilterVernehmlAngek",
+			"geschaefteSortByFields",
+			"onSelectFilterFaelligeGeschaefte",
+			"onSelectFilterFaelligeGeschaefteMitarbeiter",
+			"existsFilterFields",
+			"sortIdsBySortFields",
 			"filterGeschaefte",
 			"AreaFristen.js, isPrintPrevie",
 			"filter",
@@ -840,37 +863,7 @@
 			"filterValue",
 			"filterFields[index].value",
 			"geschaeft[filterField.field]",
-			"comparatorValue",
-			"comparator",
-			"filterValue",
-			"isValid",
-			"getDateValidationStateDate",
-			"fieldFilterDropdown",
-			"UPDATE",
-			"interne",
-			"verantwortlich",
-			"\n",
-			" INTEGER",
-			" TEXT",
-			"geschaeftsart",
-			"aufbewahrungsfrist",
-			"value",
-			"dbPath",
-			"actions.configSetKey",
-			"CONFIG_SET",
-			"configUiReset",
-			"configSetKey",
-			"dbChooseSuccess",
-			"dbGet",
-			"configUiReset",
-			"dbGet",
-			"configSetKey",
-			"configSet",
-			"CONFIG_SET",
-			"configSet",
-			"DB_CHOOSE_SUCCESS",
-			"dbPath",
-			"dbChooseSuccess"
+			"comparatorValue"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -878,6 +871,9 @@
 		"regex": false,
 		"replace_history":
 		[
+			"BerichteNav",
+			"sf",
+			"sortFields",
 			"firstTabIndex",
 			"Input",
 			"SelectInput",
@@ -1002,10 +998,7 @@
 			"GeschaeftNewNav",
 			"GeschaefteFilterNav",
 			"ExportGeschaefteNav",
-			"BerichteNav",
-			"GeschaeftDeleteNav",
-			"NavbarOptionsNav",
-			"StammdatenNav"
+			"BerichteNav"
 		],
 		"reverse": false,
 		"show_context": true,
@@ -1016,24 +1009,24 @@
 	"groups":
 	[
 		{
-			"selected": 5,
+			"selected": 4,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "app/actions/app.js",
+					"file": "app/components/page/Page.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 4443,
+						"buffer_size": 7749,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								3990,
-								3990
+								786,
+								740
 							]
 						],
 						"settings":
@@ -1043,38 +1036,67 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 4773.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 6,
 					"type": "text"
 				},
 				{
-					"buffer": 1,
-					"file": "app/actions/geschaefte.js",
+					"buffer": 0,
+					"file": "app/components/page/Page.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 14600,
+						"buffer_size": 7749,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								3644,
-								3644
+								6480,
+								6334
 							]
 						],
 						"settings":
 						{
-							"history_list_is_closing": true,
 							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
 							"tab_size": 2,
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 3424.0,
+						"translation.y": 8584.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "app/components/geschaeft/AreaFristen.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 11007,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								9483,
+								9434
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 10868.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 4,
@@ -1082,93 +1104,29 @@
 				},
 				{
 					"buffer": 2,
+					"file": "app/components/geschaeft/AreaGeschaeft.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1090,
-						"regions":
-						{
-							"match":
-							{
-								"flags": 112,
-								"regions":
-								[
-									[
-										258,
-										274
-									],
-									[
-										288,
-										304
-									],
-									[
-										578,
-										594
-									],
-									[
-										762,
-										778
-									],
-									[
-										986,
-										1002
-									]
-								],
-								"scope": ""
-							}
-						},
-						"selection":
-						[
-							[
-								586,
-								586
-							]
-						],
-						"settings":
-						{
-							"detect_indentation": false,
-							"line_numbers": false,
-							"output_tag": 1,
-							"result_base_dir": "",
-							"result_file_regex": "^([^ 	].*):$",
-							"result_line_regex": "^ +([0-9]+):",
-							"scroll_past_end": true,
-							"syntax": "Packages/Default/Find Results.hidden-tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 8,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "app/actions/geschaefte.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 14600,
+						"buffer_size": 6035,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								573,
-								592
+								3441,
+								3450
 							]
 						],
 						"settings":
 						{
-							"history_list_is_closing": true,
 							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
 							"tab_size": 2,
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 3219.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 3,
@@ -1176,49 +1134,49 @@
 				},
 				{
 					"buffer": 3,
-					"file": "app/reducers/geschaefte.js",
+					"file": "app/components/geschaeft/areaHistoryPdf.css",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 7145,
+						"buffer_size": 1337,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								3238,
-								3266
+								860,
+								860
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
+							"syntax": "Packages/CSS/CSS.sublime-syntax",
 							"tab_size": 2,
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 3436.0,
+						"translation.y": 999.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 2,
+					"stack_index": 0,
 					"type": "text"
 				},
 				{
-					"buffer": 3,
-					"file": "app/reducers/geschaefte.js",
+					"buffer": 4,
+					"file": "app/containers/geschaeft/AreaHistory.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 7145,
+						"buffer_size": 912,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								320,
-								320
+								468,
+								468
 							]
 						],
 						"settings":
@@ -1231,24 +1189,24 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
+					"stack_index": 2,
 					"type": "text"
 				},
 				{
-					"buffer": 4,
-					"file": "app/reducers/geschaefte/geschaefteSortByFieldsGetSortFields.js",
+					"buffer": 5,
+					"file": "app/components/geschaeft/AreaHistory.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 361,
+						"buffer_size": 1366,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								0
+								480,
+								480
 							]
 						],
 						"settings":
@@ -1262,65 +1220,6 @@
 						"zoom_level": 1.0
 					},
 					"stack_index": 1,
-					"type": "text"
-				},
-				{
-					"buffer": 5,
-					"file": "app/src/filterGeschaefte.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 4426,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								4423,
-								4390
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 1776.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 5,
-					"type": "text"
-				},
-				{
-					"buffer": 6,
-					"file": "app/src/sortIdsBySortFields.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 915,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								124,
-								118
-							]
-						],
-						"settings":
-						{
-							"auto_name": "sortIdsLikeGeschaefte",
-							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 7,
 					"type": "text"
 				}
 			]

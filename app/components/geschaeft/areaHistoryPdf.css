@@ -12,9 +12,10 @@
     "areaHistoryTitle labelVorgeschaeft fieldVorgeschaeft"
     "areaHistoryFieldsContainer areaHistoryFieldsContainer areaHistoryFieldsContainer";
   grid-column-gap: 8px;
-  grid-row-gap: 8px;
+  grid-row-gap: 1px;
   padding: 8px;
   border: 1px solid #CCC;
+  font-size: 10px;
 }
 
 .areaHistoryTitle {
