@@ -1,7 +1,7 @@
 import moment from 'moment'
+import _ from 'lodash'
 import geschaefteSortByFieldsGetSortFields from './geschaefte/geschaefteSortByFieldsGetSortFields'
-import geschaefteSortByFieldsGetGeschaefte from './geschaefte/geschaefteSortByFieldsGetGeschaefte'
-import geschaefteSortByFieldsGetIds from './geschaefte/geschaefteSortByFieldsGetIds'
+import sortIdsBySortFields from '../src/sortIdsBySortFields'
 
 import {
   GESCHAEFTE_GET,
@@ -107,11 +107,13 @@ const geschaefte = (state = standardState, action) => {
       }
     case GESCHAEFTE_SORT_BY_FIELDS: {
       const sortFields = geschaefteSortByFieldsGetSortFields(state, action)
-      const myGeschaefte = geschaefteSortByFieldsGetGeschaefte(state, sortFields)
-      const geschaefteGefilterteIds = geschaefteSortByFieldsGetIds(myGeschaefte, state.geschaefteGefilterteIds)
+      const geschaefteGefilterteIds = sortIdsBySortFields(
+        state.geschaefte,
+        state.geschaefteGefilterteIds,
+        sortFields
+      )
       return {
         ...state,
-        geschaefte: myGeschaefte,
         geschaefteGefilterteIds,
         sortFields,
       }
@@ -128,14 +130,15 @@ const geschaefte = (state = standardState, action) => {
     case GESCHAEFTE_REMOVE_FILTERS:
       return {
         ...state,
-        geschaefteGefilterteIds: [
-          ...state.geschaefte.map((g) =>
+        geschaefteGefilterteIds: _.sortBy(state.geschaefte, (g) => g.idGeschaeft)
+          .reverse()
+          .map((g) =>
             g.idGeschaeft
-          )
-        ],
+          ),
         filterFields: [],
         filterType: null,
         filterFulltext: '',
+        sortFields: [],
       }
     case GESCHAEFT_TOGGLE_ACTIVATED:
       return {

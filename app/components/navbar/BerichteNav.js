@@ -15,6 +15,7 @@ const NavbarBerichteNav = ({
   path,
   pages,
   geschaefteFilterByFields,
+  geschaefteSortByFields,
   activeId,
 }) => {
   const isActive = path === '/pages'
@@ -61,12 +62,14 @@ const NavbarBerichteNav = ({
           setTimeout(() => {
             geschaefteFilterByFields(filterForVernehmlAngek(), 'angekündigte Vernehmlassungen')
             pagesInitiate('angekVernehml')
+            geschaefteSortByFields('idGeschaeft', 'DESCENDING')
           }, 0)
         }
         if (eventKey === 7.5) {
           setTimeout(() => {
             geschaefteFilterByFields(filterForVernehmlLaeuft(), 'laufende Vernehmlassungen')
             pagesInitiate('laufendeVernehml')
+            geschaefteSortByFields('fristMitarbeiter', 'DESCENDING')
           }, 0)
         }
         if (eventKey === 7.6) {
@@ -116,6 +119,7 @@ NavbarBerichteNav.displayName = 'NavbarBerichteNav'
 
 NavbarBerichteNav.propTypes = {
   geschaefteFilterByFields: PropTypes.func.isRequired,
+  geschaefteSortByFields: PropTypes.func.isRequired,
   pagesInitiate: PropTypes.func.isRequired,
   geschaeftPdfShow: PropTypes.func.isRequired,
   path: PropTypes.string.isRequired,

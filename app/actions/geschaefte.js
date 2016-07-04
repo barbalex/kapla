@@ -8,6 +8,7 @@ import getInterneOptions from '../src/getInterneOptions'
 import getExterneOptions from '../src/getExterneOptions'
 import updateGeschaeft from '../src/updateGeschaeft'
 import filterGeschaefte from '../src/filterGeschaefte'
+import sortIdsBySortFields from '../src/sortIdsBySortFields'
 import * as pagesActions from './pages'
 
 export const geschaeftPdfShow = () =>
@@ -36,13 +37,14 @@ export const GESCHAEFTE_GET_SUCCESS = 'GESCHAEFTE_GET_SUCCESS'
 const geschaefteGetSuccess = (geschaefteArray) =>
   (dispatch, getState) => {
     const { geschaefte } = getState()
-    const { filterFields, filterFulltext } = geschaefte
+    const { filterFields, filterFulltext, sortFields } = geschaefte
     // create geschaefteGefilterteIds
-    const geschaefteGefilterteIds = filterGeschaefte(
+    let geschaefteGefilterteIds = filterGeschaefte(
       geschaefteArray,
       filterFulltext,
       filterFields
     )
+    geschaefteGefilterteIds = sortIdsBySortFields(geschaefteArray, geschaefteGefilterteIds, sortFields)
     dispatch({
       type: GESCHAEFTE_GET_SUCCESS,
       geschaefte: geschaefteArray,
@@ -62,19 +64,19 @@ export const geschaefteFilterByFields = (
   filterType = 'nach Feldern'
 ) =>
   (dispatch, getState) => {
-    const { geschaefte, routing, pages } = getState()
-    const { filterFulltext } = geschaefte
-    //if (!filterFields) filterFields = geschaefte.filterFields
+    const { routing, pages } = getState()
+    const { filterFulltext, geschaefte, sortFields } = getState().geschaefte
     // remove filterFields with empty values
     const filterFieldsWithValues = filterFields.filter((ff) =>
       ff.value || ff.value === 0 || ff.comparator
     )
     // create geschaefteGefilterteIds
-    const geschaefteGefilterteIds = filterGeschaefte(
-      geschaefte.geschaefte,
+    let geschaefteGefilterteIds = filterGeschaefte(
+      geschaefte,
       filterFulltext,
       filterFieldsWithValues
     )
+    geschaefteGefilterteIds = sortIdsBySortFields(geschaefte, geschaefteGefilterteIds, sortFields)
     dispatch({
       type: GESCHAEFTE_FILTER_BY_FIELDS,
       filterFields: filterFieldsWithValues,
@@ -106,8 +108,6 @@ export const geschaefteSortByFields = (
       field,
       direction
     })
-    // TODO
-    //setTimeout(() => dispatch(geschaefteFilterByFields()), 0)
     /**
      * if pages are active,
      * initiate with new data
@@ -123,14 +123,15 @@ export const GESCHAEFTE_FILTER_BY_FULLTEXT = 'GESCHAEFTE_FILTER_BY_FULLTEXT'
 // filter = word
 export const geschaefteFilterByFulltext = (filterFulltext, filterType = 'nach Volltext') =>
   (dispatch, getState) => {
-    const { pages, geschaefte, routing } = getState()
-    const { filterFields } = geschaefte
+    const { pages, routing } = getState()
+    const { filterFields, geschaefte, sortFields } = getState().geschaefte
     // create geschaefteGefilterteIds
-    const geschaefteGefilterteIds = filterGeschaefte(
+    let geschaefteGefilterteIds = filterGeschaefte(
       geschaefte.geschaefte,
       filterFulltext,
       filterFields
     )
+    geschaefteGefilterteIds = sortIdsBySortFields(geschaefte, geschaefteGefilterteIds, sortFields)
     dispatch({
       type: GESCHAEFTE_FILTER_BY_FULLTEXT,
       geschaefteGefilterteIds,

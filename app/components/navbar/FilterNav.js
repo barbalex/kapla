@@ -17,43 +17,6 @@ import filterForVernehmlLaeuft from '../../src/filterForVernehmlLaeuft'
 import filterCriteriaToArrayOfStrings from '../../src/filterCriteriaToArrayOfStrings'
 import styles from './Navbar.css'
 
-const onSelectFilterFaelligeGeschaefte = (geschaefteFilterByFields) => {
-  const filter = filterForFaelligeGeschaefte()
-  geschaefteFilterByFields(filter, 'fällige')
-  // TODO: add ordering to state and call action here to order by frist desc
-}
-
-const onSelectFilterFaelligeGeschaefteMitarbeiter = (
-  geschaefteFilterByFields,
-  username,
-) => {
-  const now = moment().format('YYYY-MM-DD')
-  const filter = [
-    {
-      field: 'fristMitarbeiter',
-      value: now,
-      comparator: '<',
-    },
-    {
-      field: 'mutationsperson',
-      value: username,
-      comparator: '===',
-    }
-  ]
-  geschaefteFilterByFields(filter, 'eigene fällige')
-  // TODO: add ordering to state and call action here to order by frist desc
-}
-
-const onSelectFilterVernehmlAngek = (geschaefteFilterByFields) => {
-  const filter = filterForVernehmlAngek()
-  geschaefteFilterByFields(filter, 'angekündigte Vernehmlassungen')
-}
-
-const onSelectFilterVernehmlLaeuft = (geschaefteFilterByFields) => {
-  const filter = filterForVernehmlLaeuft()
-  geschaefteFilterByFields(filter, 'laufende Vernehmlassungen')
-}
-
 const FilterNav = ({
   filterFulltext,
   filterFields,
@@ -61,6 +24,7 @@ const FilterNav = ({
   geschaefte,
   geschaefteGefilterteIds,
   geschaefteFilterByFields,
+  geschaefteSortByFields,
   username,
   geschaefteRemoveFilters,
   geschaefteFilterByFulltext,
@@ -134,9 +98,11 @@ const FilterNav = ({
             vorbereitete Filter:
           </MenuItem>
           <MenuItem
-            onSelect={() =>
-              onSelectFilterFaelligeGeschaefte(geschaefteFilterByFields)
-            }
+            onSelect={() => {
+              geschaefteFilterByFields(filterForFaelligeGeschaefte(), 'fällige')
+              // order by frist desc
+              geschaefteSortByFields('fristMitarbeiter', 'DESCENDING')
+            }}
             style={{
               backgroundColor: (
                 filterType === 'fällige' ?
@@ -148,12 +114,24 @@ const FilterNav = ({
             fällige Geschäfte
           </MenuItem>
           <MenuItem
-            onSelect={() =>
-              onSelectFilterFaelligeGeschaefteMitarbeiter(
-                geschaefteFilterByFields,
-                username,
-              )
-            }
+            onSelect={() => {
+              const now = moment().format('YYYY-MM-DD')
+              const filter = [
+                {
+                  field: 'fristMitarbeiter',
+                  value: now,
+                  comparator: '<',
+                },
+                {
+                  field: 'mutationsperson',
+                  value: username,
+                  comparator: '===',
+                }
+              ]
+              geschaefteFilterByFields(filter, 'eigene fällige')
+              // order by frist desc
+              geschaefteSortByFields('fristMitarbeiter', 'DESCENDING')
+            }}
             style={{
               backgroundColor: (
                 filterType === 'eigene fällige' ?
@@ -165,9 +143,10 @@ const FilterNav = ({
             eigene fällige Geschäfte
           </MenuItem>
           <MenuItem
-            onSelect={() =>
-              onSelectFilterVernehmlAngek(geschaefteFilterByFields)
-            }
+            onSelect={() => {
+              geschaefteFilterByFields(filterForVernehmlAngek(), 'angekündigte Vernehmlassungen')
+              geschaefteSortByFields('idGeschaeft', 'DESCENDING')
+            }}
             style={{
               backgroundColor: (
                 filterType === 'angekündigte Vernehmlassungen' ?
@@ -179,9 +158,10 @@ const FilterNav = ({
             angekündigte Vernehmlassungen
           </MenuItem>
           <MenuItem
-            onSelect={() =>
-              onSelectFilterVernehmlLaeuft(geschaefteFilterByFields)
-            }
+            onSelect={() => {
+              geschaefteFilterByFields(filterForVernehmlLaeuft(), 'laufende Vernehmlassungen')
+              geschaefteSortByFields('fristMitarbeiter', 'DESCENDING')
+            }}
             style={{
               backgroundColor: (
                 filterType === 'laufende Vernehmlassungen' ?
@@ -220,6 +200,7 @@ FilterNav.propTypes = {
   geschaefteFilterByFields: PropTypes.func.isRequired,
   geschaefteFilterByFulltext: PropTypes.func.isRequired,
   geschaefteRemoveFilters: PropTypes.func.isRequired,
+  geschaefteSortByFields: PropTypes.func.isRequired,
   filterFulltext: PropTypes.string,
   username: PropTypes.string,
   router: PropTypes.shape({
