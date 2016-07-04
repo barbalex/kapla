@@ -3,6 +3,7 @@
 import React, { PropTypes } from 'react'
 import { FormControl, ControlLabel, InputGroup } from 'react-bootstrap'
 import ComparatorSelector from '../../containers/filterFields/ComparatorSelector'
+import Input from '../../containers/filterFields/Input'
 import styles from './areaNummern.css'
 
 const AreaNummern = ({
@@ -32,41 +33,28 @@ const AreaNummern = ({
         ID
       </ControlLabel>
       <div className={styles.fieldIdGeschaeft}>
-        <InputGroup>
-          <ComparatorSelector
-            name="idGeschaeft"
-            changeComparator={changeComparator}
-          />
-          <FormControl
-            type="number"
-            value={values.idGeschaeft || ''}
-            name="idGeschaeft"
-            onChange={change}
-            bsSize="small"
-            tabIndex={1 + tabsToAdd}
-            className={styles.typeNr}
-          />
-        </InputGroup>
+        <Input
+          type="number"
+          name="idGeschaeft"
+          change={change}
+          values={values}
+          changeComparator={changeComparator}
+          tabIndex={1 + tabsToAdd}
+          autoFocus={wrapperClass === styles.wrapperNarrow}
+        />
       </div>
       <ControlLabel className={styles.labelGekoNr}>
         Geko
       </ControlLabel>
       <div className={styles.fieldGekoNr}>
-        <InputGroup>
-          <ComparatorSelector
-            name="gekoNr"
-            changeComparator={changeComparator}
-          />
-          <FormControl
-            type="number"
-            value={values.GekoNr || ''}
-            name="gekoNr"
-            onChange={change}
-            bsSize="small"
-            tabIndex={2 + tabsToAdd}
-            autoFocus={wrapperClass === styles.wrapperNarrow}
-          />
-        </InputGroup>
+        <Input
+          type="number"
+          name="gekoNr"
+          change={change}
+          values={values}
+          changeComparator={changeComparator}
+          tabIndex={2 + tabsToAdd}
+        />
       </div>
       <div className={styles.labelJahre}>
         <div className={styles.labelNrDiv}>

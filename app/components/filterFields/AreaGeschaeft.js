@@ -1,12 +1,10 @@
 'use strict'
 
 import React, { PropTypes } from 'react'
-import { FormControl, ControlLabel, InputGroup } from 'react-bootstrap'
+import { ControlLabel } from 'react-bootstrap'
 import styles from './areaGeschaeft.css'
-import ComparatorSelector from '../../containers/filterFields/ComparatorSelector'
 import SelectInput from '../../containers/filterFields/SelectInput'
-import TextInput from '../../containers/filterFields/TextInput'
-import createOptions from '../../src/createOptions'
+import Input from '../../containers/filterFields/Input'
 
 const AreaGeschaeft = ({
   statusOptions,
@@ -33,7 +31,7 @@ const AreaGeschaeft = ({
         <ControlLabel>
           Gegenstand
         </ControlLabel>
-        <TextInput
+        <Input
           name="gegenstand"
           change={change}
           values={values}
@@ -46,7 +44,7 @@ const AreaGeschaeft = ({
         <ControlLabel>
           Auslöser
         </ControlLabel>
-        <TextInput
+        <Input
           name="ausloeser"
           change={change}
           values={values}
@@ -58,7 +56,7 @@ const AreaGeschaeft = ({
         <ControlLabel>
           Ort
         </ControlLabel>
-        <TextInput
+        <Input
           name="ort"
           change={change}
           values={values}
@@ -109,7 +107,7 @@ const AreaGeschaeft = ({
         <ControlLabel>
           Details
         </ControlLabel>
-        <TextInput
+        <Input
           name="details"
           change={change}
           values={values}
@@ -121,7 +119,7 @@ const AreaGeschaeft = ({
         <ControlLabel>
           Nächster Schritt
         </ControlLabel>
-        <TextInput
+        <Input
           name="naechsterSchritt"
           change={change}
           values={values}
@@ -133,7 +131,7 @@ const AreaGeschaeft = ({
         <ControlLabel>
           Vermerk
         </ControlLabel>
-        <TextInput
+        <Input
           name="vermerk"
           change={change}
           values={values}
@@ -145,7 +143,7 @@ const AreaGeschaeft = ({
         <ControlLabel>
           Vermerk intern (in Berichten nicht angezeigt)
         </ControlLabel>
-        <TextInput
+        <Input
           name="vermerkIntern"
           change={change}
           values={values}

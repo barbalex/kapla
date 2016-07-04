@@ -2,11 +2,12 @@
 
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
-import TextInput from '../../components/filterFields/TextInput'
+import Input from '../../components/filterFields/Input'
 import * as GeschaefteActions from '../../actions/geschaefte'
 
 function mapStateToProps(state, props) {
   const {
+    type = 'text',
     name,
     change,
     values,
@@ -16,6 +17,7 @@ function mapStateToProps(state, props) {
   } = props
 
   return {
+    type,
     name,
     change,
     values,
@@ -29,4 +31,4 @@ function mapDispatchToProps(dispatch) {
   return bindActionCreators(GeschaefteActions, dispatch)
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(TextInput)
+export default connect(mapStateToProps, mapDispatchToProps)(Input)

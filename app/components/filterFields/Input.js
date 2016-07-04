@@ -5,7 +5,8 @@ import { FormControl, InputGroup } from 'react-bootstrap'
 import ComparatorSelector from '../../containers/filterFields/ComparatorSelector'
 import SortSelector from '../../containers/filterFields/SortSelector'
 
-const TextInput = ({
+const Input = ({
+  type,
   name,
   change,
   values,
@@ -22,7 +23,7 @@ const TextInput = ({
       changeComparator={changeComparator}
     />
     <FormControl
-      type="text"
+      type={type}
       value={values[name] || ''}
       name={name}
       onChange={change}
@@ -31,13 +32,14 @@ const TextInput = ({
     />
   </InputGroup>
 
-TextInput.displayName = 'TextInput'
+Input.displayName = 'Input'
 
 /**
  * do not make options required
  * as they may be loaded after the component
  */
-TextInput.propTypes = {
+Input.propTypes = {
+  type: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   change: PropTypes.func.isRequired,
   values: PropTypes.object.isRequired,
@@ -46,4 +48,4 @@ TextInput.propTypes = {
   autoFocus: PropTypes.bool.isRequired,
 }
 
-export default TextInput
+export default Input
