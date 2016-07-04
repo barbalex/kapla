@@ -9,7 +9,7 @@ import GeschaefteItem from '../containers/GeschaefteItem'
 class Geschaefte extends Component {
   static propTypes = {
     geschaefteGefilterteIds: PropTypes.array,
-    path: PropTypes.string.isReqiured,
+    path: PropTypes.string.isRequired,
   }
 
   state = {

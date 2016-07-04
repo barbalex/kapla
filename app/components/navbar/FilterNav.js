@@ -27,6 +27,7 @@ const FilterNav = ({
   geschaefteGefilterteIds,
   geschaefteFilterByFields,
   geschaefteSortByFields,
+  geschaefteResetSort,
   username,
   geschaefteRemoveFilters,
   geschaefteFilterByFulltext,
@@ -116,6 +117,7 @@ const FilterNav = ({
             onSelect={() => {
               geschaefteFilterByFields(filterForFaelligeGeschaefte(), 'fällige')
               // order by frist desc
+              geschaefteResetSort()
               geschaefteSortByFields('fristMitarbeiter', 'DESCENDING')
             }}
             style={{
@@ -145,6 +147,7 @@ const FilterNav = ({
               ]
               geschaefteFilterByFields(filter, 'eigene fällige')
               // order by frist desc
+              geschaefteResetSort()
               geschaefteSortByFields('fristMitarbeiter', 'DESCENDING')
             }}
             style={{
@@ -160,6 +163,7 @@ const FilterNav = ({
           <MenuItem
             onSelect={() => {
               geschaefteFilterByFields(filterForVernehmlAngek(), 'angekündigte Vernehmlassungen')
+              geschaefteResetSort()
               geschaefteSortByFields('idGeschaeft', 'DESCENDING')
             }}
             style={{
@@ -175,7 +179,9 @@ const FilterNav = ({
           <MenuItem
             onSelect={() => {
               geschaefteFilterByFields(filterForVernehmlLaeuft(), 'laufende Vernehmlassungen')
+              geschaefteResetSort()
               geschaefteSortByFields('fristMitarbeiter', 'DESCENDING')
+              geschaefteSortByFields('idGeschaeft', 'DESCENDING')
             }}
             style={{
               backgroundColor: (
@@ -217,6 +223,7 @@ FilterNav.propTypes = {
   geschaefteFilterByFulltext: PropTypes.func.isRequired,
   geschaefteRemoveFilters: PropTypes.func.isRequired,
   geschaefteSortByFields: PropTypes.func.isRequired,
+  geschaefteResetSort: PropTypes.func.isRequired,
   filterFulltext: PropTypes.string,
   username: PropTypes.string,
   router: PropTypes.shape({

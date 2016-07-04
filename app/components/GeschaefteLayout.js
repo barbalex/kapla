@@ -86,7 +86,6 @@ class GeschaefteLayout extends Component {
 
   render = () => {
     const { path } = this.props
-    console.log('GeschaefteLayout, rendering, path', path)
     if (
       path === '/geschaefte' ||
       path === '/'

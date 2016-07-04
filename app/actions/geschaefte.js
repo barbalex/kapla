@@ -96,6 +96,11 @@ export const geschaefteFilterByFields = (
     }
   }
 
+export const GESCHAEFTE_RESET_SORT = 'GESCHAEFTE_RESET_SORT'
+export const geschaefteResetSort = () => ({
+  type: GESCHAEFTE_RESET_SORT
+})
+
 export const GESCHAEFTE_SORT_BY_FIELDS = 'GESCHAEFTE_SORT_BY_FIELDS'
 export const geschaefteSortByFields = (
   field,

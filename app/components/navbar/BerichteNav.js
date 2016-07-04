@@ -9,13 +9,14 @@ import styles from './Navbar.css'
 import filterForVernehmlAngek from '../../src/filterForVernehmlAngek'
 import filterForVernehmlLaeuft from '../../src/filterForVernehmlLaeuft'
 
-const NavbarBerichteNav = ({
+const BerichteNav = ({
   pagesInitiate,
   geschaeftPdfShow,
   path,
   pages,
   geschaefteFilterByFields,
   geschaefteSortByFields,
+  geschaefteResetSort,
   activeId,
 }) => {
   const isActive = path === '/pages'
@@ -62,6 +63,7 @@ const NavbarBerichteNav = ({
           setTimeout(() => {
             geschaefteFilterByFields(filterForVernehmlAngek(), 'angekündigte Vernehmlassungen')
             pagesInitiate('angekVernehml')
+            geschaefteResetSort()
             geschaefteSortByFields('idGeschaeft', 'DESCENDING')
           }, 0)
         }
@@ -69,7 +71,9 @@ const NavbarBerichteNav = ({
           setTimeout(() => {
             geschaefteFilterByFields(filterForVernehmlLaeuft(), 'laufende Vernehmlassungen')
             pagesInitiate('laufendeVernehml')
+            geschaefteResetSort()
             geschaefteSortByFields('fristMitarbeiter', 'DESCENDING')
+            geschaefteSortByFields('idGeschaeft', 'DESCENDING')
           }, 0)
         }
         if (eventKey === 7.6) {
@@ -115,11 +119,12 @@ const NavbarBerichteNav = ({
   )
 }
 
-NavbarBerichteNav.displayName = 'NavbarBerichteNav'
+BerichteNav.displayName = 'BerichteNav'
 
-NavbarBerichteNav.propTypes = {
+BerichteNav.propTypes = {
   geschaefteFilterByFields: PropTypes.func.isRequired,
   geschaefteSortByFields: PropTypes.func.isRequired,
+  geschaefteResetSort: PropTypes.func.isRequired,
   pagesInitiate: PropTypes.func.isRequired,
   geschaeftPdfShow: PropTypes.func.isRequired,
   path: PropTypes.string.isRequired,
@@ -127,4 +132,4 @@ NavbarBerichteNav.propTypes = {
   activeId: PropTypes.number
 }
 
-export default NavbarBerichteNav
+export default BerichteNav

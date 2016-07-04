@@ -15,12 +15,14 @@ import VernehmlassungenRows from './vernehmlassungen/Rows'
 import List1Header from './list1/Header'
 import List1Rows from './list1/Rows'
 import filterCriteriaToArrayOfStrings from '../../src/filterCriteriaToArrayOfStrings'
+import sortCriteriaToArrayOfStrings from '../../src/sortCriteriaToArrayOfStrings'
 
 class Page extends Component {
   static propTypes = {
     pages: PropTypes.array,
     geschaefte: PropTypes.array,
     filterFields: PropTypes.array,
+    sortFields: PropTypes.array.isRequired,
     remainingGeschaefte: PropTypes.array,
     geschaefteGefilterteIds: PropTypes.array,
     activePageIndex: PropTypes.number,
@@ -215,6 +217,7 @@ class Page extends Component {
   render = () => {
     const {
       filterFields,
+      sortFields,
       pageIndex,
       queryTitle,
       building,
@@ -249,6 +252,14 @@ class Page extends Component {
               className={styles.filterCriteria}
             >
               Filterkriterien: {filterCriteriaToArrayOfStrings(filterFields).join(' & ')}
+            </div>
+          }
+          {
+            firstPage &&
+            <div
+              className={styles.sortCriteria}
+            >
+              Sortierkriterien: {sortCriteriaToArrayOfStrings(sortFields).join(' & ')}
             </div>
           }
           {

@@ -28,7 +28,11 @@ function mapStateToProps(state, props) {
     building,
     reportType,
   } = pages
-  const { geschaefteGefilterteIds, filterFields } = state.geschaefte
+  const {
+    geschaefteGefilterteIds,
+    filterFields,
+    sortFields,
+  } = state.geschaefte
   const myGeschaefte = pages.pages[pageIndex].geschaefte
 
   return {
@@ -36,6 +40,7 @@ function mapStateToProps(state, props) {
     building,
     geschaefte: myGeschaefte,
     filterFields,
+    sortFields,
     remainingGeschaefte,
     activePageIndex,
     pageIndex,

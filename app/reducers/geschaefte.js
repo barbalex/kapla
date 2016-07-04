@@ -9,6 +9,7 @@ import {
   GESCHAEFTE_GET_ERROR,
   GESCHAEFTE_FILTER_BY_FIELDS,
   GESCHAEFTE_SORT_BY_FIELDS,
+  GESCHAEFTE_RESET_SORT,
   GESCHAEFTE_FILTER_BY_FULLTEXT,
   GESCHAEFTE_REMOVE_FILTERS,
   GESCHAEFT_TOGGLE_ACTIVATED,
@@ -118,6 +119,11 @@ const geschaefte = (state = standardState, action) => {
         sortFields,
       }
     }
+    case GESCHAEFTE_RESET_SORT:
+      return {
+        ...state,
+        sortFields: []
+      }
     case GESCHAEFTE_FILTER_BY_FULLTEXT:
       return {
         ...state,

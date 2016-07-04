@@ -83,6 +83,12 @@
 
 .filterCriteria {
   margin-top: 15px;
+  margin-bottom: 0;
+  padding-left: 5px;
+}
+
+.sortCriteria {
+  margin-top: 0;
   margin-bottom: 15px;
   padding-left: 5px;
 }
