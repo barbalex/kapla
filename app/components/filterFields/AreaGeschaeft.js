@@ -83,119 +83,75 @@ const AreaGeschaeft = ({
         <ControlLabel>
           Status
         </ControlLabel>
-        <InputGroup>
-          <ComparatorSelector
-            name="status"
-            changeComparator={changeComparator}
-          />
-          <FormControl
-            componentClass="select"
-            value={values.status || ''}
-            name="status"
-            onChange={change}
-            bsSize="small"
-            tabIndex={5 + tabsToAdd}
-          >
-            {createOptions(statusOptions)}
-          </FormControl>
-        </InputGroup>
+        <SelectInput
+          name="status"
+          change={change}
+          values={values}
+          changeComparator={changeComparator}
+          tabIndex={5 + tabsToAdd}
+          options={statusOptions}
+        />
       </div>
       <div className={styles.fieldAbteilung}>
         <ControlLabel>
           Abteilung
         </ControlLabel>
-        <InputGroup>
-          <ComparatorSelector
-            name="abteilung"
-            changeComparator={changeComparator}
-          />
-          <FormControl
-            componentClass="select"
-            value={values.abteilung || ''}
-            name="abteilung"
-            onChange={change}
-            bsSize="small"
-            tabIndex={6 + tabsToAdd}
-          >
-            {createOptions(abteilungOptions)}
-          </FormControl>
-        </InputGroup>
+        <SelectInput
+          name="abteilung"
+          change={change}
+          values={values}
+          changeComparator={changeComparator}
+          tabIndex={6 + tabsToAdd}
+          options={abteilungOptions}
+        />
       </div>
       <div className={styles.fieldDetails}>
         <ControlLabel>
           Details
         </ControlLabel>
-        <InputGroup>
-          <ComparatorSelector
-            name="details"
-            changeComparator={changeComparator}
-          />
-          <FormControl
-            type="text"
-            value={values.details || ''}
-            name="details"
-            onChange={change}
-            bsSize="small"
-            tabIndex={7 + tabsToAdd}
-          />
-        </InputGroup>
+        <TextInput
+          name="details"
+          change={change}
+          values={values}
+          changeComparator={changeComparator}
+          tabIndex={7 + tabsToAdd}
+        />
       </div>
       <div className={styles.fieldNaechsterSchritt}>
         <ControlLabel>
           Nächster Schritt
         </ControlLabel>
-        <InputGroup>
-          <ComparatorSelector
-            name="naechsterSchritt"
-            changeComparator={changeComparator}
-          />
-          <FormControl
-            type="text"
-            value={values.naechsterSchritt || ''}
-            name="naechsterSchritt"
-            onChange={change}
-            bsSize="small"
-            tabIndex={8 + tabsToAdd}
-          />
-        </InputGroup>
+        <TextInput
+          name="naechsterSchritt"
+          change={change}
+          values={values}
+          changeComparator={changeComparator}
+          tabIndex={8 + tabsToAdd}
+        />
       </div>
       <div className={styles.fieldVermerk}>
         <ControlLabel>
           Vermerk
         </ControlLabel>
-        <InputGroup>
-          <ComparatorSelector
-            name="vermerk"
-            changeComparator={changeComparator}
-          />
-          <FormControl
-            type="text"
-            value={values.vermerk || ''}
-            name="vermerk"
-            onChange={change}
-            bsSize="small"
-            tabIndex={9 + tabsToAdd}
-          />
-        </InputGroup>
+        <TextInput
+          name="vermerk"
+          change={change}
+          values={values}
+          changeComparator={changeComparator}
+          tabIndex={9 + tabsToAdd}
+        />
       </div>
       <div className={styles.fieldVermerkIntern}>
         <ControlLabel>
           Vermerk intern (in Berichten nicht angezeigt)
         </ControlLabel>
-        <InputGroup>
-          <ComparatorSelector
-            name="vermerkIntern"
-            changeComparator={changeComparator}
-          />
-          <FormControl
-            type="text"
-            value={values.vermerkIntern || ''}
-            name="vermerkIntern"
-            onChange={change}
-            bsSize="small"
-            tabIndex={9 + tabsToAdd}
-          />
-        </InputGroup>
+        <TextInput
+          name="vermerkIntern"
+          change={change}
+          values={values}
+          changeComparator={changeComparator}
+          tabIndex={10 + tabsToAdd}
+        />
       </div>
     </div>
   )
