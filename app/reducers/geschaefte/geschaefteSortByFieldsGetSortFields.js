@@ -7,10 +7,10 @@ export default (state, action) => {
     return sortFieldsWithoutPassedField
   }
   return [
-    ...sortFieldsWithoutPassedField,
     {
       field: action.field,
       direction: action.direction,
-    }
+    },
+    ...sortFieldsWithoutPassedField,
   ]
 }
