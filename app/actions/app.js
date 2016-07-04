@@ -137,6 +137,7 @@ const dbChooseSuccess = (dbPath, db) =>
     dispatch(GeschaefteKontakteExternActions.getGeschaefteKontakteExtern())
     // set filter to fällige
     dispatch(GeschaefteActions.geschaefteFilterByFields(filterForFaelligeGeschaefte(), 'fällige'))
+    setTimeout(() => dispatch(GeschaefteActions.geschaefteSortByFields('fristMitarbeiter', 'DESCENDING')), 500)
   }
 
 export const DB_CHOOSE_ERROR = 'DB_CHOOSE_ERROR'

@@ -64,6 +64,7 @@ export const geschaefteFilterByFields = (
   (dispatch, getState) => {
     const { geschaefte, routing, pages } = getState()
     const { filterFulltext } = geschaefte
+    //if (!filterFields) filterFields = geschaefte.filterFields
     // remove filterFields with empty values
     const filterFieldsWithValues = filterFields.filter((ff) =>
       ff.value || ff.value === 0 || ff.comparator
@@ -105,6 +106,8 @@ export const geschaefteSortByFields = (
       field,
       direction
     })
+    // TODO
+    //setTimeout(() => dispatch(geschaefteFilterByFields()), 0)
     /**
      * if pages are active,
      * initiate with new data

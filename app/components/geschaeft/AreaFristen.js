@@ -59,7 +59,6 @@ const AreaFristen = ({
   onChangeDatePicker,
   isPrintPreview,
 }) => {
-  console.log('AreaFristen.js, isPrintPreview', isPrintPreview)
   const styles = isPrintPreview ? pdfStyles : regularStyles
   /**
    * need to give addon no padding

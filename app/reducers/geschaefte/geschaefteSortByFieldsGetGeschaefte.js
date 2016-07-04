@@ -4,7 +4,6 @@ import isDateField from '../../src/isDateField'
 
 export default (state, sortFields) => {
   let { geschaefte } = state
-  const { geschaefteGefilterteIds } = state
   sortFields.forEach((sf) => {
     geschaefte = _.sortBy(geschaefte, (g) => {
       if (g[sf.field]) {
@@ -23,7 +22,5 @@ export default (state, sortFields) => {
   if (sortFields.length === 0) {
     geschaefte = _.sortBy(geschaefte, 'idGeschaeft').reverse()
   }
-  // reduce to filtered
-  geschaefte = geschaefte.filter((g) => geschaefteGefilterteIds.includes(g.idGeschaeft))
   return geschaefte
 }

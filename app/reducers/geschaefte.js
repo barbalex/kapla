@@ -1,6 +1,7 @@
 import moment from 'moment'
 import geschaefteSortByFieldsGetSortFields from './geschaefte/geschaefteSortByFieldsGetSortFields'
 import geschaefteSortByFieldsGetGeschaefte from './geschaefte/geschaefteSortByFieldsGetGeschaefte'
+import geschaefteSortByFieldsGetIds from './geschaefte/geschaefteSortByFieldsGetIds'
 
 import {
   GESCHAEFTE_GET,
@@ -107,10 +108,11 @@ const geschaefte = (state = standardState, action) => {
     case GESCHAEFTE_SORT_BY_FIELDS: {
       const sortFields = geschaefteSortByFieldsGetSortFields(state, action)
       const myGeschaefte = geschaefteSortByFieldsGetGeschaefte(state, sortFields)
+      const geschaefteGefilterteIds = geschaefteSortByFieldsGetIds(myGeschaefte, state.geschaefteGefilterteIds)
       return {
         ...state,
         geschaefte: myGeschaefte,
-        geschaefteGefilterteIds: myGeschaefte.map((g) => g.idGeschaeft),
+        geschaefteGefilterteIds,
         sortFields,
       }
     }
