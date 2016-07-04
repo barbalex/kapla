@@ -4,7 +4,7 @@ import React, { PropTypes } from 'react'
 import { FormControl, ControlLabel, InputGroup } from 'react-bootstrap'
 import styles from './areaGeschaeft.css'
 import ComparatorSelector from '../../containers/filterFields/ComparatorSelector'
-import SortSelector from '../../containers/filterFields/SortSelector'
+import SelectInput from '../../containers/filterFields/SelectInput'
 import TextInput from '../../containers/filterFields/TextInput'
 import createOptions from '../../src/createOptions'
 
@@ -70,22 +70,14 @@ const AreaGeschaeft = ({
         <ControlLabel>
           Geschäftsart
         </ControlLabel>
-        <InputGroup>
-          <ComparatorSelector
-            name="geschaeftsart"
-            changeComparator={changeComparator}
-          />
-          <FormControl
-            componentClass="select"
-            value={values.geschaeftsart || ''}
-            name="geschaeftsart"
-            onChange={change}
-            bsSize="small"
-            tabIndex={4 + tabsToAdd}
-          >
-            {createOptions(geschaeftsartOptions)}
-          </FormControl>
-        </InputGroup>
+        <SelectInput
+          name="geschaeftsart"
+          change={change}
+          values={values}
+          changeComparator={changeComparator}
+          tabIndex={4 + tabsToAdd}
+          options={geschaeftsartOptions}
+        />
       </div>
       <div className={styles.fieldStatus}>
         <ControlLabel>
