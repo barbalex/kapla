@@ -8,6 +8,7 @@ import {
 } from 'react-bootstrap'
 import _ from 'lodash'
 import ComparatorSelector from '../../containers/filterFields/ComparatorSelector'
+import SortSelector from '../../containers/filterFields/SortSelector'
 import styles from './areaZuletztMutiert.css'
 
 const interneOptionsList = (interneOptions) => {
@@ -64,6 +65,9 @@ const AreaZuletztMutiert = ({
         Mutations-Person
       </ControlLabel>
       <InputGroup>
+        <SortSelector
+          name="mutationsperson"
+        />
         <ComparatorSelector
           name="mutationsperson"
           changeComparator={changeComparator}

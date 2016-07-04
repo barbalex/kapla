@@ -4,6 +4,7 @@ import React, { PropTypes } from 'react'
 import { FormControl, InputGroup } from 'react-bootstrap'
 import _ from 'lodash'
 import ComparatorSelector from '../../containers/filterFields/ComparatorSelector'
+import SortSelector from '../../containers/filterFields/SortSelector'
 import styles from './areaPersonen.css'
 
 const interneOptionsList = (interneOptions) => {
@@ -142,6 +143,9 @@ const AreaPersonen = ({
       </div>
       <div className={styles.KontaktInternVornameName}>
         <InputGroup>
+          <SortSelector
+            name="verantwortlich"
+          />
           <ComparatorSelector
             name="verantwortlich"
             changeComparator={changeComparator}
@@ -169,6 +173,9 @@ const AreaPersonen = ({
       </div>
       <div className={styles.KontaktInternVornameName}>
         <InputGroup>
+          <SortSelector
+            name="kontaktInternVornameName"
+          />
           <ComparatorSelector
             name="kontaktInternVornameName"
             changeComparator={changeComparator}
@@ -197,6 +204,9 @@ const AreaPersonen = ({
       </div>
       <div className={styles.KontaktExternVornameName}>
         <InputGroup>
+          <SortSelector
+            name="kontaktExternNameVorname"
+          />
           <ComparatorSelector
             name="kontaktExternNameVorname"
             changeComparator={changeComparator}
