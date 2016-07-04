@@ -45,9 +45,10 @@
   grid-gap: 0;
   border-bottom: thin solid #CECBCB;
   padding-left: 13px;
-  padding-top: 10px;
-  padding-bottom: 10px;
+  padding-top: 5px;
+  padding-bottom: 5px;
   align-items: center;
+  font-size: 10px;
 }
 
 .areaHistoryFields:first-of-type {

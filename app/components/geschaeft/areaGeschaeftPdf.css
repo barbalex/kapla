@@ -68,6 +68,7 @@
 
 .fieldVermerkIntern {
   grid-area: fieldVermerkIntern;
+  display: none;
 }
 
 .textarea {

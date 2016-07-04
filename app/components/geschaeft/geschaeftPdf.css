@@ -1,6 +1,10 @@
+.pageContainer {
+  width: 18cm;
+}
+
 .scrollContainer {
   overflow: visible;
-  height: 25.7cm;
+  height: 26.2cm;
 }
 
 .wrapperWide {

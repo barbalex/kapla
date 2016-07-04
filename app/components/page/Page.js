@@ -16,6 +16,7 @@ import List1Header from './list1/Header'
 import List1Rows from './list1/Rows'
 import filterCriteriaToArrayOfStrings from '../../src/filterCriteriaToArrayOfStrings'
 import sortCriteriaToArrayOfStrings from '../../src/sortCriteriaToArrayOfStrings'
+import logoImg from 'file!../../etc/logo.png'
 
 class Page extends Component {
   static propTypes = {
@@ -236,6 +237,16 @@ class Page extends Component {
           className={styles.rowsContainer}
           ref={`rowsContainer${pageIndex}`}
         >
+          {
+            firstPage &&
+            <img
+              src={logoImg}
+              height="70"
+              style={{
+                marginBottom: 15
+              }}
+            />
+          }
           {
             firstPage &&
             queryTitle &&

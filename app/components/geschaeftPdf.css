@@ -31,12 +31,12 @@
 
 .footer {
   position: absolute;
-  width: 17cm;
+  width: 18cm;
   /**
    * push down so it is never covered
    * by content
    */
-  bottom: 1.8cm;
+  bottom: 1.5cm;
 }
 
 .footer p {
