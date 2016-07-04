@@ -105,11 +105,20 @@ const geschaefte = (state = standardState, action) => {
       return {
         ...state,
         sortFields: () => {
-          if (action.direction) {
-            // TODO: remove field
-          } else {
-            // TODO: add field
+          const sortFieldsWithoutPassedField = state.sortFields.map((sf) =>
+            sf.field !== action.field
+          )
+          if (!action.direction) {
+            // remove field
+            return sortFieldsWithoutPassedField
           }
+          return [
+            sortFieldsWithoutPassedField,
+            {
+              field: action.field,
+              direction: action.direction,
+            }
+          ]
         }
       }
     case GESCHAEFTE_FILTER_BY_FULLTEXT:
