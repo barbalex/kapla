@@ -18,7 +18,9 @@ const ModalMessage = ({
       </p>
       {
         messageTextLine2 &&
-        <p className={styles.p}>
+        <p  // eslint-disable-line react/jsx-indent
+          className={styles.p}
+        >
           {messageTextLine2}
         </p>
       }

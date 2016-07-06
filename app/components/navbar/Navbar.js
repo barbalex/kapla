@@ -59,11 +59,11 @@ class NavbarComponent extends Component {
       <div>
         {
           willDeleteGeschaeft &&
-          <ModalGeschaeftDelete />
+          <ModalGeschaeftDelete />  // eslint-disable-line react/jsx-indent
         }
         {
           showMessageModal &&
-          <ModalMessage />
+          <ModalMessage />  // eslint-disable-line react/jsx-indent
         }
         <Navbar
           inverse
@@ -80,38 +80,38 @@ class NavbarComponent extends Component {
             </LinkContainer>
             {
               showGeschaefteStuff &&
-              <GeschaeftNeuNav />
+              <GeschaeftNeuNav />  // eslint-disable-line react/jsx-indent
             }
             {
               showGeschaefteStuff &&
-              <GeschaeftLoeschenNav />
+              <GeschaeftLoeschenNav />  // eslint-disable-line react/jsx-indent
             }
             {
               showGeschaefteAndPrint &&
-              <ExportGeschaefteNav />
+              <ExportGeschaefteNav />  // eslint-disable-line react/jsx-indent
             }
             {
               showGeschaefteAndPrint &&
-              <BerichteNav />
+              <BerichteNav />  // eslint-disable-line react/jsx-indent
             }
             {
               showPrint &&
-              <PrintNav />
+              <PrintNav />  // eslint-disable-line react/jsx-indent
             }
             <StammdatenNav />
             {
               showTableStuff &&
-              <TableRowNeuNav />
+              <TableRowNeuNav />  // eslint-disable-line react/jsx-indent
             }
             {
               showTableStuff &&
-              <TableRowDeleteNav />
+              <TableRowDeleteNav />  // eslint-disable-line react/jsx-indent
             }
           </Nav>
           <Nav pullRight>
             {
               !showTableStuff &&
-              <FilterNav />
+              <FilterNav />  // eslint-disable-line react/jsx-indent
             }
             <OptionsNav />
           </Nav>

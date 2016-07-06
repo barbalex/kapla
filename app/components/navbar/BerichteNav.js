@@ -107,11 +107,13 @@ const BerichteNav = ({
       </MenuItem>
       {
         activeId &&
-        <MenuItem divider />
+        <MenuItem divider />  // eslint-disable-line react/jsx-indent
       }
       {
         activeId &&
-        <MenuItem eventKey={7.6}>
+        <MenuItem  // eslint-disable-line react/jsx-indent
+          eventKey={7.6}
+        >
           Deckblatt (= aktuelles Geschäft)
         </MenuItem>
       }
