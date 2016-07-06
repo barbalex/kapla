@@ -130,7 +130,7 @@ class FilterFields extends Component {
       100
     )
     const wrapperClassBaseString = (
-      areaFilterFieldsWidth < 750 ?
+      areaFilterFieldsWidth < 980 ?
       'wrapperNarrow' :
       'wrapperWide'
     )
