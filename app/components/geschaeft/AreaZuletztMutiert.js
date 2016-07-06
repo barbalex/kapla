@@ -6,7 +6,6 @@ import styles from './areaZuletztMutiert.css'
 const AreaZuletztMutiert = ({
   geschaeft,
   interneOptions,
-  isPrintPreview,
 }) => {
   let zuletztMutiertText
 
@@ -46,7 +45,6 @@ AreaZuletztMutiert.displayName = 'AreaZuletztMutiert'
 AreaZuletztMutiert.propTypes = {
   geschaeft: PropTypes.object.isRequired,
   interneOptions: PropTypes.array,
-  isPrintPreview: PropTypes.bool.isRequired,
 }
 
 export default AreaZuletztMutiert
