@@ -46,8 +46,8 @@ const AreaParlVorstoss = ({
           Stufe
         </ControlLabel>
         <Radio
-          data-value={1}
-          checked={geschaeft.parlVorstossStufe == 1}
+          data-value="1"
+          checked={geschaeft.parlVorstossStufe === '1'}
           onChange={change}
           bsSize="small"
           name="parlVorstossStufe"
@@ -56,8 +56,8 @@ const AreaParlVorstoss = ({
           1: nicht überwiesen
         </Radio>
         <Radio
-          data-value={2}
-          checked={geschaeft.parlVorstossStufe == 2}
+          data-value="2"
+          checked={geschaeft.parlVorstossStufe === '2'}
           name="parlVorstossStufe"
           onChange={change}
           bsSize="small"

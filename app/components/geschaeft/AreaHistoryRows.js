@@ -8,7 +8,6 @@ const AreaHistoryRows = ({
   geschaefte,
   activeId,
   geschaeftToggleActivated,
-  isPrintPreview,
 }) => {
   const history = getHistoryOfGeschaeft(geschaefte, activeId)
   // sort descending
@@ -56,7 +55,6 @@ AreaHistoryRows.propTypes = {
   geschaefte: PropTypes.array.isRequired,
   activeId: PropTypes.number.isRequired,
   geschaeftToggleActivated: PropTypes.func.isRequired,
-  isPrintPreview: PropTypes.bool.isRequired,
 }
 
 export default AreaHistoryRows
