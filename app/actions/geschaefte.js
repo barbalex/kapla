@@ -132,7 +132,7 @@ export const geschaefteFilterByFulltext = (filterFulltext, filterType = 'nach Vo
     const { filterFields, geschaefte, sortFields } = getState().geschaefte
     // create geschaefteGefilterteIds
     let geschaefteGefilterteIds = filterGeschaefte(
-      geschaefte.geschaefte,
+      geschaefte,
       filterFulltext,
       filterFields
     )

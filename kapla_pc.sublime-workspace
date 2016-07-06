@@ -481,8 +481,16 @@
 			"file": "app/components/filterFields/DateField.js",
 			"settings":
 			{
-				"buffer_size": 4499,
+				"buffer_size": 4460,
 				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "package.json",
+			"settings":
+			{
+				"buffer_size": 5041,
+				"line_ending": "Unix"
 			}
 		}
 	],
@@ -973,7 +981,7 @@
 	"groups":
 	[
 		{
-			"selected": 1,
+			"selected": 2,
 			"sheets":
 			[
 				{
@@ -1128,7 +1136,7 @@
 						"translation.y": 4218.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 1,
+					"stack_index": 2,
 					"type": "text"
 				},
 				{
@@ -1137,15 +1145,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 4499,
+						"buffer_size": 4460,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								847,
-								847
+								0,
+								0
 							]
 						],
 						"settings":
@@ -1156,6 +1164,36 @@
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "package.json",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 5041,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								3129,
+								3141
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JSON.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 1776.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
