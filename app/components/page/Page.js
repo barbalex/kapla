@@ -16,7 +16,7 @@ import List1Header from './list1/Header'
 import List1Rows from './list1/Rows'
 import filterCriteriaToArrayOfStrings from '../../src/filterCriteriaToArrayOfStrings'
 import sortCriteriaToArrayOfStrings from '../../src/sortCriteriaToArrayOfStrings'
-import logoImg from 'file!../../etc/logo.png'
+import logoImg from 'file!../../etc/logo.png'  // eslint-disable-line import/no-unresolved
 
 class Page extends Component {
   static propTypes = {
@@ -239,12 +239,13 @@ class Page extends Component {
         >
           {
             firstPage &&
-            <img
+            <img  // eslint-disable-line react/jsx-indent
               src={logoImg}
               height="70"
               style={{
                 marginBottom: 15
               }}
+              alt="Logo"
             />
           }
           {
@@ -259,7 +260,7 @@ class Page extends Component {
           }
           {
             firstPage &&
-            <div
+            <div  // eslint-disable-line react/jsx-indent
               className={styles.filterCriteria}
             >
               Filterkriterien: {filterCriteriaToArrayOfStrings(filterFields).join(' & ')}
@@ -267,7 +268,7 @@ class Page extends Component {
           }
           {
             firstPage &&
-            <div
+            <div  // eslint-disable-line react/jsx-indent
               className={styles.sortCriteria}
             >
               Sortierkriterien: {sortCriteriaToArrayOfStrings(sortFields).join(' & ')}
@@ -275,7 +276,7 @@ class Page extends Component {
           }
           {
             reportType === 'typFaelligeGeschaefte' &&
-            <FaelligeGeschaefteHeader />
+            <FaelligeGeschaefteHeader />  // eslint-disable-line react/jsx-indent
           }
           {
             (
@@ -283,11 +284,11 @@ class Page extends Component {
               reportType === 'angekVernehml' ||
               reportType === 'laufendeVernehml'
             ) &&
-            <VernehmlassungenHeader />
+            <VernehmlassungenHeader />  // eslint-disable-line react/jsx-indent
           }
           {
             reportType === 'list1' &&
-            <List1Header />
+            <List1Header />  // eslint-disable-line react/jsx-indent
           }
           {this.tableRows()}
         </div>

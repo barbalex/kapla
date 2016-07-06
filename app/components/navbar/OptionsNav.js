@@ -23,7 +23,9 @@ const OptionsNav = ({
       Datenbank wählen
       {
         config.dbPath &&
-        <div className={styles.dbPath}>
+        <div  // eslint-disable-line react/jsx-indent
+          className={styles.dbPath}
+        >
           Aktuell: {config.dbPath}
         </div>
       }

@@ -10,13 +10,10 @@ function mapStateToProps(state) {
     geschaefte,
     activeId,
   } = state.geschaefte
-  const path = state.routing.locationBeforeTransitions.pathname
-  const isPrintPreview = path === '/geschaeftPdf'
 
   return {
     geschaefte,
     activeId,
-    isPrintPreview,
   }
 }
 
