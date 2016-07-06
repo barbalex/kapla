@@ -31,7 +31,6 @@ const AreaNummern = ({
         values={values}
         changeComparator={changeComparator}
         tabIndex={1 + firstTabIndex}
-        autoFocus={firstTabIndex === 0}
       />
     </div>
     <ControlLabel className={styles.labelGekoNr}>

@@ -29,7 +29,6 @@ const AreaGeschaeft = ({
         values={values}
         changeComparator={changeComparator}
         tabIndex={1 + firstTabIndex}
-        autoFocus={firstTabIndex === 0}
       />
     </div>
     <div className={styles.fieldAusloeser}>
