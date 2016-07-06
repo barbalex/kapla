@@ -41,7 +41,7 @@ class DateField extends Component {
     const prevValue = prevProps.values[name]
     if (value !== prevValue) {
       if (value) value = moment(value, 'YYYY-MM-DD').format('DD.MM.YYYY')
-      this.setState({ value })
+      this.setState({ value })  // eslint-disable-line react/no-did-update-set-state
     }
   }
 
@@ -124,11 +124,9 @@ class DateField extends Component {
       paddingRight: 12,
     }
 
-    const fieldStyleName = `field${name.charAt(0).toUpperCase()}${name.slice(1)}`
-
     return (
       <FormGroup
-        className={styles[fieldStyleName]}
+        className={styles.field}
         validationState={getDateValidationStateDate(value)}
       >
         <ControlLabel>

@@ -2,18 +2,14 @@
 
 import React, { PropTypes } from 'react'
 import {
-  FormGroup,
-  InputGroup,
   FormControl,
   ControlLabel,
-  Glyphicon,
 } from 'react-bootstrap'
 import moment from 'moment'
 moment.locale('de')
-import DateRangePicker from 'react-bootstrap-daterangepicker'
 import regularStyles from './areaFristen.css'
 import pdfStyles from './areaFristenPdf.css'
-import getDateValidationStateDate from '../../src/getDateValidationStateDate'
+import DateField from '../../containers/geschaeft/DateField'
 
 
 const statusFristInStyle = (dauerBisFristMitarbeiter, styles) => {
@@ -60,21 +56,6 @@ const AreaFristen = ({
   isPrintPreview,
 }) => {
   const styles = isPrintPreview ? pdfStyles : regularStyles
-  /**
-   * need to give addon no padding
-   * and the originally addon's padding to the glyphicon
-   * to make entire addon clickable
-   * for opening calendar
-   */
-  const datePickerAddonStyle = {
-    padding: 0,
-  }
-  const datePickerCalendarStyle = {
-    paddingTop: 6,
-    paddingBottom: 6,
-    paddingLeft: 12,
-    paddingRight: 12,
-  }
 
   return (
     <div className={styles.areaFristen}>
@@ -83,253 +64,81 @@ const AreaFristen = ({
       </div>
       {
         !(!geschaeft.datumEingangAwel && isPrintPreview) &&
-        <FormGroup  // eslint-disable-line react/jsx-indent
-          className={styles.fieldDatumEingangAwel}
-          validationState={getDateValidationStateDate(geschaeft.datumEingangAwel)}
-        >
-          <ControlLabel>
-            Datum des Eingangs im AWEL
-          </ControlLabel>
-          <InputGroup>
-            <FormControl
-              type="text"
-              value={geschaeft.datumEingangAwel || ''}
-              name="datumEingangAwel"
-              onChange={change}
-              onBlur={blur}
-              bsSize="small"
-              tabIndex={1 + nrOfFieldsBeforeFristen}
-            />
-            <InputGroup.Addon style={datePickerAddonStyle}>
-              <DateRangePicker
-                singleDatePicker
-                drops="up"
-                opens="left"
-                onApply={onChangeDatePicker.bind(this, 'datumEingangAwel')}
-                className={styles.datePicker}
-              >
-                <Glyphicon
-                  glyph="calendar"
-                  style={datePickerCalendarStyle}
-                />
-              </DateRangePicker>
-            </InputGroup.Addon>
-          </InputGroup>
-        </FormGroup>
+        <DateField  // eslint-disable-line react/jsx-indent
+          name="datumEingangAwel"
+          label="Datum des Eingangs im AWEL"
+          change={change}
+          blur={blur}
+          onChangeDatePicker={onChangeDatePicker}
+          tabIndex={1 + nrOfFieldsBeforeFristen}
+        />
       }
       {
         !(!geschaeft.fristAwel && isPrintPreview) &&
-        <FormGroup  // eslint-disable-line react/jsx-indent
-          className={styles.fieldFristAwel}
-          validationState={getDateValidationStateDate(geschaeft.fristAwel)}
-        >
-          <ControlLabel>
-            Frist für Erledigung durch AWEL
-          </ControlLabel>
-          <InputGroup>
-            <FormControl
-              type="text"
-              value={geschaeft.fristAwel || ''}
-              name="fristAwel"
-              onChange={change}
-              onBlur={blur}
-              bsSize="small"
-              tabIndex={2 + nrOfFieldsBeforeFristen}
-            />
-            <InputGroup.Addon style={datePickerAddonStyle}>
-              <DateRangePicker
-                singleDatePicker
-                drops="up"
-                opens="left"
-                onApply={onChangeDatePicker.bind(this, 'fristAwel')}
-                className={styles.datePicker}
-              >
-                <Glyphicon
-                  glyph="calendar"
-                  style={datePickerCalendarStyle}
-                />
-              </DateRangePicker>
-            </InputGroup.Addon>
-          </InputGroup>
-        </FormGroup>
+        <DateField  // eslint-disable-line react/jsx-indent
+          name="fristAwel"
+          label="Frist für Erledigung durch AWEL"
+          change={change}
+          blur={blur}
+          onChangeDatePicker={onChangeDatePicker}
+          tabIndex={2 + nrOfFieldsBeforeFristen}
+        />
       }
       {
         !(!geschaeft.fristAmtschef && isPrintPreview) &&
-        <FormGroup  // eslint-disable-line react/jsx-indent
-          className={styles.fieldFristAmtschef}
-          validationState={getDateValidationStateDate(geschaeft.fristAmtschef)}
-        >
-          <ControlLabel>
-            Frist Vorlage an Amtschef
-          </ControlLabel>
-          <InputGroup>
-            <FormControl
-              type="text"
-              value={geschaeft.fristAmtschef || ''}
-              name="fristAmtschef"
-              onChange={change}
-              onBlur={blur}
-              bsSize="small"
-              tabIndex={3 + nrOfFieldsBeforeFristen}
-            />
-            <InputGroup.Addon style={datePickerAddonStyle}>
-              <DateRangePicker
-                singleDatePicker
-                drops="up"
-                opens="left"
-                onApply={onChangeDatePicker.bind(this, 'fristAmtschef')}
-                className={styles.datePicker}
-              >
-                <Glyphicon
-                  glyph="calendar"
-                  style={datePickerCalendarStyle}
-                />
-              </DateRangePicker>
-            </InputGroup.Addon>
-          </InputGroup>
-        </FormGroup>
+        <DateField  // eslint-disable-line react/jsx-indent
+          name="fristAmtschef"
+          label="Frist Vorlage an Amtschef"
+          change={change}
+          blur={blur}
+          onChangeDatePicker={onChangeDatePicker}
+          tabIndex={3 + nrOfFieldsBeforeFristen}
+        />
       }
       {
         !(!geschaeft.fristAbteilung && isPrintPreview) &&
-        <FormGroup  // eslint-disable-line react/jsx-indent
-          className={styles.fieldFristAbteilung}
-          validationState={getDateValidationStateDate(geschaeft.fristAbteilung)}
-        >
-          <ControlLabel>
-            Frist für Erledigung durch Abteilung
-          </ControlLabel>
-          <InputGroup>
-            <FormControl
-              type="text"
-              value={geschaeft.fristAbteilung || ''}
-              name="fristAbteilung"
-              onChange={change}
-              onBlur={blur}
-              bsSize="small"
-              tabIndex={4 + nrOfFieldsBeforeFristen}
-            />
-            <InputGroup.Addon style={datePickerAddonStyle}>
-              <DateRangePicker
-                singleDatePicker
-                drops="up"
-                opens="left"
-                onApply={onChangeDatePicker.bind(this, 'fristAbteilung')}
-                className={styles.datePicker}
-              >
-                <Glyphicon
-                  glyph="calendar"
-                  style={datePickerCalendarStyle}
-                />
-              </DateRangePicker>
-            </InputGroup.Addon>
-          </InputGroup>
-        </FormGroup>
+        <DateField  // eslint-disable-line react/jsx-indent
+          name="fristAbteilung"
+          label="Frist für Erledigung durch Abteilung"
+          change={change}
+          blur={blur}
+          onChangeDatePicker={onChangeDatePicker}
+          tabIndex={4 + nrOfFieldsBeforeFristen}
+        />
       }
       {
         !(!geschaeft.fristMitarbeiter && isPrintPreview) &&
-        <FormGroup  // eslint-disable-line react/jsx-indent
-          className={styles.fieldFristMitarbeiter}
-          validationState={getDateValidationStateDate(geschaeft.fristMitarbeiter)}
-        >
-          <ControlLabel>
-            Frist Erledigung nächster Schritt Re
-          </ControlLabel>
-          <InputGroup>
-            <FormControl
-              type="text"
-              value={geschaeft.fristMitarbeiter || ''}
-              name="fristMitarbeiter"
-              onChange={change}
-              onBlur={blur}
-              bsSize="small"
-              tabIndex={5 + nrOfFieldsBeforeFristen}
-            />
-            <InputGroup.Addon style={datePickerAddonStyle}>
-              <DateRangePicker
-                singleDatePicker
-                drops="up"
-                opens="left"
-                onApply={onChangeDatePicker.bind(this, 'fristMitarbeiter')}
-                className={styles.datePicker}
-              >
-                <Glyphicon glyph="calendar" style={datePickerCalendarStyle} />
-              </DateRangePicker>
-            </InputGroup.Addon>
-          </InputGroup>
-        </FormGroup>
+        <DateField  // eslint-disable-line react/jsx-indent
+          name="fristMitarbeiter"
+          label="Frist Erledigung nächster Schritt Re"
+          change={change}
+          blur={blur}
+          onChangeDatePicker={onChangeDatePicker}
+          tabIndex={5 + nrOfFieldsBeforeFristen}
+        />
       }
       {!!geschaeft.fristMitarbeiter && fieldFristDauerBisMitarbeiter(geschaeft, styles)}
       {
         !(!geschaeft.datumAusgangAwel && isPrintPreview) &&
-        <FormGroup  // eslint-disable-line react/jsx-indent
-          className={styles.fieldDatumAusgangAwel}
-          validationState={getDateValidationStateDate(geschaeft.datumAusgangAwel)}
-        >
-          <ControlLabel>
-            Datum Ausgang AWEL (erledigt)
-          </ControlLabel>
-          <InputGroup>
-            <FormControl
-              type="text"
-              value={geschaeft.datumAusgangAwel || ''}
-              name="datumAusgangAwel"
-              onChange={change}
-              onBlur={blur}
-              bsSize="small"
-              tabIndex={6 + nrOfFieldsBeforeFristen}
-            />
-            <InputGroup.Addon style={datePickerAddonStyle}>
-              <DateRangePicker
-                singleDatePicker
-                drops="up"
-                opens="left"
-                onApply={onChangeDatePicker.bind(this, 'datumAusgangAwel')}
-                className={styles.datePicker}
-              >
-                <Glyphicon
-                  glyph="calendar"
-                  style={datePickerCalendarStyle}
-                />
-              </DateRangePicker>
-            </InputGroup.Addon>
-          </InputGroup>
-        </FormGroup>
+        <DateField  // eslint-disable-line react/jsx-indent
+          name="datumAusgangAwel"
+          label="Datum Ausgang AWEL (erledigt)"
+          change={change}
+          blur={blur}
+          onChangeDatePicker={onChangeDatePicker}
+          tabIndex={6 + nrOfFieldsBeforeFristen}
+        />
       }
       {
         !(!geschaeft.fristDirektion && isPrintPreview) &&
-        <FormGroup  // eslint-disable-line react/jsx-indent
-          className={styles.fieldFristDirektion}
-          validationState={getDateValidationStateDate(geschaeft.fristDirektion)}
-        >
-          <ControlLabel>
-            Frist für Erledigung durch Direktion
-          </ControlLabel>
-          <InputGroup>
-            <FormControl
-              type="text"
-              value={geschaeft.fristDirektion || ''}
-              name="fristDirektion"
-              onChange={change}
-              onBlur={blur}
-              bsSize="small"
-              tabIndex={7 + nrOfFieldsBeforeFristen}
-            />
-            <InputGroup.Addon style={datePickerAddonStyle}>
-              <DateRangePicker
-                singleDatePicker
-                drops="up"
-                opens="left"
-                onApply={onChangeDatePicker.bind(this, 'fristDirektion')}
-                className={styles.datePicker}
-              >
-                <Glyphicon
-                  glyph="calendar"
-                  style={datePickerCalendarStyle}
-                />
-              </DateRangePicker>
-            </InputGroup.Addon>
-          </InputGroup>
-        </FormGroup>
+        <DateField  // eslint-disable-line react/jsx-indent
+          name="fristDirektion"
+          label="Frist für Erledigung durch Direktion"
+          change={change}
+          blur={blur}
+          onChangeDatePicker={onChangeDatePicker}
+          tabIndex={7 + nrOfFieldsBeforeFristen}
+        />
       }
     </div>
   )
