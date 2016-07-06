@@ -7,8 +7,9 @@ import isDateField from './isDateField'
 export default function (
   geschaefte,
   filterFulltext,
-  filterFields,
+  filterFieldsPassed,
 ) {
+  let filterFields = filterFieldsPassed
   const existsFilterFulltext = !!filterFulltext
   const existsFilterFields = Object.keys(filterFields).length > 0
   let geschaefteGefiltert = geschaefte
@@ -89,8 +90,6 @@ export default function (
               if (!!geschaeftValue) satisfiesFilter = false
             } else if (comparator === '!==') {
               if (!(geschaeftValue !== filterValue)) satisfiesFilter = false
-            } else if (!geschaeftValue) {  // TODO: remove
-              satisfiesFilter = false
             } else if (comparator === '<') {
               if (!(geschaeftValue < filterValue)) satisfiesFilter = false
             } else if (comparator === '>') {
@@ -104,7 +103,7 @@ export default function (
                 if (!includes(geschaeftValue.toString(), filterValue.toString())) satisfiesFilter = false
               }
             } else if (comparator === '===') {
-              if (geschaeftValue != filterValue) satisfiesFilter = false
+              if (geschaeftValue != filterValue) satisfiesFilter = false  // eslint-disable-line eqeqeq
             }
           }
         }
