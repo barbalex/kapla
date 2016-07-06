@@ -2,19 +2,13 @@
 
 import React, { PropTypes } from 'react'
 import {
-  FormGroup,
   FormControl,
-  InputGroup,
   ControlLabel,
-  Glyphicon,
 } from 'react-bootstrap'
-import moment from 'moment'
-moment.locale('de')
-import DateRangePicker from 'react-bootstrap-daterangepicker'
 import regularStyles from './areaRechtsmittel.css'
 import pdfStyles from './areaRechtsmittelPdf.css'
+import DateField from '../../containers/geschaeft/DateField'
 import createOptions from '../../src/createOptions'
-import getDateValidationStateDate from '../../src/getDateValidationStateDate'
 
 const AreaRechtsmittel = ({
   geschaeft,
@@ -27,21 +21,6 @@ const AreaRechtsmittel = ({
   isPrintPreview,
 }) => {
   const styles = isPrintPreview ? pdfStyles : regularStyles
-  /**
-   * need to give addon no padding
-   * and the originally addon's padding to the glyphicon
-   * to make entire addon clickable
-   * for opening calendar
-   */
-  const datePickerAddonStyle = {
-    padding: 0,
-  }
-  const datePickerCalendarStyle = {
-    paddingTop: 6,
-    paddingBottom: 6,
-    paddingLeft: 12,
-    paddingRight: 12,
-  }
 
   return (
     <div className={styles.areaForGeschaeftsart}>
@@ -78,39 +57,14 @@ const AreaRechtsmittel = ({
           tabIndex={2 + nrOfFieldsBeforePv}
         />
       </div>
-      <FormGroup
-        className={styles.fieldEntscheidDatum}
-        validationState={getDateValidationStateDate(geschaeft.rechtsmittelEntscheidDatum)}
-      >
-        <ControlLabel>
-          Entscheid Datum
-        </ControlLabel>
-        <InputGroup>
-          <FormControl
-            type="text"
-            value={geschaeft.rechtsmittelEntscheidDatum || ''}
-            name="rechtsmittelEntscheidDatum"
-            onChange={change}
-            onBlur={blur}
-            bsSize="small"
-            tabIndex={3 + nrOfFieldsBeforePv}
-          />
-          <InputGroup.Addon style={datePickerAddonStyle}>
-            <DateRangePicker
-              singleDatePicker
-              drops="up"
-              opens="left"
-              onApply={onChangeDatePicker.bind(this, 'rechtsmittelEntscheidDatum')}
-              className={styles.datePicker}
-            >
-              <Glyphicon
-                glyph="calendar"
-                style={datePickerCalendarStyle}
-              />
-            </DateRangePicker>
-          </InputGroup.Addon>
-        </InputGroup>
-      </FormGroup>
+      <DateField  // eslint-disable-line react/jsx-indent
+        name="rechtsmittelEntscheidDatum"
+        label="Entscheid Datum"
+        change={change}
+        blur={blur}
+        onChangeDatePicker={onChangeDatePicker}
+        tabIndex={3 + nrOfFieldsBeforePv}
+      />
       <div className={styles.fieldErledigung}>
         <ControlLabel>
           Erledigung
