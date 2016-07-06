@@ -46,7 +46,9 @@ const AreaGeschaeft = ({
       </div>
       {
         !(!geschaeft.ausloeser && isPrintPreview) &&
-        <div className={styles.fieldAusloeser}>
+        <div  // eslint-disable-line react/jsx-indent
+          className={styles.fieldAusloeser}
+        >
           <ControlLabel>
             Auslöser
           </ControlLabel>
@@ -62,7 +64,9 @@ const AreaGeschaeft = ({
       }
       {
         !(!geschaeft.ort && isPrintPreview) &&
-        <div className={styles.fieldOrt}>
+        <div  // eslint-disable-line react/jsx-indent
+          className={styles.fieldOrt}
+        >
           <ControlLabel>
             Ort
           </ControlLabel>
@@ -79,7 +83,9 @@ const AreaGeschaeft = ({
       }
       {
         !(!geschaeft.geschaeftsart && isPrintPreview) &&
-        <div className={styles.fieldGeschaeftsart}>
+        <div  // eslint-disable-line react/jsx-indent
+          className={styles.fieldGeschaeftsart}
+        >
           <ControlLabel>
             Geschäftsart
           </ControlLabel>
@@ -98,7 +104,9 @@ const AreaGeschaeft = ({
       }
       {
         !(!geschaeft.status && isPrintPreview) &&
-        <div className={styles.fieldStatus}>
+        <div  // eslint-disable-line react/jsx-indent
+          className={styles.fieldStatus}
+        >
           <ControlLabel>
             Status
           </ControlLabel>
@@ -117,7 +125,9 @@ const AreaGeschaeft = ({
       }
       {
         !(!geschaeft.abteilung && isPrintPreview) &&
-        <div className={styles.fieldAbteilung}>
+        <div  // eslint-disable-line react/jsx-indent
+          className={styles.fieldAbteilung}
+        >
           <ControlLabel>
             Abteilung
           </ControlLabel>
@@ -136,7 +146,9 @@ const AreaGeschaeft = ({
         }
       {
         !(!geschaeft.details && isPrintPreview) &&
-        <div className={styles.fieldDetails}>
+        <div  // eslint-disable-line react/jsx-indent
+          className={styles.fieldDetails}
+        >
           <ControlLabel>
             Details
           </ControlLabel>
@@ -152,7 +164,9 @@ const AreaGeschaeft = ({
       }
       {
         !(!geschaeft.naechsterSchritt && isPrintPreview) &&
-        <div className={styles.fieldNaechsterSchritt}>
+        <div  // eslint-disable-line react/jsx-indent
+          className={styles.fieldNaechsterSchritt}
+        >
           <ControlLabel>
             Nächster Schritt
           </ControlLabel>
@@ -168,7 +182,9 @@ const AreaGeschaeft = ({
       }
       {
         !(!geschaeft.vermerk && isPrintPreview) &&
-        <div className={styles.fieldVermerk}>
+        <div  // eslint-disable-line react/jsx-indent
+          className={styles.fieldVermerk}
+        >
           <ControlLabel>
             Vermerk
           </ControlLabel>

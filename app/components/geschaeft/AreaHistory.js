@@ -13,7 +13,6 @@ const AreaHistory = ({
   isPrintPreview,
 }) => {
   const styles = isPrintPreview ? pdfStyles : regularStyles
-  console.log('AreaHistory, isPrintPreview:', isPrintPreview)
 
   return (
     <div className={styles.areaHistory}>
