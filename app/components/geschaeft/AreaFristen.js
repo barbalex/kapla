@@ -83,7 +83,7 @@ const AreaFristen = ({
       </div>
       {
         !(!geschaeft.datumEingangAwel && isPrintPreview) &&
-        <FormGroup
+        <FormGroup  // eslint-disable-line react/jsx-indent
           className={styles.fieldDatumEingangAwel}
           validationState={getDateValidationStateDate(geschaeft.datumEingangAwel)}
         >
@@ -119,7 +119,7 @@ const AreaFristen = ({
       }
       {
         !(!geschaeft.fristAwel && isPrintPreview) &&
-        <FormGroup
+        <FormGroup  // eslint-disable-line react/jsx-indent
           className={styles.fieldFristAwel}
           validationState={getDateValidationStateDate(geschaeft.fristAwel)}
         >
@@ -155,7 +155,7 @@ const AreaFristen = ({
       }
       {
         !(!geschaeft.fristAmtschef && isPrintPreview) &&
-        <FormGroup
+        <FormGroup  // eslint-disable-line react/jsx-indent
           className={styles.fieldFristAmtschef}
           validationState={getDateValidationStateDate(geschaeft.fristAmtschef)}
         >
@@ -191,7 +191,7 @@ const AreaFristen = ({
       }
       {
         !(!geschaeft.fristAbteilung && isPrintPreview) &&
-        <FormGroup
+        <FormGroup  // eslint-disable-line react/jsx-indent
           className={styles.fieldFristAbteilung}
           validationState={getDateValidationStateDate(geschaeft.fristAbteilung)}
         >
@@ -227,7 +227,7 @@ const AreaFristen = ({
       }
       {
         !(!geschaeft.fristMitarbeiter && isPrintPreview) &&
-        <FormGroup
+        <FormGroup  // eslint-disable-line react/jsx-indent
           className={styles.fieldFristMitarbeiter}
           validationState={getDateValidationStateDate(geschaeft.fristMitarbeiter)}
         >
@@ -261,7 +261,7 @@ const AreaFristen = ({
       {!!geschaeft.fristMitarbeiter && fieldFristDauerBisMitarbeiter(geschaeft, styles)}
       {
         !(!geschaeft.datumAusgangAwel && isPrintPreview) &&
-        <FormGroup
+        <FormGroup  // eslint-disable-line react/jsx-indent
           className={styles.fieldDatumAusgangAwel}
           validationState={getDateValidationStateDate(geschaeft.datumAusgangAwel)}
         >
@@ -297,7 +297,7 @@ const AreaFristen = ({
       }
       {
         !(!geschaeft.fristDirektion && isPrintPreview) &&
-        <FormGroup
+        <FormGroup  // eslint-disable-line react/jsx-indent
           className={styles.fieldFristDirektion}
           validationState={getDateValidationStateDate(geschaeft.fristDirektion)}
         >

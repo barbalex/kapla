@@ -170,7 +170,7 @@ class FilterFields extends Component {
           />
           {
             showAreaParlVorstoss &&
-            <AreaParlVorstoss
+            <AreaParlVorstoss  // eslint-disable-line react/jsx-indent
               firstTabIndex={nrOfFieldsBeforePv}
               change={this.change}
               changeComparator={this.changeComparator}
@@ -179,7 +179,7 @@ class FilterFields extends Component {
           }
           {
             showAreaRechtsmittel &&
-            <AreaRechtsmittel
+            <AreaRechtsmittel  // eslint-disable-line react/jsx-indent
               firstTabIndex={nrOfFieldsBeforePv}
               change={this.change}
               onChangeDatePicker={this.onChangeDatePicker}
