@@ -18,7 +18,6 @@ class GeschaefteLayout extends Component {
 
   componentDidMount = () => {
     const { path } = this.props
-    console.log('GeschaefteLayout, componentDidMount, path', path)
     if (
       path === '/geschaefte' ||
       path === '/'

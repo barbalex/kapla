@@ -10,13 +10,15 @@ import styles from './geschaeftPdf.css'
 const GeschaeftPdf = () =>
   <div className={[styles.body, 'geschaeftPdf'].join(' ')}>
     <div className={styles.pageContainer}>
-      {/*<img
+      {/*
+        <img
         src={logoImg}
         height="40"
         style={{
           marginBottom: 2
         }}
-      />*/}
+      />
+      */}
       <Geschaeft />
       <div className={styles.footer}>
         <p>
