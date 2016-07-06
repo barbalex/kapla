@@ -73,7 +73,7 @@ class DateField extends Component {
         change(e)
       } else {
         // TODO: tell user this is invalid
-        console.log('DateField.js: invalid date')
+        console.log('DateField.js: invalid date')  // eslint-disable-line no-console
       }
     }
   }
@@ -126,7 +126,7 @@ class DateField extends Component {
 
     return (
       <FormGroup
-        className={styles.field}
+        className={name === 'rechtsmittelEntscheidDatum' ? styles.fieldEntscheidDatum : styles.field}
         validationState={getDateValidationStateDate(value)}
       >
         <ControlLabel>
