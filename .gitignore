@@ -33,4 +33,4 @@ node_modules
 dist
 release
 kapla_pc.sublime-workspace
-npm-debug.log.2362635608
+npm-debug.log*
