@@ -1,5 +1,3 @@
-'use strict'
-
 export default function (geschaefte, idGeschaeft) {
   const geschaeft = geschaefte.find((g) =>
     g.idGeschaeft === idGeschaeft

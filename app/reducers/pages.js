@@ -1,5 +1,3 @@
-'use strict'
-
 import {
   PAGES_NEW_PAGE,
   PAGES_SET_TITLE,

@@ -1,5 +1,3 @@
-'use strict'
-
 import { includes, isString } from 'lodash'
 import moment from 'moment'
 import isDateField from './isDateField'

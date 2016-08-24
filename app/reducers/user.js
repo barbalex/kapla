@@ -1,5 +1,3 @@
-'use strict'
-
 import {
   USERNAME_GET,
   USERNAME_GET_SUCCESS,

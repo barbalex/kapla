@@ -1,5 +1,3 @@
-'use strict'
-
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import GeschaeftDeleteNav from '../../components/navbar/GeschaeftDeleteNav'

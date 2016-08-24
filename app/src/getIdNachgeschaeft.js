@@ -1,5 +1,3 @@
-'use strict'
-
 export default function (geschaefte, idGeschaeft) {
   // idVorgeschaeft arrives as string
   // need to convert it to number

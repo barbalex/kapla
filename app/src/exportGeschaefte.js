@@ -1,5 +1,3 @@
-'use strict'
-
 /**
  * gets save path
  * TODO: should call writeExport in child process
@@ -9,9 +7,10 @@
  */
 
 import electron, { remote } from 'electron'
-const { dialog } = remote
 import pathModule from 'path'
 import childProcess from 'child_process'
+
+const { dialog } = remote
 const app = (
   process.type === 'browser' ?
   electron.app :

@@ -1,5 +1,3 @@
-'use strict'
-
 import getGeschaeftKontaktInternFromDb from './getGeschaeftKontaktInternFromDb'
 
 export default function (db, idGeschaeft, idKontakt) {

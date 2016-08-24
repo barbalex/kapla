@@ -1,5 +1,3 @@
-'use strict'
-
 import validateDate from './validateDate'
 
 export default function (date) {

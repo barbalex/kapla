@@ -1,5 +1,3 @@
-'use strict'
-
 export default function (db, table, id) {
   return new Promise((resolve, reject) => {
     const sql = `

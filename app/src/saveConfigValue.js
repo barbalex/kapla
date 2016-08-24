@@ -1,5 +1,3 @@
-'use strict'
-
 // this module will be called from main or inside app
 // so get app from electron or from electron.remote
 

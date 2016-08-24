@@ -1,5 +1,3 @@
-'use strict'
-
 import getIdVorgeschaeft from './getIdVorgeschaeft'
 import getIdNachgeschaeft from './getIdNachgeschaeft'
 

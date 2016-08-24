@@ -1,5 +1,3 @@
-'use strict'
-
 import moment from 'moment'
 import isDateField from './isDateField'
 import convertDateToYyyyMmDd from './convertDateToYyyyMmDd'

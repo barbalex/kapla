@@ -1,5 +1,3 @@
-'use strict'
-
 import getTableRowFromDb from './getTableRowFromDb'
 
 export default function (db, table) {

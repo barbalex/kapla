@@ -1,5 +1,3 @@
-'use strict'
-
 import isDateField from '../src/isDateField'
 import convertDateToDdMmYyyy from '../src/convertDateToDdMmYyyy'
 

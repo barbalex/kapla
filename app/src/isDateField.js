@@ -1,5 +1,3 @@
-'use strict'
-
 export default function isDateField(fieldName) {
   const dateFieldNames = [
     'datumEingangAwel',

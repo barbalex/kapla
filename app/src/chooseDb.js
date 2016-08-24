@@ -1,4 +1,5 @@
 const dialog = require('electron').remote.dialog
+
 const options = {
   title: 'Datenbank für Kapla wählen',
   properties: ['openFile'],

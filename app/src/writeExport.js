@@ -1,5 +1,3 @@
-'use strict'
-
 /**
  * writes a dataArray to an Excel workbook
  * this must happen in child process

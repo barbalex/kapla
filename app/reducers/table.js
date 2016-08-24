@@ -1,5 +1,3 @@
-'use strict'
-
 import {
   TABLE_GET,
   TABLE_GET_SUCCESS,
