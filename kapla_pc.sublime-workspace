@@ -468,29 +468,19 @@
 	"buffers":
 	[
 		{
-			"contents": "Searching 278 files for \"children\" (case sensitive, whole word)\n\nC:\\Users\\alex\\kapla\\app\\containers\\App.js:\n    6  export default class App extends Component {\n    7    static propTypes = {\n    8:     children: PropTypes.element.isRequired,\n    9    }\n   10  \n   ..\n   13        <div ref=\"app\">\n   14          <Navbar />\n   15:         {this.props.children}\n   16          {/*\n   17            (() => {\n\n2 matches in 1 file\n\n\nSearching 278 files for \"class\" (case sensitive, whole word)\n\nC:\\Users\\alex\\kapla\\app\\components\\filterFields\\DateField.js:\n   15  import getDateValidationStateDate from '../../src/getDateValidationStateDate'\n   16  \n   17: class DateField extends Component {\n   18    static propTypes = {\n   19      name: PropTypes.string.isRequired,\n\nC:\\Users\\alex\\kapla\\app\\components\\filterFields\\FilterFields.js:\n   16  import isDateField from '../../src/isDateField'\n   17  \n   18: class FilterFields extends Component {\n   19    static propTypes = {\n   20      values: PropTypes.object.isRequired,\n\nC:\\Users\\alex\\kapla\\app\\components\\FilterFieldsLayout.js:\n    7  import Geschaefte from '../containers/Geschaefte'\n    8  \n    9: class FilterFieldsLayout extends Component {\n   10    static propTypes = {\n   11      geschaefteLayout: PropTypes.object,\n\nC:\\Users\\alex\\kapla\\app\\components\\geschaeft\\Geschaeft.js:\n   19  import AreaZuletztMutiert from '../../containers/geschaeft/AreaZuletztMutiert'\n   20  \n   21: class Geschaeft extends Component {\n   22    static propTypes = {\n   23      geschaeft: PropTypes.object,\n\nC:\\Users\\alex\\kapla\\app\\components\\Geschaefte.js:\n    7  import GeschaefteItem from '../containers/GeschaefteItem'\n    8  \n    9: class Geschaefte extends Component {\n   10    static propTypes = {\n   11      geschaefteGefilterteIds: PropTypes.array,\n\nC:\\Users\\alex\\kapla\\app\\components\\GeschaefteLayout.js:\n    7  import Geschaefte from '../containers/Geschaefte'\n    8  \n    9: class GeschaefteLayout extends Component {\n   10    static propTypes = {\n   11      geschaefteLayout: PropTypes.object,\n\nC:\\Users\\alex\\kapla\\app\\components\\navbar\\Navbar.js:\n   22  import styles from './Navbar.css'\n   23  \n   24: class NavbarComponent extends Component {\n   25    static propTypes = {\n   26      geschaefte: PropTypes.array.isRequired,\n\nC:\\Users\\alex\\kapla\\app\\components\\page\\Page.css:\n   21     * need overflow while building list\n   22     * so list does not flow outside padding\n   23:    * is contained in seperate class so it can\n   24     * only be added while building \n   25     */\n\nC:\\Users\\alex\\kapla\\app\\components\\page\\Page.js:\n   19  import logoImg from 'file!../../etc/logo.png'\n   20  \n   21: class Page extends Component {\n   22    static propTypes = {\n   23      pages: PropTypes.array,\n\nC:\\Users\\alex\\kapla\\app\\components\\table\\Table.js:\n    8  import styles from './Table.css'\n    9  \n   10: class Table extends Component {\n   11    static propTypes = {\n   12      table: PropTypes.string.isRequired,\n\nC:\\Users\\alex\\kapla\\app\\components\\TableLayout.js:\n    7  import Table from '../containers/table/Table'\n    8  \n    9: class TableLayout extends Component {\n   10    static propTypes = {\n   11      tableLayout: PropTypes.object,\n\nC:\\Users\\alex\\kapla\\app\\containers\\App.js:\n    4  import Navbar from '../containers/navbar/Navbar.js'\n    5  \n    6: export default class App extends Component {\n    7    static propTypes = {\n    8      children: PropTypes.element.isRequired,\n\nC:\\Users\\alex\\kapla\\app\\containers\\wrapComponentInProvider.js:\n   14    // golden-layout will not have access to\n   15    // componentWillUpdate\n   16:   class Wrapped extends React.Component {\n   17      render() {\n   18        return (\n\n13 matches across 13 files\n\n\nSearching 278 files for \"class\" (case sensitive, whole word)\n\nC:\\Users\\alex\\kapla\\app\\components\\filterFields\\DateField.js:\n   15  import getDateValidationStateDate from '../../src/getDateValidationStateDate'\n   16  \n   17: class DateField extends Component {\n   18    static propTypes = {\n   19      name: PropTypes.string.isRequired,\n\nC:\\Users\\alex\\kapla\\app\\components\\filterFields\\FilterFields.js:\n   16  import isDateField from '../../src/isDateField'\n   17  \n   18: class FilterFields extends Component {\n   19    static propTypes = {\n   20      values: PropTypes.object.isRequired,\n\nC:\\Users\\alex\\kapla\\app\\components\\FilterFieldsLayout.js:\n    7  import Geschaefte from '../containers/Geschaefte'\n    8  \n    9: class FilterFieldsLayout extends Component {\n   10    static propTypes = {\n   11      geschaefteLayout: PropTypes.object,\n\nC:\\Users\\alex\\kapla\\app\\components\\geschaeft\\Geschaeft.js:\n   19  import AreaZuletztMutiert from '../../containers/geschaeft/AreaZuletztMutiert'\n   20  \n   21: class Geschaeft extends Component {\n   22    static propTypes = {\n   23      geschaeft: PropTypes.object,\n\nC:\\Users\\alex\\kapla\\app\\components\\Geschaefte.js:\n    7  import GeschaefteItem from '../containers/GeschaefteItem'\n    8  \n    9: class Geschaefte extends Component {\n   10    static propTypes = {\n   11      geschaefteGefilterteIds: PropTypes.array,\n\nC:\\Users\\alex\\kapla\\app\\components\\GeschaefteLayout.js:\n    7  import Geschaefte from '../containers/Geschaefte'\n    8  \n    9: class GeschaefteLayout extends Component {\n   10    static propTypes = {\n   11      geschaefteLayout: PropTypes.object,\n\nC:\\Users\\alex\\kapla\\app\\components\\navbar\\Navbar.js:\n   22  import styles from './Navbar.css'\n   23  \n   24: class NavbarComponent extends Component {\n   25    static propTypes = {\n   26      geschaefte: PropTypes.array.isRequired,\n\nC:\\Users\\alex\\kapla\\app\\components\\page\\Page.css:\n   21     * need overflow while building list\n   22     * so list does not flow outside padding\n   23:    * is contained in seperate class so it can\n   24     * only be added while building \n   25     */\n\nC:\\Users\\alex\\kapla\\app\\components\\page\\Page.js:\n   19  import logoImg from 'file!../../etc/logo.png'\n   20  \n   21: class Page extends Component {\n   22    static propTypes = {\n   23      pages: PropTypes.array,\n\nC:\\Users\\alex\\kapla\\app\\components\\table\\Table.js:\n    8  import styles from './Table.css'\n    9  \n   10: class Table extends Component {\n   11    static propTypes = {\n   12      table: PropTypes.string.isRequired,\n\nC:\\Users\\alex\\kapla\\app\\components\\TableLayout.js:\n    7  import Table from '../containers/table/Table'\n    8  \n    9: class TableLayout extends Component {\n   10    static propTypes = {\n   11      tableLayout: PropTypes.object,\n\nC:\\Users\\alex\\kapla\\app\\containers\\App.js:\n    4  import Navbar from '../containers/navbar/Navbar.js'\n    5  \n    6: export default class App extends Component {\n    7    static propTypes = {\n    8      children: PropTypes.element.isRequired,\n\nC:\\Users\\alex\\kapla\\app\\containers\\wrapComponentInProvider.js:\n   14    // golden-layout will not have access to\n   15    // componentWillUpdate\n   16:   class Wrapped extends React.Component {\n   17      render() {\n   18        return (\n\n13 matches across 13 files\n",
+			"file": "/C/Users/alex/ae_2016_07_cscf/src/import.json",
 			"settings":
 			{
-				"buffer_size": 6964,
-				"line_ending": "Windows",
-				"name": "Find Results",
-				"scratch": true
-			}
-		},
-		{
-			"file": "app/components/filterFields/DateField.js",
-			"settings":
-			{
-				"buffer_size": 4460,
+				"buffer_size": 8721860,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "package.json",
+			"file": "/C/Users/alex/apflora/Access/apflora.dsn",
 			"settings":
 			{
-				"buffer_size": 5041,
-				"line_ending": "Unix"
+				"buffer_size": 135,
+				"line_ending": "Windows"
 			}
 		}
 	],
@@ -548,6 +538,17 @@
 	],
 	"file_history":
 	[
+		"/C/Users/alex/ae_api/o1tqutym.asn.txt",
+		"/C/Users/alex/AppData/Local/Temp/Temp1_578ce5e5ebde48130007d86d-master.zip/578ce5e5ebde48130007d86d-master/npm-shrinkwrap.json",
+		"/C/Users/alex/AppData/Local/Temp/Temp1_578ce5e5ebde48130007d86d-master.zip/578ce5e5ebde48130007d86d-master/package.json",
+		"/C/Users/alex/kapla/app/components/filterFields/DateField.js",
+		"/C/Users/alex/kapla/package.json",
+		"/C/Users/alex/ae_api/startServer.js",
+		"/C/Users/alex/ae_2016_07_cscf/.gitignore",
+		"/D/Google Drive/artendb/data_in/2016 07 10 taxonomie fauna/importCscf.json",
+		"/C/Users/alex/ae_2016_07_cscf/src/importCscf.js",
+		"/C/Users/alex/ae_2016_07_cscf/src/import.json",
+		"/D/Google Drive/artendb/data_in/2016 07 10 taxonomie fauna/TaxIdNeu.json",
 		"/C/Users/alex/kapla/app/containers/App.js",
 		"/C/Users/alex/kapla/app/components/filterFields/FilterFields.js",
 		"/C/Users/alex/kapla/app/components/page/Page.js",
@@ -560,7 +561,6 @@
 		"/C/Users/alex/kapla/app/components/geschaeft/areaGeschaeftPdf.css",
 		"/C/Users/alex/kapla/app/components/GeschaeftPdf.js",
 		"/C/Users/alex/kapla/app/components/page/Page.css",
-		"/C/Users/alex/kapla/package.json",
 		"/C/Users/alex/kapla/app/components/geschaeftPdf.css",
 		"/C/Users/alex/kapla/app/components/geschaeft/areaFristenPdf.css",
 		"/C/Users/alex/kapla/app/app.global.css",
@@ -615,7 +615,6 @@
 		"/C/Users/alex/kapla/app/components/filterFields/AreaPersonen.js",
 		"/C/Users/alex/kapla/app/components/filterFields/AreaZuletztMutiert.js",
 		"/C/Users/alex/kapla/app/components/filterFields/AreaHistory.js",
-		"/C/Users/alex/kapla/app/components/filterFields/DateField.js",
 		"/C/Users/alex/kapla/app/components/filterFields/Input.js",
 		"/C/Users/alex/kapla/app/components/filterFields/AreaFristen.js",
 		"/C/Users/alex/kapla/app/components/filterFields/AreaParlVorstoss.js",
@@ -666,16 +665,7 @@
 		"/C/Users/alex/kapla/app/containers/navbar/GeschaeftDeleteNav.js",
 		"/C/Users/alex/kapla/app/containers/navbar/Navbar.js",
 		"/C/Users/alex/kapla/app/containers/navbar/StammdatenNav.js",
-		"/C/Users/alex/kapla/app/containers/navbar/TableRowDeleteNav.js",
-		"/C/Users/alex/kapla/app/containers/navbar/TableRowNewNav.js",
-		"/C/Users/alex/kapla/app/containers/table/Table.js",
-		"/C/Users/alex/kapla/app/containers/table/TableRow.js",
-		"/C/Users/alex/kapla/app/containers/GeschaefteItem.js",
-		"/C/Users/alex/kapla/app/containers/ModalGeschaeftDelete.js",
-		"/C/Users/alex/kapla/app/containers/ModalMessage.js",
-		"/C/Users/alex/kapla/app/reducers/app.js",
-		"/C/Users/alex/kapla/app/reducers/geschaefteKontakteExtern.js",
-		"/C/Users/alex/kapla/app/reducers/geschaefteKontakteIntern.js"
+		"/C/Users/alex/kapla/app/containers/navbar/TableRowDeleteNav.js"
 	],
 	"find":
 	{
@@ -708,6 +698,8 @@
 		"case_sensitive": true,
 		"find_history":
 		[
+			"Adscita",
+			"\"",
 			"class",
 			"children",
 			"styles",
@@ -833,9 +825,7 @@
 			"DateField",
 			"FilterFieldDate",
 			"AreaFristenField",
-			"comparator",
-			"filterValue",
-			"filterFields[index].value"
+			"comparator"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -843,6 +833,7 @@
 		"regex": false,
 		"replace_history":
 		[
+			"'",
 			"BerichteNav",
 			"sf",
 			"sortFields",
@@ -969,183 +960,57 @@
 			"OptionsNav",
 			"GeschaeftNewNav",
 			"GeschaefteFilterNav",
-			"ExportGeschaefteNav",
-			"BerichteNav"
+			"ExportGeschaefteNav"
 		],
 		"reverse": false,
 		"show_context": true,
 		"use_buffer2": true,
-		"whole_word": true,
+		"whole_word": false,
 		"wrap": true
 	},
 	"groups":
 	[
 		{
-			"selected": 2,
+			"selected": 1,
 			"sheets":
 			[
 				{
 					"buffer": 0,
+					"file": "/C/Users/alex/ae_2016_07_cscf/src/import.json",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 6964,
+						"buffer_size": 8721860,
 						"regions":
 						{
-							"match":
-							{
-								"flags": 112,
-								"regions":
-								[
-									[
-										201,
-										209
-									],
-									[
-										348,
-										356
-									],
-									[
-										650,
-										655
-									],
-									[
-										898,
-										903
-									],
-									[
-										1146,
-										1151
-									],
-									[
-										1429,
-										1434
-									],
-									[
-										1666,
-										1671
-									],
-									[
-										1915,
-										1920
-									],
-									[
-										2145,
-										2150
-									],
-									[
-										2452,
-										2457
-									],
-									[
-										2641,
-										2646
-									],
-									[
-										2844,
-										2849
-									],
-									[
-										3073,
-										3078
-									],
-									[
-										3316,
-										3321
-									],
-									[
-										3582,
-										3587
-									],
-									[
-										3920,
-										3925
-									],
-									[
-										4168,
-										4173
-									],
-									[
-										4416,
-										4421
-									],
-									[
-										4699,
-										4704
-									],
-									[
-										4936,
-										4941
-									],
-									[
-										5185,
-										5190
-									],
-									[
-										5415,
-										5420
-									],
-									[
-										5722,
-										5727
-									],
-									[
-										5911,
-										5916
-									],
-									[
-										6114,
-										6119
-									],
-									[
-										6343,
-										6348
-									],
-									[
-										6586,
-										6591
-									],
-									[
-										6852,
-										6857
-									]
-								],
-								"scope": ""
-							}
 						},
 						"selection":
 						[
 							[
-								3923,
-								3923
+								3811639,
+								3811675
 							]
 						],
 						"settings":
 						{
-							"detect_indentation": false,
-							"line_numbers": false,
-							"output_tag": 3,
-							"result_base_dir": "",
-							"result_file_regex": "^([^ 	].*):$",
-							"result_line_regex": "^ +([0-9]+):",
-							"scroll_past_end": true,
-							"syntax": "Packages/Default/Find Results.hidden-tmLanguage",
-							"translate_tabs_to_spaces": false
+							"syntax": "Packages/JavaScript/JSON.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 4218.0,
+						"translation.y": 4929493.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 2,
+					"stack_index": 1,
 					"type": "text"
 				},
 				{
 					"buffer": 1,
-					"file": "app/components/filterFields/DateField.js",
+					"file": "/C/Users/alex/apflora/Access/apflora.dsn",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 4460,
+						"buffer_size": 135,
 						"regions":
 						{
 						},
@@ -1158,42 +1023,10 @@
 						],
 						"settings":
 						{
-							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
+							"syntax": "Packages/Text/Plain text.tmLanguage"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "package.json",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 5041,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								3129,
-								3141
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JSON.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 1776.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
