@@ -1,5 +1,3 @@
-'use strict'
-
 import configureStore from './store/configureStore'
 import './app.global.css'
 
