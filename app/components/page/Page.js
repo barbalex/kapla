@@ -16,7 +16,7 @@ import List1Header from './list1/Header'
 import List1Rows from './list1/Rows'
 import filterCriteriaToArrayOfStrings from '../../src/filterCriteriaToArrayOfStrings'
 import sortCriteriaToArrayOfStrings from '../../src/sortCriteriaToArrayOfStrings'
-import logoImg from 'file!../../etc/logo.png'  // eslint-disable-line import/no-unresolved
+import logoImg from 'file!../../etc/logo.png'  // eslint-disable-line
 
 class Page extends Component {
   static propTypes = {
@@ -105,8 +105,8 @@ class Page extends Component {
 
     // don't do anything on not active pages
     if (pageIndex === activePageIndex) {
-      const offsetHeight = this.refs[`rowsContainer${pageIndex}`].offsetHeight
-      const scrollHeight = this.refs[`rowsContainer${pageIndex}`].scrollHeight
+      const offsetHeight = this[`rowsContainer${pageIndex}`].offsetHeight
+      const scrollHeight = this[`rowsContainer${pageIndex}`].scrollHeight
       const activePageIsFull = pages[pageIndex].full
 
       if (!activePageIsFull && remainingGeschaefte.length > 0) {
@@ -239,7 +239,8 @@ class Page extends Component {
       <div className={pageContainerStyle}>
         <div
           className={styles.rowsContainer}
-          ref={`rowsContainer${pageIndex}`}
+          // ref={`rowsContainer${pageIndex}`}
+          ref={(c) => { this[`rowsContainer${pageIndex}`] = c }}
         >
           {
             firstPage &&
