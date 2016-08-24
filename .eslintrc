@@ -18,6 +18,7 @@
     "react/jsx-sort-props": 0,
     // jsx-quotes is necessary because otherwise an error occurs
     "react/jsx-quotes": 1,
+    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
     "react/jsx-no-bind": 0,
     "comma-dangle": 0,
     "no-use-before-define": 0,
