@@ -1,5 +1,3 @@
-'use strict'
-
 import React, { PropTypes } from 'react'
 import { Modal } from 'react-bootstrap'
 import styles from './ModalMessage.css'

@@ -1,5 +1,3 @@
-'use strict'
-
 import { remote } from 'electron'
 const { dialog } = remote
 import fs from 'fs'

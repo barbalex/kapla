@@ -1,5 +1,3 @@
-'use strict'
-
 import React, { PropTypes } from 'react'
 import { FormControl } from 'react-bootstrap'
 import _ from 'lodash'

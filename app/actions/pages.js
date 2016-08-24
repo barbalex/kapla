@@ -1,5 +1,3 @@
-'use strict'
-
 import { push } from 'react-router-redux'
 
 export const PAGES_INITIATE = 'PAGES_INITIATE'

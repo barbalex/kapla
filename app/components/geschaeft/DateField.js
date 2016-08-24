@@ -1,5 +1,3 @@
-'use strict'
-
 import React, { PropTypes } from 'react'
 import {
   FormGroup,
@@ -9,10 +7,11 @@ import {
   Glyphicon,
 } from 'react-bootstrap'
 import moment from 'moment'
-moment.locale('de')
 import DateRangePicker from 'react-bootstrap-daterangepicker'
 import styles from './dateField.css'
 import getDateValidationStateDate from '../../src/getDateValidationStateDate'
+
+moment.locale('de')
 
 const DateField = ({
   geschaeft,

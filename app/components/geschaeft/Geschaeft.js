@@ -1,9 +1,6 @@
-'use strict'
-
 import React, { Component, PropTypes } from 'react'
 import ReactDOM from 'react-dom'
 import moment from 'moment'
-moment.locale('de')
 import $ from 'jquery'
 import regularStyles from './geschaeft.css'
 import pdfStyles from './geschaeftPdf.css'
@@ -17,6 +14,8 @@ import AreaRechtsmittel from '../../containers/geschaeft/AreaRechtsmittel'
 import AreaPersonen from '../../containers/geschaeft/AreaPersonen'
 import AreaHistory from '../../containers/geschaeft/AreaHistory'
 import AreaZuletztMutiert from '../../containers/geschaeft/AreaZuletztMutiert'
+
+moment.locale('de')
 
 class Geschaeft extends Component {
   static propTypes = {

@@ -1,5 +1,3 @@
-'use strict'
-
 import getGeschaefteKontakteInternFromDb from '../src/getGeschaefteKontakteInternFromDb'
 
 export const getGeschaefteKontakteIntern = () =>

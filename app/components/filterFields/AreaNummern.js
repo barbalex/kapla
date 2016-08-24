@@ -1,5 +1,3 @@
-'use strict'
-
 import React, { PropTypes } from 'react'
 import { ControlLabel } from 'react-bootstrap'
 import Input from '../../containers/filterFields/Input'

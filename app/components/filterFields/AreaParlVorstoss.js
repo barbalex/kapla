@@ -1,5 +1,3 @@
-'use strict'
-
 import React, { PropTypes } from 'react'
 import { FormControl, ControlLabel, Radio, InputGroup } from 'react-bootstrap'
 import ComparatorSelector from '../../containers/filterFields/ComparatorSelector'

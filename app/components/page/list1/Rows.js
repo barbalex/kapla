@@ -1,5 +1,3 @@
-'use strict'
-
 /*
  * This component builds and displays a single page
  */

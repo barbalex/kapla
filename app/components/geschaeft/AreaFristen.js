@@ -1,16 +1,14 @@
-'use strict'
-
 import React, { PropTypes } from 'react'
 import {
   FormControl,
   ControlLabel,
 } from 'react-bootstrap'
 import moment from 'moment'
-moment.locale('de')
 import regularStyles from './areaFristen.css'
 import pdfStyles from './areaFristenPdf.css'
 import DateField from '../../containers/geschaeft/DateField'
 
+moment.locale('de')
 
 const statusFristInStyle = (dauerBisFristMitarbeiter, styles) => {
   if (dauerBisFristMitarbeiter < 0) {

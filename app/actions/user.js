@@ -1,5 +1,3 @@
-'use strict'
-
 /**
  * watch versions of username:
  * did not work on 2.2.2

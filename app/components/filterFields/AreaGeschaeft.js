@@ -1,5 +1,3 @@
-'use strict'
-
 import React, { PropTypes } from 'react'
 import { ControlLabel } from 'react-bootstrap'
 import styles from './areaGeschaeft.css'

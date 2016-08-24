@@ -1,8 +1,5 @@
-'use strict'
-
 import React, { Component, PropTypes } from 'react'
 import moment from 'moment'
-moment.locale('de')
 import $ from 'jquery'
 import styles from './filterFields.css'
 import AreaGeschaeft from '../../containers/filterFields/AreaGeschaeft'
@@ -14,6 +11,8 @@ import AreaPersonen from '../../containers/filterFields/AreaPersonen'
 import AreaHistory from '../../containers/filterFields/AreaHistory'
 import AreaZuletztMutiert from '../../containers/filterFields/AreaZuletztMutiert'
 import isDateField from '../../src/isDateField'
+
+moment.locale('de')
 
 class FilterFields extends Component {
   static propTypes = {

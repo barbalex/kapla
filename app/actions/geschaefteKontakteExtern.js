@@ -1,5 +1,3 @@
-'use strict'
-
 import getGeschaefteKontakteExternFromDb from '../src/getGeschaefteKontakteExternFromDb'
 
 export const getGeschaefteKontakteExtern = () =>

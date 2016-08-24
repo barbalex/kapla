@@ -1,5 +1,3 @@
-'use strict'
-
 import React, { PropTypes } from 'react'
 import Page from '../containers/page/Page.js'
 import styles from './Pages.css'

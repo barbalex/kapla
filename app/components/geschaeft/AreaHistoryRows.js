@@ -1,5 +1,3 @@
-'use strict'
-
 import React, { PropTypes } from 'react'
 import styles from './areaHistory.css'
 import getHistoryOfGeschaeft from '../../src/getHistoryOfGeschaeft'

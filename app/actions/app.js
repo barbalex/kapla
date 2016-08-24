@@ -1,6 +1,3 @@
-'use strict'
-
-const sqlite3 = require('sqlite3').verbose()
 import chooseDb from '../src/chooseDb.js'
 import getConfig from '../src/getConfig.js'
 import saveConfig from '../src/saveConfig.js'
@@ -9,6 +6,8 @@ import * as GeschaefteActions from './geschaefte'
 import * as GeschaefteKontakteInternActions from './geschaefteKontakteIntern'
 import * as GeschaefteKontakteExternActions from './geschaefteKontakteExtern'
 import * as UserActions from './user'
+
+const sqlite3 = require('sqlite3').verbose()
 
 export const CONFIG_GET = 'CONFIG_GET'
 export const configGet = () =>

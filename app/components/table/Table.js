@@ -1,5 +1,3 @@
-'use strict'
-
 import React, { Component, PropTypes } from 'react'
 import ReactList from 'react-list'
 import ReactDOM from 'react-dom'

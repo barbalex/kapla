@@ -1,17 +1,16 @@
-'use strict'
-
 import React, { PropTypes } from 'react'
 import {
   FormControl,
   ControlLabel,
   InputGroup,
 } from 'react-bootstrap'
-import ComparatorSelector from '../../containers/filterFields/ComparatorSelector'
 import moment from 'moment'
-moment.locale('de')
+import ComparatorSelector from '../../containers/filterFields/ComparatorSelector'
 import styles from './areaRechtsmittel.css'
 import createOptions from '../../src/createOptions'
 import DateField from '../../containers/filterFields/DateField'
+
+moment.locale('de')
 
 const AreaRechtsmittel = ({
   values,

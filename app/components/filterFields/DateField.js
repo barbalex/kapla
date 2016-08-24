@@ -7,12 +7,13 @@ import {
   Glyphicon
 } from 'react-bootstrap'
 import moment from 'moment'
-moment.locale('de')
 import DateRangePicker from 'react-bootstrap-daterangepicker'
 import styles from './dateField.css'
 import ComparatorSelector from '../../containers/filterFields/ComparatorSelector'
 import SortSelector from '../../containers/filterFields/SortSelector'
 import getDateValidationStateDate from '../../src/getDateValidationStateDate'
+
+moment.locale('de')
 
 class DateField extends Component {
   static propTypes = {
