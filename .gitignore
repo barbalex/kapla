@@ -32,5 +32,4 @@ node_modules
 # App packaged
 dist
 release
-kapla_pc.sublime-workspace
 npm-debug.log*
