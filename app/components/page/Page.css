@@ -21,7 +21,7 @@
    * need overflow while building list
    * so list does not flow outside padding
    * is contained in seperate class so it can
-   * only be added while building 
+   * only be added while building
    */
   overflow-y: auto;
 }
@@ -71,9 +71,16 @@
 
 .footer p {
   position: relative;
-  float: left;
   /* push down as far as possible */
   margin-bottom: 0;
+}
+
+.footer p {
+  float: right;
+}
+
+.footer p:first-of-type {
+  float: left;
 }
 
 .h1 {
