@@ -147,13 +147,23 @@ const dbChooseError = (error) => ({
 
 export function dbGet() {
   return dispatch => {
-    dispatch(dbChoose())
-    chooseDb()
-      .then((dbPath) => {
-        const db = new sqlite3.Database(dbPath)
-        dispatch(dbChooseSuccess(dbPath, db))
-        dispatch(configSetKey('dbPath', dbPath))
-      })
-      .catch((error) => dispatch(dbChooseError(error)))
+    const standardDbPath = 'G:\\Recht\\2 Sekretariat\\Kapla\\kapla.db'
+    // try to open db at standard path
+    let db = new sqlite3.Database(standardDbPath, sqlite3.OPEN_READWRITE, (error) => {
+      if (error) {
+        // let user choose db file
+        dispatch(dbChoose())
+        chooseDb()
+          .then((dbPath) => {
+            db = new sqlite3.Database(dbPath)
+            dispatch(dbChooseSuccess(dbPath, db))
+            dispatch(configSetKey('dbPath', dbPath))
+          })
+          .catch((err) => dispatch(dbChooseError(err)))
+      } else {
+        dispatch(dbChooseSuccess(standardDbPath, db))
+        dispatch(configSetKey('dbPath', standardDbPath))
+      }
+    })
   }
 }
