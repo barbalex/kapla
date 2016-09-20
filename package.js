@@ -1,3 +1,8 @@
+/**
+ * this file configurates electron-packager
+ * i.e. how the production package is built
+ */
+
 /* eslint no-shadow: 0, no-unused-vars: 0, no-console: 0 */
 'use strict'
 
@@ -20,6 +25,13 @@ const DEFAULT_OPTS = {
   dir: './',
   name: appName,
   asar: shouldUseAsar,
+  win32metadata: {
+    CompanyName: 'AWEL Kt. ZH',
+    FileDescription: 'Geschäfte Rechtsdienstes verwalten',
+    OriginalFilename: 'Kapla',
+    ProductName: 'Kapla',
+    InternalName: 'Kapla',
+  },
   ignore: [
     '/test($|/)',
     '/tools($|/)',
