@@ -24,7 +24,7 @@
     "semi": [2, "never"],
     "quotes": [2, "single"],
     "strict": 0,
-    "max-len": ["error", 140, 4, {"ignoreUrls": true}]
+    "max-len": ["error", 140, 2, {"ignoreUrls": true}]
   },
   "plugins": [
     "react"
