@@ -29,7 +29,8 @@ const browserWindowOptions = {
   icon: './app/etc/zh3.png',
   webPreferences: {
     experimentalFeatures: true
-  }
+  },
+  show: false,
 }
 
 // get last window state
@@ -48,6 +49,11 @@ app.on('ready', () => {
   if (lastWindowState && lastWindowState.maximized) mainWindow.maximize()
 
   mainWindow.loadURL(`file://${__dirname}/app/app.html`)
+
+  mainWindow.on('ready-to-show', () => {
+    mainWindow.show()
+    mainWindow.focus()
+  })
 
   mainWindow.on('closed', () => {
     mainWindow = null
@@ -137,7 +143,7 @@ app.on('ready', () => {
   }
 })
 
-const handleStartupEvent = function() {
+const handleStartupEvent = () => {
   if (process.platform !== 'win32') {
     return false
   }
