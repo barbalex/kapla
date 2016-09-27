@@ -1,8 +1,18 @@
 {
   "name": "Kapla",
   "productName": "Kapla",
-  "version": "1.0.0",
   "description": "Instrument, mit dem der Rechtsdienst des AWEL Geschäfte erfasst und Fristen kontrolliert",
+  "version": "1.0.0",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chentsulin/electron-react-boilerplate.git"
+  },
+  "author": {
+    "name": "Alexander Gabriel",
+    "email": "alex@gabriel-software.ch",
+    "url": "http://gabriel-software.ch"
+  },
+  "license": "MIT",
   "main": "main.js",
   "scripts": {
     "test": "cross-env NODE_ENV=test mocha --compilers js:babel-core/register --recursive --require ./test/setup.js test/**/*.spec.js",
@@ -20,21 +30,12 @@
     "rebuild-sqlite3-win64": "cd node_modules/sqlite3 && node-gyp configure --module_name=node_sqlite3 --module_path=../lib/binding/node-v48-win32-x64 && node-gyp rebuild --target=1.4.1 --arch=x64 --target_platform=win32 --dist-url=https://atom.io/download/atom-shell --module_name=node_sqlite3 --module_path=../lib/binding/electron-v1.4-win32-x64",
     "rebuild-sqlite3-win32": "cd node_modules/sqlite3 && node-gyp configure --module_name=node_sqlite3 --module_path=../lib/binding/node-v48-win32-x32 && node-gyp rebuild --target=1.4.1 --arch=x32 --target_platform=win32 --dist-url=https://atom.io/download/atom-shell --module_name=node_sqlite3 --module_path=../lib/binding/electron-v1.4-win32-x32",
     "rebuild-sqlite3-mac": "cd node_modules/sqlite3 && node-gyp configure --module_name=node_sqlite3 --module_path=../lib/binding/node-v48-darwin-x64 && node-gyp rebuild --target=1.4.1 --arch=x64 --target_platform=darwin --dist-url=https://atom.io/download/atom-shell --module_name=node_sqlite3 --module_path=../lib/binding/electron-v1.4-darwin-x64",
-    "buildInstaller": "grunt create-windows-installer"
+    "buildInstaller": "grunt create-windows-installer",
+    "buildAnotherInstaller": "electron-installer-windows --src release/win32-x64/Kapla-win32-x64/ --dest release/installers/ --certificateFile '../user.cert'"
   },
   "bin": {
     "electron": ".\\node_modules\\.bin\\electron"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/chentsulin/electron-react-boilerplate.git"
-  },
-  "author": {
-    "name": "Alexander Gabriel",
-    "email": "alex@gabriel-software.ch",
-    "url": "http://gabriel-software.ch"
-  },
-  "license": "MIT",
   "devDependencies": {
     "asar": "0.12.3",
     "babel-core": "6.14.0",
@@ -50,15 +51,15 @@
     "chai": "3.5.0",
     "chromedriver": "2.24.1",
     "co-mocha": "1.1.3",
-    "concurrently": "2.2.0",
+    "concurrently": "3.0.0",
     "cross-env": "3.0.0",
     "css-loader": "0.25.0",
     "del": "2.2.2",
     "electron-packager": "8.0.0",
     "electron-prebuilt": "1.4.1",
     "electron-rebuild": "1.2.1",
-    "eslint": "3.6.0",
-    "eslint-config-airbnb": "11.2.0",
+    "eslint": "3.6.1",
+    "eslint-config-airbnb": "12.0.0",
     "eslint-plugin-import": "1.16.0",
     "eslint-plugin-jsx-a11y": "2.2.2",
     "eslint-plugin-react": "6.3.0",
@@ -70,7 +71,7 @@
     "jsdom": "9.5.0",
     "json-loader": "0.5.4",
     "minimist": "1.2.0",
-    "mocha": "3.0.2",
+    "mocha": "3.1.0",
     "node-libs-browser": "1.0.0",
     "react-addons-test-utils": "15.3.2",
     "redux-devtools": "3.3.1",
@@ -81,7 +82,7 @@
     "sinon": "1.17.6",
     "style-loader": "0.13.1",
     "webpack": "1.13.2",
-    "webpack-dev-middleware": "1.8.2",
+    "webpack-dev-middleware": "1.8.3",
     "webpack-hot-middleware": "2.12.2",
     "webpack-target-electron-renderer": "0.4.0"
   },
@@ -93,9 +94,9 @@
     "font-awesome": "4.6.3",
     "golden-layout": "1.5.5",
     "jquery": "3.1.1",
-    "lodash": "4.16.1",
+    "lodash": "4.16.2",
     "moment": "2.15.1",
-    "postcss": "5.2.0",
+    "postcss": "5.2.2",
     "react": "15.3.2",
     "react-bootstrap": "0.30.3",
     "react-bootstrap-daterangepicker": "3.2.2",
