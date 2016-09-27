@@ -3,8 +3,9 @@
  * i.e. how the production package is built
  */
 
-/* eslint no-shadow: 0, no-unused-vars: 0, no-console: 0 */
 'use strict'
+
+/* eslint no-shadow: 0, no-unused-vars: 0, no-console: 0 */
 
 const os = require('os')
 const webpack = require('webpack')
@@ -70,14 +71,14 @@ function startPack() {
   webpack(cfg, (err, stats) => {
     if (err) return console.error(err)
     del('release')
-    .then(paths => {
+    .then((paths) => {
       if (shouldBuildAll) {
         // build for all platforms
         const archs = ['ia32', 'x64']
         const platforms = ['linux', 'win32', 'darwin']
 
-        platforms.forEach(plat => {
-          archs.forEach(arch => {
+        platforms.forEach((plat) => {
+          archs.forEach((arch) => {
             pack(plat, arch, log(plat, arch))
           })
         })
@@ -86,7 +87,7 @@ function startPack() {
         pack(os.platform(), os.arch(), log(os.platform(), os.arch()))
       }
     })
-    .catch(err => {
+    .catch((err) => {
       console.error(err)
     })
   })
