@@ -77,7 +77,7 @@ const NavbarExportGeschaefteNav = ({
       Gefilterte Geschäfte mit allen Feldern
     </MenuItem>
     <MenuItem
-      onClick={(e) =>
+      onClick={e =>
         exportGeschaefteRechtsmittelVorjahre(
           e,
           geschaefte,
