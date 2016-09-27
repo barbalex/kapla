@@ -1,7 +1,5 @@
 /**
  * gets save path
- * TODO: should call writeExport in child process
- *
  * pass dataArray using process.send
  * kill child process at end?
  */
@@ -26,7 +24,7 @@ function getDataArrayFromExportObjects(exportObjects) {
       Object.keys(exportObjects[0])
     )
   // then the field values
-  exportObjects.forEach((object) =>
+  exportObjects.forEach(object =>
     dataArray
       .push(
         Object.keys(object)
@@ -34,11 +32,10 @@ function getDataArrayFromExportObjects(exportObjects) {
             /**
              * exceljs errors out if first member of array is null
              * see: https://github.com/guyonroche/exceljs/issues/111
-             * unfortunately there is also an issue with passing ''
-             * in version 0.2.8
-             * see: https://github.com/guyonroche/exceljs/issues/120
              */
-            if (object[key] === null && index === 0) return ''
+            if (object[key] === null && index === 0) {
+              return ''
+            }
             return object[key]
           })
       ))
