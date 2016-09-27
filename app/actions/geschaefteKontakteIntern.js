@@ -8,7 +8,7 @@ export const getGeschaefteKontakteIntern = () =>
       .then((geschaefteKontakteIntern) => {
         dispatch(geschaefteKontakteInternGetSuccess(geschaefteKontakteIntern))
       })
-      .catch((error) =>
+      .catch(error =>
         dispatch(geschaefteKontakteInternGetError(error))
       )
   }
@@ -19,13 +19,13 @@ const geschaefteKontakteInternGet = () => ({
 })
 
 export const GESCHAEFTE_KONTAKTE_INTERN_GET_SUCCESS = 'GESCHAEFTE_KONTAKTE_INTERN_GET_SUCCESS'
-const geschaefteKontakteInternGetSuccess = (geschaefteKontakteIntern) => ({
+const geschaefteKontakteInternGetSuccess = geschaefteKontakteIntern => ({
   type: GESCHAEFTE_KONTAKTE_INTERN_GET_SUCCESS,
   geschaefteKontakteIntern
 })
 
 export const GESCHAEFTE_KONTAKTE_INTERN_GET_ERROR = 'GESCHAEFTE_KONTAKTE_INTERN_GET_ERROR'
-const geschaefteKontakteInternGetError = (error) => ({
+const geschaefteKontakteInternGetError = error => ({
   type: GESCHAEFTE_KONTAKTE_INTERN_GET_ERROR,
   error
 })
@@ -41,22 +41,22 @@ export const geschaeftKontaktInternNewCreate = (idGeschaeft, idKontakt) =>
   (dispatch, getState) => {
     const { app } = getState()
     newGeschaeftKontaktInternInDb(app.db, idGeschaeft, idKontakt)
-      .then((geschaeftKontaktIntern) =>
+      .then(geschaeftKontaktIntern =>
         dispatch(geschaeftKontaktInternNew(geschaeftKontaktIntern))
       )
-      .catch((error) =>
+      .catch(error =>
         dispatch(geschaeftKontaktInternNewError(error))
       )
   }
 
 export const GESCHAEFT_KONTAKT_INTERN_NEW = 'GESCHAEFT_KONTAKT_INTERN_NEW'
-export const geschaeftKontaktInternNew = (geschaeftKontaktIntern) => ({
+export const geschaeftKontaktInternNew = geschaeftKontaktIntern => ({
   type: GESCHAEFT_KONTAKT_INTERN_NEW,
   geschaeftKontaktIntern
 })
 
 export const GESCHAEFT_KONTAKT_INTERN_NEW_ERROR = 'GESCHAEFT_KONTAKT_INTERN_NEW_ERROR'
-export const geschaeftKontaktInternNewError = (error) => ({
+export const geschaeftKontaktInternNewError = error => ({
   type: GESCHAEFT_KONTAKT_INTERN_NEW_ERROR,
   error
 })
@@ -69,7 +69,7 @@ export const geschaeftKontaktInternRemove = (idGeschaeft, idKontakt) =>
         dispatch(geschaeftKontaktInternRemoveDeleteIntended(idGeschaeft, idKontakt))
         dispatch(geschaeftKontaktInternDelete(idGeschaeft, idKontakt))
       })
-      .catch((error) =>
+      .catch(error =>
         dispatch(geschaeftKontaktInternDeleteError(error))
       )
   }
@@ -94,14 +94,14 @@ export const geschaeftKontaktInternDelete = (idGeschaeft, idKontakt) => ({
 })
 
 export const GESCHAEFT_KONTAKT_INTERN_DELETE_ERROR = 'GESCHAEFT_KONTAKT_INTERN_DELETE_ERROR'
-export const geschaeftKontaktInternDeleteError = (error) => ({
+export const geschaeftKontaktInternDeleteError = error => ({
   type: GESCHAEFT_KONTAKT_INTERN_DELETE_ERROR,
   error
 })
 
 export const GESCHAEFTE_KONTAKTE_INTERN_CHANGE_DB_ERROR = 'GESCHAEFTE_KONTAKTE_INTERN_CHANGE_DB_ERROR'
 // TODO: reload data from db
-export const geschaefteKontakteInternChangeDbError = (error) => ({
+export const geschaefteKontakteInternChangeDbError = error => ({
   type: GESCHAEFTE_KONTAKTE_INTERN_CHANGE_DB_ERROR,
   error
 })

@@ -136,9 +136,9 @@ const geschaefte = (state = standardState, action) => {
     case GESCHAEFTE_REMOVE_FILTERS:
       return {
         ...state,
-        geschaefteGefilterteIds: _.sortBy(state.geschaefte, (g) => g.idGeschaeft)
+        geschaefteGefilterteIds: _.sortBy(state.geschaefte, g => g.idGeschaeft)
           .reverse()
-          .map((g) =>
+          .map(g =>
             g.idGeschaeft
           ),
         filterFields: [],
@@ -169,12 +169,12 @@ const geschaefte = (state = standardState, action) => {
       return {
         ...state,
         geschaefte: [
-          ...state.geschaefte.filter((g) =>
+          ...state.geschaefte.filter(g =>
             g.idGeschaeft !== action.idGeschaeft
           )
         ],
         geschaefteGefilterteIds: [
-          ...state.geschaefteGefilterteIds.filter((id) =>
+          ...state.geschaefteGefilterteIds.filter(id =>
             id !== action.idGeschaeft
           )
         ],
@@ -183,7 +183,7 @@ const geschaefte = (state = standardState, action) => {
     case GESCHAEFTE_CHANGE_STATE:
       return {
         ...state,
-        geschaefte: state.geschaefte.map((g) =>
+        geschaefte: state.geschaefte.map(g =>
           geschaeft(g, action)
         ),
       }

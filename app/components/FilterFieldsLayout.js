@@ -74,7 +74,7 @@ class FilterFieldsLayout extends Component {
     }
   }
 
-  render = () => <div></div>
+  render = () => <div />
 }
 
 export default FilterFieldsLayout

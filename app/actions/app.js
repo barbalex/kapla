@@ -30,7 +30,7 @@ export const configGet = () =>
           dispatch(dbChooseSuccess(dbPath, db))
         }
       })
-      .catch((error) =>
+      .catch(error =>
         console.error(error)
       )
   }
@@ -67,31 +67,31 @@ export const configSetKey = (key, value) =>
   }
 
 export const CONFIG_SET = 'CONFIG_SET'
-export const configSet = (config) => ({
+export const configSet = config => ({
   type: CONFIG_SET,
   config
 })
 
 export const TABLECOLUMN_SET = 'TABLECOLUMN_SET'
-export const tableColumnSet = (tableColumnWidth) => ({
+export const tableColumnSet = tableColumnWidth => ({
   type: TABLECOLUMN_SET,
   tableColumnWidth
 })
 
 export const TABLELAYOUT_SET = 'TABLELAYOUT_SET'
-export const tableLayoutSet = (tableLayout) => ({
+export const tableLayoutSet = tableLayout => ({
   type: TABLELAYOUT_SET,
   tableLayout
 })
 
 export const GESCHAEFTELAYOUT_SET = 'GESCHAEFTELAYOUT_SET'
-export const geschaefteLayoutSet = (geschaefteLayout) => ({
+export const geschaefteLayoutSet = geschaefteLayout => ({
   type: GESCHAEFTELAYOUT_SET,
   geschaefteLayout
 })
 
 export const FILTERFIELDSLAYOUT_SET = 'FILTERFIELDSLAYOUT_SET'
-export const filterFieldsLayoutSet = (filterFieldsLayout) => ({
+export const filterFieldsLayoutSet = filterFieldsLayout => ({
   type: FILTERFIELDSLAYOUT_SET,
   filterFieldsLayout
 })
@@ -140,13 +140,13 @@ const dbChooseSuccess = (dbPath, db) =>
   }
 
 export const DB_CHOOSE_ERROR = 'DB_CHOOSE_ERROR'
-const dbChooseError = (error) => ({
+const dbChooseError = error => ({
   type: DB_CHOOSE_ERROR,
   error
 })
 
 export function dbGet() {
-  return dispatch => {
+  return (dispatch) => {
     const standardDbPath = 'G:\\Recht\\2 Sekretariat\\Kapla\\kapla.db'
     // try to open db at standard path
     let db = new sqlite3.Database(standardDbPath, sqlite3.OPEN_READWRITE, (error) => {
@@ -159,7 +159,7 @@ export function dbGet() {
             dispatch(dbChooseSuccess(dbPath, db))
             dispatch(configSetKey('dbPath', dbPath))
           })
-          .catch((err) => dispatch(dbChooseError(err)))
+          .catch(err => dispatch(dbChooseError(err)))
       } else {
         dispatch(dbChooseSuccess(standardDbPath, db))
         dispatch(configSetKey('dbPath', standardDbPath))

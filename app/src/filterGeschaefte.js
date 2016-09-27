@@ -53,7 +53,7 @@ export default function (
   } else if (existsFilterFields) {
     // some filterFields may only have a comparator >
     // reduce to filterFields with values
-    filterFields = filterFields.filter((ff) =>
+    filterFields = filterFields.filter(ff =>
       ff.value || ff.value === 0
     )
     geschaefteGefiltert = geschaefte.filter((geschaeft) => {
@@ -109,7 +109,7 @@ export default function (
       return satisfiesFilter
     })
   }
-  return geschaefteGefiltert.map((g) =>
+  return geschaefteGefiltert.map(g =>
     g.idGeschaeft
   )
 }

@@ -73,7 +73,7 @@ const FilterNav = ({
           type="text"
           placeholder="Volltext filtern"
           value={filterFulltext}
-          onChange={(e) =>
+          onChange={e =>
             geschaefteFilterByFulltext(e.target.value)
           }
           className={classNameFilterInput}

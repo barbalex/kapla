@@ -87,7 +87,7 @@ class GeschaefteLayout extends Component {
       path === '/geschaefte' ||
       path === '/'
     ) {
-      return (<div></div>)
+      return (<div />)
     }
     return null
   }

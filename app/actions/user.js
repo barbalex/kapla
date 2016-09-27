@@ -13,12 +13,12 @@ export const getUsername = () => ({
   type: USERNAME_GET
 })
 
-export const gotUsername = (username) => ({
+export const gotUsername = username => ({
   type: USERNAME_GET_SUCCESS,
   username
 })
 
-export const didntGetUsername = (error) => ({
+export const didntGetUsername = error => ({
   type: USERNAME_GET_ERROR,
   error
 })

@@ -11,10 +11,10 @@ export default function (db, idGeschaeft, idKontakt) {
     db.run(sql, (error) => {
       if (error) reject(error)
       getGeschaeftKontaktExternFromDb(db, idGeschaeft, idKontakt)
-        .then((geschaeftKontaktExtern) =>
+        .then(geschaeftKontaktExtern =>
           resolve(geschaeftKontaktExtern)
         )
-        .catch((err) => reject(err))
+        .catch(err => reject(err))
     })
   })
 }

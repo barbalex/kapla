@@ -58,10 +58,10 @@ const fields = ({
           type="text"
           name={fieldName}
           value={value}
-          onChange={(event) =>
+          onChange={event =>
             change({ event, table, id, tableChangeState })
           }
-          onBlur={(event) =>
+          onBlur={event =>
             blur({ event, table, id, changeTableInDb })
           }
         />
@@ -77,7 +77,7 @@ const TableRow = ({
   tableChangeState,
   changeTableInDb,
 }) => {
-  const row = rows.find((r) =>
+  const row = rows.find(r =>
     r.id === id
   )
 

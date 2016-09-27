@@ -1,11 +1,11 @@
 import { push } from 'react-router-redux'
 
 export const PAGES_INITIATE = 'PAGES_INITIATE'
-export const pagesInitiate = (reportType) =>
+export const pagesInitiate = reportType =>
   (dispatch, getState) => {
     const { geschaefte } = getState()
     const { geschaefteGefilterteIds } = geschaefte
-    const geschaefteGefiltert = geschaefte.geschaefte.filter((g) =>
+    const geschaefteGefiltert = geschaefte.geschaefte.filter(g =>
       geschaefteGefilterteIds.includes(g.idGeschaeft)
     )
 
@@ -23,13 +23,13 @@ export const pagesFinishedBuilding = () => ({
 })
 
 export const PAGES_QUERY_TITLE = 'PAGES_QUERY_TITLE'
-export const pagesQueryTitle = (queryTitle) => ({
+export const pagesQueryTitle = queryTitle => ({
   type: PAGES_QUERY_TITLE,
   queryTitle
 })
 
 export const PAGES_SET_TITLE = 'PAGES_SET_TITLE'
-export const pagesSetTitle = (title) => ({
+export const pagesSetTitle = title => ({
   type: PAGES_SET_TITLE,
   title
 })
@@ -52,7 +52,7 @@ export const pageRemoveGeschaeft = (pageIndex, geschaeft) => ({
 })
 
 export const PAGE_MOVE_GESCHAEFT_TO_NEW_PAGE = 'PAGE_MOVE_GESCHAEFT_TO_NEW_PAGE'
-export const pagesMoveGeschaeftToNewPage = (geschaeft) =>
+export const pagesMoveGeschaeftToNewPage = geschaeft =>
   (dispatch, getState) => {
     const { pages } = getState()
     dispatch(pageRemoveGeschaeft(pages.activePageIndex, geschaeft))

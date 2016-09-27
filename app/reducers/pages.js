@@ -44,7 +44,7 @@ const page = (
       return state
     case PAGE_REMOVE_GESCHAEFT:
       if (pageIndex === action.pageIndex) {
-        const geschaefte = state.geschaefte.filter((g) =>
+        const geschaefte = state.geschaefte.filter(g =>
           g.idGeschaeft !== action.geschaeft.idGeschaeft
         )
         const full = true

@@ -10,7 +10,7 @@ const ComparatorSelector = ({
   filterFields,
   changeComparator,
 }) => {
-  const filterField = filterFields.find((ff) => ff.field === name)
+  const filterField = filterFields.find(ff => ff.field === name)
   const comparatorValue = filterField ? filterField.comparator : ''
 
   return (
@@ -18,10 +18,10 @@ const ComparatorSelector = ({
       <FormControl
         componentClass="select"
         className={styles.comparator}
-        onChange={(e) => changeComparator(e.target.value, name)}
+        onChange={e => changeComparator(e.target.value, name)}
         value={comparatorValue}
       >
-        <option value=""></option>
+        <option value="" />
         <option value="=">&#8776;</option>
         <option value="===">=</option>
         <option value="!==">&#60;&#62;</option>

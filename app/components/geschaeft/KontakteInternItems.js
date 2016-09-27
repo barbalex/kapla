@@ -5,7 +5,7 @@ import regularStyles from './kontakteInternItems.css'
 import pdfStyles from './kontakteInternItemsPdf.css'
 
 const titleText = (idKontakt, interneOptions) => {
-  const data = interneOptions.find((o) =>
+  const data = interneOptions.find(o =>
     o.id === idKontakt
   )
   if (!data) return 'Kontakt entfernen'
@@ -13,7 +13,7 @@ const titleText = (idKontakt, interneOptions) => {
 }
 
 const verantwortlichData = (gkI, interneOptions) => {
-  const data = interneOptions.find((o) =>
+  const data = interneOptions.find(o =>
     o.id === gkI.idKontakt
   )
   if (!data) return ''
@@ -33,11 +33,11 @@ const GeschaefteKontakteInternItems = ({
 }) => {
   const styles = isPrintPreview ? pdfStyles : regularStyles
   // filter for this geschaeft
-  const gkIFiltered = geschaefteKontakteIntern.filter((g) =>
+  const gkIFiltered = geschaefteKontakteIntern.filter(g =>
     g.idGeschaeft === activeId
   )
   const gkISorted = _.sortBy(gkIFiltered, (g) => {
-    const intOption = interneOptions.find((o) =>
+    const intOption = interneOptions.find(o =>
       o.id === g.idKontakt
     )
     return intOption.kurzzeichen.toLowerCase()
@@ -46,7 +46,7 @@ const GeschaefteKontakteInternItems = ({
     <div className={styles.body}>
       {
         gkISorted.map((gkI, index) => {
-          const intOption = interneOptions.find((o) =>
+          const intOption = interneOptions.find(o =>
             o.id === gkI.idKontakt
           )
           const kurzzeichen = intOption.kurzzeichen

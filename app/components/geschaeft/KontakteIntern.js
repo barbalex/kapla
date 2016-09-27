@@ -22,17 +22,17 @@ const optionsList = (
   activeId,
 ) => {
   // filter out options already choosen
-  const kontakteInternOfActiveGeschaeft = geschaefteKontakteIntern.filter((g) =>
+  const kontakteInternOfActiveGeschaeft = geschaefteKontakteIntern.filter(g =>
     g.idGeschaeft === activeId
   )
-  const idKontakteOfGkiOfActiveGeschaeft = kontakteInternOfActiveGeschaeft.map((kI) =>
+  const idKontakteOfGkiOfActiveGeschaeft = kontakteInternOfActiveGeschaeft.map(kI =>
     kI.idKontakt
   )
-  const interneOptionsFiltered = interneOptions.filter((o) =>
+  const interneOptionsFiltered = interneOptions.filter(o =>
     !idKontakteOfGkiOfActiveGeschaeft.includes(o.id)
   )
   // sort interneOptions by kurzzeichen
-  const interneOptionsSorted = _.sortBy(interneOptionsFiltered, (o) =>
+  const interneOptionsSorted = _.sortBy(interneOptionsFiltered, o =>
     o.kurzzeichen.toLowerCase()
   )
   const options = interneOptionsSorted.map((o, index) => {
@@ -54,8 +54,7 @@ const optionsList = (
     <option
       key={0}
       value=""
-    >
-    </option>
+    />
   )
   return options
 }
@@ -81,7 +80,7 @@ const GeschaefteKontakteIntern = ({
             componentClass="select"
             bsSize="small"
             className={styles.dropdown}
-            onChange={(e) =>
+            onChange={e =>
               onChangeNewKontaktIntern(
                 e,
                 geschaeftKontaktInternNewCreate,

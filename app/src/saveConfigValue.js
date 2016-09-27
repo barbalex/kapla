@@ -11,5 +11,5 @@ module.exports = (key, value) =>
         config[key] = value
         saveConfig(config)
       })
-      .catch((error) => reject(error))
+      .catch(error => reject(error))
   })

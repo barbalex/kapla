@@ -11,10 +11,10 @@ import styles from './areaZuletztMutiert.css'
 
 const interneOptionsList = (interneOptions) => {
   // sort interneOptions by kurzzeichen
-  const interneOptionsWithItKonto = interneOptions.filter((o) =>
+  const interneOptionsWithItKonto = interneOptions.filter(o =>
     !!o.itKonto
   )
-  const interneOptionsSorted = _.sortBy(interneOptionsWithItKonto, (o) =>
+  const interneOptionsSorted = _.sortBy(interneOptionsWithItKonto, o =>
     o.kurzzeichen.toLowerCase()
   )
   const options = interneOptionsSorted.map((o, index) => {
@@ -34,12 +34,12 @@ const interneOptionsList = (interneOptions) => {
       </option>
     )
   })
-  options.unshift(<option key={0} value=""></option>)
+  options.unshift(<option key={0} value="" />)
   return options
 }
 
 const interneData = (values, interneOptions) => {
-  const data = interneOptions.find((o) =>
+  const data = interneOptions.find(o =>
     o.itKonto === values.mutationsperson
   )
   if (!data) return ''

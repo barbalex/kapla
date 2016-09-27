@@ -14,7 +14,7 @@ const AreaHistoryRows = ({
     <div className={styles.areaHistoryFieldsContainer}>
       {
         history.map((id, index) => {
-          const geschaeft = geschaefte.find((g) =>
+          const geschaeft = geschaefte.find(g =>
             g.idGeschaeft === id
           )
           if (!geschaeft) {

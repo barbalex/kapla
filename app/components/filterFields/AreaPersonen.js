@@ -7,7 +7,7 @@ import styles from './areaPersonen.css'
 
 const interneOptionsList = (interneOptions) => {
   // sort interneOptions by kurzzeichen
-  const interneOptionsSorted = _.sortBy(interneOptions, (o) =>
+  const interneOptionsSorted = _.sortBy(interneOptions, o =>
     o.kurzzeichen.toLowerCase()
   )
   const options = interneOptionsSorted.map((o, index) => {
@@ -27,13 +27,13 @@ const interneOptionsList = (interneOptions) => {
       </option>
     )
   })
-  options.unshift(<option key={0} value=""></option>)
+  options.unshift(<option key={0} value="" />)
   return options
 }
 
 const verantwortlichOptionsList = (interneOptions) => {
   // sort interneOptions by kurzzeichen
-  const interneOptionsSorted = _.sortBy(interneOptions, (o) =>
+  const interneOptionsSorted = _.sortBy(interneOptions, o =>
     o.kurzzeichen.toLowerCase()
   )
   const options = interneOptionsSorted.map((o, index) => {
@@ -53,13 +53,13 @@ const verantwortlichOptionsList = (interneOptions) => {
       </option>
     )
   })
-  options.unshift(<option key={0} value=""></option>)
+  options.unshift(<option key={0} value="" />)
   return options
 }
 
 const externeOptionsList = (externeOptions) => {
   // sort externeOptions by nameVorname
-  const externeOptionsSorted = _.sortBy(externeOptions, (o) =>
+  const externeOptionsSorted = _.sortBy(externeOptions, o =>
     o.nameVorname.toLowerCase()
   )
   const options = externeOptionsSorted.map((o, index) =>
@@ -74,14 +74,13 @@ const externeOptionsList = (externeOptions) => {
     <option
       key={0}
       value=""
-    >
-    </option>
+    />
   )
   return options
 }
 
 const verantwortlichData = (values, interneOptions) => {
-  const data = interneOptions.find((o) =>
+  const data = interneOptions.find(o =>
     o.kurzzeichen === values.verantwortlich
   )
   if (!data) return ''
@@ -111,7 +110,7 @@ const externeData = (values, externeOptions) => {
     if (info) return `${info}, ${value}`
     return value
   }
-  const data = externeOptions.find((o) =>
+  const data = externeOptions.find(o =>
     o.nameVorname === values.kontaktExternNameVorname
   )
   if (!data) return ''

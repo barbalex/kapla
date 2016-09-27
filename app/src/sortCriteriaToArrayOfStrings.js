@@ -1,9 +1,9 @@
-export default (sortFields) =>
+export default sortFields =>
   sortFields
-    .filter((sf) =>
+    .filter(sf =>
       sf.field || sf.field === 0
     )
-    .map((sf) =>
+    .map(sf =>
       `${sf.field} (${sf.direction.replace('ASCENDING', 'aufsteigend').replace('DESCENDING', 'absteigend') || 'AUFSTEIGEND'})`
     )
     .sort()

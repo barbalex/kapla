@@ -66,7 +66,7 @@ class TableLayout extends Component {
     configSetKey('tableColumnWidth', tableColumnWidth)
   }
 
-  render = () => <div></div>
+  render = () => <div />
 }
 
 export default TableLayout

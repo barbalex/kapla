@@ -70,7 +70,7 @@ const geschaefteKontakteExtern = (state = standardState, action) => {
       return {
         ...state,
         geschaefteKontakteExtern: [
-          ...state.geschaefteKontakteExtern.filter((g) =>
+          ...state.geschaefteKontakteExtern.filter(g =>
             (
               g.idGeschaeft !== action.idGeschaeft ||
               g.idKontakt !== action.idKontakt

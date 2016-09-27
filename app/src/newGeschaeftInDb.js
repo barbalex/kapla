@@ -22,8 +22,8 @@ export default function (db, username) {
       const idGeschaeft = this.lastID
       // return full dataset
       getGeschaeftFromDb(db, idGeschaeft)
-        .then((geschaeft) => resolve(geschaeft))
-        .catch((err) => reject(err))
+        .then(geschaeft => resolve(geschaeft))
+        .catch(err => reject(err))
     })
   })
 }

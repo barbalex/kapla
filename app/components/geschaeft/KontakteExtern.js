@@ -18,17 +18,17 @@ const optionsList = (
   activeId,
 ) => {
   // filter out options already choosen
-  const kontakteInternOfActiveGeschaeft = geschaefteKontakteExtern.filter((g) =>
+  const kontakteInternOfActiveGeschaeft = geschaefteKontakteExtern.filter(g =>
     g.idGeschaeft === activeId
   )
-  const idKontakteOfGkiOfActiveGeschaeft = kontakteInternOfActiveGeschaeft.map((kI) =>
+  const idKontakteOfGkiOfActiveGeschaeft = kontakteInternOfActiveGeschaeft.map(kI =>
     kI.idKontakt
   )
-  const externeOptionsFiltered = externeOptions.filter((o) =>
+  const externeOptionsFiltered = externeOptions.filter(o =>
     !idKontakteOfGkiOfActiveGeschaeft.includes(o.id)
   )
   // sort externeOptions by nameVorname
-  const externeOptionsSorted = _.sortBy(externeOptionsFiltered, (o) =>
+  const externeOptionsSorted = _.sortBy(externeOptionsFiltered, o =>
     o.nameVorname.toLowerCase()
   )
   const options = externeOptionsSorted.map((o, index) =>
@@ -43,8 +43,7 @@ const optionsList = (
     <option
       key={0}
       value=""
-    >
-    </option>
+    />
   )
   return options
 }
@@ -69,7 +68,7 @@ const GeschaefteKontakteExtern = ({
           <FormControl
             componentClass="select"
             bsSize="small"
-            onChange={(e) =>
+            onChange={e =>
               onChangeNewKontaktExtern(
                 e,
                 geschaeftKontaktExternNewCreate,

@@ -19,7 +19,7 @@ const exportGeschaefteRechtsmittelVorjahre = (
   function isInPreviousTwoYears(date) {
     return moment(date, 'DD.MM.YYYY').isBetween(firstDate, lastDate, 'days', '[]')
   }
-  const geschaefteGefiltert = geschaefte.filter((g) => (
+  const geschaefteGefiltert = geschaefte.filter(g => (
     g.geschaeftsart === 'Rekurs/Beschwerde' &&
     !!g.datumEingangAwel &&
     isInPreviousTwoYears(g.datumEingangAwel)
@@ -65,7 +65,7 @@ const NavbarExportGeschaefteNav = ({
     id="exportGeschaefteNavDropdown"
   >
     <MenuItem
-      onClick={(e) =>
+      onClick={e =>
         exportGeschaefteAll(
           e,
           geschaefteGefilterteIds,

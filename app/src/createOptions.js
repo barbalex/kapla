@@ -14,8 +14,7 @@ export default function (values) {
     <option
       key={0}
       value=""
-    >
-    </option>
+    />
   )
   return options
 }

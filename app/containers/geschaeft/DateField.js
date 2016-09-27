@@ -16,7 +16,7 @@ function mapStateToProps(state, props) {
     onChangeDatePicker,
     tabIndex,
   } = props
-  const geschaeft = geschaefte.find((g) =>
+  const geschaeft = geschaefte.find(g =>
     g.idGeschaeft === activeId
   )
 

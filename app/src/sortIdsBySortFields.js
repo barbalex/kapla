@@ -24,8 +24,8 @@ export default (geschaeftePassed, geschaefteGefilterteIds, sortFields) => {
     geschaefte = _.sortBy(geschaeftePassed, 'idGeschaeft').reverse()
   }
   // 2. filter
-  geschaefte = geschaefte.filter((g) => geschaefteGefilterteIds.includes(g.idGeschaeft))
+  geschaefte = geschaefte.filter(g => geschaefteGefilterteIds.includes(g.idGeschaeft))
   // 3. map ids
-  geschaefte = geschaefte.map((g) => g.idGeschaeft)
+  geschaefte = geschaefte.map(g => g.idGeschaeft)
   return geschaefte
 }

@@ -10,7 +10,7 @@ const SortSelector = ({
   sortFields,
   geschaefteSortByFields,
 }) => {
-  const filterField = sortFields.find((ff) => ff.field === name)
+  const filterField = sortFields.find(ff => ff.field === name)
   const direction = filterField ? filterField.direction : ''
 
   return (
@@ -18,10 +18,10 @@ const SortSelector = ({
       <FormControl
         componentClass="select"
         className={styles.sortSelector}
-        onChange={(e) => geschaefteSortByFields(name, e.target.value)}
+        onChange={e => geschaefteSortByFields(name, e.target.value)}
         value={direction}
       >
-        <option value=""></option>
+        <option value="" />
         <option value="ASCENDING">&#8679;</option>
         <option value="DESCENDING">&#8681;</option>
       </FormControl>

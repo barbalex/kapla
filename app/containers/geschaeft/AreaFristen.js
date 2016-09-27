@@ -16,7 +16,7 @@ function mapStateToProps(state, props) {
   } = props
   const path = state.routing.locationBeforeTransitions.pathname
   const isPrintPreview = path === '/geschaeftPdf'
-  const geschaeft = geschaefte.find((g) =>
+  const geschaeft = geschaefte.find(g =>
     g.idGeschaeft === activeId
   )
 

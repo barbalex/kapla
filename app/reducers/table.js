@@ -83,7 +83,7 @@ const table = (state = standardState, action) => {
       return {
         ...state,
         rows: [
-          ...state.rows.filter((g) =>
+          ...state.rows.filter(g =>
             g.id !== action.id
           ),
         ],
@@ -91,7 +91,7 @@ const table = (state = standardState, action) => {
     case TABLE_CHANGE_STATE:
       return {
         ...state,
-        rows: state.rows.map((g) =>
+        rows: state.rows.map(g =>
           row(g, action)
         ),
       }

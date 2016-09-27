@@ -11,7 +11,7 @@ export const tableReset = () => ({
   type: TABLE_RESET
 })
 
-export const getTable = (table) =>
+export const getTable = table =>
   (dispatch, getState) => {
     const { app, routing } = getState()
     dispatch(tableGet(table))
@@ -22,13 +22,13 @@ export const getTable = (table) =>
           dispatch(push('/table'))
         }
       })
-      .catch((error) =>
+      .catch(error =>
         dispatch(tableGetError(error))
       )
   }
 
 export const TABLE_GET = 'TABLE_GET'
-const tableGet = (table) => ({
+const tableGet = table => ({
   type: TABLE_GET,
   table
 })
@@ -41,7 +41,7 @@ const tableGetSuccess = (table, rows) => ({
 })
 
 export const TABLE_GET_ERROR = 'TABLE_GET_ERROR'
-const tableGetError = (error) => ({
+const tableGetError = error => ({
   type: TABLE_GET_ERROR,
   error
 })
@@ -54,7 +54,7 @@ import { push } from 'react-router-redux'
 import newTableRowInDb from '../src/newTableRowInDb.js'
 import deleteTableRow from '../src/deleteTableRow.js'
 
-export const rowNewCreate = (table) =>
+export const rowNewCreate = table =>
   (dispatch, getState) => {
     const { app, routing } = getState()
     newTableRowInDb(app.db, table)
@@ -65,7 +65,7 @@ export const rowNewCreate = (table) =>
           dispatch(push('/table'))
         }
       })
-      .catch((error) => dispatch(tableNewError(error)))
+      .catch(error => dispatch(tableNewError(error)))
   }
 
 export const TABLE_ROW_NEW = 'TABLE_ROW_NEW'
@@ -76,7 +76,7 @@ export const rowNew = (table, row) => ({
 })
 
 export const TABLE_ROW_NEW_ERROR = 'TABLE_ROW_NEW_ERROR'
-export const tableNewError = (error) => ({
+export const tableNewError = error => ({
   type: TABLE_ROW_NEW_ERROR,
   error
 })
@@ -90,7 +90,7 @@ export const tableRowRemove = (table, id) =>
         dispatch(tableRowRemoveDeleteIntended())
         dispatch(tableRowDelete(table, id))
       })
-      .catch((error) =>
+      .catch(error =>
         dispatch(tableRowDeleteError(error))
       )
   }
@@ -114,7 +114,7 @@ export const tableRowDelete = (table, id) => ({
 })
 
 export const TABLE_ROW_DELETE_ERROR = 'TABLE_ROW_DELETE_ERROR'
-export const tableRowDeleteError = (error) => ({
+export const tableRowDeleteError = error => ({
   type: TABLE_ROW_DELETE_ERROR,
   error
 })
@@ -130,7 +130,7 @@ export const tableChangeState = (table, id, field, value) => ({
 
 export const TABLE_CHANGE_DB_ERROR = 'TABLE_CHANGE_DB_ERROR'
 // TODO: reload data from db
-export const tableChangeDbError = (error) => ({
+export const tableChangeDbError = error => ({
   type: TABLE_CHANGE_DB_ERROR,
   error
 })

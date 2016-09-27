@@ -12,7 +12,7 @@ import sortIdsBySortFields from '../src/sortIdsBySortFields'
 import * as pagesActions from './pages'
 
 export const geschaeftPdfShow = () =>
-  (dispatch) => dispatch(push('/geschaeftPdf'))
+  dispatch => dispatch(push('/geschaeftPdf'))
 
 export const getGeschaefte = () =>
   (dispatch, getState) => {
@@ -25,7 +25,7 @@ export const getGeschaefte = () =>
           dispatch(push('/geschaefte'))
         }
       })
-      .catch((error) => dispatch(geschaefteGetError(error)))
+      .catch(error => dispatch(geschaefteGetError(error)))
   }
 
 export const GESCHAEFTE_GET = 'GESCHAEFTE_GET'
@@ -34,7 +34,7 @@ const geschaefteGet = () => ({
 })
 
 export const GESCHAEFTE_GET_SUCCESS = 'GESCHAEFTE_GET_SUCCESS'
-const geschaefteGetSuccess = (geschaefteArray) =>
+const geschaefteGetSuccess = geschaefteArray =>
   (dispatch, getState) => {
     const { geschaefte } = getState()
     const { filterFields, filterFulltext, sortFields } = geschaefte
@@ -53,7 +53,7 @@ const geschaefteGetSuccess = (geschaefteArray) =>
   }
 
 export const GESCHAEFTE_GET_ERROR = 'GESCHAEFTE_GET_ERROR'
-const geschaefteGetError = (error) => ({
+const geschaefteGetError = error => ({
   type: GESCHAEFTE_GET_ERROR,
   error
 })
@@ -67,7 +67,7 @@ export const geschaefteFilterByFields = (
     const { routing, pages } = getState()
     const { filterFulltext, geschaefte, sortFields } = getState().geschaefte
     // remove filterFields with empty values
-    const filterFieldsWithValues = filterFields.filter((ff) =>
+    const filterFieldsWithValues = filterFields.filter(ff =>
       ff.value || ff.value === 0 || ff.comparator
     )
     // create geschaefteGefilterteIds
@@ -187,22 +187,22 @@ export const geschaeftNewCreate = () =>
           dispatch(push('/geschaefte'))
         }
       })
-      .catch((error) => dispatch(geschaeftNewError(error)))
+      .catch(error => dispatch(geschaeftNewError(error)))
   }
 
 export const GESCHAEFT_NEW = 'GESCHAEFT_NEW'
-export const geschaeftNew = (geschaeft) => ({
+export const geschaeftNew = geschaeft => ({
   type: GESCHAEFT_NEW,
   geschaeft
 })
 
 export const GESCHAEFT_NEW_ERROR = 'GESCHAEFT_NEW_ERROR'
-export const geschaeftNewError = (error) => ({
+export const geschaeftNewError = error => ({
   type: GESCHAEFT_NEW_ERROR,
   error
 })
 
-export const geschaeftRemove = (idGeschaeft) =>
+export const geschaeftRemove = idGeschaeft =>
   (dispatch, getState) => {
     const { app } = getState()
     deleteGeschaeft(app.db, idGeschaeft)
@@ -210,11 +210,11 @@ export const geschaeftRemove = (idGeschaeft) =>
         dispatch(geschaeftRemoveDeleteIntended(idGeschaeft))
         dispatch(geschaeftDelete(idGeschaeft))
       })
-      .catch((error) => dispatch(geschaeftDeleteError(error)))
+      .catch(error => dispatch(geschaeftDeleteError(error)))
   }
 
 export const GESCHAEFT_SET_DELETE_INTENDED = 'GESCHAEFT_SET_DELETE_INTENDED'
-export const geschaeftSetDeleteIntended = (idGeschaeft) => ({
+export const geschaeftSetDeleteIntended = idGeschaeft => ({
   type: GESCHAEFT_SET_DELETE_INTENDED,
   idGeschaeft
 })
@@ -225,13 +225,13 @@ export const geschaeftRemoveDeleteIntended = () => ({
 })
 
 export const GESCHAEFT_DELETE = 'GESCHAEFT_DELETE'
-export const geschaeftDelete = (idGeschaeft) => ({
+export const geschaeftDelete = idGeschaeft => ({
   type: GESCHAEFT_DELETE,
   idGeschaeft
 })
 
 export const GESCHAEFT_DELETE_ERROR = 'GESCHAEFT_DELETE_ERROR'
-export const geschaeftDeleteError = (error) => ({
+export const geschaeftDeleteError = error => ({
   type: GESCHAEFT_DELETE_ERROR,
   error
 })
@@ -252,7 +252,7 @@ export const geschaefteChangeState = (idGeschaeft, field, value) =>
 
 export const GESCHAEFTE_CHANGE_DB_ERROR = 'GESCHAEFTE_CHANGE_DB_ERROR'
 // TODO: reload data from db
-export const geschaefteChangeDbError = (error) => ({
+export const geschaefteChangeDbError = error => ({
   type: GESCHAEFTE_CHANGE_DB_ERROR,
   error
 })
@@ -270,7 +270,7 @@ export const changeGeschaeftInDb = (idGeschaeft, field, value) =>
   }
 
 export const GESCHAEFT_TOGGLE_ACTIVATED = 'GESCHAEFT_TOGGLE_ACTIVATED'
-export const geschaeftToggleActivated = (idGeschaeft) => ({
+export const geschaeftToggleActivated = idGeschaeft => ({
   type: GESCHAEFT_TOGGLE_ACTIVATED,
   idGeschaeft
 })
@@ -279,23 +279,23 @@ export function rechtsmittelErledigungOptionsGet() {
   return (dispatch, getState) => {
     const { app } = getState()
     getDropdownOptions(app.db, 'rechtsmittelErledigung')
-      .then((rechtsmittelErledigungOptions) =>
+      .then(rechtsmittelErledigungOptions =>
         dispatch(rechtsmittelErledigungOptionsGetSuccess(rechtsmittelErledigungOptions))
       )
-      .catch((error) =>
+      .catch(error =>
         dispatch(rechtsmittelErledigungOptionsGetError(error))
       )
   }
 }
 
 export const RECHTSMITTELERLEDIGUNG_OPTIONS_GET_SUCCESS = 'RECHTSMITTELERLEDIGUNG_OPTIONS_GET_SUCCESS'
-const rechtsmittelErledigungOptionsGetSuccess = (rechtsmittelErledigungOptions) => ({
+const rechtsmittelErledigungOptionsGetSuccess = rechtsmittelErledigungOptions => ({
   type: RECHTSMITTELERLEDIGUNG_OPTIONS_GET_SUCCESS,
   rechtsmittelErledigungOptions
 })
 
 export const RECHTSMITTELERLEDIGUNG_OPTIONS_GET_ERROR = 'RECHTSMITTELERLEDIGUNG_OPTIONS_GET_ERROR'
-const rechtsmittelErledigungOptionsGetError = (error) => ({
+const rechtsmittelErledigungOptionsGetError = error => ({
   type: RECHTSMITTELERLEDIGUNG_OPTIONS_GET_ERROR,
   error
 })
@@ -304,22 +304,22 @@ export const parlVorstossTypOptionsGet = () =>
   (dispatch, getState) => {
     const { app } = getState()
     getDropdownOptions(app.db, 'parlVorstossTyp')
-      .then((parlVorstossTypOptions) =>
+      .then(parlVorstossTypOptions =>
         dispatch(parlVorstossTypOptionsGetSuccess(parlVorstossTypOptions))
       )
-      .catch((error) =>
+      .catch(error =>
         dispatch(parlVorstossTypOptionsGetError(error))
       )
   }
 
 export const PARLVORSTOSSTYP_OPTIONS_GET_SUCCESS = 'PARLVORSTOSSTYP_OPTIONS_GET_SUCCESS'
-const parlVorstossTypOptionsGetSuccess = (parlVorstossTypOptions) => ({
+const parlVorstossTypOptionsGetSuccess = parlVorstossTypOptions => ({
   type: PARLVORSTOSSTYP_OPTIONS_GET_SUCCESS,
   parlVorstossTypOptions
 })
 
 export const PARLVORSTOSSTYP_OPTIONS_GET_ERROR = 'PARLVORSTOSSTYP_OPTIONS_GET_ERROR'
-const parlVorstossTypOptionsGetError = (error) => ({
+const parlVorstossTypOptionsGetError = error => ({
   type: PARLVORSTOSSTYP_OPTIONS_GET_ERROR,
   error
 })
@@ -329,22 +329,22 @@ export const statusOptionsGet = () =>
   (dispatch, getState) => {
     const { app } = getState()
     getDropdownOptions(app.db, 'status')
-      .then((statusOptions) =>
+      .then(statusOptions =>
         dispatch(statusOptionsGetSuccess(statusOptions))
       )
-      .catch((error) =>
+      .catch(error =>
         dispatch(statusOptionsGetError(error))
       )
   }
 
 export const STATUS_OPTIONS_GET_SUCCESS = 'STATUS_OPTIONS_GET_SUCCESS'
-const statusOptionsGetSuccess = (statusOptions) => ({
+const statusOptionsGetSuccess = statusOptions => ({
   type: STATUS_OPTIONS_GET_SUCCESS,
   statusOptions
 })
 
 export const STATUS_OPTIONS_GET_ERROR = 'STATUS_OPTIONS_GET_ERROR'
-const statusOptionsGetError = (error) => ({
+const statusOptionsGetError = error => ({
   type: STATUS_OPTIONS_GET_ERROR,
   error
 })
@@ -353,22 +353,22 @@ export const geschaeftsartOptionsGet = () =>
   (dispatch, getState) => {
     const { app } = getState()
     getDropdownOptions(app.db, 'geschaeftsart')
-      .then((geschaeftsartOptions) =>
+      .then(geschaeftsartOptions =>
         dispatch(geschaeftsartOptionsGetSuccess(geschaeftsartOptions))
       )
-      .catch((error) =>
+      .catch(error =>
         dispatch(geschaeftsartOptionsGetError(error))
       )
   }
 
 export const GESCHAEFTSART_OPTIONS_GET_SUCCESS = 'GESCHAEFTSART_OPTIONS_GET_SUCCESS'
-const geschaeftsartOptionsGetSuccess = (geschaeftsartOptions) => ({
+const geschaeftsartOptionsGetSuccess = geschaeftsartOptions => ({
   type: GESCHAEFTSART_OPTIONS_GET_SUCCESS,
   geschaeftsartOptions
 })
 
 export const GESCHAEFTSART_OPTIONS_GET_ERROR = 'GESCHAEFTSART_OPTIONS_GET_ERROR'
-const geschaeftsartOptionsGetError = (error) => ({
+const geschaeftsartOptionsGetError = error => ({
   type: GESCHAEFTSART_OPTIONS_GET_ERROR,
   error
 })
@@ -377,22 +377,22 @@ export const interneOptionsGet = () =>
   (dispatch, getState) => {
     const { app } = getState()
     getInterneOptions(app.db)
-      .then((interneOptions) =>
+      .then(interneOptions =>
         dispatch(interneOptionsGetSuccess(interneOptions))
       )
-      .catch((error) =>
+      .catch(error =>
         dispatch(interneOptionsGetError(error))
       )
   }
 
 export const INTERNE_OPTIONS_GET_SUCCESS = 'INTERNE_OPTIONS_GET_SUCCESS'
-const interneOptionsGetSuccess = (interneOptions) => ({
+const interneOptionsGetSuccess = interneOptions => ({
   type: INTERNE_OPTIONS_GET_SUCCESS,
   interneOptions
 })
 
 export const INTERNE_OPTIONS_GET_ERROR = 'INTERNE_OPTIONS_GET_ERROR'
-const interneOptionsGetError = (error) => ({
+const interneOptionsGetError = error => ({
   type: INTERNE_OPTIONS_GET_ERROR,
   error
 })
@@ -401,22 +401,22 @@ export const externeOptionsGet = () =>
   (dispatch, getState) => {
     const { app } = getState()
     getExterneOptions(app.db)
-      .then((externeOptions) =>
+      .then(externeOptions =>
         dispatch(externeOptionsGetSuccess(externeOptions))
       )
-      .catch((error) =>
+      .catch(error =>
         dispatch(externeOptionsGetError(error))
       )
   }
 
 export const EXTERNE_OPTIONS_GET_SUCCESS = 'EXTERNE_OPTIONS_GET_SUCCESS'
-const externeOptionsGetSuccess = (externeOptions) => ({
+const externeOptionsGetSuccess = externeOptions => ({
   type: EXTERNE_OPTIONS_GET_SUCCESS,
   externeOptions
 })
 
 export const EXTERNE_OPTIONS_GET_ERROR = 'EXTERNE_OPTIONS_GET_ERROR'
-const externeOptionsGetError = (error) => ({
+const externeOptionsGetError = error => ({
   type: EXTERNE_OPTIONS_GET_ERROR,
   error
 })
@@ -425,22 +425,22 @@ export const rechtsmittelInstanzOptionsGet = () =>
   (dispatch, getState) => {
     const { app } = getState()
     getDropdownOptions(app.db, 'rechtsmittelInstanz')
-      .then((rechtsmittelInstanzOptions) =>
+      .then(rechtsmittelInstanzOptions =>
         dispatch(rechtsmittelInstanzOptionsGetSuccess(rechtsmittelInstanzOptions))
       )
-      .catch((error) =>
+      .catch(error =>
         dispatch(rechtsmittelInstanzOptionsGetError(error))
       )
   }
 
 export const RECHTSMITTEL_INSTANZ_OPTIONS_GET_SUCCESS = 'RECHTSMITTEL_INSTANZ_OPTIONS_GET_SUCCESS'
-const rechtsmittelInstanzOptionsGetSuccess = (rechtsmittelInstanzOptions) => ({
+const rechtsmittelInstanzOptionsGetSuccess = rechtsmittelInstanzOptions => ({
   type: RECHTSMITTEL_INSTANZ_OPTIONS_GET_SUCCESS,
   rechtsmittelInstanzOptions
 })
 
 export const RECHTSMITTEL_INSTANZ_OPTIONS_GET_ERROR = 'RECHTSMITTEL_INSTANZ_OPTIONS_GET_ERROR'
-const rechtsmittelInstanzOptionsGetError = (error) => ({
+const rechtsmittelInstanzOptionsGetError = error => ({
   type: RECHTSMITTEL_INSTANZ_OPTIONS_GET_ERROR,
   error
 })
@@ -449,22 +449,22 @@ export const abteilungOptionsGet = () =>
   (dispatch, getState) => {
     const { app } = getState()
     getDropdownOptions(app.db, 'abteilung')
-      .then((abteilungOptions) =>
+      .then(abteilungOptions =>
         dispatch(abteilungOptionsGetSuccess(abteilungOptions))
       )
-      .catch((error) =>
+      .catch(error =>
         dispatch(abteilungOptionsGetError(error))
       )
   }
 
 export const ABTEILUNG_OPTIONS_GET_SUCCESS = 'ABTEILUNG_OPTIONS_GET_SUCCESS'
-const abteilungOptionsGetSuccess = (abteilungOptions) => ({
+const abteilungOptionsGetSuccess = abteilungOptions => ({
   type: ABTEILUNG_OPTIONS_GET_SUCCESS,
   abteilungOptions
 })
 
 export const ABTEILUNG_OPTIONS_GET_ERROR = 'ABTEILUNG_OPTIONS_GET_ERROR'
-const abteilungOptionsGetError = (error) => ({
+const abteilungOptionsGetError = error => ({
   type: ABTEILUNG_OPTIONS_GET_ERROR,
   error
 })

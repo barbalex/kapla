@@ -10,7 +10,7 @@ const verantwortlichData = (gkI, externeOptions) => {
     if (info) return `${info}, ${value}`
     return value
   }
-  const data = externeOptions.find((o) =>
+  const data = externeOptions.find(o =>
     o.id === gkI.idKontakt
   )
   if (!data) return ''
@@ -22,7 +22,7 @@ const verantwortlichData = (gkI, externeOptions) => {
 }
 
 const titleText = (idKontakt, externeOptions) => {
-  const data = externeOptions.find((o) =>
+  const data = externeOptions.find(o =>
     o.id === idKontakt
   )
   if (!data) return 'Kontakt entfernen'
@@ -38,11 +38,11 @@ const GeschaefteKontakteExtern = ({
 }) => {
   const styles = isPrintPreview ? pdfStyles : regularStyles
   // filter for this geschaeft
-  const gkIFiltered = geschaefteKontakteExtern.filter((g) =>
+  const gkIFiltered = geschaefteKontakteExtern.filter(g =>
     g.idGeschaeft === activeId
   )
   const gKISorted = _.sortBy(gkIFiltered, (g) => {
-    const intOption = externeOptions.find((o) =>
+    const intOption = externeOptions.find(o =>
       o.id === g.idKontakt
     )
     return `${intOption.name} ${intOption.vorname}`.toLowerCase()
@@ -51,7 +51,7 @@ const GeschaefteKontakteExtern = ({
     <div className={styles.body}>
       {
         gKISorted.map((gkI, index) => {
-          const intOption = externeOptions.find((o) =>
+          const intOption = externeOptions.find(o =>
             o.id === gkI.idKontakt
           )
           const nameVorname = intOption.nameVorname

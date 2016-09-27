@@ -8,7 +8,7 @@ import KontakteExtern from '../../containers/geschaeft/KontakteExtern'
 
 const verwantwortlichOptions = (interneOptions) => {
   // sort interneOptions by kurzzeichen
-  const interneOptionsSorted = _.sortBy(interneOptions, (o) =>
+  const interneOptionsSorted = _.sortBy(interneOptions, o =>
     o.kurzzeichen.toLowerCase()
   )
   const options = interneOptionsSorted.map((o, index) => {
@@ -28,12 +28,12 @@ const verwantwortlichOptions = (interneOptions) => {
       </option>
     )
   })
-  options.unshift(<option key={0} value=""></option>)
+  options.unshift(<option key={0} value="" />)
   return options
 }
 
 const verantwortlichData = (geschaeft, interneOptions) => {
-  const data = interneOptions.find((o) =>
+  const data = interneOptions.find(o =>
     o.kurzzeichen === geschaeft.verantwortlich
   )
   if (!data) return ''

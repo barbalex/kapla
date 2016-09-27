@@ -1,9 +1,9 @@
-export default (filterFields) =>
+export default filterFields =>
   filterFields
-    .filter((ff) =>
+    .filter(ff =>
       ff.value || ff.value === 0
     )
-    .map((ff) =>
+    .map(ff =>
       `${ff.field} ${ff.comparator} '${ff.value}'`
     )
     .sort()

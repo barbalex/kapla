@@ -26,7 +26,7 @@ class Table extends Component {
       // get visible indexes
       const visibleRange = rL.getVisibleRange()
       // get index of active id
-      const index = _.findIndex(rows, (r) =>
+      const index = _.findIndex(rows, r =>
         r.id === id
       )
       // scroll to active id
@@ -180,7 +180,7 @@ class Table extends Component {
               itemRenderer={::this.renderItem}
               length={rows.length}
               type="uniform"
-              ref={"reactList"}
+              ref={'reactList'}
             />
           </div>
         </div>

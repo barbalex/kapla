@@ -45,7 +45,7 @@ const onClickPrint = (e, path) => {
 
 const NavbarPrintNav = ({ path }) =>
   <NavItem
-    onClick={(e) =>
+    onClick={e =>
       onClickPrint(e, path)
     }
     title="Drucken"

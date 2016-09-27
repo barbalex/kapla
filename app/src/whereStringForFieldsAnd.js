@@ -1,5 +1,5 @@
 export default function (fieldFilter) {
-  const whereArray = Object.keys(fieldFilter).map((key) =>
+  const whereArray = Object.keys(fieldFilter).map(key =>
     `${key} LIKE "%${String(fieldFilter[key])}%"`
   )
   const whereString = (

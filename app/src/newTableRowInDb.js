@@ -20,8 +20,8 @@ export default function (db, table) {
       const id = this.lastID
       // return full dataset
       getTableRowFromDb(db, table, id)
-        .then((row) => resolve(row))
-        .catch((err) => reject(err))
+        .then(row => resolve(row))
+        .catch(err => reject(err))
     })
   })
 }

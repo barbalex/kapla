@@ -69,7 +69,7 @@ const geschaefteKontakteIntern = (state = standardState, action) => {
     case GESCHAEFT_KONTAKT_INTERN_DELETE:
       return {
         ...state,
-        geschaefteKontakteIntern: [...state.geschaefteKontakteIntern.filter((g) =>
+        geschaefteKontakteIntern: [...state.geschaefteKontakteIntern.filter(g =>
           (g.idGeschaeft !== action.idGeschaeft || g.idKontakt !== action.idKontakt))
         ],
         activeIdGeschaeft: null,

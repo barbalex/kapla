@@ -43,7 +43,7 @@ const GeschaefteItem = ({
     [styles.tableBodyRow, styles.active].join(' ') :
     styles.tableBodyRow
   )
-  const geschaeft = geschaefte.find((g) =>
+  const geschaeft = geschaefte.find(g =>
     g.idGeschaeft === geschaefteGefilterteIds[index]
   )
   // make sure geschaeft exists
