@@ -2,7 +2,7 @@
  * writes a dataArray to an Excel workbook
  * this must happen in child process
  * otherwise a blank page results
- * get dataArray sistening to process.send
+ * get dataArray listening to process.send
  */
 
 const Excel = require('exceljs')
@@ -15,7 +15,18 @@ const path = process.argv[2]
 // because process arguments can only be strings
 process.on('message', (dataArray) => {
   const workbook = new Excel.Workbook()
-  const worksheet = workbook.addWorksheet('Geschäfte')
+  const worksheet = workbook.addWorksheet(
+    'Geschäfte',
+    {
+      views: [
+        {
+          state: 'frozen',
+          xSplit: 0,
+          ySplit: 1
+        }
+      ]
+    }
+  )
   worksheet.addRows(dataArray)
   worksheet.getRow(1).fill = {
     type: 'gradient',
@@ -38,7 +49,7 @@ process.on('message', (dataArray) => {
     .then(() =>
       process.send({ success: true })
     )
-    .catch((err) =>
+    .catch(err =>
       process.send({ error: err })
     )
 })
