@@ -49,7 +49,7 @@ const exportGeschaefteAll = (
   messageShow,
 ) => {
   e.preventDefault()
-  const geschaefteGefiltert = geschaefte.filter((g) =>
+  const geschaefteGefiltert = geschaefte.filter(g =>
     geschaefteGefilterteIds.includes(g.idGeschaeft)
   )
   exportGeschaefte(geschaefteGefiltert, messageShow)
