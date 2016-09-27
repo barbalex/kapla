@@ -2,6 +2,9 @@
 
 process.env.NODE_ENV = process.env.NODE_ENV || 'production'
 const electron = require('electron')
+const path = require('path')
+const childProcess = require('child_process')
+
 const app = electron.app
 const BrowserWindow = electron.BrowserWindow
 const Menu = electron.Menu
@@ -10,11 +13,65 @@ let menu
 let template
 let mainWindow = null
 
-
 const saveConfigValue = require('./app/src/saveConfigValue.js')
 const getConfigSync = require('./app/src/getConfigSync.js')
 
 crashReporter.start({ companyName: 'wtf', submitURL: 'wtf@wtf.com' })
+
+const handleStartupEvent = () => {
+  if (process.platform !== 'win32') {
+    return false
+  }
+
+  function exeSquirrelCommand(args, cb) {
+    const updateDotExe = path.resolve(path.dirname(process.execPath), '..', 'update.exe')
+    const child = childProcess.spawn(updateDotExe, args, { detached: true })
+    child.on('close', () => cb())
+  }
+
+  function install(cb) {
+    const target = path.basename(process.execPath)
+    exeSquirrelCommand(['--createShortcut', target], cb)
+  }
+
+  const squirrelCommand = process.argv[1]
+  switch (squirrelCommand) {
+    case '--squirrel-install':
+      install(app.quit)
+      break
+    case '--squirrel-updated':
+
+      // Optionally do things such as:
+      //
+      // - Install desktop and start menu shortcuts
+      // - Add your .exe to the PATH
+      // - Write to the registry for things like file associations and
+      //   explorer context menus
+
+      // Always quit when done
+      app.quit()
+
+      return true
+    case '--squirrel-uninstall':
+      // Undo anything you did in the --squirrel-install and
+      // --squirrel-updated handlers
+
+      // Always quit when done
+      app.quit()
+
+      return true
+    case '--squirrel-obsolete':
+      // This is called on the outgoing version of your app before
+      // we update to the new version - it's the opposite of
+      // --squirrel-updated
+      app.quit()
+      return true
+  }
+}
+
+if (handleStartupEvent()) {
+  return
+}
 
 if (process.env.NODE_ENV === 'development') {
   require('electron-debug')()
@@ -61,7 +118,7 @@ app.on('ready', () => {
 
   // meanwhile: always show dev tools
   // if (process.env.NODE_ENV === 'development') {
-  //  mainWindow.openDevTools()
+  // mainWindow.openDevTools()
   // }
 
   // save window state on close
@@ -142,45 +199,3 @@ app.on('ready', () => {
     mainWindow.setMenu(null)
   }
 })
-
-const handleStartupEvent = () => {
-  if (process.platform !== 'win32') {
-    return false
-  }
-
-  const squirrelCommand = process.argv[1]
-  switch (squirrelCommand) {
-    case '--squirrel-install':
-    case '--squirrel-updated':
-
-      // Optionally do things such as:
-      //
-      // - Install desktop and start menu shortcuts
-      // - Add your .exe to the PATH
-      // - Write to the registry for things like file associations and
-      //   explorer context menus
-
-      // Always quit when done
-      app.quit()
-
-      return true
-    case '--squirrel-uninstall':
-      // Undo anything you did in the --squirrel-install and
-      // --squirrel-updated handlers
-
-      // Always quit when done
-      app.quit()
-
-      return true
-    case '--squirrel-obsolete':
-      // This is called on the outgoing version of your app before
-      // we update to the new version - it's the opposite of
-      // --squirrel-updated
-      app.quit()
-      return true
-  }
-}
-
-if (handleStartupEvent()) {
-  return
-}
