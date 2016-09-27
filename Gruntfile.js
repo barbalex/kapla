@@ -6,7 +6,7 @@ module.exports = function (grunt) {
         appDirectory: './release/win32-x64/Kapla-win32-x64',
         outputDirectory: './release/installer',
         authors: 'Gabriel Software',
-        noMsi: false,
+        noMsi: true,
         certificateFile: '../../user.cert'
       }
     }
