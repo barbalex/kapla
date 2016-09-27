@@ -15,6 +15,7 @@ const del = require('del')
 const exec = require('child_process').exec
 const argv = require('minimist')(process.argv.slice(2))
 const pkg = require('./package.json')
+
 const devDeps = Object.keys(pkg.devDependencies)
 
 const appName = argv.name || argv.n || pkg.productName
