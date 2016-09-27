@@ -1,12 +1,12 @@
-module.exports = function(grunt) {
+module.exports = function (grunt) {
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
     'create-windows-installer': {
       x64: {
         appDirectory: './release/win32-x64/Kapla-win32-x64',
-        outputDirectory: './installer',
+        outputDirectory: './release/installer',
         authors: 'Gabriel Software',
-        noMsi: true,
+        noMsi: false,
         certificateFile: '../../user.cert'
       }
     }
