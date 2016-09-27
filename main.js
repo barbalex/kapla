@@ -37,7 +37,7 @@ const handleStartupEvent = () => {
   const squirrelCommand = process.argv[1]
   switch (squirrelCommand) {
     case '--squirrel-install':
-      install(app.quit)
+      install(app.quit())
       break
     case '--squirrel-updated':
 
