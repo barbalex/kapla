@@ -74,7 +74,7 @@ class Table extends Component {
     const keys = Object.keys(row)
     const values = _.values(row)
     const windowWidth = $(window).width()
-    const tableWidth = windowWidth * config.tableColumnWidth / 100
+    const tableWidth = (windowWidth * config.tableColumnWidth) / 100
     const normalFieldWidth = (tableWidth - 50) / (keys.length - 1)
 
     return values.map((val, index) => {
@@ -100,7 +100,7 @@ class Table extends Component {
     const { rows, config } = this.props
     const headers = Object.keys(rows[0])
     const windowWidth = $(window).width()
-    const tableWidth = windowWidth * config.tableColumnWidth / 100
+    const tableWidth = (windowWidth * config.tableColumnWidth) / 100
 
     const normalFieldWidth = (tableWidth - 50) / (headers.length - 1)
     return headers.map((header, index) => {
