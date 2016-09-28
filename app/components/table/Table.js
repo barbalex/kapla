@@ -65,8 +65,7 @@ class Table extends Component {
   }
 
   doesTableBodyOverflow() {
-    const tableBodyNode = ReactDOM.findDOMNode(this.tableBody)
-    return tableBodyNode.offsetHeight < tableBodyNode.scrollHeight
+    return this.tableBody.offsetHeight < this.tableBody.scrollHeight
   }
 
   itemColumns = (row) => {
