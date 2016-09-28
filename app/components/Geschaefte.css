@@ -1,6 +1,7 @@
 .table {
   top: 52px;
   width: 100%;
+  -webkit-user-select: none;
 }
 
 .tableHeader {

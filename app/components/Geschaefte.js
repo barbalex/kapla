@@ -1,5 +1,4 @@
 import React, { Component, PropTypes } from 'react'
-import ReactDOM from 'react-dom'
 import ReactList from 'react-list'
 import styles from './Geschaefte.css'
 import GeschaefteItem from '../containers/GeschaefteItem'
@@ -37,8 +36,7 @@ class Geschaefte extends Component {
   }
 
   doesTableBodyOverflow() {
-    const tableBodyNode = ReactDOM.findDOMNode(this.tableBody)
-    if (tableBodyNode) return tableBodyNode.offsetHeight < tableBodyNode.scrollHeight
+    if (this.tableBody) return this.tableBody.offsetHeight < this.tableBody.scrollHeight
     return false
   }
 
