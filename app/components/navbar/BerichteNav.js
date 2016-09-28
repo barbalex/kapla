@@ -85,13 +85,13 @@ const BerichteNav = ({
         Vorlagen,<br />übernehmen den gesetzten Filter:
       </MenuItem>
       <MenuItem eventKey={7.1}>
-        Typ "fällige Geschäfte"
+        {'Vorlage "fällige Geschäfte"'}
       </MenuItem>
       <MenuItem eventKey={7.2}>
-        Typ "Vernehmlassungen"
+        {'Vorlage "Vernehmlassungen"'}
       </MenuItem>
       <MenuItem eventKey={7.3}>
-        Einfache Liste
+        {'Vorlage "einfache Liste"'}
       </MenuItem>
       <MenuItem divider />
       <MenuItem header>
@@ -109,10 +109,16 @@ const BerichteNav = ({
       }
       {
         activeId &&
+        <MenuItem header>
+          Für das aktive Geschäft:
+        </MenuItem>
+      }
+      {
+        activeId &&
         <MenuItem  // eslint-disable-line react/jsx-indent
           eventKey={7.6}
         >
-          Deckblatt (für das aktive Geschäft)
+          Deckblatt
         </MenuItem>
       }
     </NavDropdown>
