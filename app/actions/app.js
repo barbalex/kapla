@@ -1,6 +1,6 @@
-import chooseDb from '../src/chooseDb.js'
-import getConfig from '../src/getConfig.js'
-import saveConfig from '../src/saveConfig.js'
+import chooseDb from '../src/chooseDb'
+import getConfig from '../src/getConfig'
+import saveConfig from '../src/saveConfig'
 import filterForFaelligeGeschaefte from '../src/filterForFaelligeGeschaefte'
 import * as GeschaefteActions from './geschaefte'
 import * as GeschaefteKontakteInternActions from './geschaefteKontakteIntern'
@@ -24,7 +24,7 @@ export const configGet = () =>
         })
         const { dbPath } = newConfig
         if (!dbPath) {
-          dispatch(dbGet())
+          dispatch(dbGetAtStandardpathIfPossible())
         } else {
           const db = new sqlite3.Database(dbPath)
           dispatch(dbChooseSuccess(dbPath, db))
@@ -146,6 +146,20 @@ const dbChooseError = error => ({
 })
 
 export function dbGet() {
+  return (dispatch) => {
+    // let user choose db file
+    dispatch(dbChoose())
+    chooseDb()
+      .then((dbPath) => {
+        const db = new sqlite3.Database(dbPath)
+        dispatch(dbChooseSuccess(dbPath, db))
+        dispatch(configSetKey('dbPath', dbPath))
+      })
+      .catch(err => dispatch(dbChooseError(err)))
+  }
+}
+
+export function dbGetAtStandardpathIfPossible() {
   return (dispatch) => {
     const standardDbPath = 'G:\\Recht\\2 Sekretariat\\Kapla\\kapla.db'
     // try to open db at standard path
