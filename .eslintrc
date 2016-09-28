@@ -15,6 +15,7 @@
     // jsx-sort-props is necessary because otherwise an error occurs
     "react/jsx-sort-props": 0,
     "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+    "react/forbid-prop-types": 0,
     "react/jsx-no-bind": 0,
     "comma-dangle": 0,
     "no-use-before-define": 0,
