@@ -1,6 +1,5 @@
 .body {
   display: block;
-  -webkit-user-select: none;
 }
 
 @media print {
@@ -48,6 +47,7 @@
 
 .navbar {
   margin-bottom: 0;
+  -webkit-user-select: none;
 }
 
 .navbar a:not(.dropdown-header):not([role="menuitem"]) {
