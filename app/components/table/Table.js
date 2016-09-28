@@ -21,7 +21,7 @@ class Table extends Component {
 
   componentDidUpdate = () => {
     const { rows, id } = this.props
-    const rL = this.refs.reactList
+    const rL = this.reactList
     if (!!id) {
       // get visible indexes
       const visibleRange = rL.getVisibleRange()
@@ -180,7 +180,7 @@ class Table extends Component {
               itemRenderer={::this.renderItem}
               length={rows.length}
               type="uniform"
-              ref={'reactList'}
+              ref={(c) => { this.reactList = c }}
             />
           </div>
         </div>
