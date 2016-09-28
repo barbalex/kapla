@@ -22,7 +22,7 @@ class Table extends Component {
   componentDidUpdate = () => {
     const { rows, id } = this.props
     const rL = this.reactList
-    if (!!id) {
+    if (id) {
       // get visible indexes
       const visibleRange = rL.getVisibleRange()
       // get index of active id
