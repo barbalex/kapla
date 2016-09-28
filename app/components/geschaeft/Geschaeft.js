@@ -23,7 +23,6 @@ class Geschaeft extends Component {
     activeId: PropTypes.number,
     geschaefteChangeState: PropTypes.func.isRequired,
     changeGeschaeftInDb: PropTypes.func.isRequired,
-    geschaeftToggleActivated: PropTypes.func.isRequired,
     config: PropTypes.object.isRequired,
     isPrintPreview: PropTypes.bool.isRequired,
   }
@@ -70,7 +69,6 @@ class Geschaeft extends Component {
       dataset,
     } = e.target
     let { value } = e.target
-    let select = false
     if (type === 'radio') value = dataset.value
     if (isDateField(name)) {
       if (validateDate(value)) {
@@ -81,17 +79,9 @@ class Geschaeft extends Component {
       let value2 = ''
       if (value) value2 = moment(value, 'DD.MM.YYYY').format('DD.MM.YYYY')
       if (value2.includes('Invalid date')) {
-        select = true
         value2 = value2.replace('Invalid date', 'Format: DD.MM.YYYY')
       }
       geschaefteChangeState(activeId, name, value2)
-      // and set focus back into the input
-      if (select) {
-        // need timeout for it to work
-        setTimeout(() => {
-          ReactDOM.findDOMNode(this.refs[name]).select()
-        }, 0)
-      }
     } else {
       changeGeschaeftInDb(activeId, name, value)
     }
@@ -120,8 +110,7 @@ class Geschaeft extends Component {
     // need width to adapt layout to differing widths
     const windowWidth = $(window).width()
     const areaGeschaefteWidth = (
-      windowWidth *
-      (100 - config.geschaefteColumnWidth) /
+      (windowWidth * (100 - config.geschaefteColumnWidth)) /
       100
     )
     const wrapperClassBaseString = (
