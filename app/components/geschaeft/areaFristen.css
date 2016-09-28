@@ -36,7 +36,7 @@
   -webkit-text-stroke-width: 1px;
 }
 
-.fieldFristInUeberfaellig {
+.fieldFristInFaellig {
   composes: fieldFristIn;
   -webkit-text-fill-color: red;
 }

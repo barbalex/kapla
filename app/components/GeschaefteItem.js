@@ -13,15 +13,15 @@ const getDauerBisFristMitarbeiter = (geschaeft) => {
 }
 
 const getStatusFristInText = (dauerBisFristMitarbeiter) => {
-  if (dauerBisFristMitarbeiter < 0) return 'Überfällig'
-  if (dauerBisFristMitarbeiter === 0) return 'Heute'
+  if (dauerBisFristMitarbeiter < 0) return 'FÄLLIG'
+  if (dauerBisFristMitarbeiter === 0) return 'HEUTE'
   if (dauerBisFristMitarbeiter === 1) return `In ${dauerBisFristMitarbeiter} Tag`
   return `In ${dauerBisFristMitarbeiter} Tagen`
 }
 
 const getStatusFristInStyle = (statusFristInText) => {
-  if (statusFristInText === 'Überfällig') return styles.fieldFristInUeberfaellig
-  if (statusFristInText === 'Heute') return styles.fieldFristInHeute
+  if (statusFristInText === 'FÄLLIG') return styles.fieldFristInFaellig
+  if (statusFristInText === 'HEUTE') return styles.fieldFristInHeute
   return null
 }
 
