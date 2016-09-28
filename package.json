@@ -30,8 +30,7 @@
     "rebuild-sqlite3-win64": "cd node_modules/sqlite3 && node-gyp configure --module_name=node_sqlite3 --module_path=../lib/binding/node-v48-win32-x64 && node-gyp rebuild --target=1.4.1 --arch=x64 --target_platform=win32 --dist-url=https://atom.io/download/atom-shell --module_name=node_sqlite3 --module_path=../lib/binding/electron-v1.4-win32-x64",
     "rebuild-sqlite3-win32": "cd node_modules/sqlite3 && node-gyp configure --module_name=node_sqlite3 --module_path=../lib/binding/node-v48-win32-x32 && node-gyp rebuild --target=1.4.1 --arch=x32 --target_platform=win32 --dist-url=https://atom.io/download/atom-shell --module_name=node_sqlite3 --module_path=../lib/binding/electron-v1.4-win32-x32",
     "rebuild-sqlite3-mac": "cd node_modules/sqlite3 && node-gyp configure --module_name=node_sqlite3 --module_path=../lib/binding/node-v48-darwin-x64 && node-gyp rebuild --target=1.4.1 --arch=x64 --target_platform=darwin --dist-url=https://atom.io/download/atom-shell --module_name=node_sqlite3 --module_path=../lib/binding/electron-v1.4-darwin-x64",
-    "buildInstaller": "grunt create-windows-installer",
-    "buildAnotherInstaller": "electron-installer-windows --src release/win32-x64/Kapla-win32-x64/ --dest release/installers/ --certificateFile '../user.cert'"
+    "buildInstaller": "grunt create-windows-installer"
   },
   "bin": {
     "electron": ".\\node_modules\\.bin\\electron"
@@ -39,7 +38,7 @@
   "devDependencies": {
     "asar": "0.12.3",
     "babel-core": "6.14.0",
-    "babel-eslint": "6.1.2",
+    "babel-eslint": "7.0.0",
     "babel-loader": "6.2.5",
     "babel-plugin-add-module-exports": "0.2.1",
     "babel-plugin-webpack-loaders": "0.7.1",
@@ -92,7 +91,7 @@
     "exceljs": "0.2.24",
     "file-loader": "^0.9.0",
     "font-awesome": "4.6.3",
-    "golden-layout": "1.5.5",
+    "golden-layout": "1.5.6",
     "jquery": "3.1.1",
     "lodash": "4.16.2",
     "moment": "2.15.1",
