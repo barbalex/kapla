@@ -112,7 +112,7 @@ const BerichteNav = ({
         <MenuItem  // eslint-disable-line react/jsx-indent
           eventKey={7.6}
         >
-          Deckblatt (= aktuelles Geschäft)
+          Deckblatt (für das aktive Geschäft)
         </MenuItem>
       }
     </NavDropdown>
