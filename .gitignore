@@ -34,3 +34,4 @@ dist
 release
 npm-debug.log*
 installer
+electron-packager
