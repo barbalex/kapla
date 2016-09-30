@@ -1,19 +1,11 @@
 /**
  * gets save path
- * pass dataArray using process.send
- * kill child process at end?
  */
 
-import electron, { remote } from 'electron'
-import pathModule from 'path'
-import childProcess from 'child_process'
+import { remote } from 'electron'
+import writeExport from './writeExport'
 
 const { dialog } = remote
-const app = (
-  process.type === 'browser' ?
-  electron.app :
-  electron.remote.app
-)
 
 function getDataArrayFromExportObjects(exportObjects) {
   const dataArray = []
@@ -59,32 +51,21 @@ export default (geschaefte, messageShow) => {
       // and possibly blocks execution of message
       setTimeout(() => {
         const dataArray = getDataArrayFromExportObjects(geschaefte)
-        // pass to child process
-        const appPath = app.getAppPath()
-        const writeExportPath = pathModule.resolve(appPath, 'app/src/writeExport.js')
-        const cp = childProcess.fork(writeExportPath, [path])
-        // send dataArray
-        cp.send(dataArray)
-        // listen to response
-        cp.on('message', (message) => {
-          if (message.success) {
+        writeExport(path, dataArray)
+          .then(() => {
             // show the message
             const msg = `Die Geschäfte wurden nach ${path} exportiert`
             messageShow(true, msg, '')
             setTimeout(() =>
               messageShow(false, '', ''), 8000
             )
-          } else if (message.error) {
-            // show the error
-            messageShow(true, 'Fehler:', message.error)
+          })
+          .catch((error) => {
+            messageShow(true, 'Fehler:', error)
             setTimeout(() =>
               messageShow(false, '', ''), 8000
             )
-          } else {
-            // always hide message
-            messageShow(false, '', '')
-          }
-        })
+          })
       }, 0)
     }
   })
