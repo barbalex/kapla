@@ -1,9 +1,8 @@
 /**
  * writes a dataArray to an Excel workbook
- * this must happen in child process
- * otherwise a blank page results
- * get dataArray listening to process.send
  */
+
+import Promise from 'bluebird'
 
 const Excel = require('exceljs')
 
