@@ -64,7 +64,7 @@
     "express": "4.14.0",
     "extract-text-webpack-plugin": "1.0.1",
     "fbjs-scripts": "0.7.1",
-    "grunt-electron-installer": "^2.1.0",
+    "grunt-electron-installer": "2.1.0",
     "imports-loader": "0.6.5",
     "jsdom": "9.5.0",
     "json-loader": "0.5.4",
@@ -85,10 +85,11 @@
     "webpack-target-electron-renderer": "0.4.0"
   },
   "dependencies": {
+    "bluebird": "^3.4.6",
     "css-modules-require-hook": "4.0.3",
     "electron-debug": "1.0.1",
     "exceljs": "0.2.24",
-    "file-loader": "^0.9.0",
+    "file-loader": "0.9.0",
     "font-awesome": "4.6.3",
     "golden-layout": "1.5.6",
     "jquery": "3.1.1",
@@ -109,7 +110,7 @@
     "redux-promise": "0.5.3",
     "redux-thunk": "2.1.0",
     "sqlite3": "3.1.4",
-    "username": "2.2.2"
+    "username": "2.2.1"
   },
   "devEngines": {
     "node": "4.x || 5.x || 6.x",
