@@ -39,7 +39,7 @@ describe('main window', function spec() {
 
   it('should open window', async () => {
     const title = await this.driver.getTitle()
-    expect(title).to.equal('AWEL Abteilung Recht Kapla')
+    expect(title).to.equal('Kapla')
   })
 
   it('should display updated count after increment button click', async () => {
