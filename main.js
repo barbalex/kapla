@@ -118,7 +118,7 @@ app.on('ready', () => {
 
   // meanwhile: always show dev tools
   // if (process.env.NODE_ENV === 'development') {
-  // mainWindow.openDevTools()
+  mainWindow.openDevTools()
   // }
 
   // save window state on close
