@@ -3,8 +3,7 @@
  */
 
 import Promise from 'bluebird'
-
-const Excel = require('exceljs')
+import Excel from 'exceljs'
 
 export default (path, dataArray) =>
   new Promise((resolve, reject) => {
