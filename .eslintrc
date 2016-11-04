@@ -11,7 +11,7 @@
   },
   "rules": {
     // another error to be avoided:
-    "linebreak-style": ["error", "windows"],
+    "linebreak-style": 0,
     // jsx-sort-props is necessary because otherwise an error occurs
     "react/jsx-sort-props": 0,
     "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],

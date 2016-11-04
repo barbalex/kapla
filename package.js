@@ -29,7 +29,7 @@ const DEFAULT_OPTS = {
   asar: shouldUseAsar,
   win32metadata: {
     CompanyName: 'AWEL Kt. ZH',
-    FileDescription: 'Geschäfte Rechtsdienstes verwalten',
+    FileDescription: 'Geschäfte des Rechtsdienstes verwalten',
     OriginalFilename: 'Kapla',
     ProductName: 'Kapla',
     InternalName: 'Kapla',

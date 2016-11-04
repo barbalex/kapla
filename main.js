@@ -18,6 +18,9 @@ const getConfigSync = require('./app/src/getConfigSync.js')
 
 crashReporter.start({ companyName: 'wtf', submitURL: 'wtf@wtf.com' })
 
+// this was used for installer
+// uncommented because of problems in release
+/*
 const handleStartupEvent = () => {
   if (process.platform !== 'win32') {
     return false
@@ -71,15 +74,16 @@ const handleStartupEvent = () => {
 
 if (handleStartupEvent()) {
   return
-}
+}*/
 
 if (process.env.NODE_ENV === 'development') {
-  require('electron-debug')()
+  require('electron-debug')() // eslint-disable-line global-require
 }
 
 app.on('window-all-closed', () => {
   if (process.platform !== 'darwin') app.quit()
 })
+
 const browserWindowOptions = {
   width: 1800,
   height: 1024,
